@@ -1668,7 +1668,7 @@ public class MethodsPOM
 		OverduePOM.clickOverdue(driver).click();			//Clicking on 'Overdue' under Status dropdown
 		
 		Thread.sleep(1000);
-		litigationPerformer.MethodsPOM.progress(driver);
+		litigationAdditionalOwner.MethodsPOM.progress(driver);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@role='grid'][@data-role='selectable'])[1]")));	//Waiting for records table to get visible.
 		
 		StatutoryOverdue(driver);							//Called the Method of Dashboard Statutory Overdue.
@@ -1735,7 +1735,7 @@ public class MethodsPOM
 		OverduePOM.clickOverdue(driver).click();			//Clicking on 'Overdue' under Status dropdown
 		
 		Thread.sleep(500);
-		litigationPerformer.MethodsPOM.progress(driver);
+		litigationAdditionalOwner.MethodsPOM.progress(driver);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@role='grid'][@data-role='selectable'])[1]")));	//Waiting for records table to get visible.
 		
 		InternalOverdue(driver);							//Called the Method of Dashboard Statutory Overdue.

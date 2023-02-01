@@ -72,7 +72,8 @@ public class LoginPOM
 	
 	public static WebElement clickComplicane(WebDriver driver)		//Method for searching Compliance image
 	{
-		comp_img = driver.findElement(By.xpath("//div[@id='dvbtnCompliance']/div[1]/img"));
+		//comp_img = driver.findElement(By.xpath("//div[@id='dvbtnCompliance']/div[1]/img"));
+		comp_img = driver.findElement(By.xpath("//div[@id='dvbtnCompliance']"));
 		return comp_img;
 	}
 	
