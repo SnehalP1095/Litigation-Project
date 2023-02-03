@@ -1230,6 +1230,15 @@ public class performerPOM
 		//litigation = driver.findElement(By.xpath("(//span[@class='k-dropdown-wrap k-state-default'])[15]"));
 		return litigation;
 	}
+	public static WebElement clickTypeDropdown3(WebDriver driver)
+	{
+		
+		 WebDriverWait wait = new WebDriverWait(driver, 100);
+		litigation = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='divAdvanceSearchModel']/div[1]/div[1]/span/span/span[2]/span")));
+
+		return litigation;
+	}
+	
 	
 	public static WebElement selectTypeCase(WebDriver driver)
 	{
@@ -1849,9 +1858,8 @@ public class performerPOM
 		 public static WebElement clickSaveHearingDate(WebDriver driver)
 		    {
 			 WebDriverWait wait = new WebDriverWait(driver, 10);
-			  litigation = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='lnkSaveRefNo']/img")));
-			//*[@id="divHearingDate"]/div[3]
-		  	// litigation = driver.findElement(By.id("lnkSaveRefNo"));
+			  litigation = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='lnkSaveRefNo']/img")));
+			
 		  	 return litigation; 
 		  	  
 		    }
@@ -5016,6 +5024,11 @@ public class performerPOM
 			 public static WebElement clickReadOrderMsg(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='ValidationSummary10']"));
+					return litigation;
+				}
+			 public static WebElement clickminimize(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='secondTabAccordion']/div/div/div[1]/div/div/a"));
 					return litigation;
 				}
 			

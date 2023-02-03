@@ -5,16 +5,8 @@
     <classes>
       <class name="litigationExternalLawyer.ExternalLawyer">
         <methods>
-          <include name="StatusPayment"/>
-          <include name="CaseDocumentTab"/>
-          <include name="MyReports"/>
           <include name="CaseOrderTab"/>
-          <include name="CaseTaskActivityTab"/>
-          <include name="CaseHearingTab"/>
           <include name="setBrowser"/>
-          <include name="NoticeDocViewandDownload"/>
-          <include name="Auditlog"/>
-          <include name="MyDocument"/>
         </methods>
       </class> <!-- litigationExternalLawyer.ExternalLawyer -->
     </classes>

@@ -3464,7 +3464,18 @@ public class CFOMethod {
 				    Thread.sleep(3000);
 				    performerPOM.clickSaveCaseHearing(driver).click();
 				    
-				    test.log(LogStatus.PASS,"Hearing Details Saved Successfully.");
+				    Thread.sleep(3000);
+					String msg = performerPOM.clickReadHearingMsg(driver).getText();
+					if(msg.contains("Hearing Details Saved Successfully."))
+					{
+						test.log(LogStatus.PASS, "Hearing Details Saved Successfully.");
+					}
+					else
+					{
+						test.log(LogStatus.FAIL, "Select Hearing.");
+					}
+				    
+				    
 				    
 				    Thread.sleep(3000);
 				    performerPOM.clickDeleteCaseHearingcfo(driver).click();
