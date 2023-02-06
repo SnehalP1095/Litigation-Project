@@ -1,108 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="4" failed="1" skipped="0">
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-02T19:34:31 IST" name="Default suite" finished-at="2023-02-02T19:38:21 IST" duration-ms="230414">
+  <suite started-at="2023-02-06T18:46:23 IST" name="Default suite" finished-at="2023-02-06T18:57:40 IST" duration-ms="677315">
     <groups>
     </groups>
-    <test started-at="2023-02-02T19:34:31 IST" name="Default test" finished-at="2023-02-02T19:38:21 IST" duration-ms="230414">
-      <class name="litigationExternalLawyer.ExternalLawyer">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:litigationExternalLawyer.ExternalLawyer@2b91004a]" started-at="2023-02-02T19:34:31 IST" name="setBrowser" finished-at="2023-02-02T19:34:38 IST" duration-ms="7598" status="PASS">
+    <test started-at="2023-02-06T18:46:23 IST" name="Default test" finished-at="2023-02-06T18:57:40 IST" duration-ms="677315">
+      <class name="litigationFE.FE">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:46:23 IST" name="setBrowser" finished-at="2023-02-06T18:46:29 IST" duration-ms="5928" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="Login()[pri:1, instance:litigationExternalLawyer.ExternalLawyer@2b91004a]" started-at="2023-02-02T19:34:38 IST" name="Login" finished-at="2023-02-02T19:34:54 IST" duration-ms="15848" status="PASS">
+        <test-method signature="Login()[pri:1, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:46:29 IST" name="Login" finished-at="2023-02-06T18:46:59 IST" duration-ms="29560" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="CaseDocumentTab()[pri:13, instance:litigationExternalLawyer.ExternalLawyer@2b91004a]" started-at="2023-02-02T19:34:54 IST" name="CaseDocumentTab" finished-at="2023-02-02T19:36:13 IST" duration-ms="79193" status="PASS">
+        <test-method signature="DashBoardFilter()[pri:2, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:46:59 IST" name="DashBoardFilter" finished-at="2023-02-06T18:48:45 IST" duration-ms="106345" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CaseDocumentTab -->
-        <test-method signature="CaseTaskActivityTab()[pri:14, instance:litigationExternalLawyer.ExternalLawyer@2b91004a]" started-at="2023-02-02T19:36:13 IST" name="CaseTaskActivityTab" finished-at="2023-02-02T19:36:58 IST" duration-ms="44486" status="PASS">
+        </test-method> <!-- DashBoardFilter -->
+        <test-method signature="CaseNoticeStageGraph()[pri:3, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:48:45 IST" name="CaseNoticeStageGraph" finished-at="2023-02-06T18:50:10 IST" duration-ms="84725" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CaseTaskActivityTab -->
-        <test-method signature="CaseHearingTab()[pri:15, instance:litigationExternalLawyer.ExternalLawyer@2b91004a]" started-at="2023-02-02T19:36:58 IST" name="CaseHearingTab" finished-at="2023-02-02T19:37:49 IST" duration-ms="51205" status="PASS">
+        </test-method> <!-- CaseNoticeStageGraph -->
+        <test-method signature="CaseNoticeTypeGraph()[pri:4, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:50:10 IST" name="CaseNoticeTypeGraph" finished-at="2023-02-06T18:51:38 IST" duration-ms="88307" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CaseHearingTab -->
-        <test-method signature="CaseOrderTab()[pri:16, instance:litigationExternalLawyer.ExternalLawyer@2b91004a]" started-at="2023-02-02T19:37:49 IST" name="CaseOrderTab" finished-at="2023-02-02T19:38:21 IST" duration-ms="31975" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='grdCaseOrder_lnkBtnEditOrderDoc_0']/img"}
-  (Session info: chrome=109.0.5414.120)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'DESKTOP-6RDAJ8O', ip: '192.168.0.104', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61237}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: ff01adab62b694a7046a26be4a22eb70
-*** Element info: {Using=xpath, value=//*[@id='grdCaseOrder_lnkBtnEditOrderDoc_0']/img}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id='grdCaseOrder_lnkBtnEditOrderDoc_0']/img"}
-  (Session info: chrome=109.0.5414.120)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.0', revision: '2ecb7d9a', time: '2018-10-31T20:09:30'
-System info: host: 'DESKTOP-6RDAJ8O', ip: '192.168.0.104', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 109.0.5414.120, chrome: {chromedriverVersion: 109.0.5414.74 (e7c5703604da..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61237}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: ff01adab62b694a7046a26be4a22eb70
-*** Element info: {Using=xpath, value=//*[@id='grdCaseOrder_lnkBtnEditOrderDoc_0']/img}
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at litigationAdditionalOwner.performerPOM.clickEditCaseOrdercfo(performerPOM.java:4752)
-at litigationExternalLawyer.MethodPOM.CaseOrder(MethodPOM.java:2004)
-at litigationExternalLawyer.ExternalLawyer.CaseOrderTab(ExternalLawyer.java:253)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+        </test-method> <!-- CaseNoticeTypeGraph -->
+        <test-method signature="RiskSummaryGraph()[pri:5, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:51:38 IST" name="RiskSummaryGraph" finished-at="2023-02-06T18:53:43 IST" duration-ms="124896" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CaseOrderTab -->
-      </class> <!-- litigationExternalLawyer.ExternalLawyer -->
+        </test-method> <!-- RiskSummaryGraph -->
+        <test-method signature="DepartmentSummaryGraph()[pri:6, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:53:43 IST" name="DepartmentSummaryGraph" finished-at="2023-02-06T18:54:54 IST" duration-ms="70706" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DepartmentSummaryGraph -->
+        <test-method signature="LocationSummaryGraph()[pri:7, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:54:54 IST" name="LocationSummaryGraph" finished-at="2023-02-06T18:56:13 IST" duration-ms="79314" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LocationSummaryGraph -->
+        <test-method signature="CategorySummaryGraph()[pri:8, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:56:13 IST" name="CategorySummaryGraph" finished-at="2023-02-06T18:57:40 IST" duration-ms="87476" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CategorySummaryGraph -->
+      </class> <!-- litigationFE.FE -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

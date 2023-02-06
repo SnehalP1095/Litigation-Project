@@ -3,12 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="litigationExternalLawyer.ExternalLawyer">
+      <class name="litigationFE.FE">
         <methods>
-          <include name="CaseOrderTab"/>
+          <include name="RiskSummaryGraph"/>
+          <include name="CaseNoticeTypeGraph"/>
+          <include name="LocationSummaryGraph"/>
+          <include name="DepartmentSummaryGraph"/>
           <include name="setBrowser"/>
+          <include name="CaseNoticeStageGraph"/>
+          <include name="DashBoardFilter"/>
+          <include name="CategorySummaryGraph"/>
         </methods>
-      </class> <!-- litigationExternalLawyer.ExternalLawyer -->
+      </class> <!-- litigationFE.FE -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

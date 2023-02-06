@@ -397,7 +397,6 @@ public class performerPOM
 	  	  
 	  	  WebDriverWait wait = new WebDriverWait(driver, 100);
 	        WebElement NoticeUploadDocument = wait.until(ExpectedConditions.elementToBeClickable(By.id("FileUpLoad1")));
-	  	 // WebElement NoticeUploadDocument=driver.findElement(By.id("FileUpLoad1"));
 	  	  NoticeUploadDocument.sendKeys("C:\\Users\\Admin\\Desktop\\Teamlease\\Compliance Assignment.xlsx");
 	  	  Thread.sleep(3000);
 	  	    return litigation;
@@ -2043,16 +2042,17 @@ public class performerPOM
 		 }
 		 public static WebElement selectLawFirm1(WebDriver driver)
 		 {
-			 
-
-	   
-//			List<WebElement>LawFirm1= driver.findElements(By.xpath("//*[@id='ddlLawyerAdvocate_chosen']/div/ul/li"));
-//			 LawFirm1.get(1).click();
+	
 			 litigation=driver.findElement(By.xpath("//*[@id='dlLawyerAdvocate_chosen']/div/ul/li[3]"));
 			 return litigation;
-			 
-		
-		 }
+	    }
+		 public static List<WebElement> selectLawFirm2(WebDriver driver)
+		 {
+	
+			  elementsList=driver.findElements(By.xpath("//*[@id='ddlLawyerAdvocate_chosen']/div/ul/li"));
+		      return elementsList; 
+			
+	    }
 	
 
 		public static WebElement clickApprover1(WebDriver driver)
@@ -2060,20 +2060,11 @@ public class performerPOM
 			 litigation=driver.findElement(By.xpath("//*[@id='ddlApprover1_chosen']"));
 			 return litigation;
 		 }
-		 public static WebElement selectApprover1(WebDriver driver) throws InterruptedException
+		 public static List<WebElement> selectApprover1(WebDriver driver) throws InterruptedException
 		 {
 			 WebDriverWait wait=new WebDriverWait(driver,20);
-			 
-			    By locator = By.xpath("//*[@id='ddlApprover1_chosen']/div/ul/li[6]");
-				wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-				Thread.sleep(4000);
-				
-				WebElement ViewButton = driver.findElement(locator);	
-				Thread.sleep(4000);
-			    JavascriptExecutor jse=(JavascriptExecutor)driver;
-			    Thread.sleep(2000);
-			    jse.executeScript("arguments[0].click();", ViewButton);
-				return ViewButton;
+			 elementsList=driver.findElements(By.xpath("//*[@id='ddlApprover1_chosen']/div/ul/li"));
+		      return elementsList; 
 		
 		 }
 		 public static WebElement clickApprover2(WebDriver driver)
@@ -2081,10 +2072,10 @@ public class performerPOM
 			 litigation=driver.findElement(By.xpath("//*[@id='ddlApprover2_chosen']"));
 			 return litigation;
 		 }
-		 public static void selectApprover2(WebDriver driver)
+		 public static List<WebElement> selectApprover2(WebDriver driver)
 		 {
-	        List<WebElement> Approver1= driver.findElements(By.xpath("//*[@id='ddlApprover2_chosen']/div/ul/li"));
-			Approver1.get(0).click();
+			 elementsList=driver.findElements(By.xpath("//*[@id='ddlApprover2_chosen']/div/ul/li"));
+		      return elementsList; 
 		 }
 		 public static WebElement clickSaveAdvocateBill(WebDriver driver)
 		 {
@@ -5006,6 +4997,11 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[3]/td[1]/a"));
 					return litigation;
 				}
+			 public static WebElement clickAdvocateBillTabTriangle1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[1]/a"));
+					return litigation;
+				}
 			 public static WebElement clickApproverAssignmentLog(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='tabstripAssignment']/ul/li[2]/span[2]"));
@@ -5031,7 +5027,62 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("//*[@id='secondTabAccordion']/div/div/div[1]/div/div/a"));
 					return litigation;
 				}
-			
+			 public static WebElement clickUploadDoc(WebDriver driver)
+				{
+					WebElement UploadDocument =driver.findElement(By.xpath("//*[@id='fuAdvocateBillDocUpload']"));
+					 UploadDocument.sendKeys("C:\\Users\\Admin\\Desktop\\Teamlease\\Compliance Assignment.xlsx");
+					return litigation;
+				}
+			 public static WebElement clickReadAdvocateMsg(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='ValidationSummary12']"));
+					return litigation;
+				}
+			 public static WebElement clickReadAdvocateMsg1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='ValidationSummary13']"));
+					return litigation;
+				}
+			 public static WebElement clickeditAdvocatebill(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdAdvocateBill_lnkBtnEditCaseAdvocateBill_0']"));
+					return litigation;
+				}
+			 public static WebElement clickDownloadDocAdvocatebill(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdAdvocateBill_lnkBtnDownloadAdvocateBillDoc_0']"));
+					return litigation;
+				}
+			 public static WebElement clickViewDocAdvocatebill(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdAdvocateBill_lnkBtnViewAdvocateBillDoc_0']"));
+					return litigation;
+				}
+			 public static WebElement clickViewDocAdvocatebillClose(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='DocumentAdvBillReviewPopUp1']/div/div/div[1]/button"));
+					return litigation;
+				}
+			 public static WebElement clickViewDocAdvocatebillPdf(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdAdvocateBill_LnkBtnconvetpdf_0']"));
+					return litigation;
+				}
+			 public static WebElement clickViewDocAdvocatebillPdfClose(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='divViewDocument']/div/div/div[1]/button"));
+					return litigation;
+				}
+			 public static WebElement clickExportAdvocateBill(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='btnAdvbillExport']"));
+					return litigation;
+				}
+			 public static WebElement clickAdvocateBillDelete(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdAdvocateBill_lnkBtnDeleteAdvocateBill_0']"));
+					return litigation;
+				}
 }
 
 			

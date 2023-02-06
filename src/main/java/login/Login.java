@@ -105,6 +105,10 @@ public class Login
 			{
 				ans1 = getAnswerCFO(que1);						//Storing the answer in ans variable.
 			}
+			if(method.equalsIgnoreCase("fe"))
+			{
+				ans1 = getAnswerCFO(que1);						//Storing the answer in ans variable.
+			}
 			else if(method.equalsIgnoreCase("cfo-diy"))
 			{
 				ans1 = "123";						//Storing the answer in ans variable.
@@ -131,6 +135,10 @@ public class Login
 			String que2 = LoginPOM.Question2(driver).getText();	//Storing the question in que variable.
 			String ans2 = null;
 			if(method.equalsIgnoreCase("cfo"))
+			{
+				ans2 = getAnswerCFO(que2);						//Storing the answer in ans variable.
+			}
+			if(method.equalsIgnoreCase("fe"))
 			{
 				ans2 = getAnswerCFO(que2);						//Storing the answer in ans variable.
 			}

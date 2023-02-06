@@ -1664,7 +1664,7 @@ public class MethodPOM
 			    Thread.sleep(300);
 			    performerPOM.clickCaseNewTask(driver).click(); 
 			    Thread.sleep(5000);
-			    performerPOM.clickHearingDate(driver).sendKeys("14-8-2023");
+			    performerPOM.clickHearingDate(driver).sendKeys("14-2-2023");
 //			    Thread.sleep(4000);
 //			    performerPOM.clickSaveHearingDate(driver).click();
 			    
@@ -2000,7 +2000,7 @@ public class MethodPOM
 					
 					}
 					
-					 Thread.sleep(3000);
+				/*	 Thread.sleep(3000);
 					 performerPOM.clickEditCaseOrdercfo(driver).click();
 					 
 					 performerPOM.clickCaseOrderTitle(driver).clear();
@@ -2064,7 +2064,7 @@ public class MethodPOM
 				        System.out.println(alertMessage);
 				        
 				     // Accepting alert		
-				        alert.accept();
+				        alert.accept();*/
 			}	 
 				 
 			static void AdvocateBill(WebDriver driver,ExtentTest test) throws InterruptedException
@@ -2079,44 +2079,120 @@ public class MethodPOM
 		     	 driver.switchTo().parentFrame();
 		          Thread.sleep(3000);
 				    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+				    
+				   
 				   
 			      Thread.sleep(3000);
 				 performerPOM.clickAdvocateBill(driver).click();
+				 
+				 Thread.sleep(3000);
+				 performerPOM.clickExportAdvocateBill(driver).click();
 				 Thread.sleep(3000);
 				 performerPOM. clickNewAdvocateBill(driver).click();
-//				Thread.sleep(100);
-//				wait.until(ExpectedConditions.visibilityOf(performerPOM.clickAdvocateBillGridload(driver)));
+				
 				 Thread.sleep(5000);
-			     performerPOM. clickInvoiceNum(driver).sendKeys("6657");
+			     performerPOM. clickInvoiceNum(driver).sendKeys("60857");
 				 Thread.sleep(4000);
 				 performerPOM. clickInvoiceDate(driver).sendKeys("16-11-2022");
 				 Thread.sleep(4000);
 				 performerPOM.clickAdvocateBillPanel(driver).click();
 				 Thread.sleep(4000);
 				 performerPOM. clickInvoiceAmount(driver).sendKeys("30000");
-//				 Thread.sleep(4000);
-//				 performerPOM.clickLawFirm1(driver).click();
-//				 Thread.sleep(5000);
-//			      performerPOM.selectLawFirm1(driver).click();
-			     Thread.sleep(4000);
+				 Thread.sleep(4000);
+				 performerPOM.clickLawFirm1(driver).click();
+				 performerPOM.selectLawFirm2(driver).get(2).click();
+				 Thread.sleep(4000);
 				 performerPOM.clickApprover1(driver).click();
-//				 Thread.sleep(4000);
-//			     performerPOM.selectApprover1(driver);
-				 
-				
-				 
-			     By locator = By.xpath("(//li[@class='active-result'])[5]");
-				wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-				WebElement ViewButton = driver.findElement(locator);	
-				 JavascriptExecutor jse=(JavascriptExecutor)driver;
-				 Thread.sleep(2000);
-				// jse.executeScript("arguments[0].click();", ViewButton);
+			      Thread.sleep(4000);
+			      performerPOM.selectApprover1(driver).get(5).click();
 				 Thread.sleep(4000);
 				 performerPOM.clickApprover2(driver).click();
 			     Thread.sleep(4000);
-				 performerPOM.selectApprover2(driver);
+				 performerPOM.selectApprover2(driver).get(5).click();
+				 
+				 Thread.sleep(4000);
+				 performerPOM.clickUploadDoc(driver).click();
+				
 				 Thread.sleep(4000);
 				 performerPOM.clickSaveAdvocateBill(driver).click();
+				 
+				 Thread.sleep(500);
+					String msg4 = performerPOM.clickReadAdvocateMsg(driver).getText();		//Reading Message appeared after save button
+					String msg6 = performerPOM.clickReadAdvocateMsg1(driver).getText();		//Reading Message appeared after save button
+					if(msg4.equalsIgnoreCase("Advocate Bill Added Successfully."))
+					{
+						test.log(LogStatus.PASS, "Message displayed = "+msg4);
+					
+					}
+					
+					else
+					{
+						test.log(LogStatus.FAIL, "Message displayed = "+msg6);
+					}
+					performerPOM.clickeditAdvocatebill(driver).click();
+					
+					 Thread.sleep(5000);
+				     performerPOM. clickInvoiceNum(driver).clear();
+					 Thread.sleep(5000);
+				     performerPOM. clickInvoiceNum(driver).sendKeys("60957");
+				     
+				     Thread.sleep(4000);
+					 performerPOM.clickSaveAdvocateBill(driver).click();
+				     
+					 Thread.sleep(500);
+						String msg5 = performerPOM.clickReadAdvocateMsg(driver).getText();		//Reading Message appeared after save button
+					
+						if(msg5.equalsIgnoreCase("Advocate Bill Updated Successfully."))
+						{
+							test.log(LogStatus.PASS, "Message displayed = "+msg5);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Message displayed = "+msg5);
+						}
+						
+						Thread.sleep(2000);
+						performerPOM.clickDownloadDocAdvocatebill(driver).click();
+						
+						 test.log(LogStatus.PASS, "Advocate Bill Document Download Successfully");
+						 
+						 Thread.sleep(2000);
+						performerPOM.clickViewDocAdvocatebill(driver).click();
+				         
+						 test.log(LogStatus.PASS, "Advocate Bill Document View Successfully");
+						 
+						 Thread.sleep(2000);
+						performerPOM.clickViewDocAdvocatebillClose(driver).click();
+				 
+						 Thread.sleep(2000);
+						performerPOM.clickViewDocAdvocatebillPdf(driver).click();
+							
+					    Thread.sleep(2000);
+						performerPOM.clickViewDocAdvocatebillPdfClose(driver).click();
+						
+						 test.log(LogStatus.PASS, "Advocate Bill Document Pdf Successfully");
+						
+						Thread.sleep(2000);
+						performerPOM.clickAdvocateBillDelete(driver).click();
+						
+						Thread.sleep(5000);
+					    // Switching to Alert        
+				        Alert alert = driver.switchTo().alert();		
+				        		
+				        // Capturing alert message.    
+				        String alertMessage= driver.switchTo().alert().getText();	
+				        
+				        
+				        test.log(LogStatus.PASS, alertMessage);
+				        		
+				        // Displaying alert message		
+				        System.out.println(alertMessage);
+				        
+				     // Accepting alert		
+				        alert.accept();
+				 
+						 test.log(LogStatus.PASS, "Advocate Bill Document Deleted Successfully");
 				 
 	      }
 
@@ -2800,7 +2876,7 @@ public class MethodPOM
 	  		driver.switchTo().parentFrame();
 	  		performerPOM.clickClose(driver).click();
 	  		
-	  		Thread.sleep(500);
+	  		Thread.sleep(1000);
 	  		OverduePOM.clickDashboard(driver).click();
 	  	}
 	      public static void NoticeClosed(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException, IOException
@@ -3460,6 +3536,7 @@ public class MethodPOM
 				Thread.sleep(1500);
 				js.executeScript("window.scrollBy(500,0)");
 				
+				Thread.sleep(3000);
 				performerPOM.clickTypeDropdown(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
 				Thread.sleep(3000);
 				performerPOM.selectTypeCase(driver).click();					//Selecting 'Case' option.
@@ -4212,10 +4289,10 @@ public class MethodPOM
 				action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 				
 				Thread.sleep(3000);
-				performerPOM.clickReminderText(driver).sendKeys("Automation Reminder Message.");
+				performerPOM.clickReminderText(driver).sendKeys("Automation Reminder Message new.");
 				
 				Thread.sleep(3000);
-				performerPOM.clickDescription(driver).sendKeys("Automation Reminder Message.");
+				performerPOM.clickDescription(driver).sendKeys("Automation Reminder Message new.");
 				
 				Thread.sleep(3000);
 				performerPOM.clickRemark2(driver).sendKeys("Automation reminder remark new.");
@@ -4282,7 +4359,7 @@ public class MethodPOM
 				performerPOM.clickReminderText(driver).clear();
 				
 				Thread.sleep(3000);
-				performerPOM.clickReminderText(driver).sendKeys("Automation Reminder Message");
+				performerPOM.clickReminderText(driver).sendKeys("Automation Reminder Message new");
 				
 				Thread.sleep(3000);
 				performerPOM.clickDate(driver).click();
@@ -4444,8 +4521,106 @@ public class MethodPOM
 				Thread.sleep(1000);
 				OverduePOM.clickDashboard(driver).click();
 			}
-			  
+		 	public static void AdvocateBillTab(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+	    	{
+	      		WebDriverWait wait=new WebDriverWait(driver,20);
+	    	     Thread.sleep(3000);
+	      		performerPOM.clickAdvocateBillTab(driver).click();
+	      		 Thread.sleep(3000);
+	      		performerPOM.clickAdvocateBillTabViewIcon(driver).click();
+	      		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	      		Thread.sleep(2000);
+	      		performerPOM.clickAdvocateBillTabAuditLog(driver).click();
+	      		driver.switchTo().parentFrame();
+	      		Thread.sleep(2000);
+	      		performerPOM.clickAdvocateBillTabclose(driver).click();
+	      		Thread.sleep(2000);
+	      		performerPOM.clickAdvocateBillTabTriangle1(driver).click();
+	      		Thread.sleep(2000);
+	      		performerPOM.clearButton(driver).click();
+
+	      		
+				Thread.sleep(10000);
+				CFOcountPOM.readTotalItems1(driver).click();
+				String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+				String[] bits1 = item1.split(" ");								//Splitting the String
+				String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+				int count2 = Integer.parseInt(compliancesCount1);
+				
+			    try
+				{
+					performerPOM.clickExportAdavanced(driver).sendKeys(Keys.PAGE_DOWN);
+				}
+				catch(Exception e)
+				{
+					
+				}
 			
+			
+				Thread.sleep(100);
+				File dir = new File("C://Users//Admin//Downloads");
+				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+				
+				Thread.sleep(500);
+				CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+				Thread.sleep(250);
+				performerPOM.clickExportAdavanced(driver).click();					//Clicking on 'Excel Report' image.
+				test.log(LogStatus.PASS, "File downloaded successfully.");
+				
+				Thread.sleep(5500);
+				File dir1 = new File("C://Users//Admin//Downloads");
+				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+				
+				if(dirContents.length < allFilesNew.length)
+				{
+					test.log(LogStatus.PASS, "File downloaded successfully.");
+					
+					File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+				    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+				    {
+				       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+				       {
+				           lastModifiedFile = allFilesNew[i];
+				       }
+				    }
+					
+					Thread.sleep(100);
+					fis = new FileInputStream(lastModifiedFile);
+					workbook = new XSSFWorkbook(fis);
+					sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+					
+					int no = sheet.getLastRowNum();
+					Row row = sheet.getRow(no);
+					Cell c1 = row.getCell(0);
+					int records =(int) c1.getNumericCellValue();
+					fis.close();
+					
+					if(count2 == records)
+					{
+						test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+						test.log(LogStatus.INFO, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+					}
+					else
+					{
+						test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+						test.log(LogStatus.INFO, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+					}
+				}
+				else
+				{
+					
+	      		
+	  	
+	    		
+	      		Thread.sleep(3000);
+	      		performerPOM.clickApproverAssignmentLog(driver).click();
+	      		
+	      		Thread.sleep(500);
+	      		OverduePOM.clickDashboard(driver).click();
+	      		
+	    	}			
+	    		
+	    	}
 	  	
 			
 

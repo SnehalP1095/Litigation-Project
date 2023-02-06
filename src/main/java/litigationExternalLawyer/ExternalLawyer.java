@@ -221,8 +221,9 @@ public class ExternalLawyer
 				
 				extent.endTest(test);
 				extent.flush();
-			}
-		 @Test(priority = 14)
+			}		 
+ 	 
+ 	 @Test(priority = 14)
 			void CaseTaskActivityTab() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Case Task/Activity verification");
@@ -255,7 +256,7 @@ public class ExternalLawyer
 				extent.endTest(test);
 				extent.flush();
 			}
-//			@Test(priority = 17)
+			@Test(priority = 17)
 			void CaseAdvocateBillTab() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Case advocate bill verification");
@@ -372,6 +373,18 @@ public class ExternalLawyer
 				test.log(LogStatus.INFO, "Test Initiated");
 				
 				MethodsPOM.ImportUtility(driver,test);
+				extent.endTest(test);
+				extent.flush();
+			}
+		    
+			@Test(priority = 28)
+			void CaseAdvocateBill() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Advocate bill verification");
+				test.log(LogStatus.INFO, "Test Initiated");
+				
+				MethodPOM.AdvocateBillTab(driver, test);
+				
 				extent.endTest(test);
 				extent.flush();
 			}
