@@ -1,49 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-06T18:46:23 IST" name="Default suite" finished-at="2023-02-06T18:57:40 IST" duration-ms="677315">
+  <suite started-at="2023-02-07T19:29:29 IST" name="Default suite" finished-at="2023-02-07T19:31:31 IST" duration-ms="122278">
     <groups>
     </groups>
-    <test started-at="2023-02-06T18:46:23 IST" name="Default test" finished-at="2023-02-06T18:57:40 IST" duration-ms="677315">
-      <class name="litigationFE.FE">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:46:23 IST" name="setBrowser" finished-at="2023-02-06T18:46:29 IST" duration-ms="5928" status="PASS">
+    <test started-at="2023-02-07T19:29:29 IST" name="Default test" finished-at="2023-02-07T19:31:31 IST" duration-ms="122278">
+      <class name="litigationCompanyAdmin.CompanyAdmin">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:litigationCompanyAdmin.CompanyAdmin@2b91004a]" started-at="2023-02-07T19:29:29 IST" name="setBrowser" finished-at="2023-02-07T19:29:33 IST" duration-ms="4175" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="Login()[pri:1, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:46:29 IST" name="Login" finished-at="2023-02-06T18:46:59 IST" duration-ms="29560" status="PASS">
+        <test-method signature="Login()[pri:1, instance:litigationCompanyAdmin.CompanyAdmin@2b91004a]" started-at="2023-02-07T19:29:33 IST" name="Login" finished-at="2023-02-07T19:29:45 IST" duration-ms="12320" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="DashBoardFilter()[pri:2, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:46:59 IST" name="DashBoardFilter" finished-at="2023-02-06T18:48:45 IST" duration-ms="106345" status="PASS">
+        <test-method signature="CustomerMgmtCustomer()[pri:41, instance:litigationCompanyAdmin.CompanyAdmin@2b91004a]" started-at="2023-02-07T19:29:45 IST" name="CustomerMgmtCustomer" finished-at="2023-02-07T19:31:31 IST" duration-ms="105735" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DashBoardFilter -->
-        <test-method signature="CaseNoticeStageGraph()[pri:3, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:48:45 IST" name="CaseNoticeStageGraph" finished-at="2023-02-06T18:50:10 IST" duration-ms="84725" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CaseNoticeStageGraph -->
-        <test-method signature="CaseNoticeTypeGraph()[pri:4, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:50:10 IST" name="CaseNoticeTypeGraph" finished-at="2023-02-06T18:51:38 IST" duration-ms="88307" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CaseNoticeTypeGraph -->
-        <test-method signature="RiskSummaryGraph()[pri:5, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:51:38 IST" name="RiskSummaryGraph" finished-at="2023-02-06T18:53:43 IST" duration-ms="124896" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RiskSummaryGraph -->
-        <test-method signature="DepartmentSummaryGraph()[pri:6, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:53:43 IST" name="DepartmentSummaryGraph" finished-at="2023-02-06T18:54:54 IST" duration-ms="70706" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DepartmentSummaryGraph -->
-        <test-method signature="LocationSummaryGraph()[pri:7, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:54:54 IST" name="LocationSummaryGraph" finished-at="2023-02-06T18:56:13 IST" duration-ms="79314" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- LocationSummaryGraph -->
-        <test-method signature="CategorySummaryGraph()[pri:8, instance:litigationFE.FE@2fb3536e]" started-at="2023-02-06T18:56:13 IST" name="CategorySummaryGraph" finished-at="2023-02-06T18:57:40 IST" duration-ms="87476" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CategorySummaryGraph -->
-      </class> <!-- litigationFE.FE -->
+        </test-method> <!-- CustomerMgmtCustomer -->
+      </class> <!-- litigationCompanyAdmin.CompanyAdmin -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

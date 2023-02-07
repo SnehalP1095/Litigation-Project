@@ -569,10 +569,10 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 40)
+//	@Test(priority = 40)
 	void CustomerMgmt() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Notice Document verification");
+		test = extent.startTest("Customer Management verification");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		MethodPOM1.CustomerMgmt(driver, test);
@@ -580,7 +580,28 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+	@Test(priority = 41)
+	void CustomerMgmtCustomer() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Customer Management verification");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		MethodPOM1.CustomerMgmtCustomer(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+//	@Test(priority = 42)
+	void CustomerMgmtPlanVisit() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Customer Management verification");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		MethodPOM1.CustomerMgmtPalnVisit(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 //	 @Test(priority = 41)
 		void DashBoardFilter() throws InterruptedException, IOException

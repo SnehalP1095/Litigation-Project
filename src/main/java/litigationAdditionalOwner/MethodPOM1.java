@@ -778,6 +778,7 @@ public class MethodPOM1 {
 	
 	public static void CustomerMgmt(WebDriver driver,ExtentTest test) throws InterruptedException
 	{
+		WebDriverWait wait=new WebDriverWait(driver,30);
 		Thread.sleep(2000);
 	    performerPOM.clickCustomerMgmt(driver).click();
 	    Thread.sleep(2000);
@@ -788,52 +789,326 @@ public class MethodPOM1 {
 	    performerPOM.clickCustomerMgmtCBU(driver).click();
 	    Thread.sleep(3000);
 	    performerPOM.clickCustomerMgmtCBUdropdown(driver).click();
-//	    Thread.sleep(3000);
-//	    performerPOM.clickCustomerMgmtZone(driver).click();
-//	    
-//	    Thread.sleep(3000);
-//	    performerPOM.clickCustomerMgmtZonedropdown(driver).click();
+	   Thread.sleep(3000);
+	    performerPOM.clickCustomerMgmtZone(driver).click();
 	    Thread.sleep(3000);
+	    performerPOM.clickCustomerMgmtZonedropdown(driver).get(1).click();
+	    Thread.sleep(4000);
 	    performerPOM.clickCustomerMgmtRegion(driver).click();
+	 
+	    By locator = By.xpath("//*[@id='ddlRegion_listbox']/li");
+
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		Thread.sleep(4000);
+		WebElement ViewButton = driver.findElement(locator);	
+		Thread.sleep(3000);
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+	    jse.executeScript("arguments[0].click();", ViewButton);
+	    performerPOM.clickCustomerMgmtRegion(driver).click();
+		
 	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtRegiondropdown(driver).click();
-//	    Thread.sleep(3000);
-//	    performerPOM.clickCustomerMgmtTerritory(driver).click();
-//	    Thread.sleep(3000);
-//	    performerPOM.clickCustomerMgmtTerritorydropdown(driver).click();
-	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtCityname(driver).sendKeys("Pune");
+	    performerPOM.clickCustomerMgmtTerritory(driver).click();
+	   // Thread.sleep(3000);
+	    //performerPOM.clickCustomerMgmtTerritorydropdown(driver).get(0).click();
+	    
+	     By locator1 = By.xpath("//*[@id='ddlTerritory_listbox']/li");
+	     wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+	  	 Thread.sleep(4000);
+	  	 WebElement ViewButton1 = driver.findElement(locator1);	
+	  	 Thread.sleep(3000);
+	  	 JavascriptExecutor jse1=(JavascriptExecutor)driver;
+		 jse.executeScript("arguments[0].click();", ViewButton1);
+		 Thread.sleep(3000);
+		 
+	  	 performerPOM.clickCustomerMgmtTerritory(driver).click();
+	  	    
+	      Thread.sleep(3000);
+	    performerPOM.clickCustomerMgmtCityname(driver).sendKeys("Ratnagiri");
 	    Thread.sleep(3000);
 	    performerPOM.clickCustomerMgmtSave(driver).click();
+	    try
+	    {
+	    	 
+	 	    
+	 	   Thread.sleep(5000);
+      	   // Capturing alert message.    
+              String alertMessage1= driver.switchTo().alert().getText();	
+               Thread.sleep(3000);
+              test.log(LogStatus.PASS, alertMessage1);
+            // Accepting alert		
+              driver.switchTo().alert().accept();	
+              Thread.sleep(4000);
+      	     performerPOM.clickCustomerMgmtClose(driver).click();
+      	     Thread.sleep(4000);
+	    }
+         catch(Exception e)
+         {
+        	 Thread.sleep(3000);
+ 	 	    performerPOM.clickCustomerMgmtOk(driver).click();
+ 	 	  test.log(LogStatus.PASS, "City Added Successfully");
+         }
+	    
+	   
+
 //	    Thread.sleep(3000);
-//	    performerPOM.clickCustomerMgmtClose(driver).click();
-	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtOk(driver).click();
-	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtEdit(driver).click();
-	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtCityname(driver).sendKeys("Mumbai");
-	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtSave(driver).click();
-	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtClose(driver).click();
-	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtOk(driver).click();
+//	    performerPOM.clickCustomerMgmtEdit(driver).click();
+//	    performerPOM.clickCustomerMgmtCityname(driver).clear();
+//	    Thread.sleep(3000);
+//	    performerPOM.clickCustomerMgmtCityname(driver).sendKeys("Solapur");
+//	    Thread.sleep(3000);
+//	    performerPOM.clickCustomerMgmtSave(driver).click();
+//	    Thread.sleep(3000);
+//	    performerPOM.clickCustomerMgmtok(driver).click();
+	    
+//	    By locator3 = By.xpath("(//div[@role='toolbar'])[2]");
+//	    wait.until(ExpectedConditions.presenceOfElementLocated(locator3));
+//	  	Thread.sleep(4000);
+//	  	WebElement ViewButton3 = driver.findElement(locator3);	
+//	  	Thread.sleep(3000);
+//	  	JavascriptExecutor jse2=(JavascriptExecutor)driver;
+//	    jse.executeScript("arguments[0].click();", ViewButton3);
+	    
+//	    test.log(LogStatus.PASS, "City Updated Successfully");
+	    
 	    Thread.sleep(3000);
 	    performerPOM.clickCustomerMgmtDelete(driver).click();
-	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtCustomer(driver).click();
-	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtCBUFilter(driver).click();
-	    Thread.sleep(3000);
-	    performerPOM.clickCustomerMgmtCBUFilter1(driver).click();
 	    
+	    Thread.sleep(5000);
+	   // Capturing alert message.    
+        String alertMessage1= driver.switchTo().alert().getText();	
+         Thread.sleep(3000);
+        test.log(LogStatus.PASS, alertMessage1);
+      // Accepting alert		
+        driver.switchTo().alert().accept();	
+        
+        Thread.sleep(5000);
+     // Capturing alert message.    
+        String alertMessage= driver.switchTo().alert().getText();	
+         Thread.sleep(3000);
+        test.log(LogStatus.PASS, alertMessage);
+      // Accepting alert		
+        driver.switchTo().alert().accept();	
+//	    
+//	    Thread.sleep(3000);
+//	    performerPOM.clickCustomerMgmtCustomer(driver).click();
+//	    Thread.sleep(3000);
+//	    performerPOM.clickCustomerMgmtCBUFilter(driver).click();
+//	    Thread.sleep(3000);
+//	    performerPOM.clickCustomerMgmtCBUFilter1(driver).click();
 	    
-		
-		
+	   
 	}
-	
-	
+	public static void CustomerMgmtCustomer(WebDriver driver,ExtentTest test) throws InterruptedException
+	{
+		WebDriverWait wait=new WebDriverWait(driver,30);
+		 Thread.sleep(2000);
+		    performerPOM.clickCustomerMgmt(driver).click();
+		  Thread.sleep(4000);
+		    performerPOM.clickCustomerMgmtCustomer(driver).click();
+		    Thread.sleep(3000);
+		    performerPOM.clickCustomerMgmtAdd(driver).click();
+		    Thread.sleep(3000);
+		    performerPOM.clickCustomerName(driver).sendKeys("Rutuja");
+		    Thread.sleep(3000);
+		    performerPOM.clickCustomerID(driver).sendKeys("110");
+		    Thread.sleep(3000);
+		    performerPOM.clickSPOCName(driver).sendKeys("Rurtu");
+		    Thread.sleep(3000);
+		    performerPOM.clickEmailID(driver).sendKeys("rutu@itc.com");
+		    Thread.sleep(3000);
+		    performerPOM.clickMobNo(driver).sendKeys("0000080000");
+		     Thread.sleep(3000);
+		    performerPOM.clickWhatsappNo(driver).sendKeys("1234078900");
+		    Thread.sleep(3000);
+		    performerPOM.clickCity1(driver).click();
+		    Thread.sleep(3000);
+		    performerPOM.selectCity1(driver).click();
+		    Thread.sleep(3000);
+		    performerPOM.clickCustomerMgmtSave(driver).click();
+		    
+		    try
+		    {
+		    	 
+		 	    
+		 	   Thread.sleep(5000);
+	      	   // Capturing alert message.    
+	              String alertMessage1= driver.switchTo().alert().getText();	
+	               Thread.sleep(3000);
+	              test.log(LogStatus.PASS, alertMessage1);
+	            // Accepting alert		
+	              driver.switchTo().alert().accept();	
+	              Thread.sleep(4000);
+	      	     performerPOM.clickCustomerMgmtClose(driver).click();
+	      	     Thread.sleep(4000);
+		    }
+	         catch(Exception e)
+	         {
+	        	 Thread.sleep(3000);
+	 	 	    performerPOM.clickCustomerMgmtOk(driver).click();
+	 	 	  test.log(LogStatus.PASS, "Customer Added Successfully");
+	         }
+		    
+//		    Thread.sleep(3000);
+//		    performerPOM.clickCustomerMgmtEdit1(driver).click();
+//		    Thread.sleep(3000);
+//		    performerPOM.clickCustomerID(driver).clear();
+//		    Thread.sleep(3000);
+//		    performerPOM.clickCustomerID(driver).sendKeys("80");
+//		    Thread.sleep(3000);
+//		    performerPOM.clickCity1(driver).click();
+//		    Thread.sleep(3000);
+//		    performerPOM.selectCity1(driver).click();
+//		    Thread.sleep(3000);
+//		    performerPOM.clickCustomerMgmtSave(driver).click();
+////		    Thread.sleep(3000);
+//		    performerPOM.clickCustomerMgmtok(driver).click();
+		    
+//		    By locator3 = By.xpath("/html/body/div[18]/div[3]/button");
+// 		    wait.until(ExpectedConditions.presenceOfElementLocated(locator3));
+// 		  	Thread.sleep(4000);
+// 		  	WebElement ViewButton3 = driver.findElement(locator3);	
+// 		  	Thread.sleep(3000);
+// 		  	JavascriptExecutor jse2=(JavascriptExecutor)driver;
+// 		    jse2.executeScript("arguments[0].click();", ViewButton3);
+// 		   jse2.executeScript("arguments[0].click();", ViewButton3);
+		    
+		    Thread.sleep(3000);
+		    test.log(LogStatus.PASS, "Customer Updated Successfully");
+		    Thread.sleep(3000);
+		    performerPOM.clickCustomerMgmtDelete1(driver).click();
+
+		    Thread.sleep(5000);
+		   // Capturing alert message.    
+	        String alertMessage1= driver.switchTo().alert().getText();	
+	         Thread.sleep(3000);
+	        test.log(LogStatus.PASS, alertMessage1);
+	      // Accepting alert		
+	        driver.switchTo().alert().accept();	
+	        
+	        Thread.sleep(5000);	
+	     // Capturing alert message.    
+	        String alertMessage= driver.switchTo().alert().getText();	
+	         Thread.sleep(3000);
+	        test.log(LogStatus.PASS, alertMessage);
+	      // Accepting alert		
+	        driver.switchTo().alert().accept();	
+	        
+	        Thread.sleep(6000);
+		    performerPOM.clickCustomerUpload(driver).click();
+		    Thread.sleep(6000);
+		    performerPOM.clickChooseFile(driver);
+//		      Thread.sleep(6000);
+//		    performerPOM.clickUploadfile(driver).click();
+		    By locator3 = By.xpath("//*[@id='btnFileUploadForCustomer']");
+ 		    wait.until(ExpectedConditions.presenceOfElementLocated(locator3));
+ 		  	Thread.sleep(4000);
+ 		  	WebElement ViewButton3 = driver.findElement(locator3);	
+ 		  	Thread.sleep(3000);
+ 		  	JavascriptExecutor jse2=(JavascriptExecutor)driver;
+ 		    jse2.executeScript("arguments[0].click();", ViewButton3);
+ 		   jse2.executeScript("arguments[0].click();", ViewButton3);
+//		    Thread.sleep(4000);
+//     	     performerPOM.clickCustomerMgmtClose(driver).click();
+		     Thread.sleep(3000);
+		    performerPOM.clickCustomerUploadOutStanding(driver).click();
+		    
+		    Thread.sleep(3000);
+		    performerPOM.clickChooseFile1(driver);
+		    
+		    Thread.sleep(3000);
+		    performerPOM.clickUploadfile1(driver).click();
+		    Thread.sleep(3000);
+		    performerPOM.clickPlanVisitErrotfile(driver).click();
+		    Thread.sleep(4000);
+    	     performerPOM.clickCustomerMgmtClose(driver).click();
+	}
+	public static void CustomerMgmtPalnVisit(WebDriver driver,ExtentTest test) throws InterruptedException
+	{
+		WebDriverWait wait=new WebDriverWait(driver,30);
+		 Thread.sleep(2000);
+		    performerPOM.clickCustomerMgmt(driver).click();
+	     
+		    Thread.sleep(2000);
+		    performerPOM.clickPlanVisit(driver).click();
+		    Thread.sleep(2000);
+		    performerPOM.clickPlanVisitAdd(driver).click();
+		    
+		    Thread.sleep(2000);
+		    performerPOM.clickPlanVisitcustomaerid(driver).click();
+		    Thread.sleep(2000);
+		    performerPOM.selectPlanVisitcustomaerid(driver).click();
+		    Thread.sleep(2000);
+		    performerPOM.clickPlanVisitcustomaerid(driver).click();
+		    Thread.sleep(2000);
+		    performerPOM.clickPlanVisitdate(driver).clear();
+		    Thread.sleep(2000);
+		    performerPOM.clickPlanVisitdate(driver).sendKeys("01-02-2023");
+		    Thread.sleep(2000);
+		    performerPOM.clickPlanVisitremark(driver).sendKeys("Ok");
+		    Thread.sleep(2000);
+		    performerPOM.clickPlanVisitsubmit(driver).click();
+		    
+		    Thread.sleep(5000);
+			   // Capturing alert message.    
+		        String alertMessage1= driver.switchTo().alert().getText();	
+		         Thread.sleep(3000);
+		        test.log(LogStatus.PASS, alertMessage1);
+		      // Accepting alert		
+		        driver.switchTo().alert().accept();	
+		        Thread.sleep(3000);
+	 	 	    performerPOM.clickCustomerMgmtOk(driver).click();
+	 	 	  test.log(LogStatus.PASS, "Plan Visit Successfully Added");
+	 	 	  Thread.sleep(3000);
+	 	 	   performerPOM.startDate(driver).sendKeys("01-02-2023");
+	 	 	 Thread.sleep(3000);
+	 	 	   performerPOM.endDate(driver).sendKeys("28-02-2023");
+	 	 	 Thread.sleep(3000);
+	 	 	   performerPOM.clickPlanVisityear(driver).clear();
+	 	 	 Thread.sleep(3000);
+	 	 	   performerPOM.clickPlanVisityear(driver).sendKeys("2023",Keys.ENTER);
+	 	 	 Thread.sleep(3000);
+	 	 	  performerPOM.clickPlanVisitedit(driver).click();
+	 	 	performerPOM.clickPlanVisitedit(driver).click();
+	 	 	 performerPOM.clickPlanVisitremark(driver).clear();
+	 	 	 Thread.sleep(2000);
+		    performerPOM.clickPlanVisitremark(driver).sendKeys("Ok");
+			    Thread.sleep(2000);
+			    performerPOM.clickPlanVisitsubmit(driver).click();
+			    
+			    Thread.sleep(5000);
+				   // Capturing alert message.    
+			        String alertMessage= driver.switchTo().alert().getText();	
+			         Thread.sleep(3000);
+			        test.log(LogStatus.PASS, alertMessage);
+			      // Accepting alert		
+			        driver.switchTo().alert().accept();	
+//			        Thread.sleep(3000);
+//		 	 	    performerPOM.clickCustomerMgmtok(driver).click();
+		 	 	    
+		 		    By locator3 = By.xpath("/html/body/div[32]/div[3]/button");
+		 		    wait.until(ExpectedConditions.presenceOfElementLocated(locator3));
+		 		  	Thread.sleep(4000);
+		 		  	WebElement ViewButton3 = driver.findElement(locator3);	
+		 		  	Thread.sleep(3000);
+		 		  	JavascriptExecutor jse2=(JavascriptExecutor)driver;
+		 		    jse2.executeScript("arguments[0].click();", ViewButton3);
+		 		   jse2.executeScript("arguments[0].click();", ViewButton3);
+		 		   
+		 		  test.log(LogStatus.PASS, "Plan Visit Successfully Updated");
+		 		   
+		 		  Thread.sleep(2000);
+				    performerPOM.clickPlanVisitdelete(driver).click();
+				    Thread.sleep(5000);
+					   // Capturing alert message.    
+				        String alertMessage2= driver.switchTo().alert().getText();	
+				         Thread.sleep(3000);
+				        test.log(LogStatus.PASS, alertMessage2);
+				      // Accepting alert		
+				        driver.switchTo().alert().accept();	
+				        Thread.sleep(2000);
+					    performerPOM.clickPlanVisitOverdueVisit(driver).click();
+	 	 	 
+	}
 	
 	
 	

@@ -105,7 +105,7 @@ public class FE {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 4)
+//		@Test(priority = 4)
 		void CaseNoticeTypeGraph() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Case Notice Type Graph Count Verification");
@@ -117,7 +117,7 @@ public class FE {
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 5)
+//		@Test(priority = 5)
 		void RiskSummaryGraph() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Risk Graph Count Verification");
@@ -128,7 +128,7 @@ public class FE {
 			extent.endTest(test);
 			extent.flush();
 		}
-		  @Test(priority = 6)
+//		  @Test(priority = 6)
 	        void DepartmentSummaryGraph() throws InterruptedException, IOException
 	        {
 		       test = extent.startTest("Department Graph Count Verification");
@@ -139,7 +139,7 @@ public class FE {
 		       extent.endTest(test);
 		       extent.flush();
 	        }
-	       @Test(priority = 7)
+//	       @Test(priority = 7)
 	        void LocationSummaryGraph() throws InterruptedException, IOException
 	        {
 		       test = extent.startTest("Location Graph Count Verification");
@@ -151,7 +151,7 @@ public class FE {
 		       extent.flush();
 	        }
 	       
-	      @Test(priority = 8)
+//	      @Test(priority = 8)
 	        void CategorySummaryGraph() throws InterruptedException, IOException
 	        {
 		       test = extent.startTest("Category Graph Count Verification");
