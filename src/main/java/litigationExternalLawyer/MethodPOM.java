@@ -4608,19 +4608,427 @@ public class MethodPOM
 				}
 				else
 				{
-					
-	      		
-	  	
-	    		
-	      		Thread.sleep(3000);
+					  Thread.sleep(3000);
 	      		performerPOM.clickApproverAssignmentLog(driver).click();
 	      		
 	      		Thread.sleep(500);
-	      		OverduePOM.clickDashboard(driver).click();
-	      		
+	      			
 	    	}			
 	    		
 	    	}
+		 	  public static void WorkspaceFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException
+		      	{
+		      		WebDriverWait wait=new WebDriverWait(driver,20);
+		      		Thread.sleep(5000);
+		      		performerPOM.clickMyWorkspace(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickCaseNotice1(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clicklocationFilter(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickLocationFilter1(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clicklocationFilter3(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickCalenderYear2(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickCalenderYear3(driver).click();
+		      		
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickDepartmentFilter1(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickDepartmentFilter3(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickFinancialYear2(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickFinancialYear3(driver).click();
+		      		
+		      		
+		           	Thread.sleep(3000);
+		      		performerPOM.clickstatus(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickstatus1(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickcategory(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickcategory1(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickType1(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clicktype2(driver).click();
+		      		
+		      		test.log(LogStatus.PASS, "My Workspace = Notice Filters Work Successfully");
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickDropdown(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.selectTypeCase(driver).click();
+		      		
+		      		test.log(LogStatus.PASS, "My Workspace = Case  Filters Work Successfully");
+		      		
+
+		      		Thread.sleep(3000);
+		      		performerPOM.selectApplyBtn(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickDropdown(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.selectTypeTask(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickTaskLocFilter(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickLocationFilter1(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickTaskLocFilter1(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickTaskPriorityFilter(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickTaskPriorityFilter2(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickTaskStatusFilter(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickTaskStatusFilter2(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickTaskPeriodFilter(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickTaskPeriodFilter1(driver).click();
+		      		
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clearButton(driver).click();
+		      		
+		      		test.log(LogStatus.PASS, "My Workspace = Task Filters Work Successfully");
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickMyWorkspace(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickCaseHearing1(driver).click();
+		      		
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clickSearchFilter(driver).sendKeys("Case for Tax");
+		      		
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.CaseHearingView(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.CaseHearingPopupClose(driver).click();
+		      		
+		      		Thread.sleep(3000);
+		      		performerPOM.clearButton(driver).click();
+		      		test.log(LogStatus.PASS, "My Workspace = Case Hearing Filters Work Successfully");
+		      		}
+		          
+		      	public static void DocumentFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException
+		    	{
+		    		WebDriverWait wait=new WebDriverWait(driver,20);
+		    			progress(driver);
+		    		
+		    		//wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));	//Wait until 'Notice-Open' count get visible
+		    		performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
+		    		performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
+		    		
+//		    		Thread.sleep(3000);
+//		    		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+//		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocStatusFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocStatusFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocTypeFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocTypeFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocLocFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickLocationFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocLocFilter2(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocDeptFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocDeptFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clearButton(driver).click();
+		    		test.log(LogStatus.PASS, "My Document = Case Filters Work Successfully");
+		    		
+//		    		Thread.sleep(3000);
+//		    		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocDropdownFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.selectTypeCase(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocStatusFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocStatusFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocTypeFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocTypeFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocLocFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickLocationFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocLocFilter2(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocDeptFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocDeptFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clearButton(driver).click();
+		    		
+		    		test.log(LogStatus.PASS, "My Document = Notice Filters Work Successfully");
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocDropdownFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.selectTypeTask(driver).click();
+		    		
+//		    		Thread.sleep(3000);
+//		    		performerPOM.clickDocStatusFilter(driver).click();
+//		    		
+//		    		Thread.sleep(3000);
+//		    		performerPOM.clickReportStatusFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocTaskPriorityFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocTaskPriorityFilter3(driver).click();
+		    		
+//		    		Thread.sleep(3000);
+//		    		performerPOM.clickDocLocFilter(driver).click();
+//		    		
+//		    		Thread.sleep(3000);
+//		    		performerPOM.clickLocationFilter1(driver).click();
+//		    		
+//		    		Thread.sleep(3000);
+//		    		performerPOM.clickDocLocFilter2(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocTaskFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickDocTaskFilter1(driver).click();
+		    		
+		    		
+		    		
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clearButton(driver).click();
+		    		
+		    		test.log(LogStatus.PASS, "My Document = Task Filters Work Successfully");
+		    		
+		    		}
+		      	
+		      	public static void ReportFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException
+		    	{
+		    		WebDriverWait wait=new WebDriverWait(driver,20);
+		    			
+		    		progress(driver);
+		    		
+		    	
+		    		performerPOM.clickMyReports(driver).click();					//Clicking on 'My Reports'
+		    		
+		    		Thread.sleep(3000);
+		    		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+		    		
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportStatusFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportStatusFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportDeptFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportDeptFilter2(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportTypeFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportTypeFilter2(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportCategoryFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportCategoryFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportLocFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickLocationFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportLocFilter2(driver).click();
+		    		
+//		    		Thread.sleep(5000);
+//		    		performerPOM.clickReportFYFilter(driver).click();
+//		    		
+//		    		Thread.sleep(5000);
+//		    		performerPOM.clickReportFYFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportCYFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportCYFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clearButton(driver).click();
+		    		test.log(LogStatus.PASS,"My Report = Notice Filter Work successfully");
+		    		
+		    		Thread.sleep(3000);
+		    		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table 
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickTypeDropdown(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.selectTypeCase(driver).click();	
+		    		
+//		    		Thread.sleep(3000);
+//		    		performerPOM.clickReportStatusFilter(driver).click();
+//		    		
+//		    		Thread.sleep(3000);
+//		    		performerPOM.clickReportStatusFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportDeptFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportDeptFilter3(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportTypeFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportTypeFilter2(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportCategoryFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportCategoryFilter2(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportLocFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickLocationFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickLocationFilter4(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportFYFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportFYFilter1(driver).click();
+		    		
+//		    		Thread.sleep(5000);
+//		    		performerPOM.clickReportCYFilter(driver).click();
+//		    		
+//		    		Thread.sleep(5000);
+//		    		performerPOM.clickReportCYFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clearButton(driver).click();
+		    		test.log(LogStatus.PASS,"My Report =Case Filter Work successfully");
+		    		
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickTypeDropdown(driver).click();	
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.selectTypeTask(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportprioFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportprioFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportstatusFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportstatusFilter1(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportFilter(driver).click();
+		    		
+		    		Thread.sleep(3000);
+		    		performerPOM.clickReportFilter1(driver).click();
+		    		Thread.sleep(3000);
+		    		performerPOM.clearButton(driver).click();
+		    		
+		    		test.log(LogStatus.PASS, "My Report = Task Filters Work Successfully");
+		    		
+		    		Thread.sleep(500);
+		    		OverduePOM.clickDashboard(driver).click();
+		    		
+		    		
+		    		
+		       }
 	  	
 			
 
