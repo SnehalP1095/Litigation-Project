@@ -5,9 +5,8 @@
   <meta charset='utf-8'>
   <title>TestNG reports</title>
 
-    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
-    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
-    <script type="text/javascript" src="jquery.min.js"></script>
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="testng-reports.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type='text/javascript'>
@@ -24,23 +23,22 @@
   <body>
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
-      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
       <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
         <span>All suites</span>
-        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
-          <img src="collapseall.gif" class="collapse-all-icon">
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
           </img> <!-- collapse-all-icon -->
         </a> <!-- collapse-all-link -->
       </div> <!-- navigator-suite-header -->
       <div class="suite">
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
-            <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+            <a href="#" class="navigator-link" panel-name="suite-Default_suite">
+              <span class="suite-name border-skipped">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,37 +48,37 @@
             <div class="suite-section-content">
               <ul>
                 <li>
-                  <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Admin\AppData\Local\Temp\testng-eclipse--981536559\testng-customsuite.xml</span>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
+                    <span>C:\Users\jiya\AppData\Local\Temp\testng-eclipse--1553892220\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="testlist-Default_suite" class="navigator-link ">
+                  <a href="#" class="navigator-link " panel-name="testlist-Default_suite">
                     <span class="test-stats">1 test</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="group-Default_suite" class="navigator-link ">
+                  <a href="#" class="navigator-link " panel-name="group-Default_suite">
                     <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="times-Default_suite" class="navigator-link ">
+                  <a href="#" class="navigator-link " panel-name="times-Default_suite">
                     <span>Times</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="reporter-Default_suite" class="navigator-link ">
+                  <a href="#" class="navigator-link " panel-name="reporter-Default_suite">
                     <span>Reporter output</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="ignored-methods-Default_suite" class="navigator-link ">
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Default_suite">
                     <span>Ignored methods</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="chronological-Default_suite" class="navigator-link ">
+                  <a href="#" class="navigator-link " panel-name="chronological-Default_suite">
                     <span>Chronological view</span>
                   </a> <!-- navigator-link  -->
                 </li>
@@ -93,76 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">12 methods,   12 passed</span>
+                    <span class="method-stats">1 method,  1 skipped,  </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods skipped suite-Default_suite"> (hide)</a> <!-- hide-methods skipped suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods skipped suite-Default_suite"> (show)</a> <!-- show-methods skipped suite-Default_suite -->
                     </span>
-                    <div class="method-list-content passed suite-Default_suite">
+                    <div class="method-list-content skipped suite-Default_suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="AdvancedSearch">AdvancedSearch</a> <!-- method navigator-link -->
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cfo.CFOcountStatutory" hash-for-method="Login">Login</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="AdvancedSearchDoc">AdvancedSearchDoc</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="AdvancedSearchreport">AdvancedSearchreport</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="CaseHearing">CaseHearing</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="HearingCalender">HearingCalender</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="ImportUtility">ImportUtility</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="Login">Login</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="MoreReports">MoreReports</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="MyDocument">MyDocument</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="MyReminder">MyReminder</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="MyReports">MyReports</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="litigationManagement.CFO" class="method navigator-link" hash-for-method="NoticeDocViewandDownload">NoticeDocViewandDownload</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                    </div> <!-- method-list-content skipped suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -174,111 +117,65 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-skipped">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">litigationManagement.CFO</span>
+              <img src="skipped.png"/>
+              <span class="class-name">cfo.CFOcountStatutory</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="AdvancedSearch">
-                  </a> <!-- AdvancedSearch -->
-                  <span class="method-name">AdvancedSearch</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="AdvancedSearchDoc">
-                  </a> <!-- AdvancedSearchDoc -->
-                  <span class="method-name">AdvancedSearchDoc</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="AdvancedSearchreport">
-                  </a> <!-- AdvancedSearchreport -->
-                  <span class="method-name">AdvancedSearchreport</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="CaseHearing">
-                  </a> <!-- CaseHearing -->
-                  <span class="method-name">CaseHearing</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="HearingCalender">
-                  </a> <!-- HearingCalender -->
-                  <span class="method-name">HearingCalender</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ImportUtility">
-                  </a> <!-- ImportUtility -->
-                  <span class="method-name">ImportUtility</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="Login">
                   </a> <!-- Login -->
                   <span class="method-name">Login</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="MoreReports">
-                  </a> <!-- MoreReports -->
-                  <span class="method-name">MoreReports</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="MyDocument">
-                  </a> <!-- MyDocument -->
-                  <span class="method-name">MyDocument</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="MyReminder">
-                  </a> <!-- MyReminder -->
-                  <span class="method-name">MyReminder</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="MyReports">
-                  </a> <!-- MyReports -->
-                  <span class="method-name">MyReports</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="NoticeDocViewandDownload">
-                  </a> <!-- NoticeDocViewandDownload -->
-                  <span class="method-name">NoticeDocViewandDownload</span>
+                  <div class="stack-trace">java.lang.IllegalArgumentException: Sheet index (2) is out of range (0..0)
+	at org.apache.poi.xssf.usermodel.XSSFWorkbook.validateSheetIndex(XSSFWorkbook.java:1474)
+	at org.apache.poi.xssf.usermodel.XSSFWorkbook.getSheetAt(XSSFWorkbook.java:1150)
+	at cfo.CFOcountStatutory.ReadExcel(CFOcountStatutory.java:57)
+	at cfo.CFOcountStatutory.setBrowser(CFOcountStatutory.java:69)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.TestRunner.invokeTestConfigurations(TestRunner.java:623)
+	at org.testng.TestRunner.beforeRun(TestRunner.java:613)
+	at org.testng.TestRunner.run(TestRunner.java:584)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
+          </div> <!-- suite-Default_suite-class-skipped -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Admin\AppData\Local\Temp\testng-eclipse--981536559\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\jiya\AppData\Local\Temp\testng-eclipse--1553892220\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;litigationManagement.CFO&quot;/&gt;
+      &lt;class name=&quot;cfo.CFOcountStatutory&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -318,60 +215,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(12);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'MyReminder')
-data.setCell(0, 2, 'litigationManagement.CFO')
-data.setCell(0, 3, 220456);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'AdvancedSearchreport')
-data.setCell(1, 2, 'litigationManagement.CFO')
-data.setCell(1, 3, 131706);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'AdvancedSearch')
-data.setCell(2, 2, 'litigationManagement.CFO')
-data.setCell(2, 3, 113025);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'AdvancedSearchDoc')
-data.setCell(3, 2, 'litigationManagement.CFO')
-data.setCell(3, 3, 94834);
-data.setCell(4, 0, 4)
-data.setCell(4, 1, 'ImportUtility')
-data.setCell(4, 2, 'litigationManagement.CFO')
-data.setCell(4, 3, 88800);
-data.setCell(5, 0, 5)
-data.setCell(5, 1, 'MyDocument')
-data.setCell(5, 2, 'litigationManagement.CFO')
-data.setCell(5, 3, 78668);
-data.setCell(6, 0, 6)
-data.setCell(6, 1, 'MyReports')
-data.setCell(6, 2, 'litigationManagement.CFO')
-data.setCell(6, 3, 60127);
-data.setCell(7, 0, 7)
-data.setCell(7, 1, 'MoreReports')
-data.setCell(7, 2, 'litigationManagement.CFO')
-data.setCell(7, 3, 53943);
-data.setCell(8, 0, 8)
-data.setCell(8, 1, 'NoticeDocViewandDownload')
-data.setCell(8, 2, 'litigationManagement.CFO')
-data.setCell(8, 3, 40886);
-data.setCell(9, 0, 9)
-data.setCell(9, 1, 'HearingCalender')
-data.setCell(9, 2, 'litigationManagement.CFO')
-data.setCell(9, 3, 27680);
-data.setCell(10, 0, 10)
-data.setCell(10, 1, 'CaseHearing')
-data.setCell(10, 2, 'litigationManagement.CFO')
-data.setCell(10, 3, 26156);
-data.setCell(11, 0, 11)
-data.setCell(11, 1, 'Login')
-data.setCell(11, 2, 'litigationManagement.CFO')
-data.setCell(11, 3, 14915);
+data.setCell(0, 1, 'Login')
+data.setCell(0, 2, 'cfo.CFOcountStatutory')
+data.setCell(0, 3, 0);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 15 minutes</span>
+              <span class="suite-total-time">Total running time: 0 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -397,63 +250,24 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">litigationManagement.CFO</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">cfo.CFOcountStatutory</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">setBrowser</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">Login</span>
-                <span class="method-start">10565 ms</span>
+                <span class="method-start">1218 ms</span>
               </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">MyDocument</span>
-                <span class="method-start">25488 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">MyReports</span>
-                <span class="method-start">104158 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">MoreReports</span>
-                <span class="method-start">164287 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">MyReminder</span>
-                <span class="method-start">218232 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">ImportUtility</span>
-                <span class="method-start">438689 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">AdvancedSearch</span>
-                <span class="method-start">527491 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">AdvancedSearchDoc</span>
-                <span class="method-start">640528 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">AdvancedSearchreport</span>
-                <span class="method-start">735371 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">HearingCalender</span>
-                <span class="method-start">867079 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">CaseHearing</span>
-                <span class="method-start">894761 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">NoticeDocViewandDownload</span>
-                <span class="method-start">920919 ms</span>
-              </div> <!-- test-method -->
+              <div class="configuration-test after">
+                <span class="method-name">Closing</span>
+                <span class="method-start">1230 ms</span>
+              </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
     </div> <!-- wrapper -->
   </body>
-<script type="text/javascript" src="testng-reports2.js"></script>
 </html>

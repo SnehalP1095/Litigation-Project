@@ -64,7 +64,7 @@ public class LicensePerformerInternal
 	
 	@Test(priority = 1)
 	void Login() throws InterruptedException, IOException
-	{   
+	{
 		test = extent.startTest("Logging In - Performer (Internal)");
 		test.log(LogStatus.INFO, "Logging into system");
 		
@@ -79,7 +79,7 @@ public class LicensePerformerInternal
 		
 		driver = login.Login.UserLogin(uname,password,"License");		//Method of Login class to login user.
 		
-		test.log(LogStatus.PASS, "Test Passed 2.");
+		test.log(LogStatus.PASS, "Test Passed.");
 		extent.endTest(test);
 		extent.flush();
 	}
