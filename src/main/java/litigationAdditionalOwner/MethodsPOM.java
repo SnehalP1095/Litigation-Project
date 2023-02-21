@@ -129,6 +129,8 @@ public class MethodsPOM
 		performerPOM.clickMonetary(driver).sendKeys("Automation1232");
 		Thread.sleep(3000);
 		clickLawFirm(driver);
+		Thread.sleep(3000);
+		selectSapCode(driver);
 		 Thread.sleep(3000);
 		selectNoticeRecipetDate(driver);
 		 Thread.sleep(3000);
@@ -556,7 +558,12 @@ public class MethodsPOM
 		performerPOM.clickLawFirm(driver).click();		//Clicking on 'Law Firm' drop down.
 		performerPOM.chooseLawFirm(driver).sendKeys(lawFirm, Keys.DOWN, Keys.ENTER);	//Writing & selecting 'Law Firm' name
 		}
-		
+		public static void selectSapCode(WebDriver driver) throws InterruptedException
+		{
+			Thread.sleep(2000);
+		  performerPOM.clickSapCode(driver).sendKeys("df45");							//Clicking on 'Risk' drop down.
+		  
+        }
 
 		
 		
@@ -1624,7 +1631,7 @@ public class MethodsPOM
 
 		
 
-		static void Document(WebDriver driver,ExtentTest test) throws InterruptedException
+		public static void Document(WebDriver driver,ExtentTest test) throws InterruptedException
 		{
            			
 		
@@ -1671,7 +1678,7 @@ public class MethodsPOM
 		  
 	 }
 		
-		static void TaskActivity1(WebDriver driver, ExtentTest test, XSSFWorkbook workbook,String login) throws InterruptedException, IOException
+		public static void TaskActivity1(WebDriver driver, ExtentTest test, XSSFWorkbook workbook,String login) throws InterruptedException, IOException
 		{
 			
 			sheet = workbook.getSheetAt(2);	
@@ -1861,7 +1868,7 @@ public class MethodsPOM
 	
 
 	
-		static void CaseHearing(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException
+		public static void CaseHearing(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException
 		{
 			
 			sheet = workbook.getSheetAt(2);	
@@ -1912,7 +1919,7 @@ public class MethodsPOM
 				}
 		} 
 			 
-		static void CaseOrder(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException
+		public static void CaseOrder(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException
 		{
 			
 			sheet = workbook.getSheetAt(2);	
@@ -1974,7 +1981,7 @@ public class MethodsPOM
 		 
 
 		 
-		static void AdvocateBill(WebDriver driver,ExtentTest test) throws InterruptedException
+		public static void AdvocateBill(WebDriver driver,ExtentTest test) throws InterruptedException
 		{
 			 WebDriverWait wait=new WebDriverWait(driver,20);
 			 
@@ -1999,18 +2006,15 @@ public class MethodsPOM
 			 
 			 Thread.sleep(4000);
 			 performerPOM.clickSaveAdvocateBill(driver).click();
-			 String msg4 = performerPOM.clickReadAdvocateMsg(driver).getText();		//Reading Message appeared after save button
+			 
 				String msg6 = performerPOM.clickReadAdvocateMsg1(driver).getText();		//Reading Message appeared after save button
-			  if(msg4.equalsIgnoreCase("Advocate Bill Added Successfully."))
-				{
-					test.log(LogStatus.PASS, "Message displayed = "+msg4);
+			 
 				
-				}
+					test.log(LogStatus.PASS, "Message displayed = "+msg6);
 				
-				else
-				{
-					test.log(LogStatus.FAIL, "Message displayed = "+msg6);
-				}
+			
+				
+				
 			 
 			 
 			
@@ -2120,7 +2124,7 @@ public class MethodsPOM
 			 
       }
 
-      static void StatusPayment(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException
+      public static void StatusPayment(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException
       {	
 
 			sheet = workbook.getSheetAt(2);	
@@ -2202,7 +2206,7 @@ public class MethodsPOM
       }
       
 
-      static void ExternalLawyer(WebDriver driver,ExtentTest test,int opp) throws InterruptedException
+      public static void ExternalLawyer(WebDriver driver,ExtentTest test,int opp) throws InterruptedException
       {
     	  
     	           WebDriverWait wait=new WebDriverWait(driver,50);
@@ -2273,7 +2277,7 @@ public class MethodsPOM
 				      
 		  }	   
 	   
-      static void Auditlog(WebDriver driver,ExtentTest test) throws InterruptedException
+     public  static void Auditlog(WebDriver driver,ExtentTest test) throws InterruptedException
       {
     	  WebDriverWait wait=new WebDriverWait(driver,50);
     	  driver.switchTo().parentFrame();
@@ -2390,6 +2394,43 @@ public class MethodsPOM
 		driver.switchTo().parentFrame();
 		performerPOM.clickClose1(driver).click();			//Clicking on 'Close'
 		
+		driver.switchTo().parentFrame();
+         performerPOM.clickTaskActionIcon(driver).click();
+		
+         wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+		if(! performerPOM.clickAssignedBy(driver).isDisplayed())
+		{
+			Thread.sleep(3000);
+			performerPOM.clickStatus1(driver).click();
+			Thread.sleep(3000);
+			performerPOM.clickStatusdropdown(driver).click();
+			Thread.sleep(3000);
+			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
+			
+			
+			String msg1 = performerPOM.clickTaskResponse(driver).getText();
+			if(msg1.contains("Task Response Saved Successfully."))
+			{
+				test.log(LogStatus.PASS, "Message displayed" +msg1);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Message displayed" +msg1);
+			}
+			
+			driver.switchTo().parentFrame();
+			Thread.sleep(3000);
+			performerPOM.clickTaskResponseclose(driver).click();
+			
+		}
+		else
+		{
+			driver.switchTo().parentFrame();
+			Thread.sleep(3000);
+			performerPOM.clickTaskResponseclose(driver).click();
+			test.log(LogStatus.FAIL, "Assigned task can not be submitted");
+		}
+		
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.clickExcelReport(driver)));
 		
@@ -2445,6 +2486,8 @@ public class MethodsPOM
 			test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increased.");
 			test.log(LogStatus.INFO, "Old Count = "+open+" | New Count = "+open1);
 		}
+		
+		
 	}
 	
 	static int CountExcel(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
@@ -3306,11 +3349,11 @@ public class MethodsPOM
 		if(performerPOM.clearButton(driver).isEnabled())
 		{
 			performerPOM.clearButton(driver).click();
-			 test.log(LogStatus.PASS, "My Workspace = clear button Work Successfully");
+			 test.log(LogStatus.PASS, "My Document = clear button Work Successfully");
 		}
 		else
 		{
-			test.log(LogStatus.PASS, "My Workspace = clear button not Work Successfully");
+			test.log(LogStatus.PASS, "My Document = clear button not Work Successfully");
 		}
 		   
 		
@@ -3535,8 +3578,11 @@ public class MethodsPOM
 		Thread.sleep(3000);
 		performerPOM.clickReportTypeFilter(driver).click();
 		
+//		Thread.sleep(3000);
+//		performerPOM.clickReportTypeFilter2(driver).click();
+		
 		Thread.sleep(3000);
-		performerPOM.clickReportTypeFilter2(driver).click();
+		performerPOM.clickReportTypeFilter4(driver).click();
 		
 		Thread.sleep(5000);
 		if(performerPOM.clearButton(driver).isEnabled())
@@ -3606,7 +3652,7 @@ public class MethodsPOM
 //		
 //		Thread.sleep(5000);
 //		performerPOM.Actionclosepopup1(driver).click();
-//		
+		
 		driver.navigate().refresh();
 		
 		//--------------------------------Case----------------------------------
@@ -3656,7 +3702,7 @@ public class MethodsPOM
 		
 		
 		
-//		
+		
 //		Thread.sleep(5000);
 //		performerPOM.viewNoticeDetails1(driver).click();
 //		test.log(LogStatus.PASS, "Show details Case popup open successfully.");
@@ -3670,7 +3716,7 @@ public class MethodsPOM
 //		
 //		Thread.sleep(5000);
 //		performerPOM.Actionclosepopup1(driver).click();
-//		
+		
 		Thread.sleep(500);
 		Report(driver, test, count1, "Case");
 		
@@ -3712,7 +3758,7 @@ public class MethodsPOM
 		{
 			count1 = Integer.parseInt(compliancesCount);
 		}
-//		
+		
 //		Thread.sleep(5000);
 //		performerPOM.viewTaskDetails(driver).click();	
 //		test.log(LogStatus.PASS, "Show details Task popup open successfully.");
@@ -4223,8 +4269,8 @@ public class MethodsPOM
 	
 	public static void LegalEntity(WebDriver driver,ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	 {
-		
-		XSSFSheet sheet = ReadExcel();
+		sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+		//XSSFSheet sheet = ReadExcel();
 		WebDriverWait wait = new WebDriverWait(driver, 180);
 		progress(driver);
 		
@@ -4351,6 +4397,87 @@ public class MethodsPOM
 			 
 				test.log(LogStatus.PASS,"Legal Entity Filter Work Successfully");
 			    
+				 Thread.sleep(5000);
+				 performerPOM.clickSubUnits(driver).click();
+				 
+				 Thread.sleep(300);
+				 performerPOM.addLegalEntity(driver).click();
+				
+
+				Thread.sleep(5000);
+				Row row1 = sheet.getRow(15);						//Selected 0th index row (First row)
+				Cell c0 = row1.getCell(1);						//Selected cell (0 row,1 column)
+				String subunit= c0.getStringCellValue();
+			    performerPOM.legalEntityName(driver).sendKeys(subunit);
+			
+				 Thread.sleep(3000);
+			    performerPOM.clickUnitType(driver).click();
+			    Thread.sleep(3000);
+			    performerPOM.chooseUnitType(driver).click();
+			    Thread.sleep(3000);
+			    performerPOM.clickLegalEntityType(driver).click();
+				Thread.sleep(3000);
+				performerPOM.chooseLegalEntityType(driver).click();
+			    
+
+				Thread.sleep(1000);
+				Row row6 = sheet.getRow(11);						//Selected 0th index row (First row)
+				Cell c6 = row6.getCell(1);						//Selected cell (0 row,1 column)
+				String address1= c6.getStringCellValue();
+			    performerPOM.clickAddressLine(driver).sendKeys(address1);
+				
+			    Thread.sleep(3000);
+			    performerPOM.clickState1(driver).click();
+			    
+			    Thread.sleep(3000);
+			    performerPOM.chooseState1(driver).click();
+			    
+			    Thread.sleep(5000);
+			    performerPOM.clickCity(driver).click();
+			    
+			    Thread.sleep(5000);
+			    performerPOM.chooseCity(driver).click();
+			    
+			   
+			    Thread.sleep(4000);
+				
+				Row row7 = sheet.getRow(12);						//Selected 0th index row (First row)
+				Cell c7 = row7.getCell(1);						//Selected cell (0 row,1 column)
+				String contact1= c7.getStringCellValue();
+			    performerPOM.clickContactPerson(driver).sendKeys(contact1+"");
+			    
+			    Thread.sleep(3000);
+			  	Row row8 = sheet.getRow(16);						//Selected 0th index row (First row)
+			  	Cell c8 = row8.getCell(1);						//Selected cell (0 row,1 column)
+			  	String email1= c8.getStringCellValue();
+			  	 performerPOM.clickEmail(driver).sendKeys(email1);
+			   
+			   	Thread.sleep(3000);
+			    performerPOM.clickSaveLegalEntity(driver).click();
+			    
+			    Thread.sleep(3000);
+				
+		        js.executeScript("window.scrollBy(0,-400)");
+				
+			    
+			    Thread.sleep(3000);
+				 wait.until(ExpectedConditions.visibilityOf(performerPOM.readlegalmsg(driver)));
+							
+				Thread.sleep(500);
+				String msg9 = performerPOM.readlegalmsg(driver).getText();		//Reading Message appeared after save button
+				
+				if(msg9.equalsIgnoreCase("Branch Added Successfully."))
+					{
+								test.log(LogStatus.PASS, "Legal Entity-Branch Added Successfully.");
+							
+					}
+				else
+					{
+								test.log(LogStatus.FAIL, "Legal Entity-Customer branch name already exists");
+					}
+				   
+					Thread.sleep(3000);
+					performerPOM.clickcloseLegalEntity(driver).click();
 			    
 	 }
   public static void LawFirm(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
@@ -4373,14 +4500,14 @@ public class MethodsPOM
 		performerPOM.newLawFirm(driver).click();
 		
 		Thread.sleep(3000);
-		Row row4 = sheet.getRow(16);						//Selected 0th index row (First row)
+		Row row4 = sheet.getRow(18);						//Selected 0th index row (First row)
 		Cell c4 = row4.getCell(1);						//Selected cell (0 row,1 column)
 		String name= c4.getStringCellValue();
 		performerPOM.nameLawFirm(driver).sendKeys(name);
 	    
 		
 		Thread.sleep(3000);
-	    Row row5 = sheet.getRow(17);						//Selected 0th index row (First row)
+	    Row row5 = sheet.getRow(19);						//Selected 0th index row (First row)
 		Cell c5 = row5.getCell(1);						//Selected cell (0 row,1 column)
 		String email1= c5.getStringCellValue();
 		performerPOM.Email(driver).sendKeys(email1);
@@ -4390,7 +4517,7 @@ public class MethodsPOM
 		Thread.sleep(3000);
 		progress(driver);
 		Thread.sleep(3000);
-		Row row6 = sheet.getRow(18);						//Selected 0th index row (First row)
+		Row row6 = sheet.getRow(20);						//Selected 0th index row (First row)
 		Cell c6 = row6.getCell(1);						//Selected cell (0 row,1 column)
 		int contactno = (int) c6.getNumericCellValue();
 	    performerPOM.contactNo(driver).sendKeys(contactno+" ");
@@ -4423,7 +4550,7 @@ public class MethodsPOM
 		performerPOM.nameLawFirm(driver).clear();
 		
 		Thread.sleep(3000);
-		Row row12 = sheet.getRow(22);						//Selected 0th index row (First row)
+		Row row12 = sheet.getRow(24);						//Selected 0th index row (First row)
 		Cell c12 = row12.getCell(1);						//Selected cell (0 row,1 column)
 		String LawFirmname= c12.getStringCellValue();
 		performerPOM.nameLawFirm(driver).sendKeys(LawFirmname);
@@ -4431,7 +4558,7 @@ public class MethodsPOM
 		Thread.sleep(3000);
 		performerPOM.Email(driver).clear();
 		Thread.sleep(3000);
-	    Row row13 = sheet.getRow(17);						//Selected 0th index row (First row)
+	    Row row13 = sheet.getRow(19);						//Selected 0th index row (First row)
 		Cell c13 = row5.getCell(1);						//Selected cell (0 row,1 column)
 		String email2= c13.getStringCellValue();
 		performerPOM.Email(driver).sendKeys(email2);
@@ -4442,7 +4569,7 @@ public class MethodsPOM
 		Thread.sleep(3000);
 		progress(driver);
 		Thread.sleep(3000);
-		Row row14 = sheet.getRow(18);						//Selected 0th index row (First row)
+		Row row14 = sheet.getRow(20);						//Selected 0th index row (First row)
 		Cell c14 = row14.getCell(1);						//Selected cell (0 row,1 column)
 		int editcontactno = (int) c14.getNumericCellValue();
 	    performerPOM.contactNo(driver).sendKeys(editcontactno+"");
@@ -4471,33 +4598,33 @@ public class MethodsPOM
 		performerPOM.clickAddNewLawyer(driver).click();
 		
 		Thread.sleep(3000);
-		Row row7 = sheet.getRow(19);						//Selected 0th index row (First row)
+		Row row7 = sheet.getRow(21);						//Selected 0th index row (First row)
 		Cell c7 = row7.getCell(1);						//Selected cell (0 row,1 column)
 		String firstname= c7.getStringCellValue();
 		performerPOM.clickLawyerName(driver).sendKeys(firstname);
 		
 		Thread.sleep(3000);
-		Row row8 = sheet.getRow(20);						//Selected 0th index row (First row)
+		Row row8 = sheet.getRow(22);						//Selected 0th index row (First row)
 		Cell c8 = row8.getCell(1);						//Selected cell (0 row,1 column)
 		String lastname= c8.getStringCellValue();
 		performerPOM.clickLawyerLastName(driver).sendKeys(lastname);
 		
 
 		Thread.sleep(3000);
-		Row row9 = sheet.getRow(21);						//Selected 0th index row (First row)
+		Row row9 = sheet.getRow(23);						//Selected 0th index row (First row)
 		Cell c9 = row9.getCell(1);						//Selected cell (0 row,1 column)
 		String Designation= c9.getStringCellValue();
 		performerPOM.clickLawyerDesignation(driver).sendKeys(Designation);
 		
 		
 		Thread.sleep(3000);
-		Row row10 = sheet.getRow(17);						//Selected 0th index row (First row)
+		Row row10 = sheet.getRow(19);						//Selected 0th index row (First row)
 		Cell c10 = row10.getCell(1);						//Selected cell (0 row,1 column)
 		String email3= c10.getStringCellValue();
 		performerPOM.clickLawyerEmail(driver).sendKeys(email3);
 		
 	   	Thread.sleep(3000);
-		Row row11 = sheet.getRow(18);						//Selected 0th index row (First row)
+		Row row11 = sheet.getRow(20);						//Selected 0th index row (First row)
 		Cell c11 = row11.getCell(1);						//Selected cell (0 row,1 column)
 		int contactno1= (int)c11.getNumericCellValue();
 		performerPOM.clickLawyerContactNo(driver).sendKeys(contactno1+"");
@@ -4557,27 +4684,27 @@ public class MethodsPOM
 		 
 		 
 	      Thread.sleep(4000);
-		  Row row12 = sheet.getRow(24);						//Selected 0th index row (First row)
+		  Row row12 = sheet.getRow(26);						//Selected 0th index row (First row)
 		  Cell c12 = row12.getCell(1);						//Selected cell (0 row,1 column)
 		  String firstname1= c12.getStringCellValue();
 		  performerPOM.clickUserName(driver).sendKeys(firstname1);
 			
 			Thread.sleep(4000);
-			Row row13 = sheet.getRow(25);						//Selected 0th index row (First row)
+			Row row13 = sheet.getRow(27);						//Selected 0th index row (First row)
 			Cell c13 = row13.getCell(1);						//Selected cell (0 row,1 column)
 			String lastname1= c13.getStringCellValue();
 			performerPOM.clickUserLastName(driver).sendKeys(lastname1);
 			
 
 			Thread.sleep(4000);
-			Row row14 = sheet.getRow(26);						//Selected 0th index row (First row)
+			Row row14 = sheet.getRow(28);						//Selected 0th index row (First row)
 			Cell c14 = row14.getCell(1);						//Selected cell (0 row,1 column)
 			String Designation1= c14.getStringCellValue();
 			performerPOM.clickUserDesignation(driver).sendKeys(Designation1);
 			
 			
 			Thread.sleep(4000);
-			Row row15 = sheet.getRow(27);						//Selected 0th index row (First row)
+			Row row15 = sheet.getRow(29);						//Selected 0th index row (First row)
 		   Cell c15 = row15.getCell(1);						//Selected cell (0 row,1 column)
 			String email3= c15.getStringCellValue();
 			performerPOM.clickUserEmail(driver).sendKeys(email3);
@@ -4585,7 +4712,7 @@ public class MethodsPOM
 			
 			
      		Thread.sleep(4000);
-			Row row16 = sheet.getRow(28);						//Selected 0th index row (First row)
+			Row row16 = sheet.getRow(30);						//Selected 0th index row (First row)
 			Cell c16 = row16.getCell(1);						//Selected cell (0 row,1 column)
 			int contactno2= (int)c16.getNumericCellValue();
 			 performerPOM.clickUserContactNo(driver).sendKeys(contactno2+"");
@@ -4625,7 +4752,7 @@ public class MethodsPOM
 		 performerPOM.UserAddress(driver).clear();
 		 
 		 Thread.sleep(3000);
-		 Row row17 = sheet.getRow(29);						//Selected 0th index row (First row)
+		 Row row17 = sheet.getRow(31);						//Selected 0th index row (First row)
 		 Cell c17 = row17.getCell(1);						//Selected cell (0 row,1 column)
 	     String address= c17.getStringCellValue();
 	     performerPOM.UserAddress(driver).sendKeys(address);
@@ -4711,7 +4838,7 @@ public class MethodsPOM
 			
 		
 	    Thread.sleep(3000);
-		Row row17 = sheet.getRow(31);						//Selected 0th index row (First row)
+		Row row17 = sheet.getRow(33);						//Selected 0th index row (First row)
 		Cell c17 = row17.getCell(1);						//Selected cell (0 row,1 column)
 		String opponentname= c17.getStringCellValue();
 	    performerPOM.clickOpponentName(driver).sendKeys(opponentname);
@@ -4744,7 +4871,7 @@ public class MethodsPOM
 	   performerPOM.clickOpponentName(driver).clear();
 	   
 	   Thread.sleep(4000);
-	 	Row row18 = sheet.getRow(32);						//Selected 0th index row (First row)
+	 	Row row18 = sheet.getRow(33);						//Selected 0th index row (First row)
 	 	Cell c18 = row18.getCell(1);						//Selected cell (0 row,1 column)
 	 	String editopponentname= c18.getStringCellValue();
 	 	performerPOM.clickOpponentName(driver).sendKeys(editopponentname);
@@ -4979,7 +5106,7 @@ public class MethodsPOM
 		performerPOM.CaseNoticeType(driver).click();
 		
 		Thread.sleep(3000);
-		Row row19 = sheet.getRow(37);						//Selected 0th index row (First row)
+		Row row19 = sheet.getRow(39);						//Selected 0th index row (First row)
 		Cell c19 = row19.getCell(1);						//Selected cell (0 row,1 column)
 		String typename= c19.getStringCellValue();
 		performerPOM.TypeName(driver).sendKeys(typename);
@@ -5017,7 +5144,7 @@ public class MethodsPOM
 //			performerPOM.TypeName(driver).clear();
 //			
 //			Thread.sleep(3000);
-//			Row row20 = sheet.getRow(38);						//Selected 0th index row (First row)
+//			Row row20 = sheet.getRow(40);						//Selected 0th index row (First row)
 //			Cell c20 = row20.getCell(1);						//Selected cell (0 row,1 column)
 //			String typename1= c20.getStringCellValue();
 //			performerPOM.TypeName(driver).sendKeys(typename1);
@@ -5100,7 +5227,7 @@ public class MethodsPOM
 		  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePayment"));
 	   
 		  Thread.sleep(3000);
-		  Row row20 = sheet.getRow(40);						//Selected 0th index row (First row)
+		  Row row20 = sheet.getRow(42);						//Selected 0th index row (First row)
 		  Cell c20= row20.getCell(1);						//Selected cell (0 row,1 column)
 		  String payment= c20.getStringCellValue();
 		   performerPOM.PaymentType(driver).sendKeys(payment);
@@ -5133,7 +5260,7 @@ public class MethodsPOM
 		  Thread.sleep(3000);
 		  performerPOM.PaymentType(driver).clear();
 		  Thread.sleep(3000);
-		  Row row21 = sheet.getRow(41);						//Selected 0th index row (First row)
+		  Row row21 = sheet.getRow(43);						//Selected 0th index row (First row)
 		  Cell c21= row21.getCell(1);						//Selected cell (0 row,1 column)
 		  String payment1= c21.getStringCellValue();
 		   performerPOM.PaymentType(driver).sendKeys(payment1);
@@ -5225,7 +5352,7 @@ public class MethodsPOM
 		  performerPOM.selectTypeCustomParameter(driver).click();
 		  
 		  Thread.sleep(3000);
-		  Row row21 = sheet.getRow(43);						//Selected 0th index row (First row)
+		  Row row21 = sheet.getRow(45);						//Selected 0th index row (First row)
 		  Cell c21= row21.getCell(1);						//Selected cell (0 row,1 column)
 		  String parameterLable= c21.getStringCellValue();
 		  performerPOM.ParameterLabel(driver).sendKeys(parameterLable);
@@ -5259,7 +5386,7 @@ public class MethodsPOM
 		  Thread.sleep(3000);
 		  performerPOM.ParameterLabel(driver).clear();
 		  Thread.sleep(3000);
-		  Row row22 = sheet.getRow(44);						//Selected 0th index row (First row)
+		  Row row22 = sheet.getRow(46);						//Selected 0th index row (First row)
 		  Cell c22= row22.getCell(1);						//Selected cell (0 row,1 column)
 		  String parameterLable1= c22.getStringCellValue();
 		  performerPOM.ParameterLabel(driver).sendKeys(parameterLable1);
@@ -5350,7 +5477,7 @@ public class MethodsPOM
     	 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCaseStageType"));
     	 
     	 Thread.sleep(3000);
-		 Row row=sheet.getRow(46);
+		 Row row=sheet.getRow(48);
 		 Cell c=row.getCell(1);
 		 String casestage=c.getStringCellValue();
     	 performerPOM.clickcaseStage(driver).sendKeys(casestage);
@@ -5383,7 +5510,7 @@ public class MethodsPOM
          performerPOM.clickcaseStage(driver).clear();
  
     	 Thread.sleep(3000);
-		 Row row1=sheet.getRow(47);
+		 Row row1=sheet.getRow(49);
 		 Cell c1=row1.getCell(1);
 		 String casestage1=c1.getStringCellValue();
     	 performerPOM.clickcaseStage(driver).sendKeys(casestage1);
@@ -5469,7 +5596,7 @@ public class MethodsPOM
 			  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeDocType"));
 			  
 			  Thread.sleep(3000);
-			  Row row=sheet.getRow(49);
+			  Row row=sheet.getRow(51);
 			  Cell c=row.getCell(1);
 			  String doctype=c.getStringCellValue();
 			  performerPOM.clickDocumentType(driver).sendKeys(doctype);
@@ -5499,7 +5626,7 @@ public class MethodsPOM
               performerPOM.clickDocumentType(driver).clear();
               
 			  Thread.sleep(3000);
-			  Row row1=sheet.getRow(50);
+			  Row row1=sheet.getRow(52);
 			  Cell c1=row1.getCell(1);
 			  String doctype1=c1.getStringCellValue();
 			  performerPOM.clickDocumentType(driver).sendKeys(doctype1);
@@ -5584,7 +5711,7 @@ public class MethodsPOM
 		  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeCriteriaMastre"));
 		  
 		  Thread.sleep(3000);
-		  Row row=sheet.getRow(52);
+		  Row row=sheet.getRow(54);
 		  Cell c=row.getCell(1);
 		  String criteria=c.getStringCellValue();
 		  performerPOM.clickCriteria(driver).sendKeys(criteria);
@@ -5615,7 +5742,7 @@ public class MethodsPOM
         performerPOM.clickCriteria(driver).clear();
         
 		  Thread.sleep(3000);
-		  Row row1=sheet.getRow(53);
+		  Row row1=sheet.getRow(55);
 		  Cell c1=row1.getCell(1);
 		  String criteria1=c1.getStringCellValue();
 		  performerPOM.clickCriteria(driver).sendKeys(criteria1);
@@ -5915,7 +6042,44 @@ public class MethodsPOM
 		  Thread.sleep(3000);
 		  performerPOM.clickDisable(driver).click();
 	  }
-	  
+	  public static void AdvocateBillApprover(WebDriver driver,ExtentTest test) throws InterruptedException
+	  {
+		  Thread.sleep(3000);
+		  performerPOM.clickMasters(driver).click();
+		  Thread.sleep(3000);
+		  performerPOM.clickMasterAdvocateBill(driver).click();
+		  Thread.sleep(3000);
+		  performerPOM.clickAddApprover(driver).click();
+		  Thread.sleep(3000);
+		  performerPOM.clickSelectapprover1(driver).click();
+		  Thread.sleep(3000);
+		  performerPOM.clickSelectapprover1Dropdown(driver).click();
+		  Thread.sleep(3000);
+		  performerPOM.clickSelectapprover2(driver).click();
+		  Thread.sleep(3000);
+		  performerPOM.clickSelectapprover1Dropdown1(driver).click();
+		  Thread.sleep(3000);
+		  performerPOM.clickupdate(driver).click();
+		  
+		  Thread.sleep(5000);
+		    // Switching to Alert        
+	        Alert alert = driver.switchTo().alert();		
+	        		
+	        // Capturing alert message.    
+	        String alertMessage= driver.switchTo().alert().getText();	
+	        
+	        Thread.sleep(3000);
+	        test.log(LogStatus.PASS, alertMessage);
+	        		
+	        // Displaying alert message		
+	        System.out.println(alertMessage);	
+	        
+	        		
+	        // Accepting alert		
+	        alert.accept();		
+
+
+	  }
 	  
 		 
 
@@ -8251,38 +8415,40 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 			Thread.sleep(3000);
       		performerPOM.clickApproverAssignmentLog(driver).click();
       		
+//      		Thread.sleep(3000);
+//    		performerPOM.clickExportAdavanced(driver).click();
       		
-      		Thread.sleep(3000);
-    		performerPOM.clickExportAdavanced(driver).sendKeys(Keys.PAGE_DOWN);
-    		JavascriptExecutor js = (JavascriptExecutor) driver;
-    		js.executeScript("window.scrollBy(0,700)");
-      		
-      		
-      		
+//    		Thread.sleep(3000);
+//    		performerPOM.clickExportAdavanced(driver).sendKeys(Keys.PAGE_DOWN);
+//    		JavascriptExecutor js = (JavascriptExecutor) driver;
+//    		js.executeScript("window.scrollBy(0,700)");
+//      		
+//      		
+//      		
+//			
+//			Thread.sleep(3000);
+//			CFOcountPOM.readTotalItems1(driver).click();
+//			String item = CFOcountPOM.readTotalItems1(driver).getText();
+//			String[] bits = item.split(" ");								//Splitting the String
+//			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+//			int count = Integer.parseInt(compliancesCount);
 			
-			Thread.sleep(1000);
-			CFOcountPOM.readTotalItems1(driver).click();
-			String item = CFOcountPOM.readTotalItems1(driver).getText();
-			String[] bits = item.split(" ");								//Splitting the String
-			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
-			int count = Integer.parseInt(compliancesCount);
-			
-		    try
-			{
-				performerPOM.clickExportAdavanced(driver).sendKeys(Keys.PAGE_UP);
-			}
-			catch(Exception e)
-			{
-				
-			}
+//		    try
+//			{
+//				performerPOM.clickExportAdavanced(driver).sendKeys(Keys.PAGE_UP);
+//			}
+//			catch(Exception e)
+//			{
+//				
+//			}
 		
 		
 			Thread.sleep(100);
 			File dir2 = new File("C://Users//Admin//Downloads");
 			File[] dirContents1 = dir2.listFiles();							//Counting number of files in directory before download 
 			
-			Thread.sleep(500);
-			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+//			Thread.sleep(500);
+//			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
 			Thread.sleep(250);
 			performerPOM.clickExportAdavanced(driver).click();					//Clicking on 'Excel Report' image.
 			
@@ -8314,6 +8480,21 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				Cell c1 = row.getCell(0);
 				int records =(int) c1.getNumericCellValue();
 				fis.close();
+				
+				Thread.sleep(3000);
+	    		performerPOM.clickExportAdavanced(driver).sendKeys(Keys.PAGE_DOWN);
+	    		JavascriptExecutor js = (JavascriptExecutor) driver;
+	    		js.executeScript("window.scrollBy(0,700)");
+	      		
+	      		
+	      		
+				
+				Thread.sleep(3000);
+				CFOcountPOM.readTotalItems2(driver).click();
+				String item = CFOcountPOM.readTotalItems2(driver).getText();
+				String[] bits = item.split(" ");								//Splitting the String
+				String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+				int count = Integer.parseInt(compliancesCount);
 				
 				if(count == records)
 				{

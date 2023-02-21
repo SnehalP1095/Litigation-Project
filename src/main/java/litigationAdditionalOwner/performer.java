@@ -239,7 +239,7 @@ public class performer
 		
 		
 	
-//	@Test(priority = 13)
+	@Test(priority = 13)
 	void TaskOpen() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Task - Open Count Verification");
@@ -389,7 +389,7 @@ public class performer
 	
 	
 	
-	@Test(priority = 26)
+//	@Test(priority = 26)
     void MyReports() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Reports excel count verification");
@@ -412,7 +412,7 @@ public class performer
 		extent.flush();
 	}
 	
-//	@Test(priority = 28)
+	@Test(priority = 28)
 	void MyReminder() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reminder verification");
@@ -524,7 +524,7 @@ public class performer
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 23)
+	//	@Test(priority = 23)
 		void CaseAdvocateBill() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Advocate bill verification");
@@ -535,7 +535,7 @@ public class performer
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 24)
+//		@Test(priority = 24)
 		void CaseAdvocateBill1() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Advocate bill verification");

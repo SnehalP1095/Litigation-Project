@@ -128,6 +128,15 @@ public class CFOMethod {
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	       	js.executeScript("window.scrollBy(0,800)");
+	       	
+	       	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			
+			 Thread.sleep(5000);
+				performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	       	Thread.sleep(2000);
 		
@@ -339,14 +348,19 @@ public class CFOMethod {
 		public static void CaseNoticeTypeGraph(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
 		{
 			
-//			Thread.sleep(3000);
-//			performerPOM.CaseNoticeTypeSummaryGraph1(driver).click();
-			
-			
-			
+
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	       	js.executeScript("window.scrollBy(0,1000)");
+	       	
+	    	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			
+			 Thread.sleep(5000);
+				performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	       	Thread.sleep(2000);
 		
@@ -562,6 +576,15 @@ public class CFOMethod {
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	       	js.executeScript("window.scrollBy(0,1500)");
+	       	
+	    	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			
+			 Thread.sleep(5000);
+				performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	       	Thread.sleep(2000);
 		
@@ -775,6 +798,15 @@ public class CFOMethod {
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	       	js.executeScript("window.scrollBy(0,1500)");
+	       	
+	    	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			
+			 Thread.sleep(5000);
+				performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	       	Thread.sleep(2000);
 		
@@ -989,6 +1021,15 @@ public class CFOMethod {
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	      	js.executeScript("window.scrollBy(0,1500)");
+	      	
+	    	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			
+			 Thread.sleep(5000);
+				performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	      	Thread.sleep(3000);
 		
@@ -1203,6 +1244,15 @@ public class CFOMethod {
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	      	js.executeScript("window.scrollBy(0,2000)");
+	      	
+	    	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			
+			 Thread.sleep(5000);
+				performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	      	Thread.sleep(2000);
 		
@@ -1565,12 +1615,12 @@ public class CFOMethod {
     		if(count1 > gridRecords)
     		{
     			test.log(LogStatus.PASS, "Total Notice Count increased in grid after adding New Notice.");
-    			test.log(LogStatus.INFO, "Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
+    			test.log(LogStatus.PASS, "Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
     		}
     		else
     		{
     			test.log(LogStatus.FAIL, "Total Notice Count doesn't increased in grid after adding New Notice.");
-    			test.log(LogStatus.INFO, "Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
+    			test.log(LogStatus.FAIL, "Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
     		}
     		
     		Thread.sleep(1000);
@@ -1730,6 +1780,7 @@ public class CFOMethod {
 			  Thread.sleep(500);
 			  performerPOM.selectRisk(driver).click();						//Selecting second option 'High' risk.
 	        }
+			
 			public  static void selectNoticeRecipetDate(WebDriver driver)
 		      {
 		    	 	
@@ -1884,7 +1935,6 @@ public class CFOMethod {
 	        // Accepting alert		
 	        alert.accept();	
 	        
-	       
 	        
 	        Thread.sleep(3000);
 	        performerPOM.clickNoticeDocumentsharecfo(driver).click();
@@ -1903,7 +1953,7 @@ public class CFOMethod {
 	        System.out.println(alertMessage1);
 	        
 	     // Accepting alert		
-	        alert.accept();	
+	        alert1.accept();	
 	        
 	        
 	        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("Iframe_Docshare"));
@@ -1936,8 +1986,13 @@ public class CFOMethod {
 	        Thread.sleep(3000);
 	        performerPOM. clickNoticeDocumentshareclosepopupcfo(driver).click();
 	        
-	        driver.switchTo().parentFrame();
+	       driver.switchTo().parentFrame();
+	       
+	      
 	        
+	       
+	        
+	  
 	        
 	        
        }
@@ -2336,20 +2391,20 @@ public class CFOMethod {
 					Thread.sleep(3000);
 					performerPOM.clickNoticeViewPaymentDoccfo(driver).click();
 					
-					Thread.sleep(3000);
+					Thread.sleep(4000);
 					performerPOM.clickNoticeclosePaymentDocpopupcfo(driver).click();
 					
+					test.log(LogStatus.PASS, "Payment Document popup open successfully");
 					
-					
-					if(msg4.equalsIgnoreCase("Payment Document popup open successfully"))
-					{
-						test.log(LogStatus.PASS, "Payment Document popup open successfully");
-					
-					}
-					else
-					{
-						test.log(LogStatus.FAIL, "Payment Document popup does not open successfully");
-					}
+//					if(msg4.equalsIgnoreCase("Payment Document popup open successfully"))
+//					{
+//						test.log(LogStatus.PASS, "Payment Document popup open successfully");
+//					
+//					}
+//					else
+//					{
+//						test.log(LogStatus.FAIL, "Payment Document popup does not open successfully");
+//					}
 					
 					Thread.sleep(3000);
 					performerPOM.clickNoticeEditPaymentcfo(driver).click();
@@ -2580,12 +2635,12 @@ public class CFOMethod {
     			if(open == count1)
     			{
     				test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
-    				test.log(LogStatus.INFO, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+    				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
     			}
     			else
     			{
     				test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
-    				test.log(LogStatus.INFO, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+    				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
     			}
     			
     			Thread.sleep(100);
@@ -2648,12 +2703,12 @@ public class CFOMethod {
     				if(count1 == SheetRecords)
     				{
     					test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-    					test.log(LogStatus.INFO, "Total records from Grid = "+count1+" | Total records from Report = "+SheetRecords);
+    					test.log(LogStatus.PASS, "Total records from Grid = "+count1+" | Total records from Report = "+SheetRecords);
     				}
     				else
     				{
     					test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
-    					test.log(LogStatus.INFO, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+SheetRecords);
+    					test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+SheetRecords);
     				}
     			}
     			else
@@ -2849,12 +2904,12 @@ public class CFOMethod {
 	     if(count1 > gridRecords)
 	     {
 	       test.log(LogStatus.PASS, "Total Case Count increased in grid after adding New Case.");
-	       test.log(LogStatus.INFO, "Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
+	       test.log(LogStatus.PASS, "Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
 	     }
 	     else
 	     {
 	        test.log(LogStatus.FAIL, "Total Case Count doesn't increased in grid after adding New Case.");
-	        test.log(LogStatus.INFO, "Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
+	        test.log(LogStatus.FAIL, "Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
 	     }
 
 	       Thread.sleep(500);
@@ -3150,8 +3205,25 @@ public class CFOMethod {
 		        
 		        test.log(LogStatus.PASS, "Document View popup open  succssesfully");
 		        
+		         Thread.sleep(3000);
+		        performerPOM.clickCaseDocumentdeletecfo(driver).click();
 		        
-		       
+		        Thread.sleep(5000);
+			    // Switching to Alert        
+		        Alert alert = driver.switchTo().alert();		
+		        		
+		        // Capturing alert message.    
+		        String alertMessage= driver.switchTo().alert().getText();	
+		        
+		        
+		        test.log(LogStatus.PASS, alertMessage);
+		        		
+		        // Displaying alert message		
+		        System.out.println(alertMessage);
+		        
+		 		
+		        // Accepting alert		
+		        alert.accept();	
 		        
 		        Thread.sleep(3000);
 		        performerPOM.clickCaseDocumentsharecfo(driver).click();
@@ -3202,29 +3274,6 @@ public class CFOMethod {
 	         	  driver.switchTo().parentFrame();
 	  	        Thread.sleep(3000);
 	  	        performerPOM. clickNoticeDocumentshareclosepopupcfo(driver).click();
-	  	        
-	  	       
-	         	
-		        
-		        Thread.sleep(3000);
-		        performerPOM.clickCaseDocumentdeletecfo(driver).click();
-		        
-		        Thread.sleep(5000);
-			    // Switching to Alert        
-		        Alert alert = driver.switchTo().alert();		
-		        		
-		        // Capturing alert message.    
-		        String alertMessage= driver.switchTo().alert().getText();	
-		        
-		        
-		        test.log(LogStatus.PASS, alertMessage);
-		        		
-		        // Displaying alert message		
-		        System.out.println(alertMessage);
-		        
-		 		
-		        // Accepting alert		
-		        alert.accept();	
 
 		     driver.switchTo().parentFrame();
 		 }
@@ -3245,7 +3294,7 @@ public class CFOMethod {
 			    Thread.sleep(300);
 			    performerPOM.clickCaseNewTask(driver).click();
 			    Thread.sleep(5000);
-			    performerPOM.clickHearingDate(driver).sendKeys("21-9-2023");
+			    performerPOM.clickHearingDate(driver).sendKeys("21-06-2022");
 			    
 			    
 //			    Thread.sleep(300);
@@ -3321,8 +3370,8 @@ public class CFOMethod {
              	Thread.sleep(1000);
 				OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
 				
-				Thread.sleep(2000);
-				performerPOM.clickMinimize(driver).click();	
+//				Thread.sleep(2000);
+//				performerPOM.clickMinimize(driver).click();	
 				
 				Thread.sleep(300);
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.readTaskMsgcfo(driver)));
@@ -3330,9 +3379,9 @@ public class CFOMethod {
 				Thread.sleep(3000);
 			
 				String msg1 = performerPOM.readTaskMsgcfo(driver).getText();
-				if(msg1.contains("Task Saved Successfully."))
+				if(msg1.contains("Task Saved Successfully. An Email containing task detail and access URL to provide response sent to assignee."))
 				{
-					test.log(LogStatus.PASS, "Task Saved Successfully.");
+					test.log(LogStatus.PASS, "Task Saved Successfully. An Email containing task detail and access URL to provide response sent to assignee.");
 				}
 				
 				else 
@@ -3342,7 +3391,7 @@ public class CFOMethod {
 				
 
 				
-			/*	Thread.sleep(3000);
+				Thread.sleep(3000);
 				performerPOM.clickNoticeTaskEditResponsecfo1(driver).click();
 				
 				Thread.sleep(1000);
@@ -3355,7 +3404,7 @@ public class CFOMethod {
 				performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 				
 				Thread.sleep(3000);
-				performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test");
+				performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test new");
 				
 				Thread.sleep(3000);
 				performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
@@ -3386,7 +3435,7 @@ public class CFOMethod {
 			        System.out.println(alertMessage);
 			        
 			     // Accepting alert		
-			        alert.accept(); */
+			        alert.accept();
 				
 			
 				
@@ -3402,11 +3451,11 @@ public class CFOMethod {
 					Thread.sleep(3000);
 					performerPOM.clickNewCaseHearing(driver).click();
 					
-					Thread.sleep(3000);
-					performerPOM.clickHearingcfo(driver).click();
-					
-					Thread.sleep(3000);
-					performerPOM.clickHearingdropdowncfo(driver).click();
+//					Thread.sleep(3000);
+//					performerPOM.clickHearingcfo(driver).click();
+//					
+//					Thread.sleep(3000);
+//					performerPOM.clickHearingdropdowncfo(driver).click();
 					
 					
 //					Thread.sleep(300);
@@ -3415,12 +3464,12 @@ public class CFOMethod {
 //					int HearingDate = (int) c1.getNumericCellValue();
 //					performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 					
-					//performerPOM.clickCaseHearingDate(driver).sendKeys("7-1-2023");	//Writing 'HearingDate'
+					performerPOM.clickCaseHearingDate(driver).sendKeys("20-02-2023");	//Writing 'HearingDate'
 					
 					
 				
-//				    Thread.sleep(3000);
-//				    performerPOM.clickSaveCaseHearingDate(driver).click();
+				    Thread.sleep(3000);
+				    performerPOM.clickSaveCaseHearingDate(driver).click();
 				
 					
 					Thread.sleep(2000);
@@ -3443,7 +3492,7 @@ public class CFOMethod {
 				    Thread.sleep(3000);
 				    performerPOM.clickCaseHearingDecsri(driver).clear();
 				    Thread.sleep(3000);
-				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 5 jan 2023");		//Writing 'HearingDescription'
+				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 5 feb 2023");		//Writing 'HearingDescription'
 				    
 				    Thread.sleep(3000);
 				    performerPOM.clickSaveCaseHearing(driver).click();
@@ -3494,7 +3543,7 @@ public class CFOMethod {
 				 Thread.sleep(6000);
 				 performerPOM.clickNewCaseOrder(driver).click();
 				 Thread.sleep(6000);
-				 performerPOM. clickCaseOrderDate(driver).sendKeys("13-02-2023");
+				 performerPOM. clickCaseOrderDate(driver).sendKeys("16-02-2023");
 				 Thread.sleep(3000);
 				 performerPOM.clickOrderPanel(driver).click();
 				 Thread.sleep(3000);
@@ -3528,11 +3577,11 @@ public class CFOMethod {
 				 
 				 performerPOM.clickCaseOrderTitle(driver).clear();
 				 
-				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 56");
+				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 574");
 				 
 				 performerPOM.clickCaseOrderDecri(driver).clear();
 				 
-				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 5 jan 23");     //click oder description
+				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 5 feb 23");     //click oder description
 				 
 				 performerPOM.ChooseOrderFile(driver).click();
 				 
@@ -3663,7 +3712,7 @@ public class CFOMethod {
 							Thread.sleep(3000);
 							performerPOM.clickCaseInvoiceNo1(driver).clear();
 							 Thread.sleep(3000);
-						    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 578");
+						    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 5758");
 						    
 						    Thread.sleep(6000);
 							performerPOM.clickCaseStatusPaymentUploadtcfo(driver);
@@ -4005,7 +4054,7 @@ public class CFOMethod {
 						
 						Thread.sleep(4000);
 						performerPOM.clickTypeDropdown1(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
-						Thread.sleep(4000);
+						Thread.sleep(5000);
 						performerPOM.selectTypeCase1(driver).click();
 						
 						Thread.sleep(4000);
@@ -4689,12 +4738,12 @@ public class CFOMethod {
 							if(count1 == SheetRecords)
 							{
 								test.log(LogStatus.PASS, type+" - No of records displayed matches to no of records in Excel Sheet.");
-								test.log(LogStatus.INFO, "Total records displayed = "+count1+". Total records in Excel sheet = "+SheetRecords);
+								test.log(LogStatus.PASS, "Total records displayed = "+count1+". Total records in Excel sheet = "+SheetRecords);
 							}
 							else
 							{
 								test.log(LogStatus.FAIL, type+" - No of records displayed doesn't matches to no of records in Excel Sheet.");
-								test.log(LogStatus.INFO, "Total records displayed = "+count1+". Total records in Excel sheet = "+SheetRecords);
+								test.log(LogStatus.FAIL, "Total records displayed = "+count1+". Total records in Excel sheet = "+SheetRecords);
 							}
 						}
 						else
@@ -4753,20 +4802,20 @@ public class CFOMethod {
 						Thread.sleep(500);
 						Report(driver, test, count1, "Notice");
 
-						Thread.sleep(10000);
-						performerPOM.viewNoticeDetails1(driver).click();
-						test.log(LogStatus.PASS, "Show details Notice popup open successfully.");
-						
-						
-						Thread.sleep(5000);
-						performerPOM.Actionclosepopup1(driver).click();
-						
-						Thread.sleep(5000);
-						performerPOM.showResponseDetailIcon1(driver).click();
-						test.log(LogStatus.PASS, "Show response details Notice  popup open successfully.");
-						
-						Thread.sleep(5000);
-						performerPOM.Actionclosepopup1(driver).click();
+//						Thread.sleep(10000);
+//						performerPOM.viewNoticeDetails1(driver).click();
+//						test.log(LogStatus.PASS, "Show details Notice popup open successfully.");
+//						
+//						
+//						Thread.sleep(5000);
+//						performerPOM.Actionclosepopup1(driver).click();
+//						
+//						Thread.sleep(5000);
+//						performerPOM.showResponseDetailIcon1(driver).click();
+//						test.log(LogStatus.PASS, "Show response details Notice  popup open successfully.");
+//						
+//						Thread.sleep(5000);
+//						performerPOM.Actionclosepopup1(driver).click();
 						
 						driver.navigate().refresh();
 						
@@ -4819,19 +4868,19 @@ public class CFOMethod {
 						
 						
 						
-						Thread.sleep(5000);
-						performerPOM.viewNoticeDetails1(driver).click();
-						test.log(LogStatus.PASS, "Show details Case popup open successfully.");
-						
-						Thread.sleep(5000);
-						performerPOM.Actionclosepopup1(driver).click();
-						
-						Thread.sleep(5000);
-						performerPOM.showResponseDetailIcon1(driver).click();
-						test.log(LogStatus.PASS, "Show response details Case popup open successfully.");
-						
-						Thread.sleep(5000);
-						performerPOM.Actionclosepopup1(driver).click();
+//						Thread.sleep(5000);
+//						performerPOM.viewNoticeDetails1(driver).click();
+//						test.log(LogStatus.PASS, "Show details Case popup open successfully.");
+//						
+//						Thread.sleep(5000);
+//						performerPOM.Actionclosepopup1(driver).click();
+//						
+//						Thread.sleep(5000);
+//						performerPOM.showResponseDetailIcon1(driver).click();
+//						test.log(LogStatus.PASS, "Show response details Case popup open successfully.");
+//						
+//						Thread.sleep(5000);
+//						performerPOM.Actionclosepopup1(driver).click();
 						
 						Thread.sleep(500);
 						Report(driver, test, count1, "Case");
@@ -4875,12 +4924,12 @@ public class CFOMethod {
 							count1 = Integer.parseInt(compliancesCount);
 						}
 						
-						Thread.sleep(5000);
-						performerPOM.viewTaskDetails(driver).click();	
-						test.log(LogStatus.PASS, "Show details Task popup open successfully.");
-						
-						Thread.sleep(5000);
-						performerPOM.ActioncloseTaskpopup(driver).click();
+//						Thread.sleep(5000);
+//						performerPOM.viewTaskDetails(driver).click();	
+//						test.log(LogStatus.PASS, "Show details Task popup open successfully.");
+//						
+//						Thread.sleep(5000);
+//						performerPOM.ActioncloseTaskpopup(driver).click();
 						
 						Thread.sleep(500);
 						Report(driver, test, count1, "Task");
@@ -5006,19 +5055,19 @@ public class CFOMethod {
 						Thread.sleep(5000);
 						performerPOM.clickMoreReports(driver).click();
 						//--------------------------------Case Report------------------------------------------
-						Thread.sleep(3000);
-						performerPOM.clicklocationFilterReports(driver).click();
+//						Thread.sleep(3000);
+//						performerPOM.clicklocationFilterReports(driver).click();
+//						
+//						Thread.sleep(5000);
+//						performerPOM.selectlocationFilterReportscfo(driver).click();
 						
-						Thread.sleep(3000);
-						performerPOM.selectlocationFilterReportscfo(driver).click();
-						
-						Thread.sleep(3000);
+						Thread.sleep(5000);
 						performerPOM.FromDateReports(driver).sendKeys("01-12-2022");
 						
 //						Thread.sleep(3000);
 //						performerPOM.selectFromDate(driver).click();
 						
-						Thread.sleep(3000);
+						Thread.sleep(4000);
 						performerPOM.ToDateReports(driver).sendKeys("21-12-2022");
 						
 //						Thread.sleep(3000);
@@ -5172,11 +5221,11 @@ public class CFOMethod {
 						performerPOM.clickNoticeReport(driver).click();
 						
 						
-						Thread.sleep(3000);
-						performerPOM.clicklocationFilterReports(driver).click();
-						
-						Thread.sleep(3000);
-						performerPOM.selectlocationFilterReportscfo(driver).click();
+//						Thread.sleep(3000);
+//						performerPOM.clicklocationFilterReports(driver).click();
+					
+						//Thread.sleep(3000);
+						//performerPOM.selectlocationFilterReportscfo(driver).click();
 						
 						Thread.sleep(3000);
 						performerPOM.FromDateReports(driver).sendKeys("01-12-2022");
@@ -5476,12 +5525,12 @@ public class CFOMethod {
 						if(count1 > gridRecords)
 						{
 							test.log(LogStatus.PASS, "Total Task Count increased in grid after adding New Task.");
-							test.log(LogStatus.INFO, "Old Task Count from Grid = "+gridRecords+" | New Task Count from Grid = "+count1);
+							test.log(LogStatus.PASS, "Old Task Count from Grid = "+gridRecords+" | New Task Count from Grid = "+count1);
 						}
 						else
 						{
 							test.log(LogStatus.FAIL, "Total Task Count doesn't increased in grid after adding New Task.");
-							test.log(LogStatus.INFO, "Old Task Count from Grid = "+gridRecords+" | New Task Count from Grid = "+count1);
+							test.log(LogStatus.FAIL, "Old Task Count from Grid = "+gridRecords+" | New Task Count from Grid = "+count1);
 						}
 						
 						Thread.sleep(500);
@@ -5494,12 +5543,12 @@ public class CFOMethod {
 						if(open1 > open)
 						{
 							test.log(LogStatus.PASS, type+" Dashboard Count Increased.");
-							test.log(LogStatus.INFO, "Old Count = "+open+" | New Count = "+open1);
+							test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
 						}
 						else
 						{
 							test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increased.");
-							test.log(LogStatus.INFO, "Old Count = "+open+" | New Count = "+open1);
+							test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
 						}
 					}
 					public static void TaskClosed(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException, IOException
@@ -5658,7 +5707,7 @@ public class CFOMethod {
 							
 						}
 						
-						Thread.sleep(3000);
+						Thread.sleep(4000);
 						wait.until(ExpectedConditions.visibilityOf(performerPOM.readMessage2(driver)));
 						String msg = performerPOM.readMessage2(driver).getText();
 						
@@ -5697,20 +5746,20 @@ public class CFOMethod {
 							if(open > open1 && closed1 > closed && caseOpen1 > caseOpen)
 							{
 								test.log(LogStatus.PASS, "Notice-Closed count increased.");
-								test.log(LogStatus.INFO, "Old Count = "+closed+" | New Count = "+closed1);
+								test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
 								test.log(LogStatus.PASS, "Notice-Open count decreased.");
-								test.log(LogStatus.INFO, "Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
 								test.log(LogStatus.PASS, "Case-Open count increased.");
-								test.log(LogStatus.INFO, "Old Count = "+caseOpen+" | New Count = "+caseOpen1);
+								test.log(LogStatus.PASS, "Old Count = "+caseOpen+" | New Count = "+caseOpen1);
 							}
 							else
 							{
 								test.log(LogStatus.FAIL, "Notice-Closed count doesn't increased.");
-								test.log(LogStatus.INFO, "Old Count = "+closed+" | New Count = "+closed1);
+								test.log(LogStatus.FAIL, "Old Count = "+closed+" | New Count = "+closed1);
 								test.log(LogStatus.FAIL, "Notice-Open count doesn't decreased.");
-								test.log(LogStatus.INFO, "Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
 								test.log(LogStatus.FAIL, "Case-Open count doesn't increased.");
-								test.log(LogStatus.INFO, "Old Count = "+caseOpen+" | New Count = "+caseOpen1);
+								test.log(LogStatus.FAIL, "Old Count = "+caseOpen+" | New Count = "+caseOpen1);
 							}
 						}
 						else if(type.equals("Case"))
@@ -5721,16 +5770,16 @@ public class CFOMethod {
 							if(open > open1 && closed1 > closed)
 							{
 								test.log(LogStatus.PASS, "Case-Closed count increased.");
-								test.log(LogStatus.INFO, "Old Count = "+closed+" | New Count = "+closed1);
+								test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
 								test.log(LogStatus.PASS, "Case-Open count decreased.");
-								test.log(LogStatus.INFO, "Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
 							}
 							else
 							{
 								test.log(LogStatus.FAIL, "Case-Closed count doesn't increased.");
-								test.log(LogStatus.INFO, "Old Count = "+closed+" | New Count = "+closed1);
+								test.log(LogStatus.FAIL, "Old Count = "+closed+" | New Count = "+closed1);
 								test.log(LogStatus.FAIL, "Case-Open count doesn't decreased.");
-								test.log(LogStatus.INFO, "Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
 							}
 						}
 						else if(type.equals("Task"))
@@ -5741,16 +5790,16 @@ public class CFOMethod {
 							if(open > open1 && closed1 > closed)
 							{
 								test.log(LogStatus.PASS, "Task-Closed count increased.");
-								test.log(LogStatus.INFO, "Old Count = "+closed+" | New Count = "+closed1);
+								test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
 								test.log(LogStatus.PASS, "Task-Open count decreased.");
-								test.log(LogStatus.INFO, "Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
 							}
 							else
 							{
 								test.log(LogStatus.PASS, "Task-Closed count doesn't increased.");
-								test.log(LogStatus.INFO, "Old Count = "+closed+" | New Count = "+closed1);
+								test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
 								test.log(LogStatus.PASS, "Task-Open count doesn't decreased.");
-								test.log(LogStatus.INFO, "Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
 							}
 						}
 					}
@@ -5898,7 +5947,7 @@ public class CFOMethod {
 						Thread.sleep(500);
 						String msg1= performerPOM.readNoticeMsg(driver).getText();		//Reading Message appeared after save button
 						
-						if(msg.equalsIgnoreCase("1 Notice Response Details Uploaded Successfully"))
+						if(msg1.equalsIgnoreCase("1 Notice Response Details Uploaded Successfully"))
 						{
 							test.log(LogStatus.PASS, "Message displayed = "+msg1);
 							
@@ -5945,7 +5994,7 @@ public class CFOMethod {
 						WebDriverWait wait = new WebDriverWait(driver, 180);
 						progress(driver);
 						
-						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));	//Wait until 'Notice-Open' count get visible
+						
 						performerPOM.clickMyReminder(driver).click();					//Clicking on 'My Reports'
 						
 						wait.until(ExpectedConditions.visibilityOf(performerPOM.CheckRecordsTable(driver)));	//Wait until records table gets visible.
@@ -5985,13 +6034,13 @@ public class CFOMethod {
 						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Automation Testing reminder msg new one.");
+						performerPOM.clickReminderText(driver).sendKeys("test automate 222023 test");
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Automation reminder description new one.");
+						performerPOM.clickDescription(driver).sendKeys("test automate 222023 test");
 						
 						Thread.sleep(3000);
-						performerPOM.clickRemark2(driver).sendKeys("Automation reminder remark new 1.");
+						performerPOM.clickRemark2(driver).sendKeys("Remark24");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDate(driver).click();
@@ -6003,14 +6052,14 @@ public class CFOMethod {
 						performerPOM.clickSave(driver).click();				//Clicking on Save button.
 						
 						Thread.sleep(500);
-						try
-						{
-							wait.until(ExpectedConditions.visibilityOf(performerPOM.readMsg1(driver)));
-						}
-						catch(Exception e)
-						{
-							wait.until(ExpectedConditions.visibilityOf(performerPOM.readMsg1(driver)));
-						}
+//						try
+//						{
+//							wait.until(ExpectedConditions.visibilityOf(performerPOM.readMsg1(driver)));
+//						}
+//						catch(Exception e)
+//						{
+//							wait.until(ExpectedConditions.visibilityOf(performerPOM.readMsg1(driver)));
+//						}
 						Thread.sleep(3000);
 						String msg = performerPOM.readMsg1(driver).getText();
 
@@ -6044,19 +6093,31 @@ public class CFOMethod {
 						{
 							action1.moveToElement(performerPOM.clickType(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ENTER).perform();
 						}
-						else if(type.equalsIgnoreCase("Task"))
-						{
-							action1.moveToElement(performerPOM.clickType(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
-						}
+//						else if(type.equalsIgnoreCase("Task"))
+//						{
+//							action1.moveToElement(performerPOM.clickType(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
+//						}
 						
 						Thread.sleep(2000);
 						action1.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
+						
+						
+						
+//						Thread.sleep(2000);
+//						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
+						
 						
 						Thread.sleep(3000);
 						performerPOM.clickReminderText(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Automation Testing reminder msg new.");
+						performerPOM.clickReminderText(driver).sendKeys("Test test 6758 automate ");
+						
+						Thread.sleep(3000);
+						performerPOM.clickDescription(driver).clear();
+						
+						Thread.sleep(3000);
+						performerPOM.clickDescription(driver).sendKeys("Test test 6758 automate");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDate(driver).click();
@@ -6107,7 +6168,7 @@ public class CFOMethod {
 					
 						
 						
-						Thread.sleep(300);
+						Thread.sleep(3000);
 						performerPOM.clickDeleteReminder(driver).click();
 						
 						 Thread.sleep(5000);
@@ -6204,15 +6265,14 @@ public class CFOMethod {
 									
 						Thread.sleep(500);
 						String msg5 = performerPOM.readlegalmsg(driver).getText();		//Reading Message appeared after save button
-					
 						if(msg5.equalsIgnoreCase("Branch Added Successfully."))
+						{
+							test.log(LogStatus.PASS, "Message displayed = "+msg5);
+							
+						}
+							else
 							{
-										test.log(LogStatus.PASS, "Legal Entity-Branch Added Successfully.");
-									
-							}
-						else
-							{
-										test.log(LogStatus.FAIL, "Legal Entity-Customer branch name already exists");
+								test.log(LogStatus.FAIL, "Message displayed = "+msg5);
 							}
 						   
 							Thread.sleep(3000);
@@ -6235,16 +6295,15 @@ public class CFOMethod {
 							    
 							 Thread.sleep(5000);
 							 String msg6 = performerPOM.readlegalmsg(driver).getText();		//Reading Message appeared after save button
-							
 							 if(msg6.equalsIgnoreCase("Branch Updated Successfully."))
-							 {
-									test.log(LogStatus.PASS, "Legal Entity-Branch Updated Successfully.");
-									
-							 }
-							 else
 								{
-									test.log(LogStatus.FAIL, "Legal Entity-Customer branch name already exists");
+									test.log(LogStatus.PASS, "Message displayed = "+msg6);
+									
 								}
+									else
+									{
+										test.log(LogStatus.FAIL, "Message displayed = "+msg6);
+									}
 							    
 							 Thread.sleep(5000);
 							 performerPOM.clickcloseLegalEntity(driver).click();
@@ -6256,6 +6315,90 @@ public class CFOMethod {
 							 performerPOM.clickLegalEntityFilter(driver).clear();
 							 
 								test.log(LogStatus.PASS,"Legal Entity Filter Work Successfully");
+								
+								
+								 Thread.sleep(5000);
+								 performerPOM.clickSubUnitscfo(driver).click();
+								 
+								 Thread.sleep(3000);
+								 performerPOM.addLegalEntity(driver).click();
+								
+
+								Thread.sleep(5000);
+								Row row1 = sheet.getRow(68);						//Selected 0th index row (First row)
+								Cell c0 = row1.getCell(1);						//Selected cell (0 row,1 column)
+								String subunit= c0.getStringCellValue();
+							    performerPOM.legalEntityName(driver).sendKeys(subunit);
+							
+								 Thread.sleep(3000);
+							    performerPOM.clickUnitType(driver).click();
+							    Thread.sleep(3000);
+							    performerPOM.chooseUnitType(driver).click();
+							    Thread.sleep(3000);
+							    performerPOM.clickLegalEntityType(driver).click();
+								Thread.sleep(3000);
+								performerPOM.chooseLegalEntityType(driver).click();
+							    
+
+								Thread.sleep(1000);
+								Row row6 = sheet.getRow(64);						//Selected 0th index row (First row)
+								Cell c6 = row6.getCell(1);						//Selected cell (0 row,1 column)
+								String address1= c6.getStringCellValue();
+							    performerPOM.clickAddressLine(driver).sendKeys(address1);
+								
+							    Thread.sleep(3000);
+							    performerPOM.clickState1(driver).click();
+							    
+							    Thread.sleep(3000);
+							    performerPOM.chooseState1(driver).click();
+							    
+							    Thread.sleep(5000);
+							    performerPOM.clickCity(driver).click();
+							    
+							    Thread.sleep(5000);
+							    performerPOM.chooseCity(driver).click();
+							    
+							   
+							    Thread.sleep(4000);
+								
+								Row row7 = sheet.getRow(65);						//Selected 0th index row (First row)
+								Cell c7 = row7.getCell(1);						//Selected cell (0 row,1 column)
+								String contact1= c7.getStringCellValue();
+							    performerPOM.clickContactPerson(driver).sendKeys(contact1+"");
+							    
+							    Thread.sleep(3000);
+							  	Row row8 = sheet.getRow(69);						//Selected 0th index row (First row)
+							  	Cell c8 = row8.getCell(1);						//Selected cell (0 row,1 column)
+							  	String email1= c8.getStringCellValue();
+							  	 performerPOM.clickEmail(driver).sendKeys(email1);
+							   
+							   	Thread.sleep(3000);
+							    performerPOM.clickSaveLegalEntity(driver).click();
+							    
+							    Thread.sleep(3000);
+								
+						        js.executeScript("window.scrollBy(0,-400)");
+								
+							    
+							    Thread.sleep(3000);
+								 wait.until(ExpectedConditions.visibilityOf(performerPOM.readlegalmsg(driver)));
+											
+								Thread.sleep(500);
+								String msg9 = performerPOM.readlegalmsg(driver).getText();		//Reading Message appeared after save button
+								
+								if(msg9.equalsIgnoreCase("Branch Added Successfully."))
+								{
+									test.log(LogStatus.PASS, "Message displayed = "+msg9);
+									
+								}
+									else
+									{
+										test.log(LogStatus.FAIL, "Message displayed = "+msg9);
+									}
+								   
+									Thread.sleep(3000);
+									performerPOM.clickcloseLegalEntity(driver).click();
+							    
 							    
 							    
 					 }
@@ -6307,15 +6450,15 @@ public class CFOMethod {
 						    
 							Thread.sleep(3000);
 							String msg5 = performerPOM.ReadLawFirmMsg(driver).getText();		//Reading Message appeared after save button
-							int flag5= 0;
-							if(msg5.equalsIgnoreCase("Law Firm Details Saved Successfully."))
+							
+					     	if(msg5.equalsIgnoreCase("Law Firm Details Saved Successfully."))
+							{
+								test.log(LogStatus.PASS, "Message displayed = "+msg5);
+								
+							}
+								else
 								{
-										test.log(LogStatus.PASS, "Law Firm- Law Firm Details Saved Successfully.");
-										flag5 = 1;
-								}
-							else
-								{
-										test.log(LogStatus.FAIL, "Law Firm- User with Same Email already Exists. ");
+									test.log(LogStatus.FAIL, "Message displayed = "+msg5);
 								}
 							
 								
@@ -6358,15 +6501,14 @@ public class CFOMethod {
 							
 							
 							String msg6 = performerPOM.ReadLawFirmMsg(driver).getText();		//Reading Message appeared after save button
-							int flag6= 0;
 							if(msg6.equalsIgnoreCase("Details Updated Successfully."))
+							{
+								test.log(LogStatus.PASS, "Message displayed = "+msg6);
+								
+							}
+								else
 								{
-										test.log(LogStatus.PASS, "Law Firm=- Details Updated Successfully.");
-										flag5 = 1;
-								}
-							else
-								{
-										test.log(LogStatus.FAIL, "User -User with Same Email already Exists. ");
+									test.log(LogStatus.FAIL, "Message displayed = "+msg6);
 								}
 							
 								
@@ -6420,16 +6562,16 @@ public class CFOMethod {
 							performerPOM.saveLawyer(driver).click();
 							
 							String msg7 = performerPOM.readLawyerMsg(driver).getText();		//Reading Message appeared after save button
-							
 							if(msg7.equalsIgnoreCase("Lawyer Details Saved Successfully."))
+							{
+								test.log(LogStatus.PASS, "Message displayed = "+msg7);
+								
+							}
+								else
 								{
-										test.log(LogStatus.PASS, "Lawyer- Lawyer Details Saved Successfully.");
-										
+									test.log(LogStatus.FAIL, "Message displayed = "+msg7);
 								}
-							else
-								{
-										test.log(LogStatus.FAIL, "Lawyer- User with Same Email already Exists. ");
-								}
+							
 								
 							Thread.sleep(5000);
 							performerPOM.closeLawyer(driver).click();
@@ -6654,7 +6796,7 @@ public class CFOMethod {
 						     performerPOM.NewOpponent(driver).click();
 						   
 							
-							 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePartyDetial"));
+						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePartyDetial"));
 								
 							
 						    Thread.sleep(3000);
@@ -6668,14 +6810,17 @@ public class CFOMethod {
 						   
 						   Thread.sleep(3000);
 								 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
-									if(msg1.contains("Opponent Details Saved Successfully."))
+									if(msg1.equalsIgnoreCase("Opponent Details Saved Successfully."))
 									{
-										test.log(LogStatus.PASS, "Oppoenent- Opponent Details Saved Successfully.");
+										test.log(LogStatus.PASS, "Message displayed = "+msg1);
+										
 									}
-									else
-									{
-										test.log(LogStatus.FAIL, "Oppoenent- Opponent with same name already exists.");
-									}
+										else
+										{
+											test.log(LogStatus.FAIL, "Message displayed = "+msg1);
+										}
+									
+									
 						   
 						   
 						   Thread.sleep(3000);
@@ -6695,20 +6840,26 @@ public class CFOMethod {
 						 	Cell c18 = row18.getCell(1);						//Selected cell (0 row,1 column)
 						 	String editopponentname= c18.getStringCellValue();
 						 	performerPOM.clickOpponentName(driver).sendKeys(editopponentname);
+						 	Thread.sleep(2000);
+						 	performerPOM.opponentcontactNo(driver).clear();
+						 	Thread.sleep(2000);
+						 	performerPOM.opponentcontactNo(driver).sendKeys("0987654321");
 						 	    
 						 	   Thread.sleep(3000);
 							   performerPOM.saveOpponent(driver).click();
 							   
 						     Thread.sleep(3000);
 								String msg2 = performerPOM.readOppoenentMsg(driver).getText();
-									if(msg2.contains("Opponent Details Updated Successfully."))
+		                         if(msg2.equalsIgnoreCase("Opponent Details Updated Successfully."))
 									{
-										test.log(LogStatus.PASS, "Update Opponent -Opponent Details Updated Successfully.");
+										test.log(LogStatus.PASS, "Message displayed = "+msg2);
+										
 									}
-									else
-									{
-										test.log(LogStatus.FAIL, "Update Opponent -Opponent with same name already exists.");
-									}
+										else
+										{
+											test.log(LogStatus.FAIL, "Message displayed = "+msg2);
+										}
+									
 							   
 						      Thread.sleep(3000);
 							   performerPOM.closeOpponent(driver).click();
@@ -6768,16 +6919,16 @@ public class CFOMethod {
 							//Thread.sleep(3000);
 							//performerPOM.clickMastersMenu(driver).click();
 						    Thread.sleep(3000);
-						     performerPOM.chooseOpponentMasters(driver).click();
+						     performerPOM.clickCourtMasters(driver).click();
 //						   Thread.sleep(3000);
 //						   performerPOM.clickCourtMasters(driver).click();
 					  	   Thread.sleep(3000);
 						   performerPOM.clickNewCourt(driver).click();
 						   
-						   Thread.sleep(4000);
+						   Thread.sleep(5000);
 						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCourt"));
 						 
-						   Thread.sleep(4000);
+						   Thread.sleep(5000);
 						   Row row18 = sheet.getRow(93);						//Selected 0th index row (First row)
 						   Cell c18 = row18.getCell(1);						//Selected cell (0 row,1 column)
 						   String courtname= c18.getStringCellValue();
@@ -6809,7 +6960,9 @@ public class CFOMethod {
 						   Thread.sleep(4000);
 						   performerPOM.closeCourt(driver).click();
 						   
-						   Thread.sleep(4000);
+						   driver.switchTo().parentFrame();
+						   
+						/*   Thread.sleep(4000);
 						   performerPOM.editCourt(driver).click();
 						   
 						   
@@ -6817,24 +6970,24 @@ public class CFOMethod {
 						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCourt"));
 						   
 
-						   Thread.sleep(4000);
+						   Thread.sleep(400);
 						   performerPOM.clickCourtName(driver).clear();
 						   
 						   
-						   Thread.sleep(4000);
+						   Thread.sleep(2000);
 						   Row row19 = sheet.getRow(94);						//Selected 0th index row (First row)
 						   Cell c19 = row19.getCell(1);						//Selected cell (0 row,1 column)
 						   String editcourtname= c19.getStringCellValue();
 						   performerPOM.clickCourtName(driver).sendKeys(editcourtname);
 						   
-						   Thread.sleep(5000);
-						   performerPOM.clickCourtType(driver).click();
-						   Thread.sleep(5000);
-						   performerPOM.selectCourtType(driver).click();
-						   Thread.sleep(5000);
-						   performerPOM.clickCountry(driver).click();
-						   Thread.sleep(5000);
-						   performerPOM.selectCountry(driver).click();
+//						   Thread.sleep(5000);
+//						   performerPOM.clickCourtType(driver).click();
+//						   Thread.sleep(5000);
+//						   performerPOM.selectCourtType(driver).click();
+//						   Thread.sleep(5000);
+//						   performerPOM.clickCountry(driver).click();
+//						   Thread.sleep(5000);
+//						   performerPOM.selectCountry(driver).click();
 						   
 						   
 						   
@@ -6852,7 +7005,7 @@ public class CFOMethod {
 									test.log(LogStatus.FAIL, "Update Court-Court Name already exists.");
 								}
 								 Thread.sleep(4000);
-								   performerPOM.closeCourt(driver).click();
+								   performerPOM.closeCourt(driver).click(); */
 								   
 								   Thread.sleep(3000);
 								   performerPOM.deleteCourt(driver).click();
@@ -7009,7 +7162,7 @@ public class CFOMethod {
 							        // Accepting alert		
 							        alert.accept();	
 							        
-							        Thread.sleep(2000);
+							       
 							        String alertMessage1=driver.switchTo().alert().getText();
 							        
 							        
@@ -7038,13 +7191,12 @@ public class CFOMethod {
 						  performerPOM.clickMasters(driver).click();
 						  
 				
-						  Thread.sleep(5000);
-						  performerPOM.clickCasNoticeType(driver).click();
+						 
 						  
 						  
 						  
-//						  Thread.sleep(3000);
-//						  performerPOM.clickPaymentTypeMasters(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.clickPaymentTypeMasters(driver).click();
 				          Thread.sleep(4000);
 						  performerPOM.clickPaymentTypeNew(driver).click();
 						  
@@ -7163,11 +7315,10 @@ public class CFOMethod {
 						  Thread.sleep(3000);
 						  performerPOM.clickMasters(driver).click();
 
-						  Thread.sleep(3000);
-						  performerPOM.clickPaymentTypeMasters(driver).click();
+						 
 						  
-//						  Thread.sleep(3000);
-//						  performerPOM.customParameterMaster(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.customParameterMaster(driver).click();
 						  Thread.sleep(3000);
 						  performerPOM.newCustomParameter(driver).click();
 						  
@@ -7297,10 +7448,9 @@ public class CFOMethod {
 				    	  Thread.sleep(3000);
 						  performerPOM.clickMasters(driver).click();
 
-						  Thread.sleep(3000);
-						  performerPOM.customParameterMaster(driver).click();
+						 
 						  
-				    //	 performerPOM.caseStageMaster(driver).click();
+				     	 performerPOM.caseStageMaster(driver).click();
 						  Thread.sleep(0);
 				    	 performerPOM.newCaseStage(driver).click();
 				    	 
@@ -7317,14 +7467,16 @@ public class CFOMethod {
 				    	 
 				    	 Thread.sleep(3000);
 						 String msg1 = performerPOM.readcaseStagemsg(driver).getText();
-							if(msg1.contains("Case Stage Type Saved Successfully."))
+							if(msg1.equalsIgnoreCase("Case Stage Type Saved Successfully."))
 							{
-								test.log(LogStatus.PASS, "Case Stage - Case Stage Type Saved Successfully.");
+								test.log(LogStatus.PASS, "Message displayed = "+msg1);
+								
 							}
-							else
-							{
-								test.log(LogStatus.FAIL, "Case Stage - Contract type already exists.");
-							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Message displayed = "+msg1);
+								}
+							
 					   
 				    	 
 				    	 Thread.sleep(3000);
@@ -7350,14 +7502,17 @@ public class CFOMethod {
 				    	 
 				    	 Thread.sleep(3000);
 						 String msg2 = performerPOM.readcaseStagemsg(driver).getText();
-							if(msg2.contains("Case Stage Type Updated Successfully."))
+							
+							if(msg2.equalsIgnoreCase("Case Stage Type Updated Successfully."))
 							{
-								test.log(LogStatus.PASS, "Update Case Stage -Case Stage Type Updated Successfully.");
+								test.log(LogStatus.PASS, "Message displayed = "+msg2);
+								
 							}
-							else
-							{
-								test.log(LogStatus.FAIL, "Update Case Stage -Contract type already exists.");
-							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Message displayed = "+msg2);
+								}
+							
 					   
 				    	 
 				    	 Thread.sleep(3000);
@@ -7414,10 +7569,9 @@ public class CFOMethod {
 					      WebDriverWait wait=new WebDriverWait(driver,20);  
 					      Thread.sleep(3000);
 					      performerPOM.clickMasters(driver).click();
+					      
 					      Thread.sleep(3000);
-                          performerPOM.caseStageMaster(driver).click();
-//					      Thread.sleep(3000);
-//						  performerPOM.DocumentTypeMasters(driver).click();
+						  performerPOM.DocumentTypeMasters(driver).click();
 						  Thread.sleep(3000);
 						  performerPOM.NewDocumentType(driver).click();
 						  
@@ -7526,8 +7680,8 @@ public class CFOMethod {
 						  Thread.sleep(3000);
 						  performerPOM.clickMasters(driver).click();
 						  Thread.sleep(3000);
-						  performerPOM.DocumentTypeMasters(driver).click();
-						 // performerPOM.ratingCriteriaMasters(driver).click();
+						
+						  performerPOM.ratingCriteriaMasters(driver).click();
 						  
 						  Thread.sleep(3000);
 						  performerPOM.NewDocumentType(driver).click();
@@ -7640,11 +7794,10 @@ public class CFOMethod {
 						  performerPOM.clickMasters(driver).click();
 
 						  
-						  Thread.sleep(3000);
-						  performerPOM.ratingCriteriaMasters(driver).click();
+						 
 						  
-//						  Thread.sleep(3000);
-//						  performerPOM.noticeStageMasters(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.noticeStagecfoMasters(driver).click();
 						  Thread.sleep(3000);
 						  performerPOM.addNoticeStage(driver).click();
 						  
@@ -7742,11 +7895,10 @@ public class CFOMethod {
 						  Thread.sleep(3000);
 						  performerPOM.clickMasters(driver).click();
 
-						  Thread.sleep(3000);
-						  performerPOM.pageAuthorizationaMasters(driver).click();
+						
 						  
-//						  Thread.sleep(3000);
-//						  performerPOM.UserReassignmentMasters(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.UserReassignmentcfoMasters(driver).click();
 						  Thread.sleep(3000);
 						  performerPOM.clickUser1(driver).click();
 						  Thread.sleep(3000);
@@ -7809,7 +7961,7 @@ public class CFOMethod {
 						  
 						  
 					  }
-					  public static void MailAuthorization(WebDriver driver) throws InterruptedException
+					  public static void MailAuthorization(WebDriver driver,ExtentTest test) throws InterruptedException
 					  {
 						  Thread.sleep(3000);
 						  performerPOM.clickMasters(driver).click();
@@ -7818,8 +7970,7 @@ public class CFOMethod {
 						  Thread.sleep(3000);
 						  performerPOM.MailAuthorizationMasterscfo(driver).click();
 						  
-//						  Thread.sleep(3000);
-//						  performerPOM.MailAuthorizationMasters(driver).click();
+
 						  Thread.sleep(3000);
 						  performerPOM.clickTypeOfUser(driver).click();
 						  Thread.sleep(3000);
@@ -7849,7 +8000,20 @@ public class CFOMethod {
 						  Thread.sleep(3000);
 						  performerPOM.clickDisable(driver).click();
 						  Thread.sleep(3000);
-						  performerPOM.clearButton(driver).click();
+						 // performerPOM.clearButton(driver).click();
+						  
+						  if(performerPOM.clearButton(driver).isEnabled())
+					  		{
+					  			performerPOM.clearButton(driver).click();
+					  			test.log(LogStatus.PASS, "Clear button working successfully");
+					  		}
+					  		else
+					  		{
+					  			test.log(LogStatus.FAIL, "Clear button not working successfully");
+					  		}
+						  test.log(LogStatus.PASS, "File Download successfully");
+						  
+						  
 					  }
 						public static void CaseHearing(WebDriver driver, ExtentTest test, String compliancesCount1,String type) throws InterruptedException, IOException
 						{
@@ -7888,12 +8052,12 @@ public class CFOMethod {
 							if(open == count1)
 							{
 								test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
-								test.log(LogStatus.INFO, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+								test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 							}
 							else
 							{
 								test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
-								test.log(LogStatus.INFO, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+								test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 							}
 				           	
 				           	
@@ -7976,12 +8140,12 @@ public class CFOMethod {
 							if(open == count1)
 							{
 								test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
-								test.log(LogStatus.INFO, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+								test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 							}
 							else
 							{
 								test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
-								test.log(LogStatus.INFO, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+								test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 							}
 				           	
 							

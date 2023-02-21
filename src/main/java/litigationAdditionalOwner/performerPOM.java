@@ -295,6 +295,11 @@ public class performerPOM
 		litigation = driver.findElement(By.xpath("//*[@id='ddlNoticeRisk_chosen']"));
 		return litigation;
 	}
+	public static WebElement clickSapCode(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='tbxSapcode']"));
+		return litigation;
+	}
 	
 	public static WebElement selectRisk(WebDriver driver)
 	{
@@ -1467,7 +1472,7 @@ public class performerPOM
 			}
 		 public static WebElement readTaskMsgcfo(WebDriver driver)
 			{
-				litigation = driver.findElement(By.xpath("//*[@id='ValidationSummary5']/ul/li"));
+				litigation = driver.findElement(By.xpath("//*[@id='ValidationSummary8']/ul/li"));
 				return litigation;
 			}
 		 
@@ -2212,7 +2217,7 @@ public class performerPOM
 		  {
 			  
 			     WebElement CaseFile=driver.findElement(By.cssSelector("input[type='file']"));
-			    CaseFile.sendKeys("C:\\Users\\Admin\\Desktop\\CaseFileUpload.xlsx");
+			    CaseFile.sendKeys("C:\\Users\\Admin\\Desktop\\Snehal\\ComplianceLatest\\ComplianceLatest\\TestData\\CaseFileUpload.xlsx");
 			     return litigation;
 	      }
 		  public static WebElement UploadCaseFile(WebDriver driver) throws InterruptedException
@@ -2280,14 +2285,14 @@ public class performerPOM
 	  {
 		  
 		     WebElement CaseFile=driver.findElement(By.cssSelector("input[type='file']"));
-		    CaseFile.sendKeys("C:\\Users\\Admin\\Desktop\\NoticeFileUpload.xlsx");
+		    CaseFile.sendKeys("C:\\Users\\Admin\\Desktop\\Snehal\\ComplianceLatest\\ComplianceLatest\\TestData\\NoticeFileUpload.xlsx");
 		     return litigation;
       }
 	  public static WebElement ChooseOrderFile(WebDriver driver) throws InterruptedException
 	  {
 		  
 		     WebElement CaseFile=driver.findElement(By.xpath("//*[@id='fuCaseOrderDocUpload']"));
-		    CaseFile.sendKeys("C:\\Users\\Admin\\Desktop\\NoticeFileUpload.xlsx");
+		    CaseFile.sendKeys("C:\\Users\\Admin\\Desktop\\Snehal\\ComplianceLatest\\ComplianceLatest\\TestData\\NoticeFileUpload.xlsx");
 		     return litigation;
       }
 	  public static WebElement UploadNoticeFile(WebDriver driver) throws InterruptedException
@@ -2536,12 +2541,17 @@ public class performerPOM
 				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_tbxContactNo']")));
 				return litigation;
 			}
-			
+			public static WebElement opponentcontactNo(WebDriver driver)
+			{
+				WebDriverWait wait= new WebDriverWait(driver,20);
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='tbxContactNo']")));
+				return litigation;
+			}
 			
 			public static WebElement ReadLawFirmMsg(WebDriver driver)
 			{
 				WebDriverWait wait= new WebDriverWait(driver,20);
-				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_tbxContactNo']")));
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_ValidationSummary1']/ul/li")));
 				return litigation;
 			}
 			
@@ -2862,7 +2872,7 @@ public class performerPOM
 			//	litigation =driver.findElement(By.id("tbxCourtName"));
 				
 				//WebDriverWait wait= new WebDriverWait(driver,30);
-				litigation =driver.findElement(By.xpath("//input[@name='tbxCourtName']"));
+				litigation =driver.findElement(By.xpath("//*[@id='tbxCourtName']"));
 				
 				
 				
@@ -2941,6 +2951,7 @@ public class performerPOM
 				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='Mastersubmenu']/li[6]")));
 				return litigation;
 			}
+			
 			public static WebElement  NewCaseNoticeType(WebDriver driver)
 			{
 				WebDriverWait wait= new WebDriverWait(driver,30);
@@ -3120,7 +3131,7 @@ public class performerPOM
 			public static WebElement readcaseStagemsg(WebDriver driver)
 			{
 				WebDriverWait wait= new WebDriverWait(driver,30);
-				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='tbxcasestageType']")));
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='vsAddEditCaseStageType']/ul/li")));
 				return litigation;
 			}
 			
@@ -3293,6 +3304,12 @@ public class performerPOM
 				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='Mastersubmenu']/li[14]/a")));
 				return litigation;
 			}
+			public static WebElement noticeStagecfoMasters(WebDriver driver)
+			{
+				WebDriverWait wait= new WebDriverWait(driver,30);
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='Mastersubmenu']/li[12]")));
+				return litigation;
+			}
 			public static WebElement addNoticeStage(WebDriver driver)
 			{
 				WebDriverWait wait= new WebDriverWait(driver,30);
@@ -3329,6 +3346,12 @@ public class performerPOM
 			{
 				WebDriverWait wait= new WebDriverWait(driver,30);
 				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='Mastersubmenu']/li[15]/a")));
+				return litigation;
+			}
+			public static WebElement UserReassignmentcfoMasters(WebDriver driver)
+			{
+				WebDriverWait wait= new WebDriverWait(driver,30);
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='Mastersubmenu']/li[13]")));
 				return litigation;
 			}
 			
@@ -3427,7 +3450,7 @@ public class performerPOM
 			public static WebElement MailAuthorizationMasterscfo(WebDriver driver)
 			{
 				WebDriverWait wait= new WebDriverWait(driver,30);
-				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='Mastersubmenu']/li[13]/a")));
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='Mastersubmenu']/li[14]/a")));
 				return litigation;
 			}
 			
@@ -4165,6 +4188,11 @@ public class performerPOM
 				litigation=driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[480]"));
 				return litigation;
 			}
+			public static WebElement clickReportTypeFilter4(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[498]"));
+				return litigation;
+			}
 			public static WebElement clickReportTypeFilter3(WebDriver driver)
 			{
 				litigation=driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[471]"));
@@ -4347,6 +4375,17 @@ public class performerPOM
 				litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxFilter']"));
 				return litigation;
 			}
+			public static WebElement clickSubUnits(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_grdCustomerBranch']/tbody/tr[3]/td[8]/a"));
+				return litigation;
+			}
+			public static WebElement clickSubUnitscfo(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_grdCustomerBranch']/tbody/tr[2]/td[9]/a"));
+				return litigation;
+			}
+			
 			public static WebElement clickLawFirmFilter(WebDriver driver)
 			{
 				litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxtypeTofilter']"));
@@ -4692,7 +4731,7 @@ public class performerPOM
 			 public static WebElement clickNoticeDeletePaymentcfo(WebDriver driver) throws InterruptedException
 			  {
 				  
-				  litigation=driver.findElement(By.xpath("//*[@id='grdNoticePayment_lnkBtnDeletePayment_4']/img"));
+				  litigation=driver.findElement(By.xpath("//*[@id='grdNoticePayment_lnkBtnDeletePayment_0']/img"));
 				  return litigation;
 			  }
 			 public static WebElement clickNoticeDownloadPaymentcfo(WebDriver driver) throws InterruptedException
@@ -5466,7 +5505,73 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("//*[@id='grdAdvocateBill_lnkBtnDeleteAdvocateBill_0']"));
 					return litigation;
 				}
+			 public static WebElement clickTaskActionIcon(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td[9]/a"));
+					return litigation;
+				}
+			 public static WebElement clickAssignedBy(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='lblAssignBy']"));
+					return litigation;
+				}
+			 public static WebElement clickStatus1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='ddlStatus_chosen']/a/span"));
+					return litigation;
+				}
+			 public static WebElement clickStatusdropdown(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='ddlStatus_chosen']/div/ul/li[2]"));
+					return litigation;
+				}
+			 public static WebElement clickTaskResponse(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='vsTaskResponse']/ul/li"));
+					return litigation;
+				}
+			 public static WebElement clickTaskResponseclose(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='divShowDialog']/div/div/div[1]/button"));
+					return litigation;
+				}
+			 public static WebElement clickMasterAdvocateBill(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='Mastersubmenu']/li[13]/a"));
+					return litigation;
+				}
+			 public static WebElement clickAddApprover(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grid']/div[1]/div/a"));
+					return litigation;
+				}
+			 public static WebElement clickSelectapprover1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[1]/span/span/span[1]"));
+					return litigation;
+				}
+			 public static WebElement clickSelectapprover1Dropdown(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='ApproverLevel_listbox']/li[1]"));
+					return litigation;
+				}
+			 public static WebElement clickSelectapprover2(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[2]/span/span/span[1]"));
+					return litigation;
+				}
+			 public static WebElement clickSelectapprover1Dropdown1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("/html/body/div[8]/div/div[3]/ul/li[1]"));
+					return litigation;
+				}
+			 public static WebElement clickupdate(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[3]/a[1]"));
+					return litigation;
+				}
 }
+
 
 			
 

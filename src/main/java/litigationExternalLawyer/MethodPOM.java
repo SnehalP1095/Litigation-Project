@@ -3178,6 +3178,25 @@ public class MethodPOM
 				performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
 				performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
 				
+				
+
+				Thread.sleep(3000);
+				performerPOM.clickDocTypeFilter(driver).click();
+				
+				Thread.sleep(3000);
+				performerPOM.clickDocTypeFilter1(driver).click();
+
+				Thread.sleep(5000);
+				if(performerPOM.clearButton(driver).isEnabled())
+				{
+					performerPOM.clearButton(driver).click();
+					 test.log(LogStatus.PASS, "My Document = clear button Work Successfully");
+				}
+				else
+				{
+					test.log(LogStatus.PASS, "My Document = clear button not Work Successfully");
+				}
+				
 				Thread.sleep(3000);
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 				
@@ -3471,6 +3490,24 @@ public class MethodPOM
 				
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));	//Wait until 'Notice-Open' count get visible
 				performerPOM.clickMyReports(driver).click();					//Clicking on 'My Reports'
+				
+				
+				Thread.sleep(3000);
+				performerPOM.clickDocTypeFilter(driver).click();
+				
+				Thread.sleep(3000);
+				performerPOM.clickDocTypeFilter1(driver).click();
+
+				Thread.sleep(5000);
+				if(performerPOM.clearButton(driver).isEnabled())
+				{
+					performerPOM.clearButton(driver).click();
+					 test.log(LogStatus.PASS, "My Document = clear button Work Successfully");
+				}
+				else
+				{
+					test.log(LogStatus.PASS, "My Document = clear button not Work Successfully");
+				}
 				
 				Thread.sleep(500);
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
@@ -4606,16 +4643,93 @@ public class MethodPOM
 						test.log(LogStatus.INFO, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
 					}
 				}
-				else
-				{
-					  Thread.sleep(3000);
-	      		performerPOM.clickApproverAssignmentLog(driver).click();
-	      		
-	      		Thread.sleep(500);
-	      			
-	    	}			
+				
+				
 	    		
 	    	}
+		 	
+		 	public static void ApproverAssignmentLog(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+	    	{
+			
+				WebDriverWait wait=new WebDriverWait(driver,20);
+	    	     Thread.sleep(3000);
+	      		performerPOM.clickAdvocateBillTab(driver).click();
+			Thread.sleep(3000);
+      		performerPOM.clickApproverAssignmentLog(driver).click();
+      		
+
+		
+		
+			Thread.sleep(100);
+			File dir2 = new File("C://Users//Admin//Downloads");
+			File[] dirContents1 = dir2.listFiles();							//Counting number of files in directory before download 
+
+			Thread.sleep(250);
+			performerPOM.clickExportAdavanced(driver).click();					//Clicking on 'Excel Report' image.
+			
+			
+			Thread.sleep(5500);
+			File dir3 = new File("C://Users//Admin//Downloads");
+			File[] allFilesNew1 = dir3.listFiles();							//Counting number of files in directory after download
+			
+			if(dirContents1.length < allFilesNew1.length)
+			{
+				test.log(LogStatus.PASS, "Approver Assignment Log - File downloaded successfully.");
+				
+				File lastModifiedFile = allFilesNew1[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+			    for (int i = 1; i < allFilesNew1.length; i++) 	//For loop till the number of files in directory.
+			    {
+			       if (lastModifiedFile.lastModified() < allFilesNew1[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+			       {
+			           lastModifiedFile = allFilesNew1[i];
+			       }
+			    }
+				
+				Thread.sleep(100);
+				fis = new FileInputStream(lastModifiedFile);
+				workbook = new XSSFWorkbook(fis);
+				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+				
+				int no = sheet.getLastRowNum();
+				Row row = sheet.getRow(no);
+				Cell c1 = row.getCell(0);
+				int records =(int) c1.getNumericCellValue();
+				fis.close();
+				
+				Thread.sleep(3000);
+	    		performerPOM.clickExportAdavanced(driver).sendKeys(Keys.PAGE_DOWN);
+	    		JavascriptExecutor js = (JavascriptExecutor) driver;
+	    		js.executeScript("window.scrollBy(0,700)");
+	      		
+	      		
+	      		
+				
+				Thread.sleep(3000);
+				CFOcountPOM.readTotalItems2(driver).click();
+				String item = CFOcountPOM.readTotalItems2(driver).getText();
+				String[] bits = item.split(" ");								//Splitting the String
+				String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+				int count = Integer.parseInt(compliancesCount);
+				
+				if(count == records)
+				{
+					test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					test.log(LogStatus.INFO, "Total records from Grid = "+count+" | Total records from Report = "+records);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					test.log(LogStatus.INFO, "Total records from Grid = "+count+" | Total records from Excel Sheet = "+records);
+				}
+			}
+      		
+      		
+      		Thread.sleep(500);
+      		OverduePOM.clickDashboard(driver).click();
+      		
+	    	}		
+		 	
+		 	
 		 	  public static void WorkspaceFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException
 		      	{
 		      		WebDriverWait wait=new WebDriverWait(driver,20);

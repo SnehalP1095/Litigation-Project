@@ -1,4 +1,4 @@
-package login;
+package demoLogin;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -94,60 +94,24 @@ public class LoginPOM
 		comp_img = driver.findElement(By.xpath("//*[@id='dvbtnContract']"));
 		return comp_img;
 	}
-
 	public static WebElement ClickForgotPass(WebDriver driver)
 	{
 		comp_img = driver.findElement(By.xpath("//*[@id='lbtResetPassword']"));
-		return comp_img;
-	}
-	public static WebElement ClickEmailid(WebDriver driver)
-	{
-		comp_img = driver.findElement(By.xpath("//*[@id='txtResetPasswordUserID']"));
-		return comp_img;
-	}
-	public static WebElement ClickSubmit(WebDriver driver)
-	{
-		comp_img = driver.findElement(By.xpath("//*[@id='btnProceed']"));
 		return comp_img;
 	}
 	public static WebElement ClickBackButton(WebDriver driver)
 	{
 		comp_img = driver.findElement(By.xpath("//*[@id='lnklogin']"));
 		return comp_img;
-	}public static WebElement ClickBackButton1(WebDriver driver)
-	{
-		comp_img = driver.findElement(By.xpath("//*[@id='lnkBackLogin']"));
-		return comp_img;
 	}
-	
 	public static WebElement ClickAccountLocked(WebDriver driver)
 	{
-		comp_img = driver.findElement(By.xpath("//*[@id='lbtUnlockAccount']"));
-		return comp_img;
-	}
-	public static WebElement ClickGoogle(WebDriver driver)
-	{
-		comp_img = driver.findElement(By.xpath("//*[@id='divLogin']/div[10]/div[1]/div/span[2]"));
-		return comp_img;
-	}
-	public static WebElement ClickLoginHelp(WebDriver driver)
-	{
-		comp_img = driver.findElement(By.xpath("//*[@id='hlnkHelp']"));
-		return comp_img;
-	}
-	public static WebElement Clickreadmsg(WebDriver driver)
-	{
-		comp_img = driver.findElement(By.xpath("//*[@id='vsLogin']/ul/li"));
+		comp_img = driver.findElement(By.xpath("//*[@id='divLogin']/div[7]"));
 		return comp_img;
 	}
 	public static WebElement Clickdiffuser(WebDriver driver)
 	{
 		comp_img = driver.findElement(By.xpath("//*[@id='lnkLogOut']"));
-		return comp_img;
-	}
-	public static WebElement ClickreadMsg(WebDriver driver)
-	{
-		comp_img = driver.findElement(By.xpath("//*[@id='ValidationSummary3']/ul/li"));
 		return comp_img;
 	}
 }

@@ -377,13 +377,24 @@ public class ExternalLawyer
 				extent.flush();
 			}
 		    
-//			@Test(priority = 28)
+			@Test(priority = 28)
 			void CaseAdvocateBill() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Advocate bill verification");
 				test.log(LogStatus.INFO, "Test Initiated");
 				
 				MethodPOM.AdvocateBillTab(driver, test);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+			@Test(priority = 24)
+			void CaseAdvocateBill1() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Advocate bill verification");
+				test.log(LogStatus.INFO, "Test Initiated");
+				
+				MethodsPOM.ApproverAssignmentLog(driver, test);
 				
 				extent.endTest(test);
 				extent.flush();
