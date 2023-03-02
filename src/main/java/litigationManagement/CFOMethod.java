@@ -81,7 +81,7 @@ public class CFOMethod {
 			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 			
 			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			performerPOM.clickDashboardNoticeFilter(driver).click();
 			
 			Thread.sleep(5000);
 			performerPOM.clickDashboardTypeFilter(driver).click();
@@ -133,7 +133,7 @@ public class CFOMethod {
 			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 			
 			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			performerPOM.clickDashboardNoticeFilter(driver).click();
 			
 			 Thread.sleep(5000);
 				performerPOM.clickDashboardApplyBtn(driver).click();
@@ -340,8 +340,8 @@ public class CFOMethod {
 			Thread.sleep(2000);
 			performerPOM.caseNoticeSummaryGraphClose(driver).click();
 			
-			Thread.sleep(3000);
-			OverduePOM.clickDashboard(driver).click();
+//			Thread.sleep(3000);
+//			OverduePOM.clickDashboard(driver).click();
 			
 	   }	
 		
@@ -351,16 +351,16 @@ public class CFOMethod {
 
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	       	js.executeScript("window.scrollBy(0,1000)");
+	      //	js.executeScript("window.scrollBy(0,800)");
 	       	
-	    	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
-			
-			 Thread.sleep(5000);
-				performerPOM.clickDashboardApplyBtn(driver).click();
+//	    	Thread.sleep(5000);
+//			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+//			
+//			Thread.sleep(5000);
+//			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+//			
+//			 Thread.sleep(5000);
+//				performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	       	Thread.sleep(2000);
 		
@@ -564,8 +564,8 @@ public class CFOMethod {
 			Thread.sleep(2000);
 			performerPOM.caseNoticeSummaryGraphClose(driver).click();
 			
-			Thread.sleep(3000);
-			OverduePOM.clickDashboard(driver).click();
+//			Thread.sleep(3000);
+//			OverduePOM.clickDashboard(driver).click();
 			
 	   }	
 		
@@ -575,16 +575,16 @@ public class CFOMethod {
 			
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	       	js.executeScript("window.scrollBy(0,1500)");
-	       	
-	    	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
-			
-			 Thread.sleep(5000);
-				performerPOM.clickDashboardApplyBtn(driver).click();
+	       	//js.executeScript("window.scrollBy(500,0)");
+//	       	
+//	    	Thread.sleep(5000);
+//			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+//			
+//			Thread.sleep(5000);
+//			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+//			
+//			 Thread.sleep(5000);
+//				performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	       	Thread.sleep(2000);
 		
@@ -803,7 +803,7 @@ public class CFOMethod {
 			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 			
 			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			performerPOM.clickDashboardNoticeFilter(driver).click();
 			
 			 Thread.sleep(5000);
 				performerPOM.clickDashboardApplyBtn(driver).click();
@@ -1017,6 +1017,7 @@ public class CFOMethod {
 	   public static void LocationSummaryGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
+		
 			
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -1026,7 +1027,7 @@ public class CFOMethod {
 			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 			
 			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			performerPOM.clickDashboardNoticeFilter(driver).click();
 			
 			 Thread.sleep(5000);
 				performerPOM.clickDashboardApplyBtn(driver).click();
@@ -1249,7 +1250,7 @@ public class CFOMethod {
 			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 			
 			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			performerPOM.clickDashboardNoticeFilter(driver).click();
 			
 			 Thread.sleep(5000);
 				performerPOM.clickDashboardApplyBtn(driver).click();
@@ -4082,7 +4083,7 @@ public class CFOMethod {
 						
 						Thread.sleep(5000);
 						performerPOM.clickTypeDropdown1(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
-						Thread.sleep(5000);
+						Thread.sleep(6000);
 						performerPOM.selectTypeTask1(driver).click();
 						
 						Thread.sleep(5000);
@@ -4413,14 +4414,14 @@ public class CFOMethod {
 						       Thread.sleep(3000);
 						       test.log(LogStatus.PASS, "Document view Successfully.");
 						       test.log(LogStatus.PASS, "Document Downloaded Successfully.");
-								//driver.navigate().refresh();
+							driver.navigate().refresh();
 											
 			          ////--------------------------------Task----------------------------------
 							
 						    
 							Thread.sleep(5000);
 							performerPOM.clickTypeDropdown(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
-							Thread.sleep(5000);
+							Thread.sleep(6000);
 							performerPOM.selectTypeTask(driver).click();					//Selecting 'Task' option.
 							
 							 Thread.sleep(4000);
@@ -4757,7 +4758,7 @@ public class CFOMethod {
 						WebDriverWait wait = new WebDriverWait(driver, 60);
 						progress(driver);
 						
-						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));	//Wait until 'Notice-Open' count get visible
+						//wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));	//Wait until 'Notice-Open' count get visible
 						performerPOM.clickMyReports(driver).click();					//Clicking on 'My Reports'
 						
 						Thread.sleep(500);
@@ -4801,21 +4802,27 @@ public class CFOMethod {
 						}
 						Thread.sleep(500);
 						Report(driver, test, count1, "Notice");
+						
 
-//						Thread.sleep(10000);
-//						performerPOM.viewNoticeDetails1(driver).click();
-//						test.log(LogStatus.PASS, "Show details Notice popup open successfully.");
-//						
-//						
-//						Thread.sleep(5000);
-//						performerPOM.Actionclosepopup1(driver).click();
-//						
-//						Thread.sleep(5000);
-//						performerPOM.showResponseDetailIcon1(driver).click();
-//						test.log(LogStatus.PASS, "Show response details Notice  popup open successfully.");
-//						
-//						Thread.sleep(5000);
-//						performerPOM.Actionclosepopup1(driver).click();
+                   
+
+						
+					   /*    js.executeScript("window.scrollBy(2000,0)");
+
+						Thread.sleep(1000);
+						performerPOM.viewNoticeDetails1(driver).click();
+						test.log(LogStatus.PASS, "Show details Notice popup open successfully.");
+						
+						
+						Thread.sleep(5000);
+						performerPOM.Actionclosepopup1(driver).click();
+						
+						Thread.sleep(5000);
+						performerPOM.showResponseDetailIcon1(driver).click();
+						test.log(LogStatus.PASS, "Show response details Notice  popup open successfully.");
+						
+						Thread.sleep(5000);
+						performerPOM.Actionclosepopup1(driver).click();*/
 						
 						driver.navigate().refresh();
 						
@@ -4998,7 +5005,7 @@ public class CFOMethod {
 						
 						Thread.sleep(4000);
 						performerPOM.clickTypeDropdown1(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
-						Thread.sleep(4000);
+						Thread.sleep(5000);
 						performerPOM.selectTypeCase1(driver).click();
 						
 						Thread.sleep(3000);
@@ -6034,13 +6041,13 @@ public class CFOMethod {
 						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("test automate 222023 test");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder new new 1232marchautomate test");
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("test automate 222023 test");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new new 1232marchautomate test");
 						
 						Thread.sleep(3000);
-						performerPOM.clickRemark2(driver).sendKeys("Remark24");
+						performerPOM.clickRemark2(driver).sendKeys("Remark0107022");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDate(driver).click();
@@ -6111,13 +6118,13 @@ public class CFOMethod {
 						performerPOM.clickReminderText(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Test test 6758 automate ");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder  test 2march2023");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDescription(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Test test 6758 automate");
+						performerPOM.clickDescription(driver).sendKeys("Reminder test 2march2023");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDate(driver).click();
@@ -8090,7 +8097,7 @@ public class CFOMethod {
 						}
 						public static void HearingCalender(WebDriver driver,ExtentTest test,String compliancesCount1, String type) throws InterruptedException
 						{
-							String month="March 2023";
+							/*String month="March 2023";
 							String day="22";
 						
 							while(true)
@@ -8106,11 +8113,12 @@ public class CFOMethod {
 							        driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[1]/a[2]/div")).click();           // click forward
 						
 							         }
-							        Thread.sleep(3000);
-							        driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div/a[contains(text(),"+day+")]")).click();    //click day
-							                      
-						    }
-							
+							        Thread.sleep(4000);
+							      //  driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div/a[contains(text(),"+day+")]")).click();    //click day
+							        driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();             
+						    } */
+						    Thread.sleep(4000);
+							 driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();
 							int	open = Integer.parseInt(performerPOM.HearingCalenderNumcfo(driver).getText());	//Reading Notice Open count.
 							WebDriverWait Wait=new WebDriverWait(driver,20);
 						 	Wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("calframe"));
@@ -8272,7 +8280,7 @@ public class CFOMethod {
             		 
             		  //driver.switchTo().parentFrame();
             		  
-            		  Thread.sleep(3000);
+            		  Thread.sleep(4000);
             		  performerPOM.clickViewNoticeDocpopupclose1(driver).click();
             		  
                  	  

@@ -3764,11 +3764,11 @@ public class MethodPOM
 				Thread.sleep(5000);
 				performerPOM.clickMoreReports(driver).click();
 				//--------------------------------Case Report------------------------------------------
-				Thread.sleep(3000);
-				performerPOM.clicklocationFilterReports(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectlocationFilterReports(driver).click();
+//				Thread.sleep(3000);
+//				performerPOM.clicklocationFilterReports(driver).click();
+//				
+//				Thread.sleep(3000);
+//				performerPOM.selectlocationFilterReports(driver).click();
 				
 				Thread.sleep(3000);
 				performerPOM.FromDateReports(driver).sendKeys("01-12-2022");
@@ -4053,12 +4053,12 @@ public class MethodPOM
 				Thread.sleep(3000);
 				performerPOM.clickNoticeReport(driver).click();
 				
-				
-				Thread.sleep(3000);
-				performerPOM.clicklocationFilterReports(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectlocationFilterReports(driver).click();
+//				
+//				Thread.sleep(3000);
+//				performerPOM.clicklocationFilterReports(driver).click();
+//				
+//				Thread.sleep(3000);
+//				performerPOM.selectlocationFilterReports(driver).click();
 				
 				Thread.sleep(3000);
 				performerPOM.FromDateReports(driver).sendKeys("01-12-2022");

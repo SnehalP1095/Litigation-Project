@@ -51,7 +51,7 @@ public class CFO {
 			String workingDir = System.getProperty("user.dir");
 			extent = new com.relevantcodes.extentreports.ExtentReports(workingDir+"//Reports//LitigationCFO.html",true);
 			test = extent.startTest("Verify OpenBrowser");
-			test.log(LogStatus.INFO, "Browser test is initiated");
+			
 			
 			XSSFSheet sheet = ReadExcel();
 			Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
@@ -141,7 +141,7 @@ public class CFO {
 			extent.flush();
 		}
 
- //   @Test(priority = 6)
+ //  @Test(priority = 6)
         void DepartmentSummaryGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Department Graph Count Verification");
@@ -164,7 +164,7 @@ public class CFO {
 	       extent.flush();
         }
        
- //  @Test(priority = 8)
+ //@Test(priority = 8)
         void CategorySummaryGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Category Graph Count Verification");
@@ -445,7 +445,7 @@ public class CFO {
 			void MyDocument() throws InterruptedException, IOException
 			{
 				test = extent.startTest("My Document-Download and View Document");
-				test.log(LogStatus.INFO, "Test Initiated");
+			
 				
 				CFOMethod.MyDocument(driver, test, workbook);
 				
@@ -459,7 +459,6 @@ public class CFO {
 				void MyReports() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Reports -excel count verification");
-					test.log(LogStatus.INFO, "Test Initiated");
 					
 					CFOMethod.MyReports(driver, test, workbook);
 					
@@ -471,7 +470,7 @@ public class CFO {
 				void MoreReports() throws InterruptedException, IOException
 				{
 					test = extent.startTest("More Report-Reports excel  verification");
-					test.log(LogStatus.INFO, "Test Initiated");
+					
 					
 					CFOMethod.MoreReport(driver, test);
 					
@@ -479,11 +478,10 @@ public class CFO {
 					extent.flush();
 				}
 				
-				@Test(priority =35)
+				@Test(priority =38)
 				void MyReminder() throws InterruptedException, IOException
 				{
 					test = extent.startTest("My Reminder verification");
-					test.log(LogStatus.INFO, "Test Initiated");
 					
 					CFOMethod.MyReminder(driver, test, workbook);
 					
@@ -491,43 +489,43 @@ public class CFO {
 					extent.flush();
 				}
 				
-			@Test(priority = 36)
+			@Test(priority = 39)
 				void ImportUtility() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Import Utility verification");
-					test.log(LogStatus.INFO, "Test Initiated");
+					
 					
 					CFOMethod.ImportUtility(driver,test);
 					extent.endTest(test);
 					extent.flush();
 				}
-		@Test(priority = 37)
+	@Test(priority = 35)
 			void AdvancedSearch() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Workspace-Advanced Search Reports excel  verification");
-				test.log(LogStatus.INFO, "Test Initiated");
+				
 				
 				CFOMethod.AdvancedSearchWorkspace(driver, test);
 				
 				extent.endTest(test);
 				extent.flush();
 			}
-			@Test(priority = 38)
+		@Test(priority = 36)
 			void AdvancedSearchDoc() throws InterruptedException, IOException
 			{
 				test = extent.startTest("My Document(Advanced search) -Download and View Document");
-				test.log(LogStatus.INFO, "Test Initiated");
+				
 				
 				CFOMethod.AdvancedSearchDocument(driver, test);
 				
 				extent.endTest(test);
 				extent.flush();
 			}
-			@Test(priority = 39)
+			@Test(priority = 37)
 			void AdvancedSearchreport() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Advanced SearchReports excel  verification");
-				test.log(LogStatus.INFO, "Test Initiated");
+			
 				
 				CFOMethod.AdvancedSearchReport(driver, test);
 				
@@ -696,7 +694,7 @@ public class CFO {
 				void HearingCalender() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Hearing Calender verification");
-					//test.log(LogStatus.INFO, "Test Initiated");
+				
 					
 					CFOMethod.HearingCalender(driver, test,"Performer","Cfo");
 					

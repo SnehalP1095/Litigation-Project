@@ -333,7 +333,7 @@ public class ExternalLawyer
 				extent.endTest(test);
 				extent.flush();
 			}
-//		    @Test(priority = 24)
+	    @Test(priority = 24)
 			void MoreReports() throws InterruptedException, IOException
 			{
 				test = extent.startTest("More Report-Reports excel  verification");

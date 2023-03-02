@@ -64,7 +64,7 @@ public class FeMethod {
 			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 			
 			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+			performerPOM.clickDashboardNoticeFilter(driver).click();
 			
 			Thread.sleep(5000);
 			performerPOM.clickDashboardTypeFilter(driver).click();

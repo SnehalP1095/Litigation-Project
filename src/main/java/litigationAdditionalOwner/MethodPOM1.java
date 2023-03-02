@@ -186,8 +186,8 @@ public class MethodPOM1 {
 		Thread.sleep(5000);
 		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 		
-		Thread.sleep(5000);
-		performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
+//		Thread.sleep(5000);
+//		performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
 		
 		Thread.sleep(5000);
 		performerPOM.clickDashboardTypeFilter(driver).click();

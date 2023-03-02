@@ -2349,12 +2349,26 @@ public class performerPOM
 	  }
 	  public static WebElement LocationSummaryGraph(WebDriver driver) throws InterruptedException
 	  {
-		  
-		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[8]"));
+		 
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[7]"));
+	
+		  return litigation;
+	  }
+	  public static WebElement LocationSummaryGraphCase(WebDriver driver) throws InterruptedException
+	  {
+		 
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[8]"));
+	
 		  return litigation;
 	  }
 	  
 	  public static WebElement CategorySummaryGraph(WebDriver driver) throws InterruptedException
+	  {
+		  
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[9]"));
+		  return litigation;
+	  }
+	  public static WebElement CategorySummaryGraphCase(WebDriver driver) throws InterruptedException
 	  {
 		  
 		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[11]"));
@@ -3949,7 +3963,7 @@ public class performerPOM
 			}
 			public static WebElement clicktype4(WebDriver driver)
 			{
-				litigation=driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[470]"));
+				litigation=driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[488]"));
 				return litigation;
 			}
 			public static WebElement clicktype3(WebDriver driver)
@@ -4313,9 +4327,14 @@ public class performerPOM
 				litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ddlTypePage_chosen']/a/span"));
 				return litigation;
 			}
-			public static WebElement clickDashboardCaseNoticeFilter1(WebDriver driver)
+			public static WebElement clickDashboardNoticeFilter(WebDriver driver)
 			{
 				litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ddlTypePage_chosen']/div/ul/li[2]"));
+				return litigation;
+			}
+			public static WebElement clickDashboardCaseFilter(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ddlTypePage_chosen']/div/ul/li[3]"));
 				return litigation;
 			}
 			public static WebElement clickDashboardTypeFilter(WebDriver driver)
@@ -4761,6 +4780,14 @@ public class performerPOM
 				 ResponseDoc.sendKeys("C:\\Users\\Admin\\Desktop\\Teamlease\\Compliance Assignment.xlsx");
 				  
 			  }
+			 public static void clickCaseorderFile(WebDriver driver) throws InterruptedException
+			  {
+				  
+				 WebElement ResponseDoc =driver.findElement(By.xpath("//*[@id='fuCaseOrderDocUpload']"));
+				 ResponseDoc.sendKeys("C:\\Users\\Admin\\Desktop\\Teamlease\\Compliance Assignment.xlsx");
+				  
+			  }
+			 
 			 public static WebElement clickCaseDownloadDocumentcfo(WebDriver driver) throws InterruptedException
 			  {
 				  
