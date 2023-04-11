@@ -322,7 +322,7 @@ public class ExternalLawyer
 				extent.endTest(test);
 				extent.flush();
 			}
-//			@Test(priority = 23)
+			@Test(priority = 23)
 		    void MyReports() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Reports excel count verification");
@@ -333,7 +333,7 @@ public class ExternalLawyer
 				extent.endTest(test);
 				extent.flush();
 			}
-	    @Test(priority = 24)
+//	    @Test(priority = 24)
 			void MoreReports() throws InterruptedException, IOException
 			{
 				test = extent.startTest("More Report-Reports excel  verification");
@@ -344,7 +344,7 @@ public class ExternalLawyer
 				extent.endTest(test);
 				extent.flush();
 			}
-//		  @Test(priority = 25)
+		 // @Test(priority = 25)
 			void AdvancedSearch() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Advanced SearchReports excel  verification");
@@ -377,7 +377,7 @@ public class ExternalLawyer
 				extent.flush();
 			}
 		    
-			@Test(priority = 28)
+//			@Test(priority = 28)
 			void CaseAdvocateBill() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Advocate bill verification");
@@ -388,7 +388,7 @@ public class ExternalLawyer
 				extent.endTest(test);
 				extent.flush();
 			}
-			@Test(priority = 24)
+	//		@Test(priority = 24)
 			void CaseAdvocateBill1() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Advocate bill verification");

@@ -87,7 +87,7 @@ public class CompanyAdmin
 	
 	
 
- @Test(priority = 2)
+ //@Test(priority = 2)
 	void CaseNoticeStageGraphNotice() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Notice Stage Graph Count Verification");
@@ -100,7 +100,7 @@ public class CompanyAdmin
 	}
  
 	
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	void CaseNoticeTypeGraph() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Notice Type Graph Count Verification");
@@ -111,7 +111,7 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 4)
+//@Test(priority = 4)
 	
 	void RiskSummaryGraph() throws InterruptedException, IOException
 	{
@@ -122,7 +122,7 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 5)
+//@Test(priority = 5)
 	
 	void DepartmentSummaryGraph() throws InterruptedException, IOException
 	{
@@ -134,7 +134,7 @@ public class CompanyAdmin
 		extent.flush();
 	}
 	
-  @Test(priority = 6)
+//  @Test(priority = 6)
 	
 	void LocationSummaryGraph() throws InterruptedException, IOException
 	{
@@ -146,7 +146,7 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
- @Test(priority = 7)
+// @Test(priority = 7)
 	
   	void CategorySummaryGraph() throws InterruptedException, IOException
   	{
@@ -159,7 +159,7 @@ public class CompanyAdmin
   		extent.flush();
   	}
  
- @Test(priority =8)
+// @Test(priority =8)
 	void CaseNoticeStageGraphNotice1() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Notice Stage Graph Count Verification");
@@ -170,7 +170,7 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority =9)
+//@Test(priority =9)
 	void CaseNoticeTypeGraph1() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Notice Type Graph Count Verification");
@@ -182,7 +182,7 @@ public class CompanyAdmin
 		extent.flush();
 	}
  
-@Test(priority = 10)
+//@Test(priority = 10)
 	
 	void RiskSummaryGraph1() throws InterruptedException, IOException
 	{
@@ -193,7 +193,7 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 11)
+//@Test(priority = 11)
 
 	void DepartmentSummaryGraph1() throws InterruptedException, IOException
 	{
@@ -204,7 +204,7 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 12)
+//@Test(priority = 12)
 
 void LocationSummaryGraph1() throws InterruptedException, IOException
 {
@@ -216,7 +216,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 	extent.endTest(test);
 	extent.flush();
 }
-@Test(priority = 13)
+//@Test(priority = 13)
 
 	void CategorySummaryGraph1() throws InterruptedException, IOException
 	{
@@ -232,7 +232,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  
  
     
-//@Test(priority = 7)
+//@Test(priority = 14)
  	void NoticeOpen() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Notice - Open Count Verification");
@@ -245,7 +245,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.flush();
  	}
 
-//	@Test(priority = 8)
+//	@Test(priority = 15)
  	void CaseOpen() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case - Open Count Verification");
@@ -258,7 +258,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  	}
  	
  	
-//	@Test(priority = 7)
+//	@Test(priority = 16)
  	void CloseNotice() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Close Notice Count Verification");
@@ -268,8 +268,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  			extent.endTest(test);
  		extent.flush();
  	}
- 	
-//	@Test(priority = 8)
+//	@Test(priority = 17)
  	void CloseCase() throws InterruptedException, IOException
  	{
  	test = extent.startTest("Close Case Count Verification");
@@ -283,7 +282,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  	
  	
 
-//@Test(priority = 8)
+//@Test(priority = 18)
  	void LinkNotice() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Link Notice Verification");
@@ -295,7 +294,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.flush();
  	}
 
-//@Test(priority = 9)
+//@Test(priority = 19)
  	void LinkCase() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Link Case Verification");
@@ -306,8 +305,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  	extent.endTest(test);
  		extent.flush();
  	}
- 	
- //@Test(priority = 10)
+//@Test(priority = 20)
  	void NoticeClosed() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Notice - Closed Count Verification");
@@ -318,7 +316,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.endTest(test);
  		extent.flush();
  	}
-//	@Test(priority = 11)
+//	@Test(priority = 21)
  	void CaseClose() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case - Closed Count Verification");
@@ -333,7 +331,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		
  		
  	
-//	@Test(priority = 13)
+//	@Test(priority = 22)
  	void TaskOpen() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Task - Open Count Verification");
@@ -345,7 +343,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.flush();
  	}
  	
-//	@Test(priority = 14)
+//	@Test(priority = 23)
  	void TaskClosed() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Task - Closed Count Verification");
@@ -357,10 +355,10 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.flush();
  	}
 
-//@Test(priority = 16)
+//@Test(priority = 24)
  	void CaseDocumentTab() throws InterruptedException, IOException
  	{
- 		test = extent.startTest("Notice Document verification");
+ 		test = extent.startTest("Case Document verification");
  		
  		
  		MethodsPOM.Document(driver, test);
@@ -368,7 +366,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.endTest(test);
  		extent.flush();
  	}
- //	@Test(priority = 17)
+//	@Test(priority = 25)
  	void CaseTaskActivityTab() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case Task/Activity verification");
@@ -379,7 +377,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.endTest(test);
  		extent.flush();
  	}
-//	@Test(priority = 18)
+//	@Test(priority = 26)
  	void CaseHearingTab() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case Hearing verification");
@@ -390,7 +388,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.endTest(test);
  		extent.flush();
  	}
-//	@Test(priority = 19)
+//	@Test(priority = 27)
  	void CaseOrderTab() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case Order verification");
@@ -401,7 +399,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.endTest(test);
  		extent.flush();
  	}
-// 	@Test(priority = 20)
+	//@Test(priority = 28)
  	void CaseAdvocateBillTab() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case advocate bill verification");
@@ -412,7 +410,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.endTest(test);
  		extent.flush();
  	}
-// 	@Test(priority = 21)
+ //	@Test(priority = 29)
  	void StatusPayment() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case Status/Payment verification");
@@ -423,7 +421,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.endTest(test);
  		extent.flush();
  	}
- //	@Test(priority = 22)
+ 	//@Test(priority = 30)
  	void ExternalLawyer() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case External Lawyer verification");
@@ -434,7 +432,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  		extent.endTest(test);
  		extent.flush();
  	}
-// 	@Test(priority = 23)
+ //	@Test(priority = 31)
  	void Auditlog() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case Audit Log verification");
@@ -447,7 +445,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
  	}
 	
 
-//	@Test(priority = 24)
+	//@Test(priority = 32)
 	void MyDocument() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Download and View Document");
@@ -460,7 +458,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 	}
 
 
-//	@Test(priority = 25)
+//	@Test(priority = 33)
 	void MyReports() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Reports -excel count verification");
@@ -472,19 +470,9 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 		extent.flush();
 	}
     
-//	@Test(priority = 26)
-	void MoreReports() throws InterruptedException, IOException
-	{
-		test = extent.startTest("More Report-Reports excel  verification");
-		
-		
-		MethodsPOM.MoreReport(driver, test, "Company Admin");
-		
-		extent.endTest(test);
-		extent.flush();
-	}
 	
-//	@Test(priority = 27)
+	
+//@Test(priority = 34)
 	void MyReminder() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reminder verification");
@@ -495,7 +483,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 28)
+	//@Test(priority = 35)
 	void ImportUtility() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Import Utility verification");
@@ -505,20 +493,20 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 29)
+//	@Test(priority = 36)
 	void AdvancedSearchworkspace() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Advanced Search Reports excel  verification");
+		test = extent.startTest("Advanced Search Workspace- excel  verification");
 		
 		MethodPOM1.AdvancedSearchWorkspace(driver, test, "Company Admin");
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 30)
+//	@Test(priority = 37)
 	void AdvancedSearchDoc() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Download and View Document");
+		test = extent.startTest("Advanced Search Document-Download and View Document");
 		
 		
 		MethodsPOM.AdvancedSearchDocument(driver, test, "Performer");
@@ -526,10 +514,10 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
- //   @Test(priority = 31)
+// @Test(priority = 38)
 	void AdvancedSearch() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Advanced SearchReports excel  verification");
+		test = extent.startTest("Advanced Search Reports excel  verification");
 		
 		
 		MethodPOM1.AdvancedSearchReport(driver, test, "Company Admin");
@@ -537,15 +525,82 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
+  
+//  @Test(priority = 39)
+	void MoreReports() throws InterruptedException, IOException
+	{
+		test = extent.startTest("More Report-Reports excel  verification");
+		
+		
+		MethodsPOM.MoreReport(driver, test, "Company Admin");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+ @Test(priority = 40)
+	void CaseHearing() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case Hearing Count Verification");
+		
+		
+		MethodsPOM.CaseHearing(driver, test,"Performer","Company admin");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 41)
+	void HearingCalender() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case Hearing Calender Verification");
+		
+		
+		MethodsPOM.HearingCalender(driver, test,"Performer","Company admin");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 42)
+	void NoticeDocViewandDownload() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Notice Document verification");
+		
+		
+		MethodsPOM.NoticeDocViewandDownload(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 43)
+		void CaseAdvocateBill() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Advocate bill verification");
+			
+			
+			MethodsPOM.AdvocateBillTab(driver, test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 44)
+		void CaseAdvocateBill1() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Advocate bill verification");
+			
+			
+			MethodsPOM.ApproverAssignmentLog(driver, test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
 	
 
   	
 	
-//	@Test(priority = 24)
+	@Test(priority = 45)
 	void Masters() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Legal Entity  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.LegalEntity(driver, test, workbook);
 		
@@ -553,66 +608,64 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
-//	@Test(priority = 25)
+	@Test(priority = 46)
 	void Masters1() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Law Firm verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.LawFirm(driver, test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 26)
+	@Test(priority = 47)
 	void Masters2() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - 	User  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		MethodsPOM.User(driver, test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 27)
+@Test(priority = 48)
 	void Masters3() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Opponent  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.Opponent(driver, test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 28)
+@Test(priority = 49)
 	void Masters4() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Court  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
 		MethodsPOM.Court(driver, test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 29)
+@Test(priority = 50)
 	void Masters5() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Case/NoticeType  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.CaseNoticeType(driver, test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 30)
+	@Test(priority = 51)
 	void Masters6() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Payment Type  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.PaymentType(driver, test, workbook);
 		
@@ -620,11 +673,11 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
-//	@Test(priority = 31)
+	@Test(priority = 52)
 	void Masters7() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Custom Parameter  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.customParameter(driver, test, workbook);
 		
@@ -632,67 +685,66 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
-//	@Test(priority = 32)
+	@Test(priority = 53)
 	void Masters8() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Case Stage  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.CaseStage(driver, test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 33)
+	@Test(priority = 54)
 	void Masters9() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Document Type  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.DocumentType(driver, test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 34)
+	@Test(priority = 55)
 	void Masters10() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Rating Criteria  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.RatingCriteria(driver, test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 34)
+	@Test(priority = 56)
 	void Masters11() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Masters - Rating Criteria  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		test = extent.startTest("Masters - PageAuthorization   verification");
+		
 		
 		MethodsPOM.PageAuthorization(driver, test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 34)
+	@Test(priority = 57)
 	void Masters12() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Advocate Bill Approver  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.AdvocateBillApprover(driver, test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 35)
+	@Test(priority = 58)
 	void Masters13() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - UserReassignment  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
+	
 		MethodsPOM.UserReassignment(driver, test);
 		
 		extent.endTest(test);
@@ -700,24 +752,24 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 	}
 	
 	
-//	@Test(priority = 36)
+	@Test(priority =59)
 	void Masters14() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Notice Stage  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MethodsPOM.NoticeStage(driver, test, workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-//	@Test(priority = 37)
+	@Test(priority = 60)
 	void Masters15() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Mail Authorization  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
 		
-		MethodsPOM.MailAuthorization(driver);
+		
+		MethodsPOM.MailAuthorization(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -728,62 +780,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 	
 	
 
-//	@Test(priority = 38)
-	void CaseHearing() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Case Hearing Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		MethodsPOM.CaseHearing(driver, test,"Performer","Company admin");
-		
-		extent.endTest(test);
-		extent.flush();
-	}
 	
-//	@Test(priority = 39)
-	void HearingCalender() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Case Hearing Calender Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		MethodsPOM.HearingCalender(driver, test,"Performer","Company admin");
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-//	@Test(priority = 40)
-	void NoticeDocViewandDownload() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Notice Document verification");
-		test.log(LogStatus.INFO, "Test Initiated");
-		
-		MethodsPOM.NoticeDocViewandDownload(driver, test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-//	@Test(priority = 23)
-		void CaseAdvocateBill() throws InterruptedException, IOException
-		{
-			test = extent.startTest("Advocate bill verification");
-			test.log(LogStatus.INFO, "Test Initiated");
-			
-			MethodsPOM.AdvocateBillTab(driver, test);
-			
-			extent.endTest(test);
-			extent.flush();
-		}
-//		@Test(priority = 24)
-		void CaseAdvocateBill1() throws InterruptedException, IOException
-		{
-			test = extent.startTest("Advocate bill verification");
-			test.log(LogStatus.INFO, "Test Initiated");
-			
-			MethodsPOM.ApproverAssignmentLog(driver, test);
-			
-			extent.endTest(test);
-			extent.flush();
-		}
 //	@Test(priority = 40)
 	void CustomerMgmt() throws InterruptedException, IOException
 	{

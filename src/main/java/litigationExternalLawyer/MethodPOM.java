@@ -3550,22 +3550,25 @@ public class MethodPOM
 				}
 				Thread.sleep(500);
 				Report(driver, test, count1, "Notice");
+				
+				js.executeScript("window.scrollBy(0,500)");
+				js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=5000");
 
-//				Thread.sleep(10000);
-//				performerPOM.viewNoticeDetails1(driver).click();
-//				test.log(LogStatus.PASS, "Show details Notice popup open successfully.");
-//				
-//				
-//				Thread.sleep(5000);
-//				performerPOM.Actionclosepopup1(driver).click();
-//				
-//				Thread.sleep(5000);
-//				performerPOM.showResponseDetailIcon1(driver).click();
-//				test.log(LogStatus.PASS, "Show response details Notice  popup open successfully.");
-//				
-//				Thread.sleep(5000);
-//				performerPOM.Actionclosepopup1(driver).click();
-//				
+				Thread.sleep(10000);
+				performerPOM.viewNoticeDetails1(driver).click();
+				test.log(LogStatus.PASS, "Show details Notice popup open successfully.");
+				
+				
+				Thread.sleep(5000);
+				performerPOM.Actionclosepopup1(driver).click();
+				
+				Thread.sleep(5000);
+				performerPOM.showResponseDetailIcon1(driver).click();
+				test.log(LogStatus.PASS, "Show response details Notice  popup open successfully.");
+				
+				Thread.sleep(5000);
+				performerPOM.Actionclosepopup1(driver).click();
+				
 				driver.navigate().refresh();
 				
 				//--------------------------------Case----------------------------------
@@ -3615,22 +3618,23 @@ public class MethodPOM
 				}
 				
 				
+				js.executeScript("window.scrollBy(0,500)");
+				js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=5000");
 				
-//				
-//				Thread.sleep(5000);
-//				performerPOM.viewNoticeDetails1(driver).click();
-//				test.log(LogStatus.PASS, "Show details Case popup open successfully.");
-//				
-//				Thread.sleep(5000);
-//				performerPOM.Actionclosepopup1(driver).click();
-//				
-//				Thread.sleep(5000);
-//				performerPOM.showResponseDetailIcon1(driver).click();
-//				test.log(LogStatus.PASS, "Show response details Case popup open successfully.");
-//				
-//				Thread.sleep(5000);
-//				performerPOM.Actionclosepopup1(driver).click();
-//				
+				Thread.sleep(5000);
+				performerPOM.viewNoticeDetails1(driver).click();
+				test.log(LogStatus.PASS, "Show details Case popup open successfully.");
+				
+				Thread.sleep(5000);
+				performerPOM.Actionclosepopup1(driver).click();
+				
+				Thread.sleep(5000);
+				performerPOM.showResponseDetailIcon1(driver).click();
+				test.log(LogStatus.PASS, "Show response details Case popup open successfully.");
+				
+				Thread.sleep(5000);
+				performerPOM.Actionclosepopup1(driver).click();
+				
 				Thread.sleep(500);
 				Report(driver, test, count1, "Case");
 				
@@ -3672,13 +3676,13 @@ public class MethodPOM
 				{
 					count1 = Integer.parseInt(compliancesCount);
 				}
-//				
-//				Thread.sleep(5000);
-//				performerPOM.viewTaskDetails(driver).click();	
-//				test.log(LogStatus.PASS, "Show details Task popup open successfully.");
-//				
-//				Thread.sleep(5000);
-//				performerPOM.ActioncloseTaskpopup(driver).click();
+				
+				Thread.sleep(5000);
+				performerPOM.viewTaskDetails(driver).click();	
+				test.log(LogStatus.PASS, "Show details Task popup open successfully.");
+				
+				Thread.sleep(5000);
+				performerPOM.ActioncloseTaskpopup(driver).click();
 				
 				Thread.sleep(500);
 				Report(driver, test, count1, "Task");
@@ -3692,8 +3696,8 @@ public class MethodPOM
 				File dir = new File("C://Users//Admin//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
-				Thread.sleep(500);
-				CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+				//Thread.sleep(500);
+				//CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
 				Thread.sleep(300);
 				performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 				
@@ -4485,6 +4489,10 @@ public class MethodPOM
 				Thread.sleep(3000);
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 				
+				Thread.sleep(3000);
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("document.querySelector(\"div[id='grid1'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=2000");
+				
 				
 				Thread.sleep(3000);
 				performerPOM.clickExportAdavanced(driver).click();
@@ -4518,6 +4526,10 @@ public class MethodPOM
 				Thread.sleep(3000);
 				performerPOM.clickExportAdavanced(driver).click();					//Clicking on 'Excel Report' image.
 				test.log(LogStatus.PASS, "File downloaded successfully.");
+				
+				Thread.sleep(3000);
+				//JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("document.querySelector(\"div[id='grid1'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=2000");
 			
 				Thread.sleep(3000);
 				performerPOM.viewNoticeDetails(driver).click();

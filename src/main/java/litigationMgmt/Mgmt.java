@@ -87,7 +87,7 @@ public class Mgmt {
  	void CaseAdvocateBillTab() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case advocate bill verification");
- 		test.log(LogStatus.INFO, "Test Initiated");
+ 		
  		
  		MgmtMethod.AdvocateBill(driver, test);
  		
@@ -98,7 +98,7 @@ public class Mgmt {
 	void CaseAdvocateBill() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Advocate bill verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MgmtMethod.AdvocateBillTab(driver, test);
 		
@@ -109,7 +109,7 @@ public class Mgmt {
 	void CaseAdvocateBill1() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Advocate bill verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MgmtMethod.ApproverAssignmentLog(driver, test);
 		
@@ -120,7 +120,7 @@ public class Mgmt {
 	void Masters12() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - Advocate Bill Approver  verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		
 		
 		MgmtMethod.AdvocateBillApprover(driver, test);
 		

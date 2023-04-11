@@ -92,59 +92,121 @@ public class MethodPOM1 {
 		performerPOM.clickApplyButton(driver).click();
 		
 		
+		
+		
+		
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
+		
+
+		
+
+		Thread.sleep(3000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("document.querySelector(\"div[id='grid1'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=2000");
+		
+		
+		
+        By locator = By.xpath("(//a[@class='k-button k-button-icontext ob-hearing1 k-grid-hearing1'])[1]");
+		
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		Thread.sleep(4000);
+		
+		WebElement ViewButton = driver.findElement(locator);	
+		Thread.sleep(4000);
+	    JavascriptExecutor jse=(JavascriptExecutor)driver;
+	    jse.executeScript("arguments[0].click();", ViewButton);
+	
+		
+		
+//		Thread.sleep(2000);
+//		performerPOM.viewNoticeDetails1(driver).click();
+		test.log(LogStatus.PASS, "Show details notice popup open successfully.");
+		
+		
+		Thread.sleep(2000);
+		performerPOM.Actionclosepopup(driver).click();
+		
+		Thread.sleep(2000);
+		By locator1 = By.xpath("//a[@class='k-button k-button-icontext ob-edit1 k-grid-edit1']");
+			
+	    wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+		Thread.sleep(4000);
+			
+		WebElement ViewButton1 = driver.findElement(locator1);	
+		Thread.sleep(4000);
+	    JavascriptExecutor jse1=(JavascriptExecutor)driver;
+		jse1.executeScript("arguments[0].click();", ViewButton1);
+		
+		
+//		Thread.sleep(2000);
+//		performerPOM.showResponseDetailIcon1(driver).click();
+		test.log(LogStatus.PASS, "Show response details notice popup open successfully.");
+		
+		Thread.sleep(2000);
+		performerPOM.Actionclosepopup(driver).click(); 
 		
 		Thread.sleep(3000);
 		performerPOM.clickExportAdavanced(driver).click();
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
-		
-		Thread.sleep(3000);
-		performerPOM.viewNoticeDetails(driver).click();
-		test.log(LogStatus.PASS, "Show details notice popup open successfully.");
-		
-		
-		Thread.sleep(3000);
-		performerPOM.Actionclosepopup(driver).click();
-		
-		Thread.sleep(3000);
-		performerPOM.showResponseDetailIcon(driver).click();
-		test.log(LogStatus.PASS, "Show response details notice popup open successfully.");
-		
-		Thread.sleep(3000);
-		performerPOM.Actionclosepopup(driver).click();
-		
 	//-------------------------------------------Case--------------------------------------------------
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
-		Thread.sleep(3000);
+	    Thread.sleep(3000);
 		performerPOM.clickTypeDropdown1(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
 		Thread.sleep(4000);
 		performerPOM.selectTypeCase1(driver).click();
 		
-		Thread.sleep(3000);
-		performerPOM.clickExportAdavanced(driver).click();					//Clicking on 'Excel Report' image.
-		test.log(LogStatus.PASS, "File downloaded successfully.");
 	
-		Thread.sleep(3000);
-		performerPOM.viewNoticeDetails(driver).click();
+		js.executeScript("window.scrollBy(0,800)");
+		js.executeScript("document.querySelector(\"div[id='grid1'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=5000");
+		
+		Thread.sleep(2000);
+		By locator2 = By.xpath("//a[@class='k-button k-button-icontext ob-hearing1 k-grid-hearing1']");
+			
+	    wait.until(ExpectedConditions.presenceOfElementLocated(locator2));
+		Thread.sleep(4000);
+			
+		WebElement ViewButton2 = driver.findElement(locator2);	
+		Thread.sleep(4000);
+	    JavascriptExecutor jse2=(JavascriptExecutor)driver;
+	    jse2.executeScript("arguments[0].click();", ViewButton2);
+		
+//		Thread.sleep(3000);
+//		performerPOM.viewNoticeDetails(driver).click();
+	    
+	    
 		test.log(LogStatus.PASS, "Show details case popup open successfully.");
 		
 		Thread.sleep(3000);
 		performerPOM.Actionclosepopup(driver).click();
 		
-		Thread.sleep(3000);
-		performerPOM.showResponseDetailIcon(driver).click();
+		Thread.sleep(2000);
+		By locator3 = By.xpath("//a[@class='k-button k-button-icontext ob-edit1 k-grid-edit1']");
+		 wait.until(ExpectedConditions.presenceOfElementLocated(locator3));
+		Thread.sleep(1000);
+		WebElement ViewButton3 = driver.findElement(locator3);	
+		Thread.sleep(1000);
+	    JavascriptExecutor jse3=(JavascriptExecutor)driver;
+	    jse3.executeScript("arguments[0].click();", ViewButton3);
+		
+//		Thread.sleep(3000);
+//		performerPOM.showResponseDetailIcon(driver).click();
+	    
 		test.log(LogStatus.PASS, "Show response details Case popup open successfully.");
 		
 		Thread.sleep(3000);
 		performerPOM.Actionclosepopup(driver).click();
 		
+		Thread.sleep(3000);
+		performerPOM.clickExportAdavanced(driver).click();					//Clicking on 'Excel Report' image.
+		test.log(LogStatus.PASS, "File downloaded successfully.");
+		
 	//-------------------------------------------Task--------------------------------------------------
-			Thread.sleep(3000);
+		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
 		
@@ -153,17 +215,29 @@ public class MethodPOM1 {
 		Thread.sleep(8000);
 		performerPOM.selectTypeTask1(driver).click();
 		
-		Thread.sleep(3000);
-		performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
-		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
+		Thread.sleep(2000);
+		By locator4 = By.xpath("//a[@class='k-button k-button-icontext ob-edit k-grid-edit']");
+			
+	    wait.until(ExpectedConditions.presenceOfElementLocated(locator4));
+		Thread.sleep(4000);
+			
+		WebElement ViewButton4 = driver.findElement(locator4);	
+		Thread.sleep(4000);
+	    JavascriptExecutor jse4=(JavascriptExecutor)driver;
+	    jse4.executeScript("arguments[0].click();", ViewButton4);
 		
-		Thread.sleep(3000);
-		performerPOM.viewTaskDetails(driver).click();	
+		//Thread.sleep(3000);
+		//performerPOM.viewTaskDetails(driver).click();	
 		test.log(LogStatus.PASS, "Show details Task popup open successfully.");
 		
 		Thread.sleep(3000);
 		performerPOM.ActioncloseTaskpopup(driver).click();
+		
+		
+		Thread.sleep(3000);
+		performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
 		Thread.sleep(1000);
 		OverduePOM.clickDashboard(driver).click();
@@ -771,7 +845,7 @@ public class MethodPOM1 {
 			Thread.sleep(3000);
 			performerPOM.ActioncloseTaskpopup(driver).click();
 			
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			OverduePOM.clickDashboard(driver).click();
 		        
 	}
