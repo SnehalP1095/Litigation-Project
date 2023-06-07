@@ -135,7 +135,7 @@ public class CFOcountInternal
 		CFOcountPOM.clickCategories(driver).click();					//Clicking on 'Categories'.
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		WebDriverWait wait = new WebDriverWait(driver, 90);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
@@ -184,7 +184,7 @@ public class CFOcountInternal
 				elementsList1.get(i).click();
 				
 				Thread.sleep(500);
-				litigationAdditionalOwner.MethodsPOM.progress(driver);
+				litigationPerformer.MethodsPOM.progress(driver);
 				
 				Thread.sleep(500);
 				try
@@ -301,7 +301,7 @@ public class CFOcountInternal
 		//CFOcountPOM.readCompliancesInternal(driver).click();					//Clicking on 'Compliances'.
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.

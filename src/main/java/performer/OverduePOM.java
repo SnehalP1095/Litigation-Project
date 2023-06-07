@@ -1301,7 +1301,7 @@ public class OverduePOM
 		}
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -1367,7 +1367,7 @@ public class OverduePOM
 		elementsList.get(1).click();							//Selecting second menu from drop down.
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);
 		clickRole(driver).click();								//Clicking on 'Role' drop down.
@@ -1375,7 +1375,7 @@ public class OverduePOM
 		elementsList.get(1).click();							//Selecting second menu from drop down.
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);
 		selectDateStatutory(driver).click();					//Clicking on 'Date' input box
@@ -1388,7 +1388,7 @@ public class OverduePOM
 		clickSaveButton(driver).click();						//Clicking 'Save' button.
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);
 		String actualMsg = readReminderMsg1(driver).getText();	//Reading Message after Save
@@ -1416,7 +1416,7 @@ public class OverduePOM
 		}
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 				
 		js.executeScript("window.scrollBy(0,1000)");
 		
@@ -1495,13 +1495,13 @@ public class OverduePOM
 		clickNew(driver).click();							//Clicking on '+New' button.
 		
 		Thread.sleep(300);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);
 		clickNewFolder(driver).click();						//Clicking on 'New Folder'
 		
 		Thread.sleep(300);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(300);
 		clickIsUniversal(driver).click();
@@ -1513,7 +1513,7 @@ public class OverduePOM
 		clickCreate(driver).click();						//Clicking on create button.
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);
 		String msg = driver.switchTo().alert().getText();
@@ -1539,21 +1539,21 @@ public class OverduePOM
 		readFolderName(driver).click();						//Clicking on folder name we had created.
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(clickNew(driver)));
 		clickNew(driver).click();							//Clicking on 'New'
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		//Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(clickNewFile(driver)));
 		clickNewFile(driver).click();						//CLicking on 'New File'
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);
 		String workingDir = System.getProperty("user.dir");
@@ -1564,7 +1564,7 @@ public class OverduePOM
 		clickUploadDocument(driver).click();				//Clicking on 'Upload Document'
 		
 		Thread.sleep(100);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@align='left'])[1]")));
@@ -1579,7 +1579,7 @@ public class OverduePOM
 		clickShareFolder(driver).click();					//Clicking on Share Folder image.
 		
 		Thread.sleep(500);
-		litigationAdditionalOwner.MethodsPOM.progress(driver);
+		litigationPerformer.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.elementToBeClickable(clickPeople(driver)));
