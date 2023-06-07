@@ -100,7 +100,7 @@ private static List<WebElement> elementsList = null;
 		 //Thread.sleep(5000);
 		 //performerPOM.clickAdvocateBillPanel(driver).click();
 		 Thread.sleep(5000);
-		 performerPOM. clickInvoiceAmount(driver).sendKeys("300000");
+		 performerPOM. clickInvoiceAmount(driver).sendKeys("30000");
 		 Thread.sleep(4000);
 		 performerPOM.clickLawFirm1(driver).click();
 		 performerPOM.selectLawFirm2(driver).get(2).click();
@@ -288,12 +288,12 @@ private static List<WebElement> elementsList = null;
 			if(count2 == records)
 			{
 				test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-				test.log(LogStatus.INFO, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+				//test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
 			}
 			else
 			{
 				test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
-				test.log(LogStatus.INFO, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+				//test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
 			}
 		}
 		
@@ -401,12 +401,12 @@ private static List<WebElement> elementsList = null;
 			if(count == records)
 			{
 				//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-				test.log(LogStatus.INFO, "Total records from Grid = "+count+" | Total records from Report = "+records);
+				//test.log(LogStatus.INFO, "Total records from Grid = "+count+" | Total records from Report = "+records);
 			}
 			else
 			{
 				//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
-				test.log(LogStatus.INFO, "Total records from Grid = "+count+" | Total records from Excel Sheet = "+records);
+				//test.log(LogStatus.INFO, "Total records from Grid = "+count+" | Total records from Excel Sheet = "+records);
 			}
 		}
   		
@@ -450,7 +450,10 @@ private static List<WebElement> elementsList = null;
 		        
 		        		
 		        // Accepting alert		
-		        alert.accept();		
+		        alert.accept();	
+		        
+		        Thread.sleep(2000);
+		        OverduePOM.clickDashboard(driver).click();
 
 
 		  }

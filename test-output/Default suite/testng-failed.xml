@@ -1,15 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="cfo.CFOcountStatutory">
+      <class name="litigationManagement.CFO">
         <methods>
+          <include name="NoticeTaskActivity"/>
+          <include name="InwardDefendantAgeingGraph"/>
+          <include name="InwardDefendentAgeingGraph2to3years"/>
+          <include name="Masters10"/>
+          <include name="Masters13"/>
           <include name="setBrowser"/>
-          <include name="Closing"/>
+          <include name="CategorySummaryGraph1"/>
+          <include name="Masters12"/>
+          <include name="Masters2"/>
+          <include name="Masters11"/>
+          <include name="CategorySummaryGraph"/>
+          <include name="PetitionerAgeingGraph"/>
+          <include name="RespondentAgeingGraph"/>
+          <include name="RiskSummaryGraph1"/>
+          <include name="OutwardPlaintiffAgeingGraph1to2years"/>
+          <include name="CaseNoticeTypeGraph"/>
+          <include name="CaseStatusPayment"/>
+          <include name="CaseTaskActivity"/>
+          <include name="CaseNoticeTypeGraph1"/>
+          <include name="MyReminder"/>
+          <include name="Masters"/>
+          <include name="NoticeDocument"/>
+          <include name="Close"/>
+          <include name="HearingCalender"/>
+          <include name="AdvancedSearch"/>
+          <include name="Masters1"/>
+          <include name="Masters4"/>
+          <include name="Masters3"/>
+          <include name="Masters6"/>
           <include name="Login"/>
+          <include name="Masters5"/>
+          <include name="DepartmentSummaryGraph"/>
+          <include name="InwardDefendentAgeingGraph1to2years"/>
+          <include name="Masters8"/>
+          <include name="MyDocument"/>
+          <include name="Masters7"/>
+          <include name="ApplicantAgeingGraph"/>
+          <include name="Masters9"/>
+          <include name="CaseHearing"/>
+          <include name="CaseNoticeStageGraph"/>
+          <include name="MyReports"/>
+          <include name="DepartmentSummaryGraph1"/>
+          <include name="OutwardPlaintiffAgeingGraphCase"/>
+          <include name="CaseDocument"/>
+          <include name="CaseOrder"/>
+          <include name="OutwardPlaintiffAgeingGraph"/>
+          <include name="ComplainantAgeingGraph1to2years"/>
+          <include name="PetitionerAgeingGraphCase"/>
+          <include name="LocationSummaryGraph"/>
+          <include name="RiskSummaryGraph"/>
+          <include name="CaseHearingcfo"/>
+          <include name="ComplainantAgeingGraph"/>
+          <include name="NoticeDocViewandDownload"/>
+          <include name="NoticeResponse"/>
+          <include name="AdvancedSearchreport"/>
+          <include name="CaseAuditLog"/>
+          <include name="LocationSummaryGraph1"/>
+          <include name="NoticePayment"/>
+          <include name="InwardDefendantAgeingGraphCase"/>
+          <include name="MoreReports"/>
+          <include name="NoticeAuditLog"/>
+          <include name="CaseExternalLawyerRating"/>
+          <include name="ImportUtility"/>
+          <include name="AdvancedSearchDoc"/>
+          <include name="NoticeExternalLawyer"/>
+          <include name="RespondentAgeingGraph1to2yearsAgeingGraph1to2years"/>
         </methods>
-      </class> <!-- cfo.CFOcountStatutory -->
+      </class> <!-- litigationManagement.CFO -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

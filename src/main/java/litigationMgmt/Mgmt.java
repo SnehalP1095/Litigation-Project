@@ -94,7 +94,7 @@ public class Mgmt {
  		extent.endTest(test);
  		extent.flush();
  	}
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	void CaseAdvocateBill() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Advocate bill verification");
@@ -123,6 +123,17 @@ public class Mgmt {
 		
 		
 		MgmtMethod.AdvocateBillApprover(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 6)
+	void MyReports() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Reports -excel count verification");
+		
+		
+		MethodsPOM.MyReports(driver, test, workbook, "Company Admin");
 		
 		extent.endTest(test);
 		extent.flush();

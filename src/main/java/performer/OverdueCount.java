@@ -135,7 +135,7 @@ public class OverdueCount
 		OverduePOM.clickStatutoryOverdue(driver).click();				//Clicking on Statutory overdue.
 		
 		Thread.sleep(500);
-		litigationPerformer.MethodsPOM.progress(driver);
+		litigationAdditionalOwner.MethodsPOM.progress(driver);
 		
 		MethodsPOM.StatutoryOverdue(driver);							//Calling method of Statutory Overdue
 		
@@ -218,7 +218,7 @@ public class OverdueCount
 		OverduePOM.clickInternalOverdue(driver).click();				//Clicking on Internal Overdue value.
 		
 		Thread.sleep(500);
-		litigationPerformer.MethodsPOM.progress(driver);
+		litigationAdditionalOwner.MethodsPOM.progress(driver);
 		
 		Thread.sleep(1000);		
 		js.executeScript("window.scrollBy(0,1000)");
@@ -399,7 +399,7 @@ public class OverdueCount
 		elementsList1.get(0).click();									//Clicking on first Activate button image
 		
 		Thread.sleep(500);
-		litigationPerformer.MethodsPOM.progress(driver);
+		litigationAdditionalOwner.MethodsPOM.progress(driver);
 		
 		Thread.sleep(1000);
 		driver.switchTo().alert().accept();

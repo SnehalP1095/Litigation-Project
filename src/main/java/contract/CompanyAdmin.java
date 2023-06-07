@@ -79,7 +79,7 @@ public class CompanyAdmin
 		extent.flush();
 	}
 	
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	void Draft() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Draft Count verification");

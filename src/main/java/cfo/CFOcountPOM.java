@@ -300,6 +300,17 @@ public class CFOcountPOM
 		piechart = driver.findElement(By.xpath("//*[@class='k-pager-info k-label']"));
 		return piechart;
 	}
+	public static WebElement readTotalItems2(WebDriver driver)				//Method to read total no of items.
+	{
+		piechart = driver.findElement(By.xpath("(//span[@class='k-pager-info k-label'])[2]"));
+		return piechart;
+	}
+	public static WebElement readcalenderCount(WebDriver driver)				//Method to read total no of items.
+	{
+		piechart = driver.findElement(By.xpath("//*[@id='grid']/div[3]/span[2]"));
+		return piechart;
+	}
+	
 	
 	public static WebElement clickBack1(WebDriver driver)
 	{
@@ -1841,7 +1852,7 @@ public class CFOcountPOM
 		elementsList.get(3).click();					//Selecting 'Event Based' checkbox.
 				
 		Thread.sleep(500);
-		litigationPerformer.MethodsPOM.progress(driver);
+		litigationAdditionalOwner.MethodsPOM.progress(driver);
 				
 		file = "C://Users//jiya//Downloads//InternalReport.xlsx";
 		compliance = "Event Based";
@@ -1856,7 +1867,7 @@ public class CFOcountPOM
 		elementsList.get(4).click();					//Selecting 'Internal' checkbox.
 		
 		Thread.sleep(500);
-		litigationPerformer.MethodsPOM.progress(driver);
+		litigationAdditionalOwner.MethodsPOM.progress(driver);
 		
 		file = "C://Users//jiya//Downloads//InternalReport.xlsx";
 		compliance = "Internal";
@@ -1869,7 +1880,7 @@ public class CFOcountPOM
 	public static void Assignment(WebDriver driver, ExtentTest test, String file, String compliance) throws InterruptedException, IOException
 	{
 		Thread.sleep(500);
-		litigationPerformer.MethodsPOM.progress(driver);
+		litigationAdditionalOwner.MethodsPOM.progress(driver);
 		
 		Thread.sleep(500);		
 		JavascriptExecutor js = (JavascriptExecutor) driver;

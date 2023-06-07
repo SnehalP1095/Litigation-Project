@@ -170,12 +170,12 @@ public class CFOMethod {
 			
 			if(open == count1)
 			{
-				test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
 				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 	       	
@@ -185,6 +185,8 @@ public class CFOMethod {
 			
 			Thread.sleep(3000);
 			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
 			
 			
 		/*	Thread.sleep(3000);
@@ -316,12 +318,241 @@ public class CFOMethod {
 				
 				if(count2 == records)
 				{
-					test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
 					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
 				}
 				else
 				{
-					test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+				}
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+			}
+			
+
+			Thread.sleep(7000);
+			
+			performerPOM.clearButton(driver).click();
+			test.log(LogStatus.PASS, "clear button work successfully.");
+			
+			
+			
+			Thread.sleep(3000);
+			driver.switchTo().parentFrame();
+			Thread.sleep(2000);
+			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+			
+//			Thread.sleep(3000);
+//			OverduePOM.clickDashboard(driver).click();
+			
+	   }
+		
+		public static void CaseNoticeStageGraph1(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		
+		{
+			
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+	       	js.executeScript("window.scrollBy(0,800)");
+	       	
+	       	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickDashboardCaseFilter(driver).click();
+			
+			 Thread.sleep(3000);
+			performerPOM.clickDashboardApplyBtn(driver).click();
+			
+	       	Thread.sleep(2000);
+		
+	       	int	open = Integer.parseInt(performerPOM.clickCaseNoticeStageHearingGraph(driver).getText());	//Reading Notice Open count.
+		    performerPOM.clickCaseNoticeStageHearingGraph(driver).click();						//Clicking on 'Open' notice
+		
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+			
+			Thread.sleep(10000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item = CFOcountPOM.readTotalItems1(driver).getText();
+			String[] bits = item.split(" ");								//Splitting the String
+			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+			int count1 = 0;
+			if(compliancesCount.equalsIgnoreCase("to"))
+			{
+				Thread.sleep(2000);
+			   item = CFOcountPOM.readTotalItems1(driver).getText();
+				bits = item.split(" ");								//Splitting the String
+			   compliancesCount = bits[bits.length - 2];
+			}
+			if(compliancesCount.equalsIgnoreCase("to"))
+			{
+				count1 = 0;
+			}
+			else
+			{
+				count1 = Integer.parseInt(compliancesCount);
+			}
+			
+			if(open == count1)
+			{
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+			}
+			else
+			{
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+			}
+	       	
+	    
+			Thread.sleep(3000);
+			performerPOM.CaseNoticeTypeViewGraph(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
+			
+			
+		/*	Thread.sleep(3000);
+			performerPOM.clickLocationFilter(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickLocationFilter1(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickLocationFilter3(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickCaseNotice(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.selectCaseNotice(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickStatusFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.selectstatusFiltercfo(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDepartmentFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.selectDepartmentFilter2(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickCaseNoticeType1(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.selectCaseNoticeType2(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickRiskFilter(driver).click();
+			
+
+			Thread.sleep(5000);
+			performerPOM.selectRiskFilter2cfo(driver).click();
+			
+//			Thread.sleep(5000);
+//			performerPOM.clickAgeFilter(driver).click();
+//			
+//			Thread.sleep(5000);
+//			performerPOM.selectAgeFiltercfo(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickCategoryFilter(driver).click();
+			
+			
+			Thread.sleep(5000);
+			performerPOM.selectCategoryFilter2(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickStageFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.selectStageFilter2(driver).click(); */
+			
+			
+			Thread.sleep(500);
+			progress(driver);
+			
+			Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			Thread.sleep(2000);
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,1000)");
+			
+			
+			
+			Thread.sleep(1000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			String[] bits1 = item1.split(" ");								//Splitting the String
+			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+			int count2 = Integer.parseInt(compliancesCount1);
+			
+		    try
+			{
+				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+			}
+			catch(Exception e)
+			{
+				
+			}
+			js.executeScript("window.scrollBy(0,1000)");
+			
+		
+			Thread.sleep(100);
+			File dir = new File("C://Users//Admin//Downloads");
+			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+			
+			Thread.sleep(500);
+			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+			Thread.sleep(250);
+			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+			test.log(LogStatus.PASS, "File downloaded successfully.");
+			
+			Thread.sleep(5500);
+			File dir1 = new File("C://Users//Admin//Downloads");
+			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+			
+			if(dirContents.length < allFilesNew.length)
+			{
+				
+				
+				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+			    {
+			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+			       {
+			           lastModifiedFile = allFilesNew[i];
+			       }
+			    }
+				
+				Thread.sleep(100);
+				fis = new FileInputStream(lastModifiedFile);
+				workbook = new XSSFWorkbook(fis);
+				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+				
+				int no = sheet.getLastRowNum();
+				Row row = sheet.getRow(no);
+				Cell c1 = row.getCell(0);
+				int records =(int) c1.getNumericCellValue();
+				fis.close();
+				
+				if(count2 == records)
+				{
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+				}
+				else
+				{
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
 					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
 				}
 			}
@@ -333,6 +564,7 @@ public class CFOMethod {
 
 			Thread.sleep(7000);
 			performerPOM.clearButton(driver).click();
+			test.log(LogStatus.PASS, "Clear button work successfully");
 			
 			
 			Thread.sleep(3000);
@@ -345,6 +577,13 @@ public class CFOMethod {
 			
 	   }	
 		
+		
+		
+		
+		
+		
+		
+		
 		public static void CaseNoticeTypeGraph(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
 		{
 			
@@ -353,14 +592,7 @@ public class CFOMethod {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	      //	js.executeScript("window.scrollBy(0,800)");
 	       	
-//	    	Thread.sleep(5000);
-//			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-//			
-//			Thread.sleep(5000);
-//			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
-//			
-//			 Thread.sleep(5000);
-//				performerPOM.clickDashboardApplyBtn(driver).click();
+
 			
 	       	Thread.sleep(2000);
 		
@@ -395,12 +627,12 @@ public class CFOMethod {
 			
 			if(open == count1)
 			{
-				test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
 				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 	       	
@@ -410,6 +642,8 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
 			
 			
 		/*	Thread.sleep(3000);
@@ -540,12 +774,12 @@ public class CFOMethod {
 				
 				if(count2 == records)
 				{
-					test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
 					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
 				}
 				else
 				{
-					test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
 					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
 				}
 			}
@@ -557,6 +791,7 @@ public class CFOMethod {
 
 			Thread.sleep(7000);
 			performerPOM.clearButton(driver).click();
+			test.log(LogStatus.PASS, "Clear button work successfully.");
 			
 			
 			Thread.sleep(3000);
@@ -569,22 +804,245 @@ public class CFOMethod {
 			
 	   }	
 		
+		public static void CaseNoticeTypeGraph1(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
+		{
+			
+
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+	      //	js.executeScript("window.scrollBy(0,800)");
+	       	
+
+			
+	       	Thread.sleep(2000);
+		
+	       	int	open = Integer.parseInt(performerPOM.CaseNoticeTypeSummaryGraph1(driver).getText());	//Reading Notice Open count.
+		    performerPOM.CaseNoticeTypeSummaryGraph1(driver).click();						//Clicking on 'Open' notice
+		    
+		    
+		    Thread.sleep(2000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+			
+			Thread.sleep(10000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item = CFOcountPOM.readTotalItems1(driver).getText();
+			String[] bits = item.split(" ");								//Splitting the String
+			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+			int count1 = 0;
+			if(compliancesCount.equalsIgnoreCase("to"))
+			{
+				Thread.sleep(2000);
+			   item = CFOcountPOM.readTotalItems1(driver).getText();
+				bits = item.split(" ");								//Splitting the String
+			   compliancesCount = bits[bits.length - 2];
+			}
+			if(compliancesCount.equalsIgnoreCase("to"))
+			{
+				count1 = 0;
+			}
+			else
+			{
+				count1 = Integer.parseInt(compliancesCount);
+			}
+			
+			if(open == count1)
+			{
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+			}
+			else
+			{
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+			}
+	       	
+	    
+			Thread.sleep(5000);
+			performerPOM.CaseNoticeTypeViewGraph(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
+			
+			
+		/*	Thread.sleep(3000);
+			performerPOM.clickLocationFilter(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickLocationFilter1(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickLocationFilter3(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickCaseNotice(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.selectCaseNotice(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickStatusFilter(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectstatusFiltercfo(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickDepartmentFilter(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectDepartmentFilter2(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickCaseNoticeType1(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectCaseNoticeType2(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickRiskFilter(driver).click();
+			
+
+			Thread.sleep(4000);
+			performerPOM.selectRiskFilter2cfo(driver).click();
+			
+//			Thread.sleep(5000);
+//			performerPOM.clickAgeFilter(driver).click();
+//			
+//			Thread.sleep(5000);
+//			performerPOM.selectAgeFiltercfo(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickCategoryFilter(driver).click();
+			
+			
+			Thread.sleep(4000);
+			performerPOM.selectCategoryFilter2(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickStageFilter(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectStageFilter2(driver).click(); */
+			
+			Thread.sleep(500);
+			progress(driver);
+			
+			Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			Thread.sleep(2000);
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,1000)");
+			
+			
+			
+			Thread.sleep(10000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			String[] bits1 = item1.split(" ");								//Splitting the String
+			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+			int count2 = Integer.parseInt(compliancesCount1);
+			
+		    try
+			{
+				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+			}
+			catch(Exception e)
+			{
+				
+			}
+			js.executeScript("window.scrollBy(0,1000)");
+			
+		
+			Thread.sleep(100);
+			File dir = new File("C://Users//Admin//Downloads");
+			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+			
+			Thread.sleep(500);
+			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+			Thread.sleep(250);
+			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+			test.log(LogStatus.PASS, "File downloaded successfully.");
+			
+			Thread.sleep(5500);
+			File dir1 = new File("C://Users//Admin//Downloads");
+			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+			
+			if(dirContents.length < allFilesNew.length)
+			{
+				
+				
+				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+			    {
+			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+			       {
+			           lastModifiedFile = allFilesNew[i];
+			       }
+			    }
+				
+				Thread.sleep(100);
+				fis = new FileInputStream(lastModifiedFile);
+				workbook = new XSSFWorkbook(fis);
+				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+				
+				int no = sheet.getLastRowNum();
+				Row row = sheet.getRow(no);
+				Cell c1 = row.getCell(0);
+				int records =(int) c1.getNumericCellValue();
+				fis.close();
+				
+				if(count2 == records)
+				{
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+				}
+				else
+				{
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+				}
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+			}
+			
+
+			Thread.sleep(7000);
+			performerPOM.clearButton(driver).click();
+			
+			test.log(LogStatus.PASS, "Clear button work successfully.");
+			
+			
+			Thread.sleep(3000);
+			driver.switchTo().parentFrame();
+			Thread.sleep(2000);
+			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+			
+//			Thread.sleep(3000);
+//			OverduePOM.clickDashboard(driver).click();
+			
+	   }	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		public static void RiskSummaryGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
 			
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	       	//js.executeScript("window.scrollBy(500,0)");
-//	       	
-//	    	Thread.sleep(5000);
-//			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-//			
-//			Thread.sleep(5000);
-//			performerPOM.clickDashboardCaseNoticeFilter1(driver).click();
-//			
-//			 Thread.sleep(5000);
-//				performerPOM.clickDashboardApplyBtn(driver).click();
+	           js.executeScript("window.scrollBy(0,300)");
+
 			
 	       	Thread.sleep(2000);
 		
@@ -618,12 +1076,12 @@ public class CFOMethod {
 			
 			if(open == count1)
 			{
-				test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
 				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 	       	
@@ -633,6 +1091,8 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
 			
 		/*	Thread.sleep(3000);
 			performerPOM.clickLocationFilter(driver).click();
@@ -762,12 +1222,12 @@ public class CFOMethod {
 				
 				if(count2 == records)
 				{
-					test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
 					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
 				}
 				else
 				{
-					test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
 					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
 				}
 			}
@@ -779,6 +1239,7 @@ public class CFOMethod {
 
 			Thread.sleep(7000);
 			performerPOM.clearButton(driver).click();
+			test.log(LogStatus.PASS, "Clear button work successfully.");
 			
 			
 			Thread.sleep(3000);
@@ -786,10 +1247,232 @@ public class CFOMethod {
 			Thread.sleep(2000);
 			performerPOM.caseNoticeSummaryGraphClose(driver).click();
 			
-			Thread.sleep(3000);
-			OverduePOM.clickDashboard(driver).click();
+			//Thread.sleep(3000);
+			//OverduePOM.clickDashboard(driver).click();
 			
 		}
+		
+		
+		
+	public static void RiskSummaryGraph1(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		
+		{
+			
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			  js.executeScript("window.scrollBy(0,300)");
+
+	       	Thread.sleep(2000);
+		
+	      	int	open = Integer.parseInt(performerPOM.RiskSummaryGraph2(driver).getText());	//Reading Notice Open count.
+		    performerPOM.RiskSummaryGraph2(driver).click();						//Clicking on 'Open' notice
+		
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+			
+			Thread.sleep(10000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item = CFOcountPOM.readTotalItems1(driver).getText();
+			String[] bits = item.split(" ");								//Splitting the String
+			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+			int count1 = 0;
+			if(compliancesCount.equalsIgnoreCase("to"))
+			{
+				Thread.sleep(2000);
+			   item = CFOcountPOM.readTotalItems1(driver).getText();
+				bits = item.split(" ");								//Splitting the String
+			   compliancesCount = bits[bits.length - 2];
+			}
+			if(compliancesCount.equalsIgnoreCase("to"))
+			{
+				count1 = 0;
+			}
+			else
+			{
+				count1 = Integer.parseInt(compliancesCount);
+			}
+			
+			if(open == count1)
+			{
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+			}
+			else
+			{
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+			}
+	       	
+	    	
+			Thread.sleep(5000);
+			performerPOM.CaseNoticeTypeViewGraph(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
+			
+		/*	Thread.sleep(3000);
+			performerPOM.clickLocationFilter(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickLocationFilter1(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickLocationFilter3(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickCaseNotice(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.selectCaseNotice(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickStatusFilter(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectstatusFiltercfo(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickDepartmentFilter(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectDepartmentFilter2(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickCaseNoticeType1(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectCaseNoticeType2(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickRiskFilter(driver).click();
+			
+
+			Thread.sleep(4000);
+			performerPOM.selectRiskFilter2cfo(driver).click();
+			
+//			Thread.sleep(5000);
+//			performerPOM.clickAgeFilter(driver).click();
+//			
+//			Thread.sleep(5000);
+//			performerPOM.selectAgeFiltercfo(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickCategoryFilter(driver).click();
+			
+			
+			Thread.sleep(4000);
+			performerPOM.selectCategoryFilter2(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickStageFilter(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectStageFilter2(driver).click(); */
+			
+			Thread.sleep(500);
+			progress(driver);
+			
+			Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			Thread.sleep(2000);
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,1000)");
+			
+			
+			
+			Thread.sleep(10000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			String[] bits1 = item1.split(" ");								//Splitting the String
+			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+			int count2 = Integer.parseInt(compliancesCount1);
+			
+		    try
+			{
+				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+			}
+			catch(Exception e)
+			{
+				
+			}
+			js.executeScript("window.scrollBy(0,1000)");
+			
+		
+			Thread.sleep(100);
+			File dir = new File("C://Users//Admin//Downloads");
+			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+			
+			Thread.sleep(500);
+			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+			Thread.sleep(250);
+			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+			test.log(LogStatus.PASS, "File downloaded successfully.");
+			
+			Thread.sleep(5500);
+			File dir1 = new File("C://Users//Admin//Downloads");
+			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+			
+			if(dirContents.length < allFilesNew.length)
+			{
+				
+				
+				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+			    {
+			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+			       {
+			           lastModifiedFile = allFilesNew[i];
+			       }
+			    }
+				
+				Thread.sleep(100);
+				fis = new FileInputStream(lastModifiedFile);
+				workbook = new XSSFWorkbook(fis);
+				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+				
+				int no = sheet.getLastRowNum();
+				Row row = sheet.getRow(no);
+				Cell c1 = row.getCell(0);
+				int records =(int) c1.getNumericCellValue();
+				fis.close();
+				
+				if(count2 == records)
+				{
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+				}
+				else
+				{
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+				}
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+			}
+			
+
+			Thread.sleep(7000);
+			performerPOM.clearButton(driver).click();
+			test.log(LogStatus.PASS, "Clear button work  successfully.");
+			
+			
+			Thread.sleep(3000);
+			driver.switchTo().parentFrame();
+			Thread.sleep(2000);
+			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+			
+			//Thread.sleep(3000);
+			//OverduePOM.clickDashboard(driver).click();
+			
+		}
+		
+		
+		
+		
 		
 	   public static void DepartmentSummaryGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
 		
@@ -797,16 +1480,8 @@ public class CFOMethod {
 			
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	       	js.executeScript("window.scrollBy(0,1500)");
-	       	
-	    	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-			
-			 Thread.sleep(5000);
-				performerPOM.clickDashboardApplyBtn(driver).click();
+	       	//js.executeScript("window.scrollBy(0,100)");
+
 			
 	       	Thread.sleep(2000);
 		
@@ -840,12 +1515,12 @@ public class CFOMethod {
 			
 			if(open == count1)
 			{
-				test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
 				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 	       	
@@ -855,6 +1530,8 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
 			
 		/*	Thread.sleep(3000);
 			performerPOM.clickLocationFilter(driver).click();
@@ -985,12 +1662,12 @@ public class CFOMethod {
 				
 				if(count2 == records)
 				{
-					test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
 					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
 				}
 				else
 				{
-					test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
 					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
 				}
 			}
@@ -1003,17 +1680,243 @@ public class CFOMethod {
 			Thread.sleep(7000);
 			performerPOM.clearButton(driver).click();
 			
+			test.log(LogStatus.PASS, "Clear button work successfully.");
+			
 			
 			Thread.sleep(3000);
 			driver.switchTo().parentFrame();
 			Thread.sleep(2000);
 			performerPOM.caseNoticeSummaryGraphClose(driver).click();
 			
-			Thread.sleep(3000);
-			OverduePOM.clickDashboard(driver).click();
+			//Thread.sleep(3000);
+			//OverduePOM.clickDashboard(driver).click();
 			
 			
 		}
+	   
+	   
+	   public static void DepartmentSummaryGraph1(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		
+			{
+				
+				WebDriverWait wait=new WebDriverWait(driver,20);
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+		       	//js.executeScript("window.scrollBy(0,1500)");
+		       	
+		    	
+		       	Thread.sleep(2000);
+			
+		      	int	open = Integer.parseInt(performerPOM.DepartmentSummaryGraph2(driver).getText());	//Reading Notice Open count.
+			    performerPOM.DepartmentSummaryGraph2(driver).click();						//Clicking on 'Open' notice
+			
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+				
+				Thread.sleep(10000);
+				CFOcountPOM.readTotalItems1(driver).click();
+				String item = CFOcountPOM.readTotalItems1(driver).getText();
+				String[] bits = item.split(" ");								//Splitting the String
+				String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+				int count1 = 0;
+				if(compliancesCount.equalsIgnoreCase("to"))
+				{
+					Thread.sleep(2000);
+				   item = CFOcountPOM.readTotalItems1(driver).getText();
+					bits = item.split(" ");								//Splitting the String
+				   compliancesCount = bits[bits.length - 2];
+				}
+				if(compliancesCount.equalsIgnoreCase("to"))
+				{
+					count1 = 0;
+				}
+				else
+				{
+					count1 = Integer.parseInt(compliancesCount);
+				}
+				
+				if(open == count1)
+				{
+					//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+					test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+				}
+				else
+				{
+					//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+					test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+				}
+		       	
+		    	
+				Thread.sleep(5000);
+				performerPOM.CaseNoticeTypeViewGraph(driver).click();
+				
+				Thread.sleep(5000);
+				performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+				
+				test.log(LogStatus.PASS, "View popup open successfully.");
+				
+			/*	Thread.sleep(3000);
+				performerPOM.clickLocationFilter(driver).click();
+				
+				Thread.sleep(3000);
+				performerPOM.clickLocationFilter1(driver).click();
+				
+				Thread.sleep(3000);
+				performerPOM.clickLocationFilter3(driver).click();
+				
+				Thread.sleep(3000);
+				performerPOM.clickCaseNotice(driver).click();
+				
+				Thread.sleep(3000);
+				performerPOM.selectCaseNotice(driver).click();
+				
+				Thread.sleep(4000);
+				performerPOM.clickStatusFilter(driver).click();
+				
+				Thread.sleep(4000);
+				performerPOM.selectstatusFiltercfo(driver).click();
+				
+				Thread.sleep(4000);
+				performerPOM.clickDepartmentFilter(driver).click();
+				
+				Thread.sleep(4000);
+				performerPOM.selectDepartmentFilter2(driver).click();
+				
+				Thread.sleep(4000);
+				performerPOM.clickCaseNoticeType1(driver).click();
+				
+				Thread.sleep(4000);
+				performerPOM.selectCaseNoticeType2(driver).click();
+				
+				Thread.sleep(4000);
+				performerPOM.clickRiskFilter(driver).click();
+				
+
+				Thread.sleep(4000);
+				performerPOM.selectRiskFilter2cfo(driver).click();
+				
+//				Thread.sleep(5000);
+//				performerPOM.clickAgeFilter(driver).click();
+//				
+//				Thread.sleep(7000);
+//				performerPOM.selectAgeFiltercfo(driver).click();
+				
+				Thread.sleep(4000);
+				performerPOM.clickCategoryFilter(driver).click();
+				
+				
+				Thread.sleep(4000);
+				performerPOM.selectCategoryFilter2(driver).click();
+				
+				Thread.sleep(4000);
+				performerPOM.clickStageFilter(driver).click();
+				
+				Thread.sleep(4000);
+				performerPOM.selectStageFilter2(driver).click(); */
+				
+				
+				Thread.sleep(500);
+				progress(driver);
+				
+				Thread.sleep(1000);
+				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+				Thread.sleep(2000);
+				JavascriptExecutor js1 = (JavascriptExecutor) driver;
+				js.executeScript("window.scrollBy(0,1000)");
+				
+				
+				
+				Thread.sleep(10000);
+				CFOcountPOM.readTotalItems1(driver).click();
+				String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+				String[] bits1 = item1.split(" ");								//Splitting the String
+				String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+				int count2 = Integer.parseInt(compliancesCount1);
+				
+			    try
+				{
+					performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+				}
+				catch(Exception e)
+				{
+					
+				}
+				js.executeScript("window.scrollBy(0,1000)");
+				
+			
+				Thread.sleep(100);
+				File dir = new File("C://Users//Admin//Downloads");
+				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+				
+				Thread.sleep(500);
+				CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+				Thread.sleep(250);
+				performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+				test.log(LogStatus.PASS, "File downloaded successfully.");
+				
+				Thread.sleep(5500);
+				File dir1 = new File("C://Users//Admin//Downloads");
+				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+				
+				if(dirContents.length < allFilesNew.length)
+				{
+					
+					
+					File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+				    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+				    {
+				       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+				       {
+				           lastModifiedFile = allFilesNew[i];
+				       }
+				    }
+					
+					Thread.sleep(100);
+					fis = new FileInputStream(lastModifiedFile);
+					workbook = new XSSFWorkbook(fis);
+					sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+					
+					int no = sheet.getLastRowNum();
+					Row row = sheet.getRow(no);
+					Cell c1 = row.getCell(0);
+					int records =(int) c1.getNumericCellValue();
+					fis.close();
+					
+					if(count2 == records)
+					{
+						//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+						test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+					}
+					else
+					{
+						//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+						test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+					}
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+				}
+				
+
+				Thread.sleep(7000);
+				performerPOM.clearButton(driver).click();
+				
+				test.log(LogStatus.PASS, "clear button work successfully.");
+				
+				
+				Thread.sleep(3000);
+				driver.switchTo().parentFrame();
+				Thread.sleep(2000);
+				performerPOM.caseNoticeSummaryGraphClose(driver).click();
+				
+				//Thread.sleep(3000);
+				//OverduePOM.clickDashboard(driver).click();
+				
+				
+			}
+	   
+	   
+	   
 	   public static void LocationSummaryGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
@@ -1021,16 +1924,9 @@ public class CFOMethod {
 			
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	      	js.executeScript("window.scrollBy(0,1500)");
+			js.executeScript("window.scrollBy(0,600)");
 	      	
-	    	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-			
-			 Thread.sleep(5000);
-				performerPOM.clickDashboardApplyBtn(driver).click();
+	    	
 			
 	      	Thread.sleep(3000);
 		
@@ -1065,12 +1961,12 @@ public class CFOMethod {
 			
 			if(open == count1)
 			{
-				test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
 				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 	       	
@@ -1080,6 +1976,8 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
 			
 		/*	Thread.sleep(3000);
 			performerPOM.clickLocationFilter(driver).click();
@@ -1209,12 +2107,233 @@ public class CFOMethod {
 				
 				if(count2 == records)
 				{
-					test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
 					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
 				}
 				else
 				{
-					test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+				}
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+			}
+			
+
+			Thread.sleep(7000);
+			performerPOM.clearButton(driver).click();
+			test.log(LogStatus.PASS, "Clear button work successfully.");
+			
+			
+			Thread.sleep(3000);
+			driver.switchTo().parentFrame();
+			Thread.sleep(2000);
+			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+			
+			//Thread.sleep(3000);
+			//OverduePOM.clickDashboard(driver).click();
+			
+	}
+	   
+	   
+	   public static void LocationSummaryGraph1(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		
+		{
+		
+			
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,600)");
+	      	
+	    	
+			
+	      	Thread.sleep(3000);
+		
+	      	int	open = Integer.parseInt(performerPOM.LocationSummaryGraphCase(driver).getText());	//Reading Notice Open count.
+		    performerPOM.LocationSummaryGraphCase(driver).click();						//Clicking on 'Open' notice
+		
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+			
+			
+			Thread.sleep(10000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item = CFOcountPOM.readTotalItems1(driver).getText();
+			String[] bits = item.split(" ");								//Splitting the String
+			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+			int count1 = 0;
+			if(compliancesCount.equalsIgnoreCase("to"))
+			{
+				Thread.sleep(2000);
+			   item = CFOcountPOM.readTotalItems1(driver).getText();
+				bits = item.split(" ");								//Splitting the String
+			   compliancesCount = bits[bits.length - 2];
+			}
+			if(compliancesCount.equalsIgnoreCase("to"))
+			{
+				count1 = 0;
+			}
+			else
+			{
+				count1 = Integer.parseInt(compliancesCount);
+			}
+			
+			if(open == count1)
+			{
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+			}
+			else
+			{
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+			}
+	       	
+	    	
+			Thread.sleep(5000);
+			performerPOM.CaseNoticeTypeViewGraph(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
+			
+		/*	Thread.sleep(3000);
+			performerPOM.clickLocationFilter(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickLocationFilter1(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickLocationFilter3(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickCaseNotice(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.selectCaseNotice(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickStatusFilter(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectstatusFiltercfo(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickDepartmentFilter(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectDepartmentFilter2(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickCaseNoticeType1(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectCaseNoticeType2(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickRiskFilter(driver).click();
+			
+
+			Thread.sleep(4000);
+			performerPOM.selectRiskFilter2cfo(driver).click();
+			
+//			Thread.sleep(5000);
+//			performerPOM.clickAgeFilter(driver).click();
+//			
+//			Thread.sleep(5000);
+//			performerPOM.selectAgeFiltercfo(driver).click();
+		
+			Thread.sleep(4000);
+			performerPOM.clickCategoryFilter(driver).click();
+			
+			
+			Thread.sleep(4000);
+			performerPOM.selectCategoryFilter2(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.clickStageFilter(driver).click();
+			
+			Thread.sleep(4000);
+			performerPOM.selectStageFilter2(driver).click(); */
+			
+			Thread.sleep(500);
+			progress(driver);
+			
+			Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			Thread.sleep(2000);
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,1000)");
+			
+			
+			
+			Thread.sleep(10000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			String[] bits1 = item1.split(" ");								//Splitting the String
+			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+			int count2 = Integer.parseInt(compliancesCount1);
+			
+		    try
+			{
+				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+			}
+			catch(Exception e)
+			{
+				
+			}
+			js.executeScript("window.scrollBy(0,1000)");
+			
+		
+			Thread.sleep(100);
+			File dir = new File("C://Users//Admin//Downloads");
+			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+			
+			Thread.sleep(500);
+			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+			Thread.sleep(250);
+			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+			test.log(LogStatus.PASS, "File downloaded successfully.");
+			
+			Thread.sleep(5500);
+			File dir1 = new File("C://Users//Admin//Downloads");
+			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+			
+			if(dirContents.length < allFilesNew.length)
+			{
+				
+				
+				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+			    {
+			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+			       {
+			           lastModifiedFile = allFilesNew[i];
+			       }
+			    }
+				
+				Thread.sleep(100);
+				fis = new FileInputStream(lastModifiedFile);
+				workbook = new XSSFWorkbook(fis);
+				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+				
+				int no = sheet.getLastRowNum();
+				Row row = sheet.getRow(no);
+				Cell c1 = row.getCell(0);
+				int records =(int) c1.getNumericCellValue();
+				fis.close();
+				
+				if(count2 == records)
+				{
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+				}
+				else
+				{
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
 					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
 				}
 			}
@@ -1227,16 +2346,24 @@ public class CFOMethod {
 			Thread.sleep(7000);
 			performerPOM.clearButton(driver).click();
 			
+			test.log(LogStatus.PASS, "Clear button work successfully.");
+			
 			
 			Thread.sleep(3000);
 			driver.switchTo().parentFrame();
 			Thread.sleep(2000);
 			performerPOM.caseNoticeSummaryGraphClose(driver).click();
 			
-			Thread.sleep(3000);
-			OverduePOM.clickDashboard(driver).click();
+			//Thread.sleep(3000);
+			//OverduePOM.clickDashboard(driver).click();
 			
 	}
+	   
+	   
+	   
+	   
+	   
+	   
 	   
 	   public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
 		
@@ -1244,16 +2371,9 @@ public class CFOMethod {
 			
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	      	js.executeScript("window.scrollBy(0,2000)");
+			js.executeScript("window.scrollBy(0,500)");
 	      	
-	    	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-			
-			 Thread.sleep(5000);
-				performerPOM.clickDashboardApplyBtn(driver).click();
+	    
 			
 	      	Thread.sleep(2000);
 		
@@ -1287,12 +2407,12 @@ public class CFOMethod {
 			
 			if(open == count1)
 			{
-				test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
 				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
 				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
 	      	
@@ -1314,6 +2434,8 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
 			
 		/*	Thread.sleep(3000);
 			performerPOM.clickLocationFilter(driver).click();
@@ -1411,7 +2533,7 @@ public class CFOMethod {
 			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
 			Thread.sleep(250);
 			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
-			test.log(LogStatus.PASS, "File downloaded successfully.");
+		
 			
 			Thread.sleep(5500);
 			File dir1 = new File("C://Users//Admin//Downloads");
@@ -1443,12 +2565,12 @@ public class CFOMethod {
 				
 				if(count2 == records)
 				{
-					test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
 					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
 				}
 				else
 				{
-					test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
 					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
 				}
 			}
@@ -1461,6 +2583,8 @@ public class CFOMethod {
 			Thread.sleep(7000);
 			performerPOM.clearButton(driver).click();
 			
+			test.log(LogStatus.PASS, "Clear button work successfully.");
+			
 			
 			Thread.sleep(3000);
 			driver.switchTo().parentFrame();
@@ -1470,6 +2594,242 @@ public class CFOMethod {
 			Thread.sleep(3000);
 			OverduePOM.clickDashboard(driver).click();
 		}
+	   
+	   
+	   public static void CategorySummaryGraph1(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		
+	 		{
+	 			
+	 			WebDriverWait wait=new WebDriverWait(driver,20);
+	 			JavascriptExecutor js = (JavascriptExecutor) driver;
+	 			js.executeScript("window.scrollBy(0,500)");
+	 	      	
+	 	    	
+	 			
+	 	      	Thread.sleep(2000);
+	 		
+	 	      	int	open = Integer.parseInt(performerPOM.CategorySummaryGraphCase1(driver).getText());	//Reading Notice Open count.
+	 		    performerPOM.CategorySummaryGraphCase1(driver).click();						//Clicking on 'Open' notice
+	 		
+	 			Thread.sleep(2000);
+	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+	 			
+	 			Thread.sleep(10000);
+	 			CFOcountPOM.readTotalItems1(driver).click();
+	 			String item = CFOcountPOM.readTotalItems1(driver).getText();
+	 			String[] bits = item.split(" ");								//Splitting the String
+	 			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+	 			int count1 = 0;
+	 			if(compliancesCount.equalsIgnoreCase("to"))
+	 			{
+	 				Thread.sleep(2000);
+	 			   item = CFOcountPOM.readTotalItems1(driver).getText();
+	 				bits = item.split(" ");								//Splitting the String
+	 			   compliancesCount = bits[bits.length - 2];
+	 			}
+	 			if(compliancesCount.equalsIgnoreCase("to"))
+	 			{
+	 				count1 = 0;
+	 			}
+	 			else
+	 			{
+	 				count1 = Integer.parseInt(compliancesCount);
+	 			}
+	 			
+	 			if(open == count1)
+	 			{
+	 				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+	 				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	 			}
+	 			else
+	 			{
+	 				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+	 				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+	 			}
+	 	      	
+	 	      	
+	 			
+	 			Thread.sleep(2000);
+	 			js.executeScript("window.scrollBy(0,1000)");
+	 			
+	 			
+	 			
+	 			Thread.sleep(2000);
+	 			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+	 			Thread.sleep(2000);
+	 			performerPOM.clickCaseNoticeStageHearingExport(driver).click();					//Clicking on 'Excel Report' image.
+	 			test.log(LogStatus.PASS, "File downloaded successfully.");
+	 			
+	 			Thread.sleep(5000);
+	 			performerPOM.CaseNoticeTypeViewGraph(driver).click();
+	 			
+	 			Thread.sleep(5000);
+	 			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+	 			
+	 			test.log(LogStatus.PASS, "View popup open successfully.");
+	 			
+	 		/*	Thread.sleep(3000);
+	 			performerPOM.clickLocationFilter(driver).click();
+	 			
+	 			Thread.sleep(3000);
+	 			performerPOM.clickLocationFilter1(driver).click();
+	 			
+	 			Thread.sleep(3000);
+	 			performerPOM.clickLocationFilter3(driver).click();
+	 			
+	 			Thread.sleep(3000);
+	 			performerPOM.clickCaseNotice(driver).click();
+	 			
+	 			Thread.sleep(3000);
+	 			performerPOM.selectCaseNotice(driver).click();
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.clickStatusFilter(driver).click();
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.selectstatusFiltercfo(driver).click();
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.clickDepartmentFilter(driver).click();
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.selectDepartmentFilter2(driver).click();
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.clickCaseNoticeType1(driver).click();
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.selectCaseNoticeType2(driver).click();
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.clickRiskFilter(driver).click();
+	 			
+
+	 			Thread.sleep(4000);
+	 			performerPOM.selectRiskFilter2cfo(driver).click();
+	 			
+//	 			Thread.sleep(5000);
+//	 			performerPOM.clickAgeFilter(driver).click();
+//	 			
+//	 			Thread.sleep(5000);
+//	 			performerPOM.selectAgeFiltercfo(driver).click();
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.clickCategoryFilter(driver).click();
+	 			
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.selectCategoryFilter2(driver).click();
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.clickStageFilter(driver).click();
+	 			
+	 			Thread.sleep(4000);
+	 			performerPOM.selectStageFilter2(driver).click(); */
+	 			
+	 			Thread.sleep(500);
+	 			progress(driver);
+	 			
+	 			Thread.sleep(1000);
+	 			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 			Thread.sleep(2000);
+	 			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+	 			js.executeScript("window.scrollBy(0,1000)");
+	 			
+	 			
+	 			
+	 			Thread.sleep(10000);
+	 			CFOcountPOM.readTotalItems1(driver).click();
+	 			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+	 			String[] bits1 = item1.split(" ");								//Splitting the String
+	 			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+	 			int count2 = Integer.parseInt(compliancesCount1);
+	 			
+	 		    try
+	 			{
+	 				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+	 			}
+	 			catch(Exception e)
+	 			{
+	 				
+	 			}
+	 			js.executeScript("window.scrollBy(0,1000)");
+	 			
+	 		
+	 			Thread.sleep(100);
+	 			File dir = new File("C://Users//Admin//Downloads");
+	 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+	 			
+	 			Thread.sleep(500);
+	 			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+	 			Thread.sleep(250);
+	 			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+	 		
+	 			
+	 			Thread.sleep(5500);
+	 			File dir1 = new File("C://Users//Admin//Downloads");
+	 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+	 			
+	 			if(dirContents.length < allFilesNew.length)
+	 			{
+	 				
+	 				
+	 				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+	 			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+	 			    {
+	 			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+	 			       {
+	 			           lastModifiedFile = allFilesNew[i];
+	 			       }
+	 			    }
+	 				
+	 				Thread.sleep(100);
+	 				fis = new FileInputStream(lastModifiedFile);
+	 				workbook = new XSSFWorkbook(fis);
+	 				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+	 				
+	 				int no = sheet.getLastRowNum();
+	 				Row row = sheet.getRow(no);
+	 				Cell c1 = row.getCell(0);
+	 				int records =(int) c1.getNumericCellValue();
+	 				fis.close();
+	 				
+	 				if(count2 == records)
+	 				{
+	 					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+	 					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+	 				}
+	 				else
+	 				{
+	 					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+	 					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+	 				}
+	 			}
+	 			else
+	 			{
+	 				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+	 			}
+	 			
+
+	 			Thread.sleep(7000);
+	 			performerPOM.clearButton(driver).click();
+	 			
+	 			test.log(LogStatus.PASS, "Clear button work  successfully.");
+	 			
+	 			
+	 			Thread.sleep(3000);
+	 			driver.switchTo().parentFrame();
+	 			Thread.sleep(2000);
+	 			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+	 			
+	 			Thread.sleep(3000);
+	 			OverduePOM.clickDashboard(driver).click();
+	 		}
+	   
+	   
+	   
+	   
+	   
 	   static void perform(WebDriver driver, ExtentTest test, XSSFSheet sheet, int open, int gridRecords, String type, String noticeCategory) throws InterruptedException, IOException
 		{
 		   
@@ -1484,10 +2844,10 @@ public class CFOMethod {
 			
 			
 			Thread.sleep(5000);
-			performerPOM.clickType1(driver).click();
+			performerPOM.clickcategory(driver).click();
 			
 			Thread.sleep(3000);
-			performerPOM.clickType2(driver).click();
+			performerPOM.clickcategory1(driver).click();
 			
 			
 			if(performerPOM.clearButton(driver).isEnabled())
@@ -2372,7 +3732,7 @@ public class CFOMethod {
 			    performerPOM.clickStatusPayments(driver).click();			//Clicking on 'Status/Payments'
 			
 			    Thread.sleep(1000);
-				performerPOM.clickInvoiceNo(driver).sendKeys("5674584");
+				performerPOM.clickInvoiceNo(driver).sendKeys("56742584");
 				
 				
 				Thread.sleep(3000);
@@ -2434,7 +3794,7 @@ public class CFOMethod {
 					
 					performerPOM.clickInvoiceNo(driver).clear();
 					 Thread.sleep(3000);
-				    performerPOM.clickInvoiceNo(driver).sendKeys("Invoice No 578");
+				    performerPOM.clickInvoiceNo(driver).sendKeys("Invoice No 5782");
 				    
 				    Thread.sleep(6000);
 					performerPOM.clickNoticeStatusPaymentUploadtcfo(driver);
@@ -3331,7 +4691,7 @@ public class CFOMethod {
 			    Thread.sleep(300);
 			    performerPOM.clickCaseNewTask(driver).click();
 			    Thread.sleep(5000);
-			    performerPOM.clickHearingDate(driver).sendKeys("23-06-2022");
+			    performerPOM.clickHearingDate(driver).sendKeys("23-07-2022");
 			    
 			    
 //			    Thread.sleep(300);
@@ -3463,7 +4823,7 @@ public class CFOMethod {
 				performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 				
 				Thread.sleep(3000);
-				performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test new");
+				performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Testt new");
 				
 				Thread.sleep(3000);
 				performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
@@ -3523,7 +4883,7 @@ public class CFOMethod {
 //					int HearingDate = (int) c1.getNumericCellValue();
 //					performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 					
-					performerPOM.clickCaseHearingDate(driver).sendKeys("31-04-2023");	//Writing 'HearingDate'
+					performerPOM.clickCaseHearingDate(driver).sendKeys("31-05-2023");	//Writing 'HearingDate'
 					
 					
 				
@@ -3565,7 +4925,7 @@ public class CFOMethod {
 				    Thread.sleep(3000);
 				    performerPOM.clickCaseHearingDecsri(driver).clear();
 				    Thread.sleep(3000);
-				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 5 feb 2023");		//Writing 'HearingDescription'
+				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 5 mar 2023");		//Writing 'HearingDescription'
 				    
 				    Thread.sleep(3000);
 				    performerPOM.clickSaveCaseHearing(driver).click();
@@ -3650,11 +5010,11 @@ public class CFOMethod {
 				 
 				 performerPOM.clickCaseOrderTitle(driver).clear();
 				 
-				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 521289356");
+				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 5212891356");
 				 
 				 performerPOM.clickCaseOrderDecri(driver).clear();
 				 
-				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 6 feb 23");     //click oder description
+				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 6 mar 23");     //click oder description
 				 
 				 performerPOM.ChooseOrderFile(driver).click();
 				 
@@ -3747,7 +5107,7 @@ public class CFOMethod {
 							
 							
 							Thread.sleep(10000);
-                            performerPOM.clickAmount1(driver).sendKeys("90000");	//Writing 'Amount'
+                            performerPOM.clickAmount1(driver).sendKeys("900000");	//Writing 'Amount'
 						
 				
 							Thread.sleep(3000);
@@ -3785,7 +5145,7 @@ public class CFOMethod {
 							Thread.sleep(3000);
 							performerPOM.clickCaseInvoiceNo1(driver).clear();
 							 Thread.sleep(3000);
-						    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 45758");
+						    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 457258");
 						    
 						    Thread.sleep(6000);
 							performerPOM.clickCaseStatusPaymentUploadtcfo(driver);
@@ -5711,12 +7071,12 @@ public class CFOMethod {
 						
 						if(open1 > open)
 						{
-							test.log(LogStatus.PASS, type+" Dashboard Count Increased.");
+							//test.log(LogStatus.PASS, type+" Dashboard Count Increased.");
 							test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
 						}
 						else
 						{
-							test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increased.");
+							//test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increased.");
 							test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
 						}
 					}
@@ -8505,15 +9865,3702 @@ public class CFOMethod {
                 		
                 		Thread.sleep(500);
                 		OverduePOM.clickDashboard(driver).click();
-            		  
-            		  
-            		  
-            		  
-            		  
-            		  
-            				
-            		}
+             
+            	  }
+            public static void InwardDefendantAgeingGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+          		
+          		{
+          			
+          			WebDriverWait wait=new WebDriverWait(driver,20);
+          			JavascriptExecutor js = (JavascriptExecutor) driver;
+          	       	js.executeScript("window.scrollBy(0,800)");
+          	       	
+          	       	Thread.sleep(5000);
+          			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickDashboardNoticeFilter(driver).click();
+          			
+          			 Thread.sleep(5000);
+          				performerPOM.clickDashboardApplyBtn(driver).click();
+          				
+          				js.executeScript("window.scrollBy(0,1500)");
+          			
+          	       	Thread.sleep(3000);
+          		
+          	       	int	open = Integer.parseInt(performerPOM.clickAgeing(driver).getText());	//Reading Notice Open count.
+          		    performerPOM.clickAgeing(driver).click();						//Clicking on 'Open' notice
+          		
+          			Thread.sleep(2000);
+          			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+          			
+          			Thread.sleep(10000);
+          			CFOcountPOM.readTotalItems1(driver).click();
+          			String item = CFOcountPOM.readTotalItems1(driver).getText();
+          			String[] bits = item.split(" ");								//Splitting the String
+          			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+          			int count1 = 0;
+          			if(compliancesCount.equalsIgnoreCase("to"))
+          			{
+          				Thread.sleep(2000);
+          			   item = CFOcountPOM.readTotalItems1(driver).getText();
+          				bits = item.split(" ");								//Splitting the String
+          			   compliancesCount = bits[bits.length - 2];
+          			}
+          			if(compliancesCount.equalsIgnoreCase("to"))
+          			{
+          				count1 = 0;
+          			}
+          			else
+          			{
+          				count1 = Integer.parseInt(compliancesCount);
+          			}
+          			
+          			if(open == count1)
+          			{
+          				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+          				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+          			}
+          			else
+          			{
+          				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+          				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+          			}
+          	       	
+          	    
+          			Thread.sleep(3000);
+          			performerPOM.clickAgeingViewIcon(driver).click();
+          			
+
+        			
+        			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+        			Thread.sleep(2000);
+          		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+          		  
+          		  if(msg.equalsIgnoreCase("Notice Summary"))
+          		  {
+          			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+          		  }
+          		  else
+          		  {
+          			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+          		  }
+          		  
+          		  driver.switchTo().parentFrame();
+          			
+          		 Thread.sleep(3000);
+          		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+          			
+          			
+          			
+          			
+          		/*	Thread.sleep(3000);
+          			performerPOM.clickLocationFilter(driver).click();
+          			
+          			Thread.sleep(3000);
+          			performerPOM.clickLocationFilter1(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickLocationFilter3(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCaseNotice(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCaseNotice(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickStatusFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectstatusFiltercfo(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickDepartmentFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectDepartmentFilter2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCaseNoticeType1(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCaseNoticeType2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickRiskFilter(driver).click();
+          			
+
+          			Thread.sleep(5000);
+          			performerPOM.selectRiskFilter2cfo(driver).click();
+          			
+//          			Thread.sleep(5000);
+//          			performerPOM.clickAgeFilter(driver).click();
+//          			
+//          			Thread.sleep(5000);
+//          			performerPOM.selectAgeFiltercfo(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCategoryFilter(driver).click();
+          			
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCategoryFilter2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickStageFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectStageFilter2(driver).click(); */
+          			
+          			
+          			Thread.sleep(500);
+          			progress(driver);
+          			
+          			Thread.sleep(1000);
+          			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+          			Thread.sleep(2000);
+          			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+          			js.executeScript("window.scrollBy(0,1000)");
+          			
+          			
+          			
+          			Thread.sleep(1000);
+          			CFOcountPOM.readTotalItems1(driver).click();
+          			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+          			String[] bits1 = item1.split(" ");								//Splitting the String
+          			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+          			int count2 = Integer.parseInt(compliancesCount1);
+          			
+          		    try
+          			{
+          				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+          			}
+          			catch(Exception e)
+          			{
+          				
+          			}
+          			js.executeScript("window.scrollBy(0,1000)");
+          			
+          		
+          			Thread.sleep(100);
+          			File dir = new File("C://Users//Admin//Downloads");
+          			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+          			
+          			Thread.sleep(500);
+          			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+          			Thread.sleep(250);
+          			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+          			test.log(LogStatus.PASS, "File downloaded successfully.");
+          			
+          			Thread.sleep(5500);
+          			File dir1 = new File("C://Users//Admin//Downloads");
+          			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+          			
+          			if(dirContents.length < allFilesNew.length)
+          			{
+          				
+          				
+          				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+          			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+          			    {
+          			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+          			       {
+          			           lastModifiedFile = allFilesNew[i];
+          			       }
+          			    }
+          				
+          				Thread.sleep(100);
+          				fis = new FileInputStream(lastModifiedFile);
+          				workbook = new XSSFWorkbook(fis);
+          				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+          				
+          				int no = sheet.getLastRowNum();
+          				Row row = sheet.getRow(no);
+          				Cell c1 = row.getCell(0);
+          				int records =(int) c1.getNumericCellValue();
+          				fis.close();
+          				
+          				if(count2 == records)
+          				{
+          					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+          					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+          				}
+          				else
+          				{
+          					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+          					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+          				}
+          			}
+          			else
+          			{
+          				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+          			}
+          			
+          			Thread.sleep(7000);
+          			performerPOM.clickRiskFilter(driver).click();
+          			
+          			Thread.sleep(7000);
+          			performerPOM.selectRiskFilter(driver).click();
+          			
+//          		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//          			selectOptionFromDropDown_bs(SeletcRisk, "High");
+          			
+          			Thread.sleep(7000);
+          			if(performerPOM.clearButton(driver).isEnabled())
+          			{
+          				Thread.sleep(7000);
+          				performerPOM.clearButton(driver).click();
+              			test.log(LogStatus.PASS, "clear button work successfully.");
+          			}
+          			else
+          			{
+          				test.log(LogStatus.FAIL, "clear button not work successfully.");
+          			}
+          		
+          			
+          			
+          			
+          			Thread.sleep(3000);
+          			driver.switchTo().parentFrame();
+          			Thread.sleep(2000);
+          			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+          			
+         			Thread.sleep(3000);
+         			OverduePOM.clickDashboard(driver).click();
+          			
+          	   }
+            	  public static void ComplainantAgeingGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+            		
+            		{
             			
+            			WebDriverWait wait=new WebDriverWait(driver,20);
+            			JavascriptExecutor js = (JavascriptExecutor) driver;
+            	       	js.executeScript("window.scrollBy(0,800)");
+            	       	
+            	       	Thread.sleep(5000);
+            			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickDashboardNoticeFilter(driver).click();
+            			
+            			 Thread.sleep(5000);
+            				performerPOM.clickDashboardApplyBtn(driver).click();
+            				
+            				js.executeScript("window.scrollBy(0,1500)");
+            			
+            	       	Thread.sleep(3000);
+            		
+            	       	int	open = Integer.parseInt(performerPOM.clickComplainantAgeing(driver).getText());	//Reading Notice Open count.
+            		    performerPOM.clickComplainantAgeing(driver).click();						//Clicking on 'Open' notice
+            		
+            			Thread.sleep(2000);
+            			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+            			
+            			Thread.sleep(10000);
+            			CFOcountPOM.readTotalItems1(driver).click();
+            			String item = CFOcountPOM.readTotalItems1(driver).getText();
+            			String[] bits = item.split(" ");								//Splitting the String
+            			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+            			int count1 = 0;
+            			if(compliancesCount.equalsIgnoreCase("to"))
+            			{
+            				Thread.sleep(2000);
+            			   item = CFOcountPOM.readTotalItems1(driver).getText();
+            				bits = item.split(" ");								//Splitting the String
+            			   compliancesCount = bits[bits.length - 2];
+            			}
+            			if(compliancesCount.equalsIgnoreCase("to"))
+            			{
+            				count1 = 0;
+            			}
+            			else
+            			{
+            				count1 = Integer.parseInt(compliancesCount);
+            			}
+            			
+            			if(open == count1)
+            			{
+            				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+            				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+            			}
+            			else
+            			{
+            				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+            				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+            			}
+            	       	
+            	    
+            			Thread.sleep(3000);
+            			performerPOM.clickAgeingViewIcon(driver).click();
+            			
+
+          			
+          			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+          			Thread.sleep(2000);
+            		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+            		  
+            		  if(msg.equalsIgnoreCase("Notice Summary"))
+            		  {
+            			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+            		  }
+            		  else
+            		  {
+            			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+            		  }
+            		  
+            		  driver.switchTo().parentFrame();
+            			
+            		 Thread.sleep(3000);
+            		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+            			
+            			
+            			
+            			
+            		/*	Thread.sleep(3000);
+            			performerPOM.clickLocationFilter(driver).click();
+            			
+            			Thread.sleep(3000);
+            			performerPOM.clickLocationFilter1(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickLocationFilter3(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickCaseNotice(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectCaseNotice(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickStatusFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectstatusFiltercfo(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickDepartmentFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectDepartmentFilter2(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickCaseNoticeType1(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectCaseNoticeType2(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickRiskFilter(driver).click();
+            			
+
+            			Thread.sleep(5000);
+            			performerPOM.selectRiskFilter2cfo(driver).click();
+            			
+//            			Thread.sleep(5000);
+//            			performerPOM.clickAgeFilter(driver).click();
+//            			
+//            			Thread.sleep(5000);
+//            			performerPOM.selectAgeFiltercfo(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickCategoryFilter(driver).click();
+            			
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectCategoryFilter2(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickStageFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectStageFilter2(driver).click(); */
+            			
+            			
+            			Thread.sleep(500);
+            			progress(driver);
+            			
+            			Thread.sleep(1000);
+            			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+            			Thread.sleep(2000);
+            			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+            			js.executeScript("window.scrollBy(0,1000)");
+            			
+            			
+            			
+            			Thread.sleep(1000);
+            			CFOcountPOM.readTotalItems1(driver).click();
+            			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+            			String[] bits1 = item1.split(" ");								//Splitting the String
+            			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+            			int count2 = Integer.parseInt(compliancesCount1);
+            			
+            		    try
+            			{
+            				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+            			}
+            			catch(Exception e)
+            			{
+            				
+            			}
+            			js.executeScript("window.scrollBy(0,1000)");
+            			
+            		
+            			Thread.sleep(100);
+            			File dir = new File("C://Users//Admin//Downloads");
+            			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+            			
+            			Thread.sleep(500);
+            			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+            			Thread.sleep(250);
+            			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+            			test.log(LogStatus.PASS, "File downloaded successfully.");
+            			
+            			Thread.sleep(5500);
+            			File dir1 = new File("C://Users//Admin//Downloads");
+            			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+            			
+            			if(dirContents.length < allFilesNew.length)
+            			{
+            				
+            				
+            				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+            			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+            			    {
+            			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+            			       {
+            			           lastModifiedFile = allFilesNew[i];
+            			       }
+            			    }
+            				
+            				Thread.sleep(100);
+            				fis = new FileInputStream(lastModifiedFile);
+            				workbook = new XSSFWorkbook(fis);
+            				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+            				
+            				int no = sheet.getLastRowNum();
+            				Row row = sheet.getRow(no);
+            				Cell c1 = row.getCell(0);
+            				int records =(int) c1.getNumericCellValue();
+            				fis.close();
+            				
+            				if(count2 == records)
+            				{
+            					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+            					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+            				}
+            				else
+            				{
+            					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+            					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+            				}
+            			}
+            			else
+            			{
+            				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+            			}
+            			
+            			Thread.sleep(7000);
+            			performerPOM.clickRiskFilter(driver).click();
+            			
+            			Thread.sleep(7000);
+            			performerPOM.selectRiskFilter(driver).click();
+            			
+//            		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//            			selectOptionFromDropDown_bs(SeletcRisk, "High");
+            			
+            			Thread.sleep(7000);
+            			if(performerPOM.clearButton(driver).isEnabled())
+            			{
+            				Thread.sleep(7000);
+            				performerPOM.clearButton(driver).click();
+                			test.log(LogStatus.PASS, "clear button work successfully.");
+            			}
+            			else
+            			{
+            				test.log(LogStatus.FAIL, "clear button not work successfully.");
+            			}
+            		
+            			
+            			
+            			
+            			Thread.sleep(3000);
+            			driver.switchTo().parentFrame();
+            			Thread.sleep(2000);
+            			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+            			
+           			Thread.sleep(3000);
+           			OverduePOM.clickDashboard(driver).click();
+            			
+            	   }
+            	  public static void ApplicantAgeingGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+          		
+          		{
+          			
+          			WebDriverWait wait=new WebDriverWait(driver,20);
+          			JavascriptExecutor js = (JavascriptExecutor) driver;
+          	       	js.executeScript("window.scrollBy(0,800)");
+          	       	
+          	       	Thread.sleep(5000);
+          			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickDashboardNoticeFilter(driver).click();
+          			
+          			 Thread.sleep(5000);
+          				performerPOM.clickDashboardApplyBtn(driver).click();
+          				
+          				js.executeScript("window.scrollBy(0,1500)");
+          			
+          	       	Thread.sleep(3000);
+          		
+          	       	int	open = Integer.parseInt(performerPOM.clickApplicantAgeing(driver).getText());	//Reading Notice Open count.
+          		    performerPOM.clickApplicantAgeing(driver).click();						//Clicking on 'Open' notice
+          		
+          			Thread.sleep(2000);
+          			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+          			
+          			Thread.sleep(10000);
+          			CFOcountPOM.readTotalItems1(driver).click();
+          			String item = CFOcountPOM.readTotalItems1(driver).getText();
+          			String[] bits = item.split(" ");								//Splitting the String
+          			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+          			int count1 = 0;
+          			if(compliancesCount.equalsIgnoreCase("to"))
+          			{
+          				Thread.sleep(2000);
+          			   item = CFOcountPOM.readTotalItems1(driver).getText();
+          				bits = item.split(" ");								//Splitting the String
+          			   compliancesCount = bits[bits.length - 2];
+          			}
+          			if(compliancesCount.equalsIgnoreCase("to"))
+          			{
+          				count1 = 0;
+          			}
+          			else
+          			{
+          				count1 = Integer.parseInt(compliancesCount);
+          			}
+          			
+          			if(open == count1)
+          			{
+          				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+          				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+          			}
+          			else
+          			{
+          				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+          				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+          			}
+          	       	
+          	    
+          			Thread.sleep(3000);
+          			performerPOM.clickAgeingViewIcon(driver).click();
+          			
+
+        			
+        			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+        			Thread.sleep(2000);
+          		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+          		  
+          		  if(msg.equalsIgnoreCase("Notice Summary"))
+          		  {
+          			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+          		  }
+          		  else
+          		  {
+          			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+          		  }
+          		  
+          		  driver.switchTo().parentFrame();
+          			
+          		 Thread.sleep(3000);
+          		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+          			
+          			
+          			
+          			
+          		/*	Thread.sleep(3000);
+          			performerPOM.clickLocationFilter(driver).click();
+          			
+          			Thread.sleep(3000);
+          			performerPOM.clickLocationFilter1(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickLocationFilter3(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCaseNotice(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCaseNotice(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickStatusFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectstatusFiltercfo(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickDepartmentFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectDepartmentFilter2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCaseNoticeType1(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCaseNoticeType2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickRiskFilter(driver).click();
+          			
+
+          			Thread.sleep(5000);
+          			performerPOM.selectRiskFilter2cfo(driver).click();
+          			
+//          			Thread.sleep(5000);
+//          			performerPOM.clickAgeFilter(driver).click();
+//          			
+//          			Thread.sleep(5000);
+//          			performerPOM.selectAgeFiltercfo(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCategoryFilter(driver).click();
+          			
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCategoryFilter2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickStageFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectStageFilter2(driver).click(); */
+          			
+          			
+          			Thread.sleep(500);
+          			progress(driver);
+          			
+          			Thread.sleep(1000);
+          			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+          			Thread.sleep(2000);
+          			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+          			js.executeScript("window.scrollBy(0,1000)");
+          			
+          			
+          			
+          			Thread.sleep(1000);
+          			CFOcountPOM.readTotalItems1(driver).click();
+          			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+          			String[] bits1 = item1.split(" ");								//Splitting the String
+          			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+          			int count2 = Integer.parseInt(compliancesCount1);
+          			
+          		    try
+          			{
+          				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+          			}
+          			catch(Exception e)
+          			{
+          				
+          			}
+          			js.executeScript("window.scrollBy(0,1000)");
+          			
+          		
+          			Thread.sleep(100);
+          			File dir = new File("C://Users//Admin//Downloads");
+          			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+          			
+          			Thread.sleep(500);
+          			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+          			Thread.sleep(250);
+          			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+          			test.log(LogStatus.PASS, "File downloaded successfully.");
+          			
+          			Thread.sleep(5500);
+          			File dir1 = new File("C://Users//Admin//Downloads");
+          			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+          			
+          			if(dirContents.length < allFilesNew.length)
+          			{
+          				
+          				
+          				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+          			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+          			    {
+          			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+          			       {
+          			           lastModifiedFile = allFilesNew[i];
+          			       }
+          			    }
+          				
+          				Thread.sleep(100);
+          				fis = new FileInputStream(lastModifiedFile);
+          				workbook = new XSSFWorkbook(fis);
+          				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+          				
+          				int no = sheet.getLastRowNum();
+          				Row row = sheet.getRow(no);
+          				Cell c1 = row.getCell(0);
+          				int records =(int) c1.getNumericCellValue();
+          				fis.close();
+          				
+          				if(count2 == records)
+          				{
+          					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+          					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+          				}
+          				else
+          				{
+          					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+          					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+          				}
+          			}
+          			else
+          			{
+          				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+          			}
+          			
+          			Thread.sleep(7000);
+          			performerPOM.clickRiskFilter(driver).click();
+          			
+          			Thread.sleep(7000);
+          			performerPOM.selectRiskFilter(driver).click();
+          			
+//          		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//          			selectOptionFromDropDown_bs(SeletcRisk, "High");
+          			
+          			Thread.sleep(7000);
+          			if(performerPOM.clearButton(driver).isEnabled())
+          			{
+          				Thread.sleep(7000);
+          				performerPOM.clearButton(driver).click();
+              			test.log(LogStatus.PASS, "clear button work successfully.");
+          			}
+          			else
+          			{
+          				test.log(LogStatus.FAIL, "clear button not work successfully.");
+          			}
+          		
+          			
+          			
+          			
+          			Thread.sleep(3000);
+          			driver.switchTo().parentFrame();
+          			Thread.sleep(2000);
+          			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+          			
+         			Thread.sleep(3000);
+         			OverduePOM.clickDashboard(driver).click();
+          			
+          	   }
+            	  public static void OutwardPlaintiffAgeingGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+            		
+            		{
+            			
+            			WebDriverWait wait=new WebDriverWait(driver,20);
+            			JavascriptExecutor js = (JavascriptExecutor) driver;
+            	       	js.executeScript("window.scrollBy(0,800)");
+            	       	
+            	       	Thread.sleep(5000);
+            			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickDashboardNoticeFilter(driver).click();
+            			
+            			 Thread.sleep(5000);
+            				performerPOM.clickDashboardApplyBtn(driver).click();
+            				
+            				js.executeScript("window.scrollBy(0,1500)");
+            			
+            	       	Thread.sleep(3000);
+            		
+            	       	int	open = Integer.parseInt(performerPOM.clickOutwardPlaintiffAgeing(driver).getText());	//Reading Notice Open count.
+            		    performerPOM.clickOutwardPlaintiffAgeing(driver).click();						//Clicking on 'Open' notice
+            		
+            			Thread.sleep(2000);
+            			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+            			
+            			Thread.sleep(10000);
+            			CFOcountPOM.readTotalItems1(driver).click();
+            			String item = CFOcountPOM.readTotalItems1(driver).getText();
+            			String[] bits = item.split(" ");								//Splitting the String
+            			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+            			int count1 = 0;
+            			if(compliancesCount.equalsIgnoreCase("to"))
+            			{
+            				Thread.sleep(2000);
+            			   item = CFOcountPOM.readTotalItems1(driver).getText();
+            				bits = item.split(" ");								//Splitting the String
+            			   compliancesCount = bits[bits.length - 2];
+            			}
+            			if(compliancesCount.equalsIgnoreCase("to"))
+            			{
+            				count1 = 0;
+            			}
+            			else
+            			{
+            				count1 = Integer.parseInt(compliancesCount);
+            			}
+            			
+            			if(open == count1)
+            			{
+            				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+            				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+            			}
+            			else
+            			{
+            				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+            				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+            			}
+            	       	
+            	    
+            			Thread.sleep(3000);
+            			performerPOM.clickAgeingViewIcon(driver).click();
+            			
+
+          			
+          			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+          			Thread.sleep(2000);
+            		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+            		  
+            		  if(msg.equalsIgnoreCase("Notice Summary"))
+            		  {
+            			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+            		  }
+            		  else
+            		  {
+            			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+            		  }
+            		  
+            		  driver.switchTo().parentFrame();
+            			
+            		 Thread.sleep(3000);
+            		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+            			
+            			
+            			
+            			
+            		/*	Thread.sleep(3000);
+            			performerPOM.clickLocationFilter(driver).click();
+            			
+            			Thread.sleep(3000);
+            			performerPOM.clickLocationFilter1(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickLocationFilter3(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickCaseNotice(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectCaseNotice(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickStatusFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectstatusFiltercfo(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickDepartmentFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectDepartmentFilter2(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickCaseNoticeType1(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectCaseNoticeType2(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickRiskFilter(driver).click();
+            			
+
+            			Thread.sleep(5000);
+            			performerPOM.selectRiskFilter2cfo(driver).click();
+            			
+//            			Thread.sleep(5000);
+//            			performerPOM.clickAgeFilter(driver).click();
+//            			
+//            			Thread.sleep(5000);
+//            			performerPOM.selectAgeFiltercfo(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickCategoryFilter(driver).click();
+            			
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectCategoryFilter2(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickStageFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectStageFilter2(driver).click(); */
+            			
+            			
+            			Thread.sleep(500);
+            			progress(driver);
+            			
+            			Thread.sleep(1000);
+            			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+            			Thread.sleep(2000);
+            			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+            			js.executeScript("window.scrollBy(0,1000)");
+            			
+            			
+            			
+            			Thread.sleep(1000);
+            			CFOcountPOM.readTotalItems1(driver).click();
+            			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+            			String[] bits1 = item1.split(" ");								//Splitting the String
+            			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+            			int count2 = Integer.parseInt(compliancesCount1);
+            			
+            		    try
+            			{
+            				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+            			}
+            			catch(Exception e)
+            			{
+            				
+            			}
+            			js.executeScript("window.scrollBy(0,1000)");
+            			
+            		
+            			Thread.sleep(100);
+            			File dir = new File("C://Users//Admin//Downloads");
+            			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+            			
+            			Thread.sleep(500);
+            			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+            			Thread.sleep(250);
+            			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+            			test.log(LogStatus.PASS, "File downloaded successfully.");
+            			
+            			Thread.sleep(5500);
+            			File dir1 = new File("C://Users//Admin//Downloads");
+            			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+            			
+            			if(dirContents.length < allFilesNew.length)
+            			{
+            				
+            				
+            				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+            			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+            			    {
+            			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+            			       {
+            			           lastModifiedFile = allFilesNew[i];
+            			       }
+            			    }
+            				
+            				Thread.sleep(100);
+            				fis = new FileInputStream(lastModifiedFile);
+            				workbook = new XSSFWorkbook(fis);
+            				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+            				
+            				int no = sheet.getLastRowNum();
+            				Row row = sheet.getRow(no);
+            				Cell c1 = row.getCell(0);
+            				int records =(int) c1.getNumericCellValue();
+            				fis.close();
+            				
+            				if(count2 == records)
+            				{
+            					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+            					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+            				}
+            				else
+            				{
+            					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+            					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+            				}
+            			}
+            			else
+            			{
+            				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+            			}
+            			
+            			Thread.sleep(7000);
+            			performerPOM.clickRiskFilter(driver).click();
+            			
+            			Thread.sleep(7000);
+            			performerPOM.selectRiskFilter(driver).click();
+            			
+//            		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//            			selectOptionFromDropDown_bs(SeletcRisk, "High");
+            			
+            			Thread.sleep(7000);
+            			if(performerPOM.clearButton(driver).isEnabled())
+            			{
+            				Thread.sleep(7000);
+            				performerPOM.clearButton(driver).click();
+                			test.log(LogStatus.PASS, "clear button work successfully.");
+            			}
+            			else
+            			{
+            				test.log(LogStatus.FAIL, "clear button not work successfully.");
+            			}
+            		
+            			
+            			
+            			
+            			Thread.sleep(3000);
+            			driver.switchTo().parentFrame();
+            			Thread.sleep(2000);
+            			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+            			
+           			Thread.sleep(3000);
+           			OverduePOM.clickDashboard(driver).click();
+            			
+            	   }
+            	  public static void PetitionerAgeingGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+          		
+          		{
+          			
+          			WebDriverWait wait=new WebDriverWait(driver,20);
+          			JavascriptExecutor js = (JavascriptExecutor) driver;
+          	       	js.executeScript("window.scrollBy(0,800)");
+          	       	
+          	       	Thread.sleep(5000);
+          			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickDashboardNoticeFilter(driver).click();
+          			
+          			 Thread.sleep(5000);
+          				performerPOM.clickDashboardApplyBtn(driver).click();
+          				
+          				js.executeScript("window.scrollBy(0,1500)");
+          			
+          	       	Thread.sleep(3000);
+          		
+          	       	int	open = Integer.parseInt(performerPOM.clickPetitionerAgeing(driver).getText());	//Reading Notice Open count.
+          		    performerPOM.clickPetitionerAgeing(driver).click();						//Clicking on 'Open' notice
+          		
+          			Thread.sleep(2000);
+          			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+          			
+          			Thread.sleep(10000);
+          			CFOcountPOM.readTotalItems1(driver).click();
+          			String item = CFOcountPOM.readTotalItems1(driver).getText();
+          			String[] bits = item.split(" ");								//Splitting the String
+          			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+          			int count1 = 0;
+          			if(compliancesCount.equalsIgnoreCase("to"))
+          			{
+          				Thread.sleep(2000);
+          			   item = CFOcountPOM.readTotalItems1(driver).getText();
+          				bits = item.split(" ");								//Splitting the String
+          			   compliancesCount = bits[bits.length - 2];
+          			}
+          			if(compliancesCount.equalsIgnoreCase("to"))
+          			{
+          				count1 = 0;
+          			}
+          			else
+          			{
+          				count1 = Integer.parseInt(compliancesCount);
+          			}
+          			
+          			if(open == count1)
+          			{
+          				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+          				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+          			}
+          			else
+          			{
+          				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+          				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+          			}
+          	       	
+          	    
+          			Thread.sleep(3000);
+          			performerPOM.clickAgeingViewIcon(driver).click();
+          			
+
+        			
+        			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+        			Thread.sleep(2000);
+          		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+          		  
+          		  if(msg.equalsIgnoreCase("Notice Summary"))
+          		  {
+          			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+          		  }
+          		  else
+          		  {
+          			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+          		  }
+          		  
+          		  driver.switchTo().parentFrame();
+          			
+          		 Thread.sleep(3000);
+          		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+          			
+          			
+          			
+          			
+          		/*	Thread.sleep(3000);
+          			performerPOM.clickLocationFilter(driver).click();
+          			
+          			Thread.sleep(3000);
+          			performerPOM.clickLocationFilter1(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickLocationFilter3(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCaseNotice(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCaseNotice(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickStatusFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectstatusFiltercfo(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickDepartmentFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectDepartmentFilter2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCaseNoticeType1(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCaseNoticeType2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickRiskFilter(driver).click();
+          			
+
+          			Thread.sleep(5000);
+          			performerPOM.selectRiskFilter2cfo(driver).click();
+          			
+//          			Thread.sleep(5000);
+//          			performerPOM.clickAgeFilter(driver).click();
+//          			
+//          			Thread.sleep(5000);
+//          			performerPOM.selectAgeFiltercfo(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCategoryFilter(driver).click();
+          			
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCategoryFilter2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickStageFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectStageFilter2(driver).click(); */
+          			
+          			
+          			Thread.sleep(500);
+          			progress(driver);
+          			
+          			Thread.sleep(1000);
+          			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+          			Thread.sleep(2000);
+          			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+          			js.executeScript("window.scrollBy(0,1000)");
+          			
+          			
+          			
+          			Thread.sleep(1000);
+          			CFOcountPOM.readTotalItems1(driver).click();
+          			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+          			String[] bits1 = item1.split(" ");								//Splitting the String
+          			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+          			int count2 = Integer.parseInt(compliancesCount1);
+          			
+          		    try
+          			{
+          				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+          			}
+          			catch(Exception e)
+          			{
+          				
+          			}
+          			js.executeScript("window.scrollBy(0,1000)");
+          			
+          		
+          			Thread.sleep(100);
+          			File dir = new File("C://Users//Admin//Downloads");
+          			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+          			
+          			Thread.sleep(500);
+          			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+          			Thread.sleep(250);
+          			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+          			test.log(LogStatus.PASS, "File downloaded successfully.");
+          			
+          			Thread.sleep(5500);
+          			File dir1 = new File("C://Users//Admin//Downloads");
+          			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+          			
+          			if(dirContents.length < allFilesNew.length)
+          			{
+          				
+          				
+          				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+          			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+          			    {
+          			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+          			       {
+          			           lastModifiedFile = allFilesNew[i];
+          			       }
+          			    }
+          				
+          				Thread.sleep(100);
+          				fis = new FileInputStream(lastModifiedFile);
+          				workbook = new XSSFWorkbook(fis);
+          				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+          				
+          				int no = sheet.getLastRowNum();
+          				Row row = sheet.getRow(no);
+          				Cell c1 = row.getCell(0);
+          				int records =(int) c1.getNumericCellValue();
+          				fis.close();
+          				
+          				if(count2 == records)
+          				{
+          					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+          					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+          				}
+          				else
+          				{
+          					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+          					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+          				}
+          			}
+          			else
+          			{
+          				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+          			}
+          			
+          			Thread.sleep(7000);
+          			performerPOM.clickRiskFilter(driver).click();
+          			
+          			Thread.sleep(7000);
+          			performerPOM.selectRiskFilter(driver).click();
+          			
+//          		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//          			selectOptionFromDropDown_bs(SeletcRisk, "High");
+          			
+          			Thread.sleep(7000);
+          			if(performerPOM.clearButton(driver).isEnabled())
+          			{
+          				Thread.sleep(7000);
+          				performerPOM.clearButton(driver).click();
+              			test.log(LogStatus.PASS, "clear button work successfully.");
+          			}
+          			else
+          			{
+          				test.log(LogStatus.FAIL, "clear button not work successfully.");
+          			}
+          		
+          			
+          			
+          			
+          			Thread.sleep(3000);
+          			driver.switchTo().parentFrame();
+          			Thread.sleep(2000);
+          			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+          			
+         			Thread.sleep(3000);
+         			OverduePOM.clickDashboard(driver).click();
+          			
+          	   }
+            	  public static void RespondentAgeingGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+            		
+            		{
+            			
+            			WebDriverWait wait=new WebDriverWait(driver,20);
+            			JavascriptExecutor js = (JavascriptExecutor) driver;
+            	       	js.executeScript("window.scrollBy(0,800)");
+            	       	
+            	       	Thread.sleep(5000);
+            			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickDashboardNoticeFilter(driver).click();
+            			
+            			 Thread.sleep(5000);
+            				performerPOM.clickDashboardApplyBtn(driver).click();
+            				
+            				js.executeScript("window.scrollBy(0,1500)");
+            			
+            	       	Thread.sleep(3000);
+            		
+            	       	int	open = Integer.parseInt(performerPOM.clickRespondentAgeing(driver).getText());	//Reading Notice Open count.
+            		    performerPOM.clickRespondentAgeing(driver).click();						//Clicking on 'Open' notice
+            		
+            			Thread.sleep(2000);
+            			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+            			
+            			Thread.sleep(10000);
+            			CFOcountPOM.readTotalItems1(driver).click();
+            			String item = CFOcountPOM.readTotalItems1(driver).getText();
+            			String[] bits = item.split(" ");								//Splitting the String
+            			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+            			int count1 = 0;
+            			if(compliancesCount.equalsIgnoreCase("to"))
+            			{
+            				Thread.sleep(2000);
+            			   item = CFOcountPOM.readTotalItems1(driver).getText();
+            				bits = item.split(" ");								//Splitting the String
+            			   compliancesCount = bits[bits.length - 2];
+            			}
+            			if(compliancesCount.equalsIgnoreCase("to"))
+            			{
+            				count1 = 0;
+            			}
+            			else
+            			{
+            				count1 = Integer.parseInt(compliancesCount);
+            			}
+            			
+            			if(open == count1)
+            			{
+            				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+            				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+            			}
+            			else
+            			{
+            				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+            				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+            			}
+            	       	
+            	    
+            			Thread.sleep(3000);
+            			performerPOM.clickAgeingViewIcon(driver).click();
+            			
+
+          			
+          			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+          			Thread.sleep(2000);
+            		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+            		  
+            		  if(msg.equalsIgnoreCase("Notice Summary"))
+            		  {
+            			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+            		  }
+            		  else
+            		  {
+            			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+            		  }
+            		  
+            		  driver.switchTo().parentFrame();
+            			
+            		 Thread.sleep(3000);
+            		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+            			
+            			
+            			
+            			
+            		/*	Thread.sleep(3000);
+            			performerPOM.clickLocationFilter(driver).click();
+            			
+            			Thread.sleep(3000);
+            			performerPOM.clickLocationFilter1(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickLocationFilter3(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickCaseNotice(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectCaseNotice(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickStatusFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectstatusFiltercfo(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickDepartmentFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectDepartmentFilter2(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickCaseNoticeType1(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectCaseNoticeType2(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickRiskFilter(driver).click();
+            			
+
+            			Thread.sleep(5000);
+            			performerPOM.selectRiskFilter2cfo(driver).click();
+            			
+//            			Thread.sleep(5000);
+//            			performerPOM.clickAgeFilter(driver).click();
+//            			
+//            			Thread.sleep(5000);
+//            			performerPOM.selectAgeFiltercfo(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickCategoryFilter(driver).click();
+            			
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectCategoryFilter2(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.clickStageFilter(driver).click();
+            			
+            			Thread.sleep(5000);
+            			performerPOM.selectStageFilter2(driver).click(); */
+            			
+            			
+            			Thread.sleep(500);
+            			progress(driver);
+            			
+            			Thread.sleep(1000);
+            			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+            			Thread.sleep(2000);
+            			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+            			js.executeScript("window.scrollBy(0,1000)");
+            			
+            			
+            			
+            			Thread.sleep(1000);
+            			CFOcountPOM.readTotalItems1(driver).click();
+            			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+            			String[] bits1 = item1.split(" ");								//Splitting the String
+            			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+            			int count2 = Integer.parseInt(compliancesCount1);
+            			
+            		    try
+            			{
+            				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+            			}
+            			catch(Exception e)
+            			{
+            				
+            			}
+            			js.executeScript("window.scrollBy(0,1000)");
+            			
+            		
+            			Thread.sleep(100);
+            			File dir = new File("C://Users//Admin//Downloads");
+            			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+            			
+            			Thread.sleep(500);
+            			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+            			Thread.sleep(250);
+            			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+            			test.log(LogStatus.PASS, "File downloaded successfully.");
+            			
+            			Thread.sleep(5500);
+            			File dir1 = new File("C://Users//Admin//Downloads");
+            			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+            			
+            			if(dirContents.length < allFilesNew.length)
+            			{
+            				
+            				
+            				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+            			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+            			    {
+            			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+            			       {
+            			           lastModifiedFile = allFilesNew[i];
+            			       }
+            			    }
+            				
+            				Thread.sleep(100);
+            				fis = new FileInputStream(lastModifiedFile);
+            				workbook = new XSSFWorkbook(fis);
+            				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+            				
+            				int no = sheet.getLastRowNum();
+            				Row row = sheet.getRow(no);
+            				Cell c1 = row.getCell(0);
+            				int records =(int) c1.getNumericCellValue();
+            				fis.close();
+            				
+            				if(count2 == records)
+            				{
+            					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+            					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+            				}
+            				else
+            				{
+            					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+            					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+            				}
+            			}
+            			else
+            			{
+            				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+            			}
+            			
+            			Thread.sleep(7000);
+            			performerPOM.clickRiskFilter(driver).click();
+            			
+            			Thread.sleep(7000);
+            			performerPOM.selectRiskFilter(driver).click();
+            			
+//            		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//            			selectOptionFromDropDown_bs(SeletcRisk, "High");
+            			
+            			Thread.sleep(7000);
+            			if(performerPOM.clearButton(driver).isEnabled())
+            			{
+            				Thread.sleep(7000);
+            				performerPOM.clearButton(driver).click();
+                			test.log(LogStatus.PASS, "clear button work successfully.");
+            			}
+            			else
+            			{
+            				test.log(LogStatus.FAIL, "clear button not work successfully.");
+            			}
+            		
+            			
+            			
+            			
+            			Thread.sleep(3000);
+            			driver.switchTo().parentFrame();
+            			Thread.sleep(2000);
+            			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+            			
+           			Thread.sleep(3000);
+           			OverduePOM.clickDashboard(driver).click();
+            			
+            	   }
+             public static void ComplainantAgeingGraph1to2years(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+          		
+          		{
+          			
+          			WebDriverWait wait=new WebDriverWait(driver,20);
+          			JavascriptExecutor js = (JavascriptExecutor) driver;
+          	       	js.executeScript("window.scrollBy(0,800)");
+          	       	
+          	       	Thread.sleep(5000);
+          			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickDashboardNoticeFilter(driver).click();
+          			
+          			 Thread.sleep(5000);
+          				performerPOM.clickDashboardApplyBtn(driver).click();
+          				
+          				js.executeScript("window.scrollBy(0,1500)");
+          			
+          	       	Thread.sleep(3000);
+          		
+          	       	int	open = Integer.parseInt(performerPOM.clickComplianant(driver).getText());	//Reading Notice Open count.
+          		    performerPOM.clickComplianant(driver).click();						//Clicking on 'Open' notice
+          		
+          			Thread.sleep(2000);
+          			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+          			
+          			Thread.sleep(10000);
+          			CFOcountPOM.readTotalItems1(driver).click();
+          			String item = CFOcountPOM.readTotalItems1(driver).getText();
+          			String[] bits = item.split(" ");								//Splitting the String
+          			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+          			int count1 = 0;
+          			if(compliancesCount.equalsIgnoreCase("to"))
+          			{
+          				Thread.sleep(2000);
+          			   item = CFOcountPOM.readTotalItems1(driver).getText();
+          				bits = item.split(" ");								//Splitting the String
+          			   compliancesCount = bits[bits.length - 2];
+          			}
+          			if(compliancesCount.equalsIgnoreCase("to"))
+          			{
+          				count1 = 0;
+          			}
+          			else
+          			{
+          				count1 = Integer.parseInt(compliancesCount);
+          			}
+          			
+          			if(open == count1)
+          			{
+          				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+          				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+          			}
+          			else
+          			{
+          				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+          				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+          			}
+          	       	
+          	    
+          			Thread.sleep(3000);
+          			performerPOM.clickAgeingViewIcon(driver).click();
+          			
+
+        			
+        			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+        			Thread.sleep(2000);
+          		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+          		  
+          		  if(msg.equalsIgnoreCase("Notice Summary"))
+          		  {
+          			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+          		  }
+          		  else
+          		  {
+          			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+          		  }
+          		  
+          		  driver.switchTo().parentFrame();
+          			
+          		 Thread.sleep(3000);
+          		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+          			
+          			
+          			
+          			
+          		/*	Thread.sleep(3000);
+          			performerPOM.clickLocationFilter(driver).click();
+          			
+          			Thread.sleep(3000);
+          			performerPOM.clickLocationFilter1(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickLocationFilter3(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCaseNotice(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCaseNotice(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickStatusFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectstatusFiltercfo(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickDepartmentFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectDepartmentFilter2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCaseNoticeType1(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCaseNoticeType2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickRiskFilter(driver).click();
+          			
+
+          			Thread.sleep(5000);
+          			performerPOM.selectRiskFilter2cfo(driver).click();
+          			
+//          			Thread.sleep(5000);
+//          			performerPOM.clickAgeFilter(driver).click();
+//          			
+//          			Thread.sleep(5000);
+//          			performerPOM.selectAgeFiltercfo(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickCategoryFilter(driver).click();
+          			
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectCategoryFilter2(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.clickStageFilter(driver).click();
+          			
+          			Thread.sleep(5000);
+          			performerPOM.selectStageFilter2(driver).click(); */
+          			
+          			
+          			Thread.sleep(500);
+          			progress(driver);
+          			
+          			Thread.sleep(1000);
+          			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+          			Thread.sleep(2000);
+          			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+          			js.executeScript("window.scrollBy(0,1000)");
+          			
+          			
+          			
+          			Thread.sleep(1000);
+          			CFOcountPOM.readTotalItems1(driver).click();
+          			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+          			String[] bits1 = item1.split(" ");								//Splitting the String
+          			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+          			int count2 = Integer.parseInt(compliancesCount1);
+          			
+          		    try
+          			{
+          				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+          			}
+          			catch(Exception e)
+          			{
+          				
+          			}
+          			js.executeScript("window.scrollBy(0,1000)");
+          			
+          		
+          			Thread.sleep(100);
+          			File dir = new File("C://Users//Admin//Downloads");
+          			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+          			
+          			Thread.sleep(500);
+          			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+          			Thread.sleep(250);
+          			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+          			test.log(LogStatus.PASS, "File downloaded successfully.");
+          			
+          			Thread.sleep(5500);
+          			File dir1 = new File("C://Users//Admin//Downloads");
+          			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+          			
+          			if(dirContents.length < allFilesNew.length)
+          			{
+          				
+          				
+          				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+          			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+          			    {
+          			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+          			       {
+          			           lastModifiedFile = allFilesNew[i];
+          			       }
+          			    }
+          				
+          				Thread.sleep(100);
+          				fis = new FileInputStream(lastModifiedFile);
+          				workbook = new XSSFWorkbook(fis);
+          				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+          				
+          				int no = sheet.getLastRowNum();
+          				Row row = sheet.getRow(no);
+          				Cell c1 = row.getCell(0);
+          				int records =(int) c1.getNumericCellValue();
+          				fis.close();
+          				
+          				if(count2 == records)
+          				{
+          					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+          					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+          				}
+          				else
+          				{
+          					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+          					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+          				}
+          			}
+          			else
+          			{
+          				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+          			}
+          			
+          			Thread.sleep(7000);
+          			performerPOM.clickRiskFilter(driver).click();
+          			
+          			Thread.sleep(7000);
+          			performerPOM.selectRiskFilter(driver).click();
+          			
+//          		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//          			selectOptionFromDropDown_bs(SeletcRisk, "High");
+          			
+          			Thread.sleep(7000);
+          			if(performerPOM.clearButton(driver).isEnabled())
+          			{
+          				Thread.sleep(7000);
+          				performerPOM.clearButton(driver).click();
+              			test.log(LogStatus.PASS, "clear button work successfully.");
+          			}
+          			else
+          			{
+          				test.log(LogStatus.FAIL, "clear button not work successfully.");
+          			}
+          		
+          			
+          			
+          			
+          			Thread.sleep(3000);
+          			driver.switchTo().parentFrame();
+          			Thread.sleep(2000);
+          			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+          			
+         			Thread.sleep(3000);
+         			OverduePOM.clickDashboard(driver).click();
+          			
+          	   }
+             public static void InwardDefendentAgeingGraph1to2years(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+       		
+       		{
+       			
+       			WebDriverWait wait=new WebDriverWait(driver,20);
+       			JavascriptExecutor js = (JavascriptExecutor) driver;
+       	       	js.executeScript("window.scrollBy(0,800)");
+       	       	
+       	       	Thread.sleep(5000);
+       			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.clickDashboardNoticeFilter(driver).click();
+       			
+       			 Thread.sleep(5000);
+       				performerPOM.clickDashboardApplyBtn(driver).click();
+       				
+       				js.executeScript("window.scrollBy(0,1500)");
+       			
+       	       	Thread.sleep(3000);
+       		
+       	       	int	open = Integer.parseInt(performerPOM.clickInwardDefendent(driver).getText());	//Reading Notice Open count.
+       		    performerPOM.clickInwardDefendent(driver).click();						//Clicking on 'Open' notice
+       		
+       			Thread.sleep(2000);
+       			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+       			
+       			Thread.sleep(10000);
+       			CFOcountPOM.readTotalItems1(driver).click();
+       			String item = CFOcountPOM.readTotalItems1(driver).getText();
+       			String[] bits = item.split(" ");								//Splitting the String
+       			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+       			int count1 = 0;
+       			if(compliancesCount.equalsIgnoreCase("to"))
+       			{
+       				Thread.sleep(2000);
+       			   item = CFOcountPOM.readTotalItems1(driver).getText();
+       				bits = item.split(" ");								//Splitting the String
+       			   compliancesCount = bits[bits.length - 2];
+       			}
+       			if(compliancesCount.equalsIgnoreCase("to"))
+       			{
+       				count1 = 0;
+       			}
+       			else
+       			{
+       				count1 = Integer.parseInt(compliancesCount);
+       			}
+       			
+       			if(open == count1)
+       			{
+       				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+       				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+       			}
+       			else
+       			{
+       				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+       				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+       			}
+       	       	
+       	    
+       			Thread.sleep(3000);
+       			performerPOM.clickAgeingViewIcon(driver).click();
+       			
+
+     			
+     			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+     			Thread.sleep(2000);
+       		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+       		  
+       		  if(msg.equalsIgnoreCase("Notice Summary"))
+       		  {
+       			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+       		  }
+       		  else
+       		  {
+       			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+       		  }
+       		  
+       		  driver.switchTo().parentFrame();
+       			
+       		 Thread.sleep(3000);
+       		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+       			
+       			
+       			
+       			
+       		/*	Thread.sleep(3000);
+       			performerPOM.clickLocationFilter(driver).click();
+       			
+       			Thread.sleep(3000);
+       			performerPOM.clickLocationFilter1(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.clickLocationFilter3(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.clickCaseNotice(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.selectCaseNotice(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.clickStatusFilter(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.selectstatusFiltercfo(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.clickDepartmentFilter(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.selectDepartmentFilter2(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.clickCaseNoticeType1(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.selectCaseNoticeType2(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.clickRiskFilter(driver).click();
+       			
+
+       			Thread.sleep(5000);
+       			performerPOM.selectRiskFilter2cfo(driver).click();
+       			
+//       			Thread.sleep(5000);
+//       			performerPOM.clickAgeFilter(driver).click();
+//       			
+//       			Thread.sleep(5000);
+//       			performerPOM.selectAgeFiltercfo(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.clickCategoryFilter(driver).click();
+       			
+       			
+       			Thread.sleep(5000);
+       			performerPOM.selectCategoryFilter2(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.clickStageFilter(driver).click();
+       			
+       			Thread.sleep(5000);
+       			performerPOM.selectStageFilter2(driver).click(); */
+       			
+       			
+       			Thread.sleep(500);
+       			progress(driver);
+       			
+       			Thread.sleep(1000);
+       			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+       			Thread.sleep(2000);
+       			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+       			js.executeScript("window.scrollBy(0,1000)");
+       			
+       			
+       			
+       			Thread.sleep(1000);
+       			CFOcountPOM.readTotalItems1(driver).click();
+       			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+       			String[] bits1 = item1.split(" ");								//Splitting the String
+       			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+       			int count2 = Integer.parseInt(compliancesCount1);
+       			
+       		    try
+       			{
+       				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+       			}
+       			catch(Exception e)
+       			{
+       				
+       			}
+       			js.executeScript("window.scrollBy(0,1000)");
+       			
+       		
+       			Thread.sleep(100);
+       			File dir = new File("C://Users//Admin//Downloads");
+       			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+       			
+       			Thread.sleep(500);
+       			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+       			Thread.sleep(250);
+       			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+       			test.log(LogStatus.PASS, "File downloaded successfully.");
+       			
+       			Thread.sleep(5500);
+       			File dir1 = new File("C://Users//Admin//Downloads");
+       			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+       			
+       			if(dirContents.length < allFilesNew.length)
+       			{
+       				
+       				
+       				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+       			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+       			    {
+       			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+       			       {
+       			           lastModifiedFile = allFilesNew[i];
+       			       }
+       			    }
+       				
+       				Thread.sleep(100);
+       				fis = new FileInputStream(lastModifiedFile);
+       				workbook = new XSSFWorkbook(fis);
+       				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+       				
+       				int no = sheet.getLastRowNum();
+       				Row row = sheet.getRow(no);
+       				Cell c1 = row.getCell(0);
+       				int records =(int) c1.getNumericCellValue();
+       				fis.close();
+       				
+       				if(count2 == records)
+       				{
+       					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+       					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+       				}
+       				else
+       				{
+       					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+       					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+       				}
+       			}
+       			else
+       			{
+       				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+       			}
+       			
+       			Thread.sleep(7000);
+       			performerPOM.clickRiskFilter(driver).click();
+       			
+       			Thread.sleep(7000);
+       			performerPOM.selectRiskFilter(driver).click();
+       			
+//       		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//       			selectOptionFromDropDown_bs(SeletcRisk, "High");
+       			
+       			Thread.sleep(7000);
+       			if(performerPOM.clearButton(driver).isEnabled())
+       			{
+       				Thread.sleep(7000);
+       				performerPOM.clearButton(driver).click();
+           			test.log(LogStatus.PASS, "clear button work successfully.");
+       			}
+       			else
+       			{
+       				test.log(LogStatus.FAIL, "clear button not work successfully.");
+       			}
+       		
+       			
+       			
+       			
+       			Thread.sleep(3000);
+       			driver.switchTo().parentFrame();
+       			Thread.sleep(2000);
+       			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+       			
+      			Thread.sleep(3000);
+      			OverduePOM.clickDashboard(driver).click();
+       			
+       	   }
+             public static void OutwardPlaintiffAgeingGraph1to2years(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+        		
+        		{
+        			
+        			WebDriverWait wait=new WebDriverWait(driver,20);
+        			JavascriptExecutor js = (JavascriptExecutor) driver;
+        	       	js.executeScript("window.scrollBy(0,800)");
+        	       	
+        	       	Thread.sleep(5000);
+        			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.clickDashboardNoticeFilter(driver).click();
+        			
+        			 Thread.sleep(5000);
+        				performerPOM.clickDashboardApplyBtn(driver).click();
+        				
+        				js.executeScript("window.scrollBy(0,1500)");
+        			
+        	       	Thread.sleep(3000);
+        		
+        	       	int	open = Integer.parseInt(performerPOM.clickOutwardPlaintiff(driver).getText());	//Reading Notice Open count.
+        		    performerPOM.clickOutwardPlaintiff(driver).click();						//Clicking on 'Open' notice
+        		
+        			Thread.sleep(2000);
+        			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+        			
+        			Thread.sleep(10000);
+        			CFOcountPOM.readTotalItems1(driver).click();
+        			String item = CFOcountPOM.readTotalItems1(driver).getText();
+        			String[] bits = item.split(" ");								//Splitting the String
+        			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+        			int count1 = 0;
+        			if(compliancesCount.equalsIgnoreCase("to"))
+        			{
+        				Thread.sleep(2000);
+        			   item = CFOcountPOM.readTotalItems1(driver).getText();
+        				bits = item.split(" ");								//Splitting the String
+        			   compliancesCount = bits[bits.length - 2];
+        			}
+        			if(compliancesCount.equalsIgnoreCase("to"))
+        			{
+        				count1 = 0;
+        			}
+        			else
+        			{
+        				count1 = Integer.parseInt(compliancesCount);
+        			}
+        			
+        			if(open == count1)
+        			{
+        				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+        				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+        			}
+        			else
+        			{
+        				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+        				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+        			}
+        	       	
+        	    
+        			Thread.sleep(3000);
+        			performerPOM.clickAgeingViewIcon(driver).click();
+        			
+
+      			
+      			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+      			Thread.sleep(2000);
+        		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+        		  
+        		  if(msg.equalsIgnoreCase("Notice Summary"))
+        		  {
+        			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+        		  }
+        		  else
+        		  {
+        			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+        		  }
+        		  
+        		  driver.switchTo().parentFrame();
+        			
+        		 Thread.sleep(3000);
+        		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+        			
+        			
+        			
+        			
+        		/*	Thread.sleep(3000);
+        			performerPOM.clickLocationFilter(driver).click();
+        			
+        			Thread.sleep(3000);
+        			performerPOM.clickLocationFilter1(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.clickLocationFilter3(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.clickCaseNotice(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.selectCaseNotice(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.clickStatusFilter(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.selectstatusFiltercfo(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.clickDepartmentFilter(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.selectDepartmentFilter2(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.clickCaseNoticeType1(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.selectCaseNoticeType2(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.clickRiskFilter(driver).click();
+        			
+
+        			Thread.sleep(5000);
+        			performerPOM.selectRiskFilter2cfo(driver).click();
+        			
+//        			Thread.sleep(5000);
+//        			performerPOM.clickAgeFilter(driver).click();
+//        			
+//        			Thread.sleep(5000);
+//        			performerPOM.selectAgeFiltercfo(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.clickCategoryFilter(driver).click();
+        			
+        			
+        			Thread.sleep(5000);
+        			performerPOM.selectCategoryFilter2(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.clickStageFilter(driver).click();
+        			
+        			Thread.sleep(5000);
+        			performerPOM.selectStageFilter2(driver).click(); */
+        			
+        			
+        			Thread.sleep(500);
+        			progress(driver);
+        			
+        			Thread.sleep(1000);
+        			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+        			Thread.sleep(2000);
+        			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+        			js.executeScript("window.scrollBy(0,1000)");
+        			
+        			
+        			
+        			Thread.sleep(1000);
+        			CFOcountPOM.readTotalItems1(driver).click();
+        			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+        			String[] bits1 = item1.split(" ");								//Splitting the String
+        			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+        			int count2 = Integer.parseInt(compliancesCount1);
+        			
+        		    try
+        			{
+        				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+        			}
+        			catch(Exception e)
+        			{
+        				
+        			}
+        			js.executeScript("window.scrollBy(0,1000)");
+        			
+        		
+        			Thread.sleep(100);
+        			File dir = new File("C://Users//Admin//Downloads");
+        			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+        			
+        			Thread.sleep(500);
+        			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+        			Thread.sleep(250);
+        			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+        			test.log(LogStatus.PASS, "File downloaded successfully.");
+        			
+        			Thread.sleep(5500);
+        			File dir1 = new File("C://Users//Admin//Downloads");
+        			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+        			
+        			if(dirContents.length < allFilesNew.length)
+        			{
+        				
+        				
+        				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+        			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+        			    {
+        			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+        			       {
+        			           lastModifiedFile = allFilesNew[i];
+        			       }
+        			    }
+        				
+        				Thread.sleep(100);
+        				fis = new FileInputStream(lastModifiedFile);
+        				workbook = new XSSFWorkbook(fis);
+        				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+        				
+        				int no = sheet.getLastRowNum();
+        				Row row = sheet.getRow(no);
+        				Cell c1 = row.getCell(0);
+        				int records =(int) c1.getNumericCellValue();
+        				fis.close();
+        				
+        				if(count2 == records)
+        				{
+        					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+        					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+        				}
+        				else
+        				{
+        					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+        					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+        				}
+        			}
+        			else
+        			{
+        				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+        			}
+        			
+        			Thread.sleep(7000);
+        			performerPOM.clickRiskFilter(driver).click();
+        			
+        			Thread.sleep(7000);
+        			performerPOM.selectRiskFilter(driver).click();
+        			
+//        		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//        			selectOptionFromDropDown_bs(SeletcRisk, "High");
+        			
+        			Thread.sleep(7000);
+        			if(performerPOM.clearButton(driver).isEnabled())
+        			{
+        				Thread.sleep(7000);
+        				performerPOM.clearButton(driver).click();
+            			test.log(LogStatus.PASS, "clear button work successfully.");
+        			}
+        			else
+        			{
+        				test.log(LogStatus.FAIL, "clear button not work successfully.");
+        			}
+        		
+        			
+        			
+        			
+        			Thread.sleep(3000);
+        			driver.switchTo().parentFrame();
+        			Thread.sleep(2000);
+        			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+        			
+       			Thread.sleep(3000);
+       			OverduePOM.clickDashboard(driver).click();
+        			
+        	   }
+         public static void RespondentAgeingGraph1to2years(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+     		
+     		{
+     			
+     			WebDriverWait wait=new WebDriverWait(driver,20);
+     			JavascriptExecutor js = (JavascriptExecutor) driver;
+     	       	js.executeScript("window.scrollBy(0,800)");
+     	       	
+     	       	Thread.sleep(5000);
+     			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.clickDashboardNoticeFilter(driver).click();
+     			
+     			 Thread.sleep(5000);
+     				performerPOM.clickDashboardApplyBtn(driver).click();
+     				
+     				js.executeScript("window.scrollBy(0,1500)");
+     			
+     	       	Thread.sleep(3000);
+     		
+     	       	int	open = Integer.parseInt(performerPOM.clickRespondent(driver).getText());	//Reading Notice Open count.
+     		    performerPOM.clickRespondent(driver).click();						//Clicking on 'Open' notice
+     		
+     			Thread.sleep(2000);
+     			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+     			
+     			Thread.sleep(10000);
+     			CFOcountPOM.readTotalItems1(driver).click();
+     			String item = CFOcountPOM.readTotalItems1(driver).getText();
+     			String[] bits = item.split(" ");								//Splitting the String
+     			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+     			int count1 = 0;
+     			if(compliancesCount.equalsIgnoreCase("to"))
+     			{
+     				Thread.sleep(2000);
+     			   item = CFOcountPOM.readTotalItems1(driver).getText();
+     				bits = item.split(" ");								//Splitting the String
+     			   compliancesCount = bits[bits.length - 2];
+     			}
+     			if(compliancesCount.equalsIgnoreCase("to"))
+     			{
+     				count1 = 0;
+     			}
+     			else
+     			{
+     				count1 = Integer.parseInt(compliancesCount);
+     			}
+     			
+     			if(open == count1)
+     			{
+     				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+     				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+     			}
+     			else
+     			{
+     				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+     				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+     			}
+     	       	
+     	    
+     			Thread.sleep(3000);
+     			performerPOM.clickAgeingViewIcon(driver).click();
+     			
+
+   			
+   			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+   			Thread.sleep(2000);
+     		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+     		  
+     		  if(msg.equalsIgnoreCase("Notice Summary"))
+     		  {
+     			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+     		  }
+     		  else
+     		  {
+     			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+     		  }
+     		  
+     		  driver.switchTo().parentFrame();
+     			
+     		 Thread.sleep(3000);
+     		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+     			
+     			
+     			
+     			
+     		/*	Thread.sleep(3000);
+     			performerPOM.clickLocationFilter(driver).click();
+     			
+     			Thread.sleep(3000);
+     			performerPOM.clickLocationFilter1(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.clickLocationFilter3(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.clickCaseNotice(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.selectCaseNotice(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.clickStatusFilter(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.selectstatusFiltercfo(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.clickDepartmentFilter(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.selectDepartmentFilter2(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.clickCaseNoticeType1(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.selectCaseNoticeType2(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.clickRiskFilter(driver).click();
+     			
+
+     			Thread.sleep(5000);
+     			performerPOM.selectRiskFilter2cfo(driver).click();
+     			
+//     			Thread.sleep(5000);
+//     			performerPOM.clickAgeFilter(driver).click();
+//     			
+//     			Thread.sleep(5000);
+//     			performerPOM.selectAgeFiltercfo(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.clickCategoryFilter(driver).click();
+     			
+     			
+     			Thread.sleep(5000);
+     			performerPOM.selectCategoryFilter2(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.clickStageFilter(driver).click();
+     			
+     			Thread.sleep(5000);
+     			performerPOM.selectStageFilter2(driver).click(); */
+     			
+     			
+     			Thread.sleep(500);
+     			progress(driver);
+     			
+     			Thread.sleep(1000);
+     			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+     			Thread.sleep(2000);
+     			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+     			js.executeScript("window.scrollBy(0,1000)");
+     			
+     			
+     			
+     			Thread.sleep(1000);
+     			CFOcountPOM.readTotalItems1(driver).click();
+     			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+     			String[] bits1 = item1.split(" ");								//Splitting the String
+     			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+     			int count2 = Integer.parseInt(compliancesCount1);
+     			
+     		    try
+     			{
+     				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+     			}
+     			catch(Exception e)
+     			{
+     				
+     			}
+     			js.executeScript("window.scrollBy(0,1000)");
+     			
+     		
+     			Thread.sleep(100);
+     			File dir = new File("C://Users//Admin//Downloads");
+     			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+     			
+     			Thread.sleep(500);
+     			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+     			Thread.sleep(250);
+     			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+     			test.log(LogStatus.PASS, "File downloaded successfully.");
+     			
+     			Thread.sleep(5500);
+     			File dir1 = new File("C://Users//Admin//Downloads");
+     			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+     			
+     			if(dirContents.length < allFilesNew.length)
+     			{
+     				
+     				
+     				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+     			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+     			    {
+     			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+     			       {
+     			           lastModifiedFile = allFilesNew[i];
+     			       }
+     			    }
+     				
+     				Thread.sleep(100);
+     				fis = new FileInputStream(lastModifiedFile);
+     				workbook = new XSSFWorkbook(fis);
+     				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+     				
+     				int no = sheet.getLastRowNum();
+     				Row row = sheet.getRow(no);
+     				Cell c1 = row.getCell(0);
+     				int records =(int) c1.getNumericCellValue();
+     				fis.close();
+     				
+     				if(count2 == records)
+     				{
+     					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+     					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+     				}
+     				else
+     				{
+     					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+     					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+     				}
+     			}
+     			else
+     			{
+     				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+     			}
+     			
+     			Thread.sleep(7000);
+     			performerPOM.clickRiskFilter(driver).click();
+     			
+     			Thread.sleep(7000);
+     			performerPOM.selectRiskFilter(driver).click();
+     			
+//     		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//     			selectOptionFromDropDown_bs(SeletcRisk, "High");
+     			
+     			Thread.sleep(7000);
+     			if(performerPOM.clearButton(driver).isEnabled())
+     			{
+     				Thread.sleep(7000);
+     				performerPOM.clearButton(driver).click();
+         			test.log(LogStatus.PASS, "clear button work successfully.");
+     			}
+     			else
+     			{
+     				test.log(LogStatus.FAIL, "clear button not work successfully.");
+     			}
+     		
+     			
+     			
+     			
+     			Thread.sleep(3000);
+     			driver.switchTo().parentFrame();
+     			Thread.sleep(2000);
+     			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+     			
+    			Thread.sleep(3000);
+    			OverduePOM.clickDashboard(driver).click();
+     			
+     	   }
+         public static void InwardDefendentAgeingGraph2to3years(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+  		
+  		{
+  			
+  			WebDriverWait wait=new WebDriverWait(driver,20);
+  			JavascriptExecutor js = (JavascriptExecutor) driver;
+  	       	js.executeScript("window.scrollBy(0,800)");
+  	       	
+  	       	Thread.sleep(5000);
+  			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickDashboardNoticeFilter(driver).click();
+  			
+  			 Thread.sleep(5000);
+  				performerPOM.clickDashboardApplyBtn(driver).click();
+  				
+  				js.executeScript("window.scrollBy(0,1500)");
+  			
+  	       	Thread.sleep(3000);
+  		
+  	       	int	open = Integer.parseInt(performerPOM.clickInwardDefendent1(driver).getText());	//Reading Notice Open count.
+  		    performerPOM.clickInwardDefendent1(driver).click();						//Clicking on 'Open' notice
+  		
+  			Thread.sleep(2000);
+  			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+  			
+  			Thread.sleep(10000);
+  			CFOcountPOM.readTotalItems1(driver).click();
+  			String item = CFOcountPOM.readTotalItems1(driver).getText();
+  			String[] bits = item.split(" ");								//Splitting the String
+  			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+  			int count1 = 0;
+  			if(compliancesCount.equalsIgnoreCase("to"))
+  			{
+  				Thread.sleep(2000);
+  			   item = CFOcountPOM.readTotalItems1(driver).getText();
+  				bits = item.split(" ");								//Splitting the String
+  			   compliancesCount = bits[bits.length - 2];
+  			}
+  			if(compliancesCount.equalsIgnoreCase("to"))
+  			{
+  				count1 = 0;
+  			}
+  			else
+  			{
+  				count1 = Integer.parseInt(compliancesCount);
+  			}
+  			
+  			if(open == count1)
+  			{
+  				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+  				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+  			}
+  			else
+  			{
+  				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+  				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+  			}
+  	       	
+  	    
+  			Thread.sleep(3000);
+  			performerPOM.clickAgeingViewIcon(driver).click();
+  			
+
+			
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			Thread.sleep(2000);
+  		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
+  		  
+  		  if(msg.equalsIgnoreCase("Notice Summary"))
+  		  {
+  			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+  		  }
+  		  else
+  		  {
+  			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+  		  }
+  		  
+  		  driver.switchTo().parentFrame();
+  			
+  		 Thread.sleep(3000);
+  		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+  			
+  			
+  			
+  			
+  		/*	Thread.sleep(3000);
+  			performerPOM.clickLocationFilter(driver).click();
+  			
+  			Thread.sleep(3000);
+  			performerPOM.clickLocationFilter1(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickLocationFilter3(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickCaseNotice(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectCaseNotice(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickStatusFilter(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectstatusFiltercfo(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickDepartmentFilter(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectDepartmentFilter2(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickCaseNoticeType1(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectCaseNoticeType2(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickRiskFilter(driver).click();
+  			
+
+  			Thread.sleep(5000);
+  			performerPOM.selectRiskFilter2cfo(driver).click();
+  			
+//  			Thread.sleep(5000);
+//  			performerPOM.clickAgeFilter(driver).click();
+//  			
+//  			Thread.sleep(5000);
+//  			performerPOM.selectAgeFiltercfo(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickCategoryFilter(driver).click();
+  			
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectCategoryFilter2(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickStageFilter(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectStageFilter2(driver).click(); */
+  			
+  			
+  			Thread.sleep(500);
+  			progress(driver);
+  			
+  			Thread.sleep(1000);
+  			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+  			Thread.sleep(2000);
+  			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+  			js.executeScript("window.scrollBy(0,1000)");
+  			
+  			
+  			
+  			Thread.sleep(1000);
+  			CFOcountPOM.readTotalItems1(driver).click();
+  			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+  			String[] bits1 = item1.split(" ");								//Splitting the String
+  			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+  			int count2 = Integer.parseInt(compliancesCount1);
+  			
+  		    try
+  			{
+  				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+  			}
+  			catch(Exception e)
+  			{
+  				
+  			}
+  			js.executeScript("window.scrollBy(0,1000)");
+  			
+  		
+  			Thread.sleep(100);
+  			File dir = new File("C://Users//Admin//Downloads");
+  			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+  			
+  			Thread.sleep(500);
+  			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+  			Thread.sleep(250);
+  			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+  			test.log(LogStatus.PASS, "File downloaded successfully.");
+  			
+  			Thread.sleep(5500);
+  			File dir1 = new File("C://Users//Admin//Downloads");
+  			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+  			
+  			if(dirContents.length < allFilesNew.length)
+  			{
+  				
+  				
+  				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+  			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+  			    {
+  			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+  			       {
+  			           lastModifiedFile = allFilesNew[i];
+  			       }
+  			    }
+  				
+  				Thread.sleep(100);
+  				fis = new FileInputStream(lastModifiedFile);
+  				workbook = new XSSFWorkbook(fis);
+  				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+  				
+  				int no = sheet.getLastRowNum();
+  				Row row = sheet.getRow(no);
+  				Cell c1 = row.getCell(0);
+  				int records =(int) c1.getNumericCellValue();
+  				fis.close();
+  				
+  				if(count2 == records)
+  				{
+  					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+  					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+  				}
+  				else
+  				{
+  					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+  					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+  				}
+  			}
+  			else
+  			{
+  				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+  			}
+  			
+  			Thread.sleep(7000);
+  			performerPOM.clickRiskFilter(driver).click();
+  			
+  			Thread.sleep(7000);
+  			performerPOM.selectRiskFilter(driver).click();
+  			
+//  		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//  			selectOptionFromDropDown_bs(SeletcRisk, "High");
+  			
+  			Thread.sleep(7000);
+  			if(performerPOM.clearButton(driver).isEnabled())
+  			{
+  				Thread.sleep(7000);
+  				performerPOM.clearButton(driver).click();
+      			test.log(LogStatus.PASS, "clear button work successfully.");
+  			}
+  			else
+  			{
+  				test.log(LogStatus.FAIL, "clear button not work successfully.");
+  			}
+  		
+  			
+  			
+  			
+  			Thread.sleep(3000);
+  			driver.switchTo().parentFrame();
+  			Thread.sleep(2000);
+  			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+  			
+ 			Thread.sleep(3000);
+ 			OverduePOM.clickDashboard(driver).click();
+  			
+  	   }
+         
+         public static void InwardDefendantAgeingGraphCase(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+   		
+   		{
+   			
+   			WebDriverWait wait=new WebDriverWait(driver,20);
+   			JavascriptExecutor js = (JavascriptExecutor) driver;
+   	       	js.executeScript("window.scrollBy(0,800)");
+   	       	
+   	       	Thread.sleep(5000);
+   			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.clickDashboardCaseFilter(driver).click();
+   			
+   			 Thread.sleep(5000);
+   				performerPOM.clickDashboardApplyBtn(driver).click();
+   				
+   				js.executeScript("window.scrollBy(0,1500)");
+   			
+   	       	Thread.sleep(3000);
+   		
+   	       	int	open = Integer.parseInt(performerPOM.clickInwardDefendentCase(driver).getText());	//Reading Notice Open count.
+   		    performerPOM.clickInwardDefendentCase(driver).click();						//Clicking on 'Open' notice
+   		
+   			Thread.sleep(2000);
+   			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+   			
+   			Thread.sleep(10000);
+   			CFOcountPOM.readTotalItems1(driver).click();
+   			String item = CFOcountPOM.readTotalItems1(driver).getText();
+   			String[] bits = item.split(" ");								//Splitting the String
+   			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+   			int count1 = 0;
+   			if(compliancesCount.equalsIgnoreCase("to"))
+   			{
+   				Thread.sleep(2000);
+   			   item = CFOcountPOM.readTotalItems1(driver).getText();
+   				bits = item.split(" ");								//Splitting the String
+   			   compliancesCount = bits[bits.length - 2];
+   			}
+   			if(compliancesCount.equalsIgnoreCase("to"))
+   			{
+   				count1 = 0;
+   			}
+   			else
+   			{
+   				count1 = Integer.parseInt(compliancesCount);
+   			}
+   			
+   			if(open == count1)
+   			{
+   				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+   				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+   			}
+   			else
+   			{
+   				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+   				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+   			}
+   	       	
+   	    
+   			Thread.sleep(3000);
+   			performerPOM.clickAgeingViewIcon(driver).click();
+   			
+
+ 			
+ 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+ 			Thread.sleep(2000);
+   		  String msg =performerPOM.clickAgeingViewCaseSummary(driver).getText();
+   		  
+   		  if(msg.equalsIgnoreCase("Case Summary"))
+   		  {
+   			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+   		  }
+   		  else
+   		  {
+   			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+   		  }
+   		  
+   		  driver.switchTo().parentFrame();
+   			
+   		 Thread.sleep(3000);
+   		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+   			
+   			
+   			
+   			
+   		/*	Thread.sleep(3000);
+   			performerPOM.clickLocationFilter(driver).click();
+   			
+   			Thread.sleep(3000);
+   			performerPOM.clickLocationFilter1(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.clickLocationFilter3(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.clickCaseNotice(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.selectCaseNotice(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.clickStatusFilter(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.selectstatusFiltercfo(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.clickDepartmentFilter(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.selectDepartmentFilter2(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.clickCaseNoticeType1(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.selectCaseNoticeType2(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.clickRiskFilter(driver).click();
+   			
+
+   			Thread.sleep(5000);
+   			performerPOM.selectRiskFilter2cfo(driver).click();
+   			
+//   			Thread.sleep(5000);
+//   			performerPOM.clickAgeFilter(driver).click();
+//   			
+//   			Thread.sleep(5000);
+//   			performerPOM.selectAgeFiltercfo(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.clickCategoryFilter(driver).click();
+   			
+   			
+   			Thread.sleep(5000);
+   			performerPOM.selectCategoryFilter2(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.clickStageFilter(driver).click();
+   			
+   			Thread.sleep(5000);
+   			performerPOM.selectStageFilter2(driver).click(); */
+   			
+   			
+   			Thread.sleep(500);
+   			progress(driver);
+   			
+   			Thread.sleep(1000);
+   			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+   			Thread.sleep(2000);
+   			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+   			js.executeScript("window.scrollBy(0,1000)");
+   			
+   			
+   			
+   			Thread.sleep(1000);
+   			CFOcountPOM.readTotalItems1(driver).click();
+   			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+   			String[] bits1 = item1.split(" ");								//Splitting the String
+   			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+   			int count2 = Integer.parseInt(compliancesCount1);
+   			
+   		    try
+   			{
+   				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+   			}
+   			catch(Exception e)
+   			{
+   				
+   			}
+   			js.executeScript("window.scrollBy(0,1000)");
+   			
+   		
+   			Thread.sleep(100);
+   			File dir = new File("C://Users//Admin//Downloads");
+   			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+   			
+   			Thread.sleep(500);
+   			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+   			Thread.sleep(250);
+   			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+   			test.log(LogStatus.PASS, "File downloaded successfully.");
+   			
+   			Thread.sleep(5500);
+   			File dir1 = new File("C://Users//Admin//Downloads");
+   			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+   			
+   			if(dirContents.length < allFilesNew.length)
+   			{
+   				
+   				
+   				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+   			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+   			    {
+   			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+   			       {
+   			           lastModifiedFile = allFilesNew[i];
+   			       }
+   			    }
+   				
+   				Thread.sleep(100);
+   				fis = new FileInputStream(lastModifiedFile);
+   				workbook = new XSSFWorkbook(fis);
+   				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+   				
+   				int no = sheet.getLastRowNum();
+   				Row row = sheet.getRow(no);
+   				Cell c1 = row.getCell(0);
+   				int records =(int) c1.getNumericCellValue();
+   				fis.close();
+   				
+   				if(count2 == records)
+   				{
+   					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+   					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+   				}
+   				else
+   				{
+   					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+   					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+   				}
+   			}
+   			else
+   			{
+   				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+   			}
+   			
+   			Thread.sleep(7000);
+   			performerPOM.clickRiskFilter(driver).click();
+   			
+   			Thread.sleep(7000);
+   			performerPOM.selectRiskFilter1(driver).click();
+   			
+//   		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//   			selectOptionFromDropDown_bs(SeletcRisk, "High");
+   			
+   			Thread.sleep(7000);
+   			if(performerPOM.clearButton(driver).isEnabled())
+   			{
+   				Thread.sleep(7000);
+   				performerPOM.clearButton(driver).click();
+       			test.log(LogStatus.PASS, "clear button work successfully.");
+   			}
+   			else
+   			{
+   				test.log(LogStatus.FAIL, "clear button not work successfully.");
+   			}
+   		
+   			
+   			
+   			
+   			Thread.sleep(3000);
+   			driver.switchTo().parentFrame();
+   			Thread.sleep(2000);
+   			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+   			
+  			Thread.sleep(3000);
+  			OverduePOM.clickDashboard(driver).click();
+   			
+   	   }
+         public static void OutwardPlaintiffAgeingGraphCase(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+ 		
+ 		{
+ 			
+ 			WebDriverWait wait=new WebDriverWait(driver,20);
+ 			JavascriptExecutor js = (JavascriptExecutor) driver;
+ 	       	js.executeScript("window.scrollBy(0,800)");
+ 	       	
+ 	       	Thread.sleep(5000);
+ 			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.clickDashboardCaseFilter(driver).click();
+ 			
+ 			 Thread.sleep(5000);
+ 				performerPOM.clickDashboardApplyBtn(driver).click();
+ 				
+ 				js.executeScript("window.scrollBy(0,1500)");
+ 			
+ 	       	Thread.sleep(3000);
+ 		
+ 	       	int	open = Integer.parseInt(performerPOM.clickOutwardPlaintiffCase(driver).getText());	//Reading Notice Open count.
+ 		    performerPOM.clickOutwardPlaintiffCase(driver).click();						//Clicking on 'Open' notice
+ 		
+ 			Thread.sleep(2000);
+ 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+ 			
+ 			Thread.sleep(10000);
+ 			CFOcountPOM.readTotalItems1(driver).click();
+ 			String item = CFOcountPOM.readTotalItems1(driver).getText();
+ 			String[] bits = item.split(" ");								//Splitting the String
+ 			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+ 			int count1 = 0;
+ 			if(compliancesCount.equalsIgnoreCase("to"))
+ 			{
+ 				Thread.sleep(2000);
+ 			   item = CFOcountPOM.readTotalItems1(driver).getText();
+ 				bits = item.split(" ");								//Splitting the String
+ 			   compliancesCount = bits[bits.length - 2];
+ 			}
+ 			if(compliancesCount.equalsIgnoreCase("to"))
+ 			{
+ 				count1 = 0;
+ 			}
+ 			else
+ 			{
+ 				count1 = Integer.parseInt(compliancesCount);
+ 			}
+ 			
+ 			if(open == count1)
+ 			{
+ 				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+ 				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+ 			}
+ 			else
+ 			{
+ 				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+ 				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+ 			}
+ 	       	
+ 	    
+ 			Thread.sleep(3000);
+ 			performerPOM.clickAgeingViewIcon(driver).click();
+ 			
+
+			
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			Thread.sleep(2000);
+ 		  String msg =performerPOM.clickAgeingViewCaseSummary(driver).getText();
+ 		  
+ 		  if(msg.equalsIgnoreCase("Case Summary"))
+ 		  {
+ 			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+ 		  }
+ 		  else
+ 		  {
+ 			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+ 		  }
+ 		  
+ 		  driver.switchTo().parentFrame();
+ 			
+ 		 Thread.sleep(3000);
+ 		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+ 			
+ 			
+ 			
+ 			
+ 		/*	Thread.sleep(3000);
+ 			performerPOM.clickLocationFilter(driver).click();
+ 			
+ 			Thread.sleep(3000);
+ 			performerPOM.clickLocationFilter1(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.clickLocationFilter3(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.clickCaseNotice(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.selectCaseNotice(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.clickStatusFilter(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.selectstatusFiltercfo(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.clickDepartmentFilter(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.selectDepartmentFilter2(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.clickCaseNoticeType1(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.selectCaseNoticeType2(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.clickRiskFilter(driver).click();
+ 			
+
+ 			Thread.sleep(5000);
+ 			performerPOM.selectRiskFilter2cfo(driver).click();
+ 			
+// 			Thread.sleep(5000);
+// 			performerPOM.clickAgeFilter(driver).click();
+// 			
+// 			Thread.sleep(5000);
+// 			performerPOM.selectAgeFiltercfo(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.clickCategoryFilter(driver).click();
+ 			
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.selectCategoryFilter2(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.clickStageFilter(driver).click();
+ 			
+ 			Thread.sleep(5000);
+ 			performerPOM.selectStageFilter2(driver).click(); */
+ 			
+ 			
+ 			Thread.sleep(500);
+ 			progress(driver);
+ 			
+ 			Thread.sleep(1000);
+ 			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 			Thread.sleep(2000);
+ 			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+ 			js.executeScript("window.scrollBy(0,1000)");
+ 			
+ 			
+ 			
+ 			Thread.sleep(1000);
+ 			CFOcountPOM.readTotalItems1(driver).click();
+ 			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+ 			String[] bits1 = item1.split(" ");								//Splitting the String
+ 			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+ 			int count2 = Integer.parseInt(compliancesCount1);
+ 			
+ 		    try
+ 			{
+ 				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+ 			}
+ 			catch(Exception e)
+ 			{
+ 				
+ 			}
+ 			js.executeScript("window.scrollBy(0,1000)");
+ 			
+ 		
+ 			Thread.sleep(100);
+ 			File dir = new File("C://Users//Admin//Downloads");
+ 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+ 			
+ 			Thread.sleep(500);
+ 			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+ 			Thread.sleep(250);
+ 			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+ 			test.log(LogStatus.PASS, "File downloaded successfully.");
+ 			
+ 			Thread.sleep(5500);
+ 			File dir1 = new File("C://Users//Admin//Downloads");
+ 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+ 			
+ 			if(dirContents.length < allFilesNew.length)
+ 			{
+ 				
+ 				
+ 				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+ 			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+ 			    {
+ 			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+ 			       {
+ 			           lastModifiedFile = allFilesNew[i];
+ 			       }
+ 			    }
+ 				
+ 				Thread.sleep(100);
+ 				fis = new FileInputStream(lastModifiedFile);
+ 				workbook = new XSSFWorkbook(fis);
+ 				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+ 				
+ 				int no = sheet.getLastRowNum();
+ 				Row row = sheet.getRow(no);
+ 				Cell c1 = row.getCell(0);
+ 				int records =(int) c1.getNumericCellValue();
+ 				fis.close();
+ 				
+ 				if(count2 == records)
+ 				{
+ 					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+ 					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+ 				}
+ 				else
+ 				{
+ 					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+ 					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+ 				}
+ 			}
+ 			else
+ 			{
+ 				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+ 			}
+ 			
+ 			Thread.sleep(7000);
+ 			performerPOM.clickRiskFilter(driver).click();
+ 			
+ 			Thread.sleep(7000);
+ 			performerPOM.selectRiskFilter1(driver).click();
+ 			
+// 		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+// 			selectOptionFromDropDown_bs(SeletcRisk, "High");
+ 			
+ 			Thread.sleep(7000);
+ 			if(performerPOM.clearButton(driver).isEnabled())
+ 			{
+ 				Thread.sleep(7000);
+ 				performerPOM.clearButton(driver).click();
+     			test.log(LogStatus.PASS, "clear button work successfully.");
+ 			}
+ 			else
+ 			{
+ 				test.log(LogStatus.FAIL, "clear button not work successfully.");
+ 			}
+ 		
+ 			
+ 			
+ 			
+ 			Thread.sleep(3000);
+ 			driver.switchTo().parentFrame();
+ 			Thread.sleep(2000);
+ 			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+ 			
+			Thread.sleep(3000);
+			OverduePOM.clickDashboard(driver).click();
+ 			
+ 	   }
+         public static void PetitionerAgeingGraphCase(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+  		
+  		{
+  			
+  			WebDriverWait wait=new WebDriverWait(driver,20);
+  			JavascriptExecutor js = (JavascriptExecutor) driver;
+  	       	js.executeScript("window.scrollBy(0,800)");
+  	       	
+  	       	Thread.sleep(5000);
+  			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickDashboardCaseFilter(driver).click();
+  			
+  			 Thread.sleep(5000);
+  				performerPOM.clickDashboardApplyBtn(driver).click();
+  				
+  				js.executeScript("window.scrollBy(0,1000)");
+  			
+  	       	Thread.sleep(3000);
+  		
+  	       	int	open = Integer.parseInt(performerPOM.clickPetitionerCase(driver).getText());	//Reading Notice Open count.
+  		    performerPOM.clickPetitionerCase(driver).click();						//Clicking on 'Open' notice
+  		
+  			Thread.sleep(2000);
+  			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+  			
+  			Thread.sleep(10000);
+  			CFOcountPOM.readTotalItems1(driver).click();
+  			String item = CFOcountPOM.readTotalItems1(driver).getText();
+  			String[] bits = item.split(" ");								//Splitting the String
+  			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+  			int count1 = 0;
+  			if(compliancesCount.equalsIgnoreCase("to"))
+  			{
+  				Thread.sleep(2000);
+  			   item = CFOcountPOM.readTotalItems1(driver).getText();
+  				bits = item.split(" ");								//Splitting the String
+  			   compliancesCount = bits[bits.length - 2];
+  			}
+  			if(compliancesCount.equalsIgnoreCase("to"))
+  			{
+  				count1 = 0;
+  			}
+  			else
+  			{
+  				count1 = Integer.parseInt(compliancesCount);
+  			}
+  			
+  			if(open == count1)
+  			{
+  				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+  				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+  			}
+  			else
+  			{
+  				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+  				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+  			}
+  	       	
+  	    
+  			Thread.sleep(3000);
+  			performerPOM.clickAgeingViewIcon(driver).click();
+  			
+
+ 			
+ 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+ 			Thread.sleep(2000);
+  		  String msg =performerPOM.clickAgeingViewCaseSummary(driver).getText();
+  		  
+  		  if(msg.equalsIgnoreCase("Case Summary"))
+  		  {
+  			  test.log(LogStatus.PASS, "View Icon Of Ageing Graph Open Successfully = " +msg);
+  		  }
+  		  else
+  		  {
+  			 test.log(LogStatus.FAIL, "View Icon Of Ageing Graph Not Open Successfully = " +msg);
+  		  }
+  		  
+  		  driver.switchTo().parentFrame();
+  			
+  		 Thread.sleep(3000);
+  		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
+  			
+  			
+  			
+  			
+  		/*	Thread.sleep(3000);
+  			performerPOM.clickLocationFilter(driver).click();
+  			
+  			Thread.sleep(3000);
+  			performerPOM.clickLocationFilter1(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickLocationFilter3(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickCaseNotice(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectCaseNotice(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickStatusFilter(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectstatusFiltercfo(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickDepartmentFilter(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectDepartmentFilter2(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickCaseNoticeType1(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectCaseNoticeType2(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickRiskFilter(driver).click();
+  			
+
+  			Thread.sleep(5000);
+  			performerPOM.selectRiskFilter2cfo(driver).click();
+  			
+//  			Thread.sleep(5000);
+//  			performerPOM.clickAgeFilter(driver).click();
+//  			
+//  			Thread.sleep(5000);
+//  			performerPOM.selectAgeFiltercfo(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickCategoryFilter(driver).click();
+  			
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectCategoryFilter2(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.clickStageFilter(driver).click();
+  			
+  			Thread.sleep(5000);
+  			performerPOM.selectStageFilter2(driver).click(); */
+  			
+  			
+  			Thread.sleep(500);
+  			progress(driver);
+  			
+  			Thread.sleep(1000);
+  			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+  			Thread.sleep(2000);
+  			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+  			js.executeScript("window.scrollBy(0,1000)");
+  			
+  			
+  			
+  			Thread.sleep(1000);
+  			CFOcountPOM.readTotalItems1(driver).click();
+  			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+  			String[] bits1 = item1.split(" ");								//Splitting the String
+  			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+  			int count2 = Integer.parseInt(compliancesCount1);
+  			
+  		    try
+  			{
+  				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+  			}
+  			catch(Exception e)
+  			{
+  				
+  			}
+  			js.executeScript("window.scrollBy(0,1000)");
+  			
+  		
+  			Thread.sleep(100);
+  			File dir = new File("C://Users//Admin//Downloads");
+  			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+  			
+  			Thread.sleep(500);
+  			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+  			Thread.sleep(250);
+  			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+  			test.log(LogStatus.PASS, "File downloaded successfully.");
+  			
+  			Thread.sleep(5500);
+  			File dir1 = new File("C://Users//Admin//Downloads");
+  			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+  			
+  			if(dirContents.length < allFilesNew.length)
+  			{
+  				
+  				
+  				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+  			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+  			    {
+  			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+  			       {
+  			           lastModifiedFile = allFilesNew[i];
+  			       }
+  			    }
+  				
+  				Thread.sleep(100);
+  				fis = new FileInputStream(lastModifiedFile);
+  				workbook = new XSSFWorkbook(fis);
+  				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+  				
+  				int no = sheet.getLastRowNum();
+  				Row row = sheet.getRow(no);
+  				Cell c1 = row.getCell(0);
+  				int records =(int) c1.getNumericCellValue();
+  				fis.close();
+  				
+  				if(count2 == records)
+  				{
+  					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+  					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Excel Report = "+records);
+  				}
+  				else
+  				{
+  					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+  					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+  				}
+  			}
+  			else
+  			{
+  				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+  			}
+  			
+  			Thread.sleep(7000);
+  			performerPOM.clickRiskFilter(driver).click();
+  			
+  			Thread.sleep(7000);
+  			performerPOM.selectRiskFilter1(driver).click();
+  			
+//  		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
+//  			selectOptionFromDropDown_bs(SeletcRisk, "High");
+  			
+  			Thread.sleep(7000);
+  			if(performerPOM.clearButton(driver).isEnabled())
+  			{
+  				Thread.sleep(7000);
+  				performerPOM.clearButton(driver).click();
+      			test.log(LogStatus.PASS, "clear button work successfully.");
+  			}
+  			else
+  			{
+  				test.log(LogStatus.FAIL, "clear button not work successfully.");
+  			}
+  		
+  			
+  			
+  			
+  			Thread.sleep(3000);
+  			driver.switchTo().parentFrame();
+  			Thread.sleep(2000);
+  			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+  			
+ 			Thread.sleep(3000);
+ 			OverduePOM.clickDashboard(driver).click();
+  			
+  	   }
+            	  
+            	  static void selectOptionFromDropDown_bs(List<WebElement> options, String value) {
+          			
+          			for(WebElement option:options) {
+          				if(option.getText().equals(value)) {
+          					option.click();
+          					option.click();
+          					break;
+          				}
+          			}
+          		 }
         		
            
 }
