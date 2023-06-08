@@ -461,6 +461,11 @@ public class performerPOM
 		litigation = driver.findElement(By.xpath("//*[@id='VSNoticePopup']"));
 		return litigation;
 	}
+	public static WebElement readInvalidMessage(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='VSNoticePopup']/ul"));
+		return litigation;
+	}
 	
 	public static WebElement readMessage1(WebDriver driver)
 	{
@@ -1407,6 +1412,11 @@ public class performerPOM
 	public static WebElement readDocMsg(WebDriver driver)
 	{
 		litigation = driver.findElement(By.xpath("//*[@id='vsContractDocument']"));
+		return litigation;
+	}
+	public static WebElement readDocMsgInvalidMsg(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='vsContractDocument']/ul/li"));
 		return litigation;
 	}
 	
@@ -2394,7 +2404,7 @@ public class performerPOM
 	  public static WebElement CategorySummaryGraph(WebDriver driver) throws InterruptedException
 	  {
 		  
-		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[8]"));
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[6]"));
 		  return litigation;
 	  }
 	  public static WebElement CategorySummaryGraph1(WebDriver driver) throws InterruptedException
@@ -3323,7 +3333,7 @@ public class performerPOM
 			public static WebElement clickUpdateButton(WebDriver driver)
 			{
 				WebDriverWait wait= new WebDriverWait(driver,30);
-				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_grdPageAuthorization_chkupdate_0']")));
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='btnSave']")));
 				return litigation;
 			}
 			public static WebElement clickDeleteButton(WebDriver driver)
@@ -5763,6 +5773,108 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[11]"));
 					return litigation;
 				}
+			 public static WebElement clickNoticeClearBtn(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='btnClearNoticeDetail']"));
+					return litigation;
+				}
+			 public static WebElement clickSelectCheckbox(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdShowDocumentList_chkDocument_0']"));
+					return litigation;
+				}
+			 public static WebElement clickMailTo(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='tbxMailTo']"));
+					return litigation;
+				}
+			 public static WebElement clickMessageMail(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='tbxMailMsg']"));
+					return litigation;
+				}
+			 public static WebElement clickSend(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='btnSendDocumentMail']"));
+					return litigation;
+				}
+			 public static WebElement clickSendMailMsg(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='ValidationSummary7']/ul/li"));
+					return litigation;
+				}
+			 public static WebElement clickSendMailMsg1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='ValidationSummary7']/ul"));
+					return litigation;
+				}
+			 public static WebElement clickcloseBtn(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='divOpenSendMailPopup']/div/div/div[1]/button"));
+					return litigation;
+				}
+			 public static WebElement clickLinkedNoticeViewIcon(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdLinkedNotices_lnkViewLinkedNotice_0']/img"));
+					return litigation;
+				}
+			 public static WebElement clickViewPopup(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='historyPopUpHeader']"));
+					return litigation;
+				}
+			 public static WebElement clickClosePopup1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='divNoticeCaseHistoryPopup']/div/div/div[1]/button"));
+					return litigation;
+				}
+			 public static WebElement clickLinkedNoticeDeleteIcon(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdLinkedNotices_lnkBtnDeleteNoticeLinking_0']/img"));
+					return litigation;
+				}
+			 public static WebElement clickLinkedNoticeDeleteIconValidMsg(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='vsLinkedNotices']/ul/li"));
+					return litigation;
+				}
+			 public static WebElement clickUserAssign(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdUserAssignment_lblUserName_2']"));
+					return litigation;
+				}
+			 public static WebElement clickEditUserAssign(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='lnkBtnEditUserAssignment']"));
+					return litigation;
+				}
+			 public static WebElement clickDeleteUserAssign(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdUserAssignment_lnkCaseUserAssignment_0']/img"));
+					return litigation;
+				}
+			 public static WebElement clickDeleteUserAssignValidMsg(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='vsNoticeUserAssign']/ul/li"));
+					return litigation;
+				}
+			 public static WebElement clickSearchDocument(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='txtdocsearch']"));
+					return litigation;
+				}
+			 public static WebElement clickApplyBtn(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='btnsearchDoc']"));
+					return litigation;
+				}
+			 public static WebElement clickDocName(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdNoticeDocuments_lblFileName_0']"));
+					return litigation;
+				}
+			 
+			 
 			 
 }
 

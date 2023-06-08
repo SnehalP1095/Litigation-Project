@@ -598,6 +598,11 @@ public class OverduePOM
 		performer = driver.findElement(By.xpath("//input[@value='Save']"));
 		return performer;
 	}
+	public static WebElement clickUpdateButton(WebDriver driver)			//Searching 'Compliance Type' drop down
+	{
+		performer = driver.findElement(By.xpath("//input[@value='Update']"));
+		return performer;
+	}
 		
 	public static WebElement selectNextMonth(WebDriver driver)			//Method to click on arrow which shows last month
 	{

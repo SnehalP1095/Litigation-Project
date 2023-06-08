@@ -5,9 +5,8 @@
     <classes>
       <class name="litigationManagement.CFO">
         <methods>
+          <include name="NoticeSendMailWithDoc"/>
           <include name="NoticeTaskActivity"/>
-          <include name="InwardDefendantAgeingGraph"/>
-          <include name="InwardDefendentAgeingGraph2to3years"/>
           <include name="Masters10"/>
           <include name="Masters13"/>
           <include name="setBrowser"/>
@@ -15,19 +14,21 @@
           <include name="Masters12"/>
           <include name="Masters2"/>
           <include name="Masters11"/>
-          <include name="CategorySummaryGraph"/>
+          <include name="NoticeClosed"/>
           <include name="PetitionerAgeingGraph"/>
           <include name="RespondentAgeingGraph"/>
           <include name="RiskSummaryGraph1"/>
           <include name="OutwardPlaintiffAgeingGraph1to2years"/>
-          <include name="CaseNoticeTypeGraph"/>
+          <include name="NoticeSendMailWithDocEmptyFields"/>
+          <include name="NoticeWithInvalidData"/>
           <include name="CaseStatusPayment"/>
           <include name="CaseTaskActivity"/>
           <include name="CaseNoticeTypeGraph1"/>
           <include name="MyReminder"/>
           <include name="Masters"/>
-          <include name="NoticeDocument"/>
+          <include name="NoticeWithExistingData"/>
           <include name="Close"/>
+          <include name="CloseNotice"/>
           <include name="HearingCalender"/>
           <include name="AdvancedSearch"/>
           <include name="Masters1"/>
@@ -36,27 +37,34 @@
           <include name="Masters6"/>
           <include name="Login"/>
           <include name="Masters5"/>
-          <include name="DepartmentSummaryGraph"/>
           <include name="InwardDefendentAgeingGraph1to2years"/>
           <include name="Masters8"/>
           <include name="MyDocument"/>
+          <include name="LinkNoticeViewIcon"/>
           <include name="Masters7"/>
           <include name="ApplicantAgeingGraph"/>
           <include name="Masters9"/>
+          <include name="NoticeClearBtn"/>
           <include name="CaseHearing"/>
-          <include name="CaseNoticeStageGraph"/>
+          <include name="LinkCase"/>
           <include name="MyReports"/>
+          <include name="CaseNoticeStageGraph1"/>
+          <include name="NoticeWithEmptyFields"/>
           <include name="DepartmentSummaryGraph1"/>
+          <include name="LinkNotice"/>
           <include name="OutwardPlaintiffAgeingGraphCase"/>
           <include name="CaseDocument"/>
           <include name="CaseOrder"/>
           <include name="OutwardPlaintiffAgeingGraph"/>
           <include name="ComplainantAgeingGraph1to2years"/>
+          <include name="NoticeSendMailWithDocInvalidFields"/>
           <include name="PetitionerAgeingGraphCase"/>
-          <include name="LocationSummaryGraph"/>
-          <include name="RiskSummaryGraph"/>
+          <include name="NoticeUserAssignmentDelete"/>
+          <include name="CloseCase"/>
           <include name="CaseHearingcfo"/>
+          <include name="TaskClosed"/>
           <include name="ComplainantAgeingGraph"/>
+          <include name="NoticeUserAssignment"/>
           <include name="NoticeDocViewandDownload"/>
           <include name="NoticeResponse"/>
           <include name="AdvancedSearchreport"/>
@@ -64,13 +72,18 @@
           <include name="LocationSummaryGraph1"/>
           <include name="NoticePayment"/>
           <include name="InwardDefendantAgeingGraphCase"/>
+          <include name="CaseOpen"/>
           <include name="MoreReports"/>
           <include name="NoticeAuditLog"/>
           <include name="CaseExternalLawyerRating"/>
           <include name="ImportUtility"/>
+          <include name="LinkNoticeDeleteIcon"/>
+          <include name="NoticeWithTwoMandatoryData"/>
           <include name="AdvancedSearchDoc"/>
+          <include name="CaseClose"/>
           <include name="NoticeExternalLawyer"/>
           <include name="RespondentAgeingGraph1to2yearsAgeingGraph1to2years"/>
+          <include name="TaskOpen"/>
         </methods>
       </class> <!-- litigationManagement.CFO -->
     </classes>

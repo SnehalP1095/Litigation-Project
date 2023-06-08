@@ -116,19 +116,8 @@ public class CFO {
 				extent.flush();
 			}
 		
-//@Test(priority = 2)
-		void CaseNoticeStageGraph() throws InterruptedException, IOException
-		{
-			test = extent.startTest("Notice = Case Notice Stage Graph Count Verification");
-			
-			
-			Thread.sleep(3000);
-			CFOMethod.CaseNoticeStageGraph(driver, test,"cfo -");
-			
-			extent.endTest(test);
-			extent.flush();
-		}
-	@Test(priority = 3)
+
+	//@Test(priority = 2)
 		void CaseNoticeTypeGraph() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Notice = Case Notice Type Graph Count Verification");
@@ -140,10 +129,22 @@ public class CFO {
 			extent.endTest(test);
 			extent.flush();
 		}
-	@Test(priority = 4)
+	//@Test(priority = 3)
+			void CaseNoticeStageGraph() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Notice = Case Notice Stage Graph Count Verification");
+				
+				
+				Thread.sleep(3000);
+				CFOMethod.CaseNoticeStageGraph(driver, test,"cfo -");
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+	//@Test(priority = 4)
 		void RiskSummaryGraph() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Notice = Risk Graph Count Verification");
+			test = extent.startTest("select Notice Filter =(High Risk) Risk Graph Count Verification");
 
 			Thread.sleep(3000);
 			CFOMethod.RiskSummaryGraph(driver, test,"cfo -");
@@ -151,7 +152,7 @@ public class CFO {
 			extent.endTest(test);
 			extent.flush();
 		}
- @Test(priority = 5)
+   //@Test(priority = 5)
         void DepartmentSummaryGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Notice = Department Graph Count Verification");
@@ -162,7 +163,7 @@ public class CFO {
 	       extent.endTest(test);
 	       extent.flush();
         }
- @Test(priority = 6)
+   //@Test(priority = 6)
         void LocationSummaryGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Notice = Location Graph Count Verification");
@@ -174,7 +175,7 @@ public class CFO {
 	       extent.flush();
         }
        
-  @Test(priority = 7)
+  //@Test(priority = 7)
         void CategorySummaryGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Notice = Category Graph Count Verification");
@@ -186,7 +187,7 @@ public class CFO {
 	       extent.flush();
         }
 
-  @Test(priority = 8)
+ // @Test(priority = 8)
     void InwardDefendantAgeingGraph() throws InterruptedException, IOException
     {
          test = extent.startTest("Notice =Less than a year = Inward/Defendant = Ageing Graph Count Verification");
@@ -296,7 +297,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
-   @Test(priority = 18)
+  // @Test(priority = 18)
     void InwardDefendentAgeingGraph2to3years() throws InterruptedException, IOException
     {
          test = extent.startTest("Notice = 2 to 3 Years =Inward/Defendent= Ageing Graph Count Verification");
@@ -308,22 +309,8 @@ public class CFO {
           extent.flush();
     }
   
-
-
-    @Test(priority = 19)
-  void CaseNoticeStageGraph1() throws InterruptedException, IOException
-   {
-	test = extent.startTest("Case = Case Notice Stage Graph Count Verification");
-	
-	
-	Thread.sleep(3000);
-	CFOMethod.CaseNoticeStageGraph1(driver, test,"cfo -");
-	
-	extent.endTest(test);
-	extent.flush();
-  }
-    
-   @Test(priority = 20)
+ 
+   @Test(priority =19)
 	void CaseNoticeTypeGraph1() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case = Case Notice Type Graph Count Verification");
@@ -335,6 +322,19 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
+   
+   @Test(priority = 20)
+   void CaseNoticeStageGraph1() throws InterruptedException, IOException
+    {
+ 	test = extent.startTest("Case = Case Notice Stage Graph Count Verification");
+ 	
+ 	
+ 	Thread.sleep(3000);
+ 	CFOMethod.CaseNoticeStageGraph1(driver, test,"cfo -");
+ 	
+ 	extent.endTest(test);
+ 	extent.flush();
+   }
     
     @Test(priority = 21)
 	void RiskSummaryGraph1() throws InterruptedException, IOException
@@ -422,7 +422,7 @@ public class CFO {
         
   
 
-     @Test(priority =28)
+    // @Test(priority =28)
     	void NoticeOpen() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice - Open Count verification");
@@ -433,7 +433,155 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
-@Test(priority =29)
+    @Test(priority =29)
+ 	void NoticeWithExistingData() throws InterruptedException, IOException
+ 	{
+ 		test = extent.startTest("Notice With Existing Data verification");
+ 		
+ 		
+ 		CFOMethod.NoticeWithExistingData(driver, test, workbook);
+ 		
+ 		extent.endTest(test);
+ 		extent.flush();
+ 	}
+	
+  @Test(priority =30)
+     void NoticeWithInvalidData() throws InterruptedException, IOException
+    {
+	     test = extent.startTest("Notice With Invalid Data verification");
+	
+	
+	      CFOMethod.NoticeWithInvalidData(driver, test, workbook);
+	
+	     extent.endTest(test);
+	     extent.flush();
+   }
+   @Test(priority =31)
+   void NoticeWithTwoMandatoryData() throws InterruptedException, IOException
+  {
+	     test = extent.startTest("Notice With Two Mandatory Fields verification");
+	
+	
+	      CFOMethod.NoticeWithTwoMandatoryData(driver, test, workbook);
+	
+	     extent.endTest(test);
+	     extent.flush();
+ }
+ @Test(priority =32) 
+   void NoticeWithEmptyFields() throws InterruptedException, IOException
+  {
+	     test = extent.startTest("Notice With Empty Fields verification");
+	
+	
+	      CFOMethod.NoticeWithEmptyFields(driver, test, workbook);
+	
+	     extent.endTest(test);
+	     extent.flush();
+ }
+
+ @Test(priority =33)
+   void NoticeClearBtn() throws InterruptedException, IOException
+  {
+	     test = extent.startTest("Notice -Clear button verification");
+	
+	
+	      CFOMethod.NoticeClearBtn(driver, test, workbook);
+	
+	     extent.endTest(test);
+	     extent.flush();
+ }
+   @Test(priority =34)
+   void NoticeSendMailWithDoc() throws InterruptedException, IOException
+  {
+	     test = extent.startTest("Notice -Send Mail With Document verification");
+	
+	
+	      CFOMethod.NoticeSendMailWithDoc(driver, test);
+	
+	     extent.endTest(test);
+	     extent.flush();
+ }
+   @Test(priority =35)
+   void NoticeSendMailWithDocInvalidFields() throws InterruptedException, IOException
+  {
+	     test = extent.startTest("Notice -Send Mail With Document Invalid Fields verification");
+	
+	
+	      CFOMethod.NoticeSendMailWithDocInvalidFields(driver, test);
+	
+	     extent.endTest(test);
+	     extent.flush();
+ }
+   @Test(priority =36)
+   void NoticeSendMailWithDocEmptyFields() throws InterruptedException, IOException
+  {
+	     test = extent.startTest("Notice -Send Mail With Document Empty Fields verification");
+	
+	
+	      CFOMethod.NoticeSendMailWithDocEmptyFields(driver, test);
+	
+	     extent.endTest(test);
+	     extent.flush();
+ }
+   @Test(priority =37)
+   void NoticeUserAssignment() throws InterruptedException, IOException
+  {
+	     test = extent.startTest("Notice User Assignment  verification");
+	
+	
+	      CFOMethod.NoticeUserAssignment(driver, test,workbook);
+	
+	     extent.endTest(test);
+	     extent.flush();
+ }
+   @Test(priority =38)
+   void NoticeUserAssignmentDelete() throws InterruptedException, IOException
+  {
+	     test = extent.startTest("Notice User Assignment Delete Icon  verification");
+	
+	
+	      CFOMethod.NoticeUserAssignmentDelete(driver, test,workbook);
+	
+	     extent.endTest(test);
+	     extent.flush();
+ }
+   
+   @Test(priority =39)
+	void LinkNotice() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Link Notice Verification");
+		
+		
+		CFOMethod.LinkDocument(driver, test, workbook, "Notice");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+   
+  @Test(priority =40)
+   void LinkNoticeViewIcon() throws InterruptedException, IOException
+  {
+	     test = extent.startTest("Linked notice view icon  verification");
+	
+	
+	      CFOMethod.LinkNoticeViewIcon(driver, test);
+	
+	     extent.endTest(test);
+	     extent.flush();
+ }
+   @Test(priority =41)
+   void LinkNoticeDeleteIcon() throws InterruptedException, IOException
+  {
+	     test = extent.startTest("Linked notice Delete icon  verification");
+	
+	
+	      CFOMethod.LinkNoticeDeleteIcon(driver, test);
+	
+	     extent.endTest(test);
+	     extent.flush();
+ }
+  
+    @Test(priority =29)
      	void CaseOpen() throws InterruptedException, IOException
      	{
      		test = extent.startTest("Case - Open Count verification");
@@ -478,17 +626,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
-	@Test(priority =33)
-		void LinkNotice() throws InterruptedException, IOException
-		{
-			test = extent.startTest("Link Notice Verification");
-			
-			
-			CFOMethod.LinkDocument(driver, test, workbook, "Notice");
-			
-			extent.endTest(test);
-			extent.flush();
-		}
+	
 	@Test(priority = 34)
 		void LinkCase() throws InterruptedException, IOException
 		{
@@ -537,7 +675,7 @@ public class CFO {
 			}
 
     	
-	@Test(priority = 38)
+	//@Test(priority = 38)
     	void NoticeDocument() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice Document verification");
@@ -548,6 +686,41 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
+	//@Test(priority = 2)
+	void NoticeDocumentEmptyFields() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Notice Document with empty fields verification");
+		
+		
+		CFOMethod.NoticeDocumentEmptyFields(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 3)
+	void NoticeWithoutUploadDocument() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Notice Without Upload Document verification");
+		
+		
+		CFOMethod.NoticeWithoutUploadDocument(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 2)
+	void NoticeDocumentSearchFields() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Notice Document Search Fields verification");
+		
+		
+		CFOMethod.NoticeDocumentSearchFields(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
  @Test(priority = 39)
     	void NoticeTaskActivity() throws InterruptedException, IOException
     	{
