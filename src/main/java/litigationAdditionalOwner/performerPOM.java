@@ -472,6 +472,11 @@ public class performerPOM
 		litigation = driver.findElement(By.xpath("//*[@id='VSCasePopup']"));
 		return litigation;
 	}
+	public static WebElement CaseInvalidreadMessage(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='VSCasePopup']/ul/li"));
+		return litigation;
+	}
 	
 	public static WebElement clickClose(WebDriver driver)
 	{
@@ -1485,6 +1490,11 @@ public class performerPOM
 				litigation = driver.findElement(By.xpath("//*[@id='ValidationSummary8']/ul/li"));
 				return litigation;
 			}
+		 public static WebElement readTaskMsg2(WebDriver driver)
+			{
+				litigation = driver.findElement(By.xpath("//*[@id='ValidationSummary5']/ul"));
+				return litigation;
+			}
 		 public static WebElement readTaskMsgcfo(WebDriver driver)
 			{
 				litigation = driver.findElement(By.xpath("//*[@id='ValidationSummary8']/ul/li"));
@@ -1571,6 +1581,12 @@ public class performerPOM
 		  public static WebElement readResponseMsg(WebDriver driver)
 		  {
 			  litigation= driver.findElement(By.xpath("//*[@id='ValidationSummary10']"));
+			 return litigation;
+			  
+		  }
+		  public static WebElement readResponseMsg1(WebDriver driver)
+		  {
+			  litigation= driver.findElement(By.xpath("//*[@id='ValidationSummary1']"));
 			 return litigation;
 			  
 		  }
@@ -1858,6 +1874,11 @@ public class performerPOM
 		  public static WebElement readPymentmsg(WebDriver driver)
 			{
 				litigation = driver.findElement(By.xpath("//*[@id='ValidationSummary4']"));
+				return litigation;
+			}
+		  public static WebElement readPymentmsg1(WebDriver driver)
+			{
+				litigation = driver.findElement(By.xpath("//*[@id='ValidationSummary4']/ul"));
 				return litigation;
 			}
 		  
@@ -4710,6 +4731,12 @@ public class performerPOM
 				  litigation=driver.findElement(By.xpath("//*[@id='vsDocInfo']/ul/li"));
 				  return litigation;
 			  }
+			 public static WebElement clickNoticeDocumentshareInvalidmsgcfo(WebDriver driver) throws InterruptedException
+			  {
+				  
+				  litigation=driver.findElement(By.xpath("//*[@id='vsDocInfo']/ul"));
+				  return litigation;
+			  }
 			 public static WebElement clickNoticeEditTaskcfo(WebDriver driver) throws InterruptedException
 			  {
 				  
@@ -5545,6 +5572,11 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("//*[@id='DivTaskCollapsTwo']/div/div/div[1]/div/div/a"));
 					return litigation;
 				}
+			 public static WebElement clickMinimizeResponse(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='DivResponceCollapsTwo']/div/div/div[1]/div/div/a"));
+					return litigation;
+				}
 			 public static WebElement clickReadHearingMsg(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='ValidationSummary9']"));
@@ -5871,6 +5903,31 @@ public class performerPOM
 			 public static WebElement clickDocName(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='grdNoticeDocuments_lblFileName_0']"));
+					return litigation;
+				}
+			 public static WebElement clickInvalidResponsemsg(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='vsTaskResponse']/ul/li"));
+					return litigation;
+				}
+			 public static WebElement clickDeleteResponse(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdTaskResponseLognew_lnkBtnDeleteTaskResponse_0']/img"));
+					return litigation;
+				}
+			 public static WebElement clickClearResponse(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='Button2']"));
+					return litigation;
+				}
+			 public static WebElement clickClearNoticeResponse(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='btnResponseClear']"));
+					return litigation;
+				}
+			 public static WebElement clickCriteriaInvalidMsg(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='lblError']"));
 					return litigation;
 				}
 			 

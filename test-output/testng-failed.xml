@@ -5,20 +5,25 @@
     <classes>
       <class name="litigationManagement.CFO">
         <methods>
+          <include name="CriteriaWithoutData"/>
           <include name="NoticeSendMailWithDoc"/>
           <include name="NoticeTaskActivity"/>
+          <include name="TaskActivtityResponseClearBtn"/>
           <include name="Masters10"/>
           <include name="Masters13"/>
           <include name="setBrowser"/>
           <include name="CategorySummaryGraph1"/>
           <include name="Masters12"/>
           <include name="Masters2"/>
+          <include name="TaskActivtityDeleteResponse"/>
+          <include name="CriteriaInvalidData"/>
           <include name="Masters11"/>
           <include name="NoticeClosed"/>
           <include name="PetitionerAgeingGraph"/>
           <include name="RespondentAgeingGraph"/>
           <include name="RiskSummaryGraph1"/>
           <include name="OutwardPlaintiffAgeingGraph1to2years"/>
+          <include name="TaskActivtityExistingData"/>
           <include name="NoticeSendMailWithDocEmptyFields"/>
           <include name="NoticeWithInvalidData"/>
           <include name="CaseStatusPayment"/>
@@ -31,6 +36,7 @@
           <include name="CloseNotice"/>
           <include name="HearingCalender"/>
           <include name="AdvancedSearch"/>
+          <include name="NoticeDocumentShareCloseBtn"/>
           <include name="Masters1"/>
           <include name="Masters4"/>
           <include name="Masters3"/>
@@ -45,8 +51,10 @@
           <include name="ApplicantAgeingGraph"/>
           <include name="Masters9"/>
           <include name="NoticeClearBtn"/>
+          <include name="ResponseClearBtn"/>
           <include name="CaseHearing"/>
           <include name="LinkCase"/>
+          <include name="TaskActivtityResponseWithoutStatus"/>
           <include name="MyReports"/>
           <include name="CaseNoticeStageGraph1"/>
           <include name="NoticeWithEmptyFields"/>
@@ -59,17 +67,22 @@
           <include name="ComplainantAgeingGraph1to2years"/>
           <include name="NoticeSendMailWithDocInvalidFields"/>
           <include name="PetitionerAgeingGraphCase"/>
+          <include name="TaskActivtityWithoutData"/>
           <include name="NoticeUserAssignmentDelete"/>
           <include name="CloseCase"/>
+          <include name="CaseExistingData"/>
           <include name="CaseHearingcfo"/>
           <include name="TaskClosed"/>
           <include name="ComplainantAgeingGraph"/>
+          <include name="NoticePaymentWithoutData"/>
           <include name="NoticeUserAssignment"/>
+          <include name="PaymentLogwithExistingData"/>
           <include name="NoticeDocViewandDownload"/>
           <include name="NoticeResponse"/>
           <include name="AdvancedSearchreport"/>
           <include name="CaseAuditLog"/>
           <include name="LocationSummaryGraph1"/>
+          <include name="NoticeDocumentSearchFields"/>
           <include name="NoticePayment"/>
           <include name="InwardDefendantAgeingGraphCase"/>
           <include name="CaseOpen"/>
