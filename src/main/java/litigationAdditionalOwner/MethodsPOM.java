@@ -1296,9 +1296,12 @@ private static WebElement selectcheckBox;
 				{
 					test.log(LogStatus.FAIL, "Message displayed = "+msg5);
 				}
+				driver.switchTo().parentFrame();
 				Thread.sleep(2000);
 				 performerPOM.clickclosebutton(driver).click();
-				driver.switchTo().parentFrame();
+			
+				Thread.sleep(1000);
+			       OverduePOM.clickDashboard(driver).click();	
 		}
 		   
 		   
@@ -1326,6 +1329,9 @@ private static WebElement selectcheckBox;
 		   JavascriptExecutor js = (JavascriptExecutor) driver;
 		   js.executeScript("window.scrollBy(0,700)");
 		   test.log(LogStatus.PASS, "File download Successfully");
+		   
+			Thread.sleep(1000);
+		       OverduePOM.clickDashboard(driver).click();
 		}
 		
 		
@@ -1899,7 +1905,7 @@ private static WebElement selectcheckBox;
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("28-05-2023");
+		    performerPOM.clickHearingDate(driver).sendKeys("31-05-2023");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -2000,7 +2006,7 @@ private static WebElement selectcheckBox;
 			performerPOM.clickTaskTitle(driver).clear();
 			
 			Thread.sleep(3000);
-			performerPOM.clickTaskTitle(driver).sendKeys("New Task 1 jan");	//Writing 'Task Title'
+			performerPOM.clickTaskTitle(driver).sendKeys("New Task 15 jun");	//Writing 'Task Title'
 			
 			performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
 			
@@ -2082,7 +2088,7 @@ private static WebElement selectcheckBox;
 			performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 			
 			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate tTest 01JUN2023");
+			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate tTest 14JUN2023");
 			
 			Thread.sleep(3000);
 			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
@@ -2149,7 +2155,7 @@ private static WebElement selectcheckBox;
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("30-06-2023");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("04-07-2023");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2184,7 +2190,7 @@ private static WebElement selectcheckBox;
 			    Thread.sleep(3000);
 			    performerPOM.clickCaseHearingDecsri(driver).clear();
 			    Thread.sleep(3000);
-			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 01 JUN 2023");		//Writing 'HearingDescription'
+			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 15 JUN 2023");		//Writing 'HearingDescription'
 			    
 			    Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearing(driver).click();
@@ -2241,7 +2247,7 @@ private static WebElement selectcheckBox;
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("28-03-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("01-05-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);
@@ -2365,9 +2371,9 @@ private static WebElement selectcheckBox;
 			 
 			
 			 Thread.sleep(5000);
-		     performerPOM. clickInvoiceNum(driver).sendKeys("652309");
+		     performerPOM. clickInvoiceNum(driver).sendKeys("0598");
 			 Thread.sleep(4000);
-			 performerPOM. clickInvoiceDate(driver).sendKeys("16-05-2023");
+			 performerPOM. clickInvoiceDate(driver).sendKeys("14-06-2023");
 			 Thread.sleep(4000);
 			 performerPOM.clickAdvocateBillPanel(driver).click();
 			 Thread.sleep(4000);
@@ -2408,7 +2414,7 @@ private static WebElement selectcheckBox;
 				 Thread.sleep(5000);
 			     performerPOM. clickInvoiceNum(driver).clear();
 				 Thread.sleep(5000);
-			     performerPOM. clickInvoiceNum(driver).sendKeys("987670");
+			     performerPOM. clickInvoiceNum(driver).sendKeys("3450");
 			     
 			     Thread.sleep(4000);
 				 performerPOM.clickSaveAdvocateBill(driver).click();
@@ -2478,45 +2484,20 @@ private static WebElement selectcheckBox;
 
 			
     	  
-    	       WebDriverWait wait=new WebDriverWait(driver,50);
-    	       Thread.sleep(4000);
+    	         WebDriverWait wait=new WebDriverWait(driver,50);
+    	         Thread.sleep(4000);
     	          performerPOM.clickCaseOpen(driver).click();
     	          Thread.sleep(3000);
     	          performerPOM.clickEditNotice(driver).click();
     	          sheet = workbook.getSheetAt(2);	
-    	       //driver.switchTo().parentFrame();
- 	          Thread.sleep(3000);
- 			    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+    	       
+ 	              Thread.sleep(3000);
+ 			      wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
       
-               performerPOM.clickCaseStatusPayments(driver).click();		//Clicking on 'Status/Payments'
+                  performerPOM.clickCaseStatusPayments(driver).click();		//Clicking on 'Status/Payments'
 				
-				wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseStatus(driver)));
-//				
-//				performerPOM.clickCaseStage(driver).click();
-//				Thread.sleep(300);
-//				performerPOM.selectCaseStage(driver).sendKeys("Hearing", Keys.ENTER);
-//				
-//				Thread.sleep(300);
-//				performerPOM.clickCaseStatus(driver).click();				//Clicking on 'Case Status' drop down.
-//				Thread.sleep(300);
-//				performerPOM.clickCaseStatusClose(driver).click();			//Selecting 'Closed' option from drop down.
-//				
-//				Thread.sleep(300);
-//				wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseCloseDate(driver)));
-//				performerPOM.clickCaseCloseDate(driver).click();				//Clicking on 'Closed Date' date box
-//				OverduePOM.selectLastMonth(driver).click();					//Getting last month
-//				OverduePOM.selectDate2(driver).click();						//Selecting particular date.
-//				
-//				Thread.sleep(300);
-//				performerPOM.clickCaseResult(driver).click();
-//				performerPOM.clickSelectCaseResult(driver).sendKeys("In Progress", Keys.ENTER);
-//				
-//				Thread.sleep(300);
-//				performerPOM.clickRemark1(driver).sendKeys("Automation Testing");
-//				
-//				Thread.sleep(300);
-//				performerPOM.clickSave1(driver).click();
-//			 
+				  wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseStatus(driver)));
+
 				
 				Thread.sleep(3000);
 				Row row0 = sheet.getRow(52);					//Selected 0th index row (First row)
@@ -2531,7 +2512,7 @@ private static WebElement selectcheckBox;
 				PaymentType1.get(1).click();
 				
 				
-				Thread.sleep(10000);
+				Thread.sleep(3000);
 //				Row row1 = sheet.getRow(54);					//Selected 0th index row (First row)
 //				Cell c2 = row1.getCell(1);						//Selected cell (0 row,1 column)
 //				int Amount = (int) c2.getNumericCellValue();
@@ -2554,13 +2535,7 @@ private static WebElement selectcheckBox;
 				{
 					test.log(LogStatus.FAIL, "Message displayed = "+msg4);
 				}
-				Thread.sleep(3000);
-				performerPOM.clickViewPaymentDoccfo(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickNoticeclosePaymentDocpopupcfo(driver).click();
-				
-				test.log(LogStatus.PASS, "Payment Document popup open successfully");
+			
 				
 				
 			
@@ -2570,7 +2545,7 @@ private static WebElement selectcheckBox;
 				Thread.sleep(3000);
 				performerPOM.clickCaseInvoiceNo1(driver).clear();
 				 Thread.sleep(3000);
-			    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 34212");
+			    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 432601");
 			    
 			    Thread.sleep(6000);
 				performerPOM.clickCaseStatusPaymentUploadtcfo(driver);
@@ -2626,6 +2601,14 @@ private static WebElement selectcheckBox;
 					{
 						test.log(LogStatus.FAIL, "Message displayed = "+msg6);
 					}
+					
+					/*Thread.sleep(3000);
+					performerPOM.clickViewPaymentDoccfo(driver).click();
+					
+					Thread.sleep(3000);
+					performerPOM.clickNoticeclosePaymentDocpopupcfo(driver).click();
+					
+					test.log(LogStatus.PASS, "Payment Document popup open successfully");*/
 				
 				
 			
@@ -2648,30 +2631,13 @@ private static WebElement selectcheckBox;
 				   
 				   Thread.sleep(4000);
 				   performerPOM.selectCaseExternalLawyer(driver);
-				   
-				  
-				   
-//				   WebElement ExternalLawyer = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='ddlLayerType_chosen']")));
-//				   if(ExternalLawyer.isEnabled())
-//				   {
-//					   
-//				     Select ExternalLawyer1=new Select(ExternalLawyer);
-//				     ExternalLawyer1.selectByIndex(1);
-//				     List<WebElement> ExternalLawyer2= driver.findElements(By.xpath("//*[@id='ddlLayerType_chosen']/div/ul/li"));
-//				     int op = ExternalLawyer2.size();
-//				      int size = op.size();
-//				     if(op>=1) 
-//				     {
-//				    	 ExternalLawyer2.get(opp).click();
-				        
-		
 				    Thread.sleep(3000);
 				    performerPOM.selectExternalLawyerRating(driver);
 				   Thread.sleep(3000);
 				   performerPOM.clickNewCriteria(driver).click();
 				   Thread.sleep(3000);
 				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
-				   performerPOM.clickCriteria(driver).sendKeys("Test Test New");
+				   performerPOM.clickCriteria(driver).sendKeys("Test test Test New");
 				   Thread.sleep(3000);
 				   performerPOM.clickSaveCriteria(driver).click();
 				   Thread.sleep(3000);
@@ -2688,7 +2654,7 @@ private static WebElement selectcheckBox;
 			   	  Thread.sleep(1000);
 				 wait.until(ExpectedConditions.visibilityOf(performerPOM.readRatingmsg(driver)));
 							
-					Thread.sleep(500);
+					Thread.sleep(2000);
 					String msg5 = performerPOM.readRatingmsg(driver).getText();		//Reading Message appeared after save button
 					
 					if(msg5.equalsIgnoreCase("Rating Saved Successfully"))
@@ -2701,11 +2667,13 @@ private static WebElement selectcheckBox;
 								test.log(LogStatus.FAIL, "Message displayed = "+msg5);
 						}
 				 
-				  
-					Thread.sleep(3000);
-					   driver.switchTo().parentFrame();
 				     Thread.sleep(1000);
 					 performerPOM.clickclosebutton(driver).click();
+					 
+					 Thread.sleep(3000);
+					   driver.switchTo().parentFrame();
+						Thread.sleep(1000);
+					       OverduePOM.clickDashboard(driver).click();
 				      
 		  }	 
       
@@ -2724,11 +2692,16 @@ private static WebElement selectcheckBox;
 				   performerPOM. clickAuditLog(driver).click();
 				   Thread.sleep(3000);
 				   performerPOM.clickExport(driver).click();		   
-				   Thread.sleep(3000);
-				   driver.switchTo().parentFrame();
+				   
 				   
 				   test.log(LogStatus.PASS,"Export report download sucssesfully ");
 				   performerPOM.clickclosebutton(driver).click();
+				   
+				   Thread.sleep(3000);
+				   driver.switchTo().parentFrame();
+				   
+				   Thread.sleep(1000);
+				   OverduePOM.clickDashboard(driver).click();
       }	 
 			 
 	
@@ -2916,12 +2889,12 @@ private static WebElement selectcheckBox;
 		if(open1 > open)
 		{
 			//test.log(LogStatus.PASS, type+" Dashboard Count Increased.");
-			test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
+			test.log(LogStatus.PASS, "Old Dashboard Count = "+open+" | New Dashboard Count = "+open1);
 		}
 		else
 		{
 			//test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increased.");
-			test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
+			test.log(LogStatus.FAIL, "Old Dashboard Count = "+open+" | New Dashboard Count = "+open1);
 		}
 		
 		
@@ -3292,10 +3265,12 @@ private static WebElement selectcheckBox;
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));
 		if(type.equals("Notice"))
 		{
+			Thread.sleep(1000);
 			performerPOM.clickNoticeOpen(driver).click();							//Clicking on 'Open' notice
 		}
 		else if(type.equals("Case"))
 		{
+			Thread.sleep(1000);
 			performerPOM.clickCaseOpen(driver).click();								//Clicking on 'Open' case
 		}
 		
@@ -3635,17 +3610,17 @@ private static WebElement selectcheckBox;
 			Thread.sleep(300);
 			performerPOM.clickCaseStatusClose(driver).click();			//Selecting 'Closed' option from drop down.
 			
-			Thread.sleep(300);
+			Thread.sleep(3000);
 			wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseCloseDate(driver)));
 			performerPOM.clickCaseCloseDate(driver).click();				//Clicking on 'Closed Date' date box
 			OverduePOM.selectLastMonth(driver).click();					//Getting last month
 			OverduePOM.selectDate2(driver).click();						//Selecting particular date.
 			
-			Thread.sleep(300);
+			Thread.sleep(3000);
 			performerPOM.clickCaseResult(driver).click();
 			performerPOM.clickSelectCaseResult(driver).sendKeys("In Progress", Keys.ENTER);
 			
-			Thread.sleep(300);
+			Thread.sleep(3000);
 			performerPOM.clickRemark1(driver).sendKeys("Automation Testing");
 			
 			Thread.sleep(300);
@@ -3695,20 +3670,20 @@ private static WebElement selectcheckBox;
 			if(open > open1 && closed1 > closed && caseOpen1 > caseOpen)
 			{
 				//test.log(LogStatus.PASS, "Notice-Closed count increased.");
-				test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
+				test.log(LogStatus.PASS, "Notice-Closed count increased = Old Count = "+closed+" | New Count = "+closed1);
 				//test.log(LogStatus.PASS, "Notice-Open count decreased.");
 				test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
 				//test.log(LogStatus.PASS, "Case-Open count increased.");
-				test.log(LogStatus.PASS, "Old Count = "+caseOpen+" | New Count = "+caseOpen1);
+				test.log(LogStatus.PASS, "Case-Open count increased. =Old Count = "+caseOpen+" | New Count = "+caseOpen1);
 			}
 			else
 			{
 				//test.log(LogStatus.FAIL, "Notice-Closed count doesn't increased.");
-				test.log(LogStatus.FAIL, "Old Count = "+closed+" | New Count = "+closed1);
+				test.log(LogStatus.FAIL, "Notice-Closed count doesn't increased. =Old Count = "+closed+" | New Count = "+closed1);
 				//test.log(LogStatus.FAIL, "Notice-Open count doesn't decreased.");
 				test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
 				//test.log(LogStatus.FAIL, "Case-Open count doesn't increased.");
-				test.log(LogStatus.FAIL, "Old Count = "+caseOpen+" | New Count = "+caseOpen1);
+				test.log(LogStatus.FAIL, "Case-Open count doesn't increased. =Old Count = "+caseOpen+" | New Count = "+caseOpen1);
 			}
 		}
 		else if(type.equals("Case"))
@@ -3719,16 +3694,16 @@ private static WebElement selectcheckBox;
 			if(open > open1 && closed1 > closed)
 			{
 				//test.log(LogStatus.PASS, "Case-Closed count increased.");
-				test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
+				test.log(LogStatus.PASS, "Case-Closed count increased. =Old Count = "+closed+" | New Count = "+closed1);
 				//test.log(LogStatus.PASS, "Case-Open count decreased.");
-				test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
+				test.log(LogStatus.PASS, "Case-Open count decreased. =Old Count = "+open+" | New Count = "+open1);
 			}
 			else
 			{
 				//test.log(LogStatus.FAIL, "Case-Closed count doesn't increased.");
-				test.log(LogStatus.FAIL, "Old Count = "+closed+" | New Count = "+closed1);
+				test.log(LogStatus.FAIL, "Case-Closed count doesn't increased =Old Count = "+closed+" | New Count = "+closed1);
 				//test.log(LogStatus.FAIL, "Case-Open count doesn't decreased.");
-				test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
+				test.log(LogStatus.FAIL, "Case-Open count doesn't decreased =Old Count = "+open+" | New Count = "+open1);
 			}
 		}
 		else if(type.equals("Task"))
@@ -3739,16 +3714,16 @@ private static WebElement selectcheckBox;
 			if(open > open1 && closed1 > closed)
 			{
 				//test.log(LogStatus.PASS, "Task-Closed count increased.");
-				test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
+				test.log(LogStatus.PASS, "Task-Closed count increased =Old Count = "+closed+" | New Count = "+closed1);
 				//test.log(LogStatus.PASS, "Task-Open count decreased.");
-				test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
+				test.log(LogStatus.PASS, "Task-Open count decreased =Old Count = "+open+" | New Count = "+open1);
 			}
 			else
 			{
 				//test.log(LogStatus.PASS, "Task-Closed count doesn't increased.");
-				test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
+				test.log(LogStatus.PASS, "Task-Closed count doesn't increased =Old Count = "+closed+" | New Count = "+closed1);
 				//test.log(LogStatus.PASS, "Task-Open count doesn't decreased.");
-				test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
+				test.log(LogStatus.PASS, "Task-Open count doesn't decreased.=Old Count = "+open+" | New Count = "+open1);
 			}
 		}
 	}
@@ -3857,7 +3832,7 @@ private static WebElement selectcheckBox;
 		
 		
 		
-	/*	Thread.sleep(3000);
+		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
 		//--------------------------------Case----------------------------------
@@ -3972,7 +3947,7 @@ private static WebElement selectcheckBox;
 			     
 			     
 			     Thread.sleep(3000);
-			     performerPOM.clickcloseViewDocument(driver).click();*/
+			     performerPOM.clickcloseViewDocument(driver).click();
 
 			     Thread.sleep(1000);
 			    
@@ -4627,13 +4602,13 @@ private static WebElement selectcheckBox;
 		action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 01JUN2023");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 14JUN2023");
 		
 		Thread.sleep(3000);
-		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 01JUN2023");
+		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 14JUN2023");
 		
 		Thread.sleep(3000);
-		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 01JUN2023");
+		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 14JUN2023");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -4689,7 +4664,7 @@ private static WebElement selectcheckBox;
 		performerPOM.clickReminderText(driver).clear();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 02JUN2023");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 20jun23");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -5955,6 +5930,9 @@ private static WebElement selectcheckBox;
 	
 		    
 			 test.log(LogStatus.PASS,"Custom Prameter Filter work successfully");
+			 
+				Thread.sleep(300);
+				OverduePOM.clickDashboard(driver).click();
 	}  
      public static void CaseStage(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
      {
@@ -6335,6 +6313,9 @@ private static WebElement selectcheckBox;
 		    {
 		    	test.log(LogStatus.FAIL, "Page Authorization not Saved Successfully.");
 		    }
+		    
+			Thread.sleep(300);
+			OverduePOM.clickDashboard(driver).click();
 	  
 	  }
 	  public static void NoticeStage(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
@@ -6593,6 +6574,9 @@ private static WebElement selectcheckBox;
 	        		
 	        // Accepting alert		
 	        alert.accept();		
+	        
+	    	Thread.sleep(300);
+			OverduePOM.clickDashboard(driver).click();
 
 
 	  }
@@ -8184,7 +8168,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 		Thread.sleep(2000);
-		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		
 		js.executeScript("window.scrollBy(0,1000)");
 		
 		

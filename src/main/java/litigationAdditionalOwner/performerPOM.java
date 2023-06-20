@@ -216,7 +216,7 @@ public class performerPOM
 	
 	public static WebElement selectLocation(WebDriver driver)
 	{
-		litigation = driver.findElement(By.xpath("//*[contains(@id,'tvBranchest11')]"));
+		litigation = driver.findElement(By.xpath("//*[contains(@id,'tvBranchest1')]"));
 		
 		return litigation;
 	}
@@ -2385,7 +2385,7 @@ public class performerPOM
 	  public static WebElement RiskSummaryGraphCase(WebDriver driver) throws InterruptedException
 	  {
 		  
-		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[4]"));
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])"));
 		  return litigation;
 	  }
 	  public static WebElement DepartmentSummaryGraph(WebDriver driver) throws InterruptedException
@@ -2443,7 +2443,7 @@ public class performerPOM
 	  public static WebElement CategorySummaryGraphCase(WebDriver driver) throws InterruptedException
 	  {
 		  
-		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[9]"));
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 '])[9]"));
 		  return litigation;
 	  }
 	  
@@ -3830,7 +3830,7 @@ public class performerPOM
 			public static WebElement HearingCalenderNum(WebDriver driver)
 			{
 				WebDriverWait wait=new WebDriverWait(driver,30);
-				litigation=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[20]/span"));
+				litigation=driver.findElement(By.xpath("//*[@id=\"collapseUpcomingHearing\"]/div/div[2]/div[1]/div/div[3]/div[24]/span"));
 				return litigation;
 			}
 			public static WebElement HearingCalenderNumcfo(WebDriver driver)
@@ -4026,7 +4026,7 @@ public class performerPOM
 			}
 			public static WebElement clickcategory2(WebDriver driver)
 			{
-				litigation=driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[143]"));
+				litigation=driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[153]"));
 				return litigation;
 			}
 			public static WebElement clickType1(WebDriver driver)
