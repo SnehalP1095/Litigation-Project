@@ -59,7 +59,7 @@ public class CFOMethod {
 		public static XSSFSheet ReadExcel() throws IOException
 		{
 			//String workingDir = System.getProperty("user.dir");
-			fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\Snehal\\ComplianceLatest\\ComplianceLatest\\TestData\\LitigationSheet.xlsx");
+			fis = new FileInputStream("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\LitigationSheet.xlsx");
 			
 			workbook = new XSSFWorkbook(fis);
 			sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
@@ -4509,7 +4509,7 @@ public class CFOMethod {
 			
 			  public  static void clickFinanicialYear(WebDriver driver) throws InterruptedException 
 			  {
-			      Thread.sleep(300);
+			      Thread.sleep(3000);
 			      performerPOM.clickFinancialYear(driver).click();			//Clicking on 'Financial Year' drop down.
 			      elementsList = performerPOM.clickFinanceSearchCheckbox(driver);
 			      elementsList=performerPOM.chooseDropDownOption(driver);
@@ -15385,7 +15385,7 @@ public class CFOMethod {
    				   performerPOM.clickclosecriteria(driver).click();
          }
  	 	 
- 		static void CaseExistingData(WebDriver driver, ExtentTest test, XSSFSheet sheet) throws InterruptedException
+ 		static void CaseExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
 		{
  			
  			sheet = workbook.getSheetAt(8);		
@@ -15470,11 +15470,395 @@ public class CFOMethod {
 			driver.switchTo().parentFrame();
 			performerPOM.clickClose(driver).click();			//Clicking on 'Close'
 			
+		}
+ 		static void CaseWithInvalidData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+		{
+ 			
+ 			sheet = workbook.getSheetAt(8);		
+			WebDriverWait wait = new WebDriverWait(driver, 50);
 			
+					
+			
+			Thread.sleep(500);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+			js.executeScript("window.scrollBy(0,-700)");
+			Thread.sleep(3000);
+			performerPOM.clickCaseOpencfo(driver).click();						//Clicking on 'Open' Case
+			Thread.sleep(3000);
+			clickNewCase(driver);
+			progress(driver);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			
+			Thread.sleep(1000);
+			selectCaseType(driver);
+			Thread.sleep(3000);
+			clickInvalidDate(driver);
+			Thread.sleep(3000);
+			clickFinanicialYear(driver);
+			Thread.sleep(3000);
+			clickRefNo1(driver);
+			Thread.sleep(3000);
+			clickInternalCaseNo(driver);
+			Thread.sleep(3000);
+			clickCaseTitle(driver);
+			Thread.sleep(3000);
+			clickCaseAct(driver);
+			Thread.sleep(3000);
+			clickUnderSection(driver);
+			Thread.sleep(3000);
+			clickSearchCaseCategory(driver);
+			Thread.sleep(3000);
+			clickCaseBudget(driver);
+			Thread.sleep(3000);
+			clickCaseOpponent(driver);
+//			Thread.sleep(3000);
+//			clickCaseOppLawyer(driver);
+			Thread.sleep(3000);
+			clickCaseCourt(driver);
+			Thread.sleep(3000);
+			clickCaseDescription(driver);
+			Thread.sleep(3000);
+			selectCaseLocation(driver);
+			Thread.sleep(3000);
+			clickCaseDepartment(driver);
+			Thread.sleep(3000);
+			clickCaseOwner(driver);
+			Thread.sleep(3000);
+			clickCaseRisk(driver);
+			Thread.sleep(3000);
+			clickCaseInternalUser(driver);
+			
+			Thread.sleep(3000);
+			OverduePOM.clickSaveButton(driver).click();						//Clicking on 'Save'button.
+			
+			Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.readMessageCase(driver)));
+			
+			Thread.sleep(500);
+			String msg = performerPOM.readMessageCase(driver).getText();		//Reading Message appeared after save button
+			
+			if(msg.equalsIgnoreCase("Server Error Occurred. Please try again."))
+			{
+				test.log(LogStatus.FAIL, "Message displayed = "+msg);
+				
+			}
+		else
+			{
+				test.log(LogStatus.PASS, "Message displayed = "+msg);
+			}
+		
+
+		
+			driver.switchTo().parentFrame();
+			performerPOM.clickClose(driver).click();			//Clicking on 'Close'
 			
 		}
- 	 	 
- 	 	 
+ 		
+ 		 public  static void clickInvalidDate(WebDriver driver) throws InterruptedException 
+		  {
+			  Thread.sleep(3000);
+		      performerPOM.clickCaseDate(driver).sendKeys("22-01-202");					//Clicking on 'Dated' button
+		  }
+ 		 
+ 		static void CaseWithTwoFieldsData(WebDriver driver, ExtentTest test) throws InterruptedException
+		{
+ 			
+ 				
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+					
+			
+			Thread.sleep(500);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+			js.executeScript("window.scrollBy(0,-700)");
+			Thread.sleep(3000);
+			performerPOM.clickCaseOpencfo(driver).click();						//Clicking on 'Open' Case
+			Thread.sleep(3000);
+			clickNewCase(driver);
+			progress(driver);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			
+			Thread.sleep(1000);
+			selectCaseType(driver);
+			Thread.sleep(3000);
+			clickDated1(driver);
+			
+			Thread.sleep(3000);
+			OverduePOM.clickSaveButton(driver).click();						//Clicking on 'Save'button.
+			
+			Thread.sleep(500);
+			String msg = performerPOM.readMessageCase1(driver).getText();		//Reading Message appeared after save button
+			
+			test.log(LogStatus.PASS, "Case With Two Manadatory Fields = "+msg);
+				
+		
+		
+
+		
+			driver.switchTo().parentFrame();
+			performerPOM.clickClose(driver).click();			//Clicking on 'Close'
+			
+		}
+ 		
+ 		static void CaseWithEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException
+		{
+ 			
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+					
+			
+			Thread.sleep(500);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+			js.executeScript("window.scrollBy(0,-700)");
+			Thread.sleep(3000);
+			performerPOM.clickCaseOpencfo(driver).click();						//Clicking on 'Open' Case
+			Thread.sleep(3000);
+			clickNewCase(driver);
+			progress(driver);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			Thread.sleep(3000);
+			OverduePOM.clickSaveButton(driver).click();						//Clicking on 'Save'button.
+			
+			Thread.sleep(500);
+			String msg = performerPOM.readMessageCase1(driver).getText();		//Reading Message appeared after save button
+			
+			test.log(LogStatus.PASS, "Case With Empty Fields = "+msg);
+				
+			driver.switchTo().parentFrame();
+			performerPOM.clickClose(driver).click();			//Clicking on 'Close'
+		}
+ 		static void CaseWithClearBtn(WebDriver driver, ExtentTest test) throws InterruptedException
+		{
+ 			
+			WebDriverWait wait = new WebDriverWait(driver, 50);
+			
+					
+			
+			Thread.sleep(500);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+			js.executeScript("window.scrollBy(0,-700)");
+			Thread.sleep(3000);
+			performerPOM.clickCaseOpencfo(driver).click();						//Clicking on 'Open' Case
+			Thread.sleep(3000);
+			clickNewCase(driver);
+			
+			progress(driver);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 		Thread.sleep(3000);
+	 			clickDated1(driver);
+
+	 			Thread.sleep(3000);
+	 			clickFinancialYear(driver);
+	 	 		
+	 			js.executeScript("window.scrollBy(0,-700)");
+			 
+	             if(performerPOM.clickCaseClearBtn(driver).isEnabled())
+		          {
+		            Thread.sleep(2000);
+		              performerPOM.clickCaseClearBtn(driver).click();
+		              test.log(LogStatus.PASS, "Clear Button is clickable");
+		           }
+		         else
+		         {
+		    	   test.log(LogStatus.FAIL, "Clear Button is not clickable");
+		         }
+	 
+	     		Thread.sleep(3000);
+	     		driver.switchTo().parentFrame();
+	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	     		
+	     		Thread.sleep(3000);
+	     		OverduePOM.clickDashboard(driver).click();
+		}
+ 		 static void LinkCaseViewIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+	 	 	 {
+	 	 	 		   
+	 	 	        	
+	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 	 			progress(driver);
+	 	 	 			
+	 	 	 		
+	 	 	 			
+	 	 	            Thread.sleep(500);
+	 	 	        	performerPOM.clickCaseOpencfo(driver).click();		
+	 	 	 			
+	 	 	            Thread.sleep(4000);
+	 	 	            performerPOM.clickEditNotice(driver).click();
+	 	 	 			
+	 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 	 			
+	 	 	 		    Thread.sleep(4000);
+	 	 	            performerPOM.clickLinkedCaseViewIcon(driver).click();
+ 			      	
+ 			      	Thread.sleep(4000);
+ 	 	 	        performerPOM.clickViewPopup(driver).click();
+ 	 	 	        
+ 	 	 	        String msg="Linked Case Details";
+ 	 	 	        
+ 	 	 	        if(msg.equalsIgnoreCase(msg))
+ 	 	 	        {
+ 	 	 	        	test.log(LogStatus.PASS, "View Case Detailes icon open succssefully");
+ 	 	 	        }
+ 	 	 	        else
+ 	 	 	        {
+ 	 	 	        	test.log(LogStatus.FAIL, "View Case Detailes icon not open succssefully");
+
+ 	 	 	        }
+ 	 	 	        
+
+	 	 	 		Thread.sleep(4000);
+	 	 	        performerPOM.clickClosePopup1(driver).click();
+	 	 	     	Thread.sleep(3000);
+	 	     		driver.switchTo().parentFrame();
+	 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	 	     	
+	 	     	    Thread.sleep(3000);
+	 	     		OverduePOM.clickDashboard(driver).click();
+	 	 	 			
+	 	 	 }
+ 		 
+ 		 static void LinkCaseDeleteIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+	 	 	 {
+	 	 	 		   
+	 	 	        	
+	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 	 			progress(driver);
+	 	 	 			
+	 	 	 		
+	 	 	 			
+	 	 	            Thread.sleep(500);
+	 	 	        	performerPOM.clickCaseOpencfo(driver).click();		
+	 	 	 			
+	 	 	            Thread.sleep(4000);
+	 	 	            performerPOM.clickEditNotice(driver).click();
+	 	 	 			
+	 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 	 			
+	 	 	 		    Thread.sleep(4000);
+	 	 	            performerPOM.clickLinkedCaseDeleteIcon(driver).click();
+ 			      	
+	 	 	         Thread.sleep(5000);
+	 			    // Switching to Alert        
+	 		        Alert alert1 = driver.switchTo().alert();		
+	 		        		
+	 		        // Capturing alert message.    
+	 		        String alertMessage1= driver.switchTo().alert().getText();	
+	 		        
+	 		        
+	 		        test.log(LogStatus.PASS, alertMessage1);
+	 		        		
+	 		        // Displaying alert message		
+	 		        System.out.println(alertMessage1);
+	 		        
+	 		       // Accepting alert		
+	 		        alert1.accept();	
+	 		        
+	 		      Thread.sleep(4000);
+ 	 	       String msg= performerPOM.clickLinkedCaseDeleteIconValidMsg(driver).getText();
+ 	 	       
+ 	 	       test.log(LogStatus.PASS, "Message Displayed =" +msg);
+ 	 	 	        
+
+	 	 	     	Thread.sleep(3000);
+	 	     		driver.switchTo().parentFrame();
+	 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	 	     	
+	 	     	    Thread.sleep(3000);
+	 	     		OverduePOM.clickDashboard(driver).click();
+	 	 	 			
+	 	 	 }
+ 		 static void CaseUserAssignment(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	 	 	 {
+
+  			            sheet = workbook.getSheetAt(8);		
+
+	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 	 			progress(driver);
+	 	 	 			
+	 	 	 		
+	 	 	 			
+	 	 	            Thread.sleep(500);
+	 	 	        	performerPOM.clickCaseOpencfo(driver).click();		
+	 	 	 			
+	 	 	            Thread.sleep(4000);
+	 	 	            performerPOM.clickEditNotice(driver).click();
+	 	 	            
+	 	 	        
+	 	 	 			
+	 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 	 			
+
+	 	 	            Thread.sleep(4000);
+	 	 	            performerPOM.clickEditUserAssign(driver).click();
+	 	 	 			
+	 	 	          Thread.sleep(3000);
+	 	 			clickCaseInternalUser(driver);
+	 	                
+	 	              Thread.sleep(3000);
+ 	 	            performerPOM.clickUpdateButton(driver).click();
+	 	 	    		Thread.sleep(2000);
+	 	 	    		String msg = performerPOM.readMessageCase(driver).getText();		//Reading Message appeared after save button
+	 	 	    		
+	 	 	    		if(msg.equalsIgnoreCase("Case Details Updated Successfully."))
+	 	 	    		{
+	 	 	    			test.log(LogStatus.PASS, "Message displayed = "+msg);
+	 	 	    			
+	 	 	    		}
+	 	 	    		else
+	 	 	    		{
+	 	 	    			test.log(LogStatus.FAIL, "Message displayed = "+msg);
+	 	 	    		}
+	 	 	    		Thread.sleep(3000);
+	 	 	     		driver.switchTo().parentFrame();
+	 	 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	 	 	     	
+	 	 	     	    Thread.sleep(3000);
+	 	 	     		OverduePOM.clickDashboard(driver).click();
+	 	 	    }
+ 		 static void CaseUserAssignmentDelete(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+	 	 	 {
+	 	 	 		   
+	 			     			
+	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 	 			progress(driver);
+	 	 	 			
+	 	 	 	        Thread.sleep(500);
+	 	 	        	performerPOM.clickCaseOpencfo(driver).click();	
+	 	 	        	
+	 	 	            Thread.sleep(4000);
+ 	 	                performerPOM.clickEditNotice(driver).click();
+ 	 	            
+ 	 	         	    wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 	 			
+	 	 	            Thread.sleep(4000);
+	 	 	            performerPOM.clickDeleteUserAssign(driver).click();
+	 	 	            
+	 	 	         Thread.sleep(2000);
+ 	 	    		String msg = performerPOM.clickDeleteUserAssignValidMsg1(driver).getText();		//Reading Message appeared after save button
+ 	 	    		
+ 	 	    		if(msg.equalsIgnoreCase("User Assignment Detail Deleted"))
+ 	 	    		{
+ 	 	    			test.log(LogStatus.PASS, "Message displayed = "+msg);
+ 	 	    			
+ 	 	    		}
+ 	 	    		else
+ 	 	    		{
+ 	 	    			test.log(LogStatus.FAIL, "Message displayed = "+msg);
+ 	 	    		}
+	 	 	            
+	 	 	        	Thread.sleep(3000);
+	 	 	     		driver.switchTo().parentFrame();
+	 	 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	 	 	     	
+	 	 	     	    Thread.sleep(3000);
+	 	 	     		OverduePOM.clickDashboard(driver).click();
+	 	 	    }
+			
+ 		
 				
 		
  				

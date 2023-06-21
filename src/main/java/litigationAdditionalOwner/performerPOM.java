@@ -461,6 +461,16 @@ public class performerPOM
 		litigation = driver.findElement(By.xpath("//*[@id='VSNoticePopup']"));
 		return litigation;
 	}
+	public static WebElement readMessageCase(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='VSCasePopup']"));
+		return litigation;
+	}
+	public static WebElement readMessageCase1(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='VSCasePopup']/ul"));
+		return litigation;
+	}
 	public static WebElement readInvalidMessage(WebDriver driver)
 	{
 		litigation = driver.findElement(By.xpath("//*[@id='VSNoticePopup']/ul"));
@@ -5850,6 +5860,11 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("//*[@id='grdLinkedNotices_lnkViewLinkedNotice_0']/img"));
 					return litigation;
 				}
+			 public static WebElement clickLinkedCaseViewIcon(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdLinkedCases_lnkViewLinkedCase_0']/img"));
+					return litigation;
+				}
 			 public static WebElement clickViewPopup(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='historyPopUpHeader']"));
@@ -5865,9 +5880,19 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("//*[@id='grdLinkedNotices_lnkBtnDeleteNoticeLinking_0']/img"));
 					return litigation;
 				}
+			 public static WebElement clickLinkedCaseDeleteIcon(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdLinkedCases_lnkBtnDeleteCaseLinking_0']/img"));
+					return litigation;
+				}
 			 public static WebElement clickLinkedNoticeDeleteIconValidMsg(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='vsLinkedNotices']/ul/li"));
+					return litigation;
+				}
+			 public static WebElement clickLinkedCaseDeleteIconValidMsg(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='vsLinkedCases']/ul/li"));
 					return litigation;
 				}
 			 public static WebElement clickUserAssign(WebDriver driver)
@@ -5882,12 +5907,17 @@ public class performerPOM
 				}
 			 public static WebElement clickDeleteUserAssign(WebDriver driver)
 				{
-					litigation=driver.findElement(By.xpath("//*[@id='grdUserAssignment_lnkCaseUserAssignment_0']/img"));
+					litigation=driver.findElement(By.xpath("//*[@id='grdUserAssignment_lnkDeleteUserAssignment_0']/img"));
 					return litigation;
 				}
 			 public static WebElement clickDeleteUserAssignValidMsg(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='vsNoticeUserAssign']/ul/li"));
+					return litigation;
+				}
+			 public static WebElement clickDeleteUserAssignValidMsg1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='vsCaseUserAssign']/ul/li"));
 					return litigation;
 				}
 			 public static WebElement clickSearchDocument(WebDriver driver)
@@ -5930,6 +5960,12 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("//*[@id='lblError']"));
 					return litigation;
 				}
+			 public static WebElement clickCaseClearBtn(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='btnClearCaseDetail']"));
+					return litigation;
+				}
+			 
 			 
 			 
 			 

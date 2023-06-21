@@ -37,7 +37,7 @@ public class CFO {
 		public static XSSFSheet ReadExcel() throws IOException
 		{
 			//String workingDir = System.getProperty("user.dir");
-			fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\Snehal\\ComplianceLatest\\ComplianceLatest\\TestData\\LitigationSheet.xlsx");
+			fis = new FileInputStream("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\LitigationSheet.xlsx");
 			
 			workbook = new XSSFWorkbook(fis);
 			sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
@@ -592,17 +592,86 @@ public class CFO {
      		extent.endTest(test);
      		extent.flush();
      	}
-    @Test(priority =2)
+    @Test(priority =30)
  	void CaseExistingData() throws InterruptedException, IOException
  	{
- 		test = extent.startTest("Case - Existing Data verification");
+ 		test = extent.startTest("Case with Existing Data verification");
  		
  		
- 		CFOMethod.CaseExistingData(driver, test, sheet);
+ 		CFOMethod.CaseExistingData(driver, test, workbook);
  		
  		extent.endTest(test);
  		extent.flush();
  	}
+    @Test(priority =31)
+ 	void CaseWithInvalidData() throws InterruptedException, IOException
+ 	{
+ 		test = extent.startTest("Case with Invalid Data verification");
+ 		
+ 		
+ 		CFOMethod.CaseWithInvalidData(driver, test, workbook);
+ 		
+ 		extent.endTest(test);
+ 		extent.flush();
+ 	}
+    @Test(priority =32)
+   	void CaseWithTwoFieldsData() throws InterruptedException, IOException
+   	{
+   		test = extent.startTest("Case with Two Manadatory fields verification");
+   		
+   		
+   		CFOMethod.CaseWithTwoFieldsData(driver, test);
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
+    @Test(priority =33)
+   	void CaseWithEmptyFields() throws InterruptedException, IOException
+   	{
+   		test = extent.startTest("Case with Empty fields verification");
+   		
+   		
+   		CFOMethod.CaseWithEmptyFields(driver, test);
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
+    @Test(priority =34)
+   	void CaseWithClearBtn() throws InterruptedException, IOException
+   	{
+   		test = extent.startTest("Case with Clear button verification");
+   		
+   		
+   		CFOMethod.CaseWithClearBtn(driver, test);
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
+    @Test(priority =2)
+   	void CaseUserAssignment() throws InterruptedException, IOException
+   	{
+   		test = extent.startTest("Case User Assignment verification");
+   		
+   		
+   		CFOMethod.CaseUserAssignment(driver, test,workbook);
+   		
+   		extent.endTest(test);
+   		extent.flush();
+   	}
+    @Test(priority =2)
+    void CaseUserAssignmentDelete() throws InterruptedException, IOException
+   {
+ 	     test = extent.startTest("Case User Assignment Delete Icon  verification");
+ 	
+ 	
+ 	      CFOMethod.CaseUserAssignmentDelete(driver, test);
+ 	
+ 	     extent.endTest(test);
+ 	     extent.flush();
+  }
+    
+    
+    
          @Test(priority = 30)
     			void TaskOpen() throws InterruptedException, IOException
     			{
@@ -649,6 +718,29 @@ public class CFO {
 		extent.endTest(test);
 			extent.flush();
 		}
+	
+	  @Test(priority =2)
+	   void LinkCaseViewIcon() throws InterruptedException, IOException
+	  {
+		     test = extent.startTest("Linked case view icon  verification");
+		
+		
+		      CFOMethod.LinkCaseViewIcon(driver, test);
+		
+		     extent.endTest(test);
+		     extent.flush();
+	 }
+	  @Test(priority =3)
+	   void LinkCaseDeleteIcon() throws InterruptedException, IOException
+	  {
+		     test = extent.startTest("Linked case delete icon  verification");
+		
+		
+		      CFOMethod.LinkCaseDeleteIcon(driver, test);
+		
+		     extent.endTest(test);
+		     extent.flush();
+	 }
 	 	
 	   
 	@Test(priority = 35)
