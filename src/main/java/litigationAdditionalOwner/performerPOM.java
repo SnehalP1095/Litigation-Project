@@ -517,7 +517,11 @@ public class performerPOM
 		litigation = driver.findElement(By.xpath("//*[@id='btnSendMailPopup']"));
 		return litigation;
 	}
-	
+	public static WebElement clickSendMailCase(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='lnkSendMailWithDoc']"));
+		return litigation;
+	}
 	public static WebElement clickSendMail1(WebDriver driver)
 	{
 		litigation = driver.findElement(By.xpath("//*[@id='lnkSendMailWithDoc']"));
@@ -1937,14 +1941,14 @@ public class performerPOM
 		 public static WebElement clickHearingDatecfo(WebDriver driver)
 		    {
 			 WebDriverWait wait = new WebDriverWait(driver, 10);
-			  litigation = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='ddlHearingRefNo_chosen']")));
+			  litigation = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ddlHearingRefNo_chosen']/a")));
 		     return litigation; 
 		  	  
 		    }
 		 public static WebElement clickHearingDatedropdowncfo(WebDriver driver)
 		    {
 			 WebDriverWait wait = new WebDriverWait(driver, 10);
-			  litigation = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ddlHearingRefNo_chosen']/div/ul/li[5]")));
+			  litigation = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ddlHearingRefNo_chosen']/div/ul/li[2]")));
 		     return litigation; 
 		  	  
 		    }
@@ -2420,7 +2424,7 @@ public class performerPOM
 	  public static WebElement LocationSummaryGraph1(WebDriver driver) throws InterruptedException
 	  {
 		 
-		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-4 '])[2]"));
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 '])[6]"));
 	
 		  return litigation;
 	  }
@@ -3882,7 +3886,7 @@ public class performerPOM
 			public static WebElement CaseNoticeTypeViewGraph(WebDriver driver)
 			{
 				//WebDriverWait wait=new WebDriverWait(driver,30);
-				litigation=driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td[13]/a"));
+				litigation=driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td[16]/a"));
 				return litigation;
 			}
 			public static WebElement CaseNoticeTypeclosePopupGraph(WebDriver driver)
@@ -5582,6 +5586,11 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("//*[@id='DivTaskCollapsTwo']/div/div/div[1]/div/div/a"));
 					return litigation;
 				}
+			 public static WebElement clickMinimizeHearing(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("(//a[@class='btn-minimize'])[2]"));
+					return litigation;
+				}
 			 public static WebElement clickMinimizeResponse(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='DivResponceCollapsTwo']/div/div/div[1]/div/div/a"));
@@ -5590,6 +5599,16 @@ public class performerPOM
 			 public static WebElement clickReadHearingMsg(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='ValidationSummary9']"));
+					return litigation;
+				}
+			 public static WebElement clickReadHearingMsg1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='ValidationSummary1']/ul/li"));
+					return litigation;
+				}
+			 public static WebElement clickHearingClearBtn(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//input[@name='btnHearingClear']"));
 					return litigation;
 				}
 			 public static WebElement clickReadOrderMsg(WebDriver driver)
@@ -5933,6 +5952,11 @@ public class performerPOM
 			 public static WebElement clickDocName(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='grdNoticeDocuments_lblFileName_0']"));
+					return litigation;
+				}
+			 public static WebElement clickDocName1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdCaseDocuments_lblFileName_0']"));
 					return litigation;
 				}
 			 public static WebElement clickInvalidResponsemsg(WebDriver driver)

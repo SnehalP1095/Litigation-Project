@@ -36,7 +36,7 @@ public class CompanyAdmin
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 		//String workingDir = System.getProperty("user.dir");
-		fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\Snehal\\ComplianceLatest\\ComplianceLatest\\TestData\\LitigationSheet.xlsx");
+		fis = new FileInputStream("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\LitigationSheet.xlsx");
 	
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
@@ -107,7 +107,7 @@ public class CompanyAdmin
 		extent.flush();
 	}
 	
-//@Test(priority =3)
+@Test(priority =3)
 	void CaseNoticeTypeGraph() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Select Notice Filter =Outward/Plaintiff Type= Case Notice Type Graph Count Verification");

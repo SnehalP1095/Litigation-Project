@@ -72,7 +72,7 @@ private static WebElement selectcheckBox;
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 		//String workingDir = System.getProperty("user.dir");
-		fis = new FileInputStream("C:\\Users\\Admin\\Desktop\\Snehal\\ComplianceLatest\\ComplianceLatest\\TestData\\LitigationSheet.xlsx");
+		fis = new FileInputStream("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\LitigationSheet.xlsx");
 		
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(2);					//Retrieving second sheet of Workbook
@@ -6947,7 +6947,7 @@ private static WebElement selectcheckBox;
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C://Users//Snehal Patil//Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -6956,8 +6956,8 @@ private static WebElement selectcheckBox;
 			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 			
 			
-			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			Thread.sleep(500);
+			File dir1 = new File("C://Users//Snehal Patil//Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -7079,11 +7079,7 @@ private static WebElement selectcheckBox;
 				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
 			}
            	
-           	
-			
-		
-			
-			Thread.sleep(5000);
+          	Thread.sleep(5000);
 			performerPOM.CaseNoticeTypeViewGraph(driver).click();
 			
 			Thread.sleep(5000);
@@ -7186,7 +7182,7 @@ private static WebElement selectcheckBox;
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -7196,7 +7192,7 @@ private static WebElement selectcheckBox;
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -7431,7 +7427,7 @@ private static WebElement selectcheckBox;
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -7442,7 +7438,7 @@ private static WebElement selectcheckBox;
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -7685,7 +7681,7 @@ private static WebElement selectcheckBox;
 		
 	
 		Thread.sleep(100);
-		File dir = new File("C://Users//Admin//Downloads");
+		File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(500);
@@ -7695,7 +7691,7 @@ private static WebElement selectcheckBox;
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
 		Thread.sleep(5500);
-		File dir1 = new File("C://Users//Admin//Downloads");
+		File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 		if(dirContents.length < allFilesNew.length)
@@ -7943,7 +7939,7 @@ private static WebElement selectcheckBox;
 		
 	
 		Thread.sleep(100);
-		File dir = new File("C://Users//Admin//Downloads");
+		File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(500);
@@ -7953,7 +7949,7 @@ private static WebElement selectcheckBox;
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
 		Thread.sleep(5500);
-		File dir1 = new File("C://Users//Admin//Downloads");
+		File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 		if(dirContents.length < allFilesNew.length)
@@ -8192,7 +8188,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 		
 	
 		Thread.sleep(100);
-		File dir = new File("C://Users//Admin//Downloads");
+		File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(500);
@@ -8202,7 +8198,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
 		Thread.sleep(5500);
-		File dir1 = new File("C://Users//Admin//Downloads");
+		File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 		if(dirContents.length < allFilesNew.length)
@@ -8391,7 +8387,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 		
 				
 				Thread.sleep(100);
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(250);
@@ -9266,7 +9262,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C://Users//Snehal Patil//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -9275,8 +9271,8 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 				
 				
-				Thread.sleep(5500);
-				File dir1 = new File("C://Users//Admin//Downloads");
+				Thread.sleep(500);
+				File dir1 = new File("C://Users//Snehal Patil//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -9503,7 +9499,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -9512,8 +9508,8 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 			
 				
-				Thread.sleep(5500);
-				File dir1 = new File("C://Users//Admin//Downloads");
+				Thread.sleep(500);
+				File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -9744,7 +9740,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C://Users//Snehal Patil//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -9754,8 +9750,8 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 				
-				Thread.sleep(5500);
-				File dir1 = new File("C://Users//Admin//Downloads");
+				Thread.sleep(500);
+				File dir1 = new File("C://Users//Snehal Patil//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -9993,7 +9989,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C://Users//Snehal Patil//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -10003,7 +9999,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(5500);
-				File dir1 = new File("C://Users//Admin//Downloads");
+				File dir1 = new File("C://Users//Snehal Patil//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -10245,7 +10241,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C://Users//Snehal Patil//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -10254,8 +10250,8 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
-				Thread.sleep(5500);
-				File dir1 = new File("C://Users//Admin//Downloads");
+				Thread.sleep(500);
+				File dir1 = new File("C://Users//Snehal Patil//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -10491,7 +10487,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C://Users//Snehal Patil//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -10500,8 +10496,8 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
-				Thread.sleep(5500);
-				File dir1 = new File("C://Users//Admin//Downloads");
+				Thread.sleep(500);
+				File dir1 = new File("C://Users//Snehal Patil//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)

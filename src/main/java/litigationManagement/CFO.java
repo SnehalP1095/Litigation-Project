@@ -647,7 +647,43 @@ public class CFO {
    		extent.endTest(test);
    		extent.flush();
    	}
-    @Test(priority =2)
+    @Test(priority =35)
+    void CaseSendMailWithDoc() throws InterruptedException, IOException
+   {
+ 	     test = extent.startTest("Case -Send Mail With Document verification");
+ 	
+ 	
+ 	      CFOMethod.CaseSendMailWithDoc(driver, test);
+ 	
+ 	     extent.endTest(test);
+ 	     extent.flush();
+  }
+    
+    @Test(priority =36)
+    void CaseSendMailWithDocInvalidFields() throws InterruptedException, IOException
+   {
+ 	     test = extent.startTest("Case -Send Mail With Document Invalid Fields verification");
+ 	
+ 	
+ 	      CFOMethod.CaseSendMailWithDocInvalidFields(driver, test);
+ 	
+ 	     extent.endTest(test);
+ 	     extent.flush();
+  }
+    @Test(priority =37)
+    void CaseSendMailWithDocEmptyFields() throws InterruptedException, IOException
+   {
+ 	     test = extent.startTest("Case -Send Mail With Document Empty Fields verification");
+ 	
+ 	
+ 	      CFOMethod.CaseSendMailWithDocEmptyFields(driver, test);
+ 	
+ 	     extent.endTest(test);
+ 	     extent.flush();
+  }
+    
+    
+    @Test(priority =38)
    	void CaseUserAssignment() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Case User Assignment verification");
@@ -658,7 +694,7 @@ public class CFO {
    		extent.endTest(test);
    		extent.flush();
    	}
-    @Test(priority =2)
+    @Test(priority =39)
     void CaseUserAssignmentDelete() throws InterruptedException, IOException
    {
  	     test = extent.startTest("Case User Assignment Delete Icon  verification");
@@ -719,7 +755,7 @@ public class CFO {
 			extent.flush();
 		}
 	
-	  @Test(priority =2)
+	  @Test(priority =35)
 	   void LinkCaseViewIcon() throws InterruptedException, IOException
 	  {
 		     test = extent.startTest("Linked case view icon  verification");
@@ -730,7 +766,7 @@ public class CFO {
 		     extent.endTest(test);
 		     extent.flush();
 	 }
-	  @Test(priority =3)
+	  @Test(priority =36)
 	   void LinkCaseDeleteIcon() throws InterruptedException, IOException
 	  {
 		     test = extent.startTest("Linked case delete icon  verification");
@@ -1056,6 +1092,73 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
+	@Test(priority = 45)
+		void CaseWithoutUploadDocument() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Case Without Upload Document verification");
+			
+			
+			CFOMethod.CaseWithoutUploadDocument(driver, test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	@Test(priority = 46)
+	void CaseDocumentEmptyFields() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case Document with empty fields verification");
+		
+		
+		CFOMethod.CaseDocumentEmptyFields(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 47)
+	void CaseDocumentSearchFields() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case Document Search Fields verification");
+		
+		
+		CFOMethod.CaseDocumentSearchFields(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 48)
+	void CaseDocumentShareInvalidData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case Document Share with Invaid data verification");
+		
+		
+		CFOMethod.CaseDocumentShareInvalidData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority =49)
+	void CaseDocumentShareWithoutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case Document Share without data verification");
+		
+		
+		CFOMethod.CaseDocumentShareWithoutData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 50)
+	void CaseDocumentShareCloseBtn() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case Document Share close button verification");
+		
+		
+		CFOMethod.CaseDocumentShareCloseBtn(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 		@Test(priority =45)
     	void CaseTaskActivity() throws InterruptedException, IOException
     	{
@@ -1067,6 +1170,53 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
+		
+		 @Test(priority = 46)
+			void CaseTaskActivityWithoutData() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Case Task/Activtiy Without data verification");
+				
+				
+				CFOMethod.CaseTaskActivityWithoutData(driver, test);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+		@Test(priority =47)
+    	void CaseTaskActivitywithExistingData() throws InterruptedException, IOException
+    	{
+    		test = extent.startTest("Case - Task/Activty with existing data");
+    		
+    		
+    		CFOMethod.CaseTaskActivitywithExistingData(driver, test,workbook);
+    		
+    		extent.endTest(test);
+    		extent.flush();
+    	}
+		
+		 @Test(priority = 48)
+			void CaseTaskActivtityResponseWithoutStatus() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Case Task/Activtiy Response Without data verification");
+				
+				
+				CFOMethod.CaseTaskActivtityResponseWithoutStatus(driver, test);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+		 
+		 @Test(priority = 49)
+			void CaseTaskActivtityResponseClearBtn() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Case Task/Activtiy  Response clear button verification");
+				
+				
+				CFOMethod.CaseTaskActivtityResponseClearBtn(driver, test);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
 	@Test(priority =46)
     	void CaseHearingcfo() throws InterruptedException, IOException
     	{
@@ -1078,6 +1228,51 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
+	@Test(priority =46)
+	void CaseExistingHearingDate() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case with Existing Hearing Date Verification");
+		
+		
+		CFOMethod.CaseExistingHearingDate(driver, test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+   @Test(priority= 47)
+  void CaseWithoutHearingData() throws InterruptedException, IOException
+  {
+	test = extent.startTest("Case without hearing data Verification");
+	
+	
+	CFOMethod.CaseHearingWithoutData(driver, test);
+	
+	extent.endTest(test);
+	extent.flush();
+  }
+   @Test(priority =2)
+   void CaseHearingInvalidDate() throws InterruptedException, IOException
+   {
+ 	test = extent.startTest("Case Invalid Hearing Date Verification");
+ 	
+ 	
+ 	CFOMethod.CaseHearingInvalidDate(driver, test,workbook);
+ 	
+ 	extent.endTest(test);
+ 	extent.flush();
+   }
+   @Test(priority =2)
+   void CaseHearingClearBtn() throws InterruptedException, IOException
+   {
+ 	test = extent.startTest("Case heraing clear button Verification");
+ 	
+ 	
+ 	CFOMethod.CaseHearingClearBtn(driver, test,workbook);
+ 	
+ 	extent.endTest(test);
+ 	extent.flush();
+   }
 @Test(priority =47)
     	void CaseOrder() throws InterruptedException, IOException
     	{
