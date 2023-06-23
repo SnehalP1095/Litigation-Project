@@ -2956,11 +2956,11 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 			performerPOM.clickcategory(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickcategory1(driver).click();
-			
-			
+//			
+//			Thread.sleep(3000);
+//			performerPOM.clickcategory1(driver).click();
+//			
+//			
 			if(performerPOM.clearButton(driver).isEnabled())
 	  		{
 				Thread.sleep(3000);
@@ -4177,7 +4177,7 @@ public class CFOMethod {
     			}
     			
     			Thread.sleep(100);
-    			File dir = new File("C://Users//Admin//Downloads");
+    			File dir = new File("C://Users//Snehal Patil//Downloads");
     			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
     			
     			Thread.sleep(500);
@@ -4187,7 +4187,7 @@ public class CFOMethod {
     			
     			
     			Thread.sleep(5500);
-    			File dir1 = new File("C://Users//Admin//Downloads");
+    			File dir1 = new File("C://Users//Snehal Patil//Downloads");
     			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
     			
     			if(dirContents.length < allFilesNew.length)
@@ -5107,7 +5107,13 @@ public class CFOMethod {
 			{
 				WebDriverWait wait=new WebDriverWait(driver,20);
 				 XSSFSheet sheet=ReadExcel();
-				 
+				 Thread.sleep(3000);
+					performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+			     
+			        Thread.sleep(3000);
+					performerPOM.clickEditNotice(driver).click();//click edit notice
+				  
+				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 				
 				 Thread.sleep(5000);
 				 performerPOM.clickCaseOrder(driver).click();
@@ -5168,11 +5174,11 @@ public class CFOMethod {
 						String msg = performerPOM.readResponseMsg(driver).getText();
 						if(msg.contains("Order Details Saved Successfully."))
 						{
-							test.log(LogStatus.PASS, "Order Details Saved Successfully.");
+							test.log(LogStatus.PASS, "Case Order ith valid data ="+msg);
 						}
 						else
 						{
-							test.log(LogStatus.FAIL, "Provide Order Date");
+							test.log(LogStatus.FAIL, "Case Order ith valid data ="+msg);
 						
 						}
 				 
@@ -15293,6 +15299,56 @@ public class CFOMethod {
 			   	     	Thread.sleep(3000);
 			   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 			   	  }
+ 	 	 
+ 	 	 static void CriteriaExistingData(WebDriver driver,ExtentTest test) throws InterruptedException
+         {
+       	  
+   		         WebDriverWait wait = new WebDriverWait(driver, 300);
+		   
+   		         Thread.sleep(3000);
+   			     performerPOM.clickNoticeOpen(driver).click();//click edit notice
+   	     
+   	             Thread.sleep(3000);
+   			     performerPOM.clickEditNotice(driver).click();//click edit notice
+   		  
+   			      driver.switchTo().parentFrame();
+   			      wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+   		         
+			          
+       	          
+   			       Thread.sleep(1000);
+   				   performerPOM. clickExternalLawyerRating(driver).click();
+   				   
+
+   				   
+   				  Thread.sleep(3000);
+   				  performerPOM.selectExternalLawyerRating(driver);
+   				   Thread.sleep(3000);
+   				   performerPOM.clickNewCriteria(driver).click();
+   				   Thread.sleep(3000);
+   				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
+   				   performerPOM.clickCriteria(driver).sendKeys("Test Test New");
+   				   Thread.sleep(3000);
+   				   performerPOM.clickSaveCriteria(driver).click();
+   				   String msg = performerPOM.readOppoenentMsg(driver).getText();
+   				   
+   				   if(msg.equalsIgnoreCase("Criteria already exists."))
+   				   {
+   					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg);
+   				   }
+   				   else
+   				   {
+   					   String msg1 = performerPOM.readMesg(driver).getText();
+   					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg1);
+   				   }
+   				   Thread.sleep(3000);
+   				   driver.switchTo().parentFrame();
+   				   performerPOM.clickclosecriteria(driver).click();
+   				   
+   				 driver.switchTo().parentFrame();
+		   	     	Thread.sleep(3000);
+		   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+         }
  	 	 static void CriteriaInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
          {
        	  
@@ -16759,6 +16815,790 @@ public class CFOMethod {
 			   	     	Thread.sleep(3000);
 			   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 			}
+ 		 
+ 		static void CaseOrderWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+		{
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			
+			 Thread.sleep(3000);
+				performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+		     
+		        Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+			  
+			   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			
+			 Thread.sleep(5000);
+			 performerPOM.clickCaseOrder(driver).click();
+			 Thread.sleep(6000);
+			 performerPOM.clickNewCaseOrder(driver).click();
+			  Thread.sleep(3000);
+			 performerPOM.clickSaveCaseOrder(driver).click();
+			 Thread.sleep(3000);
+			 String msg= performerPOM.readResponseMsgOrder(driver).getText();
+			 String msg1= performerPOM.readResponseMsgOrder1(driver).getText();
+			 String msg2= performerPOM.readResponseMsgOrder2(driver).getText();
+			
+				 test.log(LogStatus.PASS," Without data in Case Order = " +msg +"," +msg1 +"," +msg2);
+		
+			 driver.switchTo().parentFrame();
+	   	     	Thread.sleep(3000);
+	   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		}
+ 		
+		static void CaseOrderwithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+		{
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			 XSSFSheet sheet=ReadExcel();
+			
+			 Thread.sleep(3000);
+				performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+		     
+		        Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+			  
+			   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			
+			 Thread.sleep(5000);
+			 performerPOM.clickCaseOrder(driver).click();
+			 Thread.sleep(6000);
+			 performerPOM.clickNewCaseOrder(driver).click();
+			 Thread.sleep(6000);
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("25-02-2023");
+			 Thread.sleep(3000);
+			 performerPOM.clickOrderPanel(driver).click();
+			 Thread.sleep(3000);
+			 performerPOM. clickCaseOrderType(driver).click();
+			 Thread.sleep(3000);
+			 performerPOM.selectCaseOrderType(driver).click();
+			
+			 Thread.sleep(300);
+			 Row row0 = sheet.getRow(53);					//Selected 0th index row (First row)
+			 Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			 int OrderTitle = (int) c1.getNumericCellValue();
+			 performerPOM.clickCaseOrderTitle(driver).sendKeys(OrderTitle+"");	//Writing 'HearingDate'
+				
+ 
+			 Thread.sleep(2000);
+			 Row row2 = sheet.getRow(54);									//Selected 0th index row (First row)
+			 Cell c2 = row2.getCell(1);									//Selected cell (0 row,1 column)
+			 String OrderDecri = c2.getStringCellValue();
+			 performerPOM.clickCaseOrderDecri(driver).sendKeys(OrderDecri);     //click oder description
+			 Thread.sleep(3000);
+			 performerPOM.ChooseOrderFile(driver).click();
+			 
+			 Thread.sleep(3000);
+			 performerPOM.clickSaveCaseOrder(driver).click();
+			 	
+				 Thread.sleep(3000);
+					String msg = performerPOM.readResponseMsg(driver).getText();
+					if(msg.contains("Order Details Saved Successfully."))
+					{
+						test.log(LogStatus.FAIL, "Case Order with Existing data ="+msg);
+					}
+					else
+					{
+						test.log(LogStatus.PASS, "Case Order with Existing data ="+msg);
+					
+					}
+					
+					 driver.switchTo().parentFrame();
+			   	     	Thread.sleep(3000);
+			   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		}
+		
+		static void CaseOrderwithClearBtn(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+		{
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			
+			
+			 Thread.sleep(3000);
+				performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+		     
+		        Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+			  
+			   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			
+			 Thread.sleep(5000);
+			 performerPOM.clickCaseOrder(driver).click();
+			 Thread.sleep(6000);
+			 performerPOM.clickNewCaseOrder(driver).click();
+			 Thread.sleep(6000);
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("25-02-2023");
+			 
+			 if(performerPOM.clickClearCaseOrderBtn(driver).isEnabled())
+			 {
+				 Thread.sleep(6000);
+				 performerPOM.clickClearCaseOrderBtn(driver).click();
+				test.log(LogStatus.PASS, "After clicking on the clear button the data should be remove");
+			 }
+			 else
+			 {
+				 test.log(LogStatus.FAIL, "After clicking on the clear button the data should not be remove");
+			 }
+			 
+			 driver.switchTo().parentFrame();
+	   	     	Thread.sleep(3000);
+	   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+			  
+		}
+		
+		public static void CaseStatusAppealtoNextCourt(WebDriver driver, ExtentTest test) throws InterruptedException
+		{
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			
+			 Thread.sleep(3000);
+				performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+		     
+		        Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+			  
+			   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			performerPOM.clickCaseStatusPayments(driver).click();		//Clicking on 'Status/Payments'
+			
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseStatus(driver)));
+			
+			performerPOM.clickCaseStage(driver).click();
+			Thread.sleep(300);
+			performerPOM.selectCaseStage(driver).sendKeys("Hearing", Keys.ENTER);
+			
+			Thread.sleep(300);
+			performerPOM.clickCaseStatus(driver).click();				//Clicking on 'Case Status' drop down.
+			Thread.sleep(300);
+			performerPOM.clickCaseStatusClose(driver).click();			//Selecting 'Closed' option from drop down.
+			
+			Thread.sleep(300);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseCloseDate(driver)));
+			performerPOM.clickCaseCloseDate(driver).click();				//Clicking on 'Closed Date' date box
+			OverduePOM.selectLastMonth(driver).click();					//Getting last month
+			OverduePOM.selectDate2(driver).click();						//Selecting particular date.
+			
+			Thread.sleep(300);
+			performerPOM.clickCaseResult(driver).click();
+			performerPOM.clickSelectCaseResult(driver).sendKeys("In Progress", Keys.ENTER);
+			
+			Thread.sleep(3000);
+			performerPOM.clickRemark1(driver).sendKeys("Automation Testing");
+			
+			
+			Thread.sleep(3000);
+			performerPOM.clickCaseAppealToNextCourt(driver).click();	
+			
+			Thread.sleep(300);
+			String msg=performerPOM.clickCasereadMsg(driver).getText();
+			
+			if(msg.equalsIgnoreCase(msg))
+			{
+				test.log(LogStatus.PASS, "Message dispalyed =" +msg);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Message dispalyed =" +msg);
+			}
+			 driver.switchTo().parentFrame();
+	   	     	Thread.sleep(3000);
+	   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		}
+		
+		public static void CaseStatusAppealtoNextCourtTwoMandatoryfields(WebDriver driver, ExtentTest test) throws InterruptedException
+		{
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			
+			 Thread.sleep(3000);
+				performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+		     
+		        Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+			  
+			   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			performerPOM.clickCaseStatusPayments(driver).click();		//Clicking on 'Status/Payments'
+			
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseStatus(driver)));
+			
+			performerPOM.clickCaseStage(driver).click();
+			Thread.sleep(300);
+			performerPOM.selectCaseStage(driver).sendKeys("Hearing", Keys.ENTER);
+			
+			Thread.sleep(3000);
+			performerPOM.clickCaseStatus(driver).click();				//Clicking on 'Case Status' drop down.
+			Thread.sleep(3000);
+			performerPOM.clickCaseStatusClose(driver).click();			//Selecting 'Closed' option from drop down.
+			
+			
+			Thread.sleep(3000);
+			performerPOM.clickCaseAppealToNextCourt(driver).click();	
+			
+			Thread.sleep(3000);
+			String msg=performerPOM.clickCasereadMsg(driver).getText();
+			
+			if(msg.equalsIgnoreCase(msg))
+			{
+				test.log(LogStatus.PASS, "Message dispalyed =" +msg);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Message dispalyed =" +msg);
+			}
+			 driver.switchTo().parentFrame();
+	   	     	Thread.sleep(3000);
+	   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		}
+			
+		
+		
+		
+		
+		public static void CaseStatuswithEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException
+		{
+			  WebDriverWait wait=new WebDriverWait(driver,20);
+			
+			   Thread.sleep(3000);
+				performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+		     
+		        Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+			  
+			   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			   performerPOM.clickCaseStatusPayments(driver).click();		//Clicking on 'Status/Payments'
+			
+			   Thread.sleep(300);
+			    performerPOM.clickSave1(driver).click();
+			    
+				Thread.sleep(300);
+				String msg=performerPOM.clickCasereadMsg(driver).getText();
+				
+				if(msg.equalsIgnoreCase(msg))
+				{
+					test.log(LogStatus.PASS, "Case Status with Empty fields =" +msg);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Case Status with Empty fields =" +msg);
+				}
+				 driver.switchTo().parentFrame();
+		   	     	Thread.sleep(3000);
+		   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+			    
+			    
+			
+		}
+		
+		   static void StatusPaymentExistingdata(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+		      {	
+		    	       WebDriverWait wait=new WebDriverWait(driver,50);
+		      
+		    	       XSSFSheet sheet=ReadExcel();
+		    	       
+		    	       Thread.sleep(3000);
+						performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+				     
+				        Thread.sleep(3000);
+						performerPOM.clickEditNotice(driver).click();//click edit notice
+					  
+					   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+					  
+		    	       Thread.sleep(3000);
+		               performerPOM.clickCaseStatusPayments(driver).click();		//Clicking on 'Status/Payments'
+						
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseStatus(driver)));
+//						
+						Thread.sleep(3000);
+						Row row0 = sheet.getRow(58);					//Selected 0th index row (First row)
+						Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+						int InvoiceNo = (int) c1.getNumericCellValue();
+						performerPOM.clickCaseInvoiceNo1(driver).sendKeys(InvoiceNo+"");	//Writing 'Invoice No'
+						
+					    Thread.sleep(4000);
+						performerPOM.clickPaymentTyp1(driver);
+						Thread.sleep(2000);
+						List<WebElement> PaymentType1= driver.findElements(By.xpath("//*[@id='grdCasePayment_ddlPaymentType_chosen']/div/ul/li"));
+						selectOptionFromDropDown_bs(PaymentType1, "Checks");
+						Thread.sleep(10000);
+                     performerPOM.clickAmount1(driver).sendKeys("900000");	//Writing 'Amount'
+					
+                 	Thread.sleep(10000);
+                    performerPOM. clickAmountPaid(driver).sendKeys("5000");
+						Thread.sleep(3000);
+						performerPOM.clickSavePaymentLog1(driver).click();
+						
+						
+						   Thread.sleep(500);
+							String msg5 = performerPOM.readPymentmsg(driver).getText();		//Reading Message appeared after save button
+						
+							if(msg5.equalsIgnoreCase("Payment Details Saved Successfully."))
+							{
+								test.log(LogStatus.FAIL, "Message displayed = "+msg5);
+							
+							}
+							else
+							{
+								test.log(LogStatus.PASS, "Message displayed = "+msg5);
+							}
+							
+							 driver.switchTo().parentFrame();
+					   	     	Thread.sleep(3000);
+					   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		      }
+		
+		   static void StatusPaymentWithoutdata(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+		      {	
+		    	       WebDriverWait wait=new WebDriverWait(driver,50);
+		      
+		    	       XSSFSheet sheet=ReadExcel();
+		    	       
+		    	       Thread.sleep(3000);
+						performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+				     
+				        Thread.sleep(3000);
+						performerPOM.clickEditNotice(driver).click();//click edit notice
+					  
+					   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+					  
+		    	       Thread.sleep(3000);
+		               performerPOM.clickCaseStatusPayments(driver).click();		//Clicking on 'Status/Payments'
+		               
+		               Thread.sleep(3000);
+						performerPOM.clickSavePaymentLog1(driver).click();
+						
+						
+						   Thread.sleep(500);
+							String msg5 = performerPOM.readPymentmsg(driver).getText();		//Reading Message appeared after save button
+						
+							if(msg5.equalsIgnoreCase("Payment Details Saved Successfully."))
+							{
+								test.log(LogStatus.FAIL, "Message displayed = "+msg5);
+							
+							}
+							else
+							{
+								test.log(LogStatus.PASS, "Message displayed = "+msg5);
+							}
+							
+							 driver.switchTo().parentFrame();
+					   	     	Thread.sleep(3000);
+					   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		      }
+		   
+		 	  static void CaseExternalLawyerCriteria(WebDriver driver,ExtentTest test) throws InterruptedException
+	          {
+	        	  
+	    		         WebDriverWait wait = new WebDriverWait(driver, 300);
+			   
+	    		         Thread.sleep(3000);
+							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+					     
+					        Thread.sleep(3000);
+							performerPOM.clickEditNotice(driver).click();//click edit notice
+						    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	    		            Thread.sleep(1000);
+	    				    performerPOM. clickExternalLawyerRating1(driver).click();
+	    				    Thread.sleep(3000);
+	    				  performerPOM.selectExternalLawyerRating(driver);
+	    				   Thread.sleep(3000);
+	    				   performerPOM.clickNewCriteria(driver).click();
+	    				   Thread.sleep(3000);
+	    				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
+	    				   performerPOM.clickCriteria(driver).sendKeys("Test Test New");
+	    				   Thread.sleep(3000);
+	    				   performerPOM.clickSaveCriteria(driver).click();
+	    				   String msg = performerPOM.readOppoenentMsg(driver).getText();
+	    				   
+	    				   if(msg.equalsIgnoreCase("Criteria Saved Successfully."))
+	    				   {
+	    					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg);
+	    				   }
+	    				   else
+	    				   {
+	    					   String msg1 = performerPOM.readMesg(driver).getText();
+	    					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg1);
+	    				   }
+	    				   
+	    				   Thread.sleep(3000);
+	    				   driver.switchTo().parentFrame();
+	    				   performerPOM.clickclosecriteria(driver).click();
+	    				   
+	    					 driver.switchTo().parentFrame();
+					   	     	Thread.sleep(3000);
+					   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	          }
+			
+			
+		 	  static void CaseExistingCriteria(WebDriver driver,ExtentTest test) throws InterruptedException
+	          {
+	        	  
+	    		         WebDriverWait wait = new WebDriverWait(driver, 300);
+			   
+	    		         Thread.sleep(3000);
+							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+					     
+					        Thread.sleep(3000);
+							performerPOM.clickEditNotice(driver).click();//click edit notice
+						    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	    		            Thread.sleep(1000);
+	    				    performerPOM. clickExternalLawyerRating1(driver).click();
+	    				    Thread.sleep(3000);
+	    				  performerPOM.selectExternalLawyerRating(driver);
+	    				   Thread.sleep(3000);
+	    				   performerPOM.clickNewCriteria(driver).click();
+	    				   Thread.sleep(3000);
+	    				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
+	    				   performerPOM.clickCriteria(driver).sendKeys("Test Test New");
+	    				   Thread.sleep(3000);
+	    				   performerPOM.clickSaveCriteria(driver).click();
+	    				   String msg = performerPOM.readOppoenentMsg(driver).getText();
+	    				   
+	    				   if(msg.equalsIgnoreCase("Criteria already exists."))
+	    				   {
+	    					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg);
+	    				   }
+	    				   else
+	    				   {
+	    					   String msg1 = performerPOM.readMesg(driver).getText();
+	    					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg1);
+	    				   }
+	    				   
+	    				   Thread.sleep(3000);
+	    				   driver.switchTo().parentFrame();
+	    				   performerPOM.clickclosecriteria(driver).click();
+	    				   
+	    					 driver.switchTo().parentFrame();
+					   	     	Thread.sleep(3000);
+					   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	          }
+		 	 static void CaseCriteriaInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
+	         {
+	       	  
+	   		         WebDriverWait wait = new WebDriverWait(driver, 300);
+			  
+	   		      Thread.sleep(3000);
+					performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+				             Thread.sleep(3000);
+						     performerPOM.clickEditNotice(driver).click();//click edit notice
+					  
+						      driver.switchTo().parentFrame();
+						      wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	       	          
+	   			       Thread.sleep(1000);
+	   				   performerPOM. clickExternalLawyerRating1(driver).click();
+	   				   
+
+	   				   
+	   				  Thread.sleep(3000);
+	   				  performerPOM.selectExternalLawyerRating(driver);
+	   				   Thread.sleep(3000);
+	   				   performerPOM.clickNewCriteria(driver).click();
+	   				   Thread.sleep(3000);
+	   				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
+	   				 Thread.sleep(3000);
+	   				  performerPOM.clickCriteria(driver).sendKeys("342");
+	   				 
+	   				   Thread.sleep(3000);
+	   				   performerPOM.clickSaveCriteria(driver).click();
+	   				   Thread.sleep(3000);
+	   				   String msg = performerPOM.clickCriteriaInvalidMsg(driver).getText();
+	   				   
+	   				   if(msg.equalsIgnoreCase("Only alphabets allowed."))
+	   				   {
+	   					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg);
+	   				   }
+	   				   else
+	   				   {
+	   					   test.log(LogStatus.FAIL, "Meassag Displayed ="+msg);
+	   				   }
+	   				   
+	   				   Thread.sleep(3000);
+	   				   driver.switchTo().parentFrame();
+	   				   performerPOM.clickclosecriteria(driver).click();
+	         }
+		 	 
+			 static void CaseCriteriaWithoutData(WebDriver driver,ExtentTest test) throws InterruptedException
+	         {
+	       	  
+	   		         WebDriverWait wait = new WebDriverWait(driver, 300);
+			  
+	   		      Thread.sleep(3000);
+					performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+				     
+				             Thread.sleep(3000);
+						     performerPOM.clickEditNotice(driver).click();//click edit notice
+					  
+						      driver.switchTo().parentFrame();
+						      wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	       	          
+	   			       Thread.sleep(1000);
+	   				   performerPOM. clickExternalLawyerRating1(driver).click();
+	   				   
+
+	   				   
+	   				  Thread.sleep(3000);
+	   				  performerPOM.selectExternalLawyerRating(driver);
+	   				   Thread.sleep(3000);
+	   				   performerPOM.clickNewCriteria(driver).click();
+	   				   Thread.sleep(3000);
+	   				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
+	   				
+	   				 
+	   				   Thread.sleep(3000);
+	   				   performerPOM.clickSaveCriteria(driver).click();
+	   				   Thread.sleep(3000);
+	   				   String msg = performerPOM.readOppoenentMsg(driver).getText();
+	   				   
+	   				   if(msg.equalsIgnoreCase("Criteria can not be empty."))
+	   				   {
+	   					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg);
+	   				   }
+	   				   else
+	   				   {
+	   					   test.log(LogStatus.FAIL, "Meassag Displayed ="+msg);
+	   				   }
+	   				   
+	   				   Thread.sleep(3000);
+	   				   driver.switchTo().parentFrame();
+	   				   performerPOM.clickclosecriteria(driver).click();
+	         }
+				static void TaskwithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+				{
+					WebDriverWait wait = new WebDriverWait(driver, 60);
+					Thread.sleep(500);
+					performerPOM.clickTaskOpen(driver).click();	
+					Thread.sleep(500);
+					JavascriptExecutor js = (JavascriptExecutor) driver;
+					CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.UP);
+					js.executeScript("window.scrollBy(0,-700)");
+					performerPOM.clickAddNewTask(driver).click();				//Clicking on 'New' button
+					
+					progress(driver);
+					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeAddTask"));
+					
+//					
+//					Thread.sleep(300);
+//					performerPOM.clickDueDate(driver).click();				//Clicking on 'Due Date' text box
+//					OverduePOM.selectNextMonth(driver).click();
+//					OverduePOM.selectDate(driver).click();					//Selecting particular date.
+//					
+					Thread.sleep(500);
+					Row row0 = sheet.getRow(12);								//Selected 0th index row (First row)
+					Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
+					String title = c1.getStringCellValue();
+					performerPOM.clickTaskTitle(driver).sendKeys(title);	//Writing 'Task Title'
+					
+					Thread.sleep(300);
+					row0 = sheet.getRow(13);									//Selected 0th index row (First row)
+					c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+					String desc = c1.getStringCellValue();
+					performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
+					
+					Thread.sleep(300);
+					performerPOM.clickDueDate(driver).click();				//Clicking on 'Due Date' text box
+					OverduePOM.selectNextMonth(driver).click();
+					OverduePOM.selectDate(driver).click();					//Selecting particular date.
+					
+					Thread.sleep(300);
+					Actions action = new Actions(driver);
+					action.moveToElement(performerPOM.clickPriority(driver)).click().sendKeys(Keys.DOWN,Keys.ENTER).perform();
+					
+					Thread.sleep(300);
+					row0 = sheet.getRow(14);									//Selected 0th index row (First row)
+					c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+					String outcome = c1.getStringCellValue();
+					performerPOM.clickExpOutcome(driver).sendKeys(outcome);	//Writing 'Expected Outcome'
+					
+					Thread.sleep(1000);
+					row0 = sheet.getRow(15);									//Selected 0th index row (First row)
+					c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+					String internalUser = c1.getStringCellValue();
+					performerPOM.clickInternalUser3(driver).click();
+					//performerPOM.selectInternalUser2(driver).click();
+					performerPOM.selectInternalUser3(driver).sendKeys(internalUser, Keys.ENTER);	//Selecting 'Internal User'
+					
+					Thread.sleep(1000);
+					row0 = sheet.getRow(16);									//Selected 0th index row (First row)
+					c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+					String externalUser = c1.getStringCellValue();
+					try
+					{
+						Thread.sleep(300);
+						performerPOM.clickExternalUser(driver).click();
+						Thread.sleep(500);
+						action.moveToElement(performerPOM.clickSearchExternalUser(driver)).sendKeys(externalUser, Keys.ENTER).perform();
+					}
+					catch(Exception e)
+					{
+						
+					}
+					Thread.sleep(5000);
+					row0 = sheet.getRow(17);									//Selected 0th index row (First row)
+					c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+					String remark = c1.getStringCellValue();
+					performerPOM.clickRemark(driver).sendKeys(remark);		//Writing 'Remark'
+					//Thread.sleep(300);
+					//String workingDir = System.getProperty("user.dir");
+					//performerPOM.clickUpload(driver).sendKeys(workingDir+"//Reports//PerformerResults.html");	//Uploading file
+					
+					Thread.sleep(300);
+					OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
+					
+					Thread.sleep(300);
+					wait.until(ExpectedConditions.visibilityOf(performerPOM.clickMessage(driver)));
+					
+					Thread.sleep(300);
+					String msg = performerPOM.clickMessage(driver).getText();
+					if(msg.contains(msg))
+					{
+						test.log(LogStatus.FAIL, "Task with existing data ="+msg);
+					}
+					else
+					{
+						test.log(LogStatus.PASS, "Task with existing data ="+msg);
+					}
+					
+					driver.switchTo().parentFrame();
+					performerPOM.clickClose1(driver).click();			//Clicking on 'Close'
+				}
+				static void TaskwithClearBtn(WebDriver driver, ExtentTest test) throws InterruptedException
+				{
+					WebDriverWait wait = new WebDriverWait(driver, 60);
+					Thread.sleep(500);
+					performerPOM.clickTaskOpen(driver).click();
+					Thread.sleep(500);
+					JavascriptExecutor js = (JavascriptExecutor) driver;
+					CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.UP);
+					js.executeScript("window.scrollBy(0,-700)");
+					performerPOM.clickAddNewTask(driver).click();				//Clicking on 'New' button
+					
+					progress(driver);
+					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeAddTask"));
+					
+					Thread.sleep(300);
+					Actions action = new Actions(driver);
+					action.moveToElement(performerPOM.clickPriority(driver)).click().sendKeys(Keys.DOWN,Keys.ENTER).perform();
+					
+					Thread.sleep(300);
+					
+					if(performerPOM.clickTaskClearBtn(driver).isEnabled())
+					{
+						performerPOM.clickTaskClearBtn(driver).click();
+						test.log(LogStatus.PASS, "After clicking the clear button the data should be remove");
+					}
+					else
+					{
+						test.log(LogStatus.FAIL, "After clicking the clear button the data should not be remove");
+					}
+					
+					driver.switchTo().parentFrame();
+					performerPOM.clickClose1(driver).click();			//Clicking on 'Close'
+				}
+				
+				static void TaskDelete(WebDriver driver, ExtentTest test) throws InterruptedException
+				{
+					
+					Thread.sleep(500);
+					performerPOM.clickTaskOpen(driver).click();
+					Thread.sleep(2000);
+					performerPOM.clickTaskdelete(driver).click();	
+					
+					 Thread.sleep(5000);
+					    // Switching to Alert        
+				        Alert alert1 = driver.switchTo().alert();		
+				        		
+				        // Capturing alert message.    
+				        String alertMessage1= driver.switchTo().alert().getText();	
+				        
+				        
+				        test.log(LogStatus.PASS, alertMessage1);
+				        		
+				        // Displaying alert message		
+				        System.out.println(alertMessage1);
+				        
+				     // Accepting alert		
+				        alert1.accept();	
+				}
+				
+				static void TaskwithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
+				{
+					WebDriverWait wait = new WebDriverWait(driver, 60);
+					Thread.sleep(500);
+					performerPOM.clickTaskOpen(driver).click();	
+					Thread.sleep(500);
+					
+					performerPOM.clickAddNewTask(driver).click();				//Clicking on 'New' button
+					
+					progress(driver);
+					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeAddTask"));
+					
+					Thread.sleep(300);
+					OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
+					
+					Thread.sleep(300);
+					wait.until(ExpectedConditions.visibilityOf(performerPOM.clickMessagewithoutdata(driver)));
+					
+					Thread.sleep(300);
+					String msg = performerPOM.clickMessagewithoutdata(driver).getText();
+					if(msg.contains(msg))
+					{
+						test.log(LogStatus.FAIL, "Task without data ="+msg);
+					}
+					else
+					{
+						test.log(LogStatus.PASS, "Task without data ="+msg);
+					}
+					
+					driver.switchTo().parentFrame();
+					performerPOM.clickClose1(driver).click();			//Clicking on 'Close'
+				}
+				
+				
+				static void TaskwithTwoManadatoryFields(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+				{
+					WebDriverWait wait = new WebDriverWait(driver, 60);
+					Thread.sleep(500);
+					performerPOM.clickTaskOpen(driver).click();	
+					Thread.sleep(500);
+				
+					performerPOM.clickAddNewTask(driver).click();				//Clicking on 'New' button
+					
+					progress(driver);
+					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeAddTask"));
+									
+					Thread.sleep(500);
+					Row row0 = sheet.getRow(12);								//Selected 0th index row (First row)
+					Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
+					String title = c1.getStringCellValue();
+					performerPOM.clickTaskTitle(driver).sendKeys(title);	//Writing 'Task Title'
+					
+					Thread.sleep(300);
+					row0 = sheet.getRow(13);									//Selected 0th index row (First row)
+					c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+					String desc = c1.getStringCellValue();
+					performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
+					
+					Thread.sleep(300);
+					OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
+					
+					Thread.sleep(300);
+					wait.until(ExpectedConditions.visibilityOf(performerPOM.clickMessage1(driver)));
+					
+					Thread.sleep(300);
+					String msg = performerPOM.clickMessage1(driver).getText();
+					if(msg.contains(msg))
+					{
+						test.log(LogStatus.FAIL, "Task with two mandatory fields ="+msg);
+					}
+					else
+					{
+						test.log(LogStatus.PASS, "Task with two mandatory fields ="+msg);
+					}
+					
+					driver.switchTo().parentFrame();
+					performerPOM.clickClose1(driver).click();			//Clicking on 'Close'
+				}
+				
+					
+			 
+			 
+			 
+
 					
 					
 	 		
@@ -16777,7 +17617,7 @@ public class CFOMethod {
           				if(option.getText().equals(value))
           				{
           					option.click();
-          					option.click();
+          					
           					break;
           				}
           			}

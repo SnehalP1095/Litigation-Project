@@ -402,7 +402,7 @@ public class performerPOM
 	  	  
 	  	  WebDriverWait wait = new WebDriverWait(driver, 100);
 	        WebElement NoticeUploadDocument = wait.until(ExpectedConditions.elementToBeClickable(By.id("FileUpLoad1")));
-	  	  NoticeUploadDocument.sendKeys("C:\\Users\\Admin\\Documents\\Workspace Excel Report Test Cases(License).xlsx");
+	  	  NoticeUploadDocument.sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");
 	  	  Thread.sleep(3000);
 	  	    return litigation;
 	    }
@@ -823,6 +823,27 @@ public class performerPOM
 		litigation = driver.findElement(By.xpath("//*[@id='VsAddTasValidateSuccess']"));
 		return litigation;
 	}
+	public static WebElement clickMessagewithoutdata(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='VSCasePopup']/ul"));
+		return litigation;
+	}
+	public static WebElement clickMessage1(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='VsAddTasValidate']/ul/li"));
+		return litigation;
+	}
+	
+	public static WebElement clickTaskClearBtn(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='btnTaskClear']"));
+		return litigation;
+	}
+	public static WebElement clickTaskdelete(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td[9]/a[2]"));
+		return litigation;
+	}
 	
 	public static WebElement clickClose1(WebDriver driver)
 	{
@@ -1009,7 +1030,16 @@ public class performerPOM
 		litigation = driver.findElement(By.xpath("//*[@id='ddlCaseStatus_chosen']/div/ul/li[3]"));
 		return litigation;
 	}
-	
+	public static WebElement clickCaseAppealToNextCourt(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//input[@id='btnCaseTransfer']"));
+		return litigation;
+	}
+	public static WebElement clickCasereadMsg(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='ValidationSummary3']/ul/li"));
+		return litigation;
+	}
 	public static WebElement clickCaseCloseDate(WebDriver driver)
 	{
 		litigation = driver.findElement(By.xpath("//*[@id='tbxCaseCloseDate']"));
@@ -1472,7 +1502,7 @@ public class performerPOM
 	   	  
 	   	     WebDriverWait wait = new WebDriverWait(driver, 20);
 	         WebElement UploadDocument = wait.until(ExpectedConditions.elementToBeClickable(By.id("LitigationFileUpload")));
-	   	     UploadDocument.sendKeys("C:\\Users\\Admin\\Desktop\\Teamlease\\Compliance Assignment.xlsx");
+	   	     UploadDocument.sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");
 	   	
 	     } 
 		 
@@ -1595,6 +1625,24 @@ public class performerPOM
 		  public static WebElement readResponseMsg(WebDriver driver)
 		  {
 			  litigation= driver.findElement(By.xpath("//*[@id='ValidationSummary10']"));
+			 return litigation;
+			  
+		  }
+		  public static WebElement readResponseMsgOrder(WebDriver driver)
+		  {
+			  litigation= driver.findElement(By.xpath("//*[@id='ValidationSummary2']/ul/li[1]"));
+			 return litigation;
+			  
+		  }
+		  public static WebElement readResponseMsgOrder1(WebDriver driver)
+		  {
+			  litigation= driver.findElement(By.xpath("//*[@id='ValidationSummary2']/ul/li[2]"));
+			 return litigation;
+			  
+		  }
+		  public static WebElement readResponseMsgOrder2(WebDriver driver)
+		  {
+			  litigation= driver.findElement(By.xpath("//*[@id='ValidationSummary2']/ul/li[3]"));
 			 return litigation;
 			  
 		  }
@@ -2065,6 +2113,12 @@ public class performerPOM
 			 litigation=driver.findElement(By.xpath("//*[@id='btnOrderSave']"));
 			 return litigation;
 		 }
+		 public static WebElement clickClearCaseOrderBtn(WebDriver driver)
+		 {
+			 litigation=driver.findElement(By.xpath("//*[@id='btnOrderClear']"));
+			 return litigation;
+		 }
+		 
 		 public static WebElement clickOrderPanel(WebDriver driver)
 		 {
 			 litigation=driver.findElement(By.xpath("//*[@id='collapseDivOrderLogs']"));
@@ -2177,6 +2231,12 @@ public class performerPOM
 				 litigation=driver.findElement(By.xpath("//*[@id='grdCasePayment_btnPaymentSave']"));
 				 return litigation;
 			 }
+		  public static WebElement clickAmountPaid(WebDriver driver)
+			 {
+				 litigation=driver.findElement(By.xpath("//*[@id='grdCasePayment_tbxAmountPaid']"));
+				 return litigation;
+			 }
+		  
 		  
 		  public static WebElement clickMyDocument(WebDriver driver)
 			 {
@@ -2340,14 +2400,14 @@ public class performerPOM
 	  {
 		  
 		     WebElement CaseFile=driver.findElement(By.cssSelector("input[type='file']"));
-		    CaseFile.sendKeys("C:\\Users\\Admin\\Desktop\\Snehal\\ComplianceLatest\\ComplianceLatest\\TestData\\NoticeFileUpload.xlsx");
+		    CaseFile.sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");
 		     return litigation;
       }
 	  public static WebElement ChooseOrderFile(WebDriver driver) throws InterruptedException
 	  {
 		  
 		     WebElement CaseFile=driver.findElement(By.xpath("//*[@id='fuCaseOrderDocUpload']"));
-		    CaseFile.sendKeys("C:\\Users\\Admin\\Desktop\\Snehal\\ComplianceLatest\\ComplianceLatest\\TestData\\NoticeFileUpload.xlsx");
+		    CaseFile.sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");
 		     return litigation;
       }
 	  public static WebElement UploadNoticeFile(WebDriver driver) throws InterruptedException
@@ -2424,7 +2484,7 @@ public class performerPOM
 	  public static WebElement LocationSummaryGraph1(WebDriver driver) throws InterruptedException
 	  {
 		 
-		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 '])[6]"));
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[4]"));
 	
 		  return litigation;
 	  }
@@ -3368,7 +3428,7 @@ public class performerPOM
 			public static WebElement clickUpdateButton(WebDriver driver)
 			{
 				WebDriverWait wait= new WebDriverWait(driver,30);
-				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='btnSave']")));
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_grdPageAuthorization_chkupdate_0']")));
 				return litigation;
 			}
 			public static WebElement clickDeleteButton(WebDriver driver)
@@ -3844,7 +3904,7 @@ public class performerPOM
 			public static WebElement HearingCalenderNum(WebDriver driver)
 			{
 				WebDriverWait wait=new WebDriverWait(driver,30);
-				litigation=driver.findElement(By.xpath("//*[@id=\"collapseUpcomingHearing\"]/div/div[2]/div[1]/div/div[3]/div[24]/span"));
+				litigation=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/span"));
 				return litigation;
 			}
 			public static WebElement HearingCalenderNumcfo(WebDriver driver)
@@ -4888,28 +4948,28 @@ public class performerPOM
 			  {
 				  
 				 WebElement ResponseDoc =driver.findElement(By.xpath("//*[@id='fuResponseDocUpload']"));
-				 ResponseDoc.sendKeys("C:\\Users\\Admin\\Desktop\\Teamlease\\Compliance Assignment.xlsx");
+				 ResponseDoc.sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");
 				  
 			  }
 			 public static void clickNoticeStatusPaymentUploadtcfo(WebDriver driver) throws InterruptedException
 			  {
 				  
 				 WebElement ResponseDoc =driver.findElement(By.xpath("//*[@id='grdNoticePayment_fuSampleFileNew']"));
-				 ResponseDoc.sendKeys("C:\\Users\\Admin\\Desktop\\Teamlease\\Compliance Assignment.xlsx");
+				 ResponseDoc.sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");
 				  
 			  }
 			 public static void clickCaseStatusPaymentUploadtcfo(WebDriver driver) throws InterruptedException
 			  {
 				  
 				 WebElement ResponseDoc =driver.findElement(By.xpath("//*[@id='grdCasePayment_fuSampleFile']"));
-				 ResponseDoc.sendKeys("C:\\Users\\Admin\\Desktop\\Teamlease\\Compliance Assignment.xlsx");
+				 ResponseDoc.sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");
 				  
 			  }
 			 public static void clickCaseorderFile(WebDriver driver) throws InterruptedException
 			  {
 				  
 				 WebElement ResponseDoc =driver.findElement(By.xpath("//*[@id='fuCaseOrderDocUpload']"));
-				 ResponseDoc.sendKeys("C:\\Users\\Admin\\Desktop\\Teamlease\\Compliance Assignment.xlsx");
+				 ResponseDoc.sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");
 				  
 			  }
 			 
@@ -5624,7 +5684,7 @@ public class performerPOM
 			 public static WebElement clickUploadDoc(WebDriver driver)
 				{
 					WebElement UploadDocument =driver.findElement(By.xpath("//*[@id='fuAdvocateBillDocUpload']"));
-					 UploadDocument.sendKeys("C:\\Users\\Admin\\Desktop\\Teamlease\\Compliance Assignment.xlsx");
+					 UploadDocument.sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");
 					return litigation;
 				}
 			 public static WebElement clickReadAdvocateMsg(WebDriver driver)
@@ -5989,8 +6049,21 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("//*[@id='btnClearCaseDetail']"));
 					return litigation;
 				}
-			 
-			 
+			 public static WebElement clickNoticAmountPaid(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grdNoticePayment_tbxAmountPaid']"));
+					return litigation;
+				}
+			 public static WebElement clickNoticeStatus1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("/html/body/form/div[3]/section/section/section/div/div/div/div[3]/span/span/span[1]"));
+					return litigation;
+				}
+			 public static WebElement selectNoticeStatus(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/ul/li[2]"));
+					return litigation;
+				}
 			 
 			 
 }

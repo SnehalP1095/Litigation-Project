@@ -728,6 +728,24 @@ public class MethodPOM1 {
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
 		Thread.sleep(5000);
+		performerPOM.clickcategory(driver).click();
+		
+		Thread.sleep(5000);
+		performerPOM.clickcategory2(driver).click();
+		
+		
+		if(performerPOM.clearButton(driver).isEnabled())
+  		{
+			Thread.sleep(5000);
+  			performerPOM.clearButton(driver).click();
+  			test.log(LogStatus.PASS, "Clear button working successfully");
+  		}
+  		else
+  		{
+  			test.log(LogStatus.FAIL, "Clear button not working successfully");
+  		}
+		
+		Thread.sleep(5000);
 		
 		performerPOM.AdvancedSearchReports(driver).click();
 		

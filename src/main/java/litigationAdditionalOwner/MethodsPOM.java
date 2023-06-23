@@ -88,35 +88,10 @@ private static WebElement selectcheckBox;
 		Thread.sleep(500);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 //		CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.UP);
-		js.executeScript("window.scrollBy(0,-700)");
-		
-		Thread.sleep(5000);
-		performerPOM.clickcategory(driver).click();
-		
-		Thread.sleep(5000);
-		performerPOM.clickcategory2(driver).click();
-		
-		
-		if(performerPOM.clearButton(driver).isEnabled())
-  		{
-			Thread.sleep(5000);
-  			performerPOM.clearButton(driver).click();
-  			test.log(LogStatus.PASS, "Clear button working successfully");
-  		}
-  		else
-  		{
-  			test.log(LogStatus.FAIL, "Clear button not working successfully");
-  		}
-		
-		
+		js.executeScript("window.scrollBy(0,-700)");		
 		Thread.sleep(4000);
 		clickNewNotice(driver);
-		
-		
-		
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
-		
-		
 		clickDated(driver);
 		clickFinancialYear(driver);
 		clickRefNo(driver);
@@ -157,27 +132,22 @@ private static WebElement selectcheckBox;
 		selectNoticeRecipetDate(driver);
 		 Thread.sleep(3000);
 		clickInternalUser(driver);
-//		 Thread.sleep(5000);
-//		clickLawyer(driver);
+		 Thread.sleep(5000);
+		clickLawyer(driver);
         Thread.sleep(3000);
 		performerPOM.selectNoticeUploadDocument(driver); 
 		Thread.sleep(3000);
 		OverduePOM.clickSaveButton(driver).click();						//Clicking on 'Save'button.
-										
-////		progress(driver);
-////		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
-//	
-		
 		Thread.sleep(1000);
 		wait1.until(ExpectedConditions.visibilityOf(performerPOM.readMessage(driver)));
 		
 		Thread.sleep(500);
 		String msg = performerPOM.readMessage(driver).getText();		//Reading Message appeared after save button
-		int flag = 0;
+		
 		if(msg.equalsIgnoreCase("Notice Created Successfully."))
 		{
 			test.log(LogStatus.PASS, "Message displayed = "+msg);
-			flag = 1;
+			
 		}
 		else
 		{
@@ -213,81 +183,63 @@ private static WebElement selectcheckBox;
 //			}
 //		}
 	
-		driver.switchTo().parentFrame();
-		performerPOM.clickClose(driver).click();//Clicking on 'Close'  Thread.sleep(1000);
-		
-		//Thread.sleep(2000);
-	    //OverduePOM.clickDashboard(driver).click();			//Clicking on 'Dashboard'
-
-//	    Thread.sleep(3000);
-//		performerPOM.clickNoticeOpen(driver).click();
-//	    
-//		Thread.sleep(3000);
-//		performerPOM.clickEditNotice(driver).click();//click edit notice
-		
 	
-
+		driver.switchTo().parentFrame();
+		performerPOM.clickClose(driver).click();//Clicking on 'Close' 
 		
-		//NoticeDocument(driver, test);
-		//TaskActivtity(driver,  test, sheet,  open,gridRecords,  type); 
-		//Response(driver, test,  sheet, open,gridRecords,  type);
-		//PaymentLog(driver,test,  sheet, open,  gridRecords, type);
-		//ExternalLawyerRating(driver, test);
-		//AuditLog(driver,test);
-			
+//		Thread.sleep(2000);
+//		performerPOM.clickNoticeStatus1(driver).click();
+//		Thread.sleep(2000);
+//		performerPOM.selectNoticeStatus(driver).click();
+		
 		Thread.sleep(1000);
 		performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
-		js.executeScript("window.scrollBy(0,700)");		
-            
-		Thread.sleep(2000);
-		CFOcountPOM.readTotalItems1(driver).click();
-		String item = CFOcountPOM.readTotalItems1(driver).getText();
-		String[] bits = item.split(" ");								//Splitting the String
-		String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
-		int count1 = 0;
-		if(compliancesCount.equalsIgnoreCase("to"))
-		{
-			Thread.sleep(2000);
-			item = CFOcountPOM.readTotalItems1(driver).getText();
-			bits = item.split(" ");								//Splitting the String
-			compliancesCount = bits[bits.length - 2];
-		}
-		count1 = Integer.parseInt(compliancesCount);
+		js.executeScript("window.scrollBy(0,700)");
+
+      Thread.sleep(1000);
+      CFOcountPOM.readTotalItems1(driver).click();
+      String item = CFOcountPOM.readTotalItems1(driver).getText();
+      String[] bits = item.split(" ");								//Splitting the String
+      String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+      int count1 = 0;
+      if(compliancesCount.equalsIgnoreCase("to"))
+     {
+        Thread.sleep(2000);
+        item = CFOcountPOM.readTotalItems1(driver).getText();
+         bits = item.split(" ");								//Splitting the String
+        compliancesCount = bits[bits.length - 2];
+     }
+       count1 = Integer.parseInt(compliancesCount);
+
+     if(count1 > gridRecords)
+     {
+       //test.log(LogStatus.PASS, "Total Case Count increased in grid after adding New Case.");
+       test.log(LogStatus.PASS, "Total Case Count increased in grid after adding New Case= Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
+     }
+     else
+     {
+        //test.log(LogStatus.FAIL, "Total Case Count doesn't increased in grid after adding New Case.");
+        test.log(LogStatus.FAIL, "Total Case Count doesn't increased in grid after adding New Case =Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
+     }
+     
 		
-		if(count1 > gridRecords)
-		{
-			//test.log(LogStatus.PASS, "Total Notice Count increased in grid after adding New Notice.");
-			test.log(LogStatus.PASS, "Total Notice Count increased in grid after adding New Notice= Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
-		}
-		else
-		{
-			//////test.log(LogStatus.FAIL, "Total Notice Count doesn't increased in grid after adding New Notice.");
-			test.log(LogStatus.FAIL, "Total Notice Count doesn't increased in grid after adding New Notice. =Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
-		}
+
+       Thread.sleep(1000);
+       OverduePOM.clickDashboard(driver).click();			//Clicking on 'Dashboard'
+
+       Thread.sleep(500);
+       wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));
+       int open1 = Integer.parseInt(performerPOM.clickNoticeOpen(driver).getText());	//Reading Notice Open count.
+
+       if(open1 > open)
+       {
+          test.log(LogStatus.PASS, type+" Dashboard Count increamented. Old count = "+open+", New Count = "+open1);
+       }
+       else
+      {
+          test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increamented. Old count = "+open+", New Count = "+open1);
+       }
 		
-		Thread.sleep(500);
-		OverduePOM.clickDashboard(driver).click();			//Clicking on 'Dashboard'
-		
-		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));
-		int open1 = 0;
-		if(type.equalsIgnoreCase("Notice - Open"))
-		{
-			open1 = Integer.parseInt(performerPOM.clickNoticeOpen(driver).getText());	//Reading Notice Open count.
-		}
-		else
-		{
-			open1 = Integer.parseInt(performerPOM.clickNoticeClosed(driver).getText());	//Reading Notice Open count.
-		}
-		
-		if(open1 > open)
-		{
-			test.log(LogStatus.PASS, type+" Dashboard Count increamented. Old count = "+open+", New Count = "+open1);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increamented. Old count = "+open+", New Count = "+open1);
-		}
 	}
 		
 	
@@ -1144,14 +1096,16 @@ private static WebElement selectcheckBox;
 				performerPOM.clickPaymentType(driver).click();
 //				performerPOM.selectPaymentType(driver).sendKeys(PaymentType,Keys.ENTER);
 				List<WebElement> PaymentType1= driver.findElements(By.xpath("//*[@id='grdNoticePayment_ddlPaymentType_chosen']/div/ul/li"));
-				PaymentType1.get(2).click();
+				PaymentType1.get(4).click();
 					
 				Thread.sleep(5000);
 //				Row r6 = sheet.getRow(46);
 //				Cell c6 = r6.getCell(1);
 //				String Amount = c6.getStringCellValue();
-	
+				Thread.sleep(5000);
 				performerPOM.clickAmount(driver).sendKeys("7000");
+				Thread.sleep(5000);
+				performerPOM.clickNoticAmountPaid(driver).sendKeys("2000");
 			
 				Thread.sleep(300);
 				performerPOM.clickSavePaymentLog(driver).click();
@@ -1237,6 +1191,7 @@ private static WebElement selectcheckBox;
 				       
 						
 				        driver.switchTo().parentFrame(); 
+				        
 				    	
 				
 				
@@ -1297,6 +1252,7 @@ private static WebElement selectcheckBox;
 					test.log(LogStatus.FAIL, "Message displayed = "+msg5);
 				}
 				driver.switchTo().parentFrame();
+				driver.switchTo().parentFrame();
 				Thread.sleep(2000);
 				 performerPOM.clickclosebutton(driver).click();
 			
@@ -1320,16 +1276,17 @@ private static WebElement selectcheckBox;
 		   performerPOM. clickAuditLog(driver).click();
 		   Thread.sleep(3000);
 		   performerPOM.clickExport(driver).click();		   
+	
+		
+//		   Thread.sleep(1000);
+//		   performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+//		   JavascriptExecutor js = (JavascriptExecutor) driver;
+//		   js.executeScript("window.scrollBy(0,700)");
+		   test.log(LogStatus.PASS, "File download Successfully");
+		   
 		   Thread.sleep(3000);
 		   driver.switchTo().parentFrame();
 		   performerPOM.clickclosebutton(driver).click();
-		
-		   Thread.sleep(1000);
-		   performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
-		   JavascriptExecutor js = (JavascriptExecutor) driver;
-		   js.executeScript("window.scrollBy(0,700)");
-		   test.log(LogStatus.PASS, "File download Successfully");
-		   
 			Thread.sleep(1000);
 		       OverduePOM.clickDashboard(driver).click();
 		}
@@ -1340,27 +1297,24 @@ private static WebElement selectcheckBox;
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		WebDriverWait wait1 = new WebDriverWait(driver, 300);
 		
+//		
+//		Thread.sleep(5000);
+//	performerPOM.clickcategory(driver).click();
+//	
+//	Thread.sleep(5000);
+//	performerPOM.clickcategory2(driver).click();
+	
+	
+//	if(performerPOM.clearButton(driver).isEnabled())
+//		{
+//			performerPOM.clearButton(driver).click();
+//			test.log(LogStatus.PASS, "Clear button working successfully");
+//		}
+//		else
+//		{
+//			test.log(LogStatus.FAIL, "Clear button not working successfully");
+//		}
 		
-  		
-  		Thread.sleep(5000);
-		performerPOM.clickcategory(driver).click();
-		
-		Thread.sleep(5000);
-		performerPOM.clickcategory2(driver).click();
-		
-		
-		if(performerPOM.clearButton(driver).isEnabled())
-  		{
-  			performerPOM.clearButton(driver).click();
-  			test.log(LogStatus.PASS, "Clear button working successfully");
-  		}
-  		else
-  		{
-  			test.log(LogStatus.FAIL, "Clear button not working successfully");
-  		}
-		
-  		
-  		
 		
 		Thread.sleep(500);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -1632,14 +1586,14 @@ private static WebElement selectcheckBox;
 		elementsList.get(internalUserNo).click();							//Selecting particular user no
 		performerPOM.clickInternalUser(driver).click();						//Clicking on 'Internal User' drop down.
 		
-//		Thread.sleep(3000);
-//		row0 = sheet.getRow(23);						//Selected 0th index row (First row)
-//		c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-//		int lawyerNo = (int) c1.getNumericCellValue();
-//		performerPOM.clickLawyer(driver).click();						//Clicking on 'Lawyer' drop down.
-//		elementsList = performerPOM.chooseLawyer(driver);
-//		elementsList.get(lawyerNo).click();								//Selecting particular lawyer no
-//		performerPOM.clickLawyer(driver).click();						//Clicking on 'Lawyer' drop down.
+		Thread.sleep(3000);
+		row0 = sheet.getRow(23);						//Selected 0th index row (First row)
+		c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+		int lawyerNo = (int) c1.getNumericCellValue();
+		performerPOM.clickLawyer(driver).click();						//Clicking on 'Lawyer' drop down.
+		elementsList = performerPOM.chooseLawyer(driver);
+		elementsList.get(lawyerNo).click();								//Selecting particular lawyer no
+		performerPOM.clickLawyer(driver).click();						//Clicking on 'Lawyer' drop down.
 		
 		Thread.sleep(3000);
 		OverduePOM.clickSaveButton(driver).click();						//Clicking on 'Save'button.
@@ -1690,7 +1644,7 @@ private static WebElement selectcheckBox;
 				test.log(LogStatus.FAIL, "All icons are not displayed.");
 			}
 		}*/
-	
+		
 		driver.switchTo().parentFrame();
 		performerPOM.clickClose(driver).click();			//Clicking on 'Close'
 		
@@ -1733,7 +1687,7 @@ private static WebElement selectcheckBox;
        OverduePOM.clickDashboard(driver).click();			//Clicking on 'Dashboard'
 
        Thread.sleep(500);
-       wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));
+       wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseOpen(driver)));
        int open1 = Integer.parseInt(performerPOM.clickCaseOpen(driver).getText());	//Reading Notice Open count.
 
        if(open1 > open)
@@ -1829,7 +1783,7 @@ private static WebElement selectcheckBox;
 	        
 	       
 	        
-	        Thread.sleep(3000);
+	        Thread.sleep(4000);
 	        performerPOM.clickCaseDocumentsharecfo(driver).click();
 	        
 	        
@@ -1905,7 +1859,7 @@ private static WebElement selectcheckBox;
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("31-05-2023");
+		    performerPOM.clickHearingDate(driver).sendKeys("28-06-2023");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -2006,7 +1960,7 @@ private static WebElement selectcheckBox;
 			performerPOM.clickTaskTitle(driver).clear();
 			
 			Thread.sleep(3000);
-			performerPOM.clickTaskTitle(driver).sendKeys("New Task 15 jun");	//Writing 'Task Title'
+			performerPOM.clickTaskTitle(driver).sendKeys("New Task 24 jun");	//Writing 'Task Title'
 			
 			performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
 			
@@ -2088,7 +2042,7 @@ private static WebElement selectcheckBox;
 			performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 			
 			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate tTest 14JUN2023");
+			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test 23JUN2023");
 			
 			Thread.sleep(3000);
 			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
@@ -2155,7 +2109,7 @@ private static WebElement selectcheckBox;
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("04-07-2023");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("08-07-2023");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2190,7 +2144,7 @@ private static WebElement selectcheckBox;
 			    Thread.sleep(3000);
 			    performerPOM.clickCaseHearingDecsri(driver).clear();
 			    Thread.sleep(3000);
-			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 15 JUN 2023");		//Writing 'HearingDescription'
+			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 24 JUN 2023");		//Writing 'HearingDescription'
 			    
 			    Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearing(driver).click();
@@ -2247,7 +2201,7 @@ private static WebElement selectcheckBox;
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("01-05-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("13-05-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);
@@ -2342,7 +2296,7 @@ private static WebElement selectcheckBox;
 	          Thread.sleep(3000);
 	          performerPOM.clickEditnotice(driver).click();
 	          
-	     	driver.switchTo().parentFrame();
+	     
 	         
 			    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 			    
@@ -2363,17 +2317,11 @@ private static WebElement selectcheckBox;
 			 
 				
 					test.log(LogStatus.PASS, "Message displayed = "+msg6);
-				
-			
-				
-				
-			 
-			 
 			
 			 Thread.sleep(5000);
-		     performerPOM. clickInvoiceNum(driver).sendKeys("0598");
+		     performerPOM. clickInvoiceNum(driver).sendKeys("3412");
 			 Thread.sleep(4000);
-			 performerPOM. clickInvoiceDate(driver).sendKeys("14-06-2023");
+			 performerPOM. clickInvoiceDate(driver).sendKeys("22-06-2023");
 			 Thread.sleep(4000);
 			 performerPOM.clickAdvocateBillPanel(driver).click();
 			 Thread.sleep(4000);
@@ -2414,7 +2362,7 @@ private static WebElement selectcheckBox;
 				 Thread.sleep(5000);
 			     performerPOM. clickInvoiceNum(driver).clear();
 				 Thread.sleep(5000);
-			     performerPOM. clickInvoiceNum(driver).sendKeys("3450");
+			     performerPOM. clickInvoiceNum(driver).sendKeys("837480");
 			     
 			     Thread.sleep(4000);
 				 performerPOM.clickSaveAdvocateBill(driver).click();
@@ -2509,7 +2457,7 @@ private static WebElement selectcheckBox;
 				Thread.sleep(5000);
 				performerPOM.clickPaymentTyp1(driver);
 				List<WebElement> PaymentType1= driver.findElements(By.xpath("//*[@id='grdCasePayment_ddlPaymentType_chosen']/div/ul/li"));
-				PaymentType1.get(1).click();
+				PaymentType1.get(2).click();
 				
 				
 				Thread.sleep(3000);
@@ -2518,6 +2466,8 @@ private static WebElement selectcheckBox;
 //				int Amount = (int) c2.getNumericCellValue();
 //				performerPOM.clickAmount1(driver).sendKeys(Amount+"");	//Writing 'Amount'
 				performerPOM.clickAmount1(driver).sendKeys("5000");	//Writing 'Amount'
+				Thread.sleep(3000);
+				performerPOM.clickAmountPaid(driver).sendKeys("2000");
 			
 	
 				Thread.sleep(3000);
@@ -2545,7 +2495,7 @@ private static WebElement selectcheckBox;
 				Thread.sleep(3000);
 				performerPOM.clickCaseInvoiceNo1(driver).clear();
 				 Thread.sleep(3000);
-			    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 432601");
+			    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 3423");
 			    
 			    Thread.sleep(6000);
 				performerPOM.clickCaseStatusPaymentUploadtcfo(driver);
@@ -2609,7 +2559,10 @@ private static WebElement selectcheckBox;
 					performerPOM.clickNoticeclosePaymentDocpopupcfo(driver).click();
 					
 					test.log(LogStatus.PASS, "Payment Document popup open successfully");*/
-				
+					 Thread.sleep(3000);
+					   driver.switchTo().parentFrame();
+				     Thread.sleep(1000);
+					 performerPOM.clickclosebutton(driver).click();
 				
 			
       }
@@ -2637,7 +2590,7 @@ private static WebElement selectcheckBox;
 				   performerPOM.clickNewCriteria(driver).click();
 				   Thread.sleep(3000);
 				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
-				   performerPOM.clickCriteria(driver).sendKeys("Test test Test New");
+				   performerPOM.clickCriteria(driver).sendKeys(" Automation Test");
 				   Thread.sleep(3000);
 				   performerPOM.clickSaveCriteria(driver).click();
 				   Thread.sleep(3000);
@@ -2666,12 +2619,14 @@ private static WebElement selectcheckBox;
 						{
 								test.log(LogStatus.FAIL, "Message displayed = "+msg5);
 						}
-				 
+					 Thread.sleep(3000);
+					   driver.switchTo().parentFrame();
+					   driver.switchTo().parentFrame();
 				     Thread.sleep(1000);
 					 performerPOM.clickclosebutton(driver).click();
 					 
-					 Thread.sleep(3000);
-					   driver.switchTo().parentFrame();
+				
+
 						Thread.sleep(1000);
 					       OverduePOM.clickDashboard(driver).click();
 				      
@@ -2695,11 +2650,11 @@ private static WebElement selectcheckBox;
 				   
 				   
 				   test.log(LogStatus.PASS,"Export report download sucssesfully ");
-				   performerPOM.clickclosebutton(driver).click();
 				   
 				   Thread.sleep(3000);
 				   driver.switchTo().parentFrame();
-				   
+				   performerPOM.clickclosebutton(driver).click();
+				  
 				   Thread.sleep(1000);
 				   OverduePOM.clickDashboard(driver).click();
       }	 
@@ -2998,7 +2953,7 @@ private static WebElement selectcheckBox;
 			}
 			
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C://Users//Snehal Patil//Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -3008,7 +2963,7 @@ private static WebElement selectcheckBox;
 			
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C://Users//Snehal Patil//Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -3024,7 +2979,58 @@ private static WebElement selectcheckBox;
 			       }
 			    }
 				
-		/*		Thread.sleep(100);
+//			Thread.sleep(100);
+//				fis = new FileInputStream(lastModifiedFile);
+//				workbook = new XSSFWorkbook(fis);
+//				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+//				
+//				int no = sheet.getLastRowNum();
+//				Row row = sheet.getRow(no);
+//				Cell c1 = row.getCell(0);
+//				String records =c1.getStringCellValue();
+//				int SheetRecords = 0;
+//			
+//				try
+//				{
+//					SheetRecords = Integer.parseInt(records);
+//					
+//				}
+//				catch(Exception e)
+//				{
+//					
+//				}
+//				
+////				if(flag == 0)
+////				{
+////					row = sheet.getRow(no-1);
+////					c1 = row.getCell(0);
+////					records = c1.getStringCellValue();
+////					SheetRecords = Integer.parseInt(records);
+////				}
+//				fis.close();
+//				
+//		if(count1 == SheetRecords)
+//				{
+//					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+//					test.log(LogStatus.PASS, "Total records from Grid = "+count1+" | Total records from Report = "+SheetRecords);
+//				}
+//				else
+//				{
+//					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+//					test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+SheetRecords);
+//				}
+//			}
+//			
+//		
+//			
+//				
+//			else
+//			{
+//				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+//			}
+//			return open;
+			    
+			    Thread.sleep(100);
 				fis = new FileInputStream(lastModifiedFile);
 				workbook = new XSSFWorkbook(fis);
 				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
@@ -3063,12 +3069,8 @@ private static WebElement selectcheckBox;
 				{
 					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
 					test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+SheetRecords);
-				}*/
+				}
 			}
-			
-		
-			
-				
 			else
 			{
 				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
@@ -3574,8 +3576,8 @@ private static WebElement selectcheckBox;
 			Thread.sleep(300);
 			r1 = sheet.getRow(41);
 			c1 = r1.getCell(1);
-			String CaseNo = c1.getStringCellValue();
-			performerPOM.clickCourtCaseNo(driver).sendKeys(CaseNo);
+			int CaseNo =(int) c1.getNumericCellValue();
+			performerPOM.clickCourtCaseNo(driver).sendKeys(CaseNo+ " ");
 			
 			Thread.sleep(300);
 			performerPOM.clickSaveConvertCase(driver).click();	
@@ -3731,7 +3733,7 @@ private static WebElement selectcheckBox;
 	static void Report(WebDriver driver, ExtentTest test, int count1, String type) throws InterruptedException, IOException
 	{
 		Thread.sleep(700);
-		File dir = new File("C://Users//Admin//Downloads");
+		File dir = new File("C://Users//Snehal Patil//Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 //		Thread.sleep(2000);
@@ -3740,7 +3742,7 @@ private static WebElement selectcheckBox;
 		performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 		
 		Thread.sleep(6000);
-		File dir1 = new File("C://Users//Admin//Downloads");
+		File dir1 = new File("C://Users//Snehal Patil//Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 		
@@ -4299,7 +4301,7 @@ private static WebElement selectcheckBox;
 		//--------------------------MIS Report------------------------------
 		
 	    Thread.sleep(100);
-		File dir = new File("C://Users//Admin//Downloads");
+		File dir = new File("C://Users//Snehal Patil//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4310,7 +4312,7 @@ private static WebElement selectcheckBox;
 	    //--------------------------closed Cases Reports------------------------------
 		
 		Thread.sleep(100);
-		File dir1 = new File("C://Users//Admin//Downloads");
+		File dir1 = new File("C://Users//Snehal Patil//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4321,7 +4323,7 @@ private static WebElement selectcheckBox;
 	    //--------------------------Ext LawyerPerformance Reports------------------------------
 		
 		Thread.sleep(100);
-		File dir2 = new File("C://Users//Admin//Downloads");
+		File dir2 = new File("C://Users//Snehal Patil//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4333,7 +4335,7 @@ private static WebElement selectcheckBox;
 		
 		
 		Thread.sleep(100);
-		File dir3 = new File("C://Users//Admin//Downloads");
+		File dir3 = new File("C://Users//Snehal Patil//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4346,7 +4348,7 @@ private static WebElement selectcheckBox;
 		
 		
 		Thread.sleep(100);
-		File dir4 = new File("C://Users//Admin//Downloads");
+		File dir4 = new File("C://Users//Snehal Patil//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4357,7 +4359,7 @@ private static WebElement selectcheckBox;
 		
 		
 		Thread.sleep(100);
-		File dir5 = new File("C://Users//Admin//Downloads");
+		File dir5 = new File("C://Users//Snehal Patil//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4369,7 +4371,7 @@ private static WebElement selectcheckBox;
 		
 		
 		Thread.sleep(100);
-		File dir6 = new File("C://Users//Admin//Downloads");
+		File dir6 = new File("C://Users//Snehal Patil//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4381,7 +4383,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir7 = new File("C://Users//Admin//Downloads");
+		 File dir7 = new File("C://Users//Snehal Patil//Downloads");
 	 //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4393,7 +4395,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir8 = new File("C://Users//Admin//Downloads");
+		 File dir8 = new File("C://Users//Snehal Patil//Downloads");
 	 //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4405,7 +4407,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir9 = new File("C://Users//Admin//Downloads");
+		 File dir9 = new File("C://Users//Snehal Patil//Downloads");
 	 //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4416,7 +4418,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir10 = new File("C://Users//Admin//Downloads");
+		 File dir10 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4428,7 +4430,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir11 = new File("C://Users//Admin//Downloads");
+		 File dir11 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4462,7 +4464,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir15 = new File("C://Users//Admin//Downloads");
+		 File dir15 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4474,7 +4476,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir20 = new File("C://Users//Admin//Downloads");
+		 File dir20 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4488,7 +4490,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir19 = new File("C://Users//Admin//Downloads");
+		 File dir19 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4500,7 +4502,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir18 = new File("C://Users//Admin//Downloads");
+		 File dir18 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4514,7 +4516,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir17 = new File("C://Users//Admin//Downloads");
+		 File dir17 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4528,7 +4530,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir16 = new File("C://Users//Admin//Downloads");
+		 File dir16 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4540,7 +4542,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir13 = new File("C://Users//Admin//Downloads");
+		 File dir13 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4553,7 +4555,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir14 = new File("C://Users//Admin//Downloads");
+		 File dir14 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4567,7 +4569,7 @@ private static WebElement selectcheckBox;
 		
 		
 		 Thread.sleep(100);
-		 File dir12 = new File("C://Users//Admin//Downloads");
+		 File dir12 = new File("C://Users//Snehal Patil//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4602,13 +4604,13 @@ private static WebElement selectcheckBox;
 		action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 14JUN2023");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 22JUN2023");
 		
 		Thread.sleep(3000);
-		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 14JUN2023");
+		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 22JUN2023");
 		
 		Thread.sleep(3000);
-		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 14JUN2023");
+		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 22JUN2023");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -4664,7 +4666,7 @@ private static WebElement selectcheckBox;
 		performerPOM.clickReminderText(driver).clear();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 20jun23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 23jun23");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -6280,6 +6282,7 @@ private static WebElement selectcheckBox;
 	 }
 	  public static void PageAuthorization(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	  {
+		  JavascriptExecutor js = (JavascriptExecutor) driver;
 		 
 		  Thread.sleep(3000);
 		  performerPOM.clickMasters(driver).click();
@@ -6300,6 +6303,9 @@ private static WebElement selectcheckBox;
 		  performerPOM.clickDeleteButton(driver).click();
 		  Thread.sleep(3000);
 		  performerPOM.clickViewButton(driver).click();
+		  Thread.sleep(3000);
+			js.executeScript("window.scrollBy(0,700)");
+		  
 		  Thread.sleep(3000);
 		  performerPOM.clicksaveButton(driver).click();
 		  
@@ -7775,8 +7781,8 @@ private static WebElement selectcheckBox;
 		 Thread.sleep(5000);
 			performerPOM.clickDashboardApplyBtn(driver).click();
 		
-			 Thread.sleep(2000);
-        js.executeScript("window.scrollBy(0,600)");
+		
+        js.executeScript("window.scrollBy(0,1000)");
        
       int open = Integer.parseInt(performerPOM.LocationSummaryGraph1(driver).getText());	//Reading Notice Open count.
 	  performerPOM.LocationSummaryGraph1(driver).click();						//Clicking on 'Open' notice
@@ -8329,7 +8335,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				Thread.sleep(4000);
 				WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a"));
 				 
-				 
+				Thread.sleep(4000);
 				 if(text.isEnabled())
 					{
 						driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();
@@ -8338,12 +8344,12 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 						
 					}
 				
-				Thread.sleep(2000);
+				Thread.sleep(4000);
 				int	open = Integer.parseInt(performerPOM.HearingCalenderNum(driver).getText());	//Reading Notice Open count.
 				WebDriverWait Wait=new WebDriverWait(driver,20);
 			 	Wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("calframe"));
 				
-				Thread.sleep(10000);
+				Thread.sleep(15000);
 				CFOcountPOM.readcalenderCount(driver).click();
 				String item = CFOcountPOM.readcalenderCount(driver).getText();
 				String[] bits = item.split(" ");								//Splitting the String
@@ -8923,7 +8929,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 		
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -8933,7 +8939,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 			
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -9021,7 +9027,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 		
 		
 			Thread.sleep(100);
-			File dir2 = new File("C://Users//Admin//Downloads");
+			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents1 = dir2.listFiles();							//Counting number of files in directory before download 
 			
 //			Thread.sleep(500);
@@ -9031,7 +9037,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 			
 			
 			Thread.sleep(5500);
-			File dir3 = new File("C://Users//Admin//Downloads");
+			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents1.length < allFilesNew1.length)
@@ -9814,7 +9820,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 			{
 				WebDriverWait wait=new WebDriverWait(driver,20);
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-	           js.executeScript("window.scrollBy(0,300)");
+	           js.executeScript("window.scrollBy(0,800)");
 				Thread.sleep(5000);
 				performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 				
@@ -9829,7 +9835,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 				
 			
 		       
-		        js.executeScript("window.scrollBy(0,1000)");
+		        js.executeScript("window.scrollBy(0,300)");
 		     	Thread.sleep(3000);
 		       	int	open = Integer.parseInt(performerPOM.DepartmentSummaryGraph3(driver).getText());	//Reading Notice Open count.
 			    performerPOM.DepartmentSummaryGraph3(driver).click();						//Clicking on 'Open' notice
