@@ -26,6 +26,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import org.openqa.selenium.support.ui.Select;
 
 
 import cfo.CFOcountPOM;
@@ -6042,6 +6043,171 @@ public class CFOMethod {
 						    
 				}   
 				
+				public static void ShareCaseDocument(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+				{
+					WebDriverWait wait = new WebDriverWait(driver, 60);
+					progress(driver);
+					
+					
+					performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
+					performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
+					Thread.sleep(1000);
+					performerPOM.selectDocument(driver).click();	
+					Thread.sleep(3000);
+					//performerPOM.selectDocument1(driver).click();
+					
+				     //Select t=new Select(driver.findElement(By.xpath("/html/body/div[77]/div/div[2]/ul/li[2]")));
+				  //  t.selectByIndex(1);
+				
+					
+//      		       List<WebElement>SeletcRisk = driver.findElements(By.xpath("//li[@class='k-item']"));
+//      			   selectOptionFromDropDown_bs(SeletcRisk, "Case Documents");
+					Thread.sleep(1000);
+					performerPOM.shareDocumentIcon(driver).click();
+					
+					   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews1"));
+					   
+					   Thread.sleep(1000);
+						performerPOM.clickNoticeDocumentshareemailcfo(driver).sendKeys("admin@gmail.com");
+						Thread.sleep(1000);
+						performerPOM.clickNoticeDocumentsharecontactnocfo(driver).sendKeys("5555555555");
+						Thread.sleep(1000);
+						performerPOM. clickNoticeDocumentsharesavecfo(driver).click();
+					
+						Thread.sleep(1000);
+						String msg=performerPOM. clickNoticeDocumentsharereadmsgcfo(driver).getText();
+						if(msg.equalsIgnoreCase("Document shared successfully."))
+						{
+							test.log(LogStatus.PASS, " Documents for respective case should be shared =" +msg);
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, " Documents for respective case should be shared =" +msg);
+						}
+						driver.switchTo().parentFrame();
+						Thread.sleep(1000);
+						performerPOM. clickViewDocAdvocatebillPdfClose(driver).click();
+						
+				}
+				
+				
+				public static void ShareNoticeDocument(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+				{
+					WebDriverWait wait = new WebDriverWait(driver, 60);
+					progress(driver);
+					performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
+					performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
+					
+
+			       Thread.sleep(5000);
+				    JavascriptExecutor js = (JavascriptExecutor) driver;
+					js.executeScript("window.scrollBy(500,0)");
+					Thread.sleep(3000);
+					performerPOM.clickTypeDropdown(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
+					Thread.sleep(3000);
+					performerPOM.selectTypeCase(driver).click();					//Selecting 'Case' option.
+//					Thread.sleep(1000);
+//					performerPOM.selectDocument(driver).click();	
+					Thread.sleep(1000);
+					performerPOM.shareDocumentIcon(driver).click();
+					
+					   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews1"));
+					   
+					   Thread.sleep(1000);
+						performerPOM.clickNoticeDocumentshareemailcfo(driver).sendKeys("admin@gmail.com");
+						Thread.sleep(1000);
+						performerPOM.clickNoticeDocumentsharecontactnocfo(driver).sendKeys("5555555555");
+						Thread.sleep(1000);
+						performerPOM. clickNoticeDocumentsharesavecfo(driver).click();
+					
+						Thread.sleep(1000);
+						String msg=performerPOM. clickNoticeDocumentsharereadmsgcfo(driver).getText();
+						if(msg.equalsIgnoreCase("Document shared successfully."))
+						{
+							test.log(LogStatus.PASS, " Documents for respective Notice should be shared =" +msg);
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, " Documents for respective Notice should be shared =" +msg);
+						}
+						driver.switchTo().parentFrame();
+						Thread.sleep(1000);
+						performerPOM. clickViewDocAdvocatebillPdfClose(driver).click();
+				}
+				       
+				public static void ShareTaskDocument(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+				{
+					WebDriverWait wait = new WebDriverWait(driver, 60);
+					progress(driver);
+					performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
+					performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
+					
+			       Thread.sleep(5000);
+				    JavascriptExecutor js = (JavascriptExecutor) driver;
+					js.executeScript("window.scrollBy(500,0)");
+					Thread.sleep(3000);
+					performerPOM.clickTypeDropdown(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
+					Thread.sleep(3000);
+					performerPOM.selectTypeTask(driver).click();					//Selecting 'Task' option.
+//					Thread.sleep(1000);
+//					performerPOM.selectDocument(driver).click();	
+					
+					
+					try
+					{
+						
+					
+					Thread.sleep(1000);
+					performerPOM.shareDocumentIcon(driver).click();
+					
+					   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews1"));
+					   
+					   Thread.sleep(1000);
+						performerPOM.clickNoticeDocumentshareemailcfo(driver).sendKeys("admin@gmail.com");
+						Thread.sleep(1000);
+						performerPOM.clickNoticeDocumentsharecontactnocfo(driver).sendKeys("5555555555");
+						Thread.sleep(1000);
+						performerPOM. clickNoticeDocumentsharesavecfo(driver).click();
+					
+						Thread.sleep(1000);
+						String msg=performerPOM. clickNoticeDocumentsharereadmsgcfo(driver).getText();
+						if(msg.equalsIgnoreCase("Document shared successfully."))
+						{
+							test.log(LogStatus.PASS, " Documents for respective Task should be shared =" +msg);
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, " Documents for respective Task should be shared =" +msg);
+						}
+						driver.switchTo().parentFrame();
+						Thread.sleep(1000);
+						performerPOM. clickViewDocAdvocatebillPdfClose(driver).click();
+					}
+					catch(Exception e)
+					{
+						 Thread.sleep(5000);
+						    // Switching to Alert        
+					        Alert alert = driver.switchTo().alert();		
+					        		
+					        // Capturing alert message.    
+					        String alertMessage= driver.switchTo().alert().getText();	
+					        
+					        Thread.sleep(3000);
+					        test.log(LogStatus.PASS, alertMessage);
+					        		
+					        // Displaying alert message		
+					        System.out.println(alertMessage);	
+					        
+					        		
+					        // Accepting alert		
+					        alert.accept();	
+						
+					}
+				}
+				       
+				
+				
+				
 				 public static void AdvancedSearchDocument(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 				   {
 						 		WebDriverWait wait = new WebDriverWait(driver, 60);
@@ -6114,6 +6280,475 @@ public class CFOMethod {
 						       Thread.sleep(1000);
 							   OverduePOM.clickDashboard(driver).click();				//Clicking on 'My Dashboard'
 				}
+				 
+				 
+				 public static void AdvancedSearchShareCaseDocument(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					{
+						WebDriverWait wait = new WebDriverWait(driver, 60);
+						progress(driver);
+						
+						
+						performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
+						performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
+						 Thread.sleep(3000);
+						 performerPOM.AdvancedSearchReports(driver).click();
+						
+//						Thread.sleep(1000);
+//						performerPOM.selectDocument(driver).click();	
+						Thread.sleep(3000);
+						//performerPOM.selectDocument1(driver).click();
+						
+					     //Select t=new Select(driver.findElement(By.xpath("/html/body/div[77]/div/div[2]/ul/li[2]")));
+					  //  t.selectByIndex(1);
+					
+						
+//	      		       List<WebElement>SeletcRisk = driver.findElements(By.xpath("//li[@class='k-item']"));
+//	      			   selectOptionFromDropDown_bs(SeletcRisk, "Case Documents");
+						Thread.sleep(1000);
+						performerPOM.shareDocumentIcon1(driver).click();
+						
+						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews3"));
+						   
+						   Thread.sleep(1000);
+							performerPOM.clickNoticeDocumentshareemailcfo(driver).sendKeys("admin@gmail.com");
+							Thread.sleep(1000);
+							performerPOM.clickNoticeDocumentsharecontactnocfo(driver).sendKeys("5555555555");
+							Thread.sleep(1000);
+							performerPOM. clickNoticeDocumentsharesavecfo(driver).click();
+						
+							Thread.sleep(1000);
+							String msg=performerPOM. clickNoticeDocumentsharereadmsgcfo(driver).getText();
+							if(msg.equalsIgnoreCase("Document shared successfully."))
+							{
+								test.log(LogStatus.PASS, " Documents for respective case should be shared =" +msg);
+							}
+							else
+							{
+								test.log(LogStatus.FAIL, " Documents for respective case should be shared =" +msg);
+							}
+							driver.switchTo().parentFrame();
+							Thread.sleep(1000);
+							performerPOM. CloseSharePopup(driver).click();
+							
+					}
+					
+					
+					public static void AdvancedSearchShareNoticeDocument(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					{
+						WebDriverWait wait = new WebDriverWait(driver, 60);
+						progress(driver);
+						performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
+						performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
+						
+						 Thread.sleep(3000);
+						 performerPOM.AdvancedSearchReports(driver).click();
+						
+
+				       Thread.sleep(5000);
+					    JavascriptExecutor js = (JavascriptExecutor) driver;
+						js.executeScript("window.scrollBy(500,0)");
+						Thread.sleep(5000);
+						performerPOM.clickTypeDropdown2(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
+						Thread.sleep(5000);
+						performerPOM.selectTypeCase2(driver).click();					//Selecting 'Case' option.
+//						Thread.sleep(1000);
+//						performerPOM.selectDocument(driver).click();	
+						Thread.sleep(1000);
+						performerPOM.shareDocumentIcon1(driver).click();
+						
+						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews3"));
+						   
+						   Thread.sleep(1000);
+							performerPOM.clickNoticeDocumentshareemailcfo(driver).sendKeys("admin@gmail.com");
+							Thread.sleep(1000);
+							performerPOM.clickNoticeDocumentsharecontactnocfo(driver).sendKeys("5555555555");
+							Thread.sleep(1000);
+							performerPOM. clickNoticeDocumentsharesavecfo(driver).click();
+						
+							Thread.sleep(1000);
+							String msg=performerPOM. clickNoticeDocumentsharereadmsgcfo(driver).getText();
+							if(msg.equalsIgnoreCase("Document shared successfully."))
+							{
+								test.log(LogStatus.PASS, " Documents for respective Notice should be shared =" +msg);
+							}
+							else
+							{
+								test.log(LogStatus.FAIL, " Documents for respective Notice should be shared =" +msg);
+							}
+							driver.switchTo().parentFrame();
+							Thread.sleep(1000);
+							performerPOM. CloseSharePopup(driver).click();
+					}
+					       
+					public static void AdvancedSearchShareTaskDocument(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					{
+						WebDriverWait wait = new WebDriverWait(driver, 60);
+						progress(driver);
+						performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
+						performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
+						 Thread.sleep(3000);
+						 performerPOM.AdvancedSearchReports(driver).click();
+						
+				       Thread.sleep(5000);
+					    JavascriptExecutor js = (JavascriptExecutor) driver;
+						js.executeScript("window.scrollBy(500,0)");
+						Thread.sleep(5000);
+						performerPOM.clickTypeDropdown2(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
+						Thread.sleep(5000);
+						performerPOM.selectTypeTask2(driver).click();					//Selecting 'Task' option.
+//						Thread.sleep(1000);
+//						performerPOM.selectDocument(driver).click();	
+						
+						
+						try
+						{
+							
+						
+						Thread.sleep(1000);
+						performerPOM.shareDocumentIcon1(driver).click();
+						
+						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews3"));
+						   
+						   Thread.sleep(1000);
+							performerPOM.clickNoticeDocumentshareemailcfo(driver).sendKeys("admin@gmail.com");
+							Thread.sleep(1000);
+							performerPOM.clickNoticeDocumentsharecontactnocfo(driver).sendKeys("5555555555");
+							Thread.sleep(1000);
+							performerPOM. clickNoticeDocumentsharesavecfo(driver).click();
+						
+							Thread.sleep(1000);
+							String msg=performerPOM. clickNoticeDocumentsharereadmsgcfo(driver).getText();
+							if(msg.equalsIgnoreCase("Document shared successfully."))
+							{
+								test.log(LogStatus.PASS, " Documents for respective Task should be shared =" +msg);
+							}
+							else
+							{
+								test.log(LogStatus.FAIL, " Documents for respective Task should be shared =" +msg);
+							}
+							driver.switchTo().parentFrame();
+							Thread.sleep(1000);
+							performerPOM. clickViewDocAdvocatebillPdfClose(driver).click();
+						}
+						catch(Exception e)
+						{
+							 Thread.sleep(5000);
+							    // Switching to Alert        
+						        Alert alert = driver.switchTo().alert();		
+						        		
+						        // Capturing alert message.    
+						        String alertMessage= driver.switchTo().alert().getText();	
+						        
+						        Thread.sleep(3000);
+						        test.log(LogStatus.PASS, alertMessage);
+						        		
+						        // Displaying alert message		
+						        System.out.println(alertMessage);	
+						        
+						        		
+						        // Accepting alert		
+						        alert.accept();	
+							
+						}
+					}
+					
+					 public static void AddFolderCriticalDocument(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+						{
+							WebDriverWait wait = new WebDriverWait(driver, 60);
+							progress(driver);
+							
+							Thread.sleep(2000);
+							performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
+							Thread.sleep(2000);
+							performerPOM.clickcriticalDocument(driver).click();	             //clicking on 'critical document'
+							Thread.sleep(2000);
+							performerPOM.ClickNewBtn(driver).click();	 
+							Thread.sleep(2000);
+							performerPOM.ClickNewFolderName(driver).click();	
+							Thread.sleep(2000);
+							performerPOM.ClickUsers(driver).click();	
+							
+//						     List<WebElement>selectuser = driver.findElements(By.xpath("//ul[@class='multiselect-container dropdown-menu']"));
+//			      			   selectOptionFromDropDown_bs(selectuser, " Aarav Aharma");
+			      			   
+			      			 Thread.sleep(500);
+								OverduePOM.clickSearchPeople(driver).sendKeys("Aarav Aharma");			//Writing user name to search for
+								
+								Thread.sleep(500);
+								OverduePOM.clickPeopleCheckBox(driver).click();				//Clicking on label to get out from people search box
+			      			   
+			      				Thread.sleep(2000);
+			      			 performerPOM. ClickFoldername(driver).sendKeys("Document Folder as on 27062023");
+			      			 
+			      			Thread.sleep(2000);
+							OverduePOM.clickCreate(driver).click();						//Clicking on create button.
+							
+							String msg = driver.switchTo().alert().getText();
+							test.log(LogStatus.PASS,"Message displayed=" +msg);
+							
+							driver.switchTo().alert().accept();
+			      			 
+			      	}
+					 
+						public static void CriticalDocuments(WebDriver driver, ExtentTest test) throws InterruptedException
+						{
+							Thread.sleep(1000);
+							performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Documents'
+							
+							Thread.sleep(500);
+							performerPOM.clickcriticalDocument(driver).click();	             //clicking on 'critical document'
+							
+							WebDriverWait wait = new WebDriverWait(driver, 15);
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_grdFolderDetail']")));	//Wating till the content table gets visible
+							
+							Thread.sleep(500);
+							String name = OverduePOM.readFolderName(driver).getText();		//Reading the folder name to create new folder.
+							
+							String folder = name+"Doc27072023"; 
+							
+							OverduePOM.clickNew(driver).click();							//Clicking on '+New' button.
+							
+							Thread.sleep(300);
+							litigationAdditionalOwner.MethodsPOM.progress(driver);
+							
+							Thread.sleep(500);
+							OverduePOM.clickNewFolder(driver).click();						//Clicking on 'New Folder'
+							
+							Thread.sleep(300);
+							litigationAdditionalOwner.MethodsPOM.progress(driver);
+							
+							Thread.sleep(300);
+							OverduePOM.clickIsUniversal(driver).click();
+							
+							Thread.sleep(300);
+							OverduePOM.writeFolderName(driver).sendKeys(folder);			//Writing Folder name.
+							
+							Thread.sleep(500);
+							OverduePOM.clickCreate(driver).click();						//Clicking on create button.
+						
+							
+							Thread.sleep(500);
+							litigationAdditionalOwner.MethodsPOM.progress(driver);
+							
+							
+							//String msg = driver.switchTo().alert().getText();
+							//test.log(LogStatus.PASS,"Message displayed=" +msg);
+							
+						//	driver.switchTo().alert().accept();
+							Thread.sleep(100);
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@align='left'])[1]")));
+							name = OverduePOM.readFolderName(driver).getText();				//Reading the folder name we had created
+							
+							if(folder.equalsIgnoreCase(name))
+							{
+								test.log(LogStatus.PASS, "Folder Created Succesfully.='"+folder+"' displayed in the records.");
+							}
+							else
+							{
+								test.log(LogStatus.FAIL, "Folder Created Succesfully.='"+folder+"' doesn't displayed in the records.");
+							}
+							
+							Thread.sleep(500);
+							OverduePOM.readFolderName(driver).click();						//Clicking on folder name we had created.
+							
+							Thread.sleep(2000);
+							performerPOM.ClickDeleteFile(driver).click();
+							
+							String msg = driver.switchTo().alert().getText();
+						    test.log(LogStatus.PASS,"Message displayed=" +msg);
+							
+							driver.switchTo().alert().accept();
+							
+							Thread.sleep(500);
+							OverduePOM.readFolderName(driver).click();						//Clicking on folder name we had created.
+							Thread.sleep(500);
+							OverduePOM.readFolderName(driver).click();						//Clicking on folder name we had created.
+							
+							Thread.sleep(500);
+							litigationAdditionalOwner.MethodsPOM.progress(driver);
+							
+							Thread.sleep(500);
+							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickNew(driver)));
+							OverduePOM.clickNew(driver).click();							//Clicking on 'New'
+							
+							Thread.sleep(500);
+							litigationAdditionalOwner.MethodsPOM.progress(driver);
+							
+							//Thread.sleep(500);
+							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickNewFile(driver)));
+							OverduePOM.clickNewFile(driver).click();						//CLicking on 'New File'
+							
+							Thread.sleep(500);
+							litigationAdditionalOwner.MethodsPOM.progress(driver);
+							
+							Thread.sleep(500);
+							
+							OverduePOM.uploadNewFile(driver).sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");	//uploading new file		
+							
+							Thread.sleep(500);
+							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickUploadDocument(driver)));
+							OverduePOM.clickUploadDocument(driver).click();				//Clicking on 'Upload Document'
+							
+							test.log(LogStatus.PASS,"Document(s) Uploaded Successfully.");
+							
+							Thread.sleep(100);
+							litigationAdditionalOwner.MethodsPOM.progress(driver);
+							
+						Thread.sleep(500);
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@align='left'])[1]")));
+							/*if(OverduePOM.readFolderName(driver).isDisplayed())			//Checking if file got created or not.
+								test.log(LogStatus.PASS, "Uploaded file displayed.");
+							else
+								test.log(LogStatus.PASS, "Uploaded file does not displayed.");*/
+							
+							OverduePOM.readFolderName(driver).click();					//Clicking on file we had uploaded.
+									
+							Thread.sleep(500);
+							OverduePOM.clickShareFolder(driver).click();					//Clicking on Share Folder image.
+							
+							Thread.sleep(500);
+							litigationAdditionalOwner.MethodsPOM.progress(driver);
+							
+							Thread.sleep(500);
+							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickPeople(driver)));
+							OverduePOM.clickPeople(driver).click();						//Clicking on People drop down 
+							OverduePOM.clickSearchPeople(driver).click();					//Clicking on Search People drop down.
+							
+							Thread.sleep(500);
+							OverduePOM.clickSearchPeople(driver).sendKeys("Aarav Aharma");			//Writing user name to search for
+							
+							Thread.sleep(500);
+							OverduePOM.clickPeopleCheckBox(driver).click();				//Clicking on label to get out from people search box
+							
+							Thread.sleep(500);
+							OverduePOM.clickDone(driver).click();	  //Clicking on 'Done' to share folder.
+							
+							String msg3 = driver.switchTo().alert().getText();
+						    test.log(LogStatus.PASS,"Message displayed=" +msg3);
+							
+							driver.switchTo().alert().accept();
+							
+								Thread.sleep(500);
+							OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
+							
+							test.log(LogStatus.PASS, "View Popup open successfully");
+							
+							Thread.sleep(500);
+							performerPOM.ClickDeleteFile(driver).click();
+							
+							String msg2 = driver.switchTo().alert().getText();
+						    test.log(LogStatus.PASS,"Message displayed=" +msg2);
+							
+							driver.switchTo().alert().accept();
+							
+							
+						/*	Thread.sleep(500);
+							OverduePOM.clickShareFolder(driver).click();					//Clicking on Share File image.
+							
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_myRepeater_LnkDeletShare_0']")));	//Waiting till the share element gets visible
+							
+							//Thread.sleep(1000);
+						if(OverduePOM.checkShared(driver).isDisplayed())				//Checking if folder gor shared or not.
+								test.log(LogStatus.PASS, "Uploaded file shared.");
+							else
+								test.log(LogStatus.PASS, "Uploaded file does not shared.");
+							
+							Thread.sleep(500);
+							OverduePOM.closeSharePoppup(driver).click();*/
+						
+							
+							Thread.sleep(500);
+							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickDashboard(driver)));
+							OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
+						}
+						
+				public static void CriticalDocuments1(WebDriver driver, ExtentTest test) throws InterruptedException
+				{	
+					Thread.sleep(1000);
+					performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Documents'
+					
+					Thread.sleep(500);
+					performerPOM.clickcriticalDocument(driver).click();	             //clicking on 'critical document'
+					
+					
+					
+					//Create Sub folder
+					WebDriverWait wait = new WebDriverWait(driver, 15);
+						Thread.sleep(500);
+						OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
+						Thread.sleep(500);
+						OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
+						Thread.sleep(500);
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_grdFolderDetail']")));	//Wating till the content table gets visible
+						
+//						Thread.sleep(500);
+//						String name1 = OverduePOM.readFolderName(driver).getText();		//Reading the folder name to create new folder.
+//						
+//						String folder2 = name1+"Document27jun23"; 
+						Thread.sleep(500);
+						OverduePOM.clickNew(driver).click();							//Clicking on '+New' button.
+						
+						Thread.sleep(500);
+						OverduePOM.clickNewFolder(driver).click();						//Clicking on 'New Folder'
+						
+						Thread.sleep(500);
+						OverduePOM.writeFolderName(driver).sendKeys("Document 27jun23");			//Writing Folder name.
+						
+						Thread.sleep(500);
+						OverduePOM.clickCreate(driver).click();						//Clicking on create button.
+						
+						String msg1=performerPOM.ClickSuccessMsg(driver).getText();
+						if(msg1.equalsIgnoreCase("Folder Created Succesfully."))
+						{
+							test.log(LogStatus.PASS, " sub-folder should get created =" +msg1);
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, " sub-folder should not get  created =" +msg1);
+						}
+						
+						Thread.sleep(500);
+						OverduePOM.closeFolderPoppup(driver).click();	
+						
+						
+						//Share SubFolder
+						OverduePOM.readFolderName(driver).click();					//Clicking on file we had uploaded.
+						OverduePOM.readFolderName(driver).click();					//Clicking on file we had uploaded.
+						OverduePOM.readFolderName(driver).click();	
+						
+						Thread.sleep(500);
+						OverduePOM.clickShareFolder(driver).click();					//Clicking on Share Folder image.
+						
+						Thread.sleep(500);
+						litigationAdditionalOwner.MethodsPOM.progress(driver);
+						
+						Thread.sleep(500);
+						wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickPeople(driver)));
+						OverduePOM.clickPeople(driver).click();						//Clicking on People drop down 
+						OverduePOM.clickSearchPeople(driver).click();					//Clicking on Search People drop down.
+						
+						Thread.sleep(500);
+						OverduePOM.clickSearchPeople(driver).sendKeys("Aarav Aharma");			//Writing user name to search for
+						
+						Thread.sleep(500);
+						OverduePOM.clickPeopleCheckBox(driver).click();				//Clicking on label to get out from people search box
+						
+						Thread.sleep(500);
+						OverduePOM.clickDone(driver).click();	  //Clicking on 'Done' to share folder.
+						
+						String msg3 = driver.switchTo().alert().getText();
+					    test.log(LogStatus.PASS,"Message displayed=" +msg3);
+					    driver.switchTo().alert().accept();
+					    
+					    
+						
+				}
+						
+						
+
+				 
+				 
+				 
 				 
 				 public static void ReportFilter(WebDriver driver,ExtentTest test) throws InterruptedException
 					{

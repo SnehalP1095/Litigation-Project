@@ -2254,6 +2254,16 @@ public class performerPOM
 			   return litigation;
 			   
 			}
+		  public static WebElement clickcriticalDocument(WebDriver driver)
+			{
+		
+		       WebDriverWait wait = new WebDriverWait(driver,30);
+				
+		      litigation = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@id='DocumentShareListNew']/a)[2]")));
+			 
+			   return litigation;
+			   
+			}
 		  public static WebElement clickDownloadDocument(WebDriver driver)
 			{
 		
@@ -2332,7 +2342,7 @@ public class performerPOM
 		  {
 			  
 			     WebElement CaseFile=driver.findElement(By.cssSelector("input[type='file']"));
-			    CaseFile.sendKeys("C:\\Users\\Admin\\Desktop\\Snehal\\ComplianceLatest\\ComplianceLatest\\TestData\\CaseFileUpload.xlsx");
+			    CaseFile.sendKeys("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\CaseFileUpload.xlsx");
 			     return litigation;
 	      }
 		  public static WebElement UploadCaseFile(WebDriver driver) throws InterruptedException
@@ -2400,7 +2410,7 @@ public class performerPOM
 	  {
 		  
 		     WebElement CaseFile=driver.findElement(By.cssSelector("input[type='file']"));
-		    CaseFile.sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");
+		    CaseFile.sendKeys("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\NoticeFileUpload.xlsx");
 		     return litigation;
       }
 	  public static WebElement ChooseOrderFile(WebDriver driver) throws InterruptedException
@@ -6064,8 +6074,72 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/ul/li[2]"));
 					return litigation;
 				}
-			 
-			 
+			 public static WebElement selectDocument(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("(//span[@class='k-dropdown-wrap k-state-default'])[4]"));
+					return litigation;
+				}
+			 public static WebElement selectDocument1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("/html/body/div[77]/div/div[2]/ul/li[2]"));
+					
+					
+					return litigation;
+					
+					
+				}
+			 public static WebElement shareDocumentIcon(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td[16]/a[3]"));
+					return litigation;
+				}
+			 public static WebElement shareDocumentIcon1(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr[1]/td[14]/a[3]"));
+					return litigation;
+				}
+			 public static WebElement CloseSharePopup(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='divViewDocument3']/div/div/div[1]/button"));
+					return litigation;
+				}
+			 public static WebElement ClickNewBtn(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//button[@id='menu1']"));
+					return litigation;
+				}
+			 public static WebElement ClickNewFolderName(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//a[@id='ContentPlaceHolder1_lnkAddNewFolder']"));
+					return litigation;
+				}
+			 public static WebElement ClickUsers(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//button[@class='multiselect dropdown-toggle btn btn-default']"));
+					return litigation;
+				}
+			 public static WebElement ClickFoldername(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//input[@id='ContentPlaceHolder1_txtFolderName']"));
+					return litigation;
+				}
+			 public static WebElement ClickViewFile(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//input[@id='ContentPlaceHolder1_grdFolderDetail_lblName_0']"));
+					return litigation;
+				}
+			 public static WebElement ClickDeleteFile(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//img[@class='deletedrive']"));
+					return litigation;
+				}
+			 public static WebElement ClickSuccessMsg(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//div[@id='ContentPlaceHolder1_divsuccessmsgaCTemSec']"));
+					return litigation;
+				}
+		
+		
 }
 
 

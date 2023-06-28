@@ -744,7 +744,7 @@ public class OverduePOM
 	
 	public static WebElement clickPeopleCheckBox(WebDriver driver)		//Clicking on Checkbox in front of name
 	{
-		performer = driver.findElement(By.xpath("//*[@value='2613']"));
+		performer = driver.findElement(By.xpath("//*[@value='8072']"));
 		return performer;
 	}
 	
@@ -756,7 +756,7 @@ public class OverduePOM
 	
 	public static WebElement clickDone(WebDriver driver)				//Searching 'Done' button
 	{
-		performer = driver.findElement(By.xpath("//*[@value='Done']"));
+		performer = driver.findElement(By.xpath("//*[@value='Share']"));
 		return performer;
 	}
 	

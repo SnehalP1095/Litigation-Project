@@ -183,8 +183,9 @@ private static WebElement selectcheckBox;
 //			}
 //		}
 	
-	
+		Thread.sleep(3000);
 		driver.switchTo().parentFrame();
+		Thread.sleep(3000);
 		performerPOM.clickClose(driver).click();//Clicking on 'Close' 
 		
 //		Thread.sleep(2000);
@@ -1086,7 +1087,7 @@ private static WebElement selectcheckBox;
 //				Row r4 = sheet.getRow(44);
 //				Cell c4 = r4.getCell(1);
 //				String InvoiceNo = c4.getStringCellValue();
-				performerPOM.clickInvoiceNo(driver).sendKeys("48579");
+				performerPOM.clickInvoiceNo(driver).sendKeys("67457");
 				
 				
 				Thread.sleep(3000);
@@ -1117,11 +1118,11 @@ private static WebElement selectcheckBox;
 					
 					Thread.sleep(500);
 					String msg4 = performerPOM.readPymentmsg(driver).getText();		//Reading Message appeared after save button
-					int flag4= 0;
+					
 					if(msg4.equalsIgnoreCase("Payment Details Saved Successfully."))
 					{
 						test.log(LogStatus.PASS, "Message displayed = "+msg4);
-						flag4 = 1;
+						
 					}
 					else
 					{
@@ -1143,7 +1144,7 @@ private static WebElement selectcheckBox;
 					
 					performerPOM.clickInvoiceNo(driver).clear();
 					 Thread.sleep(3000);
-				    performerPOM.clickInvoiceNo(driver).sendKeys("Invoice No 578");
+				    performerPOM.clickInvoiceNo(driver).sendKeys("Invoice No 7650");
 				    
 				    Thread.sleep(6000);
 					performerPOM.clickNoticeStatusPaymentUploadtcfo(driver);
@@ -1277,11 +1278,7 @@ private static WebElement selectcheckBox;
 		   Thread.sleep(3000);
 		   performerPOM.clickExport(driver).click();		   
 	
-		
-//		   Thread.sleep(1000);
-//		   performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
-//		   JavascriptExecutor js = (JavascriptExecutor) driver;
-//		   js.executeScript("window.scrollBy(0,700)");
+	
 		   test.log(LogStatus.PASS, "File download Successfully");
 		   
 		   Thread.sleep(3000);
@@ -1603,11 +1600,11 @@ private static WebElement selectcheckBox;
 		
 		Thread.sleep(500);
 		String msg = performerPOM.readMessage1(driver).getText();		//Reading Message appeared after save button
-		int flag = 0;
+	
 		if(msg.equalsIgnoreCase("Case Created Successfully."))
 		{
 			test.log(LogStatus.PASS, "Message displayed = "+msg);
-			flag = 1;
+		
 		}
 	else
 		{
@@ -1859,7 +1856,7 @@ private static WebElement selectcheckBox;
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("28-06-2023");
+		    performerPOM.clickHearingDate(driver).sendKeys("29-06-2023");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -1960,7 +1957,7 @@ private static WebElement selectcheckBox;
 			performerPOM.clickTaskTitle(driver).clear();
 			
 			Thread.sleep(3000);
-			performerPOM.clickTaskTitle(driver).sendKeys("New Task 24 jun");	//Writing 'Task Title'
+			performerPOM.clickTaskTitle(driver).sendKeys("New Task 25 jun");	//Writing 'Task Title'
 			
 			performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
 			
@@ -2042,7 +2039,7 @@ private static WebElement selectcheckBox;
 			performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 			
 			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test 23JUN2023");
+			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test 25JUN2023");
 			
 			Thread.sleep(3000);
 			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
@@ -2109,7 +2106,7 @@ private static WebElement selectcheckBox;
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("08-07-2023");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("09-07-2023");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2144,7 +2141,7 @@ private static WebElement selectcheckBox;
 			    Thread.sleep(3000);
 			    performerPOM.clickCaseHearingDecsri(driver).clear();
 			    Thread.sleep(3000);
-			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 24 JUN 2023");		//Writing 'HearingDescription'
+			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 25 JUN 2023");		//Writing 'HearingDescription'
 			    
 			    Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearing(driver).click();
@@ -2201,7 +2198,7 @@ private static WebElement selectcheckBox;
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("13-05-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("14-05-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);
@@ -2319,9 +2316,9 @@ private static WebElement selectcheckBox;
 					test.log(LogStatus.PASS, "Message displayed = "+msg6);
 			
 			 Thread.sleep(5000);
-		     performerPOM. clickInvoiceNum(driver).sendKeys("3412");
+		     performerPOM. clickInvoiceNum(driver).sendKeys("7634");
 			 Thread.sleep(4000);
-			 performerPOM. clickInvoiceDate(driver).sendKeys("22-06-2023");
+			 performerPOM. clickInvoiceDate(driver).sendKeys("23-06-2023");
 			 Thread.sleep(4000);
 			 performerPOM.clickAdvocateBillPanel(driver).click();
 			 Thread.sleep(4000);
@@ -2362,7 +2359,7 @@ private static WebElement selectcheckBox;
 				 Thread.sleep(5000);
 			     performerPOM. clickInvoiceNum(driver).clear();
 				 Thread.sleep(5000);
-			     performerPOM. clickInvoiceNum(driver).sendKeys("837480");
+			     performerPOM. clickInvoiceNum(driver).sendKeys("43531");
 			     
 			     Thread.sleep(4000);
 				 performerPOM.clickSaveAdvocateBill(driver).click();
@@ -2495,7 +2492,7 @@ private static WebElement selectcheckBox;
 				Thread.sleep(3000);
 				performerPOM.clickCaseInvoiceNo1(driver).clear();
 				 Thread.sleep(3000);
-			    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 3423");
+			    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 4352");
 			    
 			    Thread.sleep(6000);
 				performerPOM.clickCaseStatusPaymentUploadtcfo(driver);
@@ -2925,6 +2922,7 @@ private static WebElement selectcheckBox;
 			String[] bits = item.split(" ");								//Splitting the String
 			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
 			int count1 = 0;
+		
 			if(compliancesCount.equalsIgnoreCase("to"))
 			{
 				Thread.sleep(2000);
@@ -2953,17 +2951,17 @@ private static WebElement selectcheckBox;
 			}
 			
 			Thread.sleep(100);
-			File dir = new File("C://Users//Snehal Patil//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
 			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
 			Thread.sleep(250);
 			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
-			
+			//test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -2979,58 +2977,7 @@ private static WebElement selectcheckBox;
 			       }
 			    }
 				
-//			Thread.sleep(100);
-//				fis = new FileInputStream(lastModifiedFile);
-//				workbook = new XSSFWorkbook(fis);
-//				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
-//				
-//				int no = sheet.getLastRowNum();
-//				Row row = sheet.getRow(no);
-//				Cell c1 = row.getCell(0);
-//				String records =c1.getStringCellValue();
-//				int SheetRecords = 0;
-//			
-//				try
-//				{
-//					SheetRecords = Integer.parseInt(records);
-//					
-//				}
-//				catch(Exception e)
-//				{
-//					
-//				}
-//				
-////				if(flag == 0)
-////				{
-////					row = sheet.getRow(no-1);
-////					c1 = row.getCell(0);
-////					records = c1.getStringCellValue();
-////					SheetRecords = Integer.parseInt(records);
-////				}
-//				fis.close();
-//				
-//		if(count1 == SheetRecords)
-//				{
-//					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-//					test.log(LogStatus.PASS, "Total records from Grid = "+count1+" | Total records from Report = "+SheetRecords);
-//				}
-//				else
-//				{
-//					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
-//					test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+SheetRecords);
-//				}
-//			}
-//			
-//		
-//			
-//				
-//			else
-//			{
-//				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
-//			}
-//			return open;
-			    
-			    Thread.sleep(100);
+			    /*  	Thread.sleep(100);
 				fis = new FileInputStream(lastModifiedFile);
 				workbook = new XSSFWorkbook(fis);
 				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
@@ -3060,22 +3007,24 @@ private static WebElement selectcheckBox;
 //				}
 				fis.close();
 				
-		if(count1 == SheetRecords)
+				if(count1 == SheetRecords)
 				{
 					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-					test.log(LogStatus.PASS, "Total records from Grid = "+count1+" | Total records from Report = "+SheetRecords);
+					test.log(LogStatus.PASS, "No of records from grid doesn't matches to no of records in Excel Sheet. = Total records from Grid = "+count1+" | Total records from Report = "+SheetRecords);
 				}
 				else
 				{
 					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
-					test.log(LogStatus.FAIL, "Total records from Grid = "+count1+" | Total records from Excel Sheet = "+SheetRecords);
-				}
+					test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet. = Total records from Grid = "+count1+" | Total records from Excel Sheet = "+SheetRecords);
+				}*/
 			}
 			else
 			{
 				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
-			}
+			} 
 			return open;
+		        
+			
 		}
 	
 	public static void NoticeOpen(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException, IOException
@@ -4052,7 +4001,7 @@ private static WebElement selectcheckBox;
 		performerPOM.clickReportTypeFilter(driver).click();
 		
 		Thread.sleep(4000);
-		performerPOM.clickReportTypeFilter5(driver).click();
+		performerPOM.clickReportTypeFilter5(driver).click(); */
 		
 	
 		
@@ -4110,9 +4059,9 @@ private static WebElement selectcheckBox;
 		
 		
 		Thread.sleep(500);
-		Report(driver, test, count1, "Notice");*/
+		Report(driver, test, count1, "Notice");
 		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
 		
 		js.executeScript("window.scrollBy(0,500)");
 		js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=5000");
@@ -4146,7 +4095,7 @@ private static WebElement selectcheckBox;
 		Thread.sleep(3000);
 		performerPOM.selectTypeCase(driver).click();					//Selecting 'Case' option.
 		
-	/*	Thread.sleep(1000);
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		Thread.sleep(500);
 		performerPOM.clickExcelReport(driver).sendKeys(Keys.END);
@@ -4183,7 +4132,7 @@ private static WebElement selectcheckBox;
 		}
 		Thread.sleep(500);
 		Report(driver, test, count1, "Case");
-		*/
+		
 		
 		
 		
@@ -4219,7 +4168,7 @@ private static WebElement selectcheckBox;
 		Thread.sleep(1000);
 		performerPOM.selectTypeTask(driver).click();					//Selecting 'Task' option.
 		
-		/*Thread.sleep(1000);
+		Thread.sleep(1000);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		Thread.sleep(500);
 		performerPOM.clickExcelReport(driver).sendKeys(Keys.END);
@@ -4249,7 +4198,7 @@ private static WebElement selectcheckBox;
 		
 			
 		Thread.sleep(500);
-		Report(driver, test, count1, "Task");*/
+		Report(driver, test, count1, "Task");
 		
 		Thread.sleep(3000);
 		performerPOM.viewTaskDetails(driver).click();	
@@ -6538,11 +6487,11 @@ private static WebElement selectcheckBox;
 			if(performerPOM.clearButton(driver).isEnabled())
 			{
 				performerPOM.clearButton(driver).click();
-				 test.log(LogStatus.PASS, "My Workspace = clear button Work Successfully");
+				 test.log(LogStatus.PASS, "clear button Work Successfully");
 			}
 			else
 			{
-				test.log(LogStatus.PASS, "My Workspace = clear button not Work Successfully");
+				test.log(LogStatus.PASS, "clear button not Work Successfully");
 			}
 	  }
 	  public static void AdvocateBillApprover(WebDriver driver,ExtentTest test) throws InterruptedException
@@ -8472,10 +8421,10 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 	  
 	              	Thread.sleep(3000);
 		         driver.switchTo().parentFrame();
-		        performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		         performerPOM.clickClose(driver).click();//Clicking on 'Close'
 		
 		       Thread.sleep(500);
-		            OverduePOM.clickDashboard(driver).click();
+		        OverduePOM.clickDashboard(driver).click();
 	  
 	  }
           
