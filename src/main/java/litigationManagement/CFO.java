@@ -1597,6 +1597,16 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
+	@Test(priority =2)
+	void ReminderWithoutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("My Reminder verification");
+		
+		CFOMethod.ReminderWithoutData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 				
 	 @Test(priority = 55)
 				void ImportUtility() throws InterruptedException, IOException
@@ -1674,7 +1684,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-			@Test(priority = 2) 		//Sever is blocking and not allowing to upload the file.
+		//@Test(priority = 2) 		//Sever is blocking and not allowing to upload the file.
 			void CriticalDocuments1() throws InterruptedException, IOException
 			{
 				test = extent.startTest(" Critical Document Verification");

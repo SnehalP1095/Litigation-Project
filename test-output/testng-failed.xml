@@ -8,14 +8,13 @@
           <include name="ExternalLawyer"/>
           <include name="MoreReports"/>
           <include name="NoticeDocViewandDownload"/>
-          <include name="StatusPayment"/>
           <include name="Close"/>
-          <include name="CaseDocumentTab"/>
           <include name="CaseOrderTab"/>
           <include name="HearingCalender"/>
           <include name="MyReports"/>
           <include name="setBrowser"/>
           <include name="CaseAdvocateBillTab"/>
+          <include name="CaseTaskActivityTab"/>
           <include name="Login"/>
         </methods>
       </class> <!-- litigationAdditionalOwner.performer -->

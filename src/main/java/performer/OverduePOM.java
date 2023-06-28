@@ -53,6 +53,7 @@ public class OverduePOM
 	private static WebElement approver = null;			//WebElement variable created to click on Approver dropdown.
 	private static WebElement checkbox = null;			//WebElement variable created to click on checkbox to select all checkboxes.
 	
+	
 	public static WebElement closeMessage(WebDriver driver)					//Method for closing Message Popup
 	{
 		msg = driver.findElement(By.xpath("//*[@id='divNotification']/div/div/div[1]/button"));
@@ -705,6 +706,11 @@ public class OverduePOM
 		performer = driver.findElement(By.xpath("//*[@id = 'ContentPlaceHolder1_btnCreateFolder1']"));
 		return performer;
 	}
+	public static WebElement clickCreate1(WebDriver driver)				//Searching 'Create' button after writing folder name
+	{
+		performer = driver.findElement(By.xpath("//*[@id = 'ContentPlaceHolder1_btnCreateFolder']"));
+		return performer;
+	}
 	
 	public static WebElement readFolderMsg(WebDriver driver)			//Searching Message after creating folder.
 	{
@@ -718,7 +724,7 @@ public class OverduePOM
 		return performer;
 	}
 	
-	public static WebElement readFolderName(WebDriver driver)			//Searching first folder name
+	public static WebElement readFolderName(WebDriver driver)		//Searching first folder name
 	{
 		performer = driver.findElement(By.xpath("(//*[@align='left'])[1]"));
 		return performer;

@@ -6452,53 +6452,18 @@ public class CFOMethod {
 						}
 					}
 					
-					 public static void AddFolderCriticalDocument(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
-						{
-							WebDriverWait wait = new WebDriverWait(driver, 60);
-							progress(driver);
-							
-							Thread.sleep(2000);
-							performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
-							Thread.sleep(2000);
-							performerPOM.clickcriticalDocument(driver).click();	             //clicking on 'critical document'
-							Thread.sleep(2000);
-							performerPOM.ClickNewBtn(driver).click();	 
-							Thread.sleep(2000);
-							performerPOM.ClickNewFolderName(driver).click();	
-							Thread.sleep(2000);
-							performerPOM.ClickUsers(driver).click();	
-							
-//						     List<WebElement>selectuser = driver.findElements(By.xpath("//ul[@class='multiselect-container dropdown-menu']"));
-//			      			   selectOptionFromDropDown_bs(selectuser, " Aarav Aharma");
-			      			   
-			      			 Thread.sleep(500);
-								OverduePOM.clickSearchPeople(driver).sendKeys("Aarav Aharma");			//Writing user name to search for
-								
-								Thread.sleep(500);
-								OverduePOM.clickPeopleCheckBox(driver).click();				//Clicking on label to get out from people search box
-			      			   
-			      				Thread.sleep(2000);
-			      			 performerPOM. ClickFoldername(driver).sendKeys("Document Folder as on 27062023");
-			      			 
-			      			Thread.sleep(2000);
-							OverduePOM.clickCreate(driver).click();						//Clicking on create button.
-							
-							String msg = driver.switchTo().alert().getText();
-							test.log(LogStatus.PASS,"Message displayed=" +msg);
-							
-							driver.switchTo().alert().accept();
-			      			 
-			      	}
+				
 					 
 						public static void CriticalDocuments(WebDriver driver, ExtentTest test) throws InterruptedException
 						{
+							WebDriverWait wait = new WebDriverWait(driver, 60);
 							Thread.sleep(1000);
 							performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Documents'
 							
 							Thread.sleep(500);
 							performerPOM.clickcriticalDocument(driver).click();	             //clicking on 'critical document'
 							
-							WebDriverWait wait = new WebDriverWait(driver, 15);
+							
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_grdFolderDetail']")));	//Wating till the content table gets visible
 							
 							Thread.sleep(500);
@@ -6548,16 +6513,165 @@ public class CFOMethod {
 								test.log(LogStatus.FAIL, "Folder Created Succesfully.='"+folder+"' doesn't displayed in the records.");
 							}
 							
+							//without Enter folder Name
+							
+							Thread.sleep(2000);
+							OverduePOM.clickNew(driver).click();	
+							
+							Thread.sleep(2000);
+							OverduePOM.clickNewFolder(driver).click();						//Clicking on 'New Folder'
+							
+							Thread.sleep(2000);
+							OverduePOM.clickCreate(driver).click();						//Clicking on create button.
+							String msg=performerPOM.ClickInvalidMsg(driver).getText();
+							if(msg.equalsIgnoreCase(msg))
+							{
+								test.log(LogStatus.PASS,"Without Enter Folder Name =" +msg);
+							}
+							else
+							{
+								test.log(LogStatus.FAIL,"Without Enter Folder Name =" +msg);
+							}
+							
+							Thread.sleep(2000);
+							OverduePOM.closeFolderPoppup(driver).click();	
+							
+							///Share Document in Main Folder 
+							
+						/*	Thread.sleep(500);
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@align='left'])[1]")));
+							/*if(OverduePOM.readFolderName(driver).isDisplayed())			//Checking if file got created or not.
+								test.log(LogStatus.PASS, "Uploaded file displayed.");
+							else
+								test.log(LogStatus.PASS, "Uploaded file does not displayed.");
+							Thread.sleep(2000);
+							OverduePOM.readFolderName(driver).click();					//Clicking on file we had uploaded.
+									
+							Thread.sleep(2000);
+							OverduePOM.clickShareFolder(driver).click();					//Clicking on Share Folder image.
+							
+							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickPeople(driver)));
+							Thread.sleep(2000);
+							OverduePOM.clickPeople(driver).click();						//Clicking on People drop down 
+							Thread.sleep(2000);
+							OverduePOM.clickSearchPeople(driver).click();					//Clicking on Search People drop down.
+							
+							Thread.sleep(2000);
+							OverduePOM.clickSearchPeople(driver).sendKeys("Aarav Aharma");			//Writing user name to search for
+							
+							Thread.sleep(2000);
+							OverduePOM.clickPeopleCheckBox(driver).click();				//Clicking on label to get out from people search box
+							
+							Thread.sleep(2000);
+							OverduePOM.clickDone(driver).click();	  //Clicking on 'Done' to share folder.
+							
+							String msg3 = driver.switchTo().alert().getText();
+						    test.log(LogStatus.PASS,"Message displayed=" +msg3);
+							
+							driver.switchTo().alert().accept(); */
+							
+							//Delete Folder
+							
 							Thread.sleep(500);
 							OverduePOM.readFolderName(driver).click();						//Clicking on folder name we had created.
 							
 							Thread.sleep(2000);
 							performerPOM.ClickDeleteFile(driver).click();
 							
-							String msg = driver.switchTo().alert().getText();
-						    test.log(LogStatus.PASS,"Message displayed=" +msg);
+							String msg1 = driver.switchTo().alert().getText();
+						    test.log(LogStatus.PASS,"Message displayed=" +msg1);
 							
 							driver.switchTo().alert().accept();
+							
+							
+							
+			
+							Thread.sleep(500);
+							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickDashboard(driver)));
+							OverduePOM.clickDashboard(driver).click();	
+							
+							
+							
+							
+						}
+						
+						public static void CriticalDocuments1(WebDriver driver, ExtentTest test) throws InterruptedException
+						{
+							WebDriverWait wait = new WebDriverWait(driver, 60);
+					
+							Thread.sleep(1000);
+							performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Documents'
+							
+							Thread.sleep(500);
+							performerPOM.clickcriticalDocument(driver).click();	             //clicking on 'critical document'
+							
+							//Create Sub folder
+							
+								Thread.sleep(500);
+								OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
+								Thread.sleep(500);
+								OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
+								Thread.sleep(500);
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_grdFolderDetail']")));	//Wating till the content table gets visible
+								
+
+								Thread.sleep(500);
+								OverduePOM.clickNew(driver).click();							//Clicking on '+New' button.
+								
+								Thread.sleep(5000);
+								OverduePOM.clickNewFolder(driver).click();						//Clicking on 'New Folder'
+								
+								Thread.sleep(5000);
+								OverduePOM.writeFolderName(driver).sendKeys("Document 28jun23");			//Writing Folder name.
+								
+								Thread.sleep(5000);
+								OverduePOM.clickCreate1(driver).click();						//Clicking on create button.
+								Thread.sleep(5000);
+								try
+								{
+									String msg1=performerPOM.ClickSuccessMsg(driver).getText();
+									test.log(LogStatus.PASS, " sub-folder should get created =" +msg1);
+								}
+								catch(Exception e)
+								{
+									String msg1=performerPOM.ClickInvalidMsg(driver).getText();
+									test.log(LogStatus.PASS, " sub-folder should not get  created =" +msg1);
+								}
+								
+								Thread.sleep(500);
+								OverduePOM.closeFolderPoppup(driver).click();	
+								
+								//Without enter sub-folder 
+								
+
+								Thread.sleep(2000);
+								OverduePOM.clickNew(driver).click();			
+								
+								Thread.sleep(2000);
+								OverduePOM.clickNewFolder(driver).click();						//Clicking on 'New Folder'
+								
+								
+								Thread.sleep(2000);
+								OverduePOM.clickCreate1(driver).click();						//Clicking on create button.
+								String msg=performerPOM.ClickInvalidMsg(driver).getText();
+								if(msg.equalsIgnoreCase(msg))
+								{
+									test.log(LogStatus.PASS,"Without Enter Sub-Folder Name =" +msg);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL,"Without Enter Sub-Folder Name =" +msg);
+								}
+								
+								Thread.sleep(2000);
+								OverduePOM.closeFolderPoppup(driver).click();	
+								
+								
+								
+								
+								
+							
+							//Upload Document File
 							
 							Thread.sleep(500);
 							OverduePOM.readFolderName(driver).click();						//Clicking on folder name we had created.
@@ -6589,8 +6703,15 @@ public class CFOMethod {
 							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickUploadDocument(driver)));
 							OverduePOM.clickUploadDocument(driver).click();				//Clicking on 'Upload Document'
 							
-							test.log(LogStatus.PASS,"Document(s) Uploaded Successfully.");
+						
 							
+							String msg1 = driver.switchTo().alert().getText();
+						    test.log(LogStatus.PASS,"Message displayed=" +msg1);
+							
+							driver.switchTo().alert().accept();
+							
+							
+							//Share Document 
 							Thread.sleep(100);
 							litigationAdditionalOwner.MethodsPOM.progress(driver);
 							
@@ -6628,11 +6749,53 @@ public class CFOMethod {
 							
 							driver.switchTo().alert().accept();
 							
-								Thread.sleep(500);
-							OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
+							//view Document File
+
+							Thread.sleep(2000);
+				
+						OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
+						
+						test.log(LogStatus.PASS, "View Popup open successfully");
+						
+						//Download Document file
+						
+						Thread.sleep(2000);
+						performerPOM.ClickDownloadfile(driver).click();
+						
+						test.log(LogStatus.PASS, "File Download successfully");
+						
+						//Update Document Details
+						
+					/*	Thread.sleep(2000);
+						OverduePOM.readFolderName(driver).click();	
+						
+						
+						Thread.sleep(2000);
+						performerPOM.ClickEditDetailesFile(driver).click();	
+						
+						Thread.sleep(500);
+						performerPOM.ClickHeader(driver).clear();	
+						
+						
+						Thread.sleep(500);
+						performerPOM.ClickHeader(driver).sendKeys("ABCD");
+						
+						Thread.sleep(500);
+						performerPOM.ClickUpdateInfo(driver).click();	
+						Thread.sleep(500);
+						String msg4=performerPOM.ClickUpdateSuccessmsg(driver).getText();
+						
+						if(msg4.equalsIgnoreCase(msg4))
+						{
+							test.log(LogStatus.PASS, "Message Displayed =" +msg4);
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Message Displayed =" +msg4);
+						}*/
 							
-							test.log(LogStatus.PASS, "View Popup open successfully");
-							
+								
+							//Delete Document file
 							Thread.sleep(500);
 							performerPOM.ClickDeleteFile(driver).click();
 							
@@ -6642,107 +6805,13 @@ public class CFOMethod {
 							driver.switchTo().alert().accept();
 							
 							
-						/*	Thread.sleep(500);
-							OverduePOM.clickShareFolder(driver).click();					//Clicking on Share File image.
-							
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_myRepeater_LnkDeletShare_0']")));	//Waiting till the share element gets visible
-							
-							//Thread.sleep(1000);
-						if(OverduePOM.checkShared(driver).isDisplayed())				//Checking if folder gor shared or not.
-								test.log(LogStatus.PASS, "Uploaded file shared.");
-							else
-								test.log(LogStatus.PASS, "Uploaded file does not shared.");
-							
-							Thread.sleep(500);
-							OverduePOM.closeSharePoppup(driver).click();*/
-						
-							
 							Thread.sleep(500);
 							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickDashboard(driver)));
 							OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
 						}
 						
-				public static void CriticalDocuments1(WebDriver driver, ExtentTest test) throws InterruptedException
-				{	
-					Thread.sleep(1000);
-					performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Documents'
-					
-					Thread.sleep(500);
-					performerPOM.clickcriticalDocument(driver).click();	             //clicking on 'critical document'
-					
-					
-					
-					//Create Sub folder
-					WebDriverWait wait = new WebDriverWait(driver, 15);
-						Thread.sleep(500);
-						OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
-						Thread.sleep(500);
-						OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
-						Thread.sleep(500);
-						wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_grdFolderDetail']")));	//Wating till the content table gets visible
 						
-//						Thread.sleep(500);
-//						String name1 = OverduePOM.readFolderName(driver).getText();		//Reading the folder name to create new folder.
-//						
-//						String folder2 = name1+"Document27jun23"; 
-						Thread.sleep(500);
-						OverduePOM.clickNew(driver).click();							//Clicking on '+New' button.
-						
-						Thread.sleep(500);
-						OverduePOM.clickNewFolder(driver).click();						//Clicking on 'New Folder'
-						
-						Thread.sleep(500);
-						OverduePOM.writeFolderName(driver).sendKeys("Document 27jun23");			//Writing Folder name.
-						
-						Thread.sleep(500);
-						OverduePOM.clickCreate(driver).click();						//Clicking on create button.
-						
-						String msg1=performerPOM.ClickSuccessMsg(driver).getText();
-						if(msg1.equalsIgnoreCase("Folder Created Succesfully."))
-						{
-							test.log(LogStatus.PASS, " sub-folder should get created =" +msg1);
-						}
-						else
-						{
-							test.log(LogStatus.FAIL, " sub-folder should not get  created =" +msg1);
-						}
-						
-						Thread.sleep(500);
-						OverduePOM.closeFolderPoppup(driver).click();	
-						
-						
-						//Share SubFolder
-						OverduePOM.readFolderName(driver).click();					//Clicking on file we had uploaded.
-						OverduePOM.readFolderName(driver).click();					//Clicking on file we had uploaded.
-						OverduePOM.readFolderName(driver).click();	
-						
-						Thread.sleep(500);
-						OverduePOM.clickShareFolder(driver).click();					//Clicking on Share Folder image.
-						
-						Thread.sleep(500);
-						litigationAdditionalOwner.MethodsPOM.progress(driver);
-						
-						Thread.sleep(500);
-						wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickPeople(driver)));
-						OverduePOM.clickPeople(driver).click();						//Clicking on People drop down 
-						OverduePOM.clickSearchPeople(driver).click();					//Clicking on Search People drop down.
-						
-						Thread.sleep(500);
-						OverduePOM.clickSearchPeople(driver).sendKeys("Aarav Aharma");			//Writing user name to search for
-						
-						Thread.sleep(500);
-						OverduePOM.clickPeopleCheckBox(driver).click();				//Clicking on label to get out from people search box
-						
-						Thread.sleep(500);
-						OverduePOM.clickDone(driver).click();	  //Clicking on 'Done' to share folder.
-						
-						String msg3 = driver.switchTo().alert().getText();
-					    test.log(LogStatus.PASS,"Message displayed=" +msg3);
-					    driver.switchTo().alert().accept();
-					    
-					    
-						
-				}
+	
 						
 						
 
@@ -8497,6 +8566,167 @@ public class CFOMethod {
 					        // Accepting alert		
 					        alert.accept();		
 					}
+					
+					
+					public static void ReminderWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					{
+						WebDriverWait wait = new WebDriverWait(driver, 180);
+						progress(driver);
+						
+						
+						performerPOM.clickMyReminder(driver).click();					//Clicking on 'My Reports'
+						
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.CheckRecordsTable(driver)));	//Wait until records table gets visible.
+						
+						Reminder(driver, test, "Case");
+						
+						Reminder(driver, test, "Notice");
+						
+						Reminder(driver, test, "Task");
+						
+						Thread.sleep(3000);
+						OverduePOM.clickDashboard(driver).click();
+					}
+					
+					static void Reminder(WebDriver driver, ExtentTest test, String type) throws InterruptedException
+					{
+						WebDriverWait wait = new WebDriverWait(driver, 180);
+						
+						//Without Enter Data
+						
+						Thread.sleep(500);
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickAddNew1(driver)));
+						performerPOM.clickAddNew1(driver).click();		//Clicking on 'Add New' button.
+						
+						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_showReminderDetail"));
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickType(driver)));
+						Actions action = new Actions(driver);
+						
+						if(type.equalsIgnoreCase("Notice"))
+						{
+							action.moveToElement(performerPOM.clickType(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ENTER).perform();
+						}
+						else if(type.equalsIgnoreCase("Task"))
+						{
+							action.moveToElement(performerPOM.clickType(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
+						}
+						
+						
+						
+						Thread.sleep(3000);
+						performerPOM.clickSave(driver).click();				//Clicking on Save button.
+						
+						Thread.sleep(3000);
+						String msg = performerPOM.readMsg3(driver).getText();
+
+						
+						if(msg.equalsIgnoreCase(msg))
+						{
+							test.log(LogStatus.PASS, "Message Displayed =" +msg);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Message Displayed =" +msg);
+						}
+						
+						Thread.sleep(300);
+						driver.switchTo().parentFrame();
+						
+						Thread.sleep(300);
+						performerPOM.clickCloseReminder(driver).click();
+						
+						//Two Mandatory fields
+						
+						Thread.sleep(2000);
+						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
+						
+						
+						Thread.sleep(3000);
+						performerPOM.clickDate(driver).click();
+						Thread.sleep(3000);
+						OverduePOM.selectNextMonth(driver).click();
+						OverduePOM.selectDate(driver).click();
+						
+						Thread.sleep(3000);
+						performerPOM.clickSave(driver).click();				//Clicking on Save button.
+						
+						Thread.sleep(3000);
+						String msg1 = performerPOM.readMsg3(driver).getText();
+
+						
+						if(msg.equalsIgnoreCase(msg))
+						{
+							test.log(LogStatus.PASS, "Message Displayed =" +msg1);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Message Displayed =" +msg1);
+						}
+						
+						Thread.sleep(300);
+						driver.switchTo().parentFrame();
+						
+						Thread.sleep(300);
+						performerPOM.clickCloseReminder(driver).click();
+						
+						
+						//Reminder date greater than current date
+						
+						
+						Thread.sleep(2000);
+						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
+												
+						Thread.sleep(3000);
+						performerPOM.clickReminderText(driver).clear();
+						
+						Thread.sleep(3000);
+						performerPOM.clickReminderText(driver).sendKeys("Reminder  test 25march2023");
+						
+						Thread.sleep(3000);
+						performerPOM.clickDescription(driver).clear();
+						
+						Thread.sleep(3000);
+						performerPOM.clickDescription(driver).sendKeys("Reminder test 25march2023");
+						
+						Thread.sleep(3000);
+						performerPOM.clickDate(driver).sendKeys("28-06-2023");
+						
+						
+						Thread.sleep(3000);
+						performerPOM.clickSave(driver).click();				//Clicking on Save button.
+						
+						Thread.sleep(3000);
+						String msg2 = performerPOM.readMsg(driver).getText();
+
+						
+						if(msg.equalsIgnoreCase(msg))
+						{
+							test.log(LogStatus.PASS, "Message Displayed =" +msg2);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Message Displayed =" +msg2);
+						}
+						
+						Thread.sleep(300);
+						driver.switchTo().parentFrame();
+						
+						Thread.sleep(300);
+						performerPOM.clickCloseReminder(driver).click();
+						
+						
+				}
+						
+					
+					
+					
+					
+					
+					
+					
 					public static void LegalEntity(WebDriver driver,ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					 {
 						

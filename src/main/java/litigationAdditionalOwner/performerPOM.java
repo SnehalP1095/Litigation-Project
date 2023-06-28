@@ -1396,6 +1396,11 @@ public class performerPOM
 		litigation = driver.findElement(By.xpath("//*[@id='vsReminder']/ul/li"));
 		return litigation;
 	}
+	public static WebElement readMsg3(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='vsReminder']/ul"));
+		return litigation;
+	}
 	
 	public static WebElement clickCloseReminder(WebDriver driver)
 	{
@@ -6138,8 +6143,41 @@ public class performerPOM
 					litigation=driver.findElement(By.xpath("//div[@id='ContentPlaceHolder1_divsuccessmsgaCTemSec']"));
 					return litigation;
 				}
-		
-		
+			 public static WebElement ClickInvalidMsg(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//div[@id='ContentPlaceHolder1_FolderValidation']"));
+					return litigation;
+				}
+			 public static WebElement ClickEditFolder(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//a[@id='ContentPlaceHolder1_grdFolderDetail_lnkEditFolder_0']"));
+					return litigation;
+				}
+			 public static WebElement ClickDownloadfile(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//img[@class='viewdrive']"));
+					return litigation;
+				}
+			 public static WebElement ClickEditDetailesFile(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//img[@class='editdrive']"));
+					return litigation;
+				}
+			 public static WebElement ClickHeader(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//input[@id='ContentPlaceHolder1_TxtDocHeader']"));
+					return litigation;
+				}
+			 public static WebElement ClickUpdateInfo(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//input[@id='ContentPlaceHolder1_btnUpdateInfo']"));
+					return litigation;
+				}
+			 public static WebElement ClickUpdateSuccessmsg(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//span[@id='ContentPlaceHolder1_successmsg']"));
+					return litigation;
+				}
 }
 
 

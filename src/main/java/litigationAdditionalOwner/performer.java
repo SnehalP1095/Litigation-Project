@@ -222,7 +222,76 @@ public class performer
 		extent.flush();
 	}
 	
-@Test(priority = 12)
+	@Test(priority = 12)
+ 	void NoticeDocumentTab() throws InterruptedException, IOException
+ 	{
+ 		test = extent.startTest("Notice Document verification");
+ 		
+ 		
+ 		MethodsPOM.NoticeDocument(driver, test);
+ 		
+ 		extent.endTest(test);
+ 		extent.flush();
+ 	}
+
+@Test(priority = 13)
+void NoticeTaskActivityTab() throws InterruptedException, IOException
+{
+	test = extent.startTest("Notice Task/Activity verification");
+	
+	
+	MethodsPOM.TaskActivtity(driver, test,workbook);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+
+@Test(priority = 14)
+void NoticeResponseTab() throws InterruptedException, IOException
+{
+	test = extent.startTest("Notice Response tab verification");
+	
+	
+	MethodsPOM.Response(driver, test,workbook);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+@Test(priority = 15)
+void NoticePaymentLogTab() throws InterruptedException, IOException
+{
+	test = extent.startTest("Notice PaymentLog tab verification");
+	
+	
+	MethodsPOM.PaymentLog(driver, test);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+@Test(priority = 16)
+void NoticeExternalLawyerTab() throws InterruptedException, IOException
+{
+	test = extent.startTest("Notice ExternalLawyerRating tab verification");
+	
+	
+	MethodsPOM.ExternalLawyerRating(driver, test);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+@Test(priority = 17)
+void NoticeAuditLogTab() throws InterruptedException, IOException
+{
+	test = extent.startTest("Notice AuditLog tab verification");
+	
+	
+	MethodsPOM.AuditLog(driver, test);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+	
+@Test(priority = 18)
 	void NoticeDocViewandDownload() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Document verification");
@@ -233,7 +302,7 @@ public class performer
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 13)
+	@Test(priority = 19)
 	void CaseDocumentTab() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Document verification");
@@ -255,7 +324,7 @@ public class performer
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 15)
+	@Test(priority = 20)
 	void CaseHearingTab() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Hearing verification");
@@ -266,7 +335,7 @@ public class performer
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 16)
+	@Test(priority = 21)
 	void CaseOrderTab() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Order verification");
@@ -277,7 +346,7 @@ public class performer
 		extent.endTest(test);
 		extent.flush();
 	}
-		@Test(priority = 17)
+		@Test(priority = 22)
 	void CaseAdvocateBillTab() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case advocate bill verification");
@@ -288,7 +357,7 @@ public class performer
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 18)
+	@Test(priority = 23)
 	void StatusPayment() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Status/Payment verification");
@@ -299,7 +368,7 @@ public class performer
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 19)
+	@Test(priority = 24)
 	void ExternalLawyer() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case External Lawyer verification");
@@ -310,7 +379,7 @@ public class performer
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 20)
+	@Test(priority = 25)
 	void Auditlog() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Audit Log verification");
@@ -321,7 +390,7 @@ public class performer
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 21)
+	@Test(priority = 26)
 	void MyDocument() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Download and View Document Verification");
@@ -333,7 +402,7 @@ public class performer
 		extent.flush();
 	}
 	
-	@Test(priority = 22)
+	@Test(priority = 27)
     void MyReports() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Reports excel count verification");
@@ -356,7 +425,7 @@ public class performer
 		extent.flush();
 	}
 	
-	@Test(priority = 24)
+	@Test(priority = 28)
 	void MyReminder() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reminder verification");
@@ -368,7 +437,7 @@ public class performer
 		extent.flush();
 	}
 	
-	@Test(priority = 24)
+	@Test(priority = 29)
 	void ImportUtility() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Import Utility verification");
@@ -380,7 +449,7 @@ public class performer
 	}
 	
 		
-	@Test(priority = 25)
+	@Test(priority = 30)
 		void AdvancedSearchworkspace() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Workspace(Advanced Search) Report verification");
@@ -391,7 +460,7 @@ public class performer
 			extent.endTest(test);
 			extent.flush();
 		}
-	@Test(priority = 26)
+	@Test(priority = 31)
 		void AdvancedSearchDoc() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Document(Advanced search)Report Verification");
@@ -402,7 +471,7 @@ public class performer
 			extent.endTest(test);
 			extent.flush();
 		}
-	 @Test(priority = 27)
+	 @Test(priority = 32)
 		void AdvancedSearch() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Advanced Search Reports excel  verification");
@@ -414,7 +483,7 @@ public class performer
 			extent.flush();
 		}
 	
-	@Test(priority = 28)
+	@Test(priority = 33)
 		void AdvocateBill() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Advocate bill verification");
@@ -425,7 +494,7 @@ public class performer
 			extent.endTest(test);
 			extent.flush();
 		}
-	@Test(priority = 29)
+	@Test(priority = 34)
 		void AdvocateBill1() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Approver Assignment Log verification");
@@ -435,7 +504,7 @@ public class performer
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 30)
+		@Test(priority = 35)
 				void HearingCalender() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Case Hearing Calender Verification");
@@ -446,7 +515,7 @@ public class performer
 					extent.endTest(test);
 					extent.flush();
 				}
-	@Test(priority = 31)
+	@Test(priority = 36)
 		void CaseHearing() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Case Hearing Count Verification");

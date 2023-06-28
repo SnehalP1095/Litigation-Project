@@ -183,9 +183,11 @@ private static WebElement selectcheckBox;
 //			}
 //		}
 	
-		Thread.sleep(3000);
+	
 		driver.switchTo().parentFrame();
 		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.elementToBeClickable(performerPOM.clickClose(driver)));	
 		performerPOM.clickClose(driver).click();//Clicking on 'Close' 
 		
 //		Thread.sleep(2000);
@@ -1957,7 +1959,7 @@ private static WebElement selectcheckBox;
 			performerPOM.clickTaskTitle(driver).clear();
 			
 			Thread.sleep(3000);
-			performerPOM.clickTaskTitle(driver).sendKeys("New Task 25 jun");	//Writing 'Task Title'
+			performerPOM.clickTaskTitle(driver).sendKeys("New Task 28 jun");	//Writing 'Task Title'
 			
 			performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
 			
@@ -2039,7 +2041,7 @@ private static WebElement selectcheckBox;
 			performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 			
 			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test 25JUN2023");
+			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test 28JUN2023");
 			
 			Thread.sleep(3000);
 			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
@@ -2106,7 +2108,7 @@ private static WebElement selectcheckBox;
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("09-07-2023");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("10-07-2023");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2141,7 +2143,7 @@ private static WebElement selectcheckBox;
 			    Thread.sleep(3000);
 			    performerPOM.clickCaseHearingDecsri(driver).clear();
 			    Thread.sleep(3000);
-			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 25 JUN 2023");		//Writing 'HearingDescription'
+			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 28 JUN 2023");		//Writing 'HearingDescription'
 			    
 			    Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearing(driver).click();
@@ -2198,7 +2200,7 @@ private static WebElement selectcheckBox;
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("14-05-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("15-05-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);
@@ -2316,9 +2318,9 @@ private static WebElement selectcheckBox;
 					test.log(LogStatus.PASS, "Message displayed = "+msg6);
 			
 			 Thread.sleep(5000);
-		     performerPOM. clickInvoiceNum(driver).sendKeys("7634");
+		     performerPOM. clickInvoiceNum(driver).sendKeys("7896");
 			 Thread.sleep(4000);
-			 performerPOM. clickInvoiceDate(driver).sendKeys("23-06-2023");
+			 performerPOM. clickInvoiceDate(driver).sendKeys("28-06-2023");
 			 Thread.sleep(4000);
 			 performerPOM.clickAdvocateBillPanel(driver).click();
 			 Thread.sleep(4000);
@@ -4553,13 +4555,13 @@ private static WebElement selectcheckBox;
 		action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 22JUN2023");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 28JUN2023");
 		
 		Thread.sleep(3000);
-		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 22JUN2023");
+		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 28JUN2023");
 		
 		Thread.sleep(3000);
-		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 22JUN2023");
+		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 28JUN2023");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -4615,7 +4617,7 @@ private static WebElement selectcheckBox;
 		performerPOM.clickReminderText(driver).clear();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 23jun23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 29jun23");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
