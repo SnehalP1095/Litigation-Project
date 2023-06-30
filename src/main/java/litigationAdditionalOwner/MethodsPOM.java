@@ -186,7 +186,6 @@ private static WebElement selectcheckBox;
 	
 		driver.switchTo().parentFrame();
 		Thread.sleep(3000);
-
 		wait.until(ExpectedConditions.elementToBeClickable(performerPOM.clickClose(driver)));	
 		performerPOM.clickClose(driver).click();//Clicking on 'Close' 
 		
@@ -1858,7 +1857,7 @@ private static WebElement selectcheckBox;
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("29-06-2023");
+		    performerPOM.clickHearingDate(driver).sendKeys("28-07-2023");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -1952,14 +1951,18 @@ private static WebElement selectcheckBox;
 			Thread.sleep(2000);
 			performerPOM.clickMinimize(driver).click();	
 			
-			//Thread.sleep(3000);
-			//performerPOM.clickNoticeEditTaskcfo(driver).click();
+//			Thread.sleep(3000);
+//			performerPOM.clickNoticeEditTaskcfo(driver).click();
+			
+//			JavascriptExecutor js = (JavascriptExecutor) driver;
+//			
+//			js.executeScript("window.scrollBy(0,200)");
 			
 			Thread.sleep(3000);
 			performerPOM.clickTaskTitle(driver).clear();
 			
 			Thread.sleep(3000);
-			performerPOM.clickTaskTitle(driver).sendKeys("New Task 28 jun");	//Writing 'Task Title'
+			performerPOM.clickTaskTitle(driver).sendKeys("New Task 30 jun");	//Writing 'Task Title'
 			
 			performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
 			
@@ -2012,7 +2015,7 @@ private static WebElement selectcheckBox;
 			Thread.sleep(3000);
 			OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
 			
-			Thread.sleep(300);
+			Thread.sleep(3000);
 			wait.until(ExpectedConditions.visibilityOf(performerPOM.readTaskMsg(driver)));
 			
 			Thread.sleep(300);
@@ -2041,7 +2044,7 @@ private static WebElement selectcheckBox;
 			performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 			
 			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test 28JUN2023");
+			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test 30JUN2023");
 			
 			Thread.sleep(3000);
 			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
@@ -2108,7 +2111,7 @@ private static WebElement selectcheckBox;
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("10-07-2023");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("12-07-2023");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2143,7 +2146,7 @@ private static WebElement selectcheckBox;
 			    Thread.sleep(3000);
 			    performerPOM.clickCaseHearingDecsri(driver).clear();
 			    Thread.sleep(3000);
-			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 28 JUN 2023");		//Writing 'HearingDescription'
+			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 30 JUN 2023");		//Writing 'HearingDescription'
 			    
 			    Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearing(driver).click();
@@ -2200,7 +2203,7 @@ private static WebElement selectcheckBox;
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("15-05-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("16-05-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);
@@ -2318,9 +2321,9 @@ private static WebElement selectcheckBox;
 					test.log(LogStatus.PASS, "Message displayed = "+msg6);
 			
 			 Thread.sleep(5000);
-		     performerPOM. clickInvoiceNum(driver).sendKeys("7896");
+		     performerPOM. clickInvoiceNum(driver).sendKeys("43230");
 			 Thread.sleep(4000);
-			 performerPOM. clickInvoiceDate(driver).sendKeys("28-06-2023");
+			 performerPOM. clickInvoiceDate(driver).sendKeys("29-06-2023");
 			 Thread.sleep(4000);
 			 performerPOM.clickAdvocateBillPanel(driver).click();
 			 Thread.sleep(4000);
@@ -2361,7 +2364,7 @@ private static WebElement selectcheckBox;
 				 Thread.sleep(5000);
 			     performerPOM. clickInvoiceNum(driver).clear();
 				 Thread.sleep(5000);
-			     performerPOM. clickInvoiceNum(driver).sendKeys("43531");
+			     performerPOM. clickInvoiceNum(driver).sendKeys("4265");
 			     
 			     Thread.sleep(4000);
 				 performerPOM.clickSaveAdvocateBill(driver).click();
@@ -2583,7 +2586,7 @@ private static WebElement selectcheckBox;
 				   
 				   Thread.sleep(4000);
 				   performerPOM.selectCaseExternalLawyer(driver);
-				    Thread.sleep(3000);
+				    Thread.sleep(4000);
 				    performerPOM.selectExternalLawyerRating(driver);
 				   Thread.sleep(3000);
 				   performerPOM.clickNewCriteria(driver).click();
@@ -4227,6 +4230,12 @@ private static WebElement selectcheckBox;
 		Thread.sleep(3000);
 		performerPOM.clickMyReports(driver).click();
 		
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,-500)");
+		
 		Thread.sleep(5000);
 		performerPOM.clickMoreReports(driver).click();
 		//--------------------------------Case Report------------------------------------------
@@ -4555,13 +4564,13 @@ private static WebElement selectcheckBox;
 		action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 28JUN2023");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 29JUN2023");
 		
 		Thread.sleep(3000);
-		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 28JUN2023");
+		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 29JUN2023");
 		
 		Thread.sleep(3000);
-		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 28JUN2023");
+		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 29JUN2023");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -4617,7 +4626,7 @@ private static WebElement selectcheckBox;
 		performerPOM.clickReminderText(driver).clear();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 29jun23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 30jun23");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();

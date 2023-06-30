@@ -5,17 +5,33 @@
     <classes>
       <class name="litigationAdditionalOwner.performer">
         <methods>
-          <include name="ExternalLawyer"/>
-          <include name="MoreReports"/>
+          <include name="NoticeAuditLogTab"/>
           <include name="NoticeDocViewandDownload"/>
+          <include name="StatusPayment"/>
+          <include name="MyReminder"/>
           <include name="Close"/>
-          <include name="CaseOrderTab"/>
+          <include name="NoticePaymentLogTab"/>
           <include name="HearingCalender"/>
-          <include name="MyReports"/>
-          <include name="setBrowser"/>
+          <include name="AdvancedSearch"/>
           <include name="CaseAdvocateBillTab"/>
-          <include name="CaseTaskActivityTab"/>
+          <include name="MoreReports"/>
+          <include name="Auditlog"/>
+          <include name="ImportUtility"/>
+          <include name="MyDocument"/>
+          <include name="CaseHearing"/>
+          <include name="AdvancedSearchDoc"/>
+          <include name="MyReports"/>
           <include name="Login"/>
+          <include name="CaseHearingTab"/>
+          <include name="AdvocateBill"/>
+          <include name="CaseOrderTab"/>
+          <include name="setBrowser"/>
+          <include name="NoticeExternalLawyerTab"/>
+          <include name="NoticeTaskActivityTab"/>
+          <include name="AdvancedSearchworkspace"/>
+          <include name="CaseDocumentTab"/>
+          <include name="AdvocateBill1"/>
+          <include name="CaseTaskActivityTab"/>
         </methods>
       </class> <!-- litigationAdditionalOwner.performer -->
     </classes>

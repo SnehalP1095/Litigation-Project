@@ -1777,10 +1777,10 @@ public class performerPOM
 		  public static void selectExternalLawyerRating(WebDriver driver) 
 	      {  
 			  WebDriverWait wait = new WebDriverWait(driver,300);
-		     WebElement ExternalLawyer = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='ddlLayerType_chosen']")));
-		     ExternalLawyer.click();
+		     //WebElement ExternalLawyer = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='ddlLayerType_chosen']")));
+		    // ExternalLawyer.click();
 	    		List<WebElement> ExternalLawyer1= driver.findElements(By.xpath("//*[@id='ddlLayerType_chosen']/div/ul/li"));
-	    		ExternalLawyer1.get(1).click();
+	    		ExternalLawyer1.get(2).click();
 	    		 
 	      } 
 		  public static WebElement clickExternalLawyerRating1(WebDriver driver) 
@@ -1798,7 +1798,7 @@ public class performerPOM
 
 			  WebDriverWait wait = new WebDriverWait(driver,30);
 			  WebElement ExternalLawyer = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='ddlLayerType_chosen']")));
-	    	// WebElement ExternalLawyer= driver.findElement(By.xpath("//*[@id='ddlLayerType_chosen']"));
+	    
 	    	 ExternalLawyer.click();
 	    	  List<WebElement> options =ExternalLawyer.findElement(By.className("chosen-drop")).findElement(By.className("chosen-results")).findElements(By.tagName("li"));
 
@@ -2347,7 +2347,7 @@ public class performerPOM
 		  {
 			  
 			     WebElement CaseFile=driver.findElement(By.cssSelector("input[type='file']"));
-			    CaseFile.sendKeys("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\CaseFileUpload.xlsx");
+			    CaseFile.sendKeys("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\Litigation_Case_Upload_Format (2).xlsx");
 			     return litigation;
 	      }
 		  public static WebElement UploadCaseFile(WebDriver driver) throws InterruptedException
@@ -2415,7 +2415,7 @@ public class performerPOM
 	  {
 		  
 		     WebElement CaseFile=driver.findElement(By.cssSelector("input[type='file']"));
-		    CaseFile.sendKeys("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\NoticeFileUpload.xlsx");
+		    CaseFile.sendKeys("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\Litigation_Notice_Upload_Format (1).xlsx");
 		     return litigation;
       }
 	  public static WebElement ChooseOrderFile(WebDriver driver) throws InterruptedException
@@ -4829,7 +4829,7 @@ public class performerPOM
 			 public static WebElement clickNoticeEditTaskcfo(WebDriver driver) throws InterruptedException
 			  {
 				  
-				  litigation=driver.findElement(By.xpath("//*[@id='grdTaskActivity_lnkBtnEditTaskDoc_0']/img"));
+				  litigation=driver.findElement(By.xpath("//*[@id='grdTaskActivity_lnkBtnEditTaskDoc_1']/img"));
 				  return litigation;
 			  }
 			

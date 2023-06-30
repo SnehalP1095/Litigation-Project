@@ -8584,6 +8584,33 @@ public class CFOMethod {
 						
 						Reminder(driver, test, "Task");
 						
+						
+						//Close Button
+						
+						Thread.sleep(500);
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickAddNew1(driver)));
+						performerPOM.clickAddNew1(driver).click();		//Clicking on 'Add New' button.
+						
+						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_showReminderDetail"));
+						
+						Thread.sleep(300);
+						  if(performerPOM.clickClosedDocument(driver).isEnabled())
+					  		{
+					  			performerPOM.clickClosedDocument(driver).click();
+					  			test.log(LogStatus.PASS, "Close button working successfully");
+					  		}
+					  		else
+					  		{
+					  			test.log(LogStatus.FAIL, "Close button not working successfully");
+					  		}
+						  
+							Thread.sleep(300);
+							driver.switchTo().parentFrame();
+						
+						
+						
+						
+						
 						Thread.sleep(3000);
 						OverduePOM.clickDashboard(driver).click();
 					}
@@ -8622,12 +8649,12 @@ public class CFOMethod {
 						
 						if(msg.equalsIgnoreCase(msg))
 						{
-							test.log(LogStatus.PASS, "Message Displayed =" +msg);
+							test.log(LogStatus.PASS, "Without Enter Data =" +msg);
 						
 						}
 						else
 						{
-							test.log(LogStatus.FAIL, "Message Displayed =" +msg);
+							test.log(LogStatus.FAIL, "Without Enter Data  =" +msg);
 						}
 						
 						Thread.sleep(300);
@@ -8636,8 +8663,28 @@ public class CFOMethod {
 						Thread.sleep(300);
 						performerPOM.clickCloseReminder(driver).click();
 						
+						
+						
 						//Two Mandatory fields
 						
+						Thread.sleep(500);
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickAddNew1(driver)));
+						performerPOM.clickAddNew1(driver).click();		//Clicking on 'Add New' button.
+						
+						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_showReminderDetail"));
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickType(driver)));
+					
+						
+						if(type.equalsIgnoreCase("Notice"))
+						{
+							action.moveToElement(performerPOM.clickType(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ENTER).perform();
+						}
+						else if(type.equalsIgnoreCase("Task"))
+						{
+							action.moveToElement(performerPOM.clickType(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
+						}
+						
+					
 						Thread.sleep(2000);
 						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 						
@@ -8657,12 +8704,12 @@ public class CFOMethod {
 						
 						if(msg.equalsIgnoreCase(msg))
 						{
-							test.log(LogStatus.PASS, "Message Displayed =" +msg1);
+							test.log(LogStatus.PASS, "Enter Two Manadatory Fields =" +msg1);
 						
 						}
 						else
 						{
-							test.log(LogStatus.FAIL, "Message Displayed =" +msg1);
+							test.log(LogStatus.FAIL, "Enter Two Manadatory Fields  =" +msg1);
 						}
 						
 						Thread.sleep(300);
@@ -8673,6 +8720,26 @@ public class CFOMethod {
 						
 						
 						//Reminder date greater than current date
+						
+						
+						
+						Thread.sleep(500);
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickAddNew1(driver)));
+						performerPOM.clickAddNew1(driver).click();		//Clicking on 'Add New' button.
+						
+						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_showReminderDetail"));
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickType(driver)));
+						
+						
+						if(type.equalsIgnoreCase("Notice"))
+						{
+							action.moveToElement(performerPOM.clickType(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ENTER).perform();
+						}
+						else if(type.equalsIgnoreCase("Task"))
+						{
+							action.moveToElement(performerPOM.clickType(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
+						}
+						
 						
 						
 						Thread.sleep(2000);
@@ -8691,41 +8758,42 @@ public class CFOMethod {
 						performerPOM.clickDescription(driver).sendKeys("Reminder test 25march2023");
 						
 						Thread.sleep(3000);
-						performerPOM.clickDate(driver).sendKeys("28-06-2023");
+						performerPOM.clickDate(driver).sendKeys("29-06-2023");
 						
 						
 						Thread.sleep(3000);
 						performerPOM.clickSave(driver).click();				//Clicking on Save button.
 						
 						Thread.sleep(3000);
-						String msg2 = performerPOM.readMsg(driver).getText();
+						String msg2 = performerPOM.readMsg2(driver).getText();
 
 						
 						if(msg.equalsIgnoreCase(msg))
 						{
-							test.log(LogStatus.PASS, "Message Displayed =" +msg2);
+							test.log(LogStatus.PASS, "Reminder date =" +msg2);
 						
 						}
 						else
 						{
-							test.log(LogStatus.FAIL, "Message Displayed =" +msg2);
+							test.log(LogStatus.FAIL, "Reminder date  =" +msg2);
 						}
 						
-						Thread.sleep(300);
-						driver.switchTo().parentFrame();
+					
+					Thread.sleep(300);
+					driver.switchTo().parentFrame();
+			        Thread.sleep(300);
+					performerPOM.clickCloseReminder(driver).click();
+					
+					
+					
 						
-						Thread.sleep(300);
-						performerPOM.clickCloseReminder(driver).click();
+						
+						
 						
 						
 				}
 						
-					
-					
-					
-					
-					
-					
+
 					
 					public static void LegalEntity(WebDriver driver,ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					 {
