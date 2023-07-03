@@ -2680,7 +2680,12 @@ public class performerPOM
 			litigation=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_valcustomerbranch']")));
 			return litigation;
 		}
-		
+		public static WebElement readlegalmsg1(WebDriver driver)
+		{
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			litigation=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_valcustomerbranch']/ul")));
+			return litigation;
+		}
 		
 		public static WebElement chooseMasterLawFirm(WebDriver driver)
 		{
@@ -2727,6 +2732,12 @@ public class performerPOM
 			{
 				WebDriverWait wait= new WebDriverWait(driver,20);
 				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_ValidationSummary1']/ul/li")));
+				return litigation;
+			}
+			public static WebElement ReadLawFirmMsg1(WebDriver driver)
+			{
+				WebDriverWait wait= new WebDriverWait(driver,20);
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_ValidationSummary1']/ul")));
 				return litigation;
 			}
 			
@@ -2832,7 +2843,13 @@ public class performerPOM
 				return litigation;
 			}
 			
-			
+			public static WebElement readLawyerMsg1(WebDriver driver)
+			{
+				WebDriverWait wait= new WebDriverWait(driver,20);
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_vsUserPopup']/ul")));
+						
+				return litigation;
+			}
 			public static WebElement saveLawyer(WebDriver driver)
 			{
 				WebDriverWait wait= new WebDriverWait(driver,20);
@@ -2847,7 +2864,13 @@ public class performerPOM
 						
 				return litigation;
 			}
-			
+			public static WebElement CloseLawyer(WebDriver driver)
+			{
+				WebDriverWait wait= new WebDriverWait(driver,20);
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='ContentPlaceHolder1_CloseLaywerPopUp']")));
+						
+				return litigation;
+			}
 			
 			public static WebElement clickUserMaster(WebDriver driver)
 			{
@@ -2962,6 +2985,13 @@ public class performerPOM
 			{
 				WebDriverWait wait= new WebDriverWait(driver,20);
 				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_vsUserPopup']/ul/li")));
+						
+				return litigation;
+			}
+			public static WebElement UserReadMsg1(WebDriver driver)
+			{
+				WebDriverWait wait= new WebDriverWait(driver,20);
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_vsUserPopup']/ul")));
 						
 				return litigation;
 			}
@@ -4583,10 +4613,39 @@ public class performerPOM
 			}
 			public static WebElement clickSubUnitscfo(WebDriver driver)
 			{
-				litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_grdCustomerBranch']/tbody/tr[2]/td[9]/a"));
+				litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_grdCustomerBranch']/tbody/tr[2]/td[8]/a"));
 				return litigation;
 			}
-			
+			public static WebElement clickUnitTypePlusIcon(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//input[@id='ContentPlaceHolder1_lnkShowAddNewVendorModal']"));
+				return litigation;
+			}
+			public static WebElement EnterUnitType(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//input[@id='ContentPlaceHolder1_tbxSubunitType']"));
+				return litigation;
+			}
+			public static WebElement SaveUnitType(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//input[@id='ContentPlaceHolder1_btnSaveSubUnitType']"));
+				return litigation;
+			}
+			public static WebElement SaveValidationMsg(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//div[@id='ContentPlaceHolder1_SubUnitValidationSummary']"));
+				return litigation;
+			}
+			public static WebElement CloseUnitType(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//input[@id='ContentPlaceHolder1_btnCancelCityPopUp']"));
+				return litigation;
+			}
+			public static WebElement CloseLegalEntity(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//input[@id='ContentPlaceHolder1_btnCancel']"));
+				return litigation;
+			}
 			public static WebElement clickLawFirmFilter(WebDriver driver)
 			{
 				litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_tbxtypeTofilter']"));

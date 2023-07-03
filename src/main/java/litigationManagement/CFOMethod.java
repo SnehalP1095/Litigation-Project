@@ -8800,6 +8800,7 @@ public class CFOMethod {
 						
 						XSSFSheet sheet = ReadExcel();
 						WebDriverWait wait = new WebDriverWait(driver, 180);
+						JavascriptExecutor js = (JavascriptExecutor) driver;
 						progress(driver);
 						
 						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));	//Wait until 'Notice-Open' count get visible
@@ -8807,7 +8808,7 @@ public class CFOMethod {
 						 performerPOM.clickMasters(driver).click();
 					     Thread.sleep(300);
 						 performerPOM.chooseMasterLegalEntity(driver).click();
-						 Thread.sleep(300);
+						Thread.sleep(300);
 						 performerPOM.addLegalEntity(driver).click();
 						
 
@@ -8863,10 +8864,10 @@ public class CFOMethod {
 					    performerPOM.clickSaveLegalEntity(driver).click();
 					    
 					    Thread.sleep(3000);
-						JavascriptExecutor js = (JavascriptExecutor) driver;
+						
 				        js.executeScript("window.scrollBy(0,-400)");
 						
-					    WebDriverWait wait1=new WebDriverWait(driver,30);
+					
 					    Thread.sleep(3000);
 						 wait.until(ExpectedConditions.visibilityOf(performerPOM.readlegalmsg(driver)));
 									
@@ -8924,10 +8925,10 @@ public class CFOMethod {
 								test.log(LogStatus.PASS,"Legal Entity Filter Work Successfully");*/
 								
 								
-								 Thread.sleep(5000);
-								 performerPOM.clickSubUnitscfo(driver).click();
-								 
 								 Thread.sleep(3000);
+								 performerPOM.clickSubUnitscfo(driver).click();	 
+								// wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_btnAddCustomerBranch")));
+								 Thread.sleep(300);
 								 performerPOM.addLegalEntity(driver).click();
 								
 
@@ -9009,6 +9010,231 @@ public class CFOMethod {
 							    
 							    
 					 }
+					
+					public static void LegalEntityWithoutData(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+					 {
+						
+						WebDriverWait wait = new WebDriverWait(driver, 180);
+						progress(driver);
+						
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));	//Wait until 'Notice-Open' count get visible
+						
+						 performerPOM.clickMasters(driver).click();
+					     Thread.sleep(300);
+						 performerPOM.chooseMasterLegalEntity(driver).click();
+						 Thread.sleep(300);
+						 performerPOM.addLegalEntity(driver).click();
+						 
+						  	Thread.sleep(3000);
+						    performerPOM.clickSaveLegalEntity(driver).click();
+						    
+						    Thread.sleep(3000);
+							JavascriptExecutor js = (JavascriptExecutor) driver;
+					        js.executeScript("window.scrollBy(0,-400)");
+							
+						  
+						    Thread.sleep(3000);
+							 wait.until(ExpectedConditions.visibilityOf(performerPOM.readlegalmsg1(driver)));
+										
+							Thread.sleep(500);
+							String msg = performerPOM.readlegalmsg1(driver).getText();		//Reading Message appeared after save button
+							if(msg.equalsIgnoreCase(msg))
+							{
+								test.log(LogStatus.PASS, "Wihout Enter data = "+msg);
+								
+							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Wihout Enter data = "+msg);
+								}
+							   
+								Thread.sleep(3000);
+								performerPOM.clickcloseLegalEntity(driver).click();
+					 }
+					
+					public static void LegalEntityInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+					 {
+						
+						WebDriverWait wait = new WebDriverWait(driver, 180);
+						progress(driver);
+						
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickNoticeOpen(driver)));	//Wait until 'Notice-Open' count get visible
+						
+						 performerPOM.clickMasters(driver).click();
+					     Thread.sleep(300);
+						 performerPOM.chooseMasterLegalEntity(driver).click();
+						 Thread.sleep(300);
+						 performerPOM.addLegalEntity(driver).click();
+						 Thread.sleep(3000);
+						 performerPOM.legalEntityName(driver).sendKeys("343$");
+						 Thread.sleep(3000);
+						    performerPOM.clickUnitType(driver).click();
+						    Thread.sleep(3000);
+						    performerPOM.chooseUnitType(driver).click();
+						    Thread.sleep(3000);
+						    performerPOM.clickLegalEntityType(driver).click();
+							Thread.sleep(3000);
+							performerPOM.chooseLegalEntityType(driver).click();
+						    Thread.sleep(3000);
+						    performerPOM.clickAddressLine(driver).sendKeys("Pune");
+							
+						    Thread.sleep(3000);
+						    performerPOM.clickState1(driver).click();
+						    
+						    Thread.sleep(3000);
+						    performerPOM.chooseState1(driver).click();
+						    
+						    Thread.sleep(5000);
+						    performerPOM.clickCity(driver).click();
+						    
+						    Thread.sleep(5000);
+						    performerPOM.chooseCity(driver).click();
+						 
+						 Thread.sleep(3000);
+						 performerPOM.clickContactPerson(driver).sendKeys("345");
+						 Thread.sleep(3000);
+						 performerPOM.clickEmail(driver).sendKeys("dds34");
+						 
+						  	Thread.sleep(3000);
+						    performerPOM.clickSaveLegalEntity(driver).click();
+						    
+						    Thread.sleep(3000);
+							JavascriptExecutor js = (JavascriptExecutor) driver;
+					        js.executeScript("window.scrollBy(0,-400)");
+							
+						  
+						    Thread.sleep(3000);
+							 wait.until(ExpectedConditions.visibilityOf(performerPOM.readlegalmsg1(driver)));
+										
+							Thread.sleep(500);
+							String msg = performerPOM.readlegalmsg1(driver).getText();		//Reading Message appeared after save button
+							if(msg.equalsIgnoreCase(msg))
+							{
+								test.log(LogStatus.PASS, "Enter Invalid data = "+msg);
+								
+							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Invalid data = "+msg);
+								}
+							   
+								Thread.sleep(3000);
+								performerPOM.clickcloseLegalEntity(driver).click();
+					 }
+					
+					public static void LegalEntityTwoManadatoryFields(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+					 {
+						
+						WebDriverWait wait = new WebDriverWait(driver, 180);
+						progress(driver);
+					  performerPOM.clickMasters(driver).click();
+					     Thread.sleep(300);
+						 performerPOM.chooseMasterLegalEntity(driver).click();
+						 Thread.sleep(300);
+						 performerPOM.addLegalEntity(driver).click();
+					
+						 Thread.sleep(3000);
+						    performerPOM.clickUnitType(driver).click();
+						    
+						    Thread.sleep(3000);
+						    performerPOM.chooseUnitType(driver).click();
+						    
+						    Thread.sleep(3000);
+						    performerPOM.clickAddressLine(driver).sendKeys("Pune");
+						    
+							Thread.sleep(3000);
+						    performerPOM.clickSaveLegalEntity(driver).click();
+						    
+						    Thread.sleep(3000);
+							JavascriptExecutor js = (JavascriptExecutor) driver;
+					        js.executeScript("window.scrollBy(0,-400)");
+							
+						  
+						    Thread.sleep(3000);
+							 wait.until(ExpectedConditions.visibilityOf(performerPOM.readlegalmsg1(driver)));
+										
+							Thread.sleep(500);
+							String msg = performerPOM.readlegalmsg1(driver).getText();		//Reading Message appeared after save button
+							if(msg.equalsIgnoreCase(msg))
+							{
+								test.log(LogStatus.PASS, "Enter Two Manadatory Fields = "+msg);
+								
+							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Two Manadatory Fields = "+msg);
+								}
+							   
+								Thread.sleep(3000);
+								performerPOM.clickcloseLegalEntity(driver).click();
+					 }
+					
+					public static void LegalEntityCloseButton(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+					 {
+						
+						WebDriverWait wait = new WebDriverWait(driver, 180);
+						progress(driver);
+					  performerPOM.clickMasters(driver).click();
+					     Thread.sleep(300);
+						 performerPOM.chooseMasterLegalEntity(driver).click();
+						 Thread.sleep(300);
+						 performerPOM.addLegalEntity(driver).click();
+						 
+						 
+						 
+						 if(performerPOM.CloseLegalEntity(driver).isEnabled())
+						 {
+							 Thread.sleep(3000);
+							 performerPOM.CloseLegalEntity(driver).click();
+							 test.log(LogStatus.PASS,"Legal Entity - Close Button is Clickable");
+						 }
+						 else
+						 {
+							 test.log(LogStatus.FAIL,"Legal Entity - Close Button is Clickable");
+						 }
+					 }
+					
+					
+					
+					public static void AddUnitType(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+					 {
+						
+						WebDriverWait wait = new WebDriverWait(driver, 180);
+						progress(driver);
+						
+						 performerPOM.clickMasters(driver).click();
+					     Thread.sleep(300);
+						 performerPOM.chooseMasterLegalEntity(driver).click();
+						 Thread.sleep(300);
+						 performerPOM.addLegalEntity(driver).click();
+						  Thread.sleep(300);
+						 performerPOM.clickUnitTypePlusIcon(driver).click();
+						 
+						 Thread.sleep(300);
+						 performerPOM.EnterUnitType(driver).sendKeys("Automation Test");
+						 
+						 Thread.sleep(300);
+						 performerPOM.SaveUnitType(driver).click();
+						 
+						 Thread.sleep(300);
+						 String msg =performerPOM.SaveValidationMsg(driver).getText();
+						 
+						 if(msg.equalsIgnoreCase(msg))
+						 {
+							test.log(LogStatus.PASS,"Add Unit Type =" +msg);
+						 }
+						 else
+						 {
+							 test.log(LogStatus.FAIL, "Add Unit Type =" +msg);
+						 }
+						 
+						 Thread.sleep(300);
+						 performerPOM.CloseUnitType(driver).click();
+					 }
+					
+					
+					
+					
 					 public static void LawFirm(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					  {
 						  
@@ -9193,6 +9419,323 @@ public class CFOMethod {
 							
 							
 						}	
+					 
+					 public static void LawFirmWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+					
+						    Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+						
+						     Thread.sleep(5000);
+						    performerPOM.chooseMasterLawFirm(driver).click();
+						    Thread.sleep(3000);
+							performerPOM.newLawFirm(driver).click();
+							
+						   	Thread.sleep(3000);
+							performerPOM.clickSaveLawFirm(driver).click();
+							
+						    
+							Thread.sleep(3000);
+							String msg5 = performerPOM.ReadLawFirmMsg1(driver).getText();		//Reading Message appeared after save button
+							
+					     	if(msg5.equalsIgnoreCase(msg5))
+							{
+								test.log(LogStatus.PASS, "Without Enter Data = "+msg5);
+								
+							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Without Enter Data = "+msg5);
+								}
+							
+								
+							Thread.sleep(3000);
+							performerPOM.clickCloseButton(driver).click();
+							
+							Thread.sleep(2000);
+							OverduePOM.clickDashboard(driver).click();
+							
+							
+							
+					  }
+					 
+					 public static void LawFirmInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+						  
+
+							 Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+						     Thread.sleep(5000);
+						    performerPOM.chooseMasterLawFirm(driver).click();
+						    Thread.sleep(3000);
+							performerPOM.newLawFirm(driver).click();
+							
+							Thread.sleep(3000);
+							performerPOM.nameLawFirm(driver).sendKeys("#$FSG");
+						   	Thread.sleep(3000);
+							performerPOM.Email(driver).sendKeys("FGD");
+							Thread.sleep(3000);
+						    performerPOM.contactNo(driver).sendKeys("675");
+						  	Thread.sleep(3000);
+							performerPOM.clickSaveLawFirm(driver).click();
+					     	Thread.sleep(3000);
+							String msg5 = performerPOM.ReadLawFirmMsg1(driver).getText();		//Reading Message appeared after save button
+							
+					     	if(msg5.equalsIgnoreCase(msg5))
+							{
+								test.log(LogStatus.PASS, "Enter Invalid Data  = "+msg5);
+								
+							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Invalid Data = "+msg5);
+								}
+							
+								
+							Thread.sleep(3000);
+							performerPOM.clickCloseButton(driver).click();
+							
+							Thread.sleep(2000);
+							OverduePOM.clickDashboard(driver).click();
+					  }
+					 public static void LawFirmTwoManadatoryFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+						  
+
+							 Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+						     Thread.sleep(5000);
+						    performerPOM.chooseMasterLawFirm(driver).click();
+						    Thread.sleep(3000);
+							performerPOM.newLawFirm(driver).click();
+						
+						   	Thread.sleep(3000);
+							performerPOM.Email(driver).sendKeys("snehal@gmail.com");
+							Thread.sleep(3000);
+						    performerPOM.contactNo(driver).sendKeys("6222222275");
+						  	Thread.sleep(3000);
+							performerPOM.clickSaveLawFirm(driver).click();
+					     	Thread.sleep(3000);
+							String msg5 = performerPOM.ReadLawFirmMsg1(driver).getText();		//Reading Message appeared after save button
+							
+					     	if(msg5.equalsIgnoreCase(msg5))
+							{
+								test.log(LogStatus.PASS, "Enter Two Manadatory Fields  = "+msg5);
+								
+							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Two Manadatory Fields = "+msg5);
+								}
+							
+								
+							Thread.sleep(3000);
+							performerPOM.clickCloseButton(driver).click();
+							
+							Thread.sleep(2000);
+							OverduePOM.clickDashboard(driver).click();
+					  }	
+					 
+					 public static void LawFirmCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+						  
+
+							 Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+						     Thread.sleep(5000);
+						    performerPOM.chooseMasterLawFirm(driver).click();
+						    Thread.sleep(3000);
+							performerPOM.newLawFirm(driver).click();
+							
+							
+							
+							if(performerPOM.clickCloseButton(driver).isEnabled())
+							{
+								Thread.sleep(3000);
+								performerPOM.clickCloseButton(driver).click();
+								test.log(LogStatus.PASS, "Close Button is clickable");		
+							}
+							else
+							{
+								test.log(LogStatus.PASS, "Close Button is not clickable");		
+							}
+							
+							
+							
+					        Thread.sleep(2000);
+							OverduePOM.clickDashboard(driver).click();
+					  }
+					 
+					 public static void LawyerWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+						  
+
+							 Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+						     Thread.sleep(5000);
+						    performerPOM.chooseMasterLawFirm(driver).click();
+						 
+							
+							Thread.sleep(3000);
+							performerPOM.clickAddNewLawyer(driver).click();
+							
+							Thread.sleep(5000);
+							performerPOM.saveLawyer(driver).click();
+							
+							String msg7 = performerPOM.readLawyerMsg1(driver).getText();		//Reading Message appeared after save button
+							if(msg7.equalsIgnoreCase(msg7))
+							{
+								test.log(LogStatus.PASS, "Without Enter Data = "+msg7);
+								
+							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Without Enter Data  = "+msg7);
+								}
+							
+								
+							Thread.sleep(5000);
+							performerPOM.closeLawyer(driver).click();
+							
+						     Thread.sleep(2000);
+								OverduePOM.clickDashboard(driver).click();
+					  }
+		 public static void LawyerInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+			 {
+						  
+
+		       		 Thread.sleep(3000);
+				     performerPOM.clickMasters(driver).click();
+				     Thread.sleep(5000);
+					 performerPOM.chooseMasterLawFirm(driver).click();
+					 
+						Thread.sleep(3000);
+						performerPOM.clickAddNewLawyer(driver).click();
+						
+						Thread.sleep(3000);
+						
+						performerPOM.clickLawyerName(driver).sendKeys("344@#");
+						
+						Thread.sleep(3000);
+						performerPOM.clickLawyerLastName(driver).sendKeys("23#");
+						
+
+						Thread.sleep(3000);
+						performerPOM.clickLawyerDesignation(driver).sendKeys("#$34");
+						
+						
+						Thread.sleep(3000);
+						performerPOM.clickLawyerEmail(driver).sendKeys("dg");
+						
+					   	Thread.sleep(3000);
+						performerPOM.clickLawyerContactNo(driver).sendKeys("689");
+					    
+						Thread.sleep(3000);
+						performerPOM.clickLawyerDepartment(driver).click();
+						Thread.sleep(3000);
+						performerPOM.selectLawyerDepartment(driver).click();
+						Thread.sleep(4000);
+						performerPOM.clickLawyerRole(driver).click();
+						Thread.sleep(4000);
+						performerPOM.selectLawyerRole(driver).click();
+						Thread.sleep(5000);
+						performerPOM.saveLawyer(driver).click();
+						
+						String msg = performerPOM.readLawyerMsg1(driver).getText();		//Reading Message appeared after save button
+						if(msg.equalsIgnoreCase(msg))
+						{
+							test.log(LogStatus.PASS, "Enter Invalid Data = "+msg);
+							
+						}
+							else
+							{
+								test.log(LogStatus.FAIL, "Enter Invalid Data= "+msg);
+							}
+						
+							
+						Thread.sleep(5000);
+						performerPOM.closeLawyer(driver).click();
+						
+						   Thread.sleep(2000);
+							OverduePOM.clickDashboard(driver).click();
+						
+			 }
+		 
+		 public static void LawyerTwoManadatoryFileds(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+		 {
+					  
+
+	       		 Thread.sleep(3000);
+			     performerPOM.clickMasters(driver).click();
+			     Thread.sleep(5000);
+				 performerPOM.chooseMasterLawFirm(driver).click();
+				 
+					Thread.sleep(3000);
+					performerPOM.clickAddNewLawyer(driver).click();
+					
+					Thread.sleep(3000);
+					
+					performerPOM.clickLawyerName(driver).sendKeys("Sneha");
+					
+					Thread.sleep(3000);
+					performerPOM.clickLawyerLastName(driver).sendKeys("Patil");
+					
+					Thread.sleep(5000);
+					performerPOM.saveLawyer(driver).click();
+					
+					String msg = performerPOM.readLawyerMsg1(driver).getText();		//Reading Message appeared after save button
+					if(msg.equalsIgnoreCase(msg))
+					{
+						test.log(LogStatus.PASS, "Enter Two Manadatory fields = "+msg);
+						
+					}
+						else
+						{
+							test.log(LogStatus.FAIL, "Enter Two Manadatory fields= "+msg);
+						}
+					
+						
+					Thread.sleep(5000);
+					performerPOM.closeLawyer(driver).click();
+					
+					   Thread.sleep(2000);
+	                   OverduePOM.clickDashboard(driver).click();
+		 }
+		 
+		 public static void LawyerCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+		 {
+					  
+
+	       		 Thread.sleep(3000);
+			     performerPOM.clickMasters(driver).click();
+			     Thread.sleep(5000);
+				 performerPOM.chooseMasterLawFirm(driver).click();
+				 
+					Thread.sleep(3000);
+					performerPOM.clickAddNewLawyer(driver).click();
+					
+					if(performerPOM.CloseLawyer(driver).isEnabled())
+					{
+						Thread.sleep(5000);
+						performerPOM.CloseLawyer(driver).click();
+						test.log(LogStatus.PASS, "Close button is clickable");
+					}
+					else
+					{
+						test.log(LogStatus.FAIL, "Close button is not clickable");
+					}
+					
+					
+					
+					   Thread.sleep(2000);
+	                   OverduePOM.clickDashboard(driver).click();
+		 }
+					
+						
+							
+							
+							
+					 
 					 
 					 public static void User(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 						{
@@ -9383,7 +9926,152 @@ public class CFOMethod {
 								        // Capturing alert message.    
 								         driver.switchTo().alert().accept();
 							  	 
-						}	
+						}
+					 
+					 public static void UserWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+						{
+						    Thread.sleep(1000);
+						    performerPOM.clickMasters(driver).click();
+
+					        Thread.sleep(3000);
+						     performerPOM.clickUserMaster(driver).click();
+							 Thread.sleep(3000);
+							 performerPOM.clickAddNewUser(driver).click();
+							 
+							 Thread.sleep(4000);
+							 performerPOM.saveUser(driver).click();
+							 
+							   Thread.sleep(500);
+							  
+								String msg = performerPOM.UserReadMsg1(driver).getText();
+								if(msg.contains(msg))
+								{
+									test.log(LogStatus.PASS,"Enter Without Data ="+msg);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL,"Enter Without Data ="+msg);
+								}
+							  
+							  Thread.sleep(3000);
+								 performerPOM.closeUser(driver).click();
+							 
+						}
+					 
+					 public static void UserInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+						{
+						    Thread.sleep(1000);
+						    performerPOM.clickMasters(driver).click();
+
+					        Thread.sleep(3000);
+						     performerPOM.clickUserMaster(driver).click();
+							 Thread.sleep(3000);
+							 performerPOM.clickAddNewUser(driver).click();
+							 
+							 Thread.sleep(4000);
+							  performerPOM.clickUserName(driver).sendKeys("$%67ad");
+								
+								Thread.sleep(4000);
+								performerPOM.clickUserLastName(driver).sendKeys("56fg%^");
+								
+
+								Thread.sleep(4000);
+								performerPOM.clickUserDesignation(driver).sendKeys("364$%");
+								
+								
+								Thread.sleep(4000);
+								performerPOM.clickUserEmail(driver).sendKeys("DJF");
+								
+								
+								
+					     		Thread.sleep(4000);
+								 performerPOM.clickUserContactNo(driver).sendKeys("5726");
+							    Thread.sleep(4000);
+							 performerPOM.clickUserDepartment(driver).click();
+							  Thread.sleep(4000);
+							 performerPOM.selectUserDepartment(driver).click();
+							  Thread.sleep(4000);
+							 performerPOM.clickUserRole(driver).click();
+							  Thread.sleep(4000);
+							 performerPOM.selectUserRole(driver).click();
+							 Thread.sleep(4000);
+							 performerPOM.saveUser(driver).click();
+							 
+							   Thread.sleep(500);
+							  
+								String msg = performerPOM.UserReadMsg1(driver).getText();
+								if(msg.contains(msg))
+								{
+									test.log(LogStatus.PASS,"Enter Invalid  Data ="+msg);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL,"Enter Invalid Data ="+msg);
+								}
+							  
+							  Thread.sleep(3000);
+							   performerPOM.closeUser(driver).click();
+							 
+						}
+					 
+					 public static void UserTwoManadatoryFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+						{
+						    Thread.sleep(1000);
+						    performerPOM.clickMasters(driver).click();
+
+					        Thread.sleep(3000);
+						     performerPOM.clickUserMaster(driver).click();
+							 Thread.sleep(3000);
+							 performerPOM.clickAddNewUser(driver).click();
+							 
+							 Thread.sleep(4000);
+							  performerPOM.clickUserName(driver).sendKeys("Snehal");
+								
+								Thread.sleep(4000);
+								performerPOM.clickUserLastName(driver).sendKeys("Patil");
+								 Thread.sleep(4000);
+								 performerPOM.saveUser(driver).click();
+								 
+								   Thread.sleep(500);
+								  
+									String msg = performerPOM.UserReadMsg1(driver).getText();
+									if(msg.contains(msg))
+									{
+										test.log(LogStatus.PASS,"Enter Two Manadatory fields ="+msg);
+									}
+									else
+									{
+										test.log(LogStatus.FAIL,"Enter Two Manadatory fields ="+msg);
+									}
+								  
+								  Thread.sleep(3000);
+								   performerPOM.closeUser(driver).click();
+						}
+					 public static void UserCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+						{
+						    Thread.sleep(1000);
+						    performerPOM.clickMasters(driver).click();
+
+					        Thread.sleep(3000);
+						     performerPOM.clickUserMaster(driver).click();
+							 Thread.sleep(3000);
+							 performerPOM.clickAddNewUser(driver).click();
+							
+							 if(performerPOM.CloseLegalEntity(driver).isEnabled())
+							 {
+								 Thread.sleep(3000);
+								   performerPOM.CloseLegalEntity(driver).click();
+								   test.log(LogStatus.PASS, "Close Button is clickable");
+							 }
+							 else
+							 {
+								 test.log(LogStatus.PASS, "Close Button is not clickable");
+							
+							 }
+							 
+					}
+							 
+					 
 					 
 					 public static void Opponent(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					  {

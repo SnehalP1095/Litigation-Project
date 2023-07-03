@@ -1597,7 +1597,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
-	@Test(priority =2)
+	@Test(priority =55)
 	void ReminderWithoutData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reminder verification");
@@ -1706,7 +1706,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 				extent.flush();
 			}
 				
-		@Test(priority = 59)
+		//@Test(priority = 59)
 			void Masters() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Masters - Legal Entity  verification");
@@ -1716,7 +1716,57 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
-	@Test(priority = 60)
+		//@Test(priority = 60)
+		void MastersLegalEntity() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Masters - Legal Entity Without data verification");
+				
+				CFOMethod.LegalEntityWithoutData(driver, test);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+	//	@Test(priority =61)
+		void MastersLegalEntity1() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Masters - Legal Entity Invalid data verification");
+				
+				CFOMethod.LegalEntityInvalidData(driver, test);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+		//@Test(priority =62)
+		void MastersLegalEntity2() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Masters - Legal Entity Two Manadatory Fields verification");
+				
+				CFOMethod.LegalEntityTwoManadatoryFields(driver, test);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+		@Test(priority =63)
+				void MastersLegalEntity3() throws InterruptedException, IOException
+					{
+						test = extent.startTest("Masters - Legal Entity Close Button verification");
+						
+						CFOMethod.LegalEntityCloseButton(driver, test);
+						
+						extent.endTest(test);
+						extent.flush();
+					}
+		//@Test(priority =64)
+		void UnitEntity() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Masters - Add Unit Entity verification");
+				
+				CFOMethod.AddUnitType(driver, test);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+	@Test(priority = 65)
 				void Masters1() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Masters - Law Firm verification");
@@ -1727,6 +1777,95 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
+	//@Test(priority = 2)
+	void MastersLawFirm() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Law Firm Masters - Enter Without Data verification");
+		
+		
+		CFOMethod.LawFirmWithoutData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority =3)
+	void MastersLawFirm1() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Masters - Law Firm Invalid Data verification");
+		
+		
+		CFOMethod.LawFirmInvalidData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority =4)
+	void MastersLawFirm2() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Masters - Law Firm Two Manadtory fields verification");
+		
+		
+		CFOMethod.LawFirmTwoManadatoryFields(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority =2)
+	void MastersLawFirm3() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Masters - Law Firm Close button verification");
+		
+		
+		CFOMethod.LawFirmCloseButton(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 2)
+	void LawyerWithoutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Lawyer  - Enter Without Data verification");
+		
+		
+		CFOMethod.LawyerWithoutData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 3)
+	void LawyerInvalidData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Lawyer  - Enter Invalid Data verification");
+		
+		
+		CFOMethod.LawyerInvalidData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 4)
+	void LawyerTwoManadatoryFileds() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Lawyer  - Enter Two Manadatory fields verification");
+		
+		
+		CFOMethod.LawyerTwoManadatoryFileds(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 2)
+	void LawyerCloseButton() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Lawyer  - Enter close button verification");
+		
+		
+		CFOMethod.LawyerCloseButton(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	@Test(priority = 61)
 				void Masters2() throws InterruptedException, IOException
 				{
@@ -1738,6 +1877,51 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
+	@Test(priority = 2)
+	void UserWithoutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("User Master-  without data verification");
+		
+		
+		CFOMethod.UserWithoutData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority = 3)
+	void UserInvalidData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("User Master-  Invalid data verification");
+		
+		
+		CFOMethod.UserInvalidData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority =4)
+	void UserTwoManadatoryFields() throws InterruptedException, IOException
+	{
+		test = extent.startTest("User Master- Two manadatory fields verification");
+		
+		
+		CFOMethod.UserTwoManadatoryFields(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	@Test(priority =5)
+	void UserCloseButton() throws InterruptedException, IOException
+	{
+		test = extent.startTest("User Master- Close Button  verification");
+		
+		
+		CFOMethod.UserCloseButton(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
 	@Test(priority = 62)
 				void Masters3() throws InterruptedException, IOException
 				{
