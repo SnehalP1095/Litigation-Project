@@ -3024,6 +3024,11 @@ public class performerPOM
 				litigation=driver.findElement(By.xpath("//*[@id='tbxName']"));
 			    return litigation;
 			}
+			public static WebElement clickOpponentEmail(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//input[@id='tbxEmail']"));
+			    return litigation;
+			}
 			
 			public static WebElement  opponentType(WebDriver driver)
 			{
@@ -3037,7 +3042,12 @@ public class performerPOM
 				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ValidationSummary1']/ul/li")));
 				return litigation;
 			}
-			
+			public static WebElement  readOppoenentMsg1(WebDriver driver)
+			{
+				WebDriverWait wait= new WebDriverWait(driver,30);
+				litigation =wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ValidationSummary1']/ul")));
+				return litigation;
+			}
 			public static WebElement  saveOpponent(WebDriver driver)
 			{
 				WebDriverWait wait= new WebDriverWait(driver,30);
@@ -3991,7 +4001,7 @@ public class performerPOM
 			public static WebElement CaseNoticeTypeViewGraph(WebDriver driver)
 			{
 				//WebDriverWait wait=new WebDriverWait(driver,30);
-				litigation=driver.findElement(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td[16]/a"));
+				litigation=driver.findElement(By.xpath("//a[@class='k-button k-button-icontext ob-edit k-grid-edit']"));
 				return litigation;
 			}
 			public static WebElement CaseNoticeTypeclosePopupGraph(WebDriver driver)

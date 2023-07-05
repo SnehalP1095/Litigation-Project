@@ -196,7 +196,7 @@ public class MethodPOM1 {
 //		Thread.sleep(3000);
 //		performerPOM.showResponseDetailIcon(driver).click();
 	    
-		test.log(LogStatus.PASS, "Show response details Case popup open successfully.");
+		test.log(LogStatus.PASS, "Show Hearing details Case popup open successfully.");
 		
 		Thread.sleep(3000);
 		performerPOM.Actionclosepopup(driver).click();

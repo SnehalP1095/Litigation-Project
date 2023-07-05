@@ -118,10 +118,10 @@ public class CFO {
 			}
 		
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 		void CaseNoticeTypeGraph() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Notice = Case Notice Type Graph Count Verification");
+			test = extent.startTest("Select Notice Filter =Outward/Plaintiff Type = Case Notice Type Graph Count Verification");
 			
 			
 			Thread.sleep(3000);
@@ -130,7 +130,7 @@ public class CFO {
 			extent.endTest(test);
 			extent.flush();
 		}
-	//@Test(priority = 3)
+//	@Test(priority = 3)
 			void CaseNoticeStageGraph() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Notice = Case Notice Stage Graph Count Verification");
@@ -164,7 +164,7 @@ public class CFO {
 	       extent.endTest(test);
 	       extent.flush();
         }
-   //@Test(priority = 6)
+// @Test(priority = 6)
         void LocationSummaryGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Notice = Location Graph Count Verification");
@@ -176,7 +176,7 @@ public class CFO {
 	       extent.flush();
         }
        
-  //@Test(priority = 7)
+//@Test(priority = 7)
         void CategorySummaryGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Notice = Category Graph Count Verification");
@@ -188,7 +188,7 @@ public class CFO {
 	       extent.flush();
         }
 
- // @Test(priority = 8)
+ //@Test(priority = 8)
     void InwardDefendantAgeingGraph() throws InterruptedException, IOException
     {
          test = extent.startTest("Notice =Less than a year = Inward/Defendant = Ageing Graph Count Verification");
@@ -199,7 +199,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
-   @Test(priority = 9)
+ //  @Test(priority = 9)
     void ComplainantAgeingGraph() throws InterruptedException, IOException
     {
          test = extent.startTest("Notice = Less than a year = Complainant = Ageing Graph Count Verification");
@@ -210,7 +210,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
-   @Test(priority = 10)
+ //  @Test(priority = 10)
     void ApplicantAgeingGraph() throws InterruptedException, IOException
     {
          test = extent.startTest("Notice = Less than a year = Applicant = Ageing Graph Count Verification");
@@ -221,7 +221,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
-    @Test(priority = 11)
+   // @Test(priority = 11)
     void OutwardPlaintiffAgeingGraph() throws InterruptedException, IOException
     {
          test = extent.startTest("Notice = Less than a year = Outward/Plaintiff = Ageing Graph Count Verification");
@@ -298,7 +298,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
-  // @Test(priority = 18)
+   @Test(priority = 18)
     void InwardDefendentAgeingGraph2to3years() throws InterruptedException, IOException
     {
          test = extent.startTest("Notice = 2 to 3 Years =Inward/Defendent= Ageing Graph Count Verification");
@@ -1866,7 +1866,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 61)
+//	@Test(priority = 61)
 				void Masters2() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Masters - 	User  verification");
@@ -1877,7 +1877,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	void UserWithoutData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("User Master-  without data verification");
@@ -1888,7 +1888,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 3)
+//	@Test(priority = 3)
 	void UserInvalidData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("User Master-  Invalid data verification");
@@ -1899,7 +1899,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority =4)
+	//@Test(priority =4)
 	void UserTwoManadatoryFields() throws InterruptedException, IOException
 	{
 		test = extent.startTest("User Master- Two manadatory fields verification");
@@ -1910,7 +1910,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority =5)
+	//@Test(priority =5)
 	void UserCloseButton() throws InterruptedException, IOException
 	{
 		test = extent.startTest("User Master- Close Button  verification");
@@ -1933,6 +1933,41 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
+	
+
+	//@Test(priority = 2)
+				void OpponentWithoutData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Opponent Masters -Without Data verification");
+					
+					
+					CFOMethod.OpponentWithoutData(driver, test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+	//@Test(priority = 3)
+	void OpponentInvalidData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Opponent Masters -Invalid Data verification");
+		
+		
+		CFOMethod.OpponentInvalidData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 4)
+	void OpponentCloseButton() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Opponent Masters -Close button verification");
+		
+		
+		CFOMethod.OpponentCloseButton(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 				
 	@Test(priority = 63)
 				void Masters4() throws InterruptedException, IOException
@@ -1945,6 +1980,50 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
+	//@Test(priority = 1)
+	void CourtWithoutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Court Master- Without enter Data verification");
+		
+		
+		CFOMethod.CourtWithoutData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+//	@Test(priority = 2)
+	void CourtInvalidData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Court Master- Enter Invalid Data verification");
+		
+		
+		CFOMethod.CourtInvalidData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+//	@Test(priority = 3)
+	void CourtTwomanadatoryFields() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Court Master- Enter Two Manadtory Fields verification");
+		
+		
+		CFOMethod.CourtTwomanadatoryFields(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 4)
+	void CourtCloseButton() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Court Master- Close button verification");
+		
+		
+		CFOMethod.CourtCloseButton(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	@Test(priority = 64)
 				void Masters5() throws InterruptedException, IOException
 				{
@@ -1956,7 +2035,40 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
-@Test(priority = 65)
+	//@Test(priority = 2)
+	void CaseNoticeTypeWithoutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case/NoticeType Master -Without Enter Data  verification");
+		
+		
+		CFOMethod.CaseNoticeTypeWithoutData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 3)
+	void CaseNoticeTypeInvaliData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case/NoticeType Master - Enter Invalid Data  verification");
+		
+		
+		CFOMethod.CaseNoticeTypeInvaliData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 4)
+	void CaseNoticeTypeCloseBuuton() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case/NoticeType Master - Close Button  verification");
+		
+		
+		CFOMethod.CaseNoticeTypeCloseButton(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+ //   @Test(priority = 65)
 				void Masters6() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Masters - Payment Type  verification");
@@ -1967,6 +2079,41 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
+ 
+   // @Test(priority = 2)
+          void PaymentTypeWithouData() throws InterruptedException, IOException
+         {
+	         test = extent.startTest("Payment Type Master- Without Enter Data  verification");
+	 
+	
+	          CFOMethod.PaymentTypeWithoutData(driver, test);
+	
+	          extent.endTest(test);
+	          extent.flush();
+         }
+    @Test(priority = 3)
+    void PaymentTypeInvalidData() throws InterruptedException, IOException
+   {
+       test = extent.startTest("Payment Type Master-Enter Invalid Data  verification");
+
+
+        CFOMethod.PaymentTypeInvalidData(driver, test);
+
+        extent.endTest(test);
+        extent.flush();
+   }
+    @Test(priority = 4)
+    void PaymentTypeCloseButton() throws InterruptedException, IOException
+   {
+       test = extent.startTest("Payment Type Master-Close button verification");
+
+
+        CFOMethod.PaymentTypeCloseButton(driver, test);
+
+        extent.endTest(test);
+        extent.flush();
+   }
+
 	@Test(priority = 66)
 				void Masters7() throws InterruptedException, IOException
 				{
@@ -1978,6 +2125,39 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
+	//@Test(priority = 2)
+	void customParameterWithoutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Custom Parameter Master -Without Enter Data  verification");
+	
+		
+		CFOMethod.customParameterWithoutData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 2)
+	void customParameterInvalidData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Custom Parameter Master -Enter Invalid Data verification");
+	
+		
+		CFOMethod.customParameterInvalidData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 4)
+	void customParameterCloseButton() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Custom Parameter Master -Close  button  verification");
+	
+		
+		CFOMethod.customParameterCloseButton(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	@Test(priority = 67)
 				void Masters8() throws InterruptedException, IOException
 				{
@@ -1989,6 +2169,39 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
+	//@Test(priority = 2)
+	void CaseStageWithoutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case Stage Masters - Without Enter Data  verification");
+	
+		
+		CFOMethod.CaseStageWithoutData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 3)
+	void CaseStageInvalidData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case Stage Masters - Enter Invalid Data  verification");
+	
+		
+		CFOMethod.CaseStageInvalidData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	//@Test(priority = 4)
+	void CaseStageCloseButton() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Case Stage Masters - Close Button verification");
+	
+		
+		CFOMethod.CaseStageCloseButton(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 		@Test(priority = 68)
 				void Masters9() throws InterruptedException, IOException
 				{
@@ -2000,6 +2213,39 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
+		@Test(priority = 2)
+		void DocumentTypeWithoutData() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Document Type Msters-Without data  verification");
+			
+			
+			CFOMethod.DocumentTypeWithoutData(driver, test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 3)
+		void DocumentTypeInvalidData() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Document Type Msters-Enter Invalid Data verification");
+			
+			
+			CFOMethod.DocumentTypeInvalidData(driver, test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 4)
+		void DocumentTypeCloseButton() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Document Type Msters-Close button verification");
+			
+			
+			CFOMethod.DocumentTypeCloseButton(driver, test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
 		@Test(priority = 69)
 				void Masters10() throws InterruptedException, IOException
 				{
@@ -2011,7 +2257,39 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
-				
+		@Test(priority = 2)
+		void RatingCriteriaWithoutData() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Rating Criteria Master-Without Enter Data  verification");
+		
+			
+			CFOMethod.RatingCriteriaWithoutData(driver, test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		@Test(priority = 3)
+		void RatingCriteriaInvalidData() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Rating Criteria Master-Enter Invalid Data  verification");
+		
+			
+			CFOMethod.RatingCriteriaInvalidData(driver, test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}		
+		@Test(priority =4)
+		void RatingCriteriaCloseButton() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Rating Criteria Master-Close button verification");
+		
+			
+			CFOMethod.RatingCriteriaCloseButton(driver, test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}		
 		@Test(priority = 70)
 				void Masters12() throws InterruptedException, IOException
 				{

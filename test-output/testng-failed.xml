@@ -7,6 +7,7 @@
         <methods>
           <include name="CriteriaWithoutData"/>
           <include name="TaskwithClearBtn"/>
+          <include name="InwardDefendentAgeingGraph2to3years"/>
           <include name="setBrowser"/>
           <include name="CategorySummaryGraph1"/>
           <include name="TaskActivtityDeleteResponse"/>
@@ -34,7 +35,6 @@
           <include name="CaseUserAssignment"/>
           <include name="Login"/>
           <include name="MyDocument"/>
-          <include name="ApplicantAgeingGraph"/>
           <include name="ResponseClearBtn"/>
           <include name="CaseHearing"/>
           <include name="LinkCase"/>
@@ -51,8 +51,8 @@
           <include name="TaskActivtityWithoutData"/>
           <include name="CaseWithoutUploadDocument"/>
           <include name="NoticeUserAssignmentDelete"/>
-          <include name="ComplainantAgeingGraph"/>
           <include name="CaseDocumentShareCloseBtn"/>
+          <include name="DocumentTypeWithoutData"/>
           <include name="CaseCriteriaWithoutData"/>
           <include name="LocationSummaryGraph1"/>
           <include name="CaseHearingClearBtn"/>
@@ -74,13 +74,15 @@
           <include name="CaseTaskActivitywithExistingData"/>
           <include name="CaseOrderExistingData"/>
           <include name="Masters10"/>
+          <include name="RatingCriteriaCloseButton"/>
           <include name="Masters13"/>
           <include name="Masters12"/>
-          <include name="Masters2"/>
           <include name="CaseUserAssignmentDelete"/>
           <include name="Masters11"/>
           <include name="TaskwithExistingData"/>
           <include name="TaskActivtityExistingData"/>
+          <include name="RatingCriteriaWithoutData"/>
+          <include name="CaseNoticeTypeGraph"/>
           <include name="CaseSendMailWithDocInvalidFields"/>
           <include name="NoticeWithInvalidData"/>
           <include name="ReminderWithoutData"/>
@@ -95,10 +97,11 @@
           <include name="CaseTaskActivityWithoutData"/>
           <include name="Masters4"/>
           <include name="Masters3"/>
-          <include name="Masters6"/>
+          <include name="PaymentTypeInvalidData"/>
           <include name="Masters5"/>
           <include name="InwardDefendentAgeingGraph1to2years"/>
           <include name="Masters8"/>
+          <include name="RatingCriteriaInvalidData"/>
           <include name="LinkNoticeViewIcon"/>
           <include name="Masters7"/>
           <include name="Masters9"/>
@@ -110,7 +113,6 @@
           <include name="CaseExistingHearingDate"/>
           <include name="DepartmentSummaryGraph1"/>
           <include name="LinkCaseViewIcon"/>
-          <include name="OutwardPlaintiffAgeingGraph"/>
           <include name="LinkCaseDeleteIcon"/>
           <include name="ComplainantAgeingGraph1to2years"/>
           <include name="CaseOrderwithClearBtn"/>
@@ -118,11 +120,13 @@
           <include name="NoticeSendMailWithDocInvalidFields"/>
           <include name="TaskwithoutData"/>
           <include name="TaskDelete"/>
+          <include name="PaymentTypeCloseButton"/>
           <include name="CloseCase"/>
           <include name="CaseExistingData"/>
           <include name="CaseCriteriaInvalidData"/>
           <include name="CaseHearingcfo"/>
           <include name="TaskClosed"/>
+          <include name="DocumentTypeCloseButton"/>
           <include name="NoticePaymentWithoutData"/>
           <include name="NoticeUserAssignment"/>
           <include name="PaymentLogwithExistingData"/>
@@ -140,6 +144,7 @@
           <include name="AdvancedSearchDoc"/>
           <include name="CaseClose"/>
           <include name="CaseDocumentShareInvalidData"/>
+          <include name="DocumentTypeInvalidData"/>
         </methods>
       </class> <!-- litigationManagement.CFO -->
     </classes>

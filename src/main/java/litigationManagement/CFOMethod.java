@@ -281,7 +281,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -291,7 +291,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -510,7 +510,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -520,7 +520,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -748,22 +748,22 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
 			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
 			Thread.sleep(250);
 			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
-			test.log(LogStatus.PASS, "File downloaded successfully.");
+		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
 			{
-				
+				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
 			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
@@ -976,7 +976,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -986,7 +986,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -1216,7 +1216,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -1226,7 +1226,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -1445,7 +1445,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -1455,7 +1455,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -1679,7 +1679,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -1689,7 +1689,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -1911,7 +1911,7 @@ public class CFOMethod {
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -1921,7 +1921,7 @@ public class CFOMethod {
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(5500);
-				File dir1 = new File("C://Users//Admin//Downloads");
+				File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -2148,7 +2148,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -2158,7 +2158,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -2381,7 +2381,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -2391,7 +2391,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -2630,7 +2630,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Admin//Downloads");
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -2640,7 +2640,7 @@ public class CFOMethod {
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C://Users//Admin//Downloads");
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -2869,7 +2869,7 @@ public class CFOMethod {
 	 			
 	 		
 	 			Thread.sleep(100);
-	 			File dir = new File("C://Users//Admin//Downloads");
+	 			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 	 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 	 			
 	 			Thread.sleep(500);
@@ -2879,7 +2879,7 @@ public class CFOMethod {
 	 		
 	 			
 	 			Thread.sleep(5500);
-	 			File dir1 = new File("C://Users//Admin//Downloads");
+	 			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 	 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 	 			
 	 			if(dirContents.length < allFilesNew.length)
@@ -10198,11 +10198,147 @@ public class CFOMethod {
 								 
 								 test.log(LogStatus.PASS,"Opponent Filter work successfully");
 							   
-							   
-							   
-							   
+				  } 
+					 
+					 public static void OpponentWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+						  
+						  
+							WebDriverWait wait = new WebDriverWait(driver, 180);
+							progress(driver);
+						  
+						  
+							 Thread.sleep(5000);
+							 performerPOM.clickMasters(driver).click();
+
+							 Thread.sleep(3000);
+						     performerPOM.chooseOpponentMasters(driver).click();
+						     Thread.sleep(3000);
+						     performerPOM.NewOpponent(driver).click();
 						   
-					  } 
+							
+						    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePartyDetial"));
+						
+						   Thread.sleep(3000);
+						   performerPOM.saveOpponent(driver).click();
+						   
+						   Thread.sleep(3000);
+								 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
+									if(msg1.equalsIgnoreCase(msg1))
+									{
+										test.log(LogStatus.PASS, "Without Enter Data = "+msg1);
+										
+									}
+										else
+										{
+											test.log(LogStatus.FAIL, "Without Enter Data = "+msg1);
+										}
+									
+									
+						   
+						   
+						   Thread.sleep(3000);
+						   performerPOM.closeOpponent(driver).click();
+						   
+					  }
+					 public static void OpponentInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+						  
+						  
+							WebDriverWait wait = new WebDriverWait(driver, 180);
+							progress(driver);
+						  
+						  
+							 Thread.sleep(5000);
+							 performerPOM.clickMasters(driver).click();
+
+							 Thread.sleep(3000);
+						     performerPOM.chooseOpponentMasters(driver).click();
+						     Thread.sleep(3000);
+						     performerPOM.NewOpponent(driver).click();
+						   
+							
+						    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePartyDetial"));
+						
+							   
+							   Thread.sleep(3000);
+							   performerPOM.clickOpponentName(driver).sendKeys("23@#");
+							   
+							   Thread.sleep(3000);
+							   performerPOM.clickOpponentEmail(driver).sendKeys("dfg2#");
+							   
+							   Thread.sleep(2000);
+							 	performerPOM.opponentcontactNo(driver).sendKeys("456");
+							   
+							   
+						    
+						   Thread.sleep(3000);
+						   performerPOM.saveOpponent(driver).click();
+						   
+						   
+						   Thread.sleep(3000);
+						  String msg= performerPOM. clickCriteriaInvalidMsg(driver).getText();
+						  
+						   test.log(LogStatus.PASS, "Enter Invalid Opponent name = "+msg);
+						   
+						   
+						   Thread.sleep(3000);
+								 String msg1 = performerPOM.readOppoenentMsg1(driver).getText();
+									if(msg1.equalsIgnoreCase(msg1))
+									{
+										test.log(LogStatus.PASS, "Enter Invalid Data = "+msg1);
+										
+									}
+										else
+										{
+											test.log(LogStatus.FAIL, "Enter Invalid Data = "+msg1);
+										}
+									
+									
+						   
+						   
+						   Thread.sleep(3000);
+						   performerPOM.closeOpponent(driver).click();
+						   
+					  }
+					 
+					 public static void OpponentCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+						  
+						  
+							WebDriverWait wait = new WebDriverWait(driver, 180);
+							progress(driver);
+						  
+						  
+							 Thread.sleep(5000);
+							 performerPOM.clickMasters(driver).click();
+
+							 Thread.sleep(3000);
+						     performerPOM.chooseOpponentMasters(driver).click();
+						     Thread.sleep(3000);
+						     performerPOM.NewOpponent(driver).click();
+						   
+							
+						    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePartyDetial"));
+						    
+						    if( performerPOM.closeOpponent(driver).isEnabled())
+						    {
+							   Thread.sleep(3000);
+							   performerPOM.closeOpponent(driver).click();
+							   test.log(LogStatus.PASS, "Close button is clickable");	
+						    }
+						    else
+						    {
+						    	 test.log(LogStatus.FAIL, "Close button is not clickable");	
+						    }
+						    
+						    Thread.sleep(2000);
+						    OverduePOM.clickDashboard(driver).click();
+					  }
+						
+					 
+					 
+					 
 					 public static void Court(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					   {
 						   XSSFSheet sheet = ReadExcel();
@@ -10211,12 +10347,10 @@ public class CFOMethod {
 						 
 						   Thread.sleep(3000);
 						    performerPOM.clickMasters(driver).click();
-							//Thread.sleep(3000);
-							//performerPOM.clickMastersMenu(driver).click();
+						
 						    Thread.sleep(3000);
 						     performerPOM.clickCourtMasters(driver).click();
-//						   Thread.sleep(3000);
-//						   performerPOM.clickCourtMasters(driver).click();
+
 					  	   Thread.sleep(3000);
 						   performerPOM.clickNewCourt(driver).click();
 						   
@@ -10349,6 +10483,175 @@ public class CFOMethod {
 								  	 
 								   
 						}	
+					 
+					 public static void CourtWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					   {
+						  
+							WebDriverWait wait = new WebDriverWait(driver, 180);
+							progress(driver);
+						 
+						   Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+						
+						    Thread.sleep(3000);
+						     performerPOM.clickCourtMasters(driver).click();
+
+					  	   Thread.sleep(3000);
+						   performerPOM.clickNewCourt(driver).click();
+						   
+						   Thread.sleep(5000);
+						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCourt"));
+						 
+					       Thread.sleep(3000);
+						   performerPOM.saveCourt(driver).click();
+						   
+						   Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg1(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS,"Without Enter Data=" +msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL, "Without Enter Data=" +msg1);
+								}
+						    
+						   Thread.sleep(4000);
+						   performerPOM.closeCourt(driver).click();
+					   }
+					 
+					 public static void CourtInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					   {
+						 
+							WebDriverWait wait = new WebDriverWait(driver, 180);
+							progress(driver);
+						 
+						   Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+						
+						    Thread.sleep(3000);
+						     performerPOM.clickCourtMasters(driver).click();
+
+					  	   Thread.sleep(3000);
+						   performerPOM.clickNewCourt(driver).click();
+						   
+						   Thread.sleep(5000);
+						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCourt"));
+						 
+						   Thread.sleep(5000);
+						   performerPOM.clickCourtName(driver).sendKeys("$%");
+						   
+						   Thread.sleep(3000);
+							  String msg= performerPOM.clickCriteriaInvalidMsg(driver).getText();
+							  
+							   test.log(LogStatus.PASS, "Enter Invalid Court name = "+msg);
+							   
+						   
+						   Thread.sleep(5000);
+						   performerPOM.clickCourtType(driver).click();
+						   Thread.sleep(5000);
+						   performerPOM.selectCourtType(driver).click();
+						   Thread.sleep(5000);
+						   performerPOM.clickCountry(driver).click();
+						   Thread.sleep(5000);
+						   performerPOM.selectCountry(driver).click();
+						   
+					       Thread.sleep(3000);
+						   performerPOM.saveCourt(driver).click();
+						   
+						 
+						   
+						   Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS, "Enter Invalid Data="+msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL,  "Enter Invalid Data="+msg1);
+								}
+						    
+						   Thread.sleep(4000);
+						   performerPOM.closeCourt(driver).click();
+					   }
+					 
+					 
+					 public static void CourtTwomanadatoryFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					   {
+						 
+							WebDriverWait wait = new WebDriverWait(driver, 180);
+							progress(driver);
+						 
+						   Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+						
+						    Thread.sleep(3000);
+						     performerPOM.clickCourtMasters(driver).click();
+
+					  	   Thread.sleep(3000);
+						   performerPOM.clickNewCourt(driver).click();
+						   
+						   Thread.sleep(5000);
+						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCourt"));
+						 
+						   Thread.sleep(5000);
+						   performerPOM.clickCourtName(driver).sendKeys("abc");
+						  
+						   Thread.sleep(5000);
+						   performerPOM.clickCourtType(driver).click();
+						   Thread.sleep(5000);
+						   performerPOM.selectCourtType(driver).click();
+						   
+						    Thread.sleep(3000);
+							   performerPOM.saveCourt(driver).click();
+							   
+						   Thread.sleep(3000);
+								 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
+									if(msg1.contains(msg1))
+									{
+										test.log(LogStatus.PASS, "Enter Two Manadatory fields ="+msg1);
+									}
+									else
+									{
+										test.log(LogStatus.FAIL,  "Enter Two Manadatory fields="+msg1);
+									}
+							    
+							   Thread.sleep(4000);
+							   performerPOM.closeCourt(driver).click();
+						   }
+					 
+					 public static void CourtCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					   {
+						 
+							WebDriverWait wait = new WebDriverWait(driver, 180);
+							progress(driver);
+						 
+						   Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+						
+						    Thread.sleep(3000);
+						     performerPOM.clickCourtMasters(driver).click();
+
+					  	   Thread.sleep(3000);
+						   performerPOM.clickNewCourt(driver).click();
+						   
+						   Thread.sleep(5000);
+						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCourt"));
+						   
+						   if(performerPOM.closeCourt(driver).isEnabled())
+						   {
+						     Thread.sleep(4000);
+						      performerPOM.closeCourt(driver).click();
+						      test.log(LogStatus.PASS, "Close button is  clickable");
+						   }
+						   else
+						   {
+							   test.log(LogStatus.FAIL, "Close button is not clickable");
+						   }
+					   }
+				 
+						   
 					 public static void CaseNoticeType(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					   {
 						   XSSFSheet sheet = ReadExcel();
@@ -10478,18 +10781,136 @@ public class CFOMethod {
 								  	 
 						}	
 					 
+					 
+					 public static void CaseNoticeTypeWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					   {
+						  
+						   
+						    WebDriverWait wait=new WebDriverWait(driver,20);  
+						    Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+							   
+							Thread.sleep(3000);
+							performerPOM.clickCasNoticeTypecfo(driver).click();
+							
+						
+						    Thread.sleep(3000);
+							performerPOM.NewCaseNoticeType(driver).click();
+							
+							 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCaseType"));
+						
+						
+							Thread.sleep(6000);
+							performerPOM.saveCaseNoticeType(driver).click();
+							
+							 Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg1(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS,"Enter Without Data =" +msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Without Data =" +msg1);
+								}
+							
+							
+							Thread.sleep(3000);
+							performerPOM.closeCaseNoticeType(driver).click();
+					   }
+					 
+					 public static void CaseNoticeTypeInvaliData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					   {
+						  
+						   
+						    WebDriverWait wait=new WebDriverWait(driver,20);  
+						    Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+							   
+							Thread.sleep(3000);
+							performerPOM.clickCasNoticeTypecfo(driver).click();
+							
+						
+						    Thread.sleep(3000);
+							performerPOM.NewCaseNoticeType(driver).click();
+							
+							 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCaseType"));
+							Thread.sleep(3000);
+							performerPOM.CaseNoticeType(driver).click();
+							
+							Thread.sleep(3000);
+							performerPOM.selectCaseNoticeType(driver).click();
+							
+							Thread.sleep(3000);
+							performerPOM.CaseNoticeType(driver).click();
+							
+							Thread.sleep(3000);
+						
+							performerPOM.TypeName(driver).sendKeys("23#$");
+							
+							 
+							   Thread.sleep(3000);
+								  String msg= performerPOM.clickCriteriaInvalidMsg(driver).getText();
+								  
+								   test.log(LogStatus.PASS, "Enter Invalid Case/Notice Type  = "+msg);
+							
+							
+						
+							Thread.sleep(6000);
+							performerPOM.saveCaseNoticeType(driver).click();
+							
+							 Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS, "Enter Invalid Case/Notice Type=" +msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Invalid Case/Notice Type=" +msg1);
+								}
+							
+							
+							Thread.sleep(3000);
+							performerPOM.closeCaseNoticeType(driver).click();
+					   }
+					 
+					 public static void CaseNoticeTypeCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					   {
+						  
+						   
+						    WebDriverWait wait=new WebDriverWait(driver,20);  
+						    Thread.sleep(3000);
+						    performerPOM.clickMasters(driver).click();
+							   
+							Thread.sleep(3000);
+							performerPOM.clickCasNoticeTypecfo(driver).click();
+							
+						
+						    Thread.sleep(3000);
+							performerPOM.NewCaseNoticeType(driver).click();
+							
+							 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCaseType"));
+							
+							 if(performerPOM.closeCaseNoticeType(driver).isEnabled())
+							 {
+							     Thread.sleep(3000);
+								performerPOM.closeCaseNoticeType(driver).click();
+								test.log(LogStatus.PASS, "Close Button is clickable");	
+							 }
+							 else
+							 {
+								 test.log(LogStatus.FAIL, "Close Button is not  clickable");	
+							 }
+					   }
+								
+					 
 					 public static void PaymentType(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					 {
 						XSSFSheet sheet = ReadExcel();
 						 WebDriverWait wait=new WebDriverWait(driver,20);  
 						  Thread.sleep(5000);
-						  performerPOM.clickMasters(driver).click();
-						  
-				
-						 
-						  
-						  
-						  
+						  performerPOM.clickMasters(driver).click();  
 						  Thread.sleep(3000);
 						  performerPOM.clickPaymentTypeMasters(driver).click();
 				          Thread.sleep(4000);
@@ -10599,8 +11020,108 @@ public class CFOMethod {
 								 
 								 
 								 test.log(LogStatus.PASS,"Payment Type Filter work successfully");
-					 }	  
+					 }	
 					 
+					 
+					 public static void PaymentTypeWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					 {
+						
+						 WebDriverWait wait=new WebDriverWait(driver,20);  
+						  Thread.sleep(5000);
+						  performerPOM.clickMasters(driver).click();  
+						  Thread.sleep(3000);
+						  performerPOM.clickPaymentTypeMasters(driver).click();
+				          Thread.sleep(4000);
+						  performerPOM.clickPaymentTypeNew(driver).click();
+						  
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePayment")); 
+					 	   
+						  Thread.sleep(4000);
+						  performerPOM.savePaymentType(driver).click();
+						  
+
+							 Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg1(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS, "Enter Without Data ="+msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Without Data ="+msg1);
+								}
+						   
+						   Thread.sleep(4000);
+						  performerPOM.closePaymentType(driver).click();
+					 }
+					 public static void PaymentTypeInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					 {
+						
+						 WebDriverWait wait=new WebDriverWait(driver,20);  
+						  Thread.sleep(5000);
+						  performerPOM.clickMasters(driver).click();  
+						  Thread.sleep(3000);
+						  performerPOM.clickPaymentTypeMasters(driver).click();
+				          Thread.sleep(4000);
+						  performerPOM.clickPaymentTypeNew(driver).click();
+						  
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePayment"));
+						  
+						  Thread.sleep(4000);
+						  performerPOM.PaymentType(driver).sendKeys("#$34");
+						  
+						   Thread.sleep(3000);
+							  String msg= performerPOM.clickCriteriaInvalidMsg(driver).getText();
+							  
+							   test.log(LogStatus.PASS, "Enter Invalid Payment Type  = "+msg);
+					 	   
+						  Thread.sleep(4000);
+						  performerPOM.savePaymentType(driver).click();
+						  
+
+							 Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg1(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS, "Enter Invalid Data ="+msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Invalid Data ="+msg1);
+								}
+						   
+						   Thread.sleep(4000);
+						  performerPOM.closePaymentType(driver).click();
+					 }
+					 
+					 public static void PaymentTypeCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					 {
+						
+						 WebDriverWait wait=new WebDriverWait(driver,20);  
+						  Thread.sleep(5000);
+						  performerPOM.clickMasters(driver).click();  
+						  Thread.sleep(3000);
+						  performerPOM.clickPaymentTypeMasters(driver).click();
+				          Thread.sleep(4000);
+						  performerPOM.clickPaymentTypeNew(driver).click();
+						  
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframePayment"));
+						  
+						  
+						  if(performerPOM.closePaymentType(driver).isEnabled())
+						  {
+						       Thread.sleep(4000);
+							  performerPOM.closePaymentType(driver).click();
+							  test.log(LogStatus.PASS,"Close button is clickable");
+						  }
+						  
+						  else
+						  {
+							  test.log(LogStatus.PASS,"Close button is not clickable");
+						  }
+					 }
+					 
+						  
 					 public static void customParameter(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					  {
 				    	 
@@ -10736,6 +11257,125 @@ public class CFOMethod {
 						    
 							 test.log(LogStatus.PASS,"Custom Prameter Filter work successfully");
 					} 
+					 
+					  public static void customParameterWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+				    	 
+				    	
+						 WebDriverWait wait=new WebDriverWait(driver,20);  
+							 
+						  Thread.sleep(3000);
+						  performerPOM.clickMasters(driver).click();
+
+						  Thread.sleep(3000);
+						  performerPOM.customParameterMaster(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.newCustomParameter(driver).click();
+						  
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCustomFieldDetial"));
+						  
+						 
+						
+						  Thread.sleep(3000);
+						  performerPOM.saveCustomParameter(driver).click();
+						  
+						  
+						  Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg1(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS, "Without Enter Data ="+msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL, "Without Enter Data ="+msg1);
+								}
+						   
+						   
+						  Thread.sleep(3000);
+						  performerPOM.closeCustomParameter(driver).click();
+					  }
+					  
+					  public static void customParameterInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+				    	 
+				    	
+						 WebDriverWait wait=new WebDriverWait(driver,20);  
+							 
+						  Thread.sleep(3000);
+						  performerPOM.clickMasters(driver).click();
+
+						  Thread.sleep(3000);
+						  performerPOM.customParameterMaster(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.newCustomParameter(driver).click();
+						  
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCustomFieldDetial"));
+						  
+						  Thread.sleep(3000);
+						  performerPOM.typeCustomParameter(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.selectTypeCustomParameter(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.typeCustomParameter(driver).click();
+						  
+						  Thread.sleep(4000);
+						  performerPOM.ParameterLabel(driver).sendKeys("$%#8a4");
+						    Thread.sleep(4000);
+						  performerPOM.saveCustomParameter(driver).click();
+						  
+						  
+						  Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.FAIL, "Enter Invalid  Data ="+msg1);
+								}
+								else
+								{
+									test.log(LogStatus.PASS, "Enter Invalid  Data ="+msg1);
+								}
+						   
+						   
+						  Thread.sleep(3000);
+						  performerPOM.closeCustomParameter(driver).click();
+					  } 
+					  
+					  public static void customParameterCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+				    	 
+				    	
+						 WebDriverWait wait=new WebDriverWait(driver,20);  
+							 
+						  Thread.sleep(3000);
+						  performerPOM.clickMasters(driver).click();
+
+						  Thread.sleep(3000);
+						  performerPOM.customParameterMaster(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.newCustomParameter(driver).click();
+						  
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCustomFieldDetial"));
+						  
+					 
+						if( performerPOM.closeCustomParameter(driver).isEnabled())  
+					    {
+							Thread.sleep(3000);
+							 performerPOM.closeCustomParameter(driver).click();
+							 test.log(LogStatus.PASS,"Close button is clicakble");
+					    }
+						else
+						{
+							 test.log(LogStatus.FAIL,"Close button is not clicakble");
+						}
+						 
+					  } 
+					  
+					 
+					 
+					 
+					 
+					 
 					 public static void CaseStage(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 				     {
 				    	 XSSFSheet sheet=ReadExcel();
@@ -10857,6 +11497,107 @@ public class CFOMethod {
 							 test.log(LogStatus.PASS, "Case Stage Filter work successfully");
 				    	 
 				  }
+					 
+					 public static void CaseStageInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+				     {
+				    
+				    	 WebDriverWait wait=new WebDriverWait(driver,20);  
+				    	  Thread.sleep(3000);
+						  performerPOM.clickMasters(driver).click();
+
+						 
+						  
+				     	 performerPOM.caseStageMaster(driver).click();
+						  Thread.sleep(0);
+				    	 performerPOM.newCaseStage(driver).click();
+				    	 
+				    	 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCaseStageType"));
+				    	  
+				    	 Thread.sleep(3000);
+						
+				    	 performerPOM.clickcaseStage(driver).sendKeys("$%45");
+				    	 
+				  	   Thread.sleep(3000);
+						  String msg= performerPOM.clickCriteriaInvalidMsg(driver).getText();
+						  
+						   test.log(LogStatus.PASS, "Enter Invalid Case Stage Name  = "+msg);
+				    	 
+				    	 Thread.sleep(3000);
+				    	 performerPOM.savecaseStage(driver).click();
+				    	 
+				    	 Thread.sleep(3000);
+						 String msg1 = performerPOM.readcaseStagemsg(driver).getText();
+							if(msg1.equalsIgnoreCase(msg1))
+							{
+								test.log(LogStatus.PASS, "Enter Invalid Data = "+msg1);
+								
+							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Invalid Data  = "+msg1);
+								} 
+				    	 Thread.sleep(3000);
+				    	 performerPOM.closecaseStage(driver).click();
+				     }
+					 
+					 public static void CaseStageWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+				     {
+				    
+				    	 WebDriverWait wait=new WebDriverWait(driver,20);  
+				    	  Thread.sleep(3000);
+						  performerPOM.clickMasters(driver).click();
+
+						 
+						  
+				     	 performerPOM.caseStageMaster(driver).click();
+						  Thread.sleep(0);
+				    	 performerPOM.newCaseStage(driver).click();
+				    	 
+				    	 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCaseStageType"));
+				    	  
+				    	 Thread.sleep(3000);
+				    	 performerPOM.savecaseStage(driver).click();
+				    	 
+				    	 Thread.sleep(3000);
+						 String msg1 = performerPOM.readcaseStagemsg(driver).getText();
+							if(msg1.equalsIgnoreCase(msg1))
+							{
+								test.log(LogStatus.PASS, "Without Enter Data = "+msg1);
+								
+							}
+								else
+								{
+									test.log(LogStatus.FAIL, "Without Enter Data  = "+msg1);
+								} 
+				    	 Thread.sleep(3000);
+				    	 performerPOM.closecaseStage(driver).click();
+				     }
+					 public static void CaseStageCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+				     {
+				    
+				    	 WebDriverWait wait=new WebDriverWait(driver,20);  
+				    	  Thread.sleep(3000);
+						  performerPOM.clickMasters(driver).click();
+						  performerPOM.caseStageMaster(driver).click();
+						  Thread.sleep(0);
+				    	 performerPOM.newCaseStage(driver).click();
+				    	 
+				    	 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeCaseStageType"));
+				    	  
+				    	 
+				    	 if( performerPOM.closecaseStage(driver).isEnabled())
+				    	 {
+				    	    Thread.sleep(3000);
+				    	    performerPOM.closecaseStage(driver).click();
+				    	    test.log(LogStatus.PASS, "Close Button is clickable");	
+				    	 }
+				    	 else
+				    	 {
+				    		 test.log(LogStatus.FAIL, "Close Button is not clickable");	
+				    	 }
+				     }
+					 
+					 
 					 public static void DocumentType(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					  {
 					  
@@ -10968,6 +11709,104 @@ public class CFOMethod {
 						  
 						 }
 					 
+					 public static void DocumentTypeWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+					   
+					      WebDriverWait wait=new WebDriverWait(driver,20);  
+					      Thread.sleep(3000);
+					      performerPOM.clickMasters(driver).click();
+					      
+					      Thread.sleep(3000);
+						  performerPOM.DocumentTypeMasters(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.NewDocumentType(driver).click();
+						  
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeDocType"));
+						 
+						  Thread.sleep(3000);
+						  performerPOM. saveDocumentType(driver).click();
+						  
+						  Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS, "Without Enter Data =" +msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL, "Without Enter Data =" +msg1);
+								}
+			              Thread.sleep(3000);
+						  performerPOM.closeDocumentType(driver).click();
+					  }
+					 public static void DocumentTypeInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+					   
+					      WebDriverWait wait=new WebDriverWait(driver,20);  
+					      Thread.sleep(3000);
+					      performerPOM.clickMasters(driver).click();
+					      
+					      Thread.sleep(3000);
+						  performerPOM.DocumentTypeMasters(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.NewDocumentType(driver).click();
+						  
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeDocType"));
+						 
+						  Thread.sleep(3000);
+						  performerPOM.clickDocumentType(driver).sendKeys("%^$2");
+						  
+						   Thread.sleep(3000);
+							  String msg= performerPOM.clickCriteriaInvalidMsg(driver).getText();
+							  
+							   test.log(LogStatus.PASS, "Enter Invalid Document Type  = "+msg);
+						  
+				  
+						  Thread.sleep(3000);
+						  performerPOM. saveDocumentType(driver).click();
+						  
+						  Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS, "Enter Invalid Data =" +msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Invalid Data =" +msg1);
+								}
+			              Thread.sleep(3000);
+						  performerPOM.closeDocumentType(driver).click();
+					  }
+					 public static void DocumentTypeCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+					   
+					      WebDriverWait wait=new WebDriverWait(driver,20);  
+					      Thread.sleep(3000);
+					      performerPOM.clickMasters(driver).click();
+					      
+					      Thread.sleep(3000);
+						  performerPOM.DocumentTypeMasters(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM.NewDocumentType(driver).click();
+						  
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_IframeDocType"));
+						 
+						  if( performerPOM.closeDocumentType(driver).isEnabled())
+						  {
+						      Thread.sleep(3000);
+						     performerPOM.closeDocumentType(driver).click();
+						     test.log(LogStatus.PASS, "Close button is clickable");					 
+						  }
+						  else
+						  {
+							  test.log(LogStatus.FAIL, "Close button is not clickable");
+						  }
+					  }
+						 
+					 
+					   
+					   
 					  public static void RatingCriteria(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					  {
 						  XSSFSheet sheet=ReadExcel();
@@ -11081,6 +11920,117 @@ public class CFOMethod {
 							 test.log(LogStatus.PASS, "Rating Criteria Filter working  successfully");
 						  
 					 }
+					  
+					  public static void RatingCriteriaWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+						
+						  WebDriverWait wait=new WebDriverWait(driver,20);  
+						  Thread.sleep(3000);
+						  performerPOM.clickMasters(driver).click();
+						  Thread.sleep(3000);
+						
+						  performerPOM.ratingCriteriaMasters(driver).click();
+						  
+						  Thread.sleep(3000);
+						  performerPOM.NewDocumentType(driver).click();
+						  
+						  Thread.sleep(3000);
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeCriteriaMastre"));
+						
+						  Thread.sleep(3000);
+						  performerPOM. saveDocumentType(driver).click();
+						  
+						  Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS, "Without Enter Data="+msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL, "Without Enter Data="+msg1);
+								}
+						  
+						  
+						  Thread.sleep(3000);
+						  performerPOM.closeDocumentType(driver).click();
+					  }
+					  
+					  public static void RatingCriteriaInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+						  
+						  WebDriverWait wait=new WebDriverWait(driver,20);  
+						  Thread.sleep(3000);
+						  performerPOM.clickMasters(driver).click();
+						  Thread.sleep(3000);
+						
+						  performerPOM.ratingCriteriaMasters(driver).click();
+						  
+						  Thread.sleep(3000);
+						  performerPOM.NewDocumentType(driver).click();
+						  
+						  Thread.sleep(3000);
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeCriteriaMastre"));
+						  
+						  Thread.sleep(3000);
+					     performerPOM.clickCriteria(driver).sendKeys("#$54");
+					     
+					     Thread.sleep(3000);
+						  String msg= performerPOM.clickCriteriaInvalidMsg(driver).getText();
+						  
+						   test.log(LogStatus.PASS, "Enter Invalid Rating Criteria  = "+msg);
+					     
+					     
+					     
+						  Thread.sleep(3000);
+						  performerPOM. saveDocumentType(driver).click();
+						  
+						  Thread.sleep(3000);
+							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
+								if(msg1.contains(msg1))
+								{
+									test.log(LogStatus.PASS, "Enter Invalid Data ="+msg1);
+								}
+								else
+								{
+									test.log(LogStatus.FAIL, "Enter Invalid Data ="+msg1);
+								}
+						  
+						  
+						  Thread.sleep(3000);
+						  performerPOM.closeDocumentType(driver).click();
+					  }
+					  
+					  
+					  public static void RatingCriteriaCloseButton(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+					  {
+						  
+						  WebDriverWait wait=new WebDriverWait(driver,20);  
+						  Thread.sleep(3000);
+						  performerPOM.clickMasters(driver).click();
+						  Thread.sleep(3000);
+						
+						  performerPOM.ratingCriteriaMasters(driver).click();
+						  
+						  Thread.sleep(3000);
+						  performerPOM.NewDocumentType(driver).click();
+						  
+						  Thread.sleep(3000);
+						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeCriteriaMastre"));
+						
+						  if(  performerPOM.closeDocumentType(driver).isEnabled())
+						  {
+						     Thread.sleep(3000);
+						     performerPOM.closeDocumentType(driver).click();
+						     test.log(LogStatus.PASS, "Close button is clickable");
+						  }
+						  else
+						  {
+							  test.log(LogStatus.FAIL, "Close button is not clickable");
+						  }
+					  }
+					  
+						  
 					  public static void NoticeStage(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 					  {
 						  XSSFSheet sheet=ReadExcel();

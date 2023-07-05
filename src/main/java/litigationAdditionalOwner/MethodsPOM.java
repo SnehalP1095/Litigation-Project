@@ -216,12 +216,12 @@ private static WebElement selectcheckBox;
      if(count1 > gridRecords)
      {
        //test.log(LogStatus.PASS, "Total Case Count increased in grid after adding New Case.");
-       test.log(LogStatus.PASS, "Total Case Count increased in grid after adding New Case= Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
+       test.log(LogStatus.PASS, "Total Notice Count increased in grid after adding New Notice= Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
      }
      else
      {
         //test.log(LogStatus.FAIL, "Total Case Count doesn't increased in grid after adding New Case.");
-        test.log(LogStatus.FAIL, "Total Case Count doesn't increased in grid after adding New Case =Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
+        test.log(LogStatus.FAIL, "Total Notice Count doesn't increased in grid after adding New Notice =Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
      }
      
 		
@@ -817,12 +817,12 @@ private static WebElement selectcheckBox;
 				if(msg.contains("Task Saved Successfully."))
 					if(msg.contains("Task Saved Successfully."))
 					{
-						test.log(LogStatus.PASS, "Task Saved Successfully.");
+						test.log(LogStatus.PASS, "Add Task ="+msg);
 					}
 					
 					else if(msg.contains("Task with same title already exists."))
 					{
-						test.log(LogStatus.FAIL, "Task with same title already exists.");
+						test.log(LogStatus.PASS, "Task with same title already exists.");
 					}
 				
 				
@@ -848,20 +848,13 @@ private static WebElement selectcheckBox;
 		
 				if(msg2.contains("Task Saved Successfully."))
 				{
-					test.log(LogStatus.PASS, "Task Saved Successfully.");
+					test.log(LogStatus.PASS, "Update Task=" +msg);
 				}
 				
 				else if(msg2.contains("Task with same title already exists."))
 				{
 					test.log(LogStatus.FAIL, "Task with same title already exists.");
 				}
-				
-				
-				
-				
-				
-				
-				
 				
 				Thread.sleep(5000);
 				performerPOM.clickNoticeTaskEditResponsecfo(driver).click();
@@ -993,11 +986,11 @@ private static WebElement selectcheckBox;
 								
 							Thread.sleep(500);
 							String msg3 = performerPOM.readResponseMsg(driver).getText();		//Reading Message appeared after save button
-							int flag3 = 0;
+						
 							if(msg3.equalsIgnoreCase("Response Details Saved Successfully."))
 							{
 								test.log(LogStatus.PASS, "Message displayed = "+msg3);
-								flag3 = 1;
+								
 							}
 							else
 							{
@@ -1038,8 +1031,6 @@ private static WebElement selectcheckBox;
 		
 		     Thread.sleep(4000);
 		     performerPOM.clickNoticeDownloadResponsecfo(driver).click();
-		
-		     //test.log(LogStatus.PASS, "Document download succssesfully");
 		
 		    Thread.sleep(4000);
 		     performerPOM.clickNoticeViewResponsecfo(driver).click();
@@ -3015,7 +3006,7 @@ private static WebElement selectcheckBox;
 				if(count1 == SheetRecords)
 				{
 					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-					test.log(LogStatus.PASS, "No of records from grid doesn't matches to no of records in Excel Sheet. = Total records from Grid = "+count1+" | Total records from Report = "+SheetRecords);
+					test.log(LogStatus.PASS, "No of records from grid  matches to no of records in Excel Sheet. = Total records from Grid = "+count1+" | Total records from Report = "+SheetRecords);
 				}
 				else
 				{
@@ -3798,11 +3789,11 @@ private static WebElement selectcheckBox;
 				if(performerPOM.clickDownloadDocument(driver).isEnabled())
 				{
 					performerPOM.clickDownloadDocument(driver).click();
-					 test.log(LogStatus.PASS, "Document  Downloaded Successfully.");
+					 test.log(LogStatus.PASS, "Case Document  Downloaded Successfully.");
 				}
 				else
 				{
-					test.log(LogStatus.PASS, "Document not Downloaded Successfully.");
+					test.log(LogStatus.PASS, "Case Document not Downloaded Successfully.");
 				}
 		       
 		       
@@ -3812,11 +3803,11 @@ private static WebElement selectcheckBox;
 				if(performerPOM.clickViewDocument(driver).isEnabled())
 				{
 					performerPOM.clickViewDocument(driver).click();
-					 test.log(LogStatus.PASS, "Document view Successfully.");
+					 test.log(LogStatus.PASS, "Case Document view Successfully.");
 				}
 				else
 				{
-					test.log(LogStatus.PASS, "Document not view Successfully.");
+					test.log(LogStatus.PASS, "Case Document not view Successfully.");
 				}
 		       
 		       Thread.sleep(3000);
@@ -3841,11 +3832,11 @@ private static WebElement selectcheckBox;
 					if(performerPOM.clickDownloadDocument(driver).isEnabled())
 					{
 						performerPOM.clickDownloadDocument(driver).click();
-						 test.log(LogStatus.PASS, "Document  Downloaded Successfully.");
+						 test.log(LogStatus.PASS, "Notice Document  Downloaded Successfully.");
 					}
 					else
 					{
-						test.log(LogStatus.PASS, "Document not Downloaded Successfully.");
+						test.log(LogStatus.PASS, "Notice Document not Downloaded Successfully.");
 					}
 			       
 			      
@@ -3854,11 +3845,11 @@ private static WebElement selectcheckBox;
 					if(performerPOM.clickViewDocument(driver).isEnabled())
 					{
 						performerPOM.clickViewDocument(driver).click();
-						 test.log(LogStatus.PASS, "Document view Successfully.");
+						 test.log(LogStatus.PASS, "Notice Document view Successfully.");
 					}
 					else
 					{
-						test.log(LogStatus.PASS, "Document not view Successfully.");
+						test.log(LogStatus.PASS, "Notice Document not view Successfully.");
 					}
 			       Thread.sleep(4000);
 			       performerPOM.clickcloseViewDocument(driver).click();
@@ -3881,11 +3872,11 @@ private static WebElement selectcheckBox;
 					if(performerPOM.clickDownloadDocument(driver).isEnabled())
 					{
 						performerPOM.clickDownloadDocument(driver).click();
-						 test.log(LogStatus.PASS, "Document  Downloaded Successfully.");
+						 test.log(LogStatus.PASS, "Task Document  Downloaded Successfully.");
 					}
 					else
 					{
-						test.log(LogStatus.PASS, "Document not Downloaded Successfully.");
+						test.log(LogStatus.PASS, "Task Document not Downloaded Successfully.");
 					}
 			       
 			      
@@ -3894,11 +3885,11 @@ private static WebElement selectcheckBox;
 					if(performerPOM.clickViewDocument(driver).isEnabled())
 					{
 						performerPOM.clickViewDocument(driver).click();
-						 test.log(LogStatus.PASS, "Document view Successfully.");
+						 test.log(LogStatus.PASS, "Task Document view Successfully.");
 					}
 					else
 					{
-						test.log(LogStatus.PASS, "Document not view Successfully.");
+						test.log(LogStatus.PASS, "Task Document not view Successfully.");
 					}
 			     
 			     
@@ -3939,8 +3930,8 @@ private static WebElement selectcheckBox;
 			       performerPOM.clickcloseViewDocument1(driver).click();
 				
 			       Thread.sleep(3000);
-			       test.log(LogStatus.PASS, "Advanced Search-Document  View Successfully.");
-			       test.log(LogStatus.PASS, "Advanced Search-Document  Downloaded Successfully.");
+			       test.log(LogStatus.PASS, "Advanced Search-Case Document  View Successfully.");
+			       test.log(LogStatus.PASS, "Advanced Search-Case Document  Downloaded Successfully.");
 					
 				
 		
@@ -3959,8 +3950,8 @@ private static WebElement selectcheckBox;
 				       performerPOM.clickcloseViewDocument1(driver).click();
 				       
 				       Thread.sleep(3000);
-				       test.log(LogStatus.PASS, "Advanced Search-Document view Successfully.");
-				       test.log(LogStatus.PASS, "Advanced Search-Document Downloaded Successfully.");
+				       test.log(LogStatus.PASS, "Advanced Search-Notice Document view Successfully.");
+				       test.log(LogStatus.PASS, "Advanced Search-Notice Document Downloaded Successfully.");
 						
 									
 	               ////--------------------------------Task----------------------------------
@@ -3979,8 +3970,8 @@ private static WebElement selectcheckBox;
 				     performerPOM.clickcloseViewDocument1(driver).click();
 
 				  
-				     test.log(LogStatus.PASS, "Advanced Search-Document view Successfully.");
-				     test.log(LogStatus.PASS, "Advanced Search-Document  Downloaded Successfully.");
+				     test.log(LogStatus.PASS, "Advanced Search-Task Document view Successfully.");
+				     test.log(LogStatus.PASS, "Advanced Search-Task Document  Downloaded Successfully.");
 				     
 			         driver.navigate().refresh();
 			       
@@ -4153,7 +4144,7 @@ private static WebElement selectcheckBox;
 		
 		Thread.sleep(5000);
 		performerPOM.showResponseDetailIcon1(driver).click();
-		test.log(LogStatus.PASS, "Show response details Case popup open successfully.");
+		test.log(LogStatus.PASS, "Show Hearing details Case popup open successfully.");
 		
 		Thread.sleep(5000);
 		performerPOM.Actionclosepopup1(driver).click();
@@ -8300,7 +8291,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 					{
 						driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();
 						
-						test.log(LogStatus.PASS, "Hearing for perticuler date is clickable.");
+						test.log(LogStatus.PASS, "Hearing for particular date is clickable.");
 						
 					}
 				
