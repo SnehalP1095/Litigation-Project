@@ -8,6 +8,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
@@ -21,6 +22,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import litigationAdditionalOwner.MethodsPOM;
+import litigationAdditionalOwner.performerPOM;
 import performer.OverduePOM;
 
 
@@ -118,22 +120,57 @@ public class CFO {
 			}
 		
 
-	@Test(priority = 2)
+	//@Test(priority = 2)
 		void CaseNoticeTypeGraph() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Select Notice Filter =Outward/Plaintiff Type = Case Notice Type Graph Count Verification");
+			test = extent.startTest("Select Notice Filter  = Case Notice Type Graph Count Verification");
 			
+			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+	     	js.executeScript("window.scrollBy(0,800)");
+	     	
+	     	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardNoticeFilter(driver).click();
+          
+           	
+			 Thread.sleep(5000);
+			 performerPOM.clickDashboardApplyBtn(driver).click();
+			
+	    	int	OutwardPlaintiff = Integer.parseInt(performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).getText());	//Reading Notice Open count.
+	    	int	InwardDefendent = Integer.parseInt(performerPOM.CaseNoticeTypeInwardDefendent(driver).getText());	//Reading Notice Open count.
+	    	int	Complinant = Integer.parseInt(performerPOM.CaseNoticeTypeComplinant(driver).getText());	//Reading Notice Open count.
+	    	int	Respondent = Integer.parseInt(performerPOM.CaseNoticeTypeRespondent(driver).getText());	//Reading Notice Open count.
+	    	int	Applicant = Integer.parseInt(performerPOM.CaseNoticeTypeApplicant(driver).getText());	//Reading Notice Open count.
+	    	int	Petitioner = Integer.parseInt(performerPOM.CaseNoticeTypePetitioner(driver).getText());	//Reading Notice Open count.
+			
+	    	Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeGraph(driver, test,"Outward/Plaintiff Type",OutwardPlaintiff);
+			Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeGraph(driver, test,"Inward/Defendent Type",InwardDefendent);
+			Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeGraph(driver, test,"Complinant Type",Complinant);
+			Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeGraph(driver, test,"Respondent Type",Respondent);
+			Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeGraph(driver, test,"Applicant Type",Applicant);
+			Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeGraph(driver, test,"Petitioner Type",Petitioner);
 			
 			Thread.sleep(3000);
-			CFOMethod.CaseNoticeTypeGraph(driver, test,"cfo -");
+			OverduePOM.clickDashboard(driver).click();
+			
+			
 			
 			extent.endTest(test);
 			extent.flush();
 		}
-//	@Test(priority = 3)
+	//@Test(priority = 2)
 			void CaseNoticeStageGraph() throws InterruptedException, IOException
 			{
-				test = extent.startTest("Notice = Case Notice Stage Graph Count Verification");
+				test = extent.startTest("Select Notice filter = Notice appeal stage = Case Notice Stage Graph Count Verification");
 				
 				
 				Thread.sleep(3000);
@@ -142,10 +179,10 @@ public class CFO {
 				extent.endTest(test);
 				extent.flush();
 			}
-	//@Test(priority = 4)
+	//@Test(priority = 2)
 		void RiskSummaryGraph() throws InterruptedException, IOException
 		{
-			test = extent.startTest("select Notice Filter =(High Risk) Risk Graph Count Verification");
+			test = extent.startTest("Select Notice Filter =(High Risk) Risk Graph Count Verification");
 
 			Thread.sleep(3000);
 			CFOMethod.RiskSummaryGraph(driver, test,"cfo -");
@@ -153,10 +190,10 @@ public class CFO {
 			extent.endTest(test);
 			extent.flush();
 		}
-   //@Test(priority = 5)
+  //@Test(priority = 2)
         void DepartmentSummaryGraph() throws InterruptedException, IOException
         {
-	       test = extent.startTest("Notice = Department Graph Count Verification");
+	       test = extent.startTest("Select Notice Filter =IT Department= Department Graph Count Verification");
 	      
 	       Thread.sleep(3000);
 	       CFOMethod.DepartmentSummaryGraph(driver, test,"cfo -");
@@ -164,10 +201,10 @@ public class CFO {
 	       extent.endTest(test);
 	       extent.flush();
         }
-// @Test(priority = 6)
+ //@Test(priority = 2)
         void LocationSummaryGraph() throws InterruptedException, IOException
         {
-	       test = extent.startTest("Notice = Location Graph Count Verification");
+	       test = extent.startTest("Select Notice Filter = A/Bita Pharma Company Location = Location Graph Count Verification");
 	      
 	       Thread.sleep(3000);
 	       CFOMethod.LocationSummaryGraph(driver, test,"cfo -");
@@ -176,10 +213,10 @@ public class CFO {
 	       extent.flush();
         }
        
-//@Test(priority = 7)
+//@Test(priority = 2)
         void CategorySummaryGraph() throws InterruptedException, IOException
         {
-	       test = extent.startTest("Notice = Category Graph Count Verification");
+	       test = extent.startTest("Select Notice Filter = Judicial Notice Category -Category Graph Count Verification");
 	      
 	       Thread.sleep(3000);
 	       CFOMethod.CategorySummaryGraph(driver, test,"cfo -");
@@ -188,7 +225,7 @@ public class CFO {
 	       extent.flush();
         }
 
- //@Test(priority = 8)
+//@Test(priority = 2)
     void InwardDefendantAgeingGraph() throws InterruptedException, IOException
     {
          test = extent.startTest("Notice =Less than a year = Inward/Defendant = Ageing Graph Count Verification");
@@ -311,14 +348,42 @@ public class CFO {
     }
   
  
-   @Test(priority =19)
+   @Test(priority =2)
 	void CaseNoticeTypeGraph1() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Case = Case Notice Type Graph Count Verification");
+		test = extent.startTest("Select Case Filter  = Case Notice Type Graph Count Verification");
 		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+     	js.executeScript("window.scrollBy(0,800)");
+     	
+     	Thread.sleep(5000);
+		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+		
+		Thread.sleep(5000);
+		performerPOM.clickDashboardCaseFilter(driver).click();
+      
+       	
+		 Thread.sleep(5000);
+		 performerPOM.clickDashboardApplyBtn(driver).click();
+		
+    	int	OutwardPlaintiff = Integer.parseInt(performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).getText());	//Reading Notice Open count.
+    	int	InwardDefendent = Integer.parseInt(performerPOM.CaseNoticeTypeInwardDefendent(driver).getText());	//Reading Notice Open count.
+    	int	Complinant = Integer.parseInt(performerPOM.CaseNoticeTypeComplinant(driver).getText());	//Reading Notice Open count.
+    	int	Respondent = Integer.parseInt(performerPOM.CaseNoticeTypeRespondent(driver).getText());	//Reading Notice Open count.
+    	
+		
+    	Thread.sleep(3000);
+		CFOMethod.CaseNoticeTypeGraph1(driver, test,"Outward/Plaintiff Type",OutwardPlaintiff);
+		Thread.sleep(3000);
+		CFOMethod.CaseNoticeTypeGraph1(driver, test,"Inward/Defendent Type",InwardDefendent);
+		Thread.sleep(3000);
+		CFOMethod.CaseNoticeTypeGraph1(driver, test,"Respondent Type",Complinant);
+		Thread.sleep(3000);
+		CFOMethod.CaseNoticeTypeGraph1(driver, test,"Petitioner Type",Respondent);
 		
 		Thread.sleep(3000);
-		CFOMethod.CaseNoticeTypeGraph1(driver, test,"cfo -");
+		OverduePOM.clickDashboard(driver).click();
+		
 		
 		extent.endTest(test);
 		extent.flush();
@@ -1618,6 +1683,36 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
+	// @Test(priority = 2)
+		void ImportUtilityWithoutData() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Upload Empty File Import Utility verification");
+			
+			
+			CFOMethod.ImportUtilityWithoutData(driver,test);
+			extent.endTest(test);
+			extent.flush();
+		}
+	 @Test(priority = 3)
+		void ImportUtilityInvalidData() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Enter Invalid data in Upload File Import Utility verification");
+			
+			
+			CFOMethod.ImportUtilityInvalidData(driver,test);
+			extent.endTest(test);
+			extent.flush();
+		}
+	 @Test(priority = 4)
+		void ImportUtilityTwoManadtoryFileds() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Enter Two Manadtory fields in Upload File Import Utility verification");
+			
+			
+			CFOMethod.ImportUtilityTwoManadtoryFileds(driver,test);
+			extent.endTest(test);
+			extent.flush();
+		}
 	@Test(priority = 56)
 			void AdvancedSearch() throws InterruptedException, IOException
 			{
@@ -2213,7 +2308,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
-		@Test(priority = 2)
+		//@Test(priority = 2)
 		void DocumentTypeWithoutData() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Document Type Msters-Without data  verification");
@@ -2224,7 +2319,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 3)
+		//@Test(priority = 3)
 		void DocumentTypeInvalidData() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Document Type Msters-Enter Invalid Data verification");
@@ -2235,7 +2330,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 4)
+		//@Test(priority = 4)
 		void DocumentTypeCloseButton() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Document Type Msters-Close button verification");
@@ -2257,7 +2352,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
-		@Test(priority = 2)
+		//@Test(priority = 2)
 		void RatingCriteriaWithoutData() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Rating Criteria Master-Without Enter Data  verification");
@@ -2268,7 +2363,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-		@Test(priority = 3)
+		//@Test(priority = 3)
 		void RatingCriteriaInvalidData() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Rating Criteria Master-Enter Invalid Data  verification");
@@ -2279,7 +2374,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}		
-		@Test(priority =4)
+		//@Test(priority =4)
 		void RatingCriteriaCloseButton() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Rating Criteria Master-Close button verification");
@@ -2290,7 +2385,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}		
-		@Test(priority = 70)
+		//@Test(priority = 70)
 				void Masters12() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Masters - Notice Stage  verification");

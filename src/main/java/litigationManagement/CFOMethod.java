@@ -586,31 +586,50 @@ public class CFOMethod {
 		
 		
 		
-		public static void CaseNoticeTypeGraph(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
+		public static void CaseNoticeTypeGraph(WebDriver driver, ExtentTest test, String type,int countType) throws InterruptedException, IOException
 		{
 			
 
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	     	js.executeScript("window.scrollBy(0,800)");
-	     	
-	     	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-          
-           	
-			 Thread.sleep(5000);
-			 performerPOM.clickDashboardApplyBtn(driver).click();
-			
-	       	
 
 			
-	       	Thread.sleep(2000);
+	       	
+     
+			if(type.equalsIgnoreCase("Outward/Plaintiff Type"))
+			{
+	         	Thread.sleep(2000);
+		        performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).click();						//Clicking on 'Open' notice
+			}
+			else if(type.equalsIgnoreCase("Inward/Defendent Type"))
+			{
+				Thread.sleep(2000);
+		        performerPOM.CaseNoticeTypeInwardDefendent(driver).click();						//Clicking on 'Open' notice
+			}
+			else if(type.equalsIgnoreCase("Complinant Type"))
+			{
+				Thread.sleep(2000);
+		        performerPOM.CaseNoticeTypeComplinant(driver).click();						//Clicking on 'Open' notice
+			}
+			else if(type.equalsIgnoreCase("Respondent Type"))
+			{
+				Thread.sleep(2000);
+		        performerPOM.CaseNoticeTypeRespondent(driver).click();						//Clicking on 'Open' notice
+			}
+			
+			else if(type.equalsIgnoreCase("Applicant Type"))
+			{
+				Thread.sleep(2000);
+		        performerPOM.CaseNoticeTypeApplicant(driver).click();						//Clicking on 'Open' notice
+			}
+			else if(type.equalsIgnoreCase("Petitioner Type"))
+			{
+				Thread.sleep(2000);
+		        performerPOM.CaseNoticeTypePetitioner(driver).click();						//Clicking on 'Open' notice
+			}
 		
-	       	int	open = Integer.parseInt(performerPOM.CaseNoticeTypeSummaryGraph1(driver).getText());	//Reading Notice Open count.
-		    performerPOM.CaseNoticeTypeSummaryGraph1(driver).click();						//Clicking on 'Open' notice
+			
+				
 		    
 		    
 		    Thread.sleep(2000);
@@ -638,15 +657,15 @@ public class CFOMethod {
 				count1 = Integer.parseInt(compliancesCount);
 			}
 			
-			if(open == count1)
+			if(countType == count1)
 			{
 				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
-				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+				test.log(LogStatus.PASS, type+ ":- Dashboard Count = "+countType+" | Displayed records from grid = "+count1);
 			}
 			else
 			{
 				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
-				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+				test.log(LogStatus.FAIL,  type+ ":- Dashboard Count = "+countType+" | Displayed records from grid = "+count1);
 			}
 	       	
 	    
@@ -812,34 +831,41 @@ public class CFOMethod {
 			Thread.sleep(2000);
 			performerPOM.caseNoticeSummaryGraphClose(driver).click();
 			
-			Thread.sleep(3000);
-			OverduePOM.clickDashboard(driver).click();
+         }	
 			
-	   }	
+	  	
 		
-		public static void CaseNoticeTypeGraph1(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
+		public static void CaseNoticeTypeGraph1(WebDriver driver, ExtentTest test, String type,int countType ) throws InterruptedException, IOException
 		{
 			
 
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	        js.executeScript("window.scrollBy(0,800)");
+	     
 	       	
-	        Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-          
-           	
-			 Thread.sleep(5000);
-			 performerPOM.clickDashboardApplyBtn(driver).click();
-			
-	       	Thread.sleep(2000);
+	       	
+	       	if(type.equalsIgnoreCase("Outward/Plaintiff Type"))
+			{
+	         	Thread.sleep(2000);
+		        performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).click();						//Clicking on 'Open' notice
+			}
+			else if(type.equalsIgnoreCase("Inward/Defendent Type"))
+			{
+				Thread.sleep(3000);
+		        performerPOM.CaseNoticeTypeInwardDefendent(driver).click();						//Clicking on 'Open' notice
+			}
+			else if(type.equalsIgnoreCase("Respondent Type"))
+			{
+				Thread.sleep(2000);
+		        performerPOM.CaseNoticeTypeComplinant(driver).click();						//Clicking on 'Open' notice
+			}
+			else if(type.equalsIgnoreCase("Petitioner Type"))
+			{
+				Thread.sleep(2000);
+		        performerPOM.CaseNoticeTypeRespondent(driver).click();						//Clicking on 'Open' notice
+			}
 		
-	       	int	open = Integer.parseInt(performerPOM.CaseNoticeTypeSummaryGraph1(driver).getText());	//Reading Notice Open count.
-		    performerPOM.CaseNoticeTypeSummaryGraph1(driver).click();						//Clicking on 'Open' notice
-		    
+	       
 		    
 		    Thread.sleep(2000);
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
@@ -866,15 +892,15 @@ public class CFOMethod {
 				count1 = Integer.parseInt(compliancesCount);
 			}
 			
-			if(open == count1)
+			if(countType == count1)
 			{
 				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
-				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+				test.log(LogStatus.PASS, type+ ":- Dashboard Count = "+countType+" | Displayed records from grid = "+count1);
 			}
 			else
 			{
 				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
-				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+				test.log(LogStatus.FAIL, type+ ":-Dashboard Count = "+countType+" | Displayed records from grid = "+count1);
 			}
 	       	
 	    
@@ -1041,8 +1067,7 @@ public class CFOMethod {
 			Thread.sleep(2000);
 			performerPOM.caseNoticeSummaryGraphClose(driver).click();
 			
-			Thread.sleep(3000);
-			OverduePOM.clickDashboard(driver).click();
+			
 			
 	   }	
 		
@@ -1079,8 +1104,8 @@ public class CFOMethod {
 			
 	       	Thread.sleep(2000);
 		
-	      	int	open = Integer.parseInt(performerPOM.RiskSummaryGraph1(driver).getText());	//Reading Notice Open count.
-		    performerPOM.RiskSummaryGraph1(driver).click();						//Clicking on 'Open' notice
+	      	int	open = Integer.parseInt(performerPOM.RiskSummaryHigh(driver).getText());	//Reading Notice Open count.
+		    performerPOM.RiskSummaryHigh(driver).click();						//Clicking on 'Open' notice
 		
 			Thread.sleep(2000);
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
@@ -2698,6 +2723,178 @@ public class CFOMethod {
 			Thread.sleep(3000);
 			OverduePOM.clickDashboard(driver).click();
 		}
+	   
+		public static void ExpensesNoticeGraph(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
+		{
+			
+
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+	     	js.executeScript("window.scrollBy(0,800)");
+	     	
+	     	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardNoticeFilter(driver).click();
+          
+           	
+			 Thread.sleep(5000);
+			 performerPOM.clickDashboardApplyBtn(driver).click();
+			
+	       	
+
+			
+	       	Thread.sleep(2000);
+		
+	       	int	open = Integer.parseInt(performerPOM.ExpensesNoticeGraph(driver).getText());	//Reading Notice Open count.
+		    performerPOM.ExpensesNoticeGraph(driver).click();						//Clicking on 'Open' notice
+		    
+		    
+		    Thread.sleep(2000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+			
+			Thread.sleep(10000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item = CFOcountPOM.readTotalItems1(driver).getText();
+			String[] bits = item.split(" ");								//Splitting the String
+			String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+			int count1 = 0;
+			if(compliancesCount.equalsIgnoreCase("to"))
+			{
+				Thread.sleep(2000);
+			   item = CFOcountPOM.readTotalItems1(driver).getText();
+				bits = item.split(" ");								//Splitting the String
+			   compliancesCount = bits[bits.length - 2];
+			}
+			if(compliancesCount.equalsIgnoreCase("to"))
+			{
+				count1 = 0;
+			}
+			else
+			{
+				count1 = Integer.parseInt(compliancesCount);
+			}
+			
+			if(open == count1)
+			{
+				//test.log(LogStatus.PASS, type+" count matches to number of records displayed.");
+				test.log(LogStatus.PASS, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+			}
+			else
+			{
+				//test.log(LogStatus.FAIL, type+" count doesn't matches to number of records displayed.");
+				test.log(LogStatus.FAIL, "Dashboard Count = "+open+" | Displayed records from grid = "+count1);
+			}
+	       	
+	    
+			Thread.sleep(5000);
+			performerPOM.CaseNoticeTypeViewGraph(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
+			
+			test.log(LogStatus.PASS, "View popup open successfully.");
+			
+			Thread.sleep(500);
+			progress(driver);
+			
+			Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			Thread.sleep(2000);
+			JavascriptExecutor js1 = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,1000)");
+			
+			
+			
+			Thread.sleep(10000);
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
+			String[] bits1 = item1.split(" ");								//Splitting the String
+			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+			int count2 = Integer.parseInt(compliancesCount1);
+			
+		    try
+			{
+				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+			}
+			catch(Exception e)
+			{
+				
+			}
+			js.executeScript("window.scrollBy(0,1000)");
+			
+		
+			Thread.sleep(100);
+			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+			
+			Thread.sleep(500);
+			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+			Thread.sleep(250);
+			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
+		
+			
+			Thread.sleep(5500);
+			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+			
+			if(dirContents.length < allFilesNew.length)
+			{
+				test.log(LogStatus.PASS, "File downloaded successfully.");
+				
+				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
+			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
+			    {
+			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
+			       {
+			           lastModifiedFile = allFilesNew[i];
+			       }
+			    }
+				
+				Thread.sleep(100);
+				fis = new FileInputStream(lastModifiedFile);
+				workbook = new XSSFWorkbook(fis);
+				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
+				
+				int no = sheet.getLastRowNum();
+				Row row = sheet.getRow(no);
+				Cell c1 = row.getCell(0);
+				int records =(int) c1.getNumericCellValue();
+				fis.close();
+				
+				if(count2 == records)
+				{
+					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
+					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
+				}
+				else
+				{
+					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
+					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
+				}
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
+			}
+			
+
+			Thread.sleep(7000);
+			performerPOM.clearButton(driver).click();
+			test.log(LogStatus.PASS, "Clear button work successfully.");
+			
+			
+			Thread.sleep(3000);
+			driver.switchTo().parentFrame();
+			Thread.sleep(2000);
+			performerPOM.caseNoticeSummaryGraphClose(driver).click();
+			
+			Thread.sleep(3000);
+			OverduePOM.clickDashboard(driver).click();
+			
+	   }	
+		
 	   
 	   
 	   public static void CategorySummaryGraph1(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
@@ -8218,11 +8415,7 @@ public class CFOMethod {
 						Thread.sleep(3000);
 						performerPOM.UploadCaseFile(driver).click();
 						
-//						
-//						WebDriverWait wait1=new WebDriverWait(driver,30);
-//						Thread.sleep(3000);
-//						wait.until(ExpectedConditions.visibilityOf(performerPOM.readCaseMsg(driver)));
-//						
+			
 						Thread.sleep(500);
 						String msg6 = performerPOM.readCaseMsg(driver).getText();		//Reading Message appeared after save button
 						
@@ -8245,7 +8438,7 @@ public class CFOMethod {
 						Thread.sleep(3000);
 						performerPOM.UploadCaseFile(driver).click();
 						
-						WebDriverWait wait2=new WebDriverWait(driver,30);
+					
 						Thread.sleep(3000);
 						wait.until(ExpectedConditions.visibilityOf(performerPOM.readCaseMsg(driver)));
 						
@@ -8361,6 +8554,514 @@ public class CFOMethod {
 						else
 						{
 							test.log(LogStatus.FAIL, "Message displayed = "+msg3);
+						}
+						Thread.sleep(300);
+						OverduePOM.clickDashboard(driver).click();
+						
+						
+					}
+					
+					
+					public static void ImportUtilityWithoutData(WebDriver driver,ExtentTest test) throws InterruptedException
+					{
+					
+						performerPOM.ClickImportUtility(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseType(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile1(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+						
+						try
+						{
+							
+						  Thread.sleep(500);
+						  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+			              test.log(LogStatus.PASS, "Court Case =  Upload Empty File = "+msg7);
+							
+						  }
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Court Case = Validation message not displayed");
+						}
+					
+						
+				     	Thread.sleep(3000);
+						performerPOM.ClickcaseHearing(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile1(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+			        	try
+						{
+							
+						  Thread.sleep(500);
+						  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+			              test.log(LogStatus.PASS, "Case Hearing =  Upload Empty File = "+msg7);
+							
+						  }
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Case Hearing = Validation message not displayed");
+						}
+						
+					
+						
+						
+						Thread.sleep(3000);
+						performerPOM.ClickcaseOrder(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile1(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+							
+						try
+						{
+							
+						  Thread.sleep(500);
+						  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+			              test.log(LogStatus.PASS, "Case Order =  Upload Empty File = "+msg7);
+							
+						  }
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Case Order = Validation message not displayed");
+						}
+						
+						
+						Thread.sleep(3000);
+						performerPOM.ClickcasePayment(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile1(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						Thread.sleep(3000);
+											
+						try
+						{
+							
+						  Thread.sleep(500);
+						  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+			              test.log(LogStatus.PASS, "Case Payment =  Upload Empty File = "+msg7);
+							
+						  }
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Case Payment = Validation message not displayed");
+						}
+						
+						
+						
+						performerPOM.clickNotice(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeType(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeFile1(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadNoticeFile(driver).click();
+						
+						
+						
+						try
+						{
+							
+						  Thread.sleep(500);
+						  String msg7 = performerPOM.readNoticeMsg1(driver).getText();		//Reading Message appeared after save button
+			              test.log(LogStatus.PASS, "Legal Notice =  Upload Empty File = "+msg7);
+							
+						  }
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Legal Notice = Validation message not displayed");
+						}
+						
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeResponse(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeFile1(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadNoticeFile(driver).click();
+						
+						
+						try
+						{
+							
+						  Thread.sleep(500);
+						  String msg7 = performerPOM.readNoticeMsg1(driver).getText();		//Reading Message appeared after save button
+			              test.log(LogStatus.PASS, " Notice Response =  Upload Empty File = "+msg7);
+							
+						  }
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Notice Response =Validation message not displayed");
+						}
+					
+					
+						Thread.sleep(3000);
+						performerPOM.ChoosePaymentInfo(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeFile1(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadNoticeFile(driver).click();
+						Thread.sleep(3000);
+						
+						try
+						{
+							
+						  Thread.sleep(500);
+						  String msg7 = performerPOM.readNoticeMsg1(driver).getText();		//Reading Message appeared after save button
+			              test.log(LogStatus.PASS, "Notice Payment =  Upload Empty File = "+msg7);
+							
+						  }
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Notice Payment = Validation message not displayed");
+						}
+						Thread.sleep(300);
+						OverduePOM.clickDashboard(driver).click();
+						
+						
+					}
+					public static void ImportUtilityInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
+					{
+					
+						performerPOM.ClickImportUtility(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseType(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile2(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+						
+						WebDriverWait wait=new WebDriverWait(driver,30);
+						Thread.sleep(3000);
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.readCaseMsg1(driver)));
+						
+						Thread.sleep(500);
+						String msg5 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+					
+						if(msg5.equalsIgnoreCase(msg5))
+						{
+							test.log(LogStatus.PASS, "Court Case = Enter Invalid Data in Upload File = "+msg5);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Court Case = Enter Invalid Data in Upload File  = "+msg5);
+						}
+					
+						
+						Thread.sleep(3000);
+						performerPOM.ClickcaseHearing(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile2(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+			
+						Thread.sleep(500);
+						String msg6 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg6.equalsIgnoreCase(msg6))
+						{
+							test.log(LogStatus.PASS, "Case Hearing  = Enter Invalid Data in Upload File = "+msg6);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Case Hearing = Enter Invalid Data in Upload File  = "+msg6);
+						}
+					
+						
+						
+						Thread.sleep(3000);
+						performerPOM.ClickcaseOrder(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile2(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+					
+						Thread.sleep(3000);
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.readCaseMsg1(driver)));
+						
+						Thread.sleep(500);
+						String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg7.equalsIgnoreCase(msg7))
+						{
+							test.log(LogStatus.PASS, "Case Order = Enter Invalid Data in Upload File  = "+msg7);
+							
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Case Order = Enter Invalid Data in Upload File  = "+msg7);
+						}
+						
+						
+						Thread.sleep(3000);
+						performerPOM.ClickcasePayment(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile2(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						Thread.sleep(3000);
+						
+												
+						Thread.sleep(500);
+						String msg8 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg8.equalsIgnoreCase(msg8))
+						{
+							test.log(LogStatus.PASS, "Case Payment = Enter Invalid Data in Upload File  = "+msg8);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Case Payment = Enter Invalid Data in Upload File = "+msg8);
+						}
+						
+						
+						performerPOM.clickNotice(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeType(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeFile2(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadNoticeFile(driver).click();
+						
+						
+						
+						Thread.sleep(500);
+						String msg = performerPOM.readNoticeMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg.equalsIgnoreCase(msg))
+						{
+							test.log(LogStatus.PASS, "Leagl Notice = Enter Invalid Data in Upload File  = "+msg);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Leagl Notice  = Enter Invalid Data in Upload File = "+msg);
+						}
+						
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeResponse(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeFile2(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadNoticeFile(driver).click();
+						
+						
+						Thread.sleep(500);
+						String msg1= performerPOM.readNoticeMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg1.equalsIgnoreCase(msg1))
+						{
+							test.log(LogStatus.PASS, "Notice Reposnse = Enter Invalid Data in Upload File = "+msg1);
+							
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Notice Reposnse = Enter Invalid Data in Upload File = "+msg1);
+						}
+					
+//						
+						Thread.sleep(3000);
+						performerPOM.ChoosePaymentInfo(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeFile2(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadNoticeFile(driver).click();
+						Thread.sleep(3000);
+
+						Thread.sleep(500);
+						String msg3 = performerPOM.readNoticeMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg3.equalsIgnoreCase(msg3))
+						{
+							test.log(LogStatus.PASS, "Notice Payment = Enter Invalid Data in Upload File = "+msg3);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Notice Payment = Enter Invalid Data in Upload File  = "+msg3);
+						}
+						Thread.sleep(300);
+						OverduePOM.clickDashboard(driver).click();
+						
+						
+					}
+					
+					public static void ImportUtilityTwoManadtoryFileds(WebDriver driver,ExtentTest test) throws InterruptedException
+					{
+					
+						performerPOM.ClickImportUtility(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseType(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile3(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+						
+						WebDriverWait wait=new WebDriverWait(driver,30);
+						Thread.sleep(3000);
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.readCaseMsg1(driver)));
+						
+						Thread.sleep(500);
+						String msg5 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+					
+						if(msg5.equalsIgnoreCase(msg5))
+						{
+							test.log(LogStatus.PASS, "Court Case = Enter Two Manadatory fields in Upload File = "+msg5);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Court Case =Enter Two Manadatory fields in Upload File  = "+msg5);
+						}
+					
+						
+						Thread.sleep(3000);
+						performerPOM.ClickcaseHearing(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile3(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+			
+						Thread.sleep(500);
+						String msg6 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg6.equalsIgnoreCase(msg6))
+						{
+							test.log(LogStatus.PASS, "Case Hearing  = Enter Two Manadatory fields in Upload File = "+msg6);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Case Hearing = Enter Two Manadatory fields in Upload File = "+msg6);
+						}
+					
+						
+						
+						Thread.sleep(3000);
+						performerPOM.ClickcaseOrder(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile3(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+					
+						Thread.sleep(3000);
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.readCaseMsg1(driver)));
+						
+						Thread.sleep(500);
+						String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg7.equalsIgnoreCase(msg7))
+						{
+							test.log(LogStatus.PASS, "Case Order =Enter Two Manadatory fields in Upload File  = "+msg7);
+							
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Case Order = Enter Two Manadatory fields in Upload File  = "+msg7);
+						}
+						
+						
+						Thread.sleep(3000);
+						performerPOM.ClickcasePayment(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile3(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						Thread.sleep(3000);
+						
+												
+						Thread.sleep(500);
+						String msg8 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg8.equalsIgnoreCase(msg8))
+						{
+							test.log(LogStatus.PASS, "Case Payment = Enter Two Manadatory fields in Upload File  = "+msg8);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Case Payment = Enter Two Manadatory fields in Upload File = "+msg8);
+						}
+						
+						
+						performerPOM.clickNotice(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeType(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeFile3(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadNoticeFile(driver).click();
+						
+						
+						
+						Thread.sleep(500);
+						String msg = performerPOM.readNoticeMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg.equalsIgnoreCase(msg))
+						{
+							test.log(LogStatus.PASS, "Leagl Notice = Enter Two Manadatory Fileds  in Upload File  = "+msg);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Leagl Notice  = Enter Two Manadatory Fileds  in Upload File = "+msg);
+						}
+						
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeResponse(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeFile3(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadNoticeFile(driver).click();
+						
+						
+						Thread.sleep(500);
+						String msg1= performerPOM.readNoticeMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg1.equalsIgnoreCase(msg1))
+						{
+							test.log(LogStatus.PASS, "Notice Reposnse = Enter Two Manadatory Fileds  in Upload File = "+msg1);
+							
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Notice Reposnse = Enter Two Manadatory Fileds  in Upload File = "+msg1);
+						}
+					
+						
+						Thread.sleep(3000);
+						performerPOM.ChoosePaymentInfo(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseNoticeFile3(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadNoticeFile(driver).click();
+						Thread.sleep(3000);
+
+						Thread.sleep(500);
+						String msg3 = performerPOM.readNoticeMsg1(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg3.equalsIgnoreCase(msg3))
+						{
+							test.log(LogStatus.PASS, "Notice Payment = Enter Two Manadatory Fileds in Upload File = "+msg3);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Notice Payment = Enter Two Manadatory Fileds  in Upload File  = "+msg3);
 						}
 						Thread.sleep(300);
 						OverduePOM.clickDashboard(driver).click();
