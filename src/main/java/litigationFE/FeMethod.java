@@ -330,8 +330,8 @@ public class FeMethod {
 		
        	Thread.sleep(2000);
 	
-       	int	open = Integer.parseInt(performerPOM.CaseNoticeTypeSummaryGraph1(driver).getText());	//Reading Notice Open count.
-	    performerPOM.CaseNoticeTypeSummaryGraph1(driver).click();						//Clicking on 'Open' notice
+       	int	open = Integer.parseInt(performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).getText());	//Reading Notice Open count.
+	    performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).click();						//Clicking on 'Open' notice
 	    
 	    
 	    Thread.sleep(2000);
@@ -544,8 +544,8 @@ public class FeMethod {
 		
        	Thread.sleep(2000);
 	
-      	int	open = Integer.parseInt(performerPOM.RiskSummaryGraph1(driver).getText());	//Reading Notice Open count.
-	    performerPOM.RiskSummaryGraph1(driver).click();						//Clicking on 'Open' notice
+      	int	open = Integer.parseInt(performerPOM.RiskSummaryHigh(driver).getText());	//Reading Notice Open count.
+	    performerPOM.RiskSummaryHigh(driver).click();						//Clicking on 'Open' notice
 	
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
