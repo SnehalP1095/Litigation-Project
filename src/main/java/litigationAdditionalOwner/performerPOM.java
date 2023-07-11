@@ -833,6 +833,11 @@ public class performerPOM
 		litigation = driver.findElement(By.xpath("//*[@id='VsAddTasValidate']/ul/li"));
 		return litigation;
 	}
+	public static WebElement clickMessage2(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("//*[@id='VsAddTasValidate']/ul"));
+		return litigation;
+	}
 	
 	public static WebElement clickTaskClearBtn(WebDriver driver)
 	{
@@ -863,12 +868,12 @@ public class performerPOM
 		return litigation;
 	}
 	
-//	public static WebElement selectStatusDropDown(WebDriver driver)
-//	{
-//		litigation = driver.findElement(By.xpath("(//*[@class='k-group k-treeview-lines']/li[1])[2]"));
-//		return litigation;
-//	}
-//	
+	public static WebElement selectStatusDropDown(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[36]"));
+		return litigation;
+	}
+	
 	public static WebElement GridLoad(WebDriver driver)
 	{
 		litigation = driver.findElement(By.xpath("//div[@class='k-grid-content k-auto-scrollable']"));
@@ -2565,7 +2570,7 @@ public class performerPOM
 	  public static WebElement CategorySummaryGraph(WebDriver driver) throws InterruptedException
 	  {
 		  
-		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[8]"));
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[7]"));
 		  return litigation;
 	  }
 	  public static WebElement CategorySummaryGraph1(WebDriver driver) throws InterruptedException
