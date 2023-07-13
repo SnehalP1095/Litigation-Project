@@ -8,6 +8,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
@@ -21,6 +22,9 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import litigationAdditionalOwner.MethodPOM1;
 import litigationAdditionalOwner.MethodsPOM;
+import litigationAdditionalOwner.performerPOM;
+import litigationManagement.CFOMethod;
+import performer.OverduePOM;
 
 public class CompanyAdmin 
 {
@@ -107,17 +111,47 @@ public class CompanyAdmin
 		extent.flush();
 	}
 	
-//@Test(priority =3)
-	void CaseNoticeTypeGraph() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Select Notice Filter =Outward/Plaintiff Type= Case Notice Type Graph Count Verification");
-		
-		
-		MethodsPOM.CaseNoticeTypeGraph(driver, test,"Notice");
-		
-		extent.endTest(test);
-		extent.flush();
-	}
+	//@Test(priority = 3)
+			void CaseNoticeTypeGraph() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Select Notice Filter  = Case Notice Type Graph Count Verification");
+				
+				
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+		     	js.executeScript("window.scrollBy(0,850)");
+		     	
+		     	Thread.sleep(5000);
+				performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+				
+				Thread.sleep(5000);
+				performerPOM.clickDashboardNoticeFilter(driver).click();
+	          
+	           	
+				 Thread.sleep(5000);
+				 performerPOM.clickDashboardApplyBtn(driver).click();
+				
+		    	int	OutwardPlaintiff = Integer.parseInt(performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).getText());	//Reading Notice Open count.
+		    	int	InwardDefendent = Integer.parseInt(performerPOM.CaseNoticeTypeInwardDefendent(driver).getText());	//Reading Notice Open count.
+		    	int	Petitioner = Integer.parseInt(performerPOM.CaseNoticeTypeComplinant(driver).getText());	//Reading Notice Open count.
+		    	int	Respondent = Integer.parseInt(performerPOM.CaseNoticeTypeRespondent(driver).getText());	//Reading Notice Open count.
+		    	
+				
+		    	Thread.sleep(3000);
+		    	MethodsPOM.CaseNoticeTypeGraph(driver, test,"Outward/Plaintiff Type",OutwardPlaintiff);
+				Thread.sleep(3000);
+				MethodsPOM.CaseNoticeTypeGraph(driver, test,"Inward/Defendent Type",InwardDefendent);
+				Thread.sleep(3000);
+				MethodsPOM.CaseNoticeTypeGraph(driver, test,"Petitioner Type",Petitioner);
+				Thread.sleep(3000);
+				MethodsPOM.CaseNoticeTypeGraph(driver, test,"Respondent Type",Respondent);
+				
+				
+				Thread.sleep(3000);
+				OverduePOM.clickDashboard(driver).click();
+				
+				extent.endTest(test);
+				extent.flush();
+			}
 
 //@Test(priority = 4)
 	void CaseNoticeStageGraphNotice() throws InterruptedException, IOException
@@ -133,14 +167,47 @@ public class CompanyAdmin
  
 	
 
-//@Test(priority = 5)
+@Test(priority =5)
 	
 	void RiskSummaryGraph() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Select Notice Filter = High Risk =Risk Summary Graph Count Verification");
+		test = extent.startTest("Select Notice Filter  =Risk Summary Graph Count Verification");
 	    
-		MethodsPOM.RiskSummaryGraph(driver, test,"Notice");
+	
 		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,800)");
+		
+	        	Thread.sleep(5000);
+				performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+				
+				Thread.sleep(5000);
+				performerPOM.clickDashboardNoticeFilter(driver).click();
+	          
+	           	
+				 Thread.sleep(5000);
+				 performerPOM.clickDashboardApplyBtn(driver).click();
+				 js.executeScript("window.scrollBy(0,900)");
+				
+				
+			    int	HighRisk = Integer.parseInt(performerPOM.RiskSummaryHigh(driver).getText());	//Reading Notice Open count.
+		    	int	MediumRisk = Integer.parseInt(performerPOM.RiskSummaryMedium(driver).getText());	//Reading Notice Open count.
+		    	int	LowRisk = Integer.parseInt(performerPOM.RiskSummaryLowCA(driver).getText());	//Reading Notice Open count.
+		    	int	NotApplicableRisk = Integer.parseInt(performerPOM.RiskSummaryNotApplicableCA(driver).getText());	//Reading Notice Open count.
+		    	
+				
+		    	Thread.sleep(3000);
+		    	MethodsPOM.RiskSummaryGraph(driver, test,"High Risk",HighRisk);
+				Thread.sleep(3000);
+				MethodsPOM.RiskSummaryGraph(driver, test,"Medium Risk",MediumRisk);
+				Thread.sleep(3000);
+				MethodsPOM.RiskSummaryGraph(driver, test,"Low Risk",LowRisk);
+				Thread.sleep(3000);
+				MethodsPOM.RiskSummaryGraph(driver, test,"Not Applicable Risk",NotApplicableRisk);
+				
+				
+				Thread.sleep(3000);
+				OverduePOM.clickDashboard(driver).click();
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -179,6 +246,52 @@ public class CompanyAdmin
   		extent.endTest(test);
   		extent.flush();
   	}
+
+@Test(priority = 1)
+    void InwardDefendantAgeingGraph() throws InterruptedException, IOException
+    {
+         test = extent.startTest("Select Notice Filter =Less than a year = Inward/Defendant Type = Ageing Graph Count Verification");
+         
+         JavascriptExecutor js = (JavascriptExecutor) driver;
+	     	js.executeScript("window.scrollBy(0,800)");
+	     	
+	     	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardNoticeFilter(driver).click();
+       
+        	
+			 Thread.sleep(5000);
+			 performerPOM.clickDashboardApplyBtn(driver).click();
+			 Thread.sleep(3000);
+			js.executeScript("window.scrollBy(0,3000)");
+			
+		    int	InwardDefendent = Integer.parseInt(performerPOM.clickInwardDefendentCA(driver).getText());	//Reading Notice Open count.
+	    	int	OutwardPlaintiff = Integer.parseInt(performerPOM.clickComplainantAgeing(driver).getText());	//Reading Notice Open count.
+	    	int	Petitioner = Integer.parseInt(performerPOM.clickPetitionerCA(driver).getText());	//Reading Notice Open count.
+	    	int	Respondent = Integer.parseInt(performerPOM.clickRespondentCA(driver).getText());	//Reading Notice Open count.
+	    	
+			
+	    	Thread.sleep(3000);
+	    	MethodsPOM.InwardDefendantAgeingGraph(driver, test,"Inward/Defendent",InwardDefendent);
+			Thread.sleep(3000);
+			MethodsPOM.InwardDefendantAgeingGraph(driver, test,"Outward/Plaintiff",OutwardPlaintiff);
+			Thread.sleep(3000);
+			MethodsPOM.InwardDefendantAgeingGraph(driver, test,"Petitioner",Petitioner);
+			Thread.sleep(3000);
+			MethodsPOM.InwardDefendantAgeingGraph(driver, test,"Respondent",Respondent);
+			
+			
+			Thread.sleep(3000);
+			OverduePOM.clickDashboard(driver).click();
+        
+          extent.endTest(test);
+          extent.flush();
+    }
+  	
+  	
+  	
 
  //  @Test(priority =9)
    void CaseNoticeTypeGraph1() throws InterruptedException, IOException

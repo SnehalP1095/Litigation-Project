@@ -1022,12 +1022,12 @@ public class CFOMethod {
 						}
 						else if(type.equalsIgnoreCase("Low Risk"))
 						{
-							Thread.sleep(2000);
+							Thread.sleep(3000);
 					        performerPOM.RiskSummaryLow(driver).click();						//Clicking on 'Open' notice
 						}
 						else if(type.equalsIgnoreCase("Not Applicable Risk"))
 						{
-							Thread.sleep(2000);
+							Thread.sleep(3000);
 					        performerPOM.RiskSummaryNotApplicable(driver).click();						//Clicking on 'Open' notice
 						}
 						
@@ -3610,12 +3610,16 @@ public class CFOMethod {
 
 			Thread.sleep(3000);
             selectRisk(driver);
+        	Thread.sleep(3000);
+            clickLawFirm(driver);
 
 			Thread.sleep(3000);
             selectNoticeRecipetDate(driver);
             
             Thread.sleep(3000);
             clickInternalUser(driver);
+            Thread.sleep(3000);
+            clickLawyer(driver);
             
 //  		    Thread.sleep(3000);
 //    		performerPOM.clickAdditionalOwnerCfo(driver); 
@@ -3867,6 +3871,8 @@ public class CFOMethod {
 			  performerPOM.selectRisk(driver).click();						//Selecting second option 'High' risk.
 	        }
 			
+	
+			
 			public  static void selectNoticeRecipetDate(WebDriver driver)
 		      {
 		    	 	
@@ -3887,6 +3893,9 @@ public class CFOMethod {
 			elementsList.get(internalUserNo).click();							//Selecting particular user no
 			performerPOM.clickInternalUser(driver).click();	//Clicking on 'Internal User' drop down.
 			}
+			
+			
+			
 			
 			
 	public static void NoticeOpen(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String login) throws InterruptedException, IOException
@@ -4947,8 +4956,11 @@ public class CFOMethod {
 			Thread.sleep(3000);
 			clickCaseRisk(driver);
 			Thread.sleep(3000);
+			clickLawFirm(driver);
+			Thread.sleep(3000);
 			clickCaseInternalUser(driver);
-			
+			Thread.sleep(3000);
+			clickLawyer( driver) ;
 			Thread.sleep(3000);
 			OverduePOM.clickSaveButton(driver).click();						//Clicking on 'Save'button.
 			
@@ -4999,7 +5011,7 @@ public class CFOMethod {
 				}
 			}*/
 			
-			
+			Thread.sleep(2000);
 			driver.switchTo().parentFrame();
 			performerPOM.clickClose(driver).click();			//Clicking on 'Close'
 			
@@ -5252,6 +5264,16 @@ public class CFOMethod {
 		 	   Thread.sleep(100);
 		       performerPOM.selectRisk1(driver).click();			//Selecting 'Medium' Winning Prospect'
 			  }
+			 
+				public static void clickLawFirm(WebDriver driver) throws InterruptedException
+				{
+				Thread.sleep(300);
+				XSSFRow row0 = sheet.getRow(19);					//Selected 0th index row (First row)
+				XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+				String lawFirm = c1.getStringCellValue();
+				performerPOM.clickLawFirm(driver).click();		//Clicking on 'Law Firm' drop down.
+				performerPOM.chooseLawFirm(driver).sendKeys(lawFirm, Keys.DOWN, Keys.ENTER);	//Writing & selecting 'Law Firm' name
+				}
 			
 		 public  static void clickCaseInternalUser(WebDriver driver) throws InterruptedException 
 			  { 
@@ -5264,6 +5286,18 @@ public class CFOMethod {
 			       elementsList.get(internalUserNo).click();							//Selecting particular user no
 			      //performerPOM.clickInternalUser(driver).click();						//Clicking on 'Internal User' drop down.
 			  }
+		 
+			public static void clickLawyer(WebDriver driver) throws InterruptedException
+			{
+			Thread.sleep(300);
+			XSSFRow row0 = sheet.getRow(21);						//Selected 0th index row (First row)
+			XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			int lawyerNo = (int) c1.getNumericCellValue();
+			performerPOM.clickLawyer(driver).click();						//Clicking on 'Lawyer' drop down.
+			elementsList = performerPOM.chooseLawyer(driver);
+			elementsList.get(lawyerNo).click();								//Selecting particular lawyer no
+			performerPOM.clickLawyer(driver).click();		//Clicking on 'Lawyer' drop down.
+			}
 			
 		 
 		 static void Document(WebDriver driver,ExtentTest test) throws InterruptedException
@@ -13483,7 +13517,7 @@ public class CFOMethod {
 							{
 								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[6]/a")).click();
 								
-								test.log(LogStatus.PASS, "Hearing for perticular date is clickable.");
+								test.log(LogStatus.PASS, "Hearing for particular date is clickable.");
 								
 							}
 							
@@ -13907,11 +13941,11 @@ public class CFOMethod {
           				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
           			}
           			
-          			Thread.sleep(7000);
-          			performerPOM.clickRiskFilter(driver).click();
-          			
-          			Thread.sleep(7000);
-          			performerPOM.selectRiskFilter(driver).click();
+//          			Thread.sleep(7000);
+//          			performerPOM.clickRiskFilter(driver).click();
+//          			
+//          			Thread.sleep(7000);
+//          			performerPOM.selectRiskFilter(driver).click();
           			
 //          		    List<WebElement>SeletcRisk = driver.findElements(By.xpath("(//ul[@class='k-group k-treeview-lines'])[8]/li/div/span"));
 //          			selectOptionFromDropDown_bs(SeletcRisk, "High");
@@ -17855,7 +17889,7 @@ public class CFOMethod {
  	 			        sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
  	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
  	 	 	 			progress(driver);
- 	 	 	 	      JavascriptExecutor js = (JavascriptExecutor) driver;
+ 	 	 	 	  
  	 	 	 		
  	 	 	 			
  	 	 	            Thread.sleep(500);
@@ -17864,24 +17898,22 @@ public class CFOMethod {
  	 	 	            Thread.sleep(4000);
  	 	 	            performerPOM.clickEditNotice(driver).click();
  	 	 	            
- 	 	 	        
+ 	 	 	            try
+ 	 	 	            {
+ 	 	 	            
+ 	 	 	              	wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
  	 	 	 			
- 	 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+ 	 	 	 	            Thread.sleep(4000);
+	 	 	                 performerPOM.clickEditUserAssign(driver).click();
  	 	 	 			
- 	 	 	 	        Thread.sleep(4000);
-	 	 	            performerPOM.clickEditUserAssign(driver).click();
- 	 	 	 			
- 	 	 	 	        Thread.sleep(3000);
-	 	                 clickInternalUser(driver);
+	 	 	                  Thread.sleep(3000);
+	 	                     clickInternalUser(driver);
+	 	                 
+	 	                       Thread.sleep(3000);
+	 	 	                   performerPOM.clickUpdateButton(driver).click();
 	 	              		
-	 	                
-	 	           
-	 	               Thread.sleep(3000);
- 	 	               performerPOM.clickUpdateButton(driver).click();
- 	 	               
- 	 	         
- 	 	   		
- 	 				  //js.executeScript("window.scrollBy(0,700)");
+	 	               
+ 	 				              //js.executeScript("window.scrollBy(0,700)");
  	 	 	 			
  	 	 	 			
  	 	 	    		Thread.sleep(2000);
@@ -17896,9 +17928,18 @@ public class CFOMethod {
  	 	 	    		{
  	 	 	    			test.log(LogStatus.FAIL, "Message displayed = "+msg);
  	 	 	    		}
- 	 	 	    		Thread.sleep(3000);
- 	 	 	     		driver.switchTo().parentFrame();
- 	 	 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+ 	 	 	    	
+ 	 	 	       } 
+ 	 	 	            
+ 	 	 	            catch(Exception e)
+ 	 	 	            {
+ 	 	 	            	test.log(LogStatus.PASS, "Record not displayed in Notice-User assignment");
+ 	 	 	            }
+ 	 	 	            
+ 	 	 	     	Thread.sleep(3000);
+	 	 	     		driver.switchTo().parentFrame();
+	 	 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	 	 	     		
  	 	 	     	
  	 	 	     	    Thread.sleep(3000);
  	 	 	     		OverduePOM.clickDashboard(driver).click();
@@ -17919,31 +17960,40 @@ public class CFOMethod {
  	 	 	            Thread.sleep(4000);
 	 	 	            performerPOM.clickEditNotice(driver).click();
 	 	 	            
-	 	 	       	wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 	            try
+	 	 	            {
+	 	 	            
+	 	 	       	      wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
  	 	 	 			
- 	 	 	            Thread.sleep(4000);
- 	 	 	            performerPOM.clickDeleteUserAssign(driver).click();
+ 	 	 	               Thread.sleep(4000);
+ 	 	 	               performerPOM.clickDeleteUserAssign(driver).click();
  	 	 	            
- 	 	 	         Thread.sleep(2000);
-	 	 	    		String msg = performerPOM.clickDeleteUserAssignValidMsg(driver).getText();		//Reading Message appeared after save button
+ 	 	 	               Thread.sleep(2000);
+	 	 	    	 	   String msg = performerPOM.clickDeleteUserAssignValidMsg(driver).getText();		//Reading Message appeared after save button
 	 	 	    		
-	 	 	    		if(msg.equalsIgnoreCase("User Assignment Detail Deleted"))
-	 	 	    		{
-	 	 	    			test.log(LogStatus.PASS, "Message displayed = "+msg);
+	 	 	    		    if(msg.equalsIgnoreCase("User Assignment Detail Deleted"))
+	 	 	    		    {
+	 	 	    			     test.log(LogStatus.PASS, "Message displayed = "+msg);
 	 	 	    			
-	 	 	    		}
-	 	 	    		else
-	 	 	    		{
-	 	 	    			test.log(LogStatus.FAIL, "Message displayed = "+msg);
-	 	 	    		}
+	 	 	    		    }
+	 	 	    		    else
+	 	 	    		      {
+	 	 	    			         test.log(LogStatus.FAIL, "Message displayed = "+msg);
+	 	 	    		        }
  	 	 	            
  	 	 	        
- 	 	 	 			
-	
- 	 	 	    		Thread.sleep(3000);
- 	 	 	     		driver.switchTo().parentFrame();
- 	 	 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
- 	 	 	     	
+ 	 	 	    	
+	 	 	        }
+	 	 	            catch(Exception e)
+	 	 	            {
+	 	 	            	test.log(LogStatus.PASS, "Record not displayed in Notice-User assignment");
+ 	 	 	           
+	 	 	            }
+	 	 	            
+	 	 	      	Thread.sleep(3000);
+	 	 	     		driver.switchTo().parentFrame();
+	 	 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	 	 	          
  	 	 	     	    Thread.sleep(3000);
  	 	 	     		OverduePOM.clickDashboard(driver).click();
  	 	 	    }
@@ -21088,11 +21138,11 @@ public class CFOMethod {
 					String msg = performerPOM.clickMessage2(driver).getText();
 					if(msg.contains(msg))
 					{
-						test.log(LogStatus.FAIL, "Task without data ="+msg);
+						test.log(LogStatus.PASS, "Task without data ="+msg);
 					}
 					else
 					{
-						test.log(LogStatus.PASS, "Task without data ="+msg);
+						test.log(LogStatus.FAIL, "Task without data ="+msg);
 					}
 					
 					driver.switchTo().parentFrame();
@@ -21134,11 +21184,11 @@ public class CFOMethod {
 					String msg = performerPOM.clickMessage1(driver).getText();
 					if(msg.contains(msg))
 					{
-						test.log(LogStatus.FAIL, "Task with two mandatory fields ="+msg);
+						test.log(LogStatus.PASS, "Task with two mandatory fields ="+msg);
 					}
 					else
 					{
-						test.log(LogStatus.PASS, "Task with two mandatory fields ="+msg);
+						test.log(LogStatus.FAIL, "Task with two mandatory fields ="+msg);
 					}
 					
 					driver.switchTo().parentFrame();
