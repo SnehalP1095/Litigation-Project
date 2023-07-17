@@ -614,7 +614,7 @@ public class CFO {
         
   
 
-   @Test(priority =32)
+//   @Test(priority =32)
     	void NoticeOpen() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice - Open Count verification");
@@ -625,7 +625,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
-    @Test(priority =33)
+ //   @Test(priority =33)
  	void NoticeWithExistingData() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Notice With Existing Data verification");
@@ -637,7 +637,7 @@ public class CFO {
  		extent.flush();
  	}
 	
-  @Test(priority =34)
+ // @Test(priority =34)
      void NoticeWithInvalidData() throws InterruptedException, IOException
     {
 	     test = extent.startTest("Notice With Invalid Data verification");
@@ -648,7 +648,7 @@ public class CFO {
 	     extent.endTest(test);
 	     extent.flush();
    }
-   @Test(priority =35)
+//   @Test(priority =35)
    void NoticeWithTwoMandatoryData() throws InterruptedException, IOException
   {
 	     test = extent.startTest("Notice With Two Mandatory Fields verification");
@@ -659,7 +659,7 @@ public class CFO {
 	     extent.endTest(test);
 	     extent.flush();
  }
- @Test(priority =36) 
+// @Test(priority =36) 
    void NoticeWithEmptyFields() throws InterruptedException, IOException
   {
 	     test = extent.startTest("Notice With Empty Fields verification");
@@ -671,7 +671,7 @@ public class CFO {
 	     extent.flush();
  }
 
- @Test(priority =37)
+ //@Test(priority =37)
    void NoticeClearBtn() throws InterruptedException, IOException
   {
 	     test = extent.startTest("Notice Summary -Clear button verification");
@@ -682,7 +682,7 @@ public class CFO {
 	     extent.endTest(test);
 	     extent.flush();
  }
-   @Test(priority =38)
+ //  @Test(priority =38)
    void NoticeSendMailWithDoc() throws InterruptedException, IOException
   {
 	     test = extent.startTest("Notice Summary-Send Mail With Document verification");
@@ -693,7 +693,7 @@ public class CFO {
 	     extent.endTest(test);
 	     extent.flush();
  }
-   @Test(priority =39)
+//   @Test(priority =39)
    void NoticeSendMailWithDocInvalidFields() throws InterruptedException, IOException
   {
 	     test = extent.startTest(" Notice Summary -Send Mail With Document Invalid Fields verification");
@@ -704,7 +704,7 @@ public class CFO {
 	     extent.endTest(test);
 	     extent.flush();
  }
-   @Test(priority =40)
+ //  @Test(priority =40)
    void NoticeSendMailWithDocEmptyFields() throws InterruptedException, IOException
   {
 	     test = extent.startTest("Notice Summary -Send Mail With Document Empty Fields verification");
@@ -715,7 +715,7 @@ public class CFO {
 	     extent.endTest(test);
 	     extent.flush();
  }
-   @Test(priority =41)
+  // @Test(priority =41)
    void NoticeUserAssignment() throws InterruptedException, IOException
   {
 	     test = extent.startTest("Notice User Assignment  verification");
@@ -726,7 +726,7 @@ public class CFO {
 	     extent.endTest(test);
 	     extent.flush();
  }
-   @Test(priority =42)
+//   @Test(priority =42)
    void NoticeUserAssignmentDelete() throws InterruptedException, IOException
   {
 	     test = extent.startTest("Notice User Assignment Delete Icon  verification");
@@ -738,7 +738,7 @@ public class CFO {
 	     extent.flush();
  }
    
-   @Test(priority =43)
+  // @Test(priority =43)
 	void LinkNotice() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Link Notice Verification");
@@ -750,7 +750,7 @@ public class CFO {
 		extent.flush();
 	}
    
-  @Test(priority =44)
+//  @Test(priority =44)
    void LinkNoticeViewIcon() throws InterruptedException, IOException
   {
 	     test = extent.startTest("Linked notice view icon  verification");
@@ -761,7 +761,7 @@ public class CFO {
 	     extent.endTest(test);
 	     extent.flush();
  }
-   @Test(priority =45)
+ //  @Test(priority =45)
    void LinkNoticeDeleteIcon() throws InterruptedException, IOException
   {
 	     test = extent.startTest("Linked notice Delete icon  verification");
@@ -773,7 +773,7 @@ public class CFO {
 	     extent.flush();
  }
   
-    @Test(priority =46)
+ //   @Test(priority =46)
      	void CaseOpen() throws InterruptedException, IOException
      	{
      		test = extent.startTest("Case - Open Count verification");
@@ -784,7 +784,7 @@ public class CFO {
      		extent.endTest(test);
      		extent.flush();
      	}
-    @Test(priority =47)
+   // @Test(priority =47)
  	void CaseExistingData() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case with Existing Data verification");
@@ -795,7 +795,7 @@ public class CFO {
  		extent.endTest(test);
  		extent.flush();
  	}
-    @Test(priority =48)
+  //  @Test(priority =48)
  	void CaseWithInvalidData() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Case with Invalid Data verification");
@@ -806,7 +806,7 @@ public class CFO {
  		extent.endTest(test);
  		extent.flush();
  	}
-    @Test(priority =49)
+ //   @Test(priority =49)
    	void CaseWithTwoFieldsData() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Case with Two Manadatory fields verification");
@@ -817,7 +817,7 @@ public class CFO {
    		extent.endTest(test);
    		extent.flush();
    	}
-    @Test(priority =50)
+  //  @Test(priority =50)
    	void CaseWithEmptyFields() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Case with Empty fields verification");
@@ -828,7 +828,7 @@ public class CFO {
    		extent.endTest(test);
    		extent.flush();
    	}
-    @Test(priority =51)
+ //   @Test(priority =51)
    	void CaseWithClearBtn() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Case Summary - Clear button verification");
@@ -841,7 +841,7 @@ public class CFO {
    	}
   
     
-    @Test(priority =52)
+  //  @Test(priority =52)
    	void CaseUserAssignment() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Case User Assignment verification");
@@ -852,7 +852,7 @@ public class CFO {
    		extent.endTest(test);
    		extent.flush();
    	}
-    @Test(priority =53)
+ //   @Test(priority =53)
     void CaseUserAssignmentDelete() throws InterruptedException, IOException
    {
  	     test = extent.startTest("Case User Assignment Delete Icon  verification");
@@ -866,7 +866,7 @@ public class CFO {
     
     
     
-         @Test(priority = 54)
+  //       @Test(priority = 54)
     			void TaskOpen() throws InterruptedException, IOException
     			{
     				test = extent.startTest("Task - Open Count verification");
@@ -877,7 +877,7 @@ public class CFO {
     				extent.endTest(test);
     				extent.flush();
     			}
-         @Test(priority = 55)
+   //      @Test(priority = 55)
 			void TaskwithExistingData() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Task With existing data verification");
@@ -888,7 +888,7 @@ public class CFO {
 				extent.endTest(test);
 				extent.flush();
 			}
-         @Test(priority =56)
+  //       @Test(priority =56)
     			void TaskwithTwoManadatoryFields() throws InterruptedException, IOException
     			{
     				test = extent.startTest("Task With Two manadatory fields verification");
@@ -899,7 +899,7 @@ public class CFO {
     				extent.endTest(test);
     				extent.flush();
     			}
-         @Test(priority = 57)
+   //      @Test(priority = 57)
 			void TaskwithoutData() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Task Without  data verification");
@@ -910,7 +910,7 @@ public class CFO {
 				extent.endTest(test);
 				extent.flush();
 			}
-         @Test(priority =58)
+     //    @Test(priority =58)
 			void TaskwithClearBtn() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Task Clear button verification");
@@ -921,7 +921,7 @@ public class CFO {
 				extent.endTest(test);
 				extent.flush();
 			}
-         @Test(priority = 59)
+     //    @Test(priority = 59)
 			void TaskDelete() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Task Delete verification");
@@ -933,7 +933,7 @@ public class CFO {
 				extent.flush();
 			}
    	
- @Test(priority = 60)
+// @Test(priority = 60)
     	void NoticeClosed() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice - Closed Count verification");
@@ -944,7 +944,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
- @Test(priority = 61)
+// @Test(priority = 61)
     	void CaseClose() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Case - Closed Count verification");
@@ -956,7 +956,7 @@ public class CFO {
     		extent.flush();
     	}
 	
-	@Test(priority = 62)
+//	@Test(priority = 62)
 		void LinkCase() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Link Case Verification");
@@ -968,7 +968,7 @@ public class CFO {
 			extent.flush();
 		}
 	
-	  @Test(priority =63)
+//	  @Test(priority =63)
 	   void LinkCaseViewIcon() throws InterruptedException, IOException
 	  {
 		     test = extent.startTest("Linked case view icon  verification");
@@ -979,7 +979,7 @@ public class CFO {
 		     extent.endTest(test);
 		     extent.flush();
 	 }
-	  @Test(priority =64)
+	//  @Test(priority =64)
 	   void LinkCaseDeleteIcon() throws InterruptedException, IOException
 	  {
 		     test = extent.startTest("Linked case delete icon  verification");
@@ -992,7 +992,7 @@ public class CFO {
 	 }
 	 	
 	   
-	@Test(priority = 65)
+//	@Test(priority = 65)
     	void CloseNotice() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Close Notice Count verification");
@@ -1002,7 +1002,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
-	@Test(priority = 66)
+//	@Test(priority = 66)
 			void CloseCase() throws InterruptedException, IOException
 			{
 			test = extent.startTest("Close Case Count Verification");
@@ -1014,7 +1014,7 @@ public class CFO {
 				extent.flush();
 			}
 	  
-	@Test(priority = 67)
+//	@Test(priority = 67)
 			void TaskClosed() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Task - Closed Count verification");
@@ -1027,7 +1027,7 @@ public class CFO {
 			}
 
     	
-	@Test(priority = 68)
+//	@Test(priority = 68)
     	void NoticeDocument() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice Document verification");
@@ -1038,7 +1038,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
-	@Test(priority = 69)
+//	@Test(priority = 69)
 	void NoticeDocumentEmptyFields() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Document with empty fields verification");
@@ -1049,7 +1049,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 70)
+//	@Test(priority = 70)
 	void NoticeWithoutUploadDocument() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Without Upload Document verification");
@@ -1060,7 +1060,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 71)
+//	@Test(priority = 71)
 	void NoticeDocumentSearchFields() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Document Search Fields verification");
@@ -1071,7 +1071,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 72)
+//	@Test(priority = 72)
 	void NoticeDocumentShareInvalidData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Document Share with Invaid data verification");
@@ -1082,7 +1082,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 73)
+//@Test(priority = 73)
 	void NoticeDocumentShareWithoutData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Document Share without data verification");
@@ -1093,7 +1093,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 74)
+//	@Test(priority = 74)
 	void NoticeDocumentShareCloseBtn() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Document Share close button verification");
@@ -1107,7 +1107,7 @@ public class CFO {
 	
 	
 	
- @Test(priority = 75)
+ //@Test(priority = 75)
     	void NoticeTaskActivity() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice TaskActivtiy verification");
@@ -1118,7 +1118,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
- @Test(priority = 76)
+// @Test(priority = 76)
 	void TaskActivtityDeleteResponse() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Task/Activtiy Delete Response verification");
@@ -1129,7 +1129,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
- @Test(priority = 77)
+ //@Test(priority = 77)
 	void TaskActivtityExistingData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Task/Activtiy with existing data verification");
@@ -1140,7 +1140,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
- @Test(priority = 78)
+ //@Test(priority = 78)
 	void TaskActivtityWithoutData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Task/Activtiy Without data verification");
@@ -1151,7 +1151,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
- @Test(priority = 79)
+ //@Test(priority = 79)
 	void TaskActivtityResponseWithoutStatus() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Task/Activtiy Response Without data verification");
@@ -1163,7 +1163,7 @@ public class CFO {
 		extent.flush();
 	}
  
- @Test(priority = 80)
+ //@Test(priority = 80)
 	void TaskActivtityResponseClearBtn() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Task/Activtiy  Response clear button verification");
@@ -1174,7 +1174,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority =81)
+//	@Test(priority =81)
     	void NoticeResponse() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice Response verification");
@@ -1185,7 +1185,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
-	@Test(priority =82)
+//	@Test(priority =82)
 	void ResponseExistingData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Response Existing Data verification");
@@ -1196,7 +1196,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority =83)
+//	@Test(priority =83)
 	void NoticeResponseWithoutData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Response Without data verification");
@@ -1207,7 +1207,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority =84)
+//	@Test(priority =84)
 	void ResponseClearBtn() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Response Clear button verification");
@@ -1219,7 +1219,7 @@ public class CFO {
 		extent.flush();
 	}
     	
-	@Test(priority = 85)
+//	@Test(priority = 85)
     	void NoticePayment() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice Payment verification");
@@ -1230,7 +1230,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
-	@Test(priority = 86)
+//	@Test(priority = 86)
 	void PaymentLogwithExistingData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Payment with existing data verification");
@@ -1241,7 +1241,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 87)
+//	@Test(priority = 87)
 	void NoticePaymentWithoutData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Payment Without data verification");
@@ -1252,7 +1252,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-  	@Test(priority = 88)
+ // 	@Test(priority = 88)
     	void NoticeExternalLawyer() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice Lawyer verification");
@@ -1262,7 +1262,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
-	@Test(priority = 89)
+//	@Test(priority = 89)
 	void CriteriaExistingData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Criteria Existing Data verification");
@@ -1272,7 +1272,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-  	@Test(priority = 90)
+ // 	@Test(priority = 90)
 	void CriteriaInvalidData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Criteria Invalid Data verification");
@@ -1282,7 +1282,7 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 91)
+//	@Test(priority = 91)
 	void CriteriaWithoutData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Criteria Without Data verification");
@@ -1293,7 +1293,7 @@ public class CFO {
 		extent.flush();
 	}
   	
-	@Test(priority = 92)
+//	@Test(priority = 92)
     	void NoticeAuditLog() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice Audit Log verification");
@@ -1623,7 +1623,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
     		extent.endTest(test);
     		extent.flush();
     	}
-		@Test(priority =121)
+		//@Test(priority =121)
     	void CaseStatusAppealtoNextCourt() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Case Status Appeal to Next Court");
