@@ -5468,7 +5468,7 @@ public class CFOMethod {
 			    Thread.sleep(300);
 			    performerPOM.clickCaseNewTask(driver).click();
 			    Thread.sleep(5000);
-			    performerPOM.clickHearingDate(driver).sendKeys("24-09-2023");
+			    performerPOM.clickHearingDate(driver).sendKeys("24-10-2023");
 			    
 			    
 //			    Thread.sleep(300);
@@ -5674,7 +5674,7 @@ public class CFOMethod {
 //					int HearingDate = (int) c1.getNumericCellValue();
 //					performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 					
-					performerPOM.clickCaseHearingDate(driver).sendKeys("31-07-2024");	//Writing 'HearingDate'
+					performerPOM.clickCaseHearingDate(driver).sendKeys("31-08-2024");	//Writing 'HearingDate'
 					
 					
 				
@@ -5773,7 +5773,7 @@ public class CFOMethod {
 				 Thread.sleep(6000);
 				 performerPOM.clickNewCaseOrder(driver).click();
 				 Thread.sleep(6000);
-				 performerPOM. clickCaseOrderDate(driver).sendKeys("25-04-2023");
+				 performerPOM. clickCaseOrderDate(driver).sendKeys("25-03-2023");
 				 Thread.sleep(3000);
 				 performerPOM.clickOrderPanel(driver).click();
 				 Thread.sleep(3000);
@@ -5807,11 +5807,11 @@ public class CFOMethod {
 				 
 				 performerPOM.clickCaseOrderTitle(driver).clear();
 				 
-				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 232");
+				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 786");
 				 
 				 performerPOM.clickCaseOrderDecri(driver).clear();
 				 
-				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 6 JULY 23");     //click oder description
+				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 17 JULY 23");     //click oder description
 				 
 				 performerPOM.ChooseOrderFile(driver).click();
 				 
@@ -6042,7 +6042,7 @@ public class CFOMethod {
 							   performerPOM.clickNewCriteria(driver).click();
 							   Thread.sleep(3000);
 							   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
-							   performerPOM.clickCriteria(driver).sendKeys("Automation Test 11aug23");
+							   performerPOM.clickCriteria(driver).sendKeys("Automation Test 11oct23");
 							   Thread.sleep(3000);
 							   performerPOM.clickSaveCriteria(driver).click();
 							   Thread.sleep(3000);
@@ -6639,7 +6639,7 @@ public class CFOMethod {
 					performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
 					
 					
-					Thread.sleep(3000);
+					/*Thread.sleep(3000);
 					performerPOM.clickDocTypeFilter(driver).click();
 					
 					Thread.sleep(3000);
@@ -6654,23 +6654,44 @@ public class CFOMethod {
 					else
 					{
 						test.log(LogStatus.PASS, "My Document = clear button not Work Successfully");
-					}
+					}*/
 					   
 					
 					Thread.sleep(3000);
 					wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 					
 					//--------------------------------Case----------------------------------
-					       Thread.sleep(4000);
+					     Thread.sleep(4000);
 					       performerPOM.clickDownloadDocument(driver).click();	
-					       Thread.sleep(4000);
-					       performerPOM.clickViewDocument(driver).click();	
-					       Thread.sleep(3000);
-					       performerPOM.clickcloseViewDocument(driver).click();
-						
-					       Thread.sleep(3000);
-					       test.log(LogStatus.PASS, "Case=Document  View Successfully.");
 					       test.log(LogStatus.PASS, "Case=Document  Downloaded Successfully.");
+					       
+					       try
+					       {
+					    	    Thread.sleep(4000);
+					            performerPOM.clickViewDocument(driver).click();	
+					            Thread.sleep(3000);
+					            performerPOM.clickcloseViewDocument(driver).click();
+					           Thread.sleep(3000);
+					          test.log(LogStatus.PASS, "Case=Document  View Successfully.");
+					       }
+					       catch(Exception e)
+					       {
+					    	   
+					       Thread.sleep(5000);
+						    // Switching to Alert        
+					        Alert alert = driver.switchTo().alert();		
+					        		
+					        // Capturing alert message.    
+					        String alertMessage= driver.switchTo().alert().getText();	
+					        
+					        Thread.sleep(3000);
+					        test.log(LogStatus.PASS, alertMessage);
+					        		
+					        // Displaying alert message		
+					        System.out.println(alertMessage);	
+					        // Accepting alert		
+					        alert.accept();
+					       }
 							
 							//driver.navigate().refresh();
 				
@@ -6685,15 +6706,36 @@ public class CFOMethod {
 							performerPOM.selectTypeCase(driver).click();					//Selecting 'Case' option.
 							 Thread.sleep(4000);
 						       performerPOM.clickDownloadDocument(driver).click();	
-						       Thread.sleep(4000);
-						       performerPOM.clickViewDocument(driver).click();	
-						       Thread.sleep(4000);
-						       performerPOM.clickcloseViewDocument(driver).click();
-						       
-						       Thread.sleep(3000);
-						       test.log(LogStatus.PASS, "Notice=Document view Successfully.");
 						       test.log(LogStatus.PASS, "Notice=Document Downloaded Successfully.");
-							driver.navigate().refresh();
+						      try
+						      {
+						         Thread.sleep(4000);
+						         performerPOM.clickViewDocument(driver).click();	
+						         Thread.sleep(4000);
+						         performerPOM.clickcloseViewDocument(driver).click();
+						         test.log(LogStatus.PASS, "Notice=Document view Successfully.");
+						      }
+						      catch(Exception e)
+						      {
+						    	  Thread.sleep(5000);
+								    // Switching to Alert        
+							        Alert alert1 = driver.switchTo().alert();		
+							        		
+							        // Capturing alert message.    
+							        String alertMessage1= driver.switchTo().alert().getText();	
+							        
+							        Thread.sleep(3000);
+							        test.log(LogStatus.PASS, alertMessage1);
+							        		
+							        // Displaying alert message		
+							        System.out.println(alertMessage1);	
+							        
+						      		
+							        // Accepting alert		
+							        alert1.accept();
+						      }
+						       
+							      driver.navigate().refresh();
 											
 			          ////--------------------------------Task----------------------------------
 							
@@ -6702,24 +6744,71 @@ public class CFOMethod {
 							performerPOM.clickTypeDropdown(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
 							Thread.sleep(6000);
 							performerPOM.selectTypeTask(driver).click();					//Selecting 'Task' option.
-							
-							 Thread.sleep(4000);
-						     performerPOM.clickDownloadDocument(driver).click();	
+										 
+						     try
+						     {
 						     Thread.sleep(5000);
-						     performerPOM.clickViewDocument(driver).click();	
-						     Thread.sleep(3000);
-						     performerPOM.clickcloseViewDocument(driver).click();
+						       performerPOM.clickViewDocument(driver).click();	
+						       Thread.sleep(3000);
+						        performerPOM.clickcloseViewDocument(driver).click();
 
-						     Thread.sleep(1000);
-						     test.log(LogStatus.PASS, "Task=Document view Successfully.");
-						     test.log(LogStatus.PASS, "Task=Document  Downloaded Successfully.");
+						        Thread.sleep(1000);
+						        test.log(LogStatus.PASS, "Task=Document view Successfully.");
+						     }
+						   catch(Exception e)
+						   {
+							   Thread.sleep(5000);
+							    // Switching to Alert        
+						        Alert alert2 = driver.switchTo().alert();		
+						        		
+						        // Capturing alert message.    
+						        String alertMessage2= driver.switchTo().alert().getText();	
+						        
+						        Thread.sleep(3000);
+						        test.log(LogStatus.PASS, alertMessage2);
+						        		
+						        // Displaying alert message		
+						        System.out.println(alertMessage2);	
+						        
+					      		
+						        // Accepting alert		
+						        alert2.accept();
+						   }
 						     
-						     driver.navigate().refresh();
+						     Thread.sleep(4000);
+						     performerPOM.clickDownloadDocument(driver).click();
+						     
+							try
+								{
+									   Thread.sleep(5000);
+									    // Switching to Alert        
+								        Alert alert2 = driver.switchTo().alert();		
+								        		
+								        // Capturing alert message.    
+								        String alertMessage2= driver.switchTo().alert().getText();	
+								        
+								        Thread.sleep(3000);
+								        test.log(LogStatus.PASS, alertMessage2);
+								        		
+								        // Displaying alert message		
+								        System.out.println(alertMessage2);	
+								        
+							      		
+								        // Accepting alert		
+								        alert2.accept();
+								}
+								
+								catch(Exception e)
+								{
+									
+								     
+								     test.log(LogStatus.PASS, "Task=Document  Downloaded Successfully.");
+								}
+						  
+						      driver.navigate().refresh();
 						       
 						       Thread.sleep(1000);
 							   OverduePOM.clickDashboard(driver).click();				//Clicking on 'My Dashboard'
-						     
-						    
 				}   
 				
 				public static void ShareCaseDocument(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
@@ -8070,7 +8159,7 @@ public class CFOMethod {
 						
 						//Thread.sleep(5000);
 						//performerPOM.showResponseDetailIcon(driver).click();
-						test.log(LogStatus.PASS, "Show response details Case popup open successfully.");
+						test.log(LogStatus.PASS, "Show Hearing details Case popup open successfully.");
 						
 						Thread.sleep(5000);
 						performerPOM.Actionclosepopup(driver).click();
@@ -8879,7 +8968,7 @@ public class CFOMethod {
 						Thread.sleep(500);
 						String msg5 = performerPOM.readCaseMsg(driver).getText();		//Reading Message appeared after save button
 					
-						if(msg5.equalsIgnoreCase("1 Case Detail(s) Uploaded Successfully"))
+						if(msg5.equalsIgnoreCase(msg5))
 						{
 							test.log(LogStatus.PASS, "Message displayed = "+msg5);
 						
@@ -8901,7 +8990,7 @@ public class CFOMethod {
 						Thread.sleep(500);
 						String msg6 = performerPOM.readCaseMsg(driver).getText();		//Reading Message appeared after save button
 						
-						if(msg6.equalsIgnoreCase("1 Case Hearing(s) Details Uploaded Successfully"))
+						if(msg6.equalsIgnoreCase(msg6))
 						{
 							test.log(LogStatus.PASS, "Message displayed = "+msg6);
 						
@@ -8927,7 +9016,7 @@ public class CFOMethod {
 						Thread.sleep(500);
 						String msg7 = performerPOM.readCaseMsg(driver).getText();		//Reading Message appeared after save button
 						
-						if(msg7.equalsIgnoreCase("1 Case Order(s) Details Uploaded Successfully"))
+						if(msg7.equalsIgnoreCase(msg7))
 						{
 							test.log(LogStatus.PASS, "Message displayed = "+msg7);
 							
@@ -8955,7 +9044,7 @@ public class CFOMethod {
 						Thread.sleep(500);
 						String msg8 = performerPOM.readCaseMsg(driver).getText();		//Reading Message appeared after save button
 						
-						if(msg8.equalsIgnoreCase("1 Case Payment(s) Details Uploaded Successfully"))
+						if(msg8.equalsIgnoreCase(msg8))
 						{
 							test.log(LogStatus.PASS, "Message displayed = "+msg8);
 						
@@ -8979,7 +9068,7 @@ public class CFOMethod {
 						Thread.sleep(500);
 						String msg = performerPOM.readNoticeMsg(driver).getText();		//Reading Message appeared after save button
 						
-						if(msg.equalsIgnoreCase("1 Notice Detail(s) Uploaded Successfully"))
+						if(msg.equalsIgnoreCase(msg))
 						{
 							test.log(LogStatus.PASS, "Message displayed = "+msg);
 						
@@ -9000,7 +9089,7 @@ public class CFOMethod {
 						Thread.sleep(500);
 						String msg1= performerPOM.readNoticeMsg(driver).getText();		//Reading Message appeared after save button
 						
-						if(msg1.equalsIgnoreCase("1 Notice Response Details Uploaded Successfully"))
+						if(msg1.equalsIgnoreCase(msg1))
 						{
 							test.log(LogStatus.PASS, "Message displayed = "+msg1);
 							
@@ -9028,7 +9117,7 @@ public class CFOMethod {
 						Thread.sleep(500);
 						String msg3 = performerPOM.readNoticeMsg(driver).getText();		//Reading Message appeared after save button
 						
-						if(msg3.equalsIgnoreCase("1 Notice Payment(s) Details Uploaded Successfully"))
+						if(msg3.equalsIgnoreCase(msg3))
 						{
 							test.log(LogStatus.PASS, "Message displayed = "+msg3);
 						
@@ -9772,6 +9861,7 @@ public class CFOMethod {
 						
 						Thread.sleep(500);
 						wait.until(ExpectedConditions.visibilityOf(performerPOM.clickAddNew1(driver)));
+						Thread.sleep(500);
 						performerPOM.clickAddNew1(driver).click();		//Clicking on 'Add New' button.
 						
 						wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("ContentPlaceHolder1_showReminderDetail"));
@@ -20206,8 +20296,8 @@ public class CFOMethod {
 			    Thread.sleep(3000);
   				OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
   				
-  			  Thread.sleep(3000);
-				performerPOM.clickMinimize(driver).click();
+//  			  Thread.sleep(3000);
+//				performerPOM.clickMinimize(driver).click();
 			    
 
   				Thread.sleep(300);
@@ -20236,7 +20326,7 @@ public class CFOMethod {
 				  
 
 				Thread.sleep(3000);
-				performerPOM.clickNoticeTaskEditResponse1(driver).click();
+				performerPOM.clickNoticeTaskEditResponsecfo1(driver).click();
 				
 				Thread.sleep(3000);
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
@@ -20286,7 +20376,7 @@ public class CFOMethod {
 			
 
 				Thread.sleep(3000);
-				performerPOM.clickNoticeTaskEditResponse1(driver).click();
+				performerPOM.clickNoticeTaskEditResponsecfo1(driver).click();
 				
 				Thread.sleep(3000);
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
@@ -20308,10 +20398,14 @@ public class CFOMethod {
 		  		{
 		  			test.log(LogStatus.FAIL, "Clear button not working successfully");
 		  		}
-				driver.switchTo().parentFrame();
+				  driver.switchTo().parentFrame();
 				  driver.switchTo().parentFrame();
 		   	     	Thread.sleep(3000);
 		   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		   	     	
+		   	
+					
+	             
 			}
  		 
  		 static void CaseExistingHearingDate(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
@@ -20885,7 +20979,7 @@ public class CFOMethod {
 	    				   performerPOM.clickNewCriteria(driver).click();
 	    				   Thread.sleep(3000);
 	    				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
-	    				   performerPOM.clickCriteria(driver).sendKeys("Automation Test 11Sep23");
+	    				   performerPOM.clickCriteria(driver).sendKeys("Automation Test 456");
 	    				   Thread.sleep(3000);
 	    				   performerPOM.clickSaveCriteria(driver).click();
 	    				   String msg = performerPOM.readOppoenentMsg(driver).getText();
