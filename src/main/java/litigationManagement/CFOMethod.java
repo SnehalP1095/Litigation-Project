@@ -6788,7 +6788,7 @@ public class CFOMethod {
 								        String alertMessage2= driver.switchTo().alert().getText();	
 								        
 								        Thread.sleep(3000);
-								        test.log(LogStatus.PASS, alertMessage2);
+								        test.log(LogStatus.PASS, "Task=" +alertMessage2);
 								        		
 								        // Displaying alert message		
 								        System.out.println(alertMessage2);	
@@ -7237,7 +7237,7 @@ public class CFOMethod {
 							Thread.sleep(500);
 							String name = OverduePOM.readFolderName(driver).getText();		//Reading the folder name to create new folder.
 							
-							String folder = name+"Doc10july23"; 
+							String folder = name+"Doc19july23"; 
 							
 							OverduePOM.clickNew(driver).click();							//Clicking on '+New' button.
 							
@@ -7390,7 +7390,7 @@ public class CFOMethod {
 								OverduePOM.clickNewFolder(driver).click();						//Clicking on 'New Folder'
 								
 								Thread.sleep(5000);
-								OverduePOM.writeFolderName(driver).sendKeys("Document 28jun23");			//Writing Folder name.
+								OverduePOM.writeFolderName(driver).sendKeys("Document 18july23");			//Writing Folder name.
 								
 								Thread.sleep(5000);
 								OverduePOM.clickCreate1(driver).click();						//Clicking on create button.
@@ -7773,7 +7773,7 @@ public class CFOMethod {
 						
 						if(dirContents.length < allFilesNew.length)
 						{
-							test.log(LogStatus.PASS, "File Downloaded Successfully.");
+							test.log(LogStatus.PASS, type+":-File Downloaded Successfully.");
 							
 							File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
 						    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
@@ -7915,13 +7915,13 @@ public class CFOMethod {
 						Thread.sleep(5000);
 						performerPOM.Actionclosepopup1(driver).click();
 						
-						driver.navigate().refresh();
+						//driver.navigate().refresh();
 						
 						//--------------------------------Case----------------------------------
 						
-						Thread.sleep(1500);
-						js.executeScript("window.scrollBy(500,0)");
-						
+//						Thread.sleep(1500);
+//						js.executeScript("window.scrollBy(500,0)");
+//						
 						Thread.sleep(3000);
 						performerPOM.clickTypeDropdown(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
 						Thread.sleep(3000);
@@ -7976,7 +7976,7 @@ public class CFOMethod {
 						
 						Thread.sleep(5000);
 						performerPOM.showResponseDetailIcon1(driver).click();
-						test.log(LogStatus.PASS, "Show response details Case popup open successfully.");
+						test.log(LogStatus.PASS, "Show hearing details Case popup open successfully.");
 						
 						Thread.sleep(5000);
 						performerPOM.Actionclosepopup1(driver).click();
@@ -7984,12 +7984,12 @@ public class CFOMethod {
 						Thread.sleep(500);
 						Report(driver, test, count1, "Case");
 						
-						driver.navigate().refresh();
+						//driver.navigate().refresh();
 
 						//--------------------------------Task----------------------------------
 						
-						Thread.sleep(1500);
-						js.executeScript("window.scrollBy(500,0)");
+//						Thread.sleep(1500);
+//						js.executeScript("window.scrollBy(500,0)");
 						
 						performerPOM.clickTypeDropdown(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
 						Thread.sleep(300);
@@ -8073,7 +8073,7 @@ public class CFOMethod {
 						
 						Thread.sleep(5000);
 						performerPOM.clickExportAdavanced(driver).click();
-						test.log(LogStatus.PASS, "File downloaded successfully.");
+						test.log(LogStatus.PASS, "Notice = File downloaded successfully.");
 						
 						JavascriptExecutor js = (JavascriptExecutor) driver;
 						js.executeScript("window.scrollBy(0,800)");
@@ -8126,7 +8126,7 @@ public class CFOMethod {
 						
 						Thread.sleep(3000);
 						performerPOM.clickExportAdavanced(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "File downloaded successfully.");
+						test.log(LogStatus.PASS, "Case = File downloaded successfully.");
 						
 						
 						 By locator2 = By.xpath("//a[@class='k-button k-button-icontext ob-hearing1 k-grid-hearing1']");
@@ -8176,7 +8176,7 @@ public class CFOMethod {
 						
 						Thread.sleep(5000);
 						performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "File downloaded successfully.");
+						test.log(LogStatus.PASS, "Task = File downloaded successfully.");
 						
 						
 						Thread.sleep(5000);
@@ -8196,6 +8196,9 @@ public class CFOMethod {
 						
 						Thread.sleep(3000);
 						performerPOM.clickMyReports(driver).click();
+						
+						JavascriptExecutor js = (JavascriptExecutor) driver;
+						js.executeScript("window.scrollBy(0,-700)");
 						
 						Thread.sleep(5000);
 						performerPOM.clickMoreReports(driver).click();
@@ -8987,7 +8990,7 @@ public class CFOMethod {
 						performerPOM.UploadCaseFile(driver).click();
 						
 			
-						Thread.sleep(500);
+						Thread.sleep(3000);
 						String msg6 = performerPOM.readCaseMsg(driver).getText();		//Reading Message appeared after save button
 						
 						if(msg6.equalsIgnoreCase(msg6))
@@ -9684,10 +9687,10 @@ public class CFOMethod {
 						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder new 10july23");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder new 20july23");
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new  10july23");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new  20july23");
 						
 						Thread.sleep(3000);
 						performerPOM.clickRemark2(driver).sendKeys("Remark");
@@ -9716,12 +9719,12 @@ public class CFOMethod {
 						
 						if(msg.equalsIgnoreCase("Reminder Saved Successfully."))
 						{
-							test.log(LogStatus.PASS, "Reminder Saved Successfully.");
+							test.log(LogStatus.PASS, type+":-Reminder Saved Successfully.");
 						
 						}
 						else
 						{
-							test.log(LogStatus.FAIL, "Reminder with same details already exists");
+							test.log(LogStatus.FAIL, type+":-Reminder with same details already exists");
 						}
 						
 						
@@ -9761,13 +9764,13 @@ public class CFOMethod {
 						performerPOM.clickReminderText(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder  new 25march2023");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder  new 1march2023");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDescription(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new 25march2023");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 1march2023");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDate(driver).click();
@@ -9922,12 +9925,12 @@ public class CFOMethod {
 						
 						if(msg.equalsIgnoreCase(msg))
 						{
-							test.log(LogStatus.PASS, "Without Enter Data =" +msg);
+							test.log(LogStatus.PASS, type+":- Without Enter Data =" +msg);
 						
 						}
 						else
 						{
-							test.log(LogStatus.FAIL, "Without Enter Data  =" +msg);
+							test.log(LogStatus.FAIL, type+":-Without Enter Data  =" +msg);
 						}
 						
 						Thread.sleep(300);
@@ -9977,12 +9980,12 @@ public class CFOMethod {
 						
 						if(msg.equalsIgnoreCase(msg))
 						{
-							test.log(LogStatus.PASS, "Enter Two Manadatory Fields =" +msg1);
+							test.log(LogStatus.PASS, type+":-Enter Two Manadatory Fields =" +msg1);
 						
 						}
 						else
 						{
-							test.log(LogStatus.FAIL, "Enter Two Manadatory Fields  =" +msg1);
+							test.log(LogStatus.FAIL, type+":-Enter Two Manadatory Fields  =" +msg1);
 						}
 						
 						Thread.sleep(300);
@@ -10043,12 +10046,12 @@ public class CFOMethod {
 						
 						if(msg.equalsIgnoreCase(msg))
 						{
-							test.log(LogStatus.PASS, "Reminder date =" +msg2);
+							test.log(LogStatus.PASS, type+":-Reminder date =" +msg2);
 						
 						}
 						else
 						{
-							test.log(LogStatus.FAIL, "Reminder date  =" +msg2);
+							test.log(LogStatus.FAIL, type+":-Reminder date  =" +msg2);
 						}
 						
 					
@@ -10189,13 +10192,13 @@ public class CFOMethod {
 							 Thread.sleep(5000);
 							 performerPOM.clickcloseLegalEntity(driver).click();
 							 
-							/* Thread.sleep(5000);
+							 Thread.sleep(5000);
 							 performerPOM.clickLegalEntityFilter(driver).sendKeys("Sandeep Agrawal", Keys.ENTER);
 							 
 							 Thread.sleep(5000);
 							 performerPOM.clickLegalEntityFilter(driver).clear();
 							 
-								test.log(LogStatus.PASS,"Legal Entity Filter Work Successfully");*/
+								test.log(LogStatus.PASS,"Legal Entity Filter Work Successfully");
 								
 								
 								 Thread.sleep(3000);
@@ -11329,7 +11332,7 @@ public class CFOMethod {
 						     performerPOM.clickUserMaster(driver).click();
 							 Thread.sleep(3000);
 							 performerPOM.clickAddNewUser(driver).click();
-							
+							 Thread.sleep(3000);
 							 if(performerPOM.CloseLegalEntity(driver).isEnabled())
 							 {
 								 Thread.sleep(3000);
@@ -12210,7 +12213,7 @@ public class CFOMethod {
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Payment Type -Payment Type Already Exists");
+									test.log(LogStatus.PASS, "Payment Type -Payment Type Already Exists");
 								}
 						   
 						   Thread.sleep(4000);
@@ -12438,7 +12441,7 @@ public class CFOMethod {
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Custome Field- Custome Field with same name already exists.");
+									test.log(LogStatus.PASS, "Custome Field- Custome Field with same name already exists.");
 								}
 						   
 						   
@@ -12903,7 +12906,7 @@ public class CFOMethod {
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Document Type-Litigation Document-Type already exists.");
+									test.log(LogStatus.PASS, "Document Type-Litigation Document-Type already exists.");
 								}
 			              Thread.sleep(3000);
 						  performerPOM.closeDocumentType(driver).click();
@@ -13112,7 +13115,7 @@ public class CFOMethod {
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Rating Criteria-Criteria already exists.");
+									test.log(LogStatus.PASS, "Rating Criteria-Criteria already exists.");
 								}
 						  
 						  

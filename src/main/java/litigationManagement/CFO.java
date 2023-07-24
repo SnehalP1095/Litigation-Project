@@ -1723,7 +1723,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 @Test(priority = 130)
 	void ShareCaseDocument() throws InterruptedException, IOException
 	{
-		test = extent.startTest("My Document-Share Notice Document Verification");
+		test = extent.startTest("My Document-Share Case Document Verification");
 	
 		
 		CFOMethod.ShareCaseDocument(driver, test, workbook);
@@ -1790,7 +1790,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 	@Test(priority =136)
 	void ReminderWithoutData() throws InterruptedException, IOException
 	{
-		test = extent.startTest("My Reminder verification");
+		test = extent.startTest("My Reminder Without data verification");
 		
 		CFOMethod.ReminderWithoutData(driver, test);
 		
@@ -1841,7 +1841,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 	@Test(priority = 141)
 			void AdvancedSearch() throws InterruptedException, IOException
 			{
-				test = extent.startTest("My Workspace-Advanced Search Reports excel  verification");
+				test = extent.startTest("My Workspace-Advanced Search verification");
 				
 				
 				CFOMethod.AdvancedSearchWorkspace(driver, test);
@@ -1917,7 +1917,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 		@Test(priority = 148)
 			void AdvancedSearchreport() throws InterruptedException, IOException
 			{
-				test = extent.startTest("Advanced SearchReports excel  verification");
+				test = extent.startTest("My Report- Advanced search verification");
 			
 				
 				CFOMethod.AdvancedSearchReport(driver, test);

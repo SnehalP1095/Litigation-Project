@@ -100,7 +100,7 @@ public class Login
 				
 			}
 			
-			Thread.sleep(1000);
+		/*	Thread.sleep(1000);
 			wait1.until(ExpectedConditions.visibilityOf(LoginPOM.Question1(driver)));
 			wait1.until(ExpectedConditions.elementToBeClickable(LoginPOM.Question1(driver)));
 			String que1 = LoginPOM.Question1(driver).getText();	//Storing the question in que variable.
@@ -168,7 +168,7 @@ public class Login
 			Thread.sleep(100);
 			
 			LoginPOM.SubmitAnswer(driver).click();				//Clicking on Submit button.
-			
+			*/
 			
 		}
 		

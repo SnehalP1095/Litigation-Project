@@ -43,6 +43,7 @@
           <include name="LawyerTwoManadatoryFileds"/>
           <include name="Masters5"/>
           <include name="Masters8"/>
+          <include name="MyDocument"/>
           <include name="RatingCriteriaInvalidData"/>
           <include name="Masters7"/>
           <include name="Masters9"/>

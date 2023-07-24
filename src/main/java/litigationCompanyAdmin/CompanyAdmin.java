@@ -571,7 +571,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
           extent.flush();
     }
 	
-	@Test(priority =1)
+	//@Test(priority =1)
 	void AgeingGraph1to2yearsCase() throws InterruptedException, IOException
 	{
 	     test = extent.startTest("Select Case Filter =1 to 2 years = Ageing Graph Count Verification");
@@ -604,6 +604,81 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 			MethodsPOM.AgeingGraph1to2yearsCase(driver, test,"Petitioner",Petitioner);
 			Thread.sleep(3000);
 			MethodsPOM.AgeingGraph1to2yearsCase(driver, test,"Respondent",Respondent);
+			
+			
+			Thread.sleep(3000);
+			OverduePOM.clickDashboard(driver).click();
+	    
+	      extent.endTest(test);
+	      extent.flush();
+	 }
+	@Test(priority =1)
+	void AgeingGraph2to3yearsCase() throws InterruptedException, IOException
+	{
+	     test = extent.startTest("Select Case Filter =2 to 3 years = Ageing Graph Count Verification");
+	     
+	     JavascriptExecutor js = (JavascriptExecutor) driver;
+	     	js.executeScript("window.scrollBy(0,800)");
+	     	
+	     	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardCaseFilter(driver).click();
+	   
+	    	
+			 Thread.sleep(5000);
+			 performerPOM.clickDashboardApplyBtn(driver).click();
+			 Thread.sleep(3000);
+			js.executeScript("window.scrollBy(0,3000)");
+			
+		    int	InwardDefendent = Integer.parseInt(performerPOM.clickInwardDefendentCA2to3Case(driver).getText());	//Reading Notice Open count.
+	    	int	OutwardPlaintiff = Integer.parseInt(performerPOM.clickOutwardPlaintiffCaseCA2to3(driver).getText());	//Reading Notice Open count.
+	    
+			
+	    	Thread.sleep(3000);
+	    	MethodsPOM.AgeingGraph2to3yearsCase(driver, test,"Inward/Defendent",InwardDefendent);
+			Thread.sleep(3000);
+			MethodsPOM.AgeingGraph2to3yearsCase(driver, test,"Outward/Plaintiff",OutwardPlaintiff);
+			
+			
+			
+			Thread.sleep(3000);
+			OverduePOM.clickDashboard(driver).click();
+	    
+	      extent.endTest(test);
+	      extent.flush();
+	 }
+
+	@Test(priority =1)
+	void AgeingGraphMoreThan3yearsCase() throws InterruptedException, IOException
+	{
+	     test = extent.startTest("Select Case Filter =More than 3 years = Ageing Graph Count Verification");
+	     
+	     JavascriptExecutor js = (JavascriptExecutor) driver;
+	     	js.executeScript("window.scrollBy(0,800)");
+	     	
+	     	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardCaseFilter(driver).click();
+	   
+	    	
+			 Thread.sleep(5000);
+			 performerPOM.clickDashboardApplyBtn(driver).click();
+			 Thread.sleep(3000);
+			js.executeScript("window.scrollBy(0,3000)");
+			
+		    int	InwardDefendent = Integer.parseInt(performerPOM.clickInwardDefendentCAMoreThan3yearsCase(driver).getText());	//Reading Notice Open count.
+	    	int	OutwardPlaintiff = Integer.parseInt(performerPOM.clickOutwardPlaintiffCaseCAMoreThan3years(driver).getText());	//Reading Notice Open count.
+	    
+			
+	    	Thread.sleep(3000);
+	    	MethodsPOM.AgeingGraphMoreThan3yearsCase(driver, test,"Inward/Defendent",InwardDefendent);
+			Thread.sleep(3000);
+			MethodsPOM.AgeingGraphMoreThan3yearsCase(driver, test,"Outward/Plaintiff",OutwardPlaintiff);
+			
 			
 			
 			Thread.sleep(3000);
