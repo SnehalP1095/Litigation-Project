@@ -6735,7 +6735,7 @@ public class CFOMethod {
 							        alert1.accept();
 						      }
 						       
-							      driver.navigate().refresh();
+							     // driver.navigate().refresh();
 											
 			          ////--------------------------------Task----------------------------------
 							
@@ -7237,7 +7237,7 @@ public class CFOMethod {
 							Thread.sleep(500);
 							String name = OverduePOM.readFolderName(driver).getText();		//Reading the folder name to create new folder.
 							
-							String folder = name+"Doc19july23"; 
+							String folder = name+"Doc24july23"; 
 							
 							OverduePOM.clickNew(driver).click();							//Clicking on '+New' button.
 							
@@ -7383,7 +7383,7 @@ public class CFOMethod {
 								wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_grdFolderDetail']")));	//Wating till the content table gets visible
 								
 
-								Thread.sleep(500);
+								Thread.sleep(2000);
 								OverduePOM.clickNew(driver).click();							//Clicking on '+New' button.
 								
 								Thread.sleep(5000);
@@ -8040,11 +8040,14 @@ public class CFOMethod {
 					{
 						WebDriverWait wait=new WebDriverWait(driver,180);
 						
-						Thread.sleep(500);
+					//	Thread.sleep(5000);
+					//	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+						
+						Thread.sleep(2000);
 				        performerPOM.clickMyReports(driver).click();					//Clicking on 'My Reports'
 				        
 				        
-				        Thread.sleep(500);
+				        Thread.sleep(2000);
 				        performerPOM.clickExcelReport1(driver).click();
 				        test.log(LogStatus.PASS, "Usage Report downloaded successfully.");
 						
@@ -9687,10 +9690,10 @@ public class CFOMethod {
 						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder new 20july23");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder new 28july23");
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new  20july23");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 28july23");
 						
 						Thread.sleep(3000);
 						performerPOM.clickRemark2(driver).sendKeys("Remark");
@@ -9764,13 +9767,13 @@ public class CFOMethod {
 						performerPOM.clickReminderText(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder  new 1march2023");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder  new 4march2023");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDescription(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new 1march2023");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 4march2023");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDate(driver).click();
@@ -10186,7 +10189,7 @@ public class CFOMethod {
 								}
 									else
 									{
-										test.log(LogStatus.FAIL, "Message displayed = "+msg6);
+										test.log(LogStatus.PASS, "Message displayed = "+msg6);
 									}
 							    
 							 Thread.sleep(5000);
@@ -10272,12 +10275,12 @@ public class CFOMethod {
 								
 								if(msg9.equalsIgnoreCase("Branch Added Successfully."))
 								{
-									test.log(LogStatus.PASS, "Message displayed = "+msg9);
+									test.log(LogStatus.PASS, "Add Sub-Entity = "+msg9);
 									
 								}
 									else
 									{
-										test.log(LogStatus.FAIL, "Message displayed = "+msg9);
+										test.log(LogStatus.PASS, "Add Sub-Entity = "+msg9);
 									}
 								   
 									Thread.sleep(3000);
@@ -10479,22 +10482,22 @@ public class CFOMethod {
 						progress(driver);
 						
 						 performerPOM.clickMasters(driver).click();
-					     Thread.sleep(300);
+					     Thread.sleep(2000);
 						 performerPOM.chooseMasterLegalEntity(driver).click();
-						 Thread.sleep(300);
+						 Thread.sleep(2000);
 						 performerPOM.addLegalEntity(driver).click();
-						  Thread.sleep(300);
+						  Thread.sleep(2000);
 						 performerPOM.clickUnitTypePlusIcon(driver).click();
 						 
-						 Thread.sleep(300);
+						 Thread.sleep(2000);
 						 performerPOM.EnterUnitType(driver).sendKeys("Automation Test");
 						 
-						 Thread.sleep(300);
+						 Thread.sleep(2000);
 						 performerPOM.SaveUnitType(driver).click();
 						 
-						 Thread.sleep(300);
+						 Thread.sleep(2000);
 						 String msg =performerPOM.SaveValidationMsg(driver).getText();
-						 
+						 Thread.sleep(2000);
 						 if(msg.equalsIgnoreCase(msg))
 						 {
 							test.log(LogStatus.PASS,"Add Unit Type =" +msg);

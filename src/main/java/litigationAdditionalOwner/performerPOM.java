@@ -6095,7 +6095,7 @@ public class performerPOM
 				}
 			 public static WebElement clickComplainantAgeing(WebDriver driver)
 				{
-					litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 '])[14]"));
+					litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 '])[59]"));
 					return litigation;
 				}
 			 public static WebElement clickApplicantAgeing(WebDriver driver)
@@ -6185,7 +6185,7 @@ public class performerPOM
 				}
 			 public static WebElement clickPetitionerCA(WebDriver driver)
 				{
-					litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[10]"));
+					litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[13]"));
 					return litigation;
 				}
 			 public static WebElement clickPetitionerCA1(WebDriver driver)
@@ -6200,7 +6200,7 @@ public class performerPOM
 				}
 			 public static WebElement clickRespondentCA(WebDriver driver)
 				{
-					litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-3 '])[10]"));
+					litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-3 '])[13]"));
 					return litigation;
 				}
 			 public static WebElement clickRespondentCA1(WebDriver driver)
@@ -6480,6 +6480,21 @@ public class performerPOM
 			 public static WebElement ClickUpdateSuccessmsg(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//span[@id='ContentPlaceHolder1_successmsg']"));
+					return litigation;
+				}
+			 public static WebElement SelectStatusFilter(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("(//div[@class='k-multiselect-wrap k-floatwrap'])[3]"));
+					return litigation;
+				}
+			 public static WebElement StatusDropDown(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("(//span[@class='k-in'])[130]"));
+					return litigation;
+				}
+			 public static WebElement NoRecordFound(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@class='k-pager-info k-label']"));
 					return litigation;
 				}
 }

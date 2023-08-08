@@ -2334,7 +2334,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
         extent.flush();
    }
 
-	@Test(priority = 186)
+	@Test(priority =186)
 				void Masters7() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Masters - Custom Parameter  verification");
@@ -2356,7 +2356,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 188)
+	//@Test(priority = 188)
 	void customParameterInvalidData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Custom Parameter Master -Enter Invalid Data verification");
@@ -2436,7 +2436,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 		@Test(priority = 195)
 		void DocumentTypeWithoutData() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Document Type Msters-Without data  verification");
+			test = extent.startTest("Document Type Masters-Without data  verification");
 			
 			
 			CFOMethod.DocumentTypeWithoutData(driver, test);
@@ -2447,7 +2447,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 		@Test(priority =196)
 		void DocumentTypeInvalidData() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Document Type Msters-Enter Invalid Data verification");
+			test = extent.startTest("Document Type Masters-Enter Invalid Data verification");
 			
 			
 			CFOMethod.DocumentTypeInvalidData(driver, test);
@@ -2458,7 +2458,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 	@Test(priority = 197)
 		void DocumentTypeCloseButton() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Document Type Msters-Close button verification");
+			test = extent.startTest("Document Type Masters-Close button verification");
 			
 			
 			CFOMethod.DocumentTypeCloseButton(driver, test);
@@ -2480,7 +2480,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 	@Test(priority = 199)
 		void RatingCriteriaWithoutData() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Rating Criteria Master-Without Enter Data  verification");
+			test = extent.startTest("Rating Criteria Masters-Without Enter Data  verification");
 		
 			
 			CFOMethod.RatingCriteriaWithoutData(driver, test);
@@ -2491,7 +2491,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
 	@Test(priority = 200)
 		void RatingCriteriaInvalidData() throws InterruptedException, IOException
 		{
-			test = extent.startTest("Rating Criteria Master-Enter Invalid Data  verification");
+			test = extent.startTest("Rating Criteria Masters-Enter Invalid Data  verification");
 		
 			
 			CFOMethod.RatingCriteriaInvalidData(driver, test);
