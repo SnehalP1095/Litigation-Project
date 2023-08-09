@@ -5371,7 +5371,7 @@ public class CFOMethod {
 		        
 		        test.log(LogStatus.PASS, "Document View popup open  succssesfully");
 		        
-		        Thread.sleep(3000);
+		       /* Thread.sleep(3000);
 		        performerPOM.clickCaseDocumentdeletecfo(driver).click();
 		        
 		        Thread.sleep(5000);
@@ -5389,7 +5389,7 @@ public class CFOMethod {
 		        
 		 		
 		        // Accepting alert		
-		        alert.accept();	
+		        alert.accept();	*/
 		        
 		       
 		        
@@ -5468,7 +5468,7 @@ public class CFOMethod {
 			    Thread.sleep(300);
 			    performerPOM.clickCaseNewTask(driver).click();
 			    Thread.sleep(5000);
-			    performerPOM.clickHearingDate(driver).sendKeys("24-10-2023");
+			    performerPOM.clickHearingDate(driver).sendKeys("24-11-2023");
 			    
 			    
 //			    Thread.sleep(300);
@@ -5674,7 +5674,7 @@ public class CFOMethod {
 //					int HearingDate = (int) c1.getNumericCellValue();
 //					performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 					
-					performerPOM.clickCaseHearingDate(driver).sendKeys("31-08-2024");	//Writing 'HearingDate'
+					performerPOM.clickCaseHearingDate(driver).sendKeys("31-09-2024");	//Writing 'HearingDate'
 					
 					
 				
@@ -5773,7 +5773,7 @@ public class CFOMethod {
 				 Thread.sleep(6000);
 				 performerPOM.clickNewCaseOrder(driver).click();
 				 Thread.sleep(6000);
-				 performerPOM. clickCaseOrderDate(driver).sendKeys("25-03-2023");
+				 performerPOM. clickCaseOrderDate(driver).sendKeys("25-04-2023");
 				 Thread.sleep(3000);
 				 performerPOM.clickOrderPanel(driver).click();
 				 Thread.sleep(3000);
@@ -5807,11 +5807,11 @@ public class CFOMethod {
 				 
 				 performerPOM.clickCaseOrderTitle(driver).clear();
 				 
-				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 786");
+				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 837");
 				 
 				 performerPOM.clickCaseOrderDecri(driver).clear();
 				 
-				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 17 JULY 23");     //click oder description
+				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 9 Aug 23");     //click oder description
 				 
 				 performerPOM.ChooseOrderFile(driver).click();
 				 

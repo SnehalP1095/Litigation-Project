@@ -12176,6 +12176,723 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		    Thread.sleep(2000);
 		    performerPOM.caseNoticeSummaryGraphClose(driver).click();
       }
+	  
+	  public static void GraphFilter1to2years(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+
+	  {
+	  	
+	  	WebDriverWait wait=new WebDriverWait(driver,20);
+	  	JavascriptExecutor js = (JavascriptExecutor) driver;
+	  		if(type.equalsIgnoreCase("Inward/Defendent"))
+	  		{
+	           	Thread.sleep(2000);
+	  	        performerPOM.clickInwardDefendentCA1to2(driver).click();						//Clicking on 'Open' notice
+	  		}
+	  		
+	  		else if(type.equalsIgnoreCase("Outward/Plaintiff"))
+	  		{
+	  			Thread.sleep(3000);
+	  	        performerPOM.ExpensesCategoryWiseNoticeGraph(driver).click();						//Clicking on 'Open' notice
+	  		}
+	  		else if(type.equalsIgnoreCase("Petitioner"))
+	  		{
+	  			Thread.sleep(3000);
+	  	        performerPOM.ExpensesCaseGraph(driver).click();						//Clicking on 'Open' notice
+	  		}
+	  	
+	  	
+	      
+	  	Thread.sleep(2000);
+	  	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+	  	
+	  	 Thread.sleep(3000);
+	     performerPOM.SelectStatusFilter(driver).click();
+	     Thread.sleep(1000);
+		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[130]")); 
+		 String cattext =TextStatus.getText();
+		  Thread.sleep(1000);
+		 TextStatus.click();
+		 Thread.sleep(3000);
+		 performerPOM.SelectStatusFilter(driver).click();
+		 Thread.sleep(3000);
+		 js.executeScript("window.scrollBy(0,900)");
+		 Thread.sleep(3000);
+		  String msg=performerPOM.NoRecordFound(driver).getText();
+		 if(!msg.equalsIgnoreCase("No items to display"))
+		 {
+		
+	    	Thread.sleep(1000);
+		    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
+		 
+		  List<String> text=new ArrayList<String>();
+		 
+		 for(int i=0;i<col.size();i++)
+		 {
+			 text.add(col.get(i).getText());
+		 }
+		 
+		 List<String> pass=new ArrayList<String>();
+		 
+		 List<String> fail=new ArrayList<String>();
+			
+			for(int i=0;i<text.size();i++)
+			{
+			if(text.get(i).equals(cattext))
+			{
+				pass.add(text.get(i));		//	the specified element at the end of a list.
+			}
+			else
+			{
+				fail.add(text.get(i));
+			}
+			
+			}
+
+		 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
+		 pass.clear();
+		 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
+		 
+		 
+		 HashSet<String> fal=new LinkedHashSet<>(fail);
+		 fail.clear();
+		 fail.addAll(fal);
+		 
+		 for(String Fal : fail)
+		 {
+			 test.log(LogStatus.FAIL, type+ " :- Status  Value Matching : "+Fal);
+			// System.out.println("fail : "+Fal);
+		 }
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS, type+ " :- Status Value  Matching : "+Pas);
+			// System.out.println("Pass : "+Pas);
+		 }
+		 
+		 }
+		 else
+		 {
+			 test.log(LogStatus.PASS, type+ ":- "+msg);
+				
+		 }
+		 	 
+		Thread.sleep(2000);
+	    driver.switchTo().parentFrame();
+	    Thread.sleep(2000);
+	    performerPOM.caseNoticeSummaryGraphClose(driver).click();
+   }
+	  
+	  public static void GraphFilter2to3years(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+
+	  {
+	  	
+	  	WebDriverWait wait=new WebDriverWait(driver,20);
+	  	JavascriptExecutor js = (JavascriptExecutor) driver;
+	  		if(type.equalsIgnoreCase("Inward/Defendent"))
+	  		{
+	           	Thread.sleep(2000);
+	  	        performerPOM.clickInwardDefendentCase(driver).click();						//Clicking on 'Open' notice
+	  		}
+	  		     
+	  	Thread.sleep(2000);
+	  	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+	  	
+	  	 Thread.sleep(3000);
+	     performerPOM.SelectStatusFilter(driver).click();
+	     Thread.sleep(1000);
+		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[130]")); 
+		 String cattext =TextStatus.getText();
+		  Thread.sleep(1000);
+		 TextStatus.click();
+		 Thread.sleep(3000);
+		 performerPOM.SelectStatusFilter(driver).click();
+		 Thread.sleep(3000);
+		 js.executeScript("window.scrollBy(0,900)");
+		 Thread.sleep(3000);
+		  String msg=performerPOM.NoRecordFound(driver).getText();
+		 if(!msg.equalsIgnoreCase("No items to display"))
+		 {
+		
+	    	Thread.sleep(1000);
+		    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
+		 
+		  List<String> text=new ArrayList<String>();
+		 
+		 for(int i=0;i<col.size();i++)
+		 {
+			 text.add(col.get(i).getText());
+		 }
+		 
+		 List<String> pass=new ArrayList<String>();
+		 
+		 List<String> fail=new ArrayList<String>();
+			
+			for(int i=0;i<text.size();i++)
+			{
+			if(text.get(i).equals(cattext))
+			{
+				pass.add(text.get(i));		//	the specified element at the end of a list.
+			}
+			else
+			{
+				fail.add(text.get(i));
+			}
+			
+			}
+
+		 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
+		 pass.clear();
+		 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
+		 
+		 
+		 HashSet<String> fal=new LinkedHashSet<>(fail);
+		 fail.clear();
+		 fail.addAll(fal);
+		 
+		 for(String Fal : fail)
+		 {
+			 test.log(LogStatus.FAIL, type+ " :- Status  Value Matching : "+Fal);
+			// System.out.println("fail : "+Fal);
+		 }
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS, type+ " :- Status Value  Matching : "+Pas);
+			// System.out.println("Pass : "+Pas);
+		 }
+		 
+		 }
+		 else
+		 {
+			 test.log(LogStatus.PASS, type+ ":- "+msg);
+				
+		 }
+		 	 
+		Thread.sleep(2000);
+	    driver.switchTo().parentFrame();
+	    Thread.sleep(2000);
+	    performerPOM.caseNoticeSummaryGraphClose(driver).click();
+   }
+	  
+	  
+	  public static void Morethan3yearsGraphFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+
+	  {
+	  	
+	  	WebDriverWait wait=new WebDriverWait(driver,20);
+	  	JavascriptExecutor js = (JavascriptExecutor) driver;
+	  		if(type.equalsIgnoreCase("Inward/Defendent"))
+	  		{
+	           	Thread.sleep(2000);
+	  	        performerPOM.clickInwardDefendent1(driver).click();						//Clicking on 'Open' notice
+	  		}
+	  		
+	  		Thread.sleep(2000);
+	  	    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+	  	    
+	  	     Thread.sleep(3000);
+		     performerPOM.SelectStatusFilter(driver).click();
+		     Thread.sleep(1000);
+			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[130]")); 
+			 String cattext =TextStatus.getText();
+			  Thread.sleep(1000);
+			 TextStatus.click();
+			 Thread.sleep(3000);
+			 performerPOM.SelectStatusFilter(driver).click();
+			 Thread.sleep(3000);
+			 js.executeScript("window.scrollBy(0,900)");
+			 Thread.sleep(3000);
+			  String msg=performerPOM.NoRecordFound(driver).getText();
+			 if(!msg.equalsIgnoreCase("No items to display"))
+			 {
+			
+		    	Thread.sleep(1000);
+			    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
+			 
+			  List<String> text=new ArrayList<String>();
+			 
+			 for(int i=0;i<col.size();i++)
+			 {
+				 text.add(col.get(i).getText());
+			 }
+			 
+			 List<String> pass=new ArrayList<String>();
+			 
+			 List<String> fail=new ArrayList<String>();
+				
+				for(int i=0;i<text.size();i++)
+				{
+				if(text.get(i).equals(cattext))
+				{
+					pass.add(text.get(i));		//	the specified element at the end of a list.
+				}
+				else
+				{
+					fail.add(text.get(i));
+				}
+				
+				}
+
+			 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
+			 pass.clear();
+			 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
+			 
+			 
+			 HashSet<String> fal=new LinkedHashSet<>(fail);
+			 fail.clear();
+			 fail.addAll(fal);
+			 
+			 for(String Fal : fail)
+			 {
+				 test.log(LogStatus.FAIL, type+ " :- Status  Value Matching : "+Fal);
+				// System.out.println("fail : "+Fal);
+			 }
+			 for(String Pas : pass)
+			 {
+				 test.log(LogStatus.PASS, type+ " :- Status Value  Matching : "+Pas);
+				// System.out.println("Pass : "+Pas);
+			 }
+			 
+			 }
+			 else
+			 {
+				 test.log(LogStatus.PASS, type+ ":- "+msg);
+					
+			 }
+			 	 
+			Thread.sleep(2000);
+		    driver.switchTo().parentFrame();
+		    Thread.sleep(2000);
+		    performerPOM.caseNoticeSummaryGraphClose(driver).click();
+	   }
+	  
+	public static void CaseNoticeStageGraphFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+		
+		{
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+           	js.executeScript("window.scrollBy(0,800)");
+         
+        	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardNoticeFilter(driver).click();
+          
+			Thread.sleep(5000);
+			performerPOM.clickDashboardApplyBtn(driver).click();
+			
+			js.executeScript("window.scrollBy(0,900)");
+			
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			
+		
+		    
+			if(type.equalsIgnoreCase("Open Stage"))
+	  		{
+	           	Thread.sleep(2000);
+	  	        performerPOM.clickCaseNoticeStageHearingGraph(driver).click();						//Clicking on 'Open' notice
+	  		}
+		    
+		    
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+			
+		    Thread.sleep(3000);
+		     performerPOM.SelectStatusFilter(driver).click();
+		     Thread.sleep(1000);
+			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[130]")); 
+			 String cattext =TextStatus.getText();
+			  Thread.sleep(1000);
+			 TextStatus.click();
+			 Thread.sleep(3000);
+			 performerPOM.SelectStatusFilter(driver).click();
+			 Thread.sleep(3000);
+			 js.executeScript("window.scrollBy(0,900)");
+			 Thread.sleep(3000);
+			  String msg=performerPOM.NoRecordFound(driver).getText();
+			 if(!msg.equalsIgnoreCase("No items to display"))
+			 {
+			
+		    	Thread.sleep(1000);
+			    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
+			 
+			  List<String> text=new ArrayList<String>();
+			 
+			 for(int i=0;i<col.size();i++)
+			 {
+				 text.add(col.get(i).getText());
+			 }
+			 
+			 List<String> pass=new ArrayList<String>();
+			 
+			 List<String> fail=new ArrayList<String>();
+				
+				for(int i=0;i<text.size();i++)
+				{
+				if(text.get(i).equals(cattext))
+				{
+					pass.add(text.get(i));		//	the specified element at the end of a list.
+				}
+				else
+				{
+					fail.add(text.get(i));
+				}
+				
+				}
+
+			 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
+			 pass.clear();
+			 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
+			 
+			 
+			 HashSet<String> fal=new LinkedHashSet<>(fail);
+			 fail.clear();
+			 fail.addAll(fal);
+			 
+			 for(String Fal : fail)
+			 {
+				 test.log(LogStatus.FAIL, type+ " :- Status  Value Matching : "+Fal);
+				// System.out.println("fail : "+Fal);
+			 }
+			 for(String Pas : pass)
+			 {
+				 test.log(LogStatus.PASS, type+ " :- Status Value  Matching : "+Pas);
+				// System.out.println("Pass : "+Pas);
+			 }
+			 
+			 }
+			 else
+			 {
+				 test.log(LogStatus.PASS, type+ ":- "+msg);
+					
+			 }
+			 	 
+			Thread.sleep(2000);
+		    driver.switchTo().parentFrame();
+		    Thread.sleep(2000);
+		    performerPOM.caseNoticeSummaryGraphClose(driver).click();
+	   }
+	
+	public static void DepartmentSummaryGraphFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+	
+	{
+		
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		
+		
+		
+       	js.executeScript("window.scrollBy(0,800)");
+     
+    	Thread.sleep(5000);
+		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+		
+		Thread.sleep(5000);
+		performerPOM.clickDashboardNoticeFilter(driver).click();
+      
+       	
+		 Thread.sleep(5000);
+			performerPOM.clickDashboardApplyBtn(driver).click();
+     	
+			 js.executeScript("window.scrollBy(0,900)");
+			 
+			 
+				if(type.equalsIgnoreCase("IT Department"))
+		  		{
+		           	Thread.sleep(2000);
+		  	        performerPOM.DepartmentSummaryGraph(driver).click();						//Clicking on 'Open' notice
+		  		}
+			    
+	
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+		
+		
+	    Thread.sleep(3000);
+	     performerPOM.SelectStatusFilter(driver).click();
+	     Thread.sleep(1000);
+		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[130]")); 
+		 String cattext =TextStatus.getText();
+		  Thread.sleep(1000);
+		 TextStatus.click();
+		 Thread.sleep(3000);
+		 performerPOM.SelectStatusFilter(driver).click();
+		 Thread.sleep(3000);
+		 js.executeScript("window.scrollBy(0,900)");
+		 Thread.sleep(3000);
+		  String msg=performerPOM.NoRecordFound(driver).getText();
+		 if(!msg.equalsIgnoreCase("No items to display"))
+		 {
+		
+	    	Thread.sleep(1000);
+		    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
+		 
+		  List<String> text=new ArrayList<String>();
+		 
+		 for(int i=0;i<col.size();i++)
+		 {
+			 text.add(col.get(i).getText());
+		 }
+		 
+		 List<String> pass=new ArrayList<String>();
+		 
+		 List<String> fail=new ArrayList<String>();
+			
+			for(int i=0;i<text.size();i++)
+			{
+			if(text.get(i).equals(cattext))
+			{
+				pass.add(text.get(i));		//	the specified element at the end of a list.
+			}
+			else
+			{
+				fail.add(text.get(i));
+			}
+			
+			}
+
+		 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
+		 pass.clear();
+		 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
+		 
+		 
+		 HashSet<String> fal=new LinkedHashSet<>(fail);
+		 fail.clear();
+		 fail.addAll(fal);
+		 
+		 for(String Fal : fail)
+		 {
+			 test.log(LogStatus.FAIL, type+ " :- Status  Value Matching : "+Fal);
+			// System.out.println("fail : "+Fal);
+		 }
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS, type+ " :- Status Value  Matching : "+Pas);
+			// System.out.println("Pass : "+Pas);
+		 }
+		 
+		 }
+		 else
+		 {
+			 test.log(LogStatus.PASS, type+ ":- "+msg);
+				
+		 }
+		 	 
+		Thread.sleep(2000);
+	    driver.switchTo().parentFrame();
+	    Thread.sleep(2000);
+	    performerPOM.caseNoticeSummaryGraphClose(driver).click();
+   }
+	
+	
+	public static void LocationSummaryGraphFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+	
+	{
+		
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		Thread.sleep(500);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+       	js.executeScript("window.scrollBy(0,800)");
+     
+    	Thread.sleep(5000);
+		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+		
+		Thread.sleep(5000);
+		performerPOM.clickDashboardNoticeFilter(driver).click();
+      
+		 Thread.sleep(5000);
+		performerPOM.clickDashboardApplyBtn(driver).click();
+		
+		
+        js.executeScript("window.scrollBy(0,1500)");
+     	 Thread.sleep(5000);
+       if(type.equalsIgnoreCase("Management Location"))
+       {
+	  performerPOM.LocationSummaryGraph1(driver).click();						//Clicking on 'Open' notice
+        } 
+	    
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+		   Thread.sleep(3000);
+		     performerPOM.SelectStatusFilter(driver).click();
+		     Thread.sleep(1000);
+			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[130]")); 
+			 String cattext =TextStatus.getText();
+			  Thread.sleep(1000);
+			 TextStatus.click();
+			 Thread.sleep(3000);
+			 performerPOM.SelectStatusFilter(driver).click();
+			 Thread.sleep(3000);
+			 js.executeScript("window.scrollBy(0,900)");
+			 Thread.sleep(3000);
+			  String msg=performerPOM.NoRecordFound(driver).getText();
+			 if(!msg.equalsIgnoreCase("No items to display"))
+			 {
+			
+		    	Thread.sleep(1000);
+			    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
+			 
+			  List<String> text=new ArrayList<String>();
+			 
+			 for(int i=0;i<col.size();i++)
+			 {
+				 text.add(col.get(i).getText());
+			 }
+			 
+			 List<String> pass=new ArrayList<String>();
+			 
+			 List<String> fail=new ArrayList<String>();
+				
+				for(int i=0;i<text.size();i++)
+				{
+				if(text.get(i).equals(cattext))
+				{
+					pass.add(text.get(i));		//	the specified element at the end of a list.
+				}
+				else
+				{
+					fail.add(text.get(i));
+				}
+				
+				}
+
+			 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
+			 pass.clear();
+			 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
+			 
+			 
+			 HashSet<String> fal=new LinkedHashSet<>(fail);
+			 fail.clear();
+			 fail.addAll(fal);
+			 
+			 for(String Fal : fail)
+			 {
+				 test.log(LogStatus.FAIL, type+ " :- Status  Value Matching : "+Fal);
+				// System.out.println("fail : "+Fal);
+			 }
+			 for(String Pas : pass)
+			 {
+				 test.log(LogStatus.PASS, type+ " :- Status Value  Matching : "+Pas);
+				// System.out.println("Pass : "+Pas);
+			 }
+			 
+			 }
+			 else
+			 {
+				 test.log(LogStatus.PASS, type+ ":- "+msg);
+					
+			 }
+			 	 
+			Thread.sleep(2000);
+		    driver.switchTo().parentFrame();
+		    Thread.sleep(2000);
+		    performerPOM.caseNoticeSummaryGraphClose(driver).click();
+	   }
+	
+public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+	
+	{
+		
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+       	js.executeScript("window.scrollBy(0,800)");
+     
+    	Thread.sleep(5000);
+		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+		
+		Thread.sleep(5000);
+		performerPOM.clickDashboardNoticeFilter(driver).click();
+      
+       	
+		 
+			performerPOM.clickDashboardApplyBtn(driver).click();
+	    	Thread.sleep(2000);
+       	js.executeScript("window.scrollBy(0,2000)");
+       	
+   
+     if(type.equalsIgnoreCase("LMP Category"))
+     {
+	    performerPOM.CategorySummaryGraph1(driver).click();						//Clicking on 'Open' notice
+     }
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+		
+		  Thread.sleep(3000);
+		     performerPOM.SelectStatusFilter(driver).click();
+		     Thread.sleep(1000);
+			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[130]")); 
+			 String cattext =TextStatus.getText();
+			  Thread.sleep(1000);
+			 TextStatus.click();
+			 Thread.sleep(3000);
+			 performerPOM.SelectStatusFilter(driver).click();
+			 Thread.sleep(3000);
+			 js.executeScript("window.scrollBy(0,900)");
+			 Thread.sleep(3000);
+			  String msg=performerPOM.NoRecordFound(driver).getText();
+			 if(!msg.equalsIgnoreCase("No items to display"))
+			 {
+			
+		    	Thread.sleep(1000);
+			    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
+			 
+			  List<String> text=new ArrayList<String>();
+			 
+			 for(int i=0;i<col.size();i++)
+			 {
+				 text.add(col.get(i).getText());
+			 }
+			 
+			 List<String> pass=new ArrayList<String>();
+			 
+			 List<String> fail=new ArrayList<String>();
+				
+				for(int i=0;i<text.size();i++)
+				{
+				if(text.get(i).equals(cattext))
+				{
+					pass.add(text.get(i));		//	the specified element at the end of a list.
+				}
+				else
+				{
+					fail.add(text.get(i));
+				}
+				
+				}
+
+			 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
+			 pass.clear();
+			 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
+			 
+			 
+			 HashSet<String> fal=new LinkedHashSet<>(fail);
+			 fail.clear();
+			 fail.addAll(fal);
+			 
+			 for(String Fal : fail)
+			 {
+				 test.log(LogStatus.FAIL, type+ " :- Status  Value Matching : "+Fal);
+				// System.out.println("fail : "+Fal);
+			 }
+			 for(String Pas : pass)
+			 {
+				 test.log(LogStatus.PASS, type+ " :- Status Value  Matching : "+Pas);
+				// System.out.println("Pass : "+Pas);
+			 }
+			 
+			 }
+			 else
+			 {
+				 test.log(LogStatus.PASS, type+ ":- "+msg);
+					
+			 }
+			 	 
+			Thread.sleep(2000);
+		    driver.switchTo().parentFrame();
+		    Thread.sleep(2000);
+		    performerPOM.caseNoticeSummaryGraphClose(driver).click();
+	   }
+	
+		  
 			
 }
 	  

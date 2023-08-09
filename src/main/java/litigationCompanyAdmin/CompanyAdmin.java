@@ -198,6 +198,17 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
+	//@Test(priority = 1)
+	void CaseNoticeStageGraphFilter() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Select Notice Filter = Case Notice stage graph  = Select status filter Verification");
+		
+		
+		MethodsPOM.CaseNoticeStageGraphFilter(driver, test,"Open Stage");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
  
 	
 
@@ -294,6 +305,17 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
+//@Test(priority =1)
+	
+	void DepartmentSummaryGraphFilter() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Select Notice Filter - Department summary graph - Select status filter Verification");
+		
+		MethodsPOM.DepartmentSummaryGraphFilter(driver, test,"IT Department");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
  // @Test(priority = 7)
 	
 	void LocationSummaryGraph() throws InterruptedException, IOException
@@ -306,6 +328,18 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
+//@Test(priority = 1)
+	
+	void LocationSummaryGraphFilter() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Select Notice Filter - Location Summary Graph -Select status filter Verification");
+		
+		
+		MethodsPOM.LocationSummaryGraphFilter(driver, test,"Management Location");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 //@Test(priority = 8)
 	
   	void CategorySummaryGraph() throws InterruptedException, IOException
@@ -314,6 +348,18 @@ public class CompanyAdmin
   		
   		
   		MethodsPOM.CategorySummaryGraph(driver, test,"Notice");
+  		
+  		extent.endTest(test);
+  		extent.flush();
+  	}
+@Test(priority =1)
+	
+  	void CategorySummaryGraphFilter() throws InterruptedException, IOException
+  	{
+  		test = extent.startTest("Select Notice Filter - Category Summary Graph -Select status filter Verification");
+  		
+  		
+  		MethodsPOM.CategorySummaryGraphFilter(driver, test,"LMP Category");
   		
   		extent.endTest(test);
   		extent.flush();
@@ -362,10 +408,10 @@ public class CompanyAdmin
           extent.flush();
     }
     
-  @Test(priority = 1)
+ // @Test(priority = 1)
     void LessThanYearGraphFilter() throws InterruptedException, IOException
     {
-         test = extent.startTest("Select Notice Filter =Less than a year  = Ageing Graph Count Verification");
+         test = extent.startTest("Select Notice Filter =Less than a year  = Select status filter Verification");
          
          JavascriptExecutor js = (JavascriptExecutor) driver;
 	     	js.executeScript("window.scrollBy(0,800)");
@@ -439,6 +485,43 @@ void AgeingGraph1to2years() throws InterruptedException, IOException
       extent.endTest(test);
       extent.flush();
  }
+  //@Test(priority = 2)
+   void GraphFilter1to2years() throws InterruptedException, IOException
+   {
+      test = extent.startTest("Select Notice Filter =1 to 2 years = Select status filter Verification");
+   
+       JavascriptExecutor js = (JavascriptExecutor) driver;
+      	js.executeScript("window.scrollBy(0,800)");
+   	
+   	    Thread.sleep(5000);
+		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+		
+		Thread.sleep(5000);
+		performerPOM.clickDashboardNoticeFilter(driver).click();
+ 
+  	
+		 Thread.sleep(5000);
+		 performerPOM.clickDashboardApplyBtn(driver).click();
+		 Thread.sleep(3000);
+		js.executeScript("window.scrollBy(0,3700)");
+		
+		Thread.sleep(3000);
+    	MethodsPOM.GraphFilter1to2years(driver, test,"Inward/Defendent");
+		Thread.sleep(3000);
+		MethodsPOM.GraphFilter1to2years(driver, test,"Outward/Plaintiff");
+		Thread.sleep(3000);
+		MethodsPOM.GraphFilter1to2years(driver, test,"Petitioner");
+		
+		
+		Thread.sleep(3000);
+		OverduePOM.clickDashboard(driver).click();
+    
+         extent.endTest(test);
+         extent.flush();
+    }
+
+
+
  //  @Test(priority = 1)
     void AgeingGraph2to3years() throws InterruptedException, IOException
     {
@@ -457,12 +540,44 @@ void AgeingGraph1to2years() throws InterruptedException, IOException
 		 Thread.sleep(5000);
 		 performerPOM.clickDashboardApplyBtn(driver).click();
 		 Thread.sleep(3000);
-		js.executeScript("window.scrollBy(0,3000)");
+		js.executeScript("window.scrollBy(0,3700)");
 		
 	    int	InwardDefendent = Integer.parseInt(performerPOM.clickInwardDefendentCA2to3(driver).getText());	//Reading Notice Open count.
     	
     	Thread.sleep(3000);
     	MethodsPOM.AgeingGraph2to3years(driver, test,"Inward/Defendent",InwardDefendent);
+	
+		Thread.sleep(3000);
+		OverduePOM.clickDashboard(driver).click();
+    
+      extent.endTest(test);
+      extent.flush();
+  }	
+    
+      //@Test(priority = 1)
+    void GraphFilter2to3years() throws InterruptedException, IOException
+    {
+      test = extent.startTest("Select Notice Filter =2 to 3 years = Select status filter Verification");
+     
+       JavascriptExecutor js = (JavascriptExecutor) driver;
+     	js.executeScript("window.scrollBy(0,800)");
+     	
+     	Thread.sleep(5000);
+		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+		
+		Thread.sleep(5000);
+		performerPOM.clickDashboardNoticeFilter(driver).click();
+   
+    	
+		 Thread.sleep(5000);
+		 performerPOM.clickDashboardApplyBtn(driver).click();
+		 Thread.sleep(3000);
+		js.executeScript("window.scrollBy(0,3800)");
+		
+	   
+    	
+    	Thread.sleep(3000);
+    	MethodsPOM.GraphFilter2to3years(driver, test,"Inward/Defendent");
 	
 		Thread.sleep(3000);
 		OverduePOM.clickDashboard(driver).click();
@@ -502,6 +617,35 @@ void AgeingGraph1to2years() throws InterruptedException, IOException
       extent.endTest(test);
       extent.flush();
    }	
+ //@Test(priority = 1)
+   void Morethan3yearsGraphFilter() throws InterruptedException, IOException
+    {
+        test = extent.startTest("Select Notice Filter =More than 3 years = Ageing Graph Count Verification");
+     
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+     	js.executeScript("window.scrollBy(0,800)");
+     	
+     	Thread.sleep(5000);
+		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+		
+		Thread.sleep(5000);
+		performerPOM.clickDashboardNoticeFilter(driver).click();
+   
+    	
+		 Thread.sleep(5000);
+		 performerPOM.clickDashboardApplyBtn(driver).click();
+		 Thread.sleep(3000);
+		js.executeScript("window.scrollBy(0,3800)");
+		
+    	Thread.sleep(3000);
+    	MethodsPOM.Morethan3yearsGraphFilter(driver, test,"Inward/Defendent");
+	
+		Thread.sleep(3000);
+		OverduePOM.clickDashboard(driver).click();
+    
+      extent.endTest(test);
+      extent.flush();
+   }
   	
   	
 
