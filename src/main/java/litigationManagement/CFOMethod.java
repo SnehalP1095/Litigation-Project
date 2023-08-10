@@ -6042,7 +6042,7 @@ public class CFOMethod {
 							   performerPOM.clickNewCriteria(driver).click();
 							   Thread.sleep(3000);
 							   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
-							   performerPOM.clickCriteria(driver).sendKeys("Automation Test 11oct23");
+							   performerPOM.clickCriteria(driver).sendKeys("ABCDF");
 							   Thread.sleep(3000);
 							   performerPOM.clickSaveCriteria(driver).click();
 							   Thread.sleep(3000);
@@ -20334,6 +20334,9 @@ public class CFOMethod {
 				Thread.sleep(3000);
 				performerPOM.clickNoticeTaskEditResponsecfo1(driver).click();
 				
+				Thread.sleep(2000);
+//				performerPOM.clickMinimize(driver).click();	
+				
 				Thread.sleep(3000);
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 				
@@ -20985,7 +20988,7 @@ public class CFOMethod {
 	    				   performerPOM.clickNewCriteria(driver).click();
 	    				   Thread.sleep(3000);
 	    				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
-	    				   performerPOM.clickCriteria(driver).sendKeys("Automation Test 456");
+	    				   performerPOM.clickCriteria(driver).sendKeys("LNT");
 	    				   Thread.sleep(3000);
 	    				   performerPOM.clickSaveCriteria(driver).click();
 	    				   String msg = performerPOM.readOppoenentMsg(driver).getText();

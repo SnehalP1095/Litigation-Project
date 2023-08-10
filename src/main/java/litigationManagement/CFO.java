@@ -1301,7 +1301,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}		
-	@Test(priority =2)
+	@Test(priority =91)
     	void CaseDocument() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Case - Document Tab");
@@ -1335,7 +1335,7 @@ public class CFO {
 		extent.flush();
 	}
 	
-	@Test(priority = 96)
+	@Test(priority = 1)
 	void CaseDocumentSearchFields() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Document Search Fields verification");
@@ -1415,7 +1415,7 @@ public class CFO {
 	 	     extent.flush();
 	  }
 	    
-		@Test(priority =1)
+		@Test(priority =101)
     	void CaseTaskActivity() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Case - Task/Activty Tab");
@@ -1450,7 +1450,7 @@ public class CFO {
     		extent.flush();
     	}
 		
-		 @Test(priority = 106)
+		 @Test(priority = 2)
 			void CaseTaskActivtityResponseWithoutStatus() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Case Task/Activtiy Response Without data verification");
@@ -1462,7 +1462,7 @@ public class CFO {
 				extent.flush();
 			}
 		 
-	 @Test(priority =107)
+	 @Test(priority =3)
 			void CaseTaskActivtityResponseClearBtn() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Case Task/Activtiy  Response clear button verification");
@@ -1473,7 +1473,7 @@ public class CFO {
 				extent.endTest(test);
 				extent.flush();
 			}
-	@Test(priority =108)
+	@Test(priority =4)
     	void CaseHearingcfo() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Case - CaseHearing Tab");
@@ -1609,7 +1609,7 @@ void CaseOrderwithClearBtn() throws InterruptedException, IOException
     		extent.flush();
     	}
 		
-		@Test(priority =120)
+		//@Test(priority =120)
     	void CaseStatusAppealtoNextCourtTwoMandatoryfields() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Case Status -Enter Two manadatory fields click on Appeal to Next Court");
