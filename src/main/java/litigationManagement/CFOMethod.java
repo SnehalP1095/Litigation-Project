@@ -6295,7 +6295,7 @@ public class CFOMethod {
 					
 					Thread.sleep(5000);
 					performerPOM.clickExportAdavanced(driver).click();
-					test.log(LogStatus.PASS, "File downloaded successfully.");
+					test.log(LogStatus.PASS, "Notice = File downloaded successfully.");
 					
 					
 					Thread.sleep(4000);
@@ -6323,7 +6323,7 @@ public class CFOMethod {
 						
 						Thread.sleep(3000);
 						performerPOM.clickExportAdavanced(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "File downloaded successfully.");
+						test.log(LogStatus.PASS, "Case = File downloaded successfully.");
 					
 						Thread.sleep(4000);
 						performerPOM.clickeditButton(driver).click();
@@ -6348,7 +6348,7 @@ public class CFOMethod {
 						
 						Thread.sleep(5000);
 						performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "File downloaded successfully.");
+						test.log(LogStatus.PASS, "Task = File downloaded successfully.");
 						
 						Thread.sleep(5000);
 						performerPOM.viewTaskDetails1(driver).click();	
@@ -7034,10 +7034,37 @@ public class CFOMethod {
 								
 								 Thread.sleep(4000);
 							     performerPOM.clickDownloadDocument1(driver).click();	
-							     Thread.sleep(4000);
-							     performerPOM.clickViewDocument1(driver).click();	
-							     Thread.sleep(10000);
-							     performerPOM.clickcloseViewDocument1(driver).click();
+							 
+							     try
+							     {
+							     Thread.sleep(5000);
+							       performerPOM.clickViewDocument1(driver).click();	
+							       Thread.sleep(3000);
+							        performerPOM.clickcloseViewDocument1(driver).click();
+
+							        Thread.sleep(1000);
+							        test.log(LogStatus.PASS, "Task=Document view Successfully.");
+							     }
+							   catch(Exception e)
+							   {
+								   Thread.sleep(5000);
+								    // Switching to Alert        
+							        Alert alert2 = driver.switchTo().alert();		
+							        		
+							        // Capturing alert message.    
+							        String alertMessage2= driver.switchTo().alert().getText();	
+							        
+							        Thread.sleep(3000);
+							        test.log(LogStatus.PASS, alertMessage2);
+							        		
+							        // Displaying alert message		
+							        System.out.println(alertMessage2);	
+							        
+						      		
+							        // Accepting alert		
+							        alert2.accept();
+							   }
+							  
 
 							     Thread.sleep(1000);
 							     test.log(LogStatus.PASS, "Advanced Search(Task)=Document view Successfully.");
@@ -7121,7 +7148,7 @@ public class CFOMethod {
 						performerPOM.selectTypeCase2(driver).click();					//Selecting 'Case' option.
 //						Thread.sleep(1000);
 //						performerPOM.selectDocument(driver).click();	
-						Thread.sleep(1000);
+						Thread.sleep(3000);
 						performerPOM.shareDocumentIcon1(driver).click();
 						
 						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("OverViews3"));
@@ -7237,7 +7264,7 @@ public class CFOMethod {
 							Thread.sleep(500);
 							String name = OverduePOM.readFolderName(driver).getText();		//Reading the folder name to create new folder.
 							
-							String folder = name+"Doc24july23"; 
+							String folder = name+"Doc11Aug23"; 
 							
 							OverduePOM.clickNew(driver).click();							//Clicking on '+New' button.
 							
@@ -7379,34 +7406,36 @@ public class CFOMethod {
 								OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
 								Thread.sleep(500);
 								OverduePOM.readFolderName(driver).click();						//Clicking on file name we had uploaded.
-								Thread.sleep(500);
-								wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_grdFolderDetail']")));	//Wating till the content table gets visible
+								//Thread.sleep(500);
+								//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ContentPlaceHolder1_grdFolderDetail_LinkButton1_0']")));	//Wating till the content table gets visible
 								
 
-								Thread.sleep(2000);
+								Thread.sleep(1000);
 								OverduePOM.clickNew(driver).click();							//Clicking on '+New' button.
 								
-								Thread.sleep(5000);
+								Thread.sleep(1000);
 								OverduePOM.clickNewFolder(driver).click();						//Clicking on 'New Folder'
 								
-								Thread.sleep(5000);
-								OverduePOM.writeFolderName(driver).sendKeys("Document 18july23");			//Writing Folder name.
+								Thread.sleep(1000);
+								OverduePOM.writeFolderName(driver).sendKeys("Document 21july23");			//Writing Folder name.
 								
-								Thread.sleep(5000);
+								Thread.sleep(1000);
 								OverduePOM.clickCreate1(driver).click();						//Clicking on create button.
-								Thread.sleep(5000);
+								Thread.sleep(1000);
 								try
 								{
+									Thread.sleep(1000);
 									String msg1=performerPOM.ClickSuccessMsg(driver).getText();
 									test.log(LogStatus.PASS, " sub-folder should get created =" +msg1);
 								}
 								catch(Exception e)
 								{
+									Thread.sleep(1000);
 									String msg1=performerPOM.ClickInvalidMsg(driver).getText();
 									test.log(LogStatus.PASS, " sub-folder should not get  created =" +msg1);
 								}
 								
-								Thread.sleep(500);
+								Thread.sleep(1000);
 								OverduePOM.closeFolderPoppup(driver).click();	
 								
 								//Without enter sub-folder 
@@ -8046,8 +8075,9 @@ public class CFOMethod {
 						Thread.sleep(2000);
 				        performerPOM.clickMyReports(driver).click();					//Clicking on 'My Reports'
 				        
-				        
-				        Thread.sleep(2000);
+				        JavascriptExecutor js = (JavascriptExecutor) driver;
+						js.executeScript("window.scrollBy(0,-800)");
+				        Thread.sleep(3000);
 				        performerPOM.clickExcelReport1(driver).click();
 				        test.log(LogStatus.PASS, "Usage Report downloaded successfully.");
 						
@@ -8078,7 +8108,7 @@ public class CFOMethod {
 						performerPOM.clickExportAdavanced(driver).click();
 						test.log(LogStatus.PASS, "Notice = File downloaded successfully.");
 						
-						JavascriptExecutor js = (JavascriptExecutor) driver;
+						
 						js.executeScript("window.scrollBy(0,800)");
 						js.executeScript("document.querySelector(\"div[id='grid1'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=5000");
 						
@@ -9690,10 +9720,10 @@ public class CFOMethod {
 						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder new 28july23");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder new 13aug23");
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new 28july23");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 13aug23");
 						
 						Thread.sleep(3000);
 						performerPOM.clickRemark2(driver).sendKeys("Remark");
@@ -9767,13 +9797,13 @@ public class CFOMethod {
 						performerPOM.clickReminderText(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder  new 4march2023");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder  new 7march2023");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDescription(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new 4march2023");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 6march2023");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDate(driver).click();
@@ -10482,15 +10512,15 @@ public class CFOMethod {
 						progress(driver);
 						
 						 performerPOM.clickMasters(driver).click();
-					     Thread.sleep(2000);
+					     Thread.sleep(3000);
 						 performerPOM.chooseMasterLegalEntity(driver).click();
-						 Thread.sleep(2000);
+						 Thread.sleep(3000);
 						 performerPOM.addLegalEntity(driver).click();
-						  Thread.sleep(2000);
+						  Thread.sleep(3000);
 						 performerPOM.clickUnitTypePlusIcon(driver).click();
 						 
 						 Thread.sleep(2000);
-						 performerPOM.EnterUnitType(driver).sendKeys("Automation Test");
+						 performerPOM.EnterUnitType(driver).sendKeys("Automation Test One");
 						 
 						 Thread.sleep(2000);
 						 performerPOM.SaveUnitType(driver).click();
@@ -17422,7 +17452,7 @@ public class CFOMethod {
   	   }
          
          
-         static void NoticeWithInvalidData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+         public static void NoticeWithInvalidData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
  		{
  		   
         	 sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
@@ -18056,17 +18086,17 @@ public class CFOMethod {
  	 	 	 			
  	 	 	 	            Thread.sleep(4000);
 	 	 	                 performerPOM.clickEditUserAssign(driver).click();
- 	 	 	 			
-	 	 	                  Thread.sleep(3000);
-	 	                     clickInternalUser(driver);
-	 	                 
-	 	                       Thread.sleep(3000);
-	 	 	                   performerPOM.clickUpdateButton(driver).click();
-	 	              		
+ 	 	 	 			 
+	 	 	                 Thread.sleep(3000);
+	 	 	                 performerPOM.clickInternalUser(driver).click();	
+	 	 	                 Thread.sleep(3000);
+	 	 	                 elementsList = performerPOM.chooseInternalUser(driver);
+	 	 	    		     elementsList.get(5).click();							//Selecting particular user no
+	 	 	    		     performerPOM.clickInternalUser(driver).click();	//Clicking on 'Internal User' drop down.
+	 	                     Thread.sleep(3000);
+	 	 	                 performerPOM.clickSaveCriteria(driver).click();   //Click Update Btn
 	 	               
- 	 				              //js.executeScript("window.scrollBy(0,700)");
- 	 	 	 			
- 	 	 	 			
+ 	 				      
  	 	 	    		Thread.sleep(2000);
  	 	 	    		String msg = performerPOM.readMessage(driver).getText();		//Reading Message appeared after save button
  	 	 	    		

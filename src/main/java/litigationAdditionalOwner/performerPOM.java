@@ -6449,7 +6449,7 @@ public class performerPOM
 				}
 			 public static WebElement ClickInvalidMsg(WebDriver driver)
 				{
-					litigation=driver.findElement(By.xpath("//div[@id='ContentPlaceHolder1_FolderValidation']"));
+					litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_FolderValidation']/ul/li"));
 					return litigation;
 				}
 			 public static WebElement ClickEditFolder(WebDriver driver)

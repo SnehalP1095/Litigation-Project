@@ -14,18 +14,15 @@
           <include name="AdvancedSearchworkspace"/>
           <include name="CloseCase"/>
           <include name="CaseTaskActivityTab"/>
-          <include name="RiskSummaryGraph1Filter"/>
           <include name="ExternalLawyer"/>
           <include name="NoticeDocViewandDownload"/>
           <include name="NoticePaymentLogTab"/>
           <include name="NoticeAuditLogTab"/>
-          <include name="NoticeExternalLawyerTab"/>
-          <include name="MoreReports"/>
           <include name="NoticeDocumentTab"/>
           <include name="Auditlog"/>
           <include name="CaseOpen"/>
-          <include name="ImportUtility"/>
           <include name="CaseClose"/>
+          <include name="LinkNoticeDeleteIcon"/>
           <include name="TaskOpen"/>
           <include name="setBrowser"/>
           <include name="NoticeResponseTab"/>
@@ -36,8 +33,6 @@
           <include name="Masters10"/>
           <include name="Masters11"/>
           <include name="NoticeTaskActivityTab"/>
-          <include name="NoticeClosed"/>
-          <include name="NoticeOpen"/>
           <include name="CaseDocumentTab"/>
           <include name="CaseAdvocateBill"/>
           <include name="StatusPayment"/>
@@ -54,6 +49,7 @@
           <include name="Masters5"/>
           <include name="MyReminder"/>
           <include name="Masters6"/>
+          <include name="LinkNoticeViewIcon"/>
           <include name="Masters3"/>
           <include name="LinkCase"/>
           <include name="Masters9"/>
