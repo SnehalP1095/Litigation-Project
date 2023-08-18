@@ -1787,8 +1787,8 @@ public class performerPOM
 		  public static void selectExternalLawyerRating(WebDriver driver) 
 	      {  
 			  WebDriverWait wait = new WebDriverWait(driver,300);
-		     //WebElement ExternalLawyer = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='ddlLayerType_chosen']")));
-		    // ExternalLawyer.click();
+		     WebElement ExternalLawyer = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='ddlLayerType_chosen']")));
+		     ExternalLawyer.click();
 	    		List<WebElement> ExternalLawyer1= driver.findElements(By.xpath("//*[@id='ddlLayerType_chosen']/div/ul/li"));
 	    		ExternalLawyer1.get(1).click();
 	    		 
@@ -4025,7 +4025,7 @@ public class performerPOM
 			public static WebElement HearingCalenderNum(WebDriver driver)
 			{
 				WebDriverWait wait=new WebDriverWait(driver,30);
-				litigation=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/span"));
+				litigation=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[32]/span"));
 				return litigation;
 			}
 			public static WebElement HearingCalenderNumcfo(WebDriver driver)
@@ -4046,7 +4046,7 @@ public class performerPOM
 			public static WebElement HearingCalenderView(WebDriver driver)
 			{
 				WebDriverWait wait=new WebDriverWait(driver,30);
-				litigation=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td[5]/a")));
+				litigation=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]/a")));
 				return litigation;
 			}
 			

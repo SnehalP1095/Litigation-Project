@@ -22,13 +22,12 @@ public class Login
 	
 	public static void BrowserSetup(String URL)
 	{
-
-		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Desktop\\eclips-projects\\Selenium\\chromedriver_win32 (4)\\chromedriver.exe");
+      // System.setProperty("webdriver.chrome.driver", "E:\\eclips-projects\\Selenium\\chromedriver.exe");
 		
 //		WebDriverManager.edgedriver().setup();
 //		driver = new EdgeDriver();					//Created new Chrome driver instance. 
 		
-		WebDriverManager.chromedriver().setup();
+	    WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();		
 		
 //		WebDriverManager.firefoxdriver().setup();

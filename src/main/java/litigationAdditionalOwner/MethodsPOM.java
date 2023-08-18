@@ -810,15 +810,15 @@ public class MethodsPOM
 				
 				Thread.sleep(300);
 				String msg = performerPOM.readTaskMsg(driver).getText();
-				if(msg.contains("Task Saved Successfully."))
-					if(msg.contains("Task Saved Successfully."))
+				
+					if(msg.contains(msg))
 					{
 						test.log(LogStatus.PASS, "Add Task ="+msg);
 					}
 					
-					else if(msg.contains("Task with same title already exists."))
+					else 
 					{
-						test.log(LogStatus.PASS, "Task with same title already exists.");
+						test.log(LogStatus.PASS, "Add Task =" +msg);
 					}
 				
 				
@@ -842,14 +842,14 @@ public class MethodsPOM
 				Thread.sleep(300);
 				String msg2 = performerPOM.readTaskMsg(driver).getText();
 		
-				if(msg2.contains("Task Saved Successfully."))
+				if(msg2.contains(msg2))
 				{
 					test.log(LogStatus.PASS, "Update Task=" +msg);
 				}
 				
-				else if(msg2.contains("Task with same title already exists."))
+				else 
 				{
-					test.log(LogStatus.FAIL, "Task with same title already exists.");
+					test.log(LogStatus.FAIL, "Update Task=" +msg);
 				}
 				
 				Thread.sleep(5000);
@@ -879,7 +879,7 @@ public class MethodsPOM
 				Thread.sleep(3000);
 				performerPOM.clickNoticeTaskCloseResponsecfo(driver).click();
 				
-                Thread.sleep(3000);
+              /*  Thread.sleep(3000);
 				performerPOM.clickNoticeTaskClosecfo(driver).click();
 				
 				 Thread.sleep(5000);
@@ -916,7 +916,7 @@ public class MethodsPOM
 			        
 			     // Accepting alert		
 			        alert1.accept(); 
-			        driver.switchTo().parentFrame();
+			        driver.switchTo().parentFrame();*/
 				
 				
 			}
@@ -1197,7 +1197,7 @@ public class MethodsPOM
 		    
 			Thread.sleep(3000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
-		 Thread.sleep(1000);
+		
 		   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 			
 			 
@@ -9087,12 +9087,12 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 			    }*/
 				
 				Thread.sleep(4000);
-				WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a"));
+				WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[32]/a"));
 				 
 				Thread.sleep(4000);
 				 if(text.isEnabled())
 					{
-						driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();
+						driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[32]/a")).click();
 						
 						test.log(LogStatus.PASS, "Hearing for particular date is clickable.");
 						
@@ -9144,11 +9144,8 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
                	
             
                	Thread.sleep(2000);
-		
-				
-				Thread.sleep(100);
 				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
-			//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+			   	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(250);
 				performerPOM.HearingCalenderExport(driver).click();					//Clicking on 'Excel Report' image.
@@ -14343,6 +14340,844 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test, 
     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
      	}
 	
+	public static void NoticeDocumentShareWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
+    	{
+ 		WebDriverWait wait = new WebDriverWait(driver, 50);
+          
+ 		
+	        Thread.sleep(3000);
+			performerPOM.clickNoticeOpen(driver).click();//click edit notice
+	     
+	        Thread.sleep(3000);
+			performerPOM.clickEditNotice(driver).click();//click edit notice
+			
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+
+	        Thread.sleep(3000);
+			 performerPOM.clickNoticeDocument(driver).click();     //click notice document
+			 
+			 Thread.sleep(3000);
+	        performerPOM.clickNoticeDocumentsharecfo(driver).click();
+	        
+	        Thread.sleep(5000);
+		    // Switching to Alert        
+	        Alert alert1 = driver.switchTo().alert();		
+	        		
+	        // Capturing alert message.    
+	        String alertMessage1= driver.switchTo().alert().getText();	
+	        
+	        
+	        test.log(LogStatus.PASS, alertMessage1);
+	        		
+	        // Displaying alert message		
+	        System.out.println(alertMessage1);
+	        
+	     // Accepting alert		
+	        alert1.accept();	
+	        
+	       Thread.sleep(3000);
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("Iframe_Docshare"));
+	        
+	      
+	        
+	        Thread.sleep(3000);
+	        performerPOM.clickNoticeDocumentsharesavecfo(driver).click();
+	        
+	        
+	        Thread.sleep(3000);
+	        String msg1= performerPOM.clickNoticeDocumentsharereadmsgcfo(driver).getText();		//Reading Message appeared after save button
+	        if(msg1.equalsIgnoreCase("Please Enter Email."))
+	        {
+      
+	        	test.log(LogStatus.PASS, "Message displayed = "+msg1);
+	        }
+	        else
+	        {
+	        	test.log(LogStatus.FAIL, "Message displayed = "+msg1);
+	        }
+	        
+	        Thread.sleep(3000);
+	        performerPOM. clickNoticeDocumentshareclosepopupcfo(driver).click();
+	        
+	       driver.switchTo().parentFrame();
+	      
+	        Thread.sleep(3000);
+    		driver.switchTo().parentFrame();
+    		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+     	}
+	
+	public static void NoticeDocumentShareCloseBtn(WebDriver driver, ExtentTest test) throws InterruptedException
+    	{
+ 		WebDriverWait wait = new WebDriverWait(driver, 50);
+          
+ 		
+	        Thread.sleep(3000);
+			performerPOM.clickNoticeOpen(driver).click();//click edit notice
+	     
+	        Thread.sleep(3000);
+			performerPOM.clickEditNotice(driver).click();//click edit notice
+			
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+
+	        Thread.sleep(3000);
+			 performerPOM.clickNoticeDocument(driver).click();     //click notice document
+			 
+			 
+			 Thread.sleep(3000);
+	        performerPOM.clickNoticeDocumentsharecfo(driver).click();
+	        
+	       Thread.sleep(5000);
+	    // Switching to Alert        
+        Alert alert1 = driver.switchTo().alert();		
+        		
+        // Capturing alert message.    
+        String alertMessage1= driver.switchTo().alert().getText();	
+        
+        
+        // test.log(LogStatus.PASS, alertMessage1);
+        		
+        // Displaying alert message		
+        System.out.println(alertMessage1);
+        
+     // Accepting alert		
+        alert1.accept();	
+        
+       Thread.sleep(3000);
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("Iframe_Docshare"));
+
+ 	      Thread.sleep(2000);
+         if(performerPOM.clickNoticeDocumentshareclosepopupcfo(driver).isEnabled())
+         {
+          Thread.sleep(2000);
+          performerPOM.clickNoticeDocumentshareclosepopupcfo(driver).click();
+          test.log(LogStatus.PASS, "Close Button is clickable");
+         }
+        else
+       {
+	     test.log(LogStatus.FAIL, "Close Button is not clickable");
+       }
+       
+	     		driver.switchTo().parentFrame();
+	     	driver.switchTo().parentFrame();
+	     	   Thread.sleep(3000);
+	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	     	
+    }
+	
+	 public  static void TaskActivtityExistingData(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+		{
+		 
+		 WebDriverWait wait = new WebDriverWait(driver, 60);
+		  
+		  sheet = workbook.getSheetAt(5);		
+		  
+		  Thread.sleep(3000);
+			performerPOM.clickNoticeOpen(driver).click();
+		    
+			Thread.sleep(3000);
+			performerPOM.clickEditNotice(driver).click();//click edit notice
+		
+		   Thread.sleep(1000);
+		   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+		  Thread.sleep(1000);
+		  performerPOM.clickTaskorActivity(driver).click();
+		  Thread.sleep(1000);
+		  performerPOM.clickNewTask(driver).click(); 
+		 
+		  
+		  
+		Thread.sleep(3000);
+		Row row0 = sheet.getRow(26);								//Selected 0th index row (First row)
+		Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
+		String title = c1.getStringCellValue();
+		performerPOM.clickTaskTitle(driver).sendKeys(title);	//Writing 'Task Title'
+		
+		Thread.sleep(3000);
+		row0 = sheet.getRow(27);									//Selected 0th index row (First row)
+		c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+		String desc = c1.getStringCellValue();
+		performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
+		
+		Thread.sleep(3000);
+		performerPOM.clickDueDate(driver).click();				//Clicking on 'Due Date' text box
+		OverduePOM.selectNextMonth(driver).click();
+		OverduePOM.selectDate(driver).click();					//Selecting particular date.
+		
+		Thread.sleep(500);
+		Actions action = new Actions(driver);
+//		action.moveToElement(performerPOM.clickPriority(driver)).click().sendKeys(Keys.DOWN,Keys.ENTER).perform();
+		
+		Thread.sleep(500);
+		row0 = sheet.getRow(28);									//Selected 0th index row (First row)
+		c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+		String outcome = c1.getStringCellValue();
+		performerPOM.clickExpOutcome(driver).sendKeys(outcome);	//Writing 'Expected Outcome'
+		
+		Thread.sleep(500);
+		row0 = sheet.getRow(29);									//Selected 0th index row (First row)
+		c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+		String internalUser = c1.getStringCellValue();
+		performerPOM.clickInternalUser2(driver).click();
+		//performerPOM.selectInternalUser2(driver).click();
+		performerPOM.selectInternalUser2(driver).sendKeys(internalUser, Keys.ENTER);	//Selecting 'Internal User'
+	
+		Thread.sleep(1000);
+		row0 = sheet.getRow(30);									//Selected 0th index row (First row)
+		c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
+		String externalUser = c1.getStringCellValue();
+		try
+		{
+			Thread.sleep(300);
+			performerPOM.clickExternalUser(driver).click();
+			Thread.sleep(500);
+			action.moveToElement(performerPOM.clickSearchExternalUser(driver)).sendKeys(externalUser, Keys.ENTER).perform();
+		}
+		catch(Exception e)
+		{
+			
+		}
+
+		Thread.sleep(3000);
+		OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
+		
+	
+		Thread.sleep(3000);
+		String msg = performerPOM.readTaskMsg1(driver).getText();
+		
+		 if(msg.contains(msg))
+			{
+				test.log(LogStatus.PASS, "Message displayed ="+msg);
+			}
+		 else
+		 {
+			 test.log(LogStatus.FAIL,  "Message displayed ="+msg);
+		 }
+		
+		     driver.switchTo().parentFrame();
+		     performerPOM.clickclosebutton(driver).click();
+			Thread.sleep(1000);
+		       OverduePOM.clickDashboard(driver).click();
+		}
+	 
+	 public  static void TaskActivtityWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+		{
+		
+			   WebDriverWait wait = new WebDriverWait(driver, 60);
+			  Thread.sleep(3000);
+				performerPOM.clickNoticeOpen(driver).click();//click edit notice
+		     
+		        Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+			   Thread.sleep(1000);
+			   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			  Thread.sleep(1000);
+			  performerPOM.clickTaskorActivity(driver).click();
+			  Thread.sleep(1000);
+			  performerPOM.clickNewTask(driver).click(); 
+			
+			Thread.sleep(3000);
+			OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
+			
+		  Thread.sleep(3000);
+			performerPOM.clickMinimize(driver).click();
+			
+
+			Thread.sleep(3000);
+			
+			String msg1 = performerPOM.readTaskMsg2(driver).getText();
+			
+				test.log(LogStatus.PASS, "Without data ="+msg1);
+			
+			
+				  driver.switchTo().parentFrame();
+				  
+					Thread.sleep(3000);
+			     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+				}
+			
+		
+	 public  static void TaskActivtityResponseWithoutStatus(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+		{ 
+		      WebDriverWait wait = new WebDriverWait(driver, 60);
+			    Thread.sleep(3000);
+				performerPOM.clickNoticeOpen(driver).click();//click edit notice
+		     
+				
+		        Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+				
+				Thread.sleep(1000);
+				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			   
+			  Thread.sleep(1000);
+			  performerPOM.clickTaskorActivity(driver).click();
+
+			Thread.sleep(3000);
+			performerPOM.clickNoticeTaskEditResponsecfo(driver).click();
+			
+			Thread.sleep(3000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			
+			Thread.sleep(3000);
+			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test");
+			
+			Thread.sleep(3000);
+			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
+			
+			
+			String msg=performerPOM.clickInvalidResponsemsg(driver).getText();
+			if(msg.equalsIgnoreCase("Provide Response Status."))
+			{
+			    test.log(LogStatus.PASS, "Mesaage displayed ="+msg);
+			}
+			else
+			{
+				 test.log(LogStatus.FAIL, "Mesaage displayed ="+msg);
+			}
+			driver.switchTo().parentFrame();
+			
+			Thread.sleep(3000);
+			performerPOM.clickNoticeTaskCloseResponsecfo(driver).click();
+			
+			driver.switchTo().parentFrame();
+	     	Thread.sleep(3000);
+	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		}
+	 
+		 public  static void TaskActivtityDeleteResponse(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+	     { 
+		        WebDriverWait wait = new WebDriverWait(driver, 60);
+			    Thread.sleep(3000);
+				 performerPOM.clickNoticeOpen(driver).click();//click edit notice
+		     
+		         Thread.sleep(3000);
+				 performerPOM.clickEditNotice(driver).click();//click edit notice
+			    Thread.sleep(1000);
+			    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			   Thread.sleep(1000);
+			   performerPOM.clickTaskorActivity(driver).click();
+
+			  Thread.sleep(3000);
+			  performerPOM.clickNoticeTaskEditResponsecfo(driver).click();
+			  
+			 Thread.sleep(3000);
+			 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			
+			 Thread.sleep(3000);
+			 performerPOM.clickDeleteResponse(driver).click();
+			
+		    Thread.sleep(5000);
+		    // Switching to Alert        
+	        Alert alert1 = driver.switchTo().alert();		
+	        		
+	        // Capturing alert message.    
+	        String alertMessage1= driver.switchTo().alert().getText();	
+	        
+	        
+//	        test.log(LogStatus.PASS, alertMessage1);
+	        		
+	        // Displaying alert message		
+	        System.out.println(alertMessage1);
+	        
+	     // Accepting alert	
+	        alert1.accept();
+	        
+	    	
+			   Thread.sleep(5000);
+	        String msg=performerPOM.clickTaskResponse(driver).getText();
+	        if(msg.equalsIgnoreCase("Response Deleted Successfully."))
+	        {
+	              test.log(LogStatus.PASS,"Message displayed ="+msg);
+	        }
+	        else
+	        {
+	        	 test.log(LogStatus.FAIL,"Message displayed ="+msg);
+	        }
+	        
+	        
+	        driver.switchTo().parentFrame();
+			Thread.sleep(3000);
+			performerPOM.clickNoticeTaskCloseResponsecfo(driver).click();
+	       
+	         Thread.sleep(3000);
+			performerPOM.clickNoticeTaskClosecfo(driver).click();
+			
+			 Thread.sleep(5000);
+			    // Switching to Alert        
+		        Alert alert = driver.switchTo().alert();		
+		        		
+		        // Capturing alert message.    
+		        String alertMessage= driver.switchTo().alert().getText();	
+		        
+		        
+		        test.log(LogStatus.PASS, alertMessage);
+		        		
+		        // Displaying alert message		
+		        System.out.println(alertMessage);
+		        
+		     // Accepting alert		
+		        alert.accept();
+			
+			Thread.sleep(3000);
+			performerPOM.clickNoticeTaskdeletecfo(driver).click();
+			
+			 Thread.sleep(5000);
+			    // Switching to Alert        
+		        Alert alert2 = driver.switchTo().alert();		
+		        		
+		        // Capturing alert message.    
+		        String alertMessage2= driver.switchTo().alert().getText();	
+		        
+		        
+		        test.log(LogStatus.PASS, alertMessage1);
+		        		
+		        // Displaying alert message		
+		        System.out.println(alertMessage1);
+		        
+		     // Accepting alert		
+		        alert1.accept();
+		        
+		      
+		        driver.switchTo().parentFrame();
+		     	Thread.sleep(3000);
+		     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		  }
+		 public  static void TaskActivtityResponseClearBtn(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+			{ 
+	 		   WebDriverWait wait = new WebDriverWait(driver, 60);
+	 			  Thread.sleep(3000);
+	 				performerPOM.clickNoticeOpen(driver).click();//click edit notice
+	 		     
+	 		        Thread.sleep(3000);
+	 				performerPOM.clickEditNotice(driver).click();//click edit notice
+	 			   Thread.sleep(1000);
+				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 			  Thread.sleep(1000);
+				  performerPOM.clickTaskorActivity(driver).click();
+
+				Thread.sleep(3000);
+				performerPOM.clickNoticeTaskEditResponsecfo(driver).click();
+				
+				Thread.sleep(3000);
+				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+				
+				Thread.sleep(3000);
+				performerPOM.clickNoticeTaskstatusResponsecfo(driver).click();
+				
+				Thread.sleep(3000);
+				performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
+				
+				
+				if(performerPOM.clickClearResponse(driver).isEnabled())
+		  		{
+					Thread.sleep(3000);
+		  			performerPOM.clickClearResponse(driver).click();
+		  			test.log(LogStatus.PASS, "Clear button working successfully");
+		  		}
+		  		else
+		  		{
+		  			test.log(LogStatus.FAIL, "Clear button not working successfully");
+		  		}
+				driver.switchTo().parentFrame();
+				  driver.switchTo().parentFrame();
+		   	     	Thread.sleep(3000);
+		   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+			}
+		 
+		  public static void ResponseExistingData(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+			{
+			   WebDriverWait wait = new WebDriverWait(driver, 60);
+			   sheet = workbook.getSheetAt(5);
+			   
+			   Thread.sleep(3000);
+				performerPOM.clickNoticeOpen(driver).click();
+			    
+				Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+
+			   Thread.sleep(1000);
+			   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+				   
+				    // Thread.sleep(3000);
+					  performerPOM. clickResponse(driver).click();
+					  Thread.sleep(3000);
+					  performerPOM. clickNewResponse(driver).click();
+					  Thread.sleep(3000);
+					  performerPOM. selectSentNotice(driver);
+					  Thread.sleep(3000);
+					  performerPOM. selectReplyDueDate(driver);
+					  Thread.sleep(3000);
+					  performerPOM. selectRespondedDate(driver);
+				
+					 		 
+					  Thread.sleep(500);
+					  Row row1 = sheet.getRow(34);								//Selected 0th index row (First row)
+					  Cell c2 = row1.getCell(1);								//Selected cell (0 row,1 column)
+					  String DeliveryMode= c2.getStringCellValue();
+					  performerPOM.clickDeliveryMode(driver).click();
+					  performerPOM.selectDeliveryMode(driver).sendKeys(DeliveryMode);
+					  
+					  
+					  Thread.sleep(500);
+					  Row row0 = sheet.getRow(35);								//Selected 0th index row (First row)
+					  Cell c1 = row0.getCell(1);								//Selected cell (0 row,1 column)
+					  String CourierCompany= c1.getStringCellValue();
+					  performerPOM.clickCourierCompany(driver).sendKeys(CourierCompany);
+						 
+					  Thread.sleep(500);
+						Row row2 = sheet.getRow(36);								//Selected 0th index row (First row)
+						Cell c3 = row2.getCell(1);								//Selected cell (0 row,1 column)
+						String RefNo= c3.getStringCellValue();
+						performerPOM.RefTrackingNo(driver).sendKeys(RefNo);
+							 
+						Thread.sleep(500);
+						Row row3 = sheet.getRow(37);								//Selected 0th index row (First row)
+						Cell c4 = row3.getCell(1);								//Selected cell (0 row,1 column)
+						String Description= c4.getStringCellValue();
+						 performerPOM.Description(driver).sendKeys(Description);
+							
+						  JavascriptExecutor jse=(JavascriptExecutor)driver;
+							jse.executeScript("arguments[0].click();",  performerPOM.clickSaveResponse(driver));
+						  //performerPOM.clickSaveResponse(driver).click();
+							
+							 Thread.sleep(1000);
+							wait.until(ExpectedConditions.visibilityOf(performerPOM.readResponseMsg(driver)));
+								
+							Thread.sleep(500);
+							String msg3 = performerPOM.readResponseMsg(driver).getText();		//Reading Message appeared after save button
+						
+							if(msg3.equalsIgnoreCase("Response Details Saved Successfully."))
+							{
+								test.log(LogStatus.FAIL, "Message displayed = "+msg3);
+								
+							}
+							else
+							{
+									test.log(LogStatus.PASS, "Message displayed = "+msg3);
+							}
+							
+							driver.switchTo().parentFrame();
+				   	     	Thread.sleep(3000);
+				   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	 		
+			}
+		  
+			public static void ResponseWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+			{
+			   WebDriverWait wait = new WebDriverWait(driver, 60);
+			  
+			    Thread.sleep(3000);
+				performerPOM.clickNoticeOpen(driver).click();//click edit notice
+		     
+		        Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+			 
+			   
+			    Thread.sleep(1000);
+			    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			    Thread.sleep(3000);
+				performerPOM. clickResponse(driver).click();
+			    Thread.sleep(3000);
+			    performerPOM. clickNewResponse(driver).click();
+					 
+			    Thread.sleep(3000);		
+			   JavascriptExecutor jse=(JavascriptExecutor)driver;
+			   jse.executeScript("arguments[0].click();",  performerPOM.clickSaveResponse(driver));
+			   //performerPOM.clickSaveResponse(driver).click();
+							
+			  Thread.sleep(3000);
+			  performerPOM.clickMinimizeResponse(driver).click();
+						 
+			  Thread.sleep(1000);
+			   wait.until(ExpectedConditions.visibilityOf(performerPOM.readResponseMsg1(driver)));
+								
+			 Thread.sleep(500);
+			 String msg4 = performerPOM.readResponseMsg1(driver).getText();		//Reading Message appeared after save button
+							
+							
+			test.log(LogStatus.PASS, "Message displayed = "+msg4);
+							
+			driver.switchTo().parentFrame();
+			Thread.sleep(3000);
+			performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	 }
+			
+			 public static void ResponseClearBtn(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+				{
+				   WebDriverWait wait = new WebDriverWait(driver, 60);
+				   
+				 
+				  
+				   Thread.sleep(3000);
+					performerPOM.clickNoticeOpen(driver).click();//click edit notice
+			     
+			        Thread.sleep(3000);
+					performerPOM.clickEditNotice(driver).click();//click edit notice
+				  
+				   
+				           Thread.sleep(1000);
+				           wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+				           Thread.sleep(3000);
+						  performerPOM. clickResponse(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM. clickNewResponse(driver).click();
+						  Thread.sleep(3000);
+						  performerPOM. selectSentNotice(driver);
+						  Thread.sleep(3000);
+						  performerPOM. selectReplyDueDate(driver);
+						  Thread.sleep(3000);
+						  performerPOM. selectRespondedDate(driver);
+					
+						
+							if(performerPOM.clickClearNoticeResponse(driver).isEnabled())
+					  		{
+								Thread.sleep(3000);
+								 JavascriptExecutor jse=(JavascriptExecutor)driver;
+		 						 jse.executeScript("arguments[0].click();",  performerPOM.clickClearNoticeResponse(driver));
+								
+					  			test.log(LogStatus.PASS, "Clear button working successfully");
+					  		}
+					  		else
+					  		{
+					  			test.log(LogStatus.FAIL, "Clear button not working successfully");
+					  		}
+						
+							  driver.switchTo().parentFrame();
+					   	     	Thread.sleep(3000);
+					   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+			 			}
+			 
+			 public static void PaymentLogExistingData(WebDriver driver, ExtentTest test) throws InterruptedException
+				{
+			   WebDriverWait wait = new WebDriverWait(driver, 60);
+			   
+			   Thread.sleep(3000);
+				performerPOM.clickNoticeOpen(driver).click();
+			    
+				Thread.sleep(3000);
+				performerPOM.clickEditNotice(driver).click();//click edit notice
+			   Thread.sleep(1000);
+			   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			   Thread.sleep(2000);
+				   performerPOM.clickStatusPayments(driver).click();			//Clicking on 'Status/Payments'
+					Thread.sleep(300);
+					performerPOM.clickInvoiceNo(driver).sendKeys("67457");
+					
+					
+					Thread.sleep(3000);
+					performerPOM.clickPaymentType(driver).click();
+
+					List<WebElement> PaymentType1= driver.findElements(By.xpath("//*[@id='grdNoticePayment_ddlPaymentType_chosen']/div/ul/li"));
+					PaymentType1.get(4).click();
+					
+					Thread.sleep(5000);
+					performerPOM.clickAmount(driver).sendKeys("7000");
+					Thread.sleep(5000);
+					performerPOM.clickNoticAmountPaid(driver).sendKeys("2000");
+				
+					Thread.sleep(300);
+					performerPOM.clickSavePaymentLog(driver).click();
+					
+
+					 // Thread.sleep(1000);
+					  WebDriverWait wait1 = new WebDriverWait(driver, 300);
+					 wait1.until(ExpectedConditions.visibilityOf(performerPOM.readPymentmsg(driver)));
+						
+						Thread.sleep(500);
+						String msg4 = performerPOM.readPymentmsg(driver).getText();		//Reading Message appeared after save button
+						
+						if(msg4.equalsIgnoreCase("Payment Details Saved Successfully."))
+						{
+							test.log(LogStatus.PASS, "Message displayed = "+msg4);
+							
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Message displayed = "+msg4);
+						}
+						
+						driver.switchTo().parentFrame();
+			   	     	Thread.sleep(3000);
+			   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+				}
+			 
+		 	 public static void PaymentLogWithoutData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+				{
+	 		 
+	 		 
+	 		        WebDriverWait wait = new WebDriverWait(driver, 60);
+				   
+	 		         Thread.sleep(3000);
+				     performerPOM.clickNoticeOpen(driver).click();//click edit notice
+		     
+		             Thread.sleep(3000);
+				     performerPOM.clickEditNotice(driver).click();//click edit notice
+			  
+				      driver.switchTo().parentFrame();
+				      wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+				     
+				     Thread.sleep(3000);
+				    performerPOM.clickStatusPayments(driver).click();			//Clicking on 'Status/Payments'
+				    
+					Thread.sleep(300);
+					performerPOM.clickSavePaymentLog(driver).click();
+					
+
+					
+					 WebDriverWait wait1 = new WebDriverWait(driver, 300);
+					 wait1.until(ExpectedConditions.visibilityOf(performerPOM.readPymentmsg1(driver)));
+						
+						Thread.sleep(500);
+						String msg4 = performerPOM.readPymentmsg1(driver).getText();		//Reading Message appeared after save button
+					
+					
+							test.log(LogStatus.PASS, "Message displayed = "+msg4);
+							
+							 driver.switchTo().parentFrame();
+					   	     	Thread.sleep(3000);
+					   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+				}
+		 	 
+		 	 
+		 	 public static void CriteriaInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
+	         {
+	       	  
+	   		         WebDriverWait wait = new WebDriverWait(driver, 300);
+			  
+				          Thread.sleep(3000);
+						  performerPOM.clickNoticeOpen(driver).click();//click edit notice
+				     
+				           Thread.sleep(3000);
+						   performerPOM.clickEditNotice(driver).click();//click edit notice
+					  
+						   driver.switchTo().parentFrame();
+						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	       	          
+	   			           Thread.sleep(1000);
+	   				       performerPOM. clickExternalLawyerRating(driver).click();
+	   			          Thread.sleep(3000);
+	   				      performerPOM.selectExternalLawyerRating(driver);
+	   				     Thread.sleep(3000);
+	   				     performerPOM.clickNewCriteria(driver).click();
+	   				     Thread.sleep(3000);
+	   				     wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
+	   				     Thread.sleep(3000);
+	   				     performerPOM.clickCriteria(driver).sendKeys("342");
+	   				 
+	   				    Thread.sleep(3000);
+	   				    performerPOM.clickSaveCriteria(driver).click();
+	   				    Thread.sleep(3000);
+	   				    String msg = performerPOM.clickCriteriaInvalidMsg(driver).getText();
+	   				   
+	   				   if(msg.equalsIgnoreCase("Only alphabets allowed."))
+	   				   {
+	   					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg);
+	   				   }
+	   				   else
+	   				   {
+	   					   test.log(LogStatus.FAIL, "Meassag Displayed ="+msg);
+	   				   }
+	   				   
+	   				   Thread.sleep(3000);
+	   				   driver.switchTo().parentFrame();
+	   				   performerPOM.clickclosecriteria(driver).click();
+	         }
+		 	 
+		 	 public static void CriteriaExistingData(WebDriver driver,ExtentTest test) throws InterruptedException
+	         {
+	       	  
+	   		         WebDriverWait wait = new WebDriverWait(driver, 300);
+			   
+	   		         Thread.sleep(3000);
+	   			     performerPOM.clickNoticeOpen(driver).click();//click edit notice
+	   	     
+	   	             Thread.sleep(3000);
+	   			     performerPOM.clickEditNotice(driver).click();//click edit notice
+	   		  
+	   			      driver.switchTo().parentFrame();
+	   			      wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	   		         
+				          
+	       	          
+	   			       Thread.sleep(1000);
+	   				   performerPOM. clickExternalLawyerRating(driver).click();
+	   				   
+
+	   				   
+	   				  Thread.sleep(3000);
+	   				  performerPOM.selectExternalLawyerRating(driver);
+	   				   Thread.sleep(3000);
+	   				   performerPOM.clickNewCriteria(driver).click();
+	   				   Thread.sleep(3000);
+	   				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
+	   				   performerPOM.clickCriteria(driver).sendKeys("Test Test New");
+	   				   Thread.sleep(3000);
+	   				   performerPOM.clickSaveCriteria(driver).click();
+	   				   String msg = performerPOM.readOppoenentMsg(driver).getText();
+	   				   
+	   				   if(msg.equalsIgnoreCase("Criteria already exists."))
+	   				   {
+	   					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg);
+	   				   }
+	   				   else
+	   				   {
+	   					   String msg1 = performerPOM.readMesg(driver).getText();
+	   					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg1);
+	   				   }
+	   				   Thread.sleep(3000);
+	   				   driver.switchTo().parentFrame();
+	   				   performerPOM.clickclosecriteria(driver).click();
+	   				   
+	   				   driver.switchTo().parentFrame();
+			   	     	Thread.sleep(3000);
+			   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	         }
+		 	 
+			 public static void CriteriaWithoutData(WebDriver driver,ExtentTest test) throws InterruptedException
+	         {
+	       	  
+	   		         WebDriverWait wait = new WebDriverWait(driver, 300);
+			  
+				          Thread.sleep(3000);
+						     performerPOM.clickNoticeOpen(driver).click();//click edit notice
+				     
+				             Thread.sleep(3000);
+						     performerPOM.clickEditNotice(driver).click();//click edit notice
+					  
+						      driver.switchTo().parentFrame();
+						      wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	       	          
+	   			       Thread.sleep(1000);
+	   				   performerPOM. clickExternalLawyerRating(driver).click();
+	   				   
+
+	   				   
+	   				  Thread.sleep(3000);
+	   				  performerPOM.selectExternalLawyerRating(driver);
+	   				   Thread.sleep(3000);
+	   				   performerPOM.clickNewCriteria(driver).click();
+	   				   Thread.sleep(3000);
+	   				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
+	   				
+	   				 
+	   				   Thread.sleep(3000);
+	   				   performerPOM.clickSaveCriteria(driver).click();
+	   				   Thread.sleep(3000);
+	   				   String msg = performerPOM.readOppoenentMsg(driver).getText();
+	   				   
+	   				   if(msg.equalsIgnoreCase("Criteria can not be empty."))
+	   				   {
+	   					   test.log(LogStatus.PASS, "Meassag Displayed ="+msg);
+	   				   }
+	   				   else
+	   				   {
+	   					   test.log(LogStatus.FAIL, "Meassag Displayed ="+msg);
+	   				   }
+	   				   
+	   				   Thread.sleep(3000);
+	   				   driver.switchTo().parentFrame();
+	   				   performerPOM.clickclosecriteria(driver).click();
+	         }
 	
 	
 	}

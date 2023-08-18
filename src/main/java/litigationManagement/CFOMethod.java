@@ -4597,13 +4597,9 @@ public class CFOMethod {
     		  
     			      driver.switchTo().parentFrame();
     			      wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
-    		         
-			          
-        	          
+    		          
     			       Thread.sleep(1000);
     				   performerPOM. clickExternalLawyerRating(driver).click();
-    				   
-
     				   
     				  Thread.sleep(3000);
     				  performerPOM.selectExternalLawyerRating(driver);
@@ -19068,7 +19064,7 @@ public class CFOMethod {
 				
 					if(msg4.equalsIgnoreCase("Payment Details Saved Successfully."))
 					{
-						test.log(LogStatus.FAIL, "Message displayed = "+msg4);
+						test.log(LogStatus.PASS, "Message displayed = "+msg4);
 					
 					}
 					else
