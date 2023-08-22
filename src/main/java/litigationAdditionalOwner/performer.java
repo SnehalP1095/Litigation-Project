@@ -330,7 +330,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		test = extent.startTest("Case Hearing verification");
 	
 		
-		MethodsPOM.CaseHearing(driver, test,workbook,"Performer");
+		MethodsPOM.CaseHearing(driver, test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();

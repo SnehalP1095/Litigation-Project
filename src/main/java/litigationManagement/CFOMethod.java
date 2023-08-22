@@ -4903,7 +4903,7 @@ public class CFOMethod {
 			
 			perform1(driver, test, sheet, open, gridRecords, "Case - Open");
 		}
-		static void perform1(WebDriver driver, ExtentTest test, XSSFSheet sheet, int open, int gridRecords, String type) throws InterruptedException
+ static void perform1(WebDriver driver, ExtentTest test, XSSFSheet sheet, int open, int gridRecords, String type) throws InterruptedException
 		{
 			WebDriverWait wait = new WebDriverWait(driver, 50);
 			
@@ -4911,15 +4911,12 @@ public class CFOMethod {
 			
 			Thread.sleep(500);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-		//	CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.UP);
+		
 			js.executeScript("window.scrollBy(0,-700)");
 			
 			Thread.sleep(3000);
 			clickNewCase(driver);
-			
-//			Thread.sleep(3000);
-//			clickCaseskip(driver);
-			
+					
 			progress(driver);
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 			
@@ -19617,23 +19614,13 @@ public class CFOMethod {
 	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
 	 	 	 			progress(driver);
 	 	 	 			
-	 	 	 		
-	 	 	 			
 	 	 	            Thread.sleep(500);
 	 	 	        	performerPOM.clickCaseOpencfo(driver).click();		
 	 	 	 			
 	 	 	            Thread.sleep(4000);
 	 	 	            performerPOM.clickEditNotice(driver).click();
 	 	 	            
-	 	 	        
-	 	 	 			
-	 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
-	 	 	 			
-
-//	 	 	            Thread.sleep(4000);
-//	 	 	            performerPOM.clickEditUserAssign(driver).click();
-	 	 	 			
-	 	 	            
+	 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails")); 
 	 	 	          Thread.sleep(3000);
 	 	 			clickCaseInternalUser(driver);
 	 	 			Thread.sleep(3000);
@@ -20443,7 +20430,7 @@ public class CFOMethod {
 	             
 			}
  		 
- 		 static void CaseExistingHearingDate(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		 static void CaseExistingHearingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			{
 			       WebDriverWait wait=new WebDriverWait(driver,20);
 			       XSSFSheet sheet=ReadExcel();

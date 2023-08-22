@@ -1491,7 +1491,7 @@ public class CFO {
 		test = extent.startTest("Case with Existing Hearing Date Verification");
 		
 		
-		CFOMethod.CaseExistingHearingDate(driver, test,workbook);
+		CFOMethod.CaseExistingHearingData(driver, test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();
