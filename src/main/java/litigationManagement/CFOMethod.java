@@ -6815,14 +6815,7 @@ public class CFOMethod {
 					Thread.sleep(1000);
 					performerPOM.selectDocument(driver).click();	
 					Thread.sleep(3000);
-					//performerPOM.selectDocument1(driver).click();
 					
-				     //Select t=new Select(driver.findElement(By.xpath("/html/body/div[77]/div/div[2]/ul/li[2]")));
-				  //  t.selectByIndex(1);
-				
-					
-//      		       List<WebElement>SeletcRisk = driver.findElements(By.xpath("//li[@class='k-item']"));
-//      			   selectOptionFromDropDown_bs(SeletcRisk, "Case Documents");
 					Thread.sleep(1000);
 					performerPOM.shareDocumentIcon(driver).click();
 					
@@ -10086,14 +10079,7 @@ public class CFOMethod {
 			        Thread.sleep(300);
 					performerPOM.clickCloseReminder(driver).click();
 					
-					
-					
-						
-						
-						
-						
-						
-				}
+			}
 						
 
 					
@@ -20928,12 +20914,12 @@ public class CFOMethod {
 						
 							if(msg5.equalsIgnoreCase("Payment Details Saved Successfully."))
 							{
-								test.log(LogStatus.FAIL, "Message displayed = "+msg5);
+								test.log(LogStatus.PASS, "Message displayed = "+msg5);
 							
 							}
 							else
 							{
-								test.log(LogStatus.PASS, "Message displayed = "+msg5);
+								test.log(LogStatus.FAIL, "Message displayed = "+msg5);
 							}
 							
 							 driver.switchTo().parentFrame();

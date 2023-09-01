@@ -1601,7 +1601,7 @@ public class CFO {
 	//@Test(priority =119)
     	void StatusPaymentWithoutdata() throws InterruptedException, IOException
     	{
-    		test = extent.startTest("Case Status/Payment with existing data ");
+    		test = extent.startTest("Case Status/Payment without data ");
     		
     		
     		CFOMethod.StatusPaymentWithoutdata(driver, test);
