@@ -1842,7 +1842,7 @@ public class MethodsPOM
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("28-09-2023");
+		    performerPOM.clickHearingDate(driver).sendKeys("29-09-2023");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -2096,7 +2096,7 @@ public class MethodsPOM
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("17-10-2023");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("18-10-2023");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -4634,13 +4634,13 @@ public class MethodsPOM
 		action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 31aug23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 01Sep23");
 		
 		Thread.sleep(3000);
-		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 31aug23");
+		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 01Sep23");
 		
 		Thread.sleep(3000);
-		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 31aug23");
+		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 01Sep23");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -4696,7 +4696,7 @@ public class MethodsPOM
 		performerPOM.clickReminderText(driver).clear();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 30july23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 08Sep23");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -18160,7 +18160,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		    				   performerPOM.clickNewCriteria(driver).click();
 		    				   Thread.sleep(3000);
 		    				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
-		    				   performerPOM.clickCriteria(driver).sendKeys("LNT");
+		    				   performerPOM.clickCriteria(driver).sendKeys("AFG");
 		    				   Thread.sleep(3000);
 		    				   performerPOM.clickSaveCriteria(driver).click();
 		    				   String msg = performerPOM.readOppoenentMsg(driver).getText();
@@ -18885,7 +18885,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						Thread.sleep(500);
 						String name = OverduePOM.readFolderName(driver).getText();		//Reading the folder name to create new folder.
 						
-						String folder = name+"Doc31Aug23"; 
+						String folder = name+"Doc01SEP23"; 
 						
 						OverduePOM.clickNew(driver).click();							//Clicking on '+New' button.
 						
@@ -19037,7 +19037,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							OverduePOM.clickNewFolder(driver).click();						//Clicking on 'New Folder'
 							
 							Thread.sleep(1000);
-							OverduePOM.writeFolderName(driver).sendKeys("Sub Document 31Aug23");			//Writing Folder name.
+							OverduePOM.writeFolderName(driver).sendKeys("Sub Document 01Sep23");			//Writing Folder name.
 							
 							Thread.sleep(1000);
 							OverduePOM.clickCreate1(driver).click();						//Clicking on create button.

@@ -2490,7 +2490,7 @@ void NoticeDocViewandDownload() throws InterruptedException, IOException
 				extent.flush();
 			}
 
-	@Test(priority = 13)
+	@Test(priority = 232)
 	void MyReports() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Reports -excel count verification");
