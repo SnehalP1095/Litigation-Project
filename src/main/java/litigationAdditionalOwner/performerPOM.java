@@ -1933,7 +1933,12 @@ public class performerPOM
 			
 			}
 		  
-		
+		  public static WebElement selectPaymentTypeCase(WebDriver driver)
+			{
+			litigation = driver.findElement(By.xpath("//*[@id='grdCasePayment_ddlPaymentType_chosen']/div/div/input"));
+			return litigation;
+			
+			}
 		  
 				
 		  
@@ -1942,11 +1947,7 @@ public class performerPOM
 				litigation = driver.findElement(By.xpath("//*[@id='grdNoticePayment_tbxAmount']"));
 				return litigation;
 			}
-		  public static WebElement clickAmountCase(WebDriver driver)
-			{
-				litigation = driver.findElement(By.xpath("//*[@id='grdCasePayment_tbxAmountPaid']"));
-				return litigation;
-			}
+		
 		  public static WebElement clickSavePaymentLog(WebDriver driver)
 			{
 				litigation = driver.findElement(By.xpath("//*[@id='grdNoticePayment_btnPaymentSave']"));
@@ -2186,11 +2187,13 @@ public class performerPOM
 			 litigation=driver.findElement(By.xpath("//*[@id='dlLawyerAdvocate_chosen']/div/ul/li[3]"));
 			 return litigation;
 	    }
-		 public static List<WebElement> selectLawFirm2(WebDriver driver)
+		 public static WebElement selectLawFirm2(WebDriver driver)
 		 {
 	
-			  elementsList=driver.findElements(By.xpath("//*[@id='ddlLawyerAdvocate_chosen']/div/ul/li"));
-		      return elementsList; 
+			 // elementsList=driver.findElements(By.xpath("//*[@id='ddlLawyerAdvocate_chosen']/div/ul/li"));
+			 litigation=driver.findElement(By.xpath("//*[@id='ddlLawyerAdvocate_chosen']/div/ul/li[2]"));
+			
+		      return litigation; 
 			
 	    }
 	
@@ -2233,10 +2236,10 @@ public class performerPOM
 			 litigation=driver.findElement(By.xpath("//*[@id='grdCasePayment_tbxInvoiceNo']"));
 			 return litigation;
 		 }
-		  public static void clickPaymentTyp1(WebDriver driver)
+		  public static WebElement clickPaymentTyp1(WebDriver driver)
 				{
-				WebElement PaymentType  = driver.findElement(By.xpath("//*[@id='grdCasePayment_ddlPaymentType_chosen']"));
-				PaymentType.click();
+			        litigation = driver.findElement(By.xpath("//*[@id='grdCasePayment_ddlPaymentType_chosen']"));
+				    return litigation;
 					
 				}
 			  
@@ -2397,6 +2400,11 @@ public class performerPOM
 		  public static WebElement readCaseMsg(WebDriver driver) throws InterruptedException
 		  {
 			  litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ValidationSummary1']"));
+			  return litigation;
+		  }
+		  public static WebElement readCaseMsg2(WebDriver driver) throws InterruptedException
+		  {
+			  litigation=driver.findElement(By.xpath("//*[@id='ContentPlaceHolder1_ValidationSummary1']/ul/li"));
 			  return litigation;
 		  }
 		  public static WebElement readCaseMsg1(WebDriver driver) throws InterruptedException

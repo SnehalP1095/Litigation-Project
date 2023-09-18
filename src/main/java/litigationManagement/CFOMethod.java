@@ -5907,7 +5907,7 @@ public class CFOMethod {
                             performerPOM.clickAmount1(driver).sendKeys("900000");	//Writing 'Amount'
                             
                         	Thread.sleep(3000);
-            				performerPOM.clickAmountCase(driver).sendKeys("7000");
+            				performerPOM.clickAmountPaid(driver).sendKeys("7000");
             			
 						
 				
