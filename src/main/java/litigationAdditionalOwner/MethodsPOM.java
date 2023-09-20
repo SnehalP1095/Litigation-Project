@@ -94,7 +94,7 @@ public class MethodsPOM
 		clickAct(driver);
 		Thread.sleep(6000);
 		//clickOpponentcfo(driver);
-		selectOpponent(driver,type);
+		selectOpponent(driver);
 		Thread.sleep(300);
 		selectCategory(driver);
 		clickNoticeTitle(driver);
@@ -306,16 +306,16 @@ public class MethodsPOM
                performerPOM.clickOpponentcfo(driver).sendKeys(Opponent);
 		   }
 	
-	   public static void selectOpponent(WebDriver driver) throws InterruptedException
-	   {
-		  Thread.sleep(300);
-		   Row row1 = sheet.getRow(4);						//Selected 0th index row (First row)
-		   Cell c1 = row1.getCell(1);						//Selected cell (0 row,1 column)
-		   String opponent = c1.getStringCellValue();
-		   selectOpponent(driver,opponent);
-	    }
+//	   public static void selectOpponent(WebDriver driver) throws InterruptedException
+//	   {
+//		  Thread.sleep(300);
+//		   Row row1 = sheet.getRow(4);						//Selected 0th index row (First row)
+//		   Cell c1 = row1.getCell(1);						//Selected cell (0 row,1 column)
+//		   String opponent = c1.getStringCellValue();
+//		   selectOpponent(driver);
+//	    }
 	   
-	   public  static void selectOpponent(WebDriver driver,String opponentName)
+	   public  static void selectOpponent(WebDriver driver)
 	   {
 			
 			WebElement Opponent = performerPOM.clickOpponent(driver);
@@ -14989,10 +14989,10 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		 performerPOM.caseNoticeSummaryGraphClose(driver).click();
 	}
 	
-	  public static void NoticeWithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+	  public static void NoticeWithExistingData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 		{
 		   
-        	 sheet = workbook.getSheetAt(5);					//Retrieving second sheet of Workbook
+        	
 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
 			progress(driver);
 			
@@ -15025,7 +15025,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			clickAct(driver);
 
 			Thread.sleep(3000);
-			clickOpponentcfo(driver);
+			selectOpponent(driver);
 
 			Thread.sleep(3000);
 			selectCategory(driver);

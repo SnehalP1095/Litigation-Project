@@ -106,7 +106,7 @@ public class performer
 		void NoticeWithExistingData() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Notice With Existing Data verification");
-		   MethodsPOM.NoticeWithExistingData(driver, test, workbook);
+		   MethodsPOM.NoticeWithExistingData(driver, test);
 		  extent.endTest(test);
 			extent.flush();
 		}
@@ -1210,7 +1210,18 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
-	@Test(priority = 99)
+	@Test(priority= 99)
+	void ReminderWithoutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("My Reminder Without data verification");
+		
+		MethodsPOM.ReminderWithoutData(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 100)
 	void ImportUtility() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Import Utility verification");
@@ -1221,8 +1232,41 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
+	@Test(priority = 101)
+	void ImportUtilityWithoutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Upload Empty File Import Utility verification");
 		
-	@Test(priority = 100)
+		
+		MethodsPOM.ImportUtilityWithoutData(driver,test);
+		extent.endTest(test);
+		extent.flush();
+	}
+
+	@Test(priority = 102)
+	void ImportUtilityInvalidData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Enter Invalid data in Upload File Import Utility verification");
+		
+		
+		MethodsPOM.ImportUtilityInvalidData(driver,test);
+		extent.endTest(test);
+		extent.flush();
+	}
+
+	@Test(priority = 103)
+	void ImportUtilityTwoManadtoryFileds() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Enter Two Manadtory fields in Upload File Import Utility verification");
+		
+		
+		MethodsPOM.ImportUtilityTwoManadtoryFileds(driver,test);
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+		
+	@Test(priority = 104)
 		void AdvancedSearchworkspace() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Workspace(Advanced Search) Report verification");
@@ -1233,7 +1277,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-	@Test(priority = 101)
+	@Test(priority = 105)
 		void AdvancedSearchDoc() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Document(Advanced search)Report Verification");
@@ -1244,7 +1288,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-	 @Test(priority = 102)
+	 @Test(priority = 106)
 		void AdvancedSearch() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Advanced Search Reports excel  verification");
@@ -1256,7 +1300,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.flush();
 		}
 	
-	@Test(priority = 103)
+	@Test(priority = 107)
 		void AdvocateBill() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Advocate bill verification");
@@ -1267,7 +1311,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-	@Test(priority = 104)
+	@Test(priority = 108)
 		void AdvocateBill1() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Approver Assignment Log verification");
@@ -1288,7 +1332,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
-	@Test(priority = 106)
+	@Test(priority = 109)
 		void CaseHearing() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Case Hearing Count Verification");
