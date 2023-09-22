@@ -86,22 +86,14 @@ public class MethodPOM1 {
 		performerPOM.startDate(driver).sendKeys("05/10/2022");
 		
 		Thread.sleep(3000);
-		performerPOM.endDate(driver).sendKeys("05/12/2022");
+		performerPOM.endDate(driver).sendKeys("05/12/2023");
 		
 		Thread.sleep(3000);
 		performerPOM.clickApplyButton(driver).click();
 		
-		
-		
-		
-		
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
-		
-
-		
-
 		Thread.sleep(3000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("document.querySelector(\"div[id='grid1'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=2000");
@@ -152,8 +144,8 @@ public class MethodPOM1 {
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
 	//-------------------------------------------Case--------------------------------------------------
-		Thread.sleep(3000);
-		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+//		Thread.sleep(3000);
+//		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
 	    Thread.sleep(3000);
 		performerPOM.clickTypeDropdown1(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
@@ -206,8 +198,8 @@ public class MethodPOM1 {
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
 	//-------------------------------------------Task--------------------------------------------------
-		Thread.sleep(3000);
-		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+//		Thread.sleep(3000);
+//		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
 		
 		Thread.sleep(3000);
@@ -727,11 +719,11 @@ public class MethodPOM1 {
 		Thread.sleep(5000);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
-		Thread.sleep(5000);
-		performerPOM.clickcategory(driver).click();
-		
-		Thread.sleep(5000);
-		performerPOM.clickcategory2(driver).click();
+//		Thread.sleep(5000);
+//		performerPOM.clickcategory(driver).click();
+//		
+//		Thread.sleep(5000);
+//		performerPOM.clickcategory2(driver).click();
 		
 		
 		if(performerPOM.clearButton(driver).isEnabled())
@@ -755,7 +747,7 @@ public class MethodPOM1 {
 		performerPOM.startDate(driver).sendKeys("05/10/2022");
 		
 		Thread.sleep(4000);
-		performerPOM.endDate(driver).sendKeys("05/12/2022");
+		performerPOM.endDate(driver).sendKeys("05/12/2023");
 		
 		Thread.sleep(4000);
 		performerPOM.clickApplyButton(driver).click();

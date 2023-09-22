@@ -3,29 +3,39 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="litigationAdditionalOwner.performer">
+      <class name="litigationExternalLawyer.ExternalLawyer">
         <methods>
-          <include name="NoticeDocumentSearchFields"/>
-          <include name="CaseExistingHearingData"/>
-          <include name="Close"/>
-          <include name="AdvocateBill"/>
-          <include name="CaseOrderTab"/>
+          <include name="CaseOrderwithClearBtn"/>
+          <include name="CriticalDocuments1"/>
+          <include name="CaseHearingTab"/>
+          <include name="StatusPaymentWithoutdata"/>
           <include name="setBrowser"/>
-          <include name="AdvancedSearch"/>
-          <include name="CaseAdvocateBillTab"/>
-          <include name="NoticeTaskActivityTab"/>
-          <include name="AdvancedSearchworkspace"/>
-          <include name="ImportUtility"/>
-          <include name="TaskActivtityDeleteResponse"/>
-          <include name="CaseHearing"/>
           <include name="AdvancedSearchDoc"/>
-          <include name="CaseCriteriaInvalidData"/>
+          <include name="CaseAdvocateBill1"/>
+          <include name="CriticalDocuments"/>
+          <include name="CaseAdvocateBill"/>
+          <include name="ImportUtilityInvalidData"/>
+          <include name="AdvancedSearchworkspace"/>
+          <include name="AdvancedSearchShareTaskDocument"/>
+          <include name="StatusPayment"/>
+          <include name="ImportUtilityWithoutData"/>
+          <include name="AdvancedSearch"/>
+          <include name="Close"/>
+          <include name="CaseAdvocateBillTab"/>
+          <include name="ImportUtilityTwoManadtoryFileds"/>
+          <include name="ReminderWithoutData"/>
+          <include name="AdvancedSearchShareNoticeDocument"/>
           <include name="MyReports"/>
-          <include name="TaskOpen"/>
-          <include name="AdvocateBill1"/>
           <include name="Login"/>
+          <include name="CaseStatuswithEmptyFields"/>
+          <include name="MoreReports"/>
+          <include name="StatusPaymentWithExistingData"/>
+          <include name="Auditlog"/>
+          <include name="ImportUtility"/>
+          <include name="MyDocument"/>
+          <include name="MyReminder"/>
         </methods>
-      </class> <!-- litigationAdditionalOwner.performer -->
+      </class> <!-- litigationExternalLawyer.ExternalLawyer -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

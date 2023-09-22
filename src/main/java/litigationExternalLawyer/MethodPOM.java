@@ -752,7 +752,7 @@ public class MethodPOM
 				}
 				
 				Thread.sleep(100);
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -762,7 +762,7 @@ public class MethodPOM
 				//test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(5500);
-				File dir1 = new File("C://Users//Admin//Downloads");
+				File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -2427,7 +2427,7 @@ public class MethodPOM
 				 performerPOM. clickInvoiceAmount(driver).sendKeys("30000");
 				 Thread.sleep(4000);
 				 performerPOM.clickLawFirm1(driver).click();
-				 performerPOM.selectLawFirm2(driver).get(2).click();
+				 performerPOM.selectLawFirm2(driver).click();
 				 Thread.sleep(4000);
 				 performerPOM.clickApprover1(driver).click();
 			      Thread.sleep(4000);
@@ -3007,16 +3007,16 @@ public class MethodPOM
 	  			if(open > open1 && closed1 > closed)
 	  			{
 	  				//test.log(LogStatus.PASS, "Task-Closed count increased.");
-	  				test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
+	  				test.log(LogStatus.PASS, "Task-Closed count increased = Old Count = "+closed+" | New Count = "+closed1);
 	  				//test.log(LogStatus.PASS, "Task-Open count decreased.");
-	  				test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
+	  				test.log(LogStatus.PASS, "Task-Open count decreased = Old Count = "+open+" | New Count = "+open1);
 	  			}
 	  			else
 	  			{
 	  				//test.log(LogStatus.FAIL, "Task-Closed count doesn't increased.");
-	  				test.log(LogStatus.FAIL, "Old Count = "+closed+" | New Count = "+closed1);
+	  				test.log(LogStatus.FAIL, "Task-Closed count doesn't increased = Old Count = "+closed+" | New Count = "+closed1);
 	  				//test.log(LogStatus.FAIL, "Task-Open count doesn't decreased.");
-	  				test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
+	  				test.log(LogStatus.FAIL, "Task-Open count doesn't decreased = Old Count = "+open+" | New Count = "+open1);
 	  			}
 	  		}
 	  	}
@@ -3422,12 +3422,12 @@ public class MethodPOM
 			if(count1 > gridRecords)
 			{
 				//test.log(LogStatus.PASS, "Total Task Count increased in grid after adding New Task.");
-				test.log(LogStatus.PASS, "Old Task Count from Grid = "+gridRecords+" | New Task Count from Grid = "+count1);
+				test.log(LogStatus.PASS, "Total Task Count increased in grid after adding New Task = Old Task Count from Grid = "+gridRecords+" | New Task Count from Grid = "+count1);
 			}
 			else
 			{
 				//test.log(LogStatus.FAIL, "Total Task Count doesn't increased in grid after adding New Task.");
-				test.log(LogStatus.FAIL, "Old Task Count from Grid = "+gridRecords+" | New Task Count from Grid = "+count1);
+				test.log(LogStatus.FAIL, "Total Task Count doesn't increased in grid after adding New Task = Old Task Count from Grid = "+gridRecords+" | New Task Count from Grid = "+count1);
 			}
 			
 			Thread.sleep(500);
@@ -3440,12 +3440,12 @@ public class MethodPOM
 			if(open1 > open)
 			{
 				//test.log(LogStatus.PASS, type+" Dashboard Count Increased.");
-				test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
+				test.log(LogStatus.PASS, "Dashboard Count Increased = Old Count = "+open+" | New Count = "+open1);
 			}
 			else
 			{
 				//test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increased.");
-				test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
+				test.log(LogStatus.FAIL, "Dashboard Count doesn't increased = Old Count = "+open+" | New Count = "+open1);
 			}
 			
 		}
@@ -4052,7 +4052,7 @@ public class MethodPOM
 			static void Report(WebDriver driver, ExtentTest test, int count1, String type) throws InterruptedException, IOException
 			{
 				Thread.sleep(700);
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				//Thread.sleep(500);
@@ -4061,7 +4061,7 @@ public class MethodPOM
 				performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 				
 				Thread.sleep(6000);
-				File dir1 = new File("C://Users//Admin//Downloads");
+				File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -4148,14 +4148,14 @@ public class MethodPOM
 				
 				//--------------------------MIS Report------------------------------
 				
-				File dir = new File("C://Users//Admin//Downloads");
+				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents = dir.listFiles(); // Counting number of files in directory before download
 
 				Thread.sleep(1000);
 				performerPOM.MISReports(driver).click();      // Exporting (Downloading) file
 
 				Thread.sleep(3000);
-				File dir1 = new File("C://Users//Admin//Downloads");
+				File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] allFilesNew = dir1.listFiles(); // Counting number of files in directory after download
 				Thread.sleep(3000);
 				if (dirContents.length < allFilesNew.length) {
@@ -4173,7 +4173,7 @@ public class MethodPOM
 				Thread.sleep(1000);
 				performerPOM.closedCasesReports(driver).click();      // Exporting (Downloading) file
 
-				File dir3 = new File("C://Users//Admin//Downloads");
+				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents2 = dir.listFiles(); // Counting number of files in directory before download
 				Thread.sleep(3000);
 				if (dirContents.length < allFilesNew.length) {
@@ -4189,14 +4189,14 @@ public class MethodPOM
 				
 				
 				Thread.sleep(100);
-				File dir6 = new File("C://Users//Admin//Downloads");
+				File dir6 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents5 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(250);
 				performerPOM.BudgetReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				
-				File dir7 = new File("C://Users//Admin//Downloads");
+				File dir7 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents6 = dir.listFiles(); // Counting number of files in directory before download
 				
 				if (dirContents.length < allFilesNew.length) 
@@ -4215,13 +4215,13 @@ public class MethodPOM
 				
 				
 				Thread.sleep(100);
-				File dir8 = new File("C://Users//Admin//Downloads");
+				File dir8 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents7 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(250);
 				performerPOM.LawyerDetailsReports(driver).click();					//Clicking on 'Excel Report' image.
 				
-				File dir9 = new File("C://Users//Admin//Downloads");
+				File dir9 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents8 = dir.listFiles(); // Counting number of files in directory before download
 				
 				if (dirContents.length < allFilesNew.length) 
@@ -4237,14 +4237,14 @@ public class MethodPOM
 				
 				
 				Thread.sleep(100);
-				File dir10 = new File("C://Users//Admin//Downloads");
+				File dir10 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents9 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(250);
 				performerPOM.CasePaymentReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				Thread.sleep(100);
-				File dir11 = new File("C://Users//Admin//Downloads");
+				File dir11 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents10 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				 
@@ -4262,14 +4262,14 @@ public class MethodPOM
 				
 				
 				Thread.sleep(100);
-				File dir12 = new File("C://Users//Admin//Downloads");
+				File dir12 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents11 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(250);
 				performerPOM.CaseHearingReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				Thread.sleep(100);
-				File dir13 = new File("C://Users//Admin//Downloads");
+				File dir13 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents12 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				if (dirContents.length < allFilesNew.length) 
@@ -4286,7 +4286,7 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir14 = new File("C://Users//Admin//Downloads");
+				 File dir14 = new File("C:\\Users\\Snehal Patil\\Downloads");
 		         File[] dirContents13 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
@@ -4294,7 +4294,7 @@ public class MethodPOM
 				
 
 				 Thread.sleep(100);
-				 File dir15 = new File("C://Users//Admin//Downloads");
+				 File dir15 = new File("C:\\Users\\Snehal Patil\\Downloads");
 		         File[] dirContents14 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				if (dirContents.length < allFilesNew.length) 
@@ -4311,7 +4311,7 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir16 = new File("C://Users//Admin//Downloads");
+				 File dir16 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents15 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
@@ -4319,7 +4319,7 @@ public class MethodPOM
 				
 
 				 Thread.sleep(100);
-				File dir17 = new File("C://Users//Admin//Downloads");
+				File dir17 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents16 = dir.listFiles();							//Counting number of files in directory before download 
 			
 				
@@ -4339,14 +4339,14 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir18 = new File("C://Users//Admin//Downloads");
+				 File dir18 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents17 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
 				performerPOM.CourtDoumentReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				Thread.sleep(100);
-				File dir19 = new File("C://Users//Admin//Downloads");
+				File dir19 = new File("C:\\Users\\Snehal Patil\\Downloads");
 				File[] dirContents18 = dir.listFiles();							//Counting number of files in directory before download 
 					
 				if (dirContents.length < allFilesNew.length) 
@@ -4365,14 +4365,14 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir20 = new File("C://Users//Admin//Downloads");
+				 File dir20 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents19 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
 				performerPOM.noticeCovertedToCaseReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				 Thread.sleep(100);
-				 File dir21 = new File("C://Users//Admin//Downloads");
+				 File dir21 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents20 = dir.listFiles();							//Counting number of files in directory before download 
 					
 				if (dirContents.length < allFilesNew.length) 
@@ -4389,7 +4389,7 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir22 = new File("C://Users//Admin//Downloads");
+				 File dir22 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents21 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
@@ -4397,7 +4397,7 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir23 = new File("C://Users//Admin//Downloads");
+				 File dir23 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents22 = dir.listFiles();							//Counting number of files in directory before download 
 					
 				if (dirContents.length < allFilesNew.length) 
@@ -4436,14 +4436,14 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir24 = new File("C://Users//Admin//Downloads");
+				 File dir24 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents23 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
 				performerPOM.MISReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				Thread.sleep(100);
-				 File dir25 = new File("C://Users//Admin//Downloads");
+				 File dir25 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents24 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				
@@ -4461,14 +4461,14 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir26 = new File("C://Users//Admin//Downloads");
+				 File dir26 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents25 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
 				performerPOM.closedCasesReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				 Thread.sleep(100);
-				 File dir27 = new File("C://Users//Admin//Downloads");
+				 File dir27 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents26 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				
@@ -4487,14 +4487,14 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir28 = new File("C://Users//Admin//Downloads");
+				 File dir28 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents27 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
 				performerPOM.MISReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				 Thread.sleep(100);
-				 File dir29 = new File("C://Users//Admin//Downloads");
+				 File dir29 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents28 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				
@@ -4515,14 +4515,14 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir32 = new File("C://Users//Admin//Downloads");
+				 File dir32 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents31 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
 				performerPOM.BudgetReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				Thread.sleep(100);
-				 File dir33 = new File("C://Users//Admin//Downloads");
+				 File dir33 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents32 = dir.listFiles();							//Counting number of files in directory before download 
 				
 			
@@ -4542,14 +4542,14 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir34 = new File("C://Users//Admin//Downloads");
+				 File dir34 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents33 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
 				performerPOM.LawyerDetailsReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				 Thread.sleep(100);
-				 File dir35 = new File("C://Users//Admin//Downloads");
+				 File dir35 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents34 = dir.listFiles();							//Counting number of files in directory before download
 				
 				
@@ -4567,14 +4567,14 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir36 = new File("C://Users//Admin//Downloads");
+				 File dir36 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents35 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
 				performerPOM.clickNoticePaymentReport(driver).click();					//Clicking on 'Excel Report' image.
 				
 				Thread.sleep(100);
-				 File dir37 = new File("C://Users//Admin//Downloads");
+				 File dir37 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents36 = dir.listFiles();							//Counting number of files in directory before download 
 			     
 				test.log(LogStatus.PASS, "Notice Payment Report downloaded successfully.");
@@ -4595,7 +4595,7 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir38 = new File("C://Users//Admin//Downloads");
+				 File dir38 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents37 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
@@ -4603,7 +4603,7 @@ public class MethodPOM
 				
 
 				 Thread.sleep(100);
-				 File dir39 = new File("C://Users//Admin//Downloads");
+				 File dir39 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents38 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				
@@ -4621,14 +4621,14 @@ public class MethodPOM
 				
 				
 				 Thread.sleep(100);
-				 File dir40 = new File("C://Users//Admin//Downloads");
+				 File dir40 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents39 = dir.listFiles();							//Counting number of files in directory before download 
 						
 				Thread.sleep(250);
 				performerPOM.AllReports(driver).click();					//Clicking on 'Excel Report' image.
 				
 				 Thread.sleep(100);
-				 File dir41 = new File("C://Users//Admin//Downloads");
+				 File dir41 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			     File[] dirContents40 = dir.listFiles();							//Counting number of files in directory before download 
 				
 				

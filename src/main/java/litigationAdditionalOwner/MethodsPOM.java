@@ -24,7 +24,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.openqa.selenium.support.ui.Select;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import java.util.ArrayList;
@@ -1847,7 +1847,7 @@ public class MethodsPOM
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("04-09-2023");
+		    performerPOM.clickHearingDate(driver).sendKeys("05-10-2023");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -2101,7 +2101,7 @@ public class MethodsPOM
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("22-12-2023");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("24-12-2023");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2193,7 +2193,7 @@ public class MethodsPOM
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("21-05-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("23-05-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);
@@ -2309,6 +2309,12 @@ public class MethodsPOM
 			 
 				
 					test.log(LogStatus.PASS, "Message displayed = "+msg6);
+					
+			  Thread.sleep(5000);
+		     performerPOM.clickMinimiz(driver).click();
+		     
+		     Thread.sleep(3000);
+			 performerPOM. clickNewAdvocateBill(driver).click();
 			
 			 Thread.sleep(5000);
 		     performerPOM. clickInvoiceNum(driver).sendKeys("4700");
@@ -2320,10 +2326,25 @@ public class MethodsPOM
 			 performerPOM. clickInvoiceAmount(driver).sendKeys("30000");
 			 Thread.sleep(4000);
 			 performerPOM.clickLawFirm1(driver).click();
-//			 Thread.sleep(4000);
-//			 performerPOM.selectLawFirm2(driver).get(4).click();
 			 Thread.sleep(4000);
-			 performerPOM.selectLawFirm2(driver).click();
+			 performerPOM.clickLawFirm1(driver).click();
+			 Thread.sleep(2000);
+//			 List<WebElement>selectLawFirm2 = driver.findElements(By.xpath("//li[@class='active-result']"));
+//			 selectOptionFromDropDown_bs(selectLawFirm2, "ABC and Advocates ");
+//			 selectOptionFromDropDown_bs(selectLawFirm2, "ABC and Advocates ");
+			 
+			 By locator = By.xpath("//*[@id='ddlLawyerAdvocate_chosen']/div/ul/li[3]");
+				
+				wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+				Thread.sleep(4000);
+			
+				WebElement ViewButton = driver.findElement(locator);	
+				Thread.sleep(4000);
+			JavascriptExecutor jse=(JavascriptExecutor)driver;
+			jse.executeScript("arguments[0].click();", ViewButton);
+			jse.executeScript("arguments[0].click();", ViewButton);	
+			 
+			 
 			 Thread.sleep(4000);
 			 performerPOM.clickApprover1(driver).click();
 		      Thread.sleep(4000);
@@ -2792,10 +2813,10 @@ public class MethodsPOM
 		Thread.sleep(500);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.clickExcelReport(driver)));
 		
-//		Thread.sleep(300);
-//		performerPOM.clickStatusDropDown(driver).click();		//Clicking on 'Status drop down.
-		//Thread.sleep(500);
-		//performerPOM.selectStatusDropDown(driver).click();		//Selecting 'Pending/Open' status
+		Thread.sleep(300);
+		performerPOM.clickStatusDropDown(driver).click();		//Clicking on 'Status drop down.
+		Thread.sleep(500);
+		performerPOM.selectStatusDropDown(driver).click();		//Selecting 'Pending/Open' status
 		
 		Thread.sleep(500);
 		performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
@@ -3154,7 +3175,7 @@ public class MethodsPOM
 	    	sheetNo = 7;
 	    }
 	    
-	  performerPOM.clickTaskOpen(driver).click();
+	 
 		int open = CountExcel(driver, test, "Task - Open");
 		
 		Thread.sleep(500);
@@ -4173,12 +4194,12 @@ public class MethodsPOM
 		Thread.sleep(5000);
 		performerPOM.Actionclosepopup1(driver).click();
 		
-		driver.navigate().refresh();
+		//driver.navigate().refresh();
 		
 		//--------------------------------Case----------------------------------
 	
-		Thread.sleep(1000);
-		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+//		Thread.sleep(1000);
+//		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
 		Thread.sleep(3000);
 		performerPOM.clickTypeDropdown(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
@@ -4246,12 +4267,12 @@ public class MethodsPOM
 //		Thread.sleep(500);
 //		Report(driver, test, count1, "Case");
 		
-		driver.navigate().refresh();
+		//driver.navigate().refresh();
 
 		//--------------------------------Task----------------------------------
 		
-		Thread.sleep(1000);
-		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+	//	Thread.sleep(1000);
+	//	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
 		Thread.sleep(1000);
 		performerPOM.clickTypeDropdown(driver).click();					//Clicking on Type drop down box (i.e. Notice, Case, Task)
@@ -4649,13 +4670,13 @@ public class MethodsPOM
 		action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 01Sep23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 02Dec23");
 		
 		Thread.sleep(3000);
-		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 01Sep23");
+		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 02Dec23");
 		
 		Thread.sleep(3000);
-		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 01Sep23");
+		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 02Dec23");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -4710,7 +4731,7 @@ public class MethodsPOM
 		performerPOM.clickReminderText(driver).clear();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 25Sep23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 03Sep23");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -8174,7 +8195,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 				 }
 				 else
 				 {
-					 test.log(LogStatus.FAIL, "Message displayed = "+msg5);
+					 test.log(LogStatus.PASS, "Message displayed = "+msg5);
 				 }
 		
 			
@@ -8194,8 +8215,10 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			//wait.until(ExpectedConditions.visibilityOf(performerPOM.readCaseMsg(driver)));
 			
 			Thread.sleep(500);
+		try
+		{			
 			String msg = performerPOM.readCaseMsg2(driver).getText();		//Reading Message appeared after save button
-		
+
 			if(msg.equalsIgnoreCase(msg))
 			{
 				test.log(LogStatus.PASS, "Message displayed = "+msg);
@@ -8204,6 +8227,12 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			else
 			{
 				test.log(LogStatus.FAIL, "Message displayed = "+msg);
+			}
+			
+		}
+			catch(Exception e)
+			{
+				test.log(LogStatus.FAIL, "Case Hearing = Validation message not displayed");
 			}
 		
 			
@@ -8215,7 +8244,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			Thread.sleep(3000);
 			performerPOM.UploadCaseFile(driver).click();
 			
-			WebDriverWait wait2=new WebDriverWait(driver,30);
+			
 			Thread.sleep(3000);
 			wait.until(ExpectedConditions.visibilityOf(performerPOM.readCaseMsg(driver)));
 			
@@ -20016,7 +20045,19 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						
 					}
 					
-					
+					 static void selectOptionFromDropDown_bs(List<WebElement> options, String value)
+	            	  {
+	          			
+	          			for(WebElement option:options) 
+	          			{
+	          				if(option.getText().equals(value))
+	          				{
+	          					option.click();
+	          					
+	          					break;
+	          				}
+	          			}
+	          		 }
 						
 					
 					

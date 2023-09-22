@@ -39,11 +39,10 @@ public class performer
 	
 	public static XSSFSheet ReadExcel() throws IOException
 	{
-		String workingDir = System.getProperty("user.dir");
+		
 		fis = new FileInputStream(performer.XmlFilePath);
 		workbook = new XSSFWorkbook(fis);
-		//sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
-		sheet = workbook.getSheetAt(0);
+		sheet = workbook.getSheetAt(0);                        //Retrieving second sheet of Workbook
 		return sheet;
 	}
 	
@@ -76,7 +75,7 @@ public class performer
 		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
 		 c1 = row1.getCell(1);						//Selected cell (1 row,1 column)
 		String uname = c1.getStringCellValue();			//Got the URL stored at position 1,1
-		System.out.println("s" +  uname);
+		
 		
 		Row row2 = sheet.getRow(2);						//Selected 2nd index row (Third row)
 		Cell c2 = row2.getCell(1);						//Selected cell (2 row,1 column)
@@ -721,7 +720,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 	@Test(priority =56)
 	void CaseDocumentTab() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Notice Document verification");
+		test = extent.startTest("Case Document verification");
 		
 		
 		MethodsPOM.Document(driver, test);
@@ -1288,7 +1287,66 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-	 @Test(priority = 106)
+	
+	@Test(priority = 106)
+		void AdvancedSearchShareCaseDocument() throws InterruptedException, IOException
+		{
+			test = extent.startTest("My Document-Advance search-Share Case Document Verification");
+		
+			
+			MethodsPOM.AdvancedSearchShareCaseDocument(driver, test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	@Test(priority =107)
+				void AdvancedSearchShareNoticeDocument() throws InterruptedException, IOException
+				{
+					test = extent.startTest("My Document-Advance search-Share Notice Document Verification");
+				
+					
+					MethodsPOM.AdvancedSearchShareNoticeDocument(driver, test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+	@Test(priority =108)
+				void AdvancedSearchShareTaskDocument() throws InterruptedException, IOException
+				{
+					test = extent.startTest("My Document-Advance search-Share Task Document Verification");
+				
+					
+					MethodsPOM.AdvancedSearchShareTaskDocument(driver, test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+	@Test(priority = 109) 		//Sever is blocking and not allowing to upload the file.
+				void CriticalDocuments() throws InterruptedException, IOException
+				{
+					test = extent.startTest(" Critical Document Verification");
+					
+					MethodsPOM.CriticalDocuments(driver, test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+		@Test(priority = 110) 		//Sever is blocking and not allowing to upload the file.
+				void CriticalDocuments1() throws InterruptedException, IOException
+				{
+					test = extent.startTest(" Critical Document Verification");
+					
+					MethodsPOM.CriticalDocuments1(driver, test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+
+	
+	
+	
+	 @Test(priority = 111)
 		void AdvancedSearch() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Advanced Search Reports excel  verification");
@@ -1300,7 +1358,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.flush();
 		}
 	
-	@Test(priority = 107)
+	@Test(priority = 112)
 		void AdvocateBill() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Advocate bill verification");
@@ -1311,7 +1369,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-	@Test(priority = 108)
+	@Test(priority = 112)
 		void AdvocateBill1() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Approver Assignment Log verification");
@@ -1321,7 +1379,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-		//@Test(priority = 105)
+		//@Test(priority = 114)
 				void HearingCalender() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Case Hearing Calender Verification");
@@ -1332,7 +1390,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
-	@Test(priority = 109)
+	@Test(priority = 115)
 		void CaseHearing() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Case Hearing Count Verification");

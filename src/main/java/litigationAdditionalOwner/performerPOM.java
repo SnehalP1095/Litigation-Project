@@ -870,7 +870,7 @@ public class performerPOM
 	
 	public static WebElement selectStatusDropDown(WebDriver driver)
 	{
-		litigation = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[36]"));
+		litigation = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[16]"));
 		return litigation;
 	}
 	
@@ -2190,13 +2190,16 @@ public class performerPOM
 		 public static WebElement selectLawFirm2(WebDriver driver)
 		 {
 	
-			 // elementsList=driver.findElements(By.xpath("//*[@id='ddlLawyerAdvocate_chosen']/div/ul/li"));
-			 litigation=driver.findElement(By.xpath("//*[@id='ddlLawyerAdvocate_chosen']/div/ul/li[2]"));
-			
-		      return litigation; 
+			// elementsList=driver.findElements(By.xpath("//*[@id='ddlLawyerAdvocate_chosen']/div/ul/li"));
+			 litigation=driver.findElement(By.cssSelector("#ddlLawyerAdvocate_chosen > div > ul > li:nth-child(3)"));
+			 return litigation; 
 			
 	    }
-	
+		 public static WebElement clickMinimiz(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//a[@class='btn-minimize']"));
+				return litigation;
+			}
 
 		public static WebElement clickApprover1(WebDriver driver)
 		 {
