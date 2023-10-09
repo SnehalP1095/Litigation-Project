@@ -3,39 +3,69 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="litigationExternalLawyer.ExternalLawyer">
+      <class name="litigationCompanyAdmin.CompanyAdmin">
         <methods>
-          <include name="CaseOrderwithClearBtn"/>
-          <include name="CriticalDocuments1"/>
-          <include name="CaseHearingTab"/>
-          <include name="StatusPaymentWithoutdata"/>
+          <include name="LawyerWithoutData"/>
+          <include name="customParameterWithoutData"/>
+          <include name="CaseNoticeTypeInvaliData"/>
+          <include name="UserCloseButton"/>
+          <include name="OpponentCloseButton"/>
+          <include name="LawyerInvalidData"/>
+          <include name="CaseStageInvalidData"/>
+          <include name="MastersLawFirm3"/>
+          <include name="PaymentTypeWithouData"/>
+          <include name="MastersLawFirm1"/>
+          <include name="MastersLawFirm2"/>
+          <include name="PaymentTypeCloseButton"/>
+          <include name="DocumentTypeCloseButton"/>
+          <include name="CourtInvalidData"/>
+          <include name="CourtTwomanadatoryFields"/>
+          <include name="CaseNoticeTypeWithoutData"/>
+          <include name="UserWithoutData"/>
+          <include name="MastersLawFirm"/>
+          <include name="DocumentTypeWithoutData"/>
+          <include name="RatingCriteriaCloseButton"/>
+          <include name="MastersLegalEntity2"/>
+          <include name="MastersLegalEntity3"/>
+          <include name="MastersLegalEntity1"/>
+          <include name="UserTwoManadatoryFields"/>
+          <include name="DocumentTypeInvalidData"/>
+          <include name="CaseStageCloseButton"/>
           <include name="setBrowser"/>
-          <include name="AdvancedSearchDoc"/>
-          <include name="CaseAdvocateBill1"/>
-          <include name="CriticalDocuments"/>
-          <include name="CaseAdvocateBill"/>
-          <include name="ImportUtilityInvalidData"/>
-          <include name="AdvancedSearchworkspace"/>
-          <include name="AdvancedSearchShareTaskDocument"/>
-          <include name="StatusPayment"/>
-          <include name="ImportUtilityWithoutData"/>
-          <include name="AdvancedSearch"/>
-          <include name="Close"/>
-          <include name="CaseAdvocateBillTab"/>
-          <include name="ImportUtilityTwoManadtoryFileds"/>
-          <include name="ReminderWithoutData"/>
-          <include name="AdvancedSearchShareNoticeDocument"/>
-          <include name="MyReports"/>
+          <include name="CourtCloseButton"/>
+          <include name="LawyerCloseButton"/>
+          <include name="Masters14"/>
+          <include name="UnitEntity"/>
+          <include name="Masters15"/>
+          <include name="Masters12"/>
+          <include name="Masters13"/>
+          <include name="Masters10"/>
+          <include name="Masters11"/>
+          <include name="OpponentInvalidData"/>
+          <include name="PaymentTypeInvalidData"/>
+          <include name="UserInvalidData"/>
+          <include name="OpponentWithoutData"/>
+          <include name="CaseNoticeTypeCloseBuuton"/>
+          <include name="CourtWithoutData"/>
+          <include name="MastersLegalEntity"/>
+          <include name="CaseStageWithoutData"/>
+          <include name="RatingCriteriaWithoutData"/>
+          <include name="Masters4"/>
+          <include name="RatingCriteriaInvalidData"/>
+          <include name="Masters1"/>
+          <include name="Masters2"/>
+          <include name="Masters"/>
+          <include name="Masters8"/>
+          <include name="Masters5"/>
+          <include name="Masters6"/>
+          <include name="Masters3"/>
+          <include name="LawyerTwoManadatoryFileds"/>
+          <include name="Masters9"/>
+          <include name="Masters7"/>
+          <include name="customParameterCloseButton"/>
           <include name="Login"/>
-          <include name="CaseStatuswithEmptyFields"/>
-          <include name="MoreReports"/>
-          <include name="StatusPaymentWithExistingData"/>
-          <include name="Auditlog"/>
-          <include name="ImportUtility"/>
-          <include name="MyDocument"/>
-          <include name="MyReminder"/>
         </methods>
-      </class> <!-- litigationExternalLawyer.ExternalLawyer -->
+      </class> <!-- litigationCompanyAdmin.CompanyAdmin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -58,13 +58,6 @@ public class CFO {
 			test = extent.startTest("Litigation Logging In - CFO");
 			
 			
-//			XSSFSheet sheet = ReadExcel();
-//			Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
-//			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-//			String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
-//			
-//			login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
-			
 			test.log(LogStatus.PASS, "Test Passed.");
 			extent.endTest(test);
 			extent.flush();
@@ -76,11 +69,6 @@ public class CFO {
 		void Login() throws InterruptedException, IOException
 		{
 		
-			//test = extent.startTest("Litigation Logging In - CFO");
-			//test.log(LogStatus.INFO, "Logging into system");
-			
-			
-
 			XSSFSheet sheet = ReadExcel();
 			Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
 			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
@@ -88,8 +76,6 @@ public class CFO {
 			
 			login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
 			
-			
-	
 			
 			Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
 			Cell c2 = row1.getCell(1);						//Selected cell (1 row,1 column)
@@ -142,16 +128,19 @@ public class CFO {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	     	js.executeScript("window.scrollBy(0,800)");
 	     	
-	     	Thread.sleep(5000);
+	     	Thread.sleep(3000);
 			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 			
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 			performerPOM.clickDashboardNoticeFilter(driver).click();
           
            	
-			 Thread.sleep(5000);
+			 Thread.sleep(3000);
 			 performerPOM.clickDashboardApplyBtn(driver).click();
-			
+			 
+			 js.executeScript("window.scrollBy(0,100)");
+			 
+			 Thread.sleep(4000);
 	    	int	OutwardPlaintiff = Integer.parseInt(performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).getText());	//Reading Notice Open count.
 	    	int	InwardDefendent = Integer.parseInt(performerPOM.CaseNoticeTypeInwardDefendent(driver).getText());	//Reading Notice Open count.
 	    	int	Complinant = Integer.parseInt(performerPOM.CaseNoticeTypeComplinant(driver).getText());	//Reading Notice Open count.
@@ -181,6 +170,18 @@ public class CFO {
 			extent.flush();
 		}
 //@Test(priority = 3)
+		void CaseNoticeTypeFilter() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Case Notice type summary graph Filter Verification");
+			
+			
+			Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeFilter(driver, test,"CaseNoticeTypeSummaryGraph");
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+//@Test(priority = 4)
 			void CaseNoticeStageGraph() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Select Notice filter = Notice appeal stage = Case Notice Stage Graph Count Verification");
@@ -192,7 +193,19 @@ public class CFO {
 				extent.endTest(test);
 				extent.flush();
 			}
-	//@Test(priority =4)
+@Test(priority = 5)
+			void CaseNoticeStageFilter() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Case Notice stage summary graph Filter Verification");
+				
+				
+				Thread.sleep(3000);
+				CFOMethod.CaseNoticeTypeFilter(driver, test,"CaseNoticeStageHearingGraph");
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+//	@Test(priority =4)
 		void RiskSummaryGraph() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Select Notice Filter = Risk Graph Count Verification");
@@ -235,7 +248,19 @@ public class CFO {
 			extent.endTest(test);
 			extent.flush();
 		}
-//@Test(priority = 5)
+//@Test(priority = 6)
+		void RiskSummaryFilter() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Risk summary graph Filter Verification");
+			
+			
+			Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeFilter(driver, test,"RiskSummaryHigh");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+///@Test(priority = 5)
         void DepartmentSummaryGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Select Notice Filter =IT Department= Department Graph Count Verification");
@@ -246,6 +271,18 @@ public class CFO {
 	       extent.endTest(test);
 	       extent.flush();
         }
+ //@Test(priority = 7)
+		void DeptSummaryFilter() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Department summary graph Filter Verification");
+			
+			
+			Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeFilter(driver, test,"DepartmentSummaryGraph");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
 //@Test(priority = 6)
         void LocationSummaryGraph() throws InterruptedException, IOException
         {
@@ -257,8 +294,20 @@ public class CFO {
 	       extent.endTest(test);
 	       extent.flush();
         }
+//@Test(priority =8)
+		void LocationSummaryFilter() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Location summary graph Filter Verification");
+			
+			
+			Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeFilter(driver, test,"LocationSummaryGraph");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
        
-//@Test(priority = 2)
+//@Test(priority = 7)
         void CategorySummaryGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Select Notice Filter = Judicial Notice Category -Category Graph Count Verification");
@@ -270,7 +319,20 @@ public class CFO {
 	       extent.flush();
         }
         
-   //@Test(priority = 8)
+ //@Test(priority =9)
+		void CategorySummaryFilter() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Category summary graph Filter Verification");
+			
+			
+			Thread.sleep(3000);
+			CFOMethod.CaseNoticeTypeFilter(driver, test,"CategorySummaryGraph");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+        
+  // @Test(priority = 8)
         void ExpensesNoticeGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Select Notice Filter = Expenses Notice Graph  Count Verification");
@@ -281,7 +343,7 @@ public class CFO {
 	       extent.endTest(test);
 	       extent.flush();
         }
-   // @Test(priority =9)
+ //   @Test(priority =9)
         void ExpensesCategoryWiseNoticeGraph() throws InterruptedException, IOException
         {
 	       test = extent.startTest("Select Notice Filter =Civil Category - Expenses Category Wise  Graph  Count Verification");
@@ -299,15 +361,27 @@ public class CFO {
     {
          test = extent.startTest("Select Notice Filter =Less than a year = Inward/Defendant Type = Ageing Graph Count Verification");
          
-         
-         
-  
+
           Thread.sleep(3000);
           CFOMethod.InwardDefendantAgeingGraph(driver, test,"cfo -");
 
           extent.endTest(test);
           extent.flush();
     }
+    
+  //  @Test(priority =11)
+	void LessThanYearAgeingGraphFilter() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Less Than Year Ageing graph Filter Verification");
+		
+		
+		Thread.sleep(3000);
+		CFOMethod.CaseNoticeTypeFilter(driver, test,"LessThanYearGraph");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+    
 //@Test(priority = 11)
     void ComplainantAgeingGraph() throws InterruptedException, IOException
     {
@@ -319,7 +393,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
- //@Test(priority = 12)
+//@Test(priority = 12)
     void ApplicantAgeingGraph() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Notice Filter = Less than a year = Applicant Type = Ageing Graph Count Verification");
@@ -330,7 +404,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
-  //@Test(priority = 13)
+ //@Test(priority = 13)
     void OutwardPlaintiffAgeingGraph() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Notice Filter = Less than a year = Outward/Plaintiff Type= Ageing Graph Count Verification");
@@ -363,7 +437,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
-// @Test(priority =16)
+ //@Test(priority =16)
     void ComplainantAgeingGraph1to2years() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Notice Filter = 1 to 2 Years = Complainant Type = Ageing Graph Count Verification");
@@ -385,7 +459,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
-//@Test(priority = 18)
+//    @Test(priority = 18)
     void OutwardPlaintiffAgeingGraph1to2years() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Notice Filter = 1 to 2 Years =Outward/Plaintiff Type = Ageing Graph Count Verification");
@@ -396,7 +470,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
- // @Test(priority =19)
+// @Test(priority =19)
     void RespondentAgeingGraph1to2yearsAgeingGraph1to2years() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Notice Filter = 1 to 2 Years =Respondent Type = Ageing Graph Count Verification");
@@ -407,6 +481,18 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
+// @Test(priority =11)
+	void OneToTwoYearAgeingGraphFilter() throws InterruptedException, IOException
+	{
+		test = extent.startTest("1 to 2  Year Ageing graph Filter Verification");
+		
+		
+		Thread.sleep(3000);
+		CFOMethod.CaseNoticeTypeFilter(driver, test,"1To2YearAgeingGraph");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 //@Test(priority = 20)
     void InwardDefendentAgeingGraph2to3years() throws InterruptedException, IOException
     {
@@ -418,9 +504,22 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
+
+@Test(priority =11)
+	void TwoToThreeYearAgeingGraphFilter() throws InterruptedException, IOException
+	{
+		test = extent.startTest("2 to 3 Year Ageing graph Filter Verification");
+		
+		
+		Thread.sleep(3000);
+		CFOMethod.CaseNoticeTypeFilter(driver, test,"2to3YearAgeingGraph");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
   
  
- //@Test(priority =21)
+//@Test(priority =21)
 	void CaseNoticeTypeGraph1() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Select Case Filter  = Case Notice Type Graph Count Verification");
@@ -461,7 +560,7 @@ public class CFO {
 		extent.flush();
 	}
    
-  // @Test(priority = 22)
+//@Test(priority = 22)
    void CaseNoticeStageGraph1() throws InterruptedException, IOException
     {
  	test = extent.startTest("Select Case Filter = The appearance of the Parties to the Dispute Stage -Case Notice Stage Graph Count Verification");
@@ -474,7 +573,7 @@ public class CFO {
  	extent.flush();
    }
     
- //@Test(priority = 23)
+@Test(priority = 23)
 	void RiskSummaryGraph1() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Select Case Filter = Risk Graph Count Verification");
@@ -516,7 +615,7 @@ public class CFO {
 		extent.flush();
 	}
     
-//@Test(priority = 24)
+@Test(priority = 24)
     void DepartmentSummaryGraph1() throws InterruptedException, IOException
     {
        test = extent.startTest("Select Case Filter = GST Department -Department Graph Count Verification");
@@ -528,7 +627,7 @@ public class CFO {
        extent.flush();
     }
     
-//@Test(priority = 25)
+@Test(priority = 25)
     void LocationSummaryGraph1() throws InterruptedException, IOException
     {
        test = extent.startTest("Select Case Filter = A-Bita Manufacturing Company Location -Location Graph Count Verification");
@@ -541,7 +640,7 @@ public class CFO {
     }
     
     
-// @Test(priority = 26)
+ @Test(priority = 26)
     void CategorySummaryGraph1() throws InterruptedException, IOException
     {
        test = extent.startTest("Select Case Filter = Jusdicial Notice Category -Category Graph Count Verification");
@@ -552,7 +651,7 @@ public class CFO {
        extent.endTest(test);
        extent.flush();
     }
-//  @Test(priority =2)
+ // @Test(priority =27)
     void ExpensesCaseGraph() throws InterruptedException, IOException
     {
        test = extent.startTest("Select Case Filter = Expenses Graph Count Verification");
@@ -563,7 +662,7 @@ public class CFO {
        extent.endTest(test);
        extent.flush();
     }
-// @Test(priority =4)
+ //@Test(priority =28)
     void ExpensesCategoryWiseCaseGraph() throws InterruptedException, IOException
     {
        test = extent.startTest("Select Case Filter = Tax Laws Category -Expenses Category Wise Graph Count Verification");
@@ -575,7 +674,7 @@ public class CFO {
        extent.flush();
     }
     
-//@Test(priority = 29)
+@Test(priority = 29)
     void InwardDefendantAgeingGraphCase() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Case Filter =Less than a year = Inward/Defendant = Ageing Graph Count Verification");
@@ -586,7 +685,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
- //@Test(priority =30)
+ @Test(priority =30)
     void OutwardPlaintiffAgeingGraphCase() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Case Filter = Less than a year = Outward/Plaintiff = Ageing Graph Count Verification");
@@ -597,7 +696,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
- //@Test(priority =31)
+@Test(priority =31)
    void PetitionerAgeingGraphCase() throws InterruptedException, IOException
     {
       test = extent.startTest("Select Case Filter = Less than a year = Petitioner = Ageing Graph Count Verification");
@@ -2587,11 +2686,11 @@ public class CFO {
 			
 				
 				
-//		      @Test(priority = 63)
+		//  @Test(priority = 1)
 				void WorkspaceFilter() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Workspace-All Filters verification");
-					test.log(LogStatus.INFO, "Test Initiated");
+					test = extent.startTest("Workspace  Filters verification");
+					
 					
 					CFOMethod.WorkspaceFilter(driver, test);
 					
@@ -2599,11 +2698,11 @@ public class CFO {
 					extent.flush();
 				}
 			
-//				@Test(priority = 64)
+    // @Test(priority = 2)
 				void DocumentFilter() throws InterruptedException, IOException
 				{
-					test = extent.startTest("My Document- All Filters verification");
-					test.log(LogStatus.INFO, "Test Initiated");
+					test = extent.startTest("My Document  Filters verification");
+				
 					
 					CFOMethod.DocumentFilter(driver, test, "cfo");
 					
@@ -2611,11 +2710,11 @@ public class CFO {
 					extent.flush();
 				}
 				
-//			 @Test(priority = 65)
+			 @Test(priority = 1)
 					void ReportFilter() throws InterruptedException, IOException
 					{
-						test = extent.startTest("My Report - All Filters verification");
-						test.log(LogStatus.INFO, "Test Initiated");
+						test = extent.startTest("My Report -  Filters verification");
+						
 						
 						CFOMethod.ReportFilter(driver, test);
 						
@@ -2626,7 +2725,7 @@ public class CFO {
 		 
 		
 
-					 @AfterMethod
+					// @AfterMethod
 					 
 					 void Close()
 					 {

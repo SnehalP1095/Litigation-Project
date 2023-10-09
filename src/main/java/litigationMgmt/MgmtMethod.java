@@ -103,7 +103,7 @@ private static List<WebElement> elementsList = null;
 		 performerPOM. clickInvoiceAmount(driver).sendKeys("30000");
 		 Thread.sleep(4000);
 		 performerPOM.clickLawFirm1(driver).click();
-		 performerPOM.selectLawFirm2(driver).get(2).click();
+		// performerPOM.selectLawFirm2(driver).get(2).click();
 		 Thread.sleep(5000);
 		 performerPOM.clickApprover1(driver).click();
 	      Thread.sleep(5000);

@@ -1019,7 +1019,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-		@Test(priority = 1)
+		//@Test(priority = 1)
 			void MyDocument() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Advanced search -Download and View Document");
@@ -1030,7 +1030,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-		@Test(priority = 2)
+		//@Test(priority = 2)
 			void AdvancedSearchDoc() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Download and View Document");
@@ -1041,7 +1041,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-	@Test(priority = 3)
+	//@Test(priority = 3)
 		void AdvancedSearchShareCaseDocument() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Document-Advance search-Share Case Document Verification");
@@ -1052,7 +1052,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-	@Test(priority =85)
+	//@Test(priority =85)
 				void AdvancedSearchShareNoticeDocument() throws InterruptedException, IOException
 				{
 					test = extent.startTest("My Document-Advance search-Share Notice Document Verification");
@@ -1063,7 +1063,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 					extent.endTest(test);
 					extent.flush();
 				}
-		@Test(priority =86)
+	//	@Test(priority =86)
 				void AdvancedSearchShareTaskDocument() throws InterruptedException, IOException
 				{
 					test = extent.startTest("My Document-Advance search-Share Task Document Verification");
