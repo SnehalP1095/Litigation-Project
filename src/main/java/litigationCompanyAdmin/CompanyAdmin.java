@@ -201,7 +201,7 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
- @Test(priority = 	1)
+// @Test(priority = 	1)
 	void CaseNoticeStageGraphFilter() throws InterruptedException, IOException
 	{
 		
@@ -3199,6 +3199,61 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
+//@Test(priority = 1)
+	void AnnualBudget() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Masters - Annual Budget verification");
+		
+		
+		MethodsPOM.AnnualBudget(driver, test, workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+//@Test(priority = 2)
+void ExistingAnnualBudget() throws InterruptedException, IOException
+{
+	test = extent.startTest("Masters - Existing Annual Budget verification");
+	
+	
+	MethodsPOM.AnnualBudget(driver, test, workbook);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+//@Test(priority = 2)
+void UpdateAnnualBudget() throws InterruptedException, IOException
+{
+	test = extent.startTest("Masters - Update Annual Budget verification");
+	
+	
+	MethodsPOM.UpdateAnnualBudget(driver, test);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+//@Test(priority = 2)
+void DeleteAnnualBudget() throws InterruptedException, IOException
+{
+	test = extent.startTest("Masters - Delete Annual Budget verification");
+	
+	
+	MethodsPOM.DeleteAnnualBudget(driver, test);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+@Test(priority = 3)
+void SearchFilterAnnualBudget() throws InterruptedException, IOException
+{
+	test = extent.startTest("Masters - Search Filter - Annual Budget verification");
+	
+	
+	MethodsPOM.SearchFilterAnnualBudget(driver, test,"2022-2023");
+	
+	extent.endTest(test);
+	extent.flush();
+}
 	@Test(priority =296)
 	void Masters12() throws InterruptedException, IOException
 	{
@@ -3328,7 +3383,7 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-//@Test(priority = 1)
+@Test(priority = 300)
 		void WorkspaceFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Workspace - Multiple Filters verification");
@@ -3339,7 +3394,7 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-// @Test(priority = 2)
+ @Test(priority = 301)
 		void DocumentFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Document Tab - Multiple Filters verification");
@@ -3350,7 +3405,7 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-// @Test(priority = 3)
+ @Test(priority = 302)
 		void ReportFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - Multiple Filters verification");
@@ -3361,7 +3416,7 @@ void PaymentTypeCloseButton() throws InterruptedException, IOException
 			extent.flush();
 		}
 	
-	//@AfterMethod
+	@AfterMethod
 	 
 	 void Close()
 	 {

@@ -27,6 +27,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.Select;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+
+
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -7893,14 +7896,233 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			OverduePOM.clickDashboard(driver).click();
 	  
 	  }
+	  
+	  public static void AnnualBudget(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+	  {
+		 
+		  sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
+		  Thread.sleep(3000);
+		  performerPOM.clickMasters(driver).click();
+		  
+		  Thread.sleep(3000);
+		  performerPOM.UserReassignmentcfoMasters(driver).click();     //Click Annual Budget Master
+		  
+		  Thread.sleep(3000);
+		  performerPOM.AddAnnualBudgetMaster(driver).click();
+		  
+		 Thread.sleep(3000);
+//		  Row row=sheet.getRow(61);
+//		  Cell c=row.getCell(1);
+//		  String FY=c.getStringCellValue();
+		  performerPOM.EnterFY(driver).sendKeys("2021-2022");
+		  
+		  Thread.sleep(3000);
+		  Row row0 = sheet.getRow(61);					//Selected 0th index row (First row)
+		  Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+		  int AnnualBudget = (int) c1.getNumericCellValue();
+		  performerPOM.EnterAnnualBudget(driver).sendKeys(AnnualBudget+"");	//Writing 'Annual budget
+		  
+		  Thread.sleep(3000);
+		  performerPOM.ClickUpdateBtn(driver).click();
+		  
+		  Thread.sleep(1000);
+		   // Switching to Alert        
+	        Alert alert = driver.switchTo().alert();		
+	        		
+	        // Capturing alert message.    
+	        String alertMessage= driver.switchTo().alert().getText();
+	        
+	        Thread.sleep(3000);
+	        test.log(LogStatus.PASS, alertMessage);
+	        		
+	        // Displaying alert message		
+	        System.out.println(alertMessage);	
+	        
+	        		
+	        // Accepting alert		
+	        alert.accept();		
+	 }
+	  
+	  public static void UpdateAnnualBudget(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+	  {
+		 
+		
+		  Thread.sleep(3000);
+		  performerPOM.clickMasters(driver).click();
+		  
+		  Thread.sleep(3000);
+		  performerPOM.UserReassignmentcfoMasters(driver).click();     //Click Annual Budget Master
+		 
+		  Thread.sleep(3000);
+		  performerPOM.ClickEditIcon(driver).click();
+		  
+		  Thread.sleep(3000);
+		  performerPOM.EnterFY(driver).clear();
+		  
+		 Thread.sleep(3000);
+		  performerPOM.EnterFY(driver).sendKeys("2022-2023");
+		  
+		  Thread.sleep(3000);
+		  performerPOM.ClickUpdateBtn(driver).click();
+		  
+		  Thread.sleep(1000);
+		   // Switching to Alert        
+	        Alert alert = driver.switchTo().alert();		
+	        		
+	        // Capturing alert message.    
+	        String alertMessage= driver.switchTo().alert().getText();
+	        
+	        Thread.sleep(3000);
+	        test.log(LogStatus.PASS, alertMessage);
+	        		
+	        // Displaying alert message		
+	        System.out.println(alertMessage);	
+	        
+	        		
+	        // Accepting alert		
+	        alert.accept();		
+	  }
+	  
+	  public static void DeleteAnnualBudget(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+	  {
+		 
+
+		  Thread.sleep(3000);
+		  performerPOM.clickMasters(driver).click();
+		  
+		  Thread.sleep(3000);
+		  performerPOM.UserReassignmentcfoMasters(driver).click();     //Click Annual Budget Master
+		  Thread.sleep(3000);
+		  performerPOM.ClickDeleteIcon(driver).click();
+		  
+		  Thread.sleep(1000);
+		   // Switching to Alert        
+	        Alert alert = driver.switchTo().alert();		
+	        		
+	        // Capturing alert message.    
+	        String alertMessage= driver.switchTo().alert().getText();
+	        
+	        Thread.sleep(3000);
+	        test.log(LogStatus.PASS, alertMessage);
+	        		
+	        // Displaying alert message		
+	        System.out.println(alertMessage);	
+	        
+	        		
+	        // Accepting alert		
+	        alert.accept();		
+		}
+	  
+	  public static void SearchFilterAnnualBudget(WebDriver driver, ExtentTest test,String type) throws InterruptedException, IOException
+	  {
+		 
+
+		  Thread.sleep(3000);
+		  performerPOM.clickMasters(driver).click();
+		  
+		  Thread.sleep(3000);
+		  performerPOM.UserReassignmentcfoMasters(driver).click();     //Click Annual Budget Master
+		  
+		  
+		   Thread.sleep(3000);
+		   performerPOM.ClicksearchFilter(driver).sendKeys(type,Keys.ENTER);
+		  
+	     
+	        List<String> li=new ArrayList<String>();
+	        
+	       
+	        li.add(type);
+	       
+	        
+			List<String> filter=new ArrayList<String>();	
+			
+			filter.add("Financial year");	
+			
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,150)");	
+			Thread.sleep(3000);
+
+			CFOcountPOM.readTotalItems1(driver).click();
+			String item = CFOcountPOM.readTotalItems1(driver).getText();
+			Thread.sleep(2000);
+
+			if(!item.equalsIgnoreCase("No items to display")) {
+			Thread.sleep(5000);
+	
+			List<WebElement> FYCol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[1]"));
+			Thread.sleep(2000);
+
+			for(int i=0; i<li.size(); i++){
+				
+				List<String> text= new ArrayList<String>();
+				HashSet<String> pass=new LinkedHashSet<>();
+				HashSet<String> fail=new LinkedHashSet<>();
+				List<WebElement> raw=new ArrayList<WebElement>();
+
+
+			 if(i==0)
+					{
+						raw.addAll(FYCol);
+					}
+				
+					
+					
+				for(int k=0;k<raw.size();k++)
+					{
+						text.add(raw.get(k).getText());
+					}
+
+				for(int l=0;l<text.size();l++)
+				 {
+						
+					if(text.get(l).equals(li.get(i)))
+						{
+							pass.add(text.get(l));	
+							System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+						}
+					else
+					   {
+							fail.add(text.get(l));		
+							System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+							System.out.println(i);
+
+					   }
+				  }
+						
+				             
+			 
+		for(String Fal : fail)
+			 {
+					test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+			 }	
+			 for(String Pas : pass)
+			 {
+				 	test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+					test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+					System.out.println(filter.get(i)+" : "+Pas);
+			 }
+			 text.clear();
+			pass.clear();
+			fail.clear();
+			raw.clear();
+			
+			
+			}
+			}else {
+				test.log(LogStatus.PASS,"No records found");	
+			}
+			
+		  
+	  }
+		  
 	  public static void NoticeStage(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	  {
 		  sheet = workbook.getSheetAt(4);					//Retrieving second sheet of Workbook
 
 		  Thread.sleep(4000);
 		  performerPOM.clickMasters(driver).click();
-//		  Thread.sleep(3000);
-//		  performerPOM.clickMastersMenu(driver).click();
+
 		  
 		  Thread.sleep(3000);
 		  performerPOM.noticeStageMasters(driver).click();
@@ -13565,7 +13787,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				}
 				
 		
-		        Thread.sleep(2000);
+		    				Thread.sleep(2000);
 		   					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
 		   					
 		   					JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -13594,21 +13816,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		   			       Thread.sleep(500);
 		   			       performerPOM. selectDepartmentFilterCA(driver).click();
 		   			     
-		   			    /*   Thread.sleep(500);
-		   			       performerPOM.clickRiskFilter(driver).click();
-		   			       Thread.sleep(500);
-		   			       String RiskText = performerPOM.selectRiskFilterCA(driver).getText();
-		   			       Thread.sleep(500);
-		   			       performerPOM. selectRiskFilterCA(driver).click();*/
-		   			      
-//		   			       Thread.sleep(500);
-//		   			       performerPOM.clickAgeFilter(driver).click();
-//		   			       Thread.sleep(500);
-//		   			       String AgeText = performerPOM.selectAgeFilter(driver).getText();
-//		   			       Thread.sleep(500);
-//		   			       performerPOM. selectAgeFilter(driver).click();
-//		   			       Thread.sleep(500);
-//		   			       performerPOM.clickAgeFilter(driver).click();
+		   	
 		   			       
 		   			       Thread.sleep(500);
 		   			       performerPOM. clickCategoryFilter(driver).click();
@@ -13992,7 +14200,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 	  		else if(type.equalsIgnoreCase("Outward/Plaintiff"))
 	  		{
 	  			Thread.sleep(3000);
-	  	        performerPOM.ExpensesCategoryWiseNoticeGraph(driver).click();						//Clicking on 'Open' notice
+	  	        performerPOM.ExpensesCategoryWiseCaseGraph(driver).click();						//Clicking on 'Open' notice
 	  		}
 	  		else if(type.equalsIgnoreCase("Petitioner"))
 	  		{

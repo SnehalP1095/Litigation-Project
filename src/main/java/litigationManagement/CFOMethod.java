@@ -135,17 +135,7 @@ public class CFOMethod {
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	       	js.executeScript("window.scrollBy(0,800)");
-	       	
-	       	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-			
-			 Thread.sleep(5000);
-				performerPOM.clickDashboardApplyBtn(driver).click();
-				
-				js.executeScript("window.scrollBy(0,900)");
+	       
 			
 	       	Thread.sleep(2000);
 		
@@ -362,21 +352,8 @@ public class CFOMethod {
 		public static void CaseNoticeStageGraph1(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
-			
-			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	       	js.executeScript("window.scrollBy(0,800)");
-	       	
-	       	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickDashboardCaseFilter(driver).click();
-			
-			 Thread.sleep(3000);
-			performerPOM.clickDashboardApplyBtn(driver).click();
-			
-		 	js.executeScript("window.scrollBy(0,500)");
+			WebDriverWait wait=new WebDriverWait(driver,20);
 			
 	       	Thread.sleep(2000);
 		
@@ -560,7 +537,7 @@ public class CFOMethod {
 
 			
 	       	
-     
+			Thread.sleep(2000);
 			if(type.equalsIgnoreCase("Outward/Plaintiff Type"))
 			{
 	         	Thread.sleep(2000);
@@ -809,25 +786,25 @@ public class CFOMethod {
 	     
 	       	
 	       	
-	       	if(type.equalsIgnoreCase("Outward/Plaintiff Type"))
+	       	if(type.equalsIgnoreCase("Inward/Defendent Type"))
 			{
 	         	Thread.sleep(2000);
-		        performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).click();						//Clicking on 'Open' notice
+		        performerPOM.CaseNoticeTypeInwardDefendent(driver).click();						//Clicking on 'Open' notice
 			}
-			else if(type.equalsIgnoreCase("Inward/Defendent Type"))
+			else if(type.equalsIgnoreCase("Outward/Plaintiff Type"))
 			{
 				Thread.sleep(3000);
-		        performerPOM.CaseNoticeTypeInwardDefendent(driver).click();						//Clicking on 'Open' notice
+		        performerPOM.CaseNoticeTypeApplicant(driver).click();						//Clicking on 'Open' notice
 			}
 			else if(type.equalsIgnoreCase("Respondent Type"))
 			{
 				Thread.sleep(2000);
-		        performerPOM.CaseNoticeTypeComplinant(driver).click();						//Clicking on 'Open' notice
+		        performerPOM.CaseNoticeTypeRespondent1(driver).click();						//Clicking on 'Open' notice
 			}
 			else if(type.equalsIgnoreCase("Petitioner Type"))
 			{
 				Thread.sleep(2000);
-		        performerPOM.CaseNoticeTypeRespondent(driver).click();						//Clicking on 'Open' notice
+		        performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).click();						//Clicking on 'Open' notice
 			}
 		
 	       
@@ -1014,7 +991,8 @@ public class CFOMethod {
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	       
-					   
+
+         	            Thread.sleep(2000);
 						if(type.equalsIgnoreCase("High Risk"))
 						{
 				         	Thread.sleep(2000);
@@ -1379,24 +1357,9 @@ public class CFOMethod {
 	   public static void DepartmentSummaryGraph(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
 		
 		{
-			
+		   JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebDriverWait wait=new WebDriverWait(driver,20);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-	       	js.executeScript("window.scrollBy(0,800)");
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-          
-           	
-			 Thread.sleep(5000);
-				performerPOM.clickDashboardApplyBtn(driver).click();
-				
-				   js.executeScript("window.scrollBy(0,800)");
-
-			
+	
 	       	Thread.sleep(2000);
 		
 	      	int	open = Integer.parseInt(performerPOM.DepartmentSummaryGraph1(driver).getText());	//Reading Notice Open count.
@@ -1447,64 +1410,7 @@ public class CFOMethod {
 			
 			test.log(LogStatus.PASS, "View popup open successfully.");
 			
-		/*	Thread.sleep(3000);
-			performerPOM.clickLocationFilter(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickLocationFilter1(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickLocationFilter3(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickCaseNotice(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.selectCaseNotice(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickStatusFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectstatusFiltercfo(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickDepartmentFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectDepartmentFilter2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickCaseNoticeType1(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectCaseNoticeType2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickRiskFilter(driver).click();
-			
 
-			Thread.sleep(4000);
-			performerPOM.selectRiskFilter2cfo(driver).click();
-			
-//			Thread.sleep(5000);
-//			performerPOM.clickAgeFilter(driver).click();
-//			
-//			Thread.sleep(7000);
-//			performerPOM.selectAgeFiltercfo(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickCategoryFilter(driver).click();
-			
-			
-			Thread.sleep(4000);
-			performerPOM.selectCategoryFilter2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickStageFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectStageFilter2(driver).click(); */
 			
 			
 			Thread.sleep(500);
@@ -1615,19 +1521,7 @@ public class CFOMethod {
 				
 				WebDriverWait wait=new WebDriverWait(driver,20);
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				
-				js.executeScript("window.scrollBy(0,800)");
-					Thread.sleep(5000);
-					performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-					
-					Thread.sleep(6000);
-					performerPOM.clickDashboardCaseFilter(driver).click();
-		          
-		           	
-					 Thread.sleep(3000);
-						performerPOM.clickDashboardApplyBtn(driver).click();
-		       js.executeScript("window.scrollBy(0,800)");
-		       	
+			
 		    	
 		       	Thread.sleep(2000);
 			
@@ -1866,26 +1760,10 @@ public class CFOMethod {
 		
 		{
 		
-			
+		   JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebDriverWait wait=new WebDriverWait(driver,20);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,800)");
 			
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-          
-           	
-		   Thread.sleep(5000);
-		   performerPOM.clickDashboardApplyBtn(driver).click();
-		   
-		   js.executeScript("window.scrollBy(0,1300)");
-	      	
-	    	
-			
+	      
 	      	Thread.sleep(3000);
 		
 	      	int	open = Integer.parseInt(performerPOM.LocationSummaryGraph(driver).getText());	//Reading Notice Open count.
@@ -1937,65 +1815,7 @@ public class CFOMethod {
 			
 			test.log(LogStatus.PASS, "View popup open successfully.");
 			
-		/*	Thread.sleep(3000);
-			performerPOM.clickLocationFilter(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickLocationFilter1(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickLocationFilter3(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickCaseNotice(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.selectCaseNotice(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickStatusFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectstatusFiltercfo(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickDepartmentFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectDepartmentFilter2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickCaseNoticeType1(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectCaseNoticeType2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickRiskFilter(driver).click();
-			
 
-			Thread.sleep(4000);
-			performerPOM.selectRiskFilter2cfo(driver).click();
-			
-//			Thread.sleep(5000);
-//			performerPOM.clickAgeFilter(driver).click();
-//			
-//			Thread.sleep(5000);
-//			performerPOM.selectAgeFiltercfo(driver).click();
-		
-			Thread.sleep(4000);
-			performerPOM.clickCategoryFilter(driver).click();
-			
-			
-			Thread.sleep(4000);
-			performerPOM.selectCategoryFilter2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickStageFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectStageFilter2(driver).click(); */
-			
 			Thread.sleep(500);
 			progress(driver);
 			
@@ -2100,23 +1920,9 @@ public class CFOMethod {
 		
 		{
 		
-			
+		   JavascriptExecutor js = (JavascriptExecutor) driver;
 			WebDriverWait wait=new WebDriverWait(driver,20);
-			JavascriptExecutor js = (JavascriptExecutor) driver; 
-			js.executeScript("window.scrollBy(0,800)");
-			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 			
-			Thread.sleep(6000);
-			performerPOM.clickDashboardCaseFilter(driver).click();
-          
-           	
-			 Thread.sleep(3000);
-			performerPOM.clickDashboardApplyBtn(driver).click();
-			
-			
-			js.executeScript("window.scrollBy(0,1300)");
-	      	
 	    	
 			
 	      	Thread.sleep(3000);
@@ -2170,65 +1976,7 @@ public class CFOMethod {
 			
 			test.log(LogStatus.PASS, "View popup open successfully.");
 			
-		/*	Thread.sleep(3000);
-			performerPOM.clickLocationFilter(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickLocationFilter1(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickLocationFilter3(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickCaseNotice(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.selectCaseNotice(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickStatusFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectstatusFiltercfo(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickDepartmentFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectDepartmentFilter2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickCaseNoticeType1(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectCaseNoticeType2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickRiskFilter(driver).click();
-			
-
-			Thread.sleep(4000);
-			performerPOM.selectRiskFilter2cfo(driver).click();
-			
-//			Thread.sleep(5000);
-//			performerPOM.clickAgeFilter(driver).click();
-//			
-//			Thread.sleep(5000);
-//			performerPOM.selectAgeFiltercfo(driver).click();
-		
-			Thread.sleep(4000);
-			performerPOM.clickCategoryFilter(driver).click();
-			
-			
-			Thread.sleep(4000);
-			performerPOM.selectCategoryFilter2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickStageFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectStageFilter2(driver).click(); */
-			
+					
 			Thread.sleep(500);
 			progress(driver);
 			
@@ -2596,327 +2344,7 @@ public class CFOMethod {
 			Thread.sleep(3000);
 			OverduePOM.clickDashboard(driver).click();
 		}
-	   
-		public static void ExpensesNoticeGraph(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
-		{
-			
-
-			WebDriverWait wait=new WebDriverWait(driver,20);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-	     	js.executeScript("window.scrollBy(0,800)");
-	     	
-	     	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-          
-           	
-			 Thread.sleep(5000);
-			 performerPOM.clickDashboardApplyBtn(driver).click();
-			
-	       	
-				js.executeScript("window.scrollBy(0,2000)");
-			
-	       	Thread.sleep(2000);
-		
-	        Integer.parseInt(performerPOM.ExpensesNoticeGraph(driver).getText());	//Reading Notice Open count.
-		    performerPOM.ExpensesNoticeGraph(driver).click();						//Clicking on 'Open' notice
-		    
-		    
-		    Thread.sleep(2000);
-			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
-			
-			Thread.sleep(1000);
-			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
-			Thread.sleep(2000);
-			
-			js.executeScript("window.scrollBy(0,1000)");
-			
-			
-			
-			Thread.sleep(10000);
-			CFOcountPOM.readTotalItems1(driver).click();
-			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
-			String[] bits1 = item1.split(" ");								//Splitting the String
-			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
-			int count2 = Integer.parseInt(compliancesCount1);
-			
-		    try
-			{
-				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
-			}
-			catch(Exception e)
-			{
-				
-			}
-			js.executeScript("window.scrollBy(0,1000)");
-			
-		
-			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
-			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
-			
-			Thread.sleep(500);
-			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
-			Thread.sleep(250);
-			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
-		
-			
-			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
-			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
-			
-			if(dirContents.length < allFilesNew.length)
-			{
-				
-				test.log(LogStatus.PASS, "File  downloaded successfully.");
-				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
-			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
-			    {
-			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
-			       {
-			           lastModifiedFile = allFilesNew[i];
-			       }
-			    }
-				
-				Thread.sleep(100);
-				fis = new FileInputStream(lastModifiedFile);
-				workbook = new XSSFWorkbook(fis);
-				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
-				
-				int no = sheet.getLastRowNum();
-				Row row = sheet.getRow(no);
-				Cell c1 = row.getCell(0);
-				int records =(int) c1.getNumericCellValue();
-				fis.close();
-				
-				if(count2 == records)
-				{
-					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
-				}
-				else
-				{
-					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
-					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
-				}
-			}
-			else
-			{
-				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
-			}
-	    
-			Thread.sleep(5000);
-			performerPOM.CaseNoticeTypeViewGraph(driver).click();
-			
-			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
-			Thread.sleep(2000);
-  		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
-  		  
-  		  if(msg.equalsIgnoreCase("Notice Summary"))
-  		  {
-  			  test.log(LogStatus.PASS, "View Icon Of Expenses Graph Open Successfully = " +msg);
-  		  }
-  		  else
-  		  {
-  			 test.log(LogStatus.FAIL, "View Icon Of Expenses Graph Not Open Successfully = " +msg);
-  		  }
-  		  
-  		  driver.switchTo().parentFrame();
-  				
-			Thread.sleep(5000);
-			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
-		
-			Thread.sleep(500);
-			progress(driver);
-			
-			Thread.sleep(1000);
-			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
-			Thread.sleep(2000);
-			
-			js.executeScript("window.scrollBy(0,1000)");
-			
-			
-			
-		
-
-			Thread.sleep(7000);
-			performerPOM.clearButton(driver).click();
-			test.log(LogStatus.PASS, "Clear button work successfully.");
-			
-			
-			Thread.sleep(3000);
-			driver.switchTo().parentFrame();
-			Thread.sleep(2000);
-			performerPOM.caseNoticeSummaryGraphClose(driver).click();
-			
-			Thread.sleep(3000);
-			OverduePOM.clickDashboard(driver).click();
-			
-	   }	
-		
-		public static void ExpensesCategoryWiseNoticeGraph(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
-		{
-			
-
-			WebDriverWait wait=new WebDriverWait(driver,20);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-	     	js.executeScript("window.scrollBy(0,800)");
-	     	
-	     	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-          
-           	
-			 Thread.sleep(5000);
-			 performerPOM.clickDashboardApplyBtn(driver).click();
-			
-	       	
-				js.executeScript("window.scrollBy(0,2400)");
-			
-	       	Thread.sleep(2000);
-		
-	        int open=Integer.parseInt(performerPOM.ExpensesCategoryWiseNoticeGraph(driver).getText());	//Reading Notice Open count.
-		    performerPOM.ExpensesCategoryWiseNoticeGraph(driver).click();						//Clicking on 'Open' notice
-		    
-		    
-		    
-		    
-		    
-		    Thread.sleep(2000);
-			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
-		
-			Thread.sleep(1000);
-			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
-			Thread.sleep(2000);
-			
-			js.executeScript("window.scrollBy(0,1000)");
-			
-			
-			
-			Thread.sleep(10000);
-			CFOcountPOM.readTotalItems1(driver).click();
-			String item1 = CFOcountPOM.readTotalItems1(driver).getText();
-			String[] bits1 = item1.split(" ");								//Splitting the String
-			String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
-			int count2 = Integer.parseInt(compliancesCount1);
-			
-		    try
-			{
-				performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
-			}
-			catch(Exception e)
-			{
-				
-			}
-			js.executeScript("window.scrollBy(0,1000)");
-			
-		
-			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
-			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
-			
-			Thread.sleep(500);
-			CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
-			Thread.sleep(250);
-			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
-		
-			
-			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
-			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
-			
-			if(dirContents.length < allFilesNew.length)
-			{
-				
-				test.log(LogStatus.PASS, "File  downloaded successfully.");
-				File lastModifiedFile = allFilesNew[0];			//Storing any 0th index file in 'lastModifiedFile' file name.
-			    for (int i = 1; i < allFilesNew.length; i++) 	//For loop till the number of files in directory.
-			    {
-			       if (lastModifiedFile.lastModified() < allFilesNew[i].lastModified()) 	//If allFilesNew[i] file is having large/latest time time of update then latest modified file be allFilesNew[i] file.
-			       {
-			           lastModifiedFile = allFilesNew[i];
-			       }
-			    }
-				
-				Thread.sleep(100);
-				fis = new FileInputStream(lastModifiedFile);
-				workbook = new XSSFWorkbook(fis);
-				sheet = workbook.getSheetAt(0);					//Retrieving first sheet of Workbook
-				
-				int no = sheet.getLastRowNum();
-				Row row = sheet.getRow(no);
-				Cell c1 = row.getCell(0);
-				int records =(int) c1.getNumericCellValue();
-				fis.close();
-				
-				if(count2 == records)
-				{
-					//test.log(LogStatus.PASS, "No of records from grid matches to no of records in Excel Sheet.");
-					test.log(LogStatus.PASS, "Total records from Grid = "+count2+" | Total records from Report = "+records);
-				}
-				else
-				{
-					//test.log(LogStatus.FAIL, "No of records from grid doesn't matches to no of records in Excel Sheet.");
-					test.log(LogStatus.FAIL, "Total records from Grid = "+count2+" | Total records from Excel Sheet = "+records);
-				}
-			}
-			else
-			{
-				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
-			}
-	    
-			Thread.sleep(5000);
-			performerPOM.CaseNoticeTypeViewGraph(driver).click();
-			
-			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
-			Thread.sleep(2000);
-  		  String msg =performerPOM.clickAgeingViewNoticeSummary(driver).getText();
-  		  
-  		  if(msg.equalsIgnoreCase("Notice Summary"))
-  		  {
-  			  test.log(LogStatus.PASS, "View Icon Of Expenses-Category Wise Graph Open Successfully = " +msg);
-  		  }
-  		  else
-  		  {
-  			 test.log(LogStatus.FAIL, "View Icon Of Expenses-Category Wise Graph Not Open Successfully = " +msg);
-  		  }
-  		  
-  		  driver.switchTo().parentFrame();
-  				
-			Thread.sleep(5000);
-			performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
-		
-			Thread.sleep(500);
-			progress(driver);
-			
-			Thread.sleep(1000);
-			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
-			Thread.sleep(2000);
-			
-			js.executeScript("window.scrollBy(0,1000)");
-			
-		
-			Thread.sleep(7000);
-			performerPOM.clearButton(driver).click();
-			test.log(LogStatus.PASS, "Clear button work successfully.");
-			
-			
-			Thread.sleep(3000);
-			driver.switchTo().parentFrame();
-			Thread.sleep(2000);
-			performerPOM.caseNoticeSummaryGraphClose(driver).click();
-			
-			Thread.sleep(3000);
-			OverduePOM.clickDashboard(driver).click();
-			}
-			
-	   	
-		
-		
+	  
 	   
 	   
 	   public static void CategorySummaryGraph1(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
@@ -2925,18 +2353,7 @@ public class CFOMethod {
 	 			
 	 			WebDriverWait wait=new WebDriverWait(driver,20);
 	 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	 			  js.executeScript("window.scrollBy(0,800)");
-					Thread.sleep(5000);
-					performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-					
-					Thread.sleep(6000);
-					performerPOM.clickDashboardCaseFilter(driver).click();
-		          
-		           	
-					 Thread.sleep(3000);
-					performerPOM.clickDashboardApplyBtn(driver).click();
-	 			
-	 			js.executeScript("window.scrollBy(0,1600)");
+	 			 
 	 			Thread.sleep(2000);
 	 		
 	 	      	int	open = Integer.parseInt(performerPOM.CategorySummaryGraph(driver).getText());	//Reading Notice Open count.
@@ -3196,11 +2613,11 @@ public class CFOMethod {
 			 performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	       	
-				js.executeScript("window.scrollBy(0,2000)");
+				js.executeScript("window.scrollBy(0,2500)");
 			
 	       	Thread.sleep(2000);
 		
-	        Integer.parseInt(performerPOM.ExpensesCaseGraph(driver).getText());	//Reading Notice Open count.
+	        //Integer.parseInt(performerPOM.ExpensesCaseGraph(driver).getText());	//Reading Notice Open count.
 		    performerPOM.ExpensesCaseGraph(driver).click();						//Clicking on 'Open' notice
 		    
 		    
@@ -3336,12 +2753,94 @@ public class CFOMethod {
 		   {
 				test.log(LogStatus.FAIL, "Detailed Expenses Report does not Download Successfully");
 			}
+		   
+			  Thread.sleep(3000);
+				performerPOM.CaseNoticeFilter(driver).click();
+				Thread.sleep(3000);
+		       String CaseNotext =performerPOM.SelectCaseNoticeFilter(driver).getText();
+		       Thread.sleep(3000);
+		       performerPOM. SelectCaseNoticeFilter(driver).click();
+		       
+		        List<String> li=new ArrayList<String>();
+		        li.add(CaseNotext);
+		        Thread.sleep(3000);
+		        
+				List<String> filter=new ArrayList<String>();	
+				filter.add("Case Notice NO");
+			
+				js.executeScript("window.scrollBy(0,150)");	
+				Thread.sleep(3000);
 
+				CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+				String s = CFOcountPOM.readTotalItems1(driver).getText();
+				Thread.sleep(2000);
+
+				if(!s.equalsIgnoreCase("No items to display")) {
+				Thread.sleep(5000);
 			
-			
-			
+				List<WebElement> CaseNoticeNocol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
 		
+				Thread.sleep(2000);
 
+				for(int i=0; i<li.size(); i++){
+					
+					List<String> text= new ArrayList<String>();
+					HashSet<String> pass=new LinkedHashSet<>();
+					HashSet<String> fail=new LinkedHashSet<>();
+					List<WebElement> raw=new ArrayList<WebElement>();
+
+						if(i==0)
+						{
+							raw.addAll(CaseNoticeNocol);
+						}
+					
+			
+					for(int k=0;k<raw.size();k++)
+						{
+							text.add(raw.get(k).getText());
+						}
+
+						for(int l=0;l<text.size();l++)
+						{
+				
+						if(text.get(l).equals(li.get(i)))
+							{
+							
+							
+								pass.add(text.get(l));	
+								System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+							}
+						else
+						{
+							fail.add(text.get(l));		
+							System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+							System.out.println(i);
+
+						}
+						}
+				 
+			for(String Fal : fail)
+				 {
+						test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+				 }	
+				 for(String Pas : pass)
+				 {
+					 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+						test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+						System.out.println(filter.get(i)+" : "+Pas);
+			 }
+				text.clear();
+				pass.clear();
+				fail.clear();
+				raw.clear();
+				
+				
+				}
+				}else {
+					test.log(LogStatus.PASS,"No records found");	
+				}
+		
 			Thread.sleep(7000);
 			performerPOM.clearButton(driver).click();
 			test.log(LogStatus.PASS, "Clear button work successfully.");
@@ -3376,12 +2875,12 @@ public class CFOMethod {
 			 performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	       	
-				js.executeScript("window.scrollBy(0,2400)");
+				js.executeScript("window.scrollBy(0,2700)");
 			
 	       	Thread.sleep(2000);
 		
-	        int open=Integer.parseInt(performerPOM.ExpensesNoticeGraph(driver).getText());	//Reading Notice Open count.
-		    performerPOM.ExpensesNoticeGraph(driver).click();						//Clicking on 'Open' notice
+	       // int open=Integer.parseInt(performerPOM.ExpensesNoticeGraph(driver).getText());	//Reading Notice Open count.
+		    performerPOM.ExpensesCategoryWiseCaseGraph(driver).click();						//Clicking on 'Open' notice
 		    
 		    
 		    
@@ -3519,6 +3018,93 @@ public class CFOMethod {
 		   {
 				test.log(LogStatus.FAIL, "Detailed Expenses Report does not Download Successfully");
 			}
+		   
+		   Thread.sleep(3000);
+			performerPOM.CaseNoticeFilter(driver).click();
+			Thread.sleep(3000);
+	       String CaseNotext =performerPOM.SelectCaseNoticeFilter(driver).getText();
+	       Thread.sleep(3000);
+	       performerPOM. SelectCaseNoticeFilter(driver).click();
+	       
+	        List<String> li=new ArrayList<String>();
+	        li.add(CaseNotext);
+	        Thread.sleep(3000);
+	        
+			List<String> filter=new ArrayList<String>();	
+			filter.add("Case Notice NO");
+		
+			js.executeScript("window.scrollBy(0,150)");	
+			Thread.sleep(3000);
+
+			CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+			String s = CFOcountPOM.readTotalItems1(driver).getText();
+			Thread.sleep(2000);
+
+			if(!s.equalsIgnoreCase("No items to display")) {
+			Thread.sleep(5000);
+		
+			List<WebElement> CaseNoticeNocol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
+	
+			Thread.sleep(2000);
+
+			for(int i=0; i<li.size(); i++){
+				
+				List<String> text= new ArrayList<String>();
+				HashSet<String> pass=new LinkedHashSet<>();
+				HashSet<String> fail=new LinkedHashSet<>();
+				List<WebElement> raw=new ArrayList<WebElement>();
+
+					if(i==0)
+					{
+						raw.addAll(CaseNoticeNocol);
+					}
+				
+		
+				for(int k=0;k<raw.size();k++)
+					{
+						text.add(raw.get(k).getText());
+					}
+
+					for(int l=0;l<text.size();l++)
+					{
+			
+					if(text.get(l).equals(li.get(i)))
+						{
+						
+						
+							pass.add(text.get(l));	
+							System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+						}
+					else
+					{
+						fail.add(text.get(l));		
+						System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+						System.out.println(i);
+
+					}
+					}
+			 
+		for(String Fal : fail)
+			 {
+					test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+			 }	
+			 for(String Pas : pass)
+			 {
+				 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+					test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+					System.out.println(filter.get(i)+" : "+Pas);
+		 }
+			text.clear();
+			pass.clear();
+			fail.clear();
+			raw.clear();
+			
+			
+			}
+			}else {
+				test.log(LogStatus.PASS,"No records found");	
+			}
 
 		
 			Thread.sleep(7000);
@@ -3534,7 +3120,96 @@ public class CFOMethod {
 			Thread.sleep(3000);
 			OverduePOM.clickDashboard(driver).click();
 			}
+		
+		public static void ExpensesCounselWiseCaseGraph(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
+		{
 			
+
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+	     	js.executeScript("window.scrollBy(0,800)");
+	     	
+	     	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardCaseFilter(driver).click();
+          
+           	
+			 Thread.sleep(5000);
+			 performerPOM.clickDashboardApplyBtn(driver).click();
+			
+	       	
+				js.executeScript("window.scrollBy(0,3000)");
+			
+	     
+			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
+			
+		  	Thread.sleep(5000);
+		    performerPOM.ExpensesCounselWiseCaseGraph(driver).click();						//Clicking on 'Open' notice
+		    
+			
+			
+		 	Thread.sleep(3000);
+			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
+			
+			Thread.sleep(3000);
+		   if (dirContents1.length < allFilesNew1.length) {
+				test.log(LogStatus.PASS,  "Budget vs Expense Report Download Successfully");
+			}
+		   else
+		   {
+				test.log(LogStatus.FAIL, "Budget vs Expense Report does not Download Successfully");
+			}
+		    
+		}
+		    
+  public static void UtilizedBudgetGraph(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
+		{
+			
+
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+	     	js.executeScript("window.scrollBy(0,800)");
+	     	
+	     	Thread.sleep(5000);
+			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
+			
+			Thread.sleep(5000);
+			performerPOM.clickDashboardCaseFilter(driver).click();
+          
+           	
+			 Thread.sleep(5000);
+			 performerPOM.clickDashboardApplyBtn(driver).click();
+			
+	       	
+				js.executeScript("window.scrollBy(0,3500)");
+			
+	     
+			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
+			
+		  	Thread.sleep(5000);
+		    performerPOM.UtilizedBudgetGraph(driver).click();						//Clicking on 'Open' notice
+		    
+			
+			
+		 	Thread.sleep(3000);
+			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
+			
+			Thread.sleep(3000);
+		   if (dirContents1.length < allFilesNew1.length) {
+				test.log(LogStatus.PASS,  "Budget vs Expense Report Download Successfully");
+			}
+		   else
+		   {
+				test.log(LogStatus.FAIL, "Budget vs Expense Report does not Download Successfully");
+			}
+		    
+		}	
 	   
 	   
 	   
@@ -13946,7 +13621,7 @@ public class CFOMethod {
           			 Thread.sleep(5000);
           				performerPOM.clickDashboardApplyBtn(driver).click();
           				
-          				js.executeScript("window.scrollBy(0,3000)");
+          				js.executeScript("window.scrollBy(0,4000)");
  
           			
           	       	Thread.sleep(3000);
@@ -14013,69 +13688,7 @@ public class CFOMethod {
           			
           		 Thread.sleep(3000);
           		 performerPOM.clickAgeingViewNoticeSummaryCloseIcon(driver).click();
-          			
-          			
-          			
-          			
-          		/*	Thread.sleep(3000);
-          			performerPOM.clickLocationFilter(driver).click();
-          			
-          			Thread.sleep(3000);
-          			performerPOM.clickLocationFilter1(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.clickLocationFilter3(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.clickCaseNotice(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.selectCaseNotice(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.clickStatusFilter(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.selectstatusFiltercfo(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.clickDepartmentFilter(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.selectDepartmentFilter2(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.clickCaseNoticeType1(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.selectCaseNoticeType2(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.clickRiskFilter(driver).click();
-          			
-
-          			Thread.sleep(5000);
-          			performerPOM.selectRiskFilter2cfo(driver).click();
-          			
-//          			Thread.sleep(5000);
-//          			performerPOM.clickAgeFilter(driver).click();
-//          			
-//          			Thread.sleep(5000);
-//          			performerPOM.selectAgeFiltercfo(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.clickCategoryFilter(driver).click();
-          			
-          			
-          			Thread.sleep(5000);
-          			performerPOM.selectCategoryFilter2(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.clickStageFilter(driver).click();
-          			
-          			Thread.sleep(5000);
-          			performerPOM.selectStageFilter2(driver).click(); */
-          			
+       
           			
           			Thread.sleep(500);
           			progress(driver);
@@ -14210,7 +13823,7 @@ public class CFOMethod {
             			 Thread.sleep(5000);
             				performerPOM.clickDashboardApplyBtn(driver).click();
             				
-            				js.executeScript("window.scrollBy(0,3000)");
+            				js.executeScript("window.scrollBy(0,4000)");
             			
             	       	Thread.sleep(3000);
             		
@@ -14473,7 +14086,7 @@ public class CFOMethod {
           			 Thread.sleep(5000);
           				performerPOM.clickDashboardApplyBtn(driver).click();
           				
-          				js.executeScript("window.scrollBy(0,3000)");
+          				js.executeScript("window.scrollBy(0,4000)");
           			
           	       	Thread.sleep(3000);
           		
@@ -14736,7 +14349,7 @@ public class CFOMethod {
             			 Thread.sleep(5000);
             				performerPOM.clickDashboardApplyBtn(driver).click();
             				
-            				js.executeScript("window.scrollBy(0,3000)");
+            				js.executeScript("window.scrollBy(0,4000)");
             			
             	       	Thread.sleep(3000);
             		
@@ -14999,7 +14612,7 @@ public class CFOMethod {
           			 Thread.sleep(5000);
           				performerPOM.clickDashboardApplyBtn(driver).click();
           				
-          				js.executeScript("window.scrollBy(0,3000)");
+          				js.executeScript("window.scrollBy(0,4000)");
           			
           	       	Thread.sleep(3000);
           		
@@ -15262,7 +14875,7 @@ public class CFOMethod {
             			 Thread.sleep(5000);
             				performerPOM.clickDashboardApplyBtn(driver).click();
             				
-            				js.executeScript("window.scrollBy(0,3000)");
+            				js.executeScript("window.scrollBy(0,4000)");
             			
             	       	Thread.sleep(3000);
             		
@@ -15525,7 +15138,7 @@ public class CFOMethod {
           			 Thread.sleep(5000);
           				performerPOM.clickDashboardApplyBtn(driver).click();
           				
-          				js.executeScript("window.scrollBy(0,3000)");
+          				js.executeScript("window.scrollBy(0,4000)");
           			
           	       	Thread.sleep(3000);
           		
@@ -15788,7 +15401,7 @@ public class CFOMethod {
        			 Thread.sleep(5000);
        				performerPOM.clickDashboardApplyBtn(driver).click();
        				
-       				js.executeScript("window.scrollBy(0,3000)");
+       				js.executeScript("window.scrollBy(0,4000)");
        			
        	       	Thread.sleep(3000);
        		
@@ -16051,7 +15664,7 @@ public class CFOMethod {
         			 Thread.sleep(5000);
         				performerPOM.clickDashboardApplyBtn(driver).click();
         				
-        				js.executeScript("window.scrollBy(0,3000)");
+        				js.executeScript("window.scrollBy(0,4000)");
         			
         	       	Thread.sleep(3000);
         		
@@ -16314,7 +15927,7 @@ public class CFOMethod {
      			 Thread.sleep(5000);
      				performerPOM.clickDashboardApplyBtn(driver).click();
      				
-     				js.executeScript("window.scrollBy(0,3000)");
+     				js.executeScript("window.scrollBy(0,4000)");
      			
      	       	Thread.sleep(3000);
      		
@@ -16577,7 +16190,7 @@ public class CFOMethod {
   			 Thread.sleep(5000);
   				performerPOM.clickDashboardApplyBtn(driver).click();
   				
-  				js.executeScript("window.scrollBy(0,3000)");
+  				js.executeScript("window.scrollBy(0,4500)");
   			
   	       	Thread.sleep(3000);
   		
@@ -16841,7 +16454,7 @@ public class CFOMethod {
    			 Thread.sleep(5000);
    				performerPOM.clickDashboardApplyBtn(driver).click();
    				
-   				js.executeScript("window.scrollBy(0,3000)");
+   				js.executeScript("window.scrollBy(0,4000)");
    			
    	       	Thread.sleep(3000);
    		
@@ -17060,7 +16673,7 @@ public class CFOMethod {
  			 Thread.sleep(5000);
  				performerPOM.clickDashboardApplyBtn(driver).click();
  				
- 				js.executeScript("window.scrollBy(0,3000)");
+ 				js.executeScript("window.scrollBy(0,4000)");
  			
  	       	Thread.sleep(3000);
  		
@@ -17284,7 +16897,7 @@ public class CFOMethod {
   			 Thread.sleep(5000);
   				performerPOM.clickDashboardApplyBtn(driver).click();
   				
-  				js.executeScript("window.scrollBy(0,3000)");
+  				js.executeScript("window.scrollBy(0,4000)");
   			
   	       	Thread.sleep(3000);
   		
@@ -21493,21 +21106,21 @@ public class CFOMethod {
 			     	{
 			     		js.executeScript("window.scrollBy(0,2500)");
 				     	 Thread.sleep(2000);
-				     	performerPOM.CategorySummaryGraph(driver).click();						//Clicking on 'Open' notice				//Clicking on 'Open' notice					//Clicking on 'Open' notice
+				     	performerPOM.CategorySummaryGraph1(driver).click();						//Clicking on 'Open' notice				//Clicking on 'Open' notice					//Clicking on 'Open' notice
 				  		
 			     	}
 			     	else if(type.equalsIgnoreCase("LessThanYearGraph"))
 			     	{
 			     		js.executeScript("window.scrollBy(0,4500)");
 				     	Thread.sleep(2000);
-				     	performerPOM.clickAgeing(driver).click();						//Clicking on 'Open' notice
+				     	performerPOM.clickAgeing1(driver).click();						//Clicking on 'Open' notice
 				  						
 				  	}
 			     	else if(type.equalsIgnoreCase("1To2YearAgeingGraph"))
 			     	{
 			     		js.executeScript("window.scrollBy(0,4500)");
 				     	Thread.sleep(2000);
-				     	performerPOM.clickComplianant(driver).click();						//Clicking on 'Open' notice
+				     	performerPOM.clickComplianant1(driver).click();						//Clicking on 'Open' notice
 				  						
 				  	}
 			    	else if(type.equalsIgnoreCase("2to3YearAgeingGraph"))
@@ -21618,7 +21231,7 @@ public class CFOMethod {
 //				     Thread.sleep(3000);
 //				     performerPOM.clickRiskcol(driver).click();
 				     
-				     By locator = By.xpath("(//input[@type='checkbox'])[106]");
+				     By locator = By.xpath("(//input[@type='checkbox'])[110]");
                      wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 				     Thread.sleep(4000);
 	                 WebElement ViewButton = driver.findElement(locator);	

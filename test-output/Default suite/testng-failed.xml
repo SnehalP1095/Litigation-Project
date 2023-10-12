@@ -11,6 +11,7 @@
           <include name="UserCloseButton"/>
           <include name="OpponentCloseButton"/>
           <include name="LawyerInvalidData"/>
+          <include name="ReportFilter"/>
           <include name="CaseStageInvalidData"/>
           <include name="MastersLawFirm3"/>
           <include name="PaymentTypeWithouData"/>
@@ -50,6 +51,8 @@
           <include name="MastersLegalEntity"/>
           <include name="CaseStageWithoutData"/>
           <include name="RatingCriteriaWithoutData"/>
+          <include name="Close"/>
+          <include name="WorkspaceFilter"/>
           <include name="Masters4"/>
           <include name="RatingCriteriaInvalidData"/>
           <include name="Masters1"/>
@@ -63,6 +66,7 @@
           <include name="Masters9"/>
           <include name="Masters7"/>
           <include name="customParameterCloseButton"/>
+          <include name="DocumentFilter"/>
           <include name="Login"/>
         </methods>
       </class> <!-- litigationCompanyAdmin.CompanyAdmin -->
