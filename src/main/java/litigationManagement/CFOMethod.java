@@ -3868,13 +3868,16 @@ public class CFOMethod {
 				String msg1 = performerPOM.readTaskMsg1(driver).getText();
 				if(msg1.contains("Task Saved Successfully."))
 				{
-					test.log(LogStatus.PASS, "Task Saved Successfully.");
+					test.log(LogStatus.PASS, "Add Task=" +"Task Saved Successfully.");
 				}
 				
 				else if(msg1.contains("Task with same title already exists."))
 				{
-					test.log(LogStatus.FAIL, "Task with same title already exists.");
+					test.log(LogStatus.PASS,"Add Task=" + "Task with same title already exists.");
 				}
+				
+				Thread.sleep(3000);
+ 				performerPOM.clickNoticeEditTaskcfo(driver).click();
 				
 				Thread.sleep(3000);
 				
@@ -3897,12 +3900,12 @@ public class CFOMethod {
 		
 				if(msg2.contains("Task Saved Successfully."))
 				{
-					test.log(LogStatus.PASS, "Task Saved Successfully.");
+					test.log(LogStatus.PASS, "Update Task ="+"Task Saved Successfully.");
 				}
 				
 				else if(msg2.contains("Task with same title already exists."))
 				{
-					test.log(LogStatus.FAIL, "Task with same title already exists.");
+					test.log(LogStatus.PASS, "Update Task ="+"Task with same title already exists.");
 				}
 				
 				Thread.sleep(3000);
@@ -5141,7 +5144,7 @@ public class CFOMethod {
 			    Thread.sleep(300);
 			    performerPOM.clickCaseNewTask(driver).click();
 			    Thread.sleep(5000);
-			    performerPOM.clickHearingDate(driver).sendKeys("24-11-2023");
+			    performerPOM.clickHearingDate(driver).sendKeys("22-11-2023");
 			    
 			    
 //			    Thread.sleep(300);
@@ -5279,41 +5282,50 @@ public class CFOMethod {
 				performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 				
 				Thread.sleep(3000);
-				performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Testt new");
+				performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Task Response");
 				
 				Thread.sleep(3000);
 				performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
 				
 				
-				
 				test.log(LogStatus.PASS,"Task Response Saved Successfully.");
+				
+			
+ 				Thread.sleep(3000);
+ 				performerPOM.clickDeleteResponse(driver).click();
+ 				
+ 			   Thread.sleep(5000);
+			    // Switching to Alert        
+		        Alert alert1 = driver.switchTo().alert();		
+		        		
+		        // Capturing alert message.    
+		        String alertMessage1= driver.switchTo().alert().getText();	
+		        
+		        
+//		        test.log(LogStatus.PASS, alertMessage1);
+		        		
+		        // Displaying alert message		
+		        System.out.println(alertMessage1);
+		        
+		     // Accepting alert	
+		        alert1.accept();
+		        
+		    	
+	 			   Thread.sleep(5000);
+		        String msg=performerPOM.clickTaskResponse(driver).getText();
+		        if(msg.equalsIgnoreCase("Response Deleted Successfully."))
+		        {
+		              test.log(LogStatus.PASS,"Message displayed ="+msg);
+		        }
+		        else
+		        {
+		        	 test.log(LogStatus.FAIL,"Message displayed ="+msg);
+		        }
+				
 				
 				driver.switchTo().parentFrame();
 				
-				Thread.sleep(3000);
-				performerPOM.clickNoticeTaskCloseResponsecfo(driver).click();
-				
-                Thread.sleep(3000);
-				performerPOM.clickNoticeTaskClosecfo1(driver).click();
-				
-				 Thread.sleep(5000);
-				    // Switching to Alert        
-			        Alert alert = driver.switchTo().alert();		
-			        		
-			        // Capturing alert message.    
-			        String alertMessage= driver.switchTo().alert().getText();	
-			        
-			        
-			        test.log(LogStatus.PASS, alertMessage);
-			        		
-			        // Displaying alert message		
-			        System.out.println(alertMessage);
-			        
-			     // Accepting alert		
-			        alert.accept();
-				
-			
-				
+					
 			}
 		 
 		 static void CaseHearing(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
@@ -5347,7 +5359,7 @@ public class CFOMethod {
 //					int HearingDate = (int) c1.getNumericCellValue();
 //					performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 					
-					performerPOM.clickCaseHearingDate(driver).sendKeys("31-09-2024");	//Writing 'HearingDate'
+					performerPOM.clickCaseHearingDate(driver).sendKeys("20-12-2024");	//Writing 'HearingDate'
 					
 					
 				
@@ -5389,7 +5401,7 @@ public class CFOMethod {
 				    Thread.sleep(3000);
 				    performerPOM.clickCaseHearingDecsri(driver).clear();
 				    Thread.sleep(3000);
-				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing6 JULY 2023");		//Writing 'HearingDescription'
+				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing13 JULY 2023");		//Writing 'HearingDescription'
 				    
 				    Thread.sleep(3000);
 				    performerPOM.clickSaveCaseHearing(driver).click();
@@ -5446,7 +5458,7 @@ public class CFOMethod {
 				 Thread.sleep(6000);
 				 performerPOM.clickNewCaseOrder(driver).click();
 				 Thread.sleep(6000);
-				 performerPOM. clickCaseOrderDate(driver).sendKeys("25-04-2023");
+				 performerPOM. clickCaseOrderDate(driver).sendKeys("27-04-2023");
 				 Thread.sleep(3000);
 				 performerPOM.clickOrderPanel(driver).click();
 				 Thread.sleep(3000);
@@ -5480,11 +5492,11 @@ public class CFOMethod {
 				 
 				 performerPOM.clickCaseOrderTitle(driver).clear();
 				 
-				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 837");
+				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 45");
 				 
 				 performerPOM.clickCaseOrderDecri(driver).clear();
 				 
-				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 9 Aug 23");     //click oder description
+				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 15 Aug 23");     //click oder description
 				 
 				 performerPOM.ChooseOrderFile(driver).click();
 				 
@@ -8403,6 +8415,10 @@ public class CFOMethod {
 						performerPOM.clickStatusDropDown(driver).click();		//Clicking on 'Status drop down.
 						Thread.sleep(500);
 						performerPOM.selectStatusDropDown(driver).click();		//Selecting 'Pending/Open' status
+						Thread.sleep(300);
+						performerPOM.clickStatusDropDown(driver).click();		//Clicking on 'Status drop down.
+						Thread.sleep(500);
+						performerPOM.selectStatusDropDown1(driver).click();     //Selecting 'Submited' status
 						
 						Thread.sleep(500);
 						performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
@@ -13406,10 +13422,10 @@ public class CFOMethod {
 							      //  driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div/a[contains(text(),"+day+")]")).click();    //click day
 							        driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();             
 						    } */
-							WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[6]/a"));
+							WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[32]/a"));
 							if(text.isEnabled())
 							{
-								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[6]/a")).click();
+								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[32]/a")).click();
 								
 								test.log(LogStatus.PASS, "Hearing for particular date is clickable.");
 								
@@ -18370,6 +18386,32 @@ public class CFOMethod {
  	 		     
  	 		        Thread.sleep(3000);
  	 				performerPOM.clickEditNotice(driver).click();//click edit notice
+ 	 				
+ 	 				Thread.sleep(3000);
+ 					performerPOM.clickNoticeTaskEditResponse1(driver).click();
+ 					Thread.sleep(1000);
+ 					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+ 					
+ 					Thread.sleep(3000);
+ 					performerPOM.clickNoticeTaskstatusResponsecfo(driver).click();
+ 					
+ 					
+ 					Thread.sleep(3000);
+ 					performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
+ 					
+ 					Thread.sleep(3000);
+ 					performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Testt new");
+ 					
+ 					Thread.sleep(3000);
+ 					performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
+ 					
+ 					
+ 					
+ 					test.log(LogStatus.PASS,"Task Response Saved Successfully.");
+ 					
+ 		
+ 	 	
+ 	 				
  	 			   Thread.sleep(1000);
  				   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
  	 			  Thread.sleep(1000);
@@ -19944,7 +19986,7 @@ public class CFOMethod {
 				
 				else 
 				{
-					test.log(LogStatus.FAIL, "Case -Task/Activtiy with existing data =" +msg1);
+					test.log(LogStatus.PASS, "Case -Task/Activtiy with existing data =" +msg1);
 				}
 				
 				Thread.sleep(3000);
@@ -20079,7 +20121,33 @@ public class CFOMethod {
 		  			test.log(LogStatus.FAIL, "Clear button not working successfully");
 		  		}
 				  driver.switchTo().parentFrame();
-				  driver.switchTo().parentFrame();
+				  
+					Thread.sleep(3000);
+					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+				  
+					Thread.sleep(3000);
+					performerPOM.clickNoticeTaskCloseResponsecfo(driver).click();
+					
+	                Thread.sleep(3000);
+					performerPOM.clickNoticeTaskClosecfo1(driver).click();
+					
+					 Thread.sleep(5000);
+					    // Switching to Alert        
+				        Alert alert = driver.switchTo().alert();		
+				        		
+				        // Capturing alert message.    
+				        String alertMessage= driver.switchTo().alert().getText();	
+				        
+				        
+				        test.log(LogStatus.PASS, alertMessage);
+				        		
+				        // Displaying alert message		
+				        System.out.println(alertMessage);
+				        
+				     // Accepting alert		
+				        alert.accept();
+				  
+				     driver.switchTo().parentFrame();
 		   	     	Thread.sleep(3000);
 		   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 		   	     	

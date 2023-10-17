@@ -870,10 +870,14 @@ public class performerPOM
 	
 	public static WebElement selectStatusDropDown(WebDriver driver)
 	{
-		litigation = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[16]"));
+		litigation = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[36]"));
 		return litigation;
 	}
-	
+	public static WebElement selectStatusDropDown1(WebDriver driver)
+	{
+		litigation = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[37]"));
+		return litigation;
+	}
 	public static WebElement GridLoad(WebDriver driver)
 	{
 		litigation = driver.findElement(By.xpath("//div[@class='k-grid-content k-auto-scrollable']"));
@@ -4113,7 +4117,7 @@ public class performerPOM
 			public static WebElement HearingCalenderNumcfo(WebDriver driver)
 			{
 				WebDriverWait wait=new WebDriverWait(driver,30);
-				litigation=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[6]/span")));
+				litigation=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[32]/span")));
 				return litigation;
 			}
 			
@@ -5061,10 +5065,22 @@ public class performerPOM
 				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 '])[25]"));
 				  return litigation;
 			  }
+			 public static WebElement ExpensesCounselWiseCaseGraphCA(WebDriver driver) throws InterruptedException
+			  {
+				  
+				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 '])[59]"));
+				  return litigation;
+			  }
 			 public static WebElement UtilizedBudgetGraph(WebDriver driver) throws InterruptedException
 			  {
 				  
 				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[36]"));
+				  return litigation;
+			  }
+			 public static WebElement UtilizedBudgetGraphCA(WebDriver driver) throws InterruptedException
+			  {
+				  
+				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[67]"));
 				  return litigation;
 			  }
 			 public static WebElement ExpensesCaseGraph(WebDriver driver) throws InterruptedException
@@ -6741,6 +6757,16 @@ public class performerPOM
 			 public static WebElement ClicksearchFilter(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='txtSearch']"));
+					return litigation;
+				}
+			 public static WebElement WithoutEnterFY(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//span[@class='k-icon k-i-warning']"));
+					return litigation;
+				}
+			 public static WebElement clickLoader(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//*[@id='updateProgressPanel']/img"));
 					return litigation;
 				}
 }

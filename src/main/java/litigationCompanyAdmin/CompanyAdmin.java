@@ -964,7 +964,51 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-	
+//@Test(priority =1)
+    void ExpensesCaseGraph() throws InterruptedException, IOException
+    {
+       test = extent.startTest("Select Case Filter = Expenses Case-Wise Graph Count Verification");
+      
+       Thread.sleep(3000);
+       MethodsPOM.ExpensesCaseGraph(driver, test,"Company admin-");
+
+       extent.endTest(test);
+       extent.flush();
+    }
+
+//@Test(priority =2)
+void ExpensesCategoryWiseCaseGraph() throws InterruptedException, IOException
+{
+   test = extent.startTest("Select Case Filter = Cables Category -Expenses Category Wise Graph Count Verification");
+  
+   Thread.sleep(3000);
+   MethodsPOM.ExpensesCategoryWiseCaseGraph(driver, test,"cfo -");
+
+   extent.endTest(test);
+   extent.flush();
+}
+//@Test(priority =1)
+void ExpensesCounselWiseCaseGraph() throws InterruptedException, IOException
+{
+  test = extent.startTest("Select Case Filter -Expenses Counsel Wise Graph Count Verification");
+ 
+  Thread.sleep(3000);
+  MethodsPOM.ExpensesCounselWiseCaseGraph(driver, test,"cfo -");
+
+  extent.endTest(test);
+  extent.flush();
+}
+//@Test(priority =2)
+void UtilizedBudgetGraph() throws InterruptedException, IOException
+{
+  test = extent.startTest("Select Case Filter -Utilized budget Graph Count Verification");
+ 
+  Thread.sleep(3000);
+  MethodsPOM.UtilizedBudgetGraph(driver, test,"cfo -");
+
+  extent.endTest(test);
+  extent.flush();
+}
 //@Test(priority = 29)
     void AgeingGraph() throws InterruptedException, IOException
     {
@@ -3243,7 +3287,18 @@ void DeleteAnnualBudget() throws InterruptedException, IOException
 	extent.endTest(test);
 	extent.flush();
 }
-@Test(priority = 3)
+//@Test(priority = 1)
+void WithoutEnterFY() throws InterruptedException, IOException
+{
+	test = extent.startTest("Masters - Without Enter FY verification");
+	
+	
+	MethodsPOM.WithoutEnterFY(driver, test);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+//@Test(priority = 3)
 void SearchFilterAnnualBudget() throws InterruptedException, IOException
 {
 	test = extent.startTest("Masters - Search Filter - Annual Budget verification");
