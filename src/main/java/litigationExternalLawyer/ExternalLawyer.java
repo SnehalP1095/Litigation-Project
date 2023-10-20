@@ -1218,35 +1218,35 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-//			 @Test(priority = 20)
+			// @Test(priority = 1)
 			void WorkspaceFilter() throws InterruptedException, IOException
 			{
-				test = extent.startTest("All Filters verification");
+				test = extent.startTest("My workspace =Multiple Filters verification");
 				
 				
-				MethodsPOM.WorkspaceFilter(driver, test, "Company Admin");
+				MethodPOM.WorkspaceFilter(driver, test, "Company Admin");
 				
 				extent.endTest(test);
 				extent.flush();
 			}
-//		 @Test(priority = 21)
+		//@Test(priority = 2)
 			void DocumentFilter() throws InterruptedException, IOException
 			{
-				test = extent.startTest("All Filters verification");
+				test = extent.startTest("My Document =Multiple Filters verification");
 			
 				
-				MethodsPOM.DocumentFilter(driver, test, "Company Admin");
+				MethodPOM.DocumentFilter(driver, test, "Company Admin");
 				
 				extent.endTest(test);
 				extent.flush();
 			}
-//		 @Test(priority = 22)
+		// @Test(priority = 1)
 			void ReportFilter() throws InterruptedException, IOException
 			{
-				test = extent.startTest("All Filters verification");
+				test = extent.startTest("My Report = Filters verification");
 	
 				
-				MethodsPOM.ReportFilter(driver, test, "Company Admin");
+				MethodPOM.ReportFilter(driver, test, "Company Admin");
 				
 				extent.endTest(test);
 				extent.flush();

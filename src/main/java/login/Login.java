@@ -24,11 +24,11 @@ public class Login
 	{
       // System.setProperty("webdriver.chrome.driver", "E:\\eclips-projects\\Selenium\\chromedriver.exe");
 		
-//		WebDriverManager.edgedriver().setup();
-//		driver = new EdgeDriver();					//Created new Chrome driver instance. 
+		WebDriverManager.edgedriver().setup();
+		driver = new EdgeDriver();					//Created new Chrome driver instance. 
 		
-	    WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();		
+//	    WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver();		
 		
 //		WebDriverManager.firefoxdriver().setup();
 //		driver = new FirefoxDriver();
@@ -55,10 +55,11 @@ public class Login
 			
 			}
 			//Check if parameter passed as 'Edge'
-							else if(browser.equalsIgnoreCase("Edge")) 
+							 if(browser.equalsIgnoreCase("Edge")) 
 							{
 								//set path to Edge.exeMicrosoftWebDriver
-								System.setProperty("webdriver.edge.driver","C:\\Users\\Admin\\Desktop\\eclips-projects\\Selenium\\EdgeDriver\\msedgedriver.exe");
+								 WebDriverManager.edgedriver().setup();
+								//System.setProperty("webdriver.edge.driver","C:\\Users\\Admin\\Desktop\\eclips-projects\\Selenium\\EdgeDriver\\msedgedriver.exe");
 								//create Edge instance
 								driver = new EdgeDriver();
 							}

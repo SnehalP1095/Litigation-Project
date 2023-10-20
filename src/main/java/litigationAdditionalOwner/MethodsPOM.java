@@ -10992,16 +10992,16 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
              Thread.sleep(500);
    	       performerPOM.clickDepartmentFilterWorkspace(driver).click();
    	       Thread.sleep(500);
-   	       String DeptText = performerPOM.selectDepartmentFilterWorkspacecNonAdmin(driver).getText();
+   	       String DeptText = performerPOM.selectDepartmentFilterDocNonAdmin(driver).getText();
    	       Thread.sleep(500);
-   	       performerPOM. selectDepartmentFilterWorkspacecNonAdmin(driver).click();
+   	       performerPOM. selectDepartmentFilterDocNonAdmin(driver).click();
    	       				        
    	       Thread.sleep(500);
    	       performerPOM.clickTypeFilter(driver).click();
    	       Thread.sleep(500);
-   	       String Typetext = performerPOM.SelectTypeFilterNonAdmin(driver).getText();
+   	       String Typetext = performerPOM.selectDocTypeFilterCA(driver).getText();
    	       Thread.sleep(500);
-   	       performerPOM.SelectTypeFilterNonAdmin(driver).click();
+   	       performerPOM.selectDocTypeFilterCA(driver).click();
    	           
    	       
    	        List<String> li=new ArrayList<String>();
@@ -11139,12 +11139,11 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		 wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 	
 	
-		 Thread.sleep(3000);
+		/* Thread.sleep(3000);
 		 performerPOM.clickTypeDropdown(driver).click();
 		 Thread.sleep(3000);
-		performerPOM.selectTypeNotice(driver).click();
-	
-		Thread.sleep(3000);
+		performerPOM.selectTypeNotice(driver).click();*/
+	Thread.sleep(3000);
 		performerPOM.clickDocStatusFilter(driver).click();
 		Thread.sleep(3000);
 		String Statustext =performerPOM.selectDocStatusFilter(driver).getText();
@@ -11321,16 +11320,16 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
          Thread.sleep(3000);
 		performerPOM.clickReportDeptFilter(driver).click();
 		Thread.sleep(3000);
-	    String depttext =performerPOM.selectReportDeptFilterNonAdmin(driver).getText();
+	    String depttext =performerPOM.selectDepartmentFilterWorkspacecNonAdmin(driver).getText();
 	    Thread.sleep(3000);
-	     performerPOM. selectReportDeptFilterNonAdmin(driver).click();
+	     performerPOM. selectDepartmentFilterWorkspacecNonAdmin(driver).click();
          
 	     Thread.sleep(3000);
 			performerPOM.clickReportTypeFilter(driver).click();
 			Thread.sleep(3000);
-		    String typetext =performerPOM.selectReportTypeFilterNonAdmin(driver).getText();
+		    String typetext =performerPOM.selectDocTypeFilterCA(driver).getText();
 		    Thread.sleep(3000);
-		     performerPOM. selectReportTypeFilterNonAdmin(driver).click();
+		     performerPOM. selectDocTypeFilterCA(driver).click();
 	         
          
          
@@ -11340,9 +11339,9 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 			Thread.sleep(3000);
 			performerPOM.clickExpand(driver).click();
 			Thread.sleep(3000);
-	       String locationtext =performerPOM.selectReportLocFilterNonAdmin(driver).getText();
+	       String locationtext =performerPOM.SelectLocationWorkspaceNonAdmin(driver).getText();
 	       Thread.sleep(3000);
-	       performerPOM. selectReportLocFilterNonAdmin(driver).click();
+	       performerPOM. SelectLocationWorkspaceNonAdmin(driver).click();
 	      
 			Thread.sleep(3000);
 			performerPOM.clickReportFYFilter(driver).click();

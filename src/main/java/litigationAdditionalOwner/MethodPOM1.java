@@ -746,7 +746,6 @@ public class MethodPOM1 {
 					{
 						text.add(raw.get(k).getText());
 					}
-
 					for(int l=0;l<text.size();l++)
 					{	
 						

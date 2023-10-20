@@ -1468,8 +1468,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
-	
-	// @Test(priority = 1)
+//@Test(priority = 1)
 		void WorkspaceFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Workspace Tab -Multiple  Filters verification");
@@ -1480,7 +1479,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-	// @Test(priority = 2)
+ //@Test(priority = 2)
 		void DocumentFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Document Tab -Multiple  Filters verification");
@@ -1491,10 +1490,10 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-	 //@Test(priority = 1)
+//@Test(priority = 1)
 		void ReportFilter() throws InterruptedException, IOException
 		{
-			test = extent.startTest("All Filters verification");
+			test = extent.startTest("My Report = Multiple Filters verification");
 			
 			
 			MethodsPOM.ReportFilter(driver, test, "Company Admin");

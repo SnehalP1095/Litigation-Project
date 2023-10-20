@@ -3438,7 +3438,7 @@ void SearchFilterAnnualBudget() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-@Test(priority = 300)
+@Test(priority = 1)
 		void WorkspaceFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Workspace - Multiple Filters verification");
