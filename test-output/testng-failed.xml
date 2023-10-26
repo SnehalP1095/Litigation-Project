@@ -3,73 +3,30 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="litigationCompanyAdmin.CompanyAdmin">
+      <class name="litigationAdditionalOwner.performer">
         <methods>
-          <include name="LawyerWithoutData"/>
-          <include name="customParameterWithoutData"/>
-          <include name="CaseNoticeTypeInvaliData"/>
-          <include name="UserCloseButton"/>
-          <include name="OpponentCloseButton"/>
-          <include name="LawyerInvalidData"/>
-          <include name="ReportFilter"/>
-          <include name="CaseStageInvalidData"/>
-          <include name="MastersLawFirm3"/>
-          <include name="PaymentTypeWithouData"/>
-          <include name="MastersLawFirm1"/>
-          <include name="MastersLawFirm2"/>
-          <include name="PaymentTypeCloseButton"/>
-          <include name="DocumentTypeCloseButton"/>
-          <include name="CourtInvalidData"/>
-          <include name="CourtTwomanadatoryFields"/>
-          <include name="CaseNoticeTypeWithoutData"/>
-          <include name="UserWithoutData"/>
-          <include name="MastersLawFirm"/>
-          <include name="DocumentTypeWithoutData"/>
-          <include name="RatingCriteriaCloseButton"/>
-          <include name="MastersLegalEntity2"/>
-          <include name="MastersLegalEntity3"/>
-          <include name="MastersLegalEntity1"/>
-          <include name="UserTwoManadatoryFields"/>
-          <include name="DocumentTypeInvalidData"/>
-          <include name="CaseStageCloseButton"/>
-          <include name="setBrowser"/>
-          <include name="CourtCloseButton"/>
-          <include name="LawyerCloseButton"/>
-          <include name="Masters14"/>
-          <include name="UnitEntity"/>
-          <include name="Masters15"/>
-          <include name="Masters12"/>
-          <include name="Masters13"/>
-          <include name="Masters10"/>
-          <include name="Masters11"/>
-          <include name="OpponentInvalidData"/>
-          <include name="PaymentTypeInvalidData"/>
-          <include name="UserInvalidData"/>
-          <include name="OpponentWithoutData"/>
-          <include name="CaseNoticeTypeCloseBuuton"/>
-          <include name="CourtWithoutData"/>
-          <include name="MastersLegalEntity"/>
-          <include name="CaseStageWithoutData"/>
-          <include name="RatingCriteriaWithoutData"/>
+          <include name="NoticeDocumentSearchFields"/>
+          <include name="CaseTaskActivtityResponseWithoutStatus"/>
           <include name="Close"/>
-          <include name="WorkspaceFilter"/>
-          <include name="Masters4"/>
-          <include name="RatingCriteriaInvalidData"/>
-          <include name="Masters1"/>
-          <include name="Masters2"/>
-          <include name="Masters"/>
-          <include name="Masters8"/>
-          <include name="Masters5"/>
-          <include name="Masters6"/>
-          <include name="Masters3"/>
-          <include name="LawyerTwoManadatoryFileds"/>
-          <include name="Masters9"/>
-          <include name="Masters7"/>
-          <include name="customParameterCloseButton"/>
-          <include name="DocumentFilter"/>
+          <include name="CaseTaskActivtityResponseClearBtn"/>
+          <include name="NoticeWithExistingData"/>
+          <include name="AdvocateBill"/>
+          <include name="setBrowser"/>
+          <include name="AdvancedSearch"/>
+          <include name="CaseAdvocateBillTab"/>
+          <include name="NoticeTaskActivityTab"/>
+          <include name="TaskActivtityExistingData"/>
+          <include name="MyDocument"/>
+          <include name="TaskActivtityDeleteResponse"/>
+          <include name="CaseHearing"/>
+          <include name="AdvancedSearchDoc"/>
+          <include name="ReportCaseFilter"/>
+          <include name="TaskOpen"/>
+          <include name="AdvocateBill1"/>
+          <include name="Report"/>
           <include name="Login"/>
         </methods>
-      </class> <!-- litigationCompanyAdmin.CompanyAdmin -->
+      </class> <!-- litigationAdditionalOwner.performer -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

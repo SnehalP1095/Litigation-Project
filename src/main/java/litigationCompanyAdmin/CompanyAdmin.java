@@ -139,10 +139,10 @@ public class CompanyAdmin
 				extent.endTest(test);
 				extent.flush();
 			}
-	//@Test(priority =2)
+@Test(priority =2)
 			void CaseNoticeTypeGraphFilter() throws InterruptedException, IOException
 			{
-				test = extent.startTest("Select Notice Filter =  Case Notice type Graph -Select Status Filter Verification");
+				test = extent.startTest(" Case Notice type Graph -Select Status Filter Verification");
 				
 			    JavascriptExecutor js = (JavascriptExecutor) driver;
 			    js.executeScript("window.scrollBy(0,900)");	 
@@ -3438,39 +3438,118 @@ void SearchFilterAnnualBudget() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-@Test(priority = 1)
+//@Test(priority = 1)
 		void WorkspaceFilter() throws InterruptedException, IOException
 		{
-			test = extent.startTest("My Workspace - Multiple Filters verification");
+			test = extent.startTest("My Workspace - Notice - Multiple Filters verification");
 			
 			
-			MethodPOM1.WorkspaceFilter(driver, test, "Company Admin");
+			MethodPOM1.WorkspaceFilter(driver, test);
 			
 			extent.endTest(test);
 			extent.flush();
 		}
- @Test(priority = 301)
-		void DocumentFilter() throws InterruptedException, IOException
+//@Test(priority = 2)
+void CaseWorkspaceFilter() throws InterruptedException, IOException
+{
+	test = extent.startTest("My Workspace - Case - Multiple Filters verification");
+	
+	
+	MethodPOM1.CaseWorkspaceFilter(driver, test);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+//@Test(priority = 3)
+void WorkspaceTaskFilter() throws InterruptedException, IOException
+{
+	test = extent.startTest("My Workspace - Task - Multiple Filters verification");
+	
+	
+	MethodPOM1.WorkspaceTaskFilter(driver, test);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+
+//@Test(priority = 4)
+void WorkspaceCaseHearingFilter() throws InterruptedException, IOException
+{
+	test = extent.startTest("My Workspace = Case Hearing = Search box  Filter verification");
+	
+	
+	CFOMethod.WorkspaceCaseHearingFilter(driver, test,"ABC Mall, Thane");
+	
+	extent.endTest(test);
+	extent.flush();
+}
+
+//@Test(priority = 5)
+		void DocumentNoticeFilter() throws InterruptedException, IOException
 		{
-			test = extent.startTest("My Document Tab - Multiple Filters verification");
+			test = extent.startTest("My Document Tab - Notice - Multiple Filters verification");
 			
 			
-			MethodPOM1.DocumentFilter(driver, test, "Company Admin");
+			MethodPOM1.DocumentNoticeFilter(driver, test);
 			
 			extent.endTest(test);
 			extent.flush();
 		}
- @Test(priority = 302)
+ //@Test(priority = 6)
+	void DocumentCaseFilter() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" My Document = Case = Multiple  Filters verification");
+	
+		
+		MethodPOM1.DocumentCaseFilter(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+ 
+// @Test(priority = 7)
+	void DocumentTaskFilter() throws InterruptedException, IOException
+	{
+		test = extent.startTest(" My Document = Task = Multiple  Filters verification");
+	
+		
+		MethodPOM1.DocumentTaskFilter(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+// @Test(priority = 1)
 		void ReportFilter() throws InterruptedException, IOException
 		{
-			test = extent.startTest("My Report - Multiple Filters verification");
+			test = extent.startTest("My Report - Notice - Multiple Filters verification");
 			
-			MethodPOM1.ReportFilter(driver, test, "Company Admin");
+			MethodPOM1.ReportFilter(driver, test);
 			
 			extent.endTest(test);
 			extent.flush();
 		}
-	
+// @Test(priority = 2)
+	void ReportCaseFilter() throws InterruptedException, IOException
+	{
+		test = extent.startTest("My Report - Case - Multiple Filters verification");
+		
+		MethodPOM1.ReportCaseFilter(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+ 
+// @Test(priority =3)
+	void ReportTaskFilter() throws InterruptedException, IOException
+	{
+		test = extent.startTest("My Report = Task =  Filters verification");
+		
+		
+		MethodPOM1.ReportTaskFilter(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	@AfterMethod
 	 
 	 void Close()

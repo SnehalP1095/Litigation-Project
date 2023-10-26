@@ -1632,7 +1632,7 @@ public class MethodsPOM
 			performerPOM.clickLocation(driver).click();					//Clicking on Location drop down
 			Thread.sleep(3000);
 		//	performerPOM.clickPlus(driver).click();
-			performerPOM.selectLocationCfo(driver).click();;
+			performerPOM.SelectLocation1(driver).click();;
 			//elementsList.get(2).click();								//Selecting third visible location
 			}
 			public static void clickCaseDepartment(WebDriver driver) throws InterruptedException
@@ -1850,7 +1850,7 @@ public class MethodsPOM
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("07-10-2023");
+		    performerPOM.clickHearingDate(driver).sendKeys("08-11-2023");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -1955,7 +1955,7 @@ public class MethodsPOM
 			performerPOM.clickTaskTitle(driver).clear();
 			
 			Thread.sleep(3000);
-			performerPOM.clickTaskTitle(driver).sendKeys("New Task 04 July");	//Writing 'Task Title'
+			performerPOM.clickTaskTitle(driver).sendKeys("New Task 05 July");	//Writing 'Task Title'
 			
 			performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
 			
@@ -2104,7 +2104,7 @@ public class MethodsPOM
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("27-12-2023");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("23-12-2023");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2139,7 +2139,7 @@ public class MethodsPOM
 			    Thread.sleep(3000);
 			    performerPOM.clickCaseHearingDecsri(driver).clear();
 			    Thread.sleep(3000);
-			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 10 JUN 2023");		//Writing 'HearingDescription'
+			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 19 JUN 2023");		//Writing 'HearingDescription'
 			    
 			    Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearing(driver).click();
@@ -2196,7 +2196,7 @@ public class MethodsPOM
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("26-05-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("25-05-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);

@@ -992,7 +992,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 		test = extent.startTest("Case Status With Empty Fields");
 	
 	
-		CFOMethod.CaseStatuswithEmptyFields(driver, test);
+		MethodsPOM.CaseStatuswithEmptyFields(driver, test);
 	
 		extent.endTest(test);
 		extent.flush();
@@ -1207,7 +1207,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-	   @Test(priority = 99)
+	//   @Test(priority = 99)
 			void CaseAdvocateBill1() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Advocate bill verification");
@@ -1218,40 +1218,107 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-			// @Test(priority = 1)
-			void WorkspaceFilter() throws InterruptedException, IOException
-			{
-				test = extent.startTest("My workspace =Multiple Filters verification");
-				
-				
-				MethodPOM.WorkspaceFilter(driver, test, "Company Admin");
-				
-				extent.endTest(test);
-				extent.flush();
-			}
-		//@Test(priority = 2)
-			void DocumentFilter() throws InterruptedException, IOException
-			{
-				test = extent.startTest("My Document =Multiple Filters verification");
-			
-				
-				MethodPOM.DocumentFilter(driver, test, "Company Admin");
-				
-				extent.endTest(test);
-				extent.flush();
-			}
-		// @Test(priority = 1)
-			void ReportFilter() throws InterruptedException, IOException
-			{
-				test = extent.startTest("My Report = Filters verification");
-	
-				
-				MethodPOM.ReportFilter(driver, test, "Company Admin");
-				
-				extent.endTest(test);
-				extent.flush();
-			}
-			
+@Test(priority = 1)
+	 		void WorkspaceFilter() throws InterruptedException, IOException
+	 		{
+	 			test = extent.startTest("My Workspace - Notice - Multiple Filters verification");
+	 			
+	 			
+	 			MethodPOM1.WorkspaceFilter(driver, test);
+	 			
+	 			extent.endTest(test);
+	 			extent.flush();
+	 		}
+@Test(priority = 2)
+	 void CaseWorkspaceFilter() throws InterruptedException, IOException
+	 {
+	 	test = extent.startTest("My Workspace - Case - Multiple Filters verification");
+	 	
+	 	
+	 	MethodPOM1.CaseWorkspaceFilter(driver, test);
+	 	
+	 	extent.endTest(test);
+	 	extent.flush();
+	 }
+@Test(priority = 1)
+	 void WorkspaceTaskFilter() throws InterruptedException, IOException
+	 {
+	 	test = extent.startTest("My Workspace - Task - Multiple Filters verification");
+	 	
+	 	
+	 	MethodPOM1.WorkspaceTaskFilter(driver, test);
+	 	
+	 	extent.endTest(test);
+	 	extent.flush();
+	 }
+
+
+
+	@Test(priority = 4)
+	 		void DocumentNoticeFilter() throws InterruptedException, IOException
+	 		{
+	 			test = extent.startTest("My Document Tab - Notice - Multiple Filters verification");
+	 			
+	 			
+	 			MethodPOM1.DocumentNoticeFilter(driver, test);
+	 			
+	 			extent.endTest(test);
+	 			extent.flush();
+	 		}
+@Test(priority = 5)
+	 	void DocumentCaseFilter() throws InterruptedException, IOException
+	 	{
+	 		test = extent.startTest(" My Document = Case = Multiple  Filters verification");
+	 	
+	 		
+	 		MethodPOM1.DocumentCaseFilter(driver, test);
+	 		
+	 		extent.endTest(test);
+	 		extent.flush();
+	 	}
+ @Test(priority = 6)
+ 	void DocumentTaskFilter() throws InterruptedException, IOException
+	 	{
+	 		test = extent.startTest(" My Document = Task = Multiple  Filters verification");
+	 	
+	 		
+	 		MethodPOM1.DocumentTaskFilter(driver, test);
+	 		
+	 		extent.endTest(test);
+	 		extent.flush();
+	 	}
+	 @Test(priority =2)
+	 		void ReportFilter() throws InterruptedException, IOException
+	 		{
+	 			test = extent.startTest("My Report - Notice - Multiple Filters verification");
+	 			
+	 			MethodPOM1.ReportFilter(driver, test);
+	 			
+	 			extent.endTest(test);
+	 			extent.flush();
+	 		}
+	@Test(priority = 3)
+	 	void ReportCaseFilter() throws InterruptedException, IOException
+	 	{
+	 		test = extent.startTest("My Report - Case - Multiple Filters verification");
+	 		
+	 		MethodPOM1.ReportCaseFilter(driver, test);
+	 		
+	 		extent.endTest(test);
+	 		extent.flush();
+	 	}
+	  
+	 @Test(priority =9)
+	 	void ReportTaskFilter() throws InterruptedException, IOException
+	 	{
+	 		test = extent.startTest("My Report = Task =  Filters verification");
+	 		
+	 		
+	 		MethodPOM1.ReportTaskFilter(driver, test);
+	 		
+	 		extent.endTest(test);
+	 		extent.flush();
+	 	}
 			
 			@AfterMethod
 			

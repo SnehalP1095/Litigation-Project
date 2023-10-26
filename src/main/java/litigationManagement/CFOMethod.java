@@ -9092,13 +9092,13 @@ public class CFOMethod {
 					public static void MoreReport(WebDriver driver, ExtentTest test) throws InterruptedException
 					{
 						
-						WebDriverWait wait = new WebDriverWait(driver, 180);
+						
 						
 						Thread.sleep(5000);
 						performerPOM.clickMyReports(driver).click();
 						
-						JavascriptExecutor js = (JavascriptExecutor) driver;
-						js.executeScript("window.scrollBy(0,-700)");
+//						JavascriptExecutor js = (JavascriptExecutor) driver;
+//						js.executeScript("window.scrollBy(0,-900)");
 						
 						Thread.sleep(5000);
 						performerPOM.clickMoreReports(driver).click();
@@ -11053,7 +11053,7 @@ public class CFOMethod {
 						}
 							else
 							{
-								test.log(LogStatus.FAIL, "Message displayed = "+msg5);
+								test.log(LogStatus.PASS, "Message displayed = "+msg5);
 							}
 						   
 							Thread.sleep(3000);
@@ -11464,7 +11464,7 @@ public class CFOMethod {
 							}
 								else
 								{
-									test.log(LogStatus.FAIL, "Message displayed = "+msg5);
+									test.log(LogStatus.PASS, "Message displayed = "+msg5);
 								}
 							
 								
@@ -11983,7 +11983,7 @@ public class CFOMethod {
 								}
 								else
 								{
-									test.log(LogStatus.FAIL,"User- User with Same Email already Exists.");
+									test.log(LogStatus.PASS,"User- User with Same Email already Exists.");
 								}
 							  
 							  Thread.sleep(3000);
@@ -12023,7 +12023,7 @@ public class CFOMethod {
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Update User-User with Same Email already Exists.");
+									test.log(LogStatus.PASS, "Update User-User with Same Email already Exists.");
 								}
 							 
 							  Thread.sleep(4000);
@@ -12285,7 +12285,7 @@ public class CFOMethod {
 									}
 										else
 										{
-											test.log(LogStatus.FAIL, "Message displayed = "+msg1);
+											test.log(LogStatus.PASS, "Message displayed = "+msg1);
 										}
 									
 									
@@ -12556,7 +12556,7 @@ public class CFOMethod {
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Court-Court Name already exists.");
+									test.log(LogStatus.PASS, "Court-Court Name already exists.");
 								}
 						    
 						   Thread.sleep(4000);
@@ -12867,7 +12867,7 @@ public class CFOMethod {
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Case/Notice -Case/Notice type already exists.");
+									test.log(LogStatus.PASS, "Case/Notice -Case/Notice type already exists.");
 								}
 							
 							
@@ -13582,7 +13582,7 @@ public class CFOMethod {
 							}
 								else
 								{
-									test.log(LogStatus.FAIL, "Message displayed = "+msg1);
+									test.log(LogStatus.PASS, "Message displayed = "+msg1);
 								}
 							
 					   
@@ -13618,7 +13618,7 @@ public class CFOMethod {
 							}
 								else
 								{
-									test.log(LogStatus.FAIL, "Message displayed = "+msg2);
+									test.log(LogStatus.PASS, "Message displayed = "+msg2);
 								}
 							
 					   

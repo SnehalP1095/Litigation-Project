@@ -3907,6 +3907,11 @@ public class performerPOM
 				litigation=driver.findElement(By.xpath("(//span[@class='k-in'][normalize-space()='A pvt ltd'])[1]"));
 				return litigation;
 			}
+			public static WebElement SelectLocationCase(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("(//span[@class='k-in'][normalize-space()='ABC Mall, Thane'])[1]"));
+				return litigation;
+			}
 			public static WebElement SelectLocationWorkspaceNonAdmin(WebDriver driver)
 			{
 				litigation=driver.findElement(By.xpath("(//span[@class='k-in'][normalize-space()='ABC'])[1]"));
@@ -4347,7 +4352,7 @@ public class performerPOM
 			}
 			public static WebElement SelectTypeFilterCA(WebDriver driver)
 			{
-				litigation=driver.findElement(By.xpath("(//span[@class='k-in'])[566]"));
+				litigation=driver.findElement(By.xpath("(//span[@class='k-in'][normalize-space()='Inward/Defendant'])[1]"));
 				return litigation;
 			}
 			public static WebElement SelectTypeFilterNonAdmin(WebDriver driver)
@@ -4466,6 +4471,11 @@ public class performerPOM
 			public static WebElement selectDocStatusFilter(WebDriver driver)
 			{
 				litigation=driver.findElement(By.xpath("//div[@id='dropdownlist2-list']//li[2]"));
+				return litigation;
+			}
+			public static WebElement selectDocStatusFilter1(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("//div[@id='dropdownlist2-list']//li[3]"));
 				return litigation;
 			}
 			public static WebElement clickDocStatusFilter2(WebDriver driver)
@@ -4587,9 +4597,10 @@ public class performerPOM
 				litigation=driver.findElement(By.xpath("(//span[@class='k-in'][normalize-space()='ABCD'])[2]"));
 				return litigation;
 			}
+			
 			public static WebElement selectReportCaseDeptFilter(WebDriver driver)
 			{
-				litigation=driver.findElement(By.xpath("(//span[@class='k-in'][normalize-space()='Admin'])[2]"));
+				litigation=driver.findElement(By.xpath("(//span[@class='k-in'][normalize-space()='HR'])[1]"));
 				return litigation;
 			}
 			public static WebElement selectReportDeptFilterCA(WebDriver driver)
@@ -5155,6 +5166,12 @@ public class performerPOM
 			  {
 				  
 				  litigation=driver.findElement(By.xpath("//*[@id='tvBranchest3']"));
+				  return litigation;
+			  }
+			 public static WebElement SelectLocation1(WebDriver driver) throws InterruptedException
+			  {
+				  
+				  litigation=driver.findElement(By.xpath("//*[@id='tvBranchest11']"));
 				  return litigation;
 			  }
 			 public static WebElement clickAdditionalOwnerCfo(WebDriver driver) throws InterruptedException

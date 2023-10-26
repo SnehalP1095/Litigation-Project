@@ -291,7 +291,7 @@ public class MethodPOM1 {
 		test.log(LogStatus.PASS,"DashBoard Filter Work Successfully");
 		
 		}
-	public static void WorkspaceFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException
+	public static void WorkspaceFilter(WebDriver driver,ExtentTest test) throws InterruptedException
 	{
 		WebDriverWait wait=new WebDriverWait(driver,20);
 		 JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -306,17 +306,17 @@ public class MethodPOM1 {
 			Thread.sleep(3000);
 			performerPOM.clickExpand(driver).click();
 			Thread.sleep(3000);
-	       String locationtext =performerPOM.SelectLocationWorkspaceCA(driver).getText();
+	       String locationtext =performerPOM.SelectLocationDoceNonAdmin(driver).getText();
 	       Thread.sleep(3000);
-	       performerPOM. SelectLocationWorkspaceCA(driver).click();
+	       performerPOM. SelectLocationDoceNonAdmin(driver).click();
 	       
 	       
           Thread.sleep(500);
 	       performerPOM.clickDepartmentFilterWorkspace(driver).click();
 	       Thread.sleep(500);
-	       String DeptText = performerPOM.selectDepartmentFilterWorkspacecCA(driver).getText();
+	       String DeptText = performerPOM.selectDepartmentFilterDocNonAdmin(driver).getText();
 	       Thread.sleep(500);
-	       performerPOM. selectDepartmentFilterWorkspacecCA(driver).click();
+	       performerPOM. selectDepartmentFilterDocNonAdmin(driver).click();
 	       				        
 	       Thread.sleep(500);
 	       performerPOM.clickTypeFilter(driver).click();
@@ -345,7 +345,7 @@ public class MethodPOM1 {
 		     performerPOM.clickCol(driver).click();
 
 		     
-		     By dept = By.xpath("//input[@data-field='Department']");
+		     By dept = By.xpath("(//span[@class='k-link k-menu-link'][normalize-space()='Department'])[1]");
             wait.until(ExpectedConditions.presenceOfElementLocated(dept));
 		     Thread.sleep(4000);
             WebElement ViewButton = driver.findElement(dept);	
@@ -402,12 +402,350 @@ public class MethodPOM1 {
 					for(int l=0;l<text.size();l++)
 					{
 						
-//						if(i==2)
-//						{
-//							pass.add(text.get(l));	
-//						}
-//						else
-//						{
+						if(i==2)
+						{
+							if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
+							{
+							  pass.add(text.get(l));
+							}
+							else
+							{
+								 fail.add(text.get(l));
+							}
+						}
+							
+						
+						else
+						{
+							
+						
+							if(text.get(l).equals(li.get(i)))
+							{
+						
+						
+							pass.add(text.get(l));	
+							System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+							}
+					else
+					{
+						fail.add(text.get(l));		
+						System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+						System.out.println(i);
+
+					}
+					 }
+					}
+			 
+		for(String Fal : fail)
+			 {
+					test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+			 }	
+			 for(String Pas : pass)
+			 {
+				 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+					test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+					System.out.println(filter.get(i)+" : "+Pas);
+		 }
+			text.clear();
+			pass.clear();
+			fail.clear();
+			raw.clear();
+			
+			
+			}
+			}else {
+				test.log(LogStatus.PASS,"No records found");	
+			}
+			
+		}
+	public static void CaseWorkspaceFilter(WebDriver driver,ExtentTest test) throws InterruptedException
+	{
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
+		performerPOM.clickMyWorkspace(driver).click();
+		
+		Thread.sleep(3000);
+		performerPOM.clickCaseNotice1(driver).click();
+		
+		Thread.sleep(3000);
+		performerPOM.clickTypeDropdown(driver).click();
+		
+		Thread.sleep(3000);
+		performerPOM.selectTypeNotice(driver).click();
+		
+		  Thread.sleep(3000);
+			performerPOM.clicklocationFilter(driver).click();
+			Thread.sleep(3000);
+			performerPOM.clickExpand(driver).click();
+			Thread.sleep(3000);
+	       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+	       Thread.sleep(3000);
+	       performerPOM. SelectLocationCase(driver).click();
+	       
+	       
+          Thread.sleep(500);
+	       performerPOM.clickDepartmentFilterWorkspace(driver).click();
+	       Thread.sleep(500);
+	       String DeptText = performerPOM.selectReportCaseDeptFilter(driver).getText();
+	       Thread.sleep(500);
+	       performerPOM. selectReportCaseDeptFilter(driver).click();
+	       				        
+	       Thread.sleep(500);
+	       performerPOM.clickTypeFilter(driver).click();
+	       Thread.sleep(500);
+	       String Typetext = performerPOM.SelectTypeFilterCA(driver).getText();
+	       Thread.sleep(500);
+	       performerPOM.SelectTypeFilterCA(driver).click();
+	           
+	       
+	        List<String> li=new ArrayList<String>();
+	        li.add(locationtext);
+	         li.add(DeptText);
+	         li.add(Typetext);
+	        
+	        Thread.sleep(3000);
+	        
+			List<String> filter=new ArrayList<String>();	
+			filter.add("Location");
+			filter.add("Dept");
+			filter.add("Type");
+			
+			
+			 Thread.sleep(500);
+			 performerPOM.clickTrignle(driver).click();
+		     Thread.sleep(500);
+		     performerPOM.clickCol(driver).click();
+
+		     
+		     By dept = By.xpath("(//span[@class='k-link k-menu-link'][normalize-space()='Department'])[1]");
+            wait.until(ExpectedConditions.presenceOfElementLocated(dept));
+		     Thread.sleep(4000);
+            WebElement ViewButton = driver.findElement(dept);	
+			 Thread.sleep(4000);
+			 JavascriptExecutor jse=(JavascriptExecutor)driver;
+			 jse.executeScript("arguments[0].click();", ViewButton);
+		     Thread.sleep(500);
+			 performerPOM.clickTrignle(driver).click(); 
+			
+			
+			js.executeScript("window.scrollBy(0,300)");	
+			Thread.sleep(3000);
+
+			CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+			String s = CFOcountPOM.readTotalItems1(driver).getText();
+			Thread.sleep(2000);
+
+			if(!s.equalsIgnoreCase("No items to display")) {
+			Thread.sleep(5000);
+		
+			List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
+			List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[14]"));
+			List<WebElement> Type=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
+			
+			Thread.sleep(2000);
+
+			for(int i=0; i<li.size(); i++){
+				
+				List<String> text= new ArrayList<String>();
+				HashSet<String> pass=new LinkedHashSet<>();
+				HashSet<String> fail=new LinkedHashSet<>();
+				List<WebElement> raw=new ArrayList<WebElement>();
+
+					if(i==0)
+					{
+						raw.addAll(entitycol);
+					}
+				
+				   else if(i==1)
+				   {
+					 raw.addAll(Dept);
+				   }
+				   else if(i==2)
+				   {
+					   raw.addAll(Type);
+				   }
+				  
+							
+				for(int k=0;k<raw.size();k++)
+					{
+						text.add(raw.get(k).getText());
+					}
+
+					for(int l=0;l<text.size();l++)
+					{
+						
+						if(i==2)
+						{
+							if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
+							{
+							  pass.add(text.get(l));
+							}
+							else
+							{
+								 fail.add(text.get(l));
+							}
+						}
+							
+						
+						else
+						{
+							
+						
+							if(text.get(l).equals(li.get(i)))
+							{
+						
+						
+							pass.add(text.get(l));	
+							System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+							}
+					else
+					{
+						fail.add(text.get(l));		
+						System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+						System.out.println(i);
+
+					}
+					 }
+					}
+			 
+		for(String Fal : fail)
+			 {
+					test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+			 }	
+			 for(String Pas : pass)
+			 {
+				 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+					test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+					System.out.println(filter.get(i)+" : "+Pas);
+		 }
+			text.clear();
+			pass.clear();
+			fail.clear();
+			raw.clear();
+			
+			
+			}
+			}else {
+				test.log(LogStatus.PASS,"No records found");	
+			}
+			
+		}
+	public static void WorkspaceTaskFilter(WebDriver driver,ExtentTest test) throws InterruptedException
+	{
+		
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
+		performerPOM.clickMyWorkspace(driver).click();
+		
+		Thread.sleep(3000);
+		performerPOM.clickCaseNotice1(driver).click();
+		
+		Thread.sleep(3000);
+		performerPOM.clickTypeDropdown(driver).click();
+		
+		Thread.sleep(3000);
+		performerPOM.selectTypeTask(driver).click();
+		
+
+		  Thread.sleep(3000);
+			performerPOM.clickTaskLocFilter(driver).click();
+			Thread.sleep(3000);
+			performerPOM.clickExpand(driver).click();
+			Thread.sleep(3000);
+	       String locationtext =performerPOM.SelectLocationDoceNonAdmin(driver).getText();
+	       Thread.sleep(3000);
+	       performerPOM. SelectLocationDoceNonAdmin(driver).click();
+	       
+	       
+           Thread.sleep(500);
+	       performerPOM.clickTaskPriorityFilter(driver).click();
+	       Thread.sleep(500);
+	       String priorityText = performerPOM.SelectTaskPriorityFilter(driver).getText();
+	       Thread.sleep(500);
+	       performerPOM. SelectTaskPriorityFilter(driver).click();
+	       				        
+	       Thread.sleep(500);
+	       performerPOM.clickTaskStatusFilter(driver).click();
+	       Thread.sleep(500);
+	       String Statustext = performerPOM.SelectTaskStatusFilter(driver).getText();
+	       Thread.sleep(500);
+	       performerPOM.SelectTaskStatusFilter(driver).click();
+	           
+	       
+	        List<String> li=new ArrayList<String>();
+	     
+	         li.add(priorityText);
+	         li.add(Statustext);
+	        
+	        Thread.sleep(3000);
+	        
+			List<String> filter=new ArrayList<String>();	
+			
+			filter.add("priority");
+			filter.add("Status");
+			
+			
+			
+
+		     
+			js.executeScript("window.scrollBy(0,150)");	
+			Thread.sleep(3000);
+
+			CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+			String s = CFOcountPOM.readTotalItems1(driver).getText();
+			Thread.sleep(2000);
+
+			if(!s.equalsIgnoreCase("No items to display")) {
+			Thread.sleep(5000);
+		
+			List<WebElement> Prioritycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
+			List<WebElement> Status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
+			//List<WebElement> Type=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
+			
+			Thread.sleep(2000);
+
+			for(int i=0; i<li.size(); i++){
+				
+				List<String> text= new ArrayList<String>();
+				HashSet<String> pass=new LinkedHashSet<>();
+				HashSet<String> fail=new LinkedHashSet<>();
+				List<WebElement> raw=new ArrayList<WebElement>();
+
+					if(i==0)
+					{
+						raw.addAll(Prioritycol);
+					}
+				
+				   else if(i==1)
+				   {
+					 raw.addAll(Status);
+				   }
+				 
+							
+				for(int k=0;k<raw.size();k++)
+					{
+						text.add(raw.get(k).getText());
+					}
+
+					for(int l=0;l<text.size();l++)
+					{
+						
+						if(i==1)
+						{
+							if(text.get(l).equalsIgnoreCase("Open")||text.get(l).equalsIgnoreCase("Pending"))
+							{
+							  pass.add(text.get(l));
+							}
+							else
+							{
+								 fail.add(text.get(l));
+							}
+						}
+						else
+						{
 							
 						
 					if(text.get(l).equals(li.get(i)))
@@ -426,7 +764,7 @@ public class MethodPOM1 {
 
 					}
 					 }
-					//}
+					}
 			 
 		for(String Fal : fail)
 			 {
@@ -449,11 +787,107 @@ public class MethodPOM1 {
 				test.log(LogStatus.PASS,"No records found");	
 			}
 		
+}
+	
+	public static void WorkspaceCaseHearingFilter(WebDriver driver,ExtentTest test,String type) throws InterruptedException
+	{
+		
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
+		performerPOM.clickMyWorkspace(driver).click();
+		Thread.sleep(3000);
+		performerPOM.clickCaseHearing1(driver).click();
+		
+		Thread.sleep(3000);
+		performerPOM.clickSearchFilter(driver).sendKeys(type,Keys.ENTER);
+		
+	      List<String> li=new ArrayList<String>();
+	        
+	       
+	        li.add(type);
+	       
+	        
+			List<String> filter=new ArrayList<String>();	
+			
+			filter.add("Location");	
 			
 			
+			js.executeScript("window.scrollBy(0,150)");	
+			Thread.sleep(3000);
+
+			CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+			String s = CFOcountPOM.readTotalItems1(driver).getText();
+			Thread.sleep(2000);
+
+			if(!s.equalsIgnoreCase("No items to display")) {
+			Thread.sleep(5000);
+	
+			List<WebElement> typecol=driver.findElements(By.xpath("//*[@id='gridPendingUpdation']/div[2]/table/tbody/tr/td[1]"));
+			Thread.sleep(2000);
+
+			for(int i=0; i<li.size(); i++){
+				
+				List<String> text= new ArrayList<String>();
+				HashSet<String> pass=new LinkedHashSet<>();
+				HashSet<String> fail=new LinkedHashSet<>();
+				List<WebElement> raw=new ArrayList<WebElement>();
+
+
+			 if(i==0)
+					{
+						raw.addAll(typecol);
+					}
+				
+					
+					
+				for(int k=0;k<raw.size();k++)
+					{
+						text.add(raw.get(k).getText());
+					}
+
+				for(int l=0;l<text.size();l++)
+				 {
+						
+					if(text.get(l).equals(li.get(i)))
+						{
+							pass.add(text.get(l));	
+							System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+						}
+					else
+					   {
+							fail.add(text.get(l));		
+							System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+							System.out.println(i);
+
+					   }
+				  }
+						
+				             
+			 
+		for(String Fal : fail)
+			 {
+					test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+			 }	
+			 for(String Pas : pass)
+			 {
+				 	test.log(LogStatus.PASS,  " Search box working properly.");
+					test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+					System.out.println(filter.get(i)+" : "+Pas);
+			 }
+			 text.clear();
+			pass.clear();
+			fail.clear();
+			raw.clear();
+			
+			
+			}
+			}else {
+				test.log(LogStatus.PASS,"No records found");	
+			}
 		}
 		
-	public static void DocumentFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException
+	public static void DocumentNoticeFilter(WebDriver driver,ExtentTest test) throws InterruptedException
 	{
 		WebDriverWait wait=new WebDriverWait(driver,20);
 		progress(driver);
@@ -461,15 +895,17 @@ public class MethodPOM1 {
 	
 		 performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
 		 performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
+		 
+		 Thread.sleep(3000);
+			performerPOM.clickTypeDropdown(driver).click();
+			Thread.sleep(3000);
+			performerPOM.selectTypeNotice(driver).click();
 	
 		 Thread.sleep(3000);
 		 wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 	
 	
-		 Thread.sleep(3000);
-		 performerPOM.clickTypeDropdown(driver).click();
-		 Thread.sleep(3000);
-		performerPOM.selectTypeNotice(driver).click();
+		
 	
 		Thread.sleep(3000);
 		performerPOM.clickDocStatusFilter(driver).click();
@@ -482,9 +918,9 @@ public class MethodPOM1 {
 		Thread.sleep(3000);
 		performerPOM.clickDocTypeFilter(driver).click();
 		Thread.sleep(3000);
-		String typetext =performerPOM.selectDocTypeFilterCA(driver).getText();
+		String typetext =performerPOM.SelectTypeFilterCA(driver).getText();
 		Thread.sleep(3000);
-		performerPOM. selectDocTypeFilterCA(driver).click();
+		performerPOM. SelectTypeFilterCA(driver).click();
      
      
      
@@ -494,9 +930,9 @@ public class MethodPOM1 {
 		Thread.sleep(3000);
 		performerPOM.clickExpand(driver).click();
 		Thread.sleep(3000);
-		String locationtext =performerPOM.selectDocLocFilterCA(driver).getText();
+		String locationtext =performerPOM.SelectLocationCase(driver).getText();
 		Thread.sleep(3000);
-		performerPOM. selectDocLocFilterCA(driver).click();
+		performerPOM. SelectLocationCase(driver).click();
 		Thread.sleep(3000);
 		performerPOM.clickDocLocFilter(driver).click();
        
@@ -578,12 +1014,21 @@ public class MethodPOM1 {
 				for(int l=0;l<text.size();l++)
 				{
 					
-//					if(i==2)
-//					{
-//						pass.add(text.get(l));	
-//					}
-//					else
-//					{
+				
+					
+				  if(i==1)
+					 {
+						if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					 }
+					else
+					{
 						
 					
 				if(text.get(l).equals(li.get(i)))
@@ -602,7 +1047,7 @@ public class MethodPOM1 {
 
 				}
 				 }
-				//}
+				}
 		 
 	for(String Fal : fail)
 		 {
@@ -621,128 +1066,277 @@ public class MethodPOM1 {
 		
 		
 		}
-		}else {
+		}
+		else 
+		{
 			test.log(LogStatus.PASS,"No records found");	
 		}
-	}	
-		
-	public static void ReportFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException
+}
+
+	
+	
+	public static void DocumentCaseFilter(WebDriver driver,ExtentTest test) throws InterruptedException
 	{
 		WebDriverWait wait=new WebDriverWait(driver,20);
-		performerPOM.clickMyReports(driver).click();					//Clicking on 'My Reports'
+		progress(driver);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		
-		Thread.sleep(500);
-		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+		performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
+		performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
 		
-		 JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,-150)");	
 		
 		Thread.sleep(3000);
-		performerPOM.clickReportStatusFilter(driver).click();
-		//Thread.sleep(3000);
-       // String Statustext =performerPOM.selectReportStatusFilter(driver).getText();
+		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+		
+		
+
+		Thread.sleep(3000);
+		performerPOM.clickDocStatusFilter(driver).click();
+		Thread.sleep(3000);
+        String Statustext =performerPOM.selectDocStatusFilter1(driver).getText();
         Thread.sleep(3000);
-         performerPOM. selectReportStatusFilter(driver).click();
+         performerPOM. selectDocStatusFilter1(driver).click();
        
 	
          Thread.sleep(3000);
-		performerPOM.clickReportDeptFilter(driver).click();
+		performerPOM.clickDocTypeFilter(driver).click();
 		Thread.sleep(3000);
-	    String depttext =performerPOM.selectReportDeptFilterCA(driver).getText();
+	    String typetext =performerPOM.selectDocTypeFilter(driver).getText();
 	    Thread.sleep(3000);
-	     performerPOM. selectReportDeptFilterCA(driver).click();
+	     performerPOM. selectDocTypeFilter(driver).click();
          
-	     Thread.sleep(3000);
-			performerPOM.clickReportTypeFilter(driver).click();
-			Thread.sleep(3000);
-		    String typetext =performerPOM.selectReportTypeFilterCA(driver).getText();
-		    Thread.sleep(3000);
-		     performerPOM. selectReportTypeFilterCA(driver).click();
-	         
          
          
       
-		    Thread.sleep(3000);
-			performerPOM.clickReportLocFilter(driver).click();
+		  Thread.sleep(3000);
+			performerPOM.clickDocLocFilter(driver).click();
 			Thread.sleep(3000);
 			performerPOM.clickExpand(driver).click();
 			Thread.sleep(3000);
-	       String locationtext =performerPOM.selectReportLocFilterCA(driver).getText();
-	       
+	       String locationtext =performerPOM.SelectLocationCase(driver).getText();
 	       Thread.sleep(3000);
-	       performerPOM. selectReportLocFilterCA(driver).click();
-	      
-			Thread.sleep(3000);
-			performerPOM.clickReportFYFilter(driver).click();
-			Thread.sleep(3000);
-		    String FYtext =performerPOM.selectReportFYFilterCA(driver).getText();
-		    Thread.sleep(3000);
-		     performerPOM. selectReportFYFilterCA(driver).click();
+	       performerPOM. SelectLocationCase(driver).click();
+	       Thread.sleep(3000);
+			performerPOM.clickDocLocFilter(driver).click();
 	       
 	        List<String> li=new ArrayList<String>();
-	        // li.add(Statustext);
-	         li.add(depttext);
+	         li.add(Statustext);
 	         li.add(typetext);
 	         li.add(locationtext);
-	         li.add(FYtext);
 	        
 			List<String> filter=new ArrayList<String>();	
-			//filter.add("Status");
-			filter.add("Dept");
+			filter.add("Status");
 			filter.add("Type");
 			filter.add("Loaction");
-			filter.add("FY");
-		
-			js.executeScript("window.scrollBy(0,200)");	
+			
+			
+			// Thread.sleep(3000);
+			 //performerPOM.clickTrignle(driver).click();
+			 
+			  By Tringle = By.xpath("//span[@class='k-icon k-i-more-vertical']");
+                 wait.until(ExpectedConditions.presenceOfElementLocated(Tringle));
+			     Thread.sleep(4000);
+                 WebElement ViewButton = driver.findElement(Tringle);	
+				 Thread.sleep(4000);
+				 JavascriptExecutor jse=(JavascriptExecutor)driver;
+				 jse.executeScript("arguments[0].click();", ViewButton);
+		     
+				 Thread.sleep(3000);
+		     performerPOM.clickCol(driver).click();
+
+		     
+		     By dept = By.xpath("//span[@class='k-link k-menu-link'][normalize-space()='Status']");
+             wait.until(ExpectedConditions.presenceOfElementLocated(dept));
+		     Thread.sleep(4000);
+             WebElement ViewButton1 = driver.findElement(dept);	
+			 Thread.sleep(4000);
+			 JavascriptExecutor jse1=(JavascriptExecutor)driver;
+			 jse1.executeScript("arguments[0].click();", ViewButton1);
+		    
+			
+			js.executeScript("window.scrollBy(0,150)");	
+			Thread.sleep(3000);
+
 			CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
 			String s = CFOcountPOM.readTotalItems1(driver).getText();
 			Thread.sleep(2000);
 
-			if(!s.equalsIgnoreCase("No items to display"))
-			{
-			Thread.sleep(3000);
+			if(!s.equalsIgnoreCase("No items to display")) {
+			Thread.sleep(5000);
 		
-			//List<WebElement> statuscol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[4]"));
-			List<WebElement> deptcol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]"));
-			List<WebElement> typecol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
-			List<WebElement> loctioncol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
-			List<WebElement> FYcol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[14]"));
-			
-			js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=400");
+			List<WebElement> statuscol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[13]"));
+			List<WebElement> Type=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[4]"));
+			List<WebElement> Location=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
 			
 			Thread.sleep(2000);
-            for(int i=0; i<li.size(); i++)
-			{
+
+			for(int i=0; i<li.size(); i++){
 				
 				List<String> text= new ArrayList<String>();
 				HashSet<String> pass=new LinkedHashSet<>();
 				HashSet<String> fail=new LinkedHashSet<>();
 				List<WebElement> raw=new ArrayList<WebElement>();
 
-//					if(i==0)
-//					{
-//						raw.addAll(statuscol);
-//					}
-					 if(i==0)
+				if(i==0)
+				{
+					raw.addAll(statuscol);
+				}
+			
+			   else if(i==1)
+			   {
+				 raw.addAll(Type);
+			   }
+			   else if(i==2)
+			   {
+				   raw.addAll(Location);
+			   }
+			 
+						
+			for(int k=0;k<raw.size();k++)
+				{
+					text.add(raw.get(k).getText());
+				}
+
+				for(int l=0;l<text.size();l++)
+				{
+
+				 if(i==1)
 					{
-						raw.addAll(deptcol);
+						if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
 					}
+					else
+					{
+						
+					
+				if(text.get(l).equals(li.get(i)))
+					{
+					
+					
+						pass.add(text.get(l));	
+						System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+					}
+				else
+				{
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
+
+				}
+				 }
+				}
+		 
+				for(String Fal : fail)
+				{
+					test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+				}	
+				for(String Pas : pass)
+				{
+					test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+					test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+					System.out.println(filter.get(i)+" : "+Pas);
+				}
+					text.clear();
+					pass.clear();
+					fail.clear();
+					raw.clear();
+		
+		
+			}
+			}
+			else 
+			{
+				test.log(LogStatus.PASS,"No records found");	
+			}
+		}
+	
+	public static void DocumentTaskFilter(WebDriver driver,ExtentTest test) throws InterruptedException
+	{
+		
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		progress(driver);
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+	
+		 performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
+		performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
+	
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+	
+	
+		  Thread.sleep(3000);
+		  performerPOM.clickTypeDropdown(driver).click();
+		  Thread.sleep(3000);
+		  performerPOM.selectTypeTask(driver).click();
+	
+           Thread.sleep(500);
+	       performerPOM.clickDocTaskPriorityFilter(driver).click();
+	       Thread.sleep(500);
+	       String priorityText = performerPOM.SelectTaskPriorityFilter(driver).getText();
+	       Thread.sleep(500);
+	       performerPOM. SelectTaskPriorityFilter(driver).click();
+	       				        
+	       Thread.sleep(500);
+	       performerPOM.clickDocStatusFilter(driver).click();
+	       Thread.sleep(500);
+	       String Statustext = performerPOM.selectDocStatusFilter(driver).getText();
+	       Thread.sleep(500);
+	       performerPOM.selectDocStatusFilter(driver).click();
+	           
+	       
+	        List<String> li=new ArrayList<String>();
+	       
+	         li.add(priorityText);
+	         li.add(Statustext);
+	        
+	        Thread.sleep(3000);
+	        
+			List<String> filter=new ArrayList<String>();	
+		
+			filter.add("priority");
+			filter.add("Status");
+			 
+			js.executeScript("window.scrollBy(0,200)");	
+			Thread.sleep(3000);
+			CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+			String s = CFOcountPOM.readTotalItems1(driver).getText();
+			Thread.sleep(2000);
+
+			if(!s.equalsIgnoreCase("No items to display")) {
+			Thread.sleep(5000);
+		
+			List<WebElement> Prioritycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[9]"));
+			List<WebElement> Status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[13]"));
+			
+			
+			Thread.sleep(2000);
+
+			for(int i=0; i<li.size(); i++){
+				
+				List<String> text= new ArrayList<String>();
+				HashSet<String> pass=new LinkedHashSet<>();
+				HashSet<String> fail=new LinkedHashSet<>();
+				List<WebElement> raw=new ArrayList<WebElement>();
+
+					if(i==0)
+					{
+						raw.addAll(Prioritycol);
+					}
+				
 				   else if(i==1)
 				   {
-					 raw.addAll(typecol);
+					 raw.addAll(Status);
 				   }
-				   else if(i==2)
-				   {
-					   raw.addAll(loctioncol);
-				   }
-				   else if(i==3)
-				   {
-					   Thread.sleep(5000);
-					   js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=5000");
-					   raw.addAll(FYcol);
-				   }
+				 
 							
-				for(int k=0;k<raw.size();k++)
+					for(int k=0;k<raw.size();k++)
 					{
 						text.add(raw.get(k).getText());
 					}
@@ -787,10 +1381,523 @@ public class MethodPOM1 {
 			}else {
 				test.log(LogStatus.PASS,"No records found");	
 			}
+			
+	}
+	
+	public static void ReportFilter(WebDriver driver,ExtentTest test) throws InterruptedException
+	{
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		performerPOM.clickMyReports(driver).click();					//Clicking on 'My Reports'
 		
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 		
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,-150)");	
 		
-   }
+	
+         Thread.sleep(3000);
+		performerPOM.clickReportDeptFilter(driver).click();
+		Thread.sleep(3000);
+	    String depttext =performerPOM.selectDepartmentFilterDocNonAdmin(driver).getText();
+	    Thread.sleep(3000);
+	     performerPOM. selectDepartmentFilterDocNonAdmin(driver).click();
+         
+	     Thread.sleep(3000);
+			performerPOM.clickReportTypeFilter(driver).click();
+			Thread.sleep(3000);
+		    String typetext =performerPOM.SelectTypeFilterCA(driver).getText();
+		    Thread.sleep(3000);
+		     performerPOM. SelectTypeFilterCA(driver).click();
+	         
+         
+         
+      
+		    Thread.sleep(3000);
+			performerPOM.clickReportLocFilter(driver).click();
+			Thread.sleep(3000);
+			performerPOM.clickExpand(driver).click();
+			Thread.sleep(3000);
+	       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+	       
+	       Thread.sleep(3000);
+	       performerPOM. SelectLocationCase(driver).click();
+	      
+			Thread.sleep(3000);
+			performerPOM.clickReportFYFilter(driver).click();
+			Thread.sleep(3000);
+		    String FYtext =performerPOM.selectReportFYFilterCA(driver).getText();
+		    Thread.sleep(3000);
+		     performerPOM. selectReportFYFilterCA(driver).click();
+	       
+	        List<String> li=new ArrayList<String>();
+	     
+	         li.add(depttext);
+	         li.add(typetext);
+	         li.add(locationtext);
+	         li.add(FYtext);
+	        
+			List<String> filter=new ArrayList<String>();	
+			
+			filter.add("Dept");
+			filter.add("Type");
+			filter.add("Loaction");
+			filter.add("FY");
+		
+			js.executeScript("window.scrollBy(0,200)");	
+			CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+			String s = CFOcountPOM.readTotalItems1(driver).getText();
+			Thread.sleep(2000);
+
+			if(!s.equalsIgnoreCase("No items to display"))
+			{
+			Thread.sleep(3000);
+		
+			
+			List<WebElement> deptcol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]"));
+			List<WebElement> typecol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
+			List<WebElement> loctioncol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
+			List<WebElement> FYcol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[14]"));
+			
+			js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=400");
+			
+			Thread.sleep(2000);
+            for(int i=0; i<li.size(); i++)
+			{
+				
+				List<String> text= new ArrayList<String>();
+				HashSet<String> pass=new LinkedHashSet<>();
+				HashSet<String> fail=new LinkedHashSet<>();
+				List<WebElement> raw=new ArrayList<WebElement>();
+
+
+					 if(i==0)
+					{
+						raw.addAll(deptcol);
+					}
+				   else if(i==1)
+				   {
+					 raw.addAll(typecol);
+				   }
+				   else if(i==2)
+				   {
+					   raw.addAll(loctioncol);
+				   }
+				   else if(i==3)
+				   {
+					   Thread.sleep(5000);
+					   js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=5000");
+					   raw.addAll(FYcol);
+				   }
+							
+					 for(int k=0;k<raw.size();k++)
+						{
+							text.add(raw.get(k).getText());
+						}
+
+						for(int l=0;l<text.size();l++)
+						{
+							
+							
+							
+							 if(i==1)
+							{
+								if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
+								{
+								  pass.add(text.get(l));
+								}
+								else
+								{
+									 fail.add(text.get(l));
+								}
+							}
+							else
+							{
+								
+							
+						if(text.get(l).equals(li.get(i)))
+							{
+							
+							
+								pass.add(text.get(l));	
+								System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+							}
+						else
+						{
+							fail.add(text.get(l));		
+							System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+							System.out.println(i);
+
+						}
+						 }
+						}
+				 
+			for(String Fal : fail)
+				 {
+						test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+				 }	
+				 for(String Pas : pass)
+				 {
+					 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+						test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+						System.out.println(filter.get(i)+" : "+Pas);
+			 }
+				text.clear();
+				pass.clear();
+				fail.clear();
+				raw.clear();
+				
+				
+				}
+				}
+				else 
+				{
+					test.log(LogStatus.PASS,"No records found");	
+				}
+		}
+	
+	 
+	 public static void ReportCaseFilter(WebDriver driver,ExtentTest test) throws InterruptedException
+		{
+			WebDriverWait wait=new WebDriverWait(driver,20);
+			performerPOM.clickMyReports(driver).click();					//Clicking on 'My Reports'
+			
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+			
+			
+			 JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("window.scrollBy(0,-150)");	
+				
+				Thread.sleep(3000);
+				performerPOM.clickTypeDropdown(driver).click();
+				Thread.sleep(3000);
+				performerPOM.selectTypeNotice(driver).click();
+			
+			Thread.sleep(3000);
+			performerPOM.clickReportStatusFilter(driver).click();
+			Thread.sleep(3000);
+	        String Statustext =performerPOM.selectReportStatusFilter(driver).getText();
+	        Thread.sleep(3000);
+	         performerPOM. selectReportStatusFilter(driver).click();
+	       
+		
+	         Thread.sleep(3000);
+			performerPOM.clickReportDeptFilter(driver).click();
+			Thread.sleep(3000);
+		    String depttext =performerPOM.selectReportCaseDeptFilter(driver).getText();
+		    Thread.sleep(5000);
+		     performerPOM.selectReportCaseDeptFilter(driver).click();
+	         
+		     Thread.sleep(3000);
+				performerPOM.clickReportTypeFilter(driver).click();
+				Thread.sleep(3000);
+			    String typetext =performerPOM.SelectTypeFilterCA(driver).getText();
+			    Thread.sleep(3000);
+			     performerPOM. SelectTypeFilterCA(driver).click();
+		         
+	         
+	         
+	      
+			    Thread.sleep(3000);
+				performerPOM.clickReportLocFilter(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickExpand(driver).click();
+				Thread.sleep(3000);
+		       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+		       Thread.sleep(3000);
+		       performerPOM. SelectLocationCase(driver).click();
+		      
+				Thread.sleep(3000);
+				performerPOM.clickReportFYFilter(driver).click();
+				Thread.sleep(3000);
+			    String FYtext =performerPOM.selectReportFYFilter(driver).getText();
+			    Thread.sleep(3000);
+			     performerPOM. selectReportFYFilter(driver).click();
+		       
+		        List<String> li=new ArrayList<String>();
+		         li.add(Statustext);
+		         li.add(depttext);
+		         li.add(typetext);
+		         li.add(locationtext);
+		         li.add(FYtext);
+		        
+				List<String> filter=new ArrayList<String>();	
+				filter.add("Status");
+				filter.add("Dept");
+				filter.add("Type");
+				filter.add("Loaction");
+				filter.add("FY");
+			
+				js.executeScript("window.scrollBy(0,300)");
+				Thread.sleep(2000);
+				CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+				String s = CFOcountPOM.readTotalItems1(driver).getText();
+				Thread.sleep(2000);
+
+				if(!s.equalsIgnoreCase("No items to display")) {
+				Thread.sleep(5000);
+			
+				List<WebElement> statuscol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[4]"));
+				List<WebElement> deptcol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]"));
+				List<WebElement> typecol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
+				List<WebElement> loctioncol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
+				List<WebElement> FYcol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[14]"));
+				Thread.sleep(2000);
+				js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=500");
+				for(int i=0; i<li.size(); i++){
+					
+					List<String> text= new ArrayList<String>();
+					HashSet<String> pass=new LinkedHashSet<>();
+					HashSet<String> fail=new LinkedHashSet<>();
+					List<WebElement> raw=new ArrayList<WebElement>();
+
+						if(i==0)
+						{
+							raw.addAll(statuscol);
+						}
+						else if(i==1)
+						{
+							raw.addAll(deptcol);
+						}
+					   else if(i==2)
+					   {
+						 raw.addAll(typecol);
+					   }
+					   else if(i==3)
+					   {
+						   raw.addAll(loctioncol);
+					   }
+					   else if(i==4)
+					   {
+						   Thread.sleep(5000);
+						   js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=5000");
+						   raw.addAll(FYcol);
+					   }
+								
+						for(int k=0;k<raw.size();k++)
+						{
+							text.add(raw.get(k).getText());
+						}
+
+						for(int l=0;l<text.size();l++)
+						{
+							
+							if(i==0)
+							{
+								if(text.get(l).equalsIgnoreCase("Open")||text.get(l).equalsIgnoreCase("Pending"))
+								{
+								  pass.add(text.get(l));
+								}
+								else
+								{
+									 fail.add(text.get(l));
+								}
+							}
+							
+							else if(i==2)
+							{
+								if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
+								{
+								  pass.add(text.get(l));
+								}
+								else
+								{
+									 fail.add(text.get(l));
+								}
+							}
+							else
+							{
+								
+							
+						if(text.get(l).equals(li.get(i)))
+							{
+							
+							
+								pass.add(text.get(l));	
+								System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+							}
+						else
+						{
+							fail.add(text.get(l));		
+							System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+							System.out.println(i);
+
+						}
+						 }
+						}
+				 
+			for(String Fal : fail)
+				 {
+						test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+				 }	
+				 for(String Pas : pass)
+				 {
+					 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+						test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+						System.out.println(filter.get(i)+" : "+Pas);
+			 }
+				text.clear();
+				pass.clear();
+				fail.clear();
+				raw.clear();
+				
+				
+				}
+				}
+				else 
+				{
+					test.log(LogStatus.PASS,"No records found");	
+				}
+		}
+	 
+		public static void ReportTaskFilter(WebDriver driver,ExtentTest test) throws InterruptedException
+		{
+			
+				WebDriverWait wait=new WebDriverWait(driver,20);
+				performerPOM.clickMyReports(driver).click();					//Clicking on 'My Reports'
+			
+				Thread.sleep(500);
+				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
+			
+			
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("window.scrollBy(0,-150)");	
+		
+				Thread.sleep(3000);
+				performerPOM.clickTypeDropdown(driver).click();
+				Thread.sleep(3000);
+				performerPOM.selectTypeTask(driver).click();
+			
+
+		       
+				Thread.sleep(500);
+				performerPOM.clickTaskPriorityFilter(driver).click();
+				Thread.sleep(500);
+				String priorityText = performerPOM.SelectTaskPriorityFilter(driver).getText();
+				Thread.sleep(500);
+				performerPOM. SelectTaskPriorityFilter(driver).click();
+		       				        
+				Thread.sleep(500);
+				performerPOM.clickTaskStatusFilter(driver).click();
+				Thread.sleep(500);
+				String Statustext = performerPOM.SelectTaskStatusFilter(driver).getText();
+				Thread.sleep(500);
+				performerPOM.SelectTaskStatusFilter(driver).click();
+		           
+		       
+			    List<String> li=new ArrayList<String>();
+		       //li.add(locationtext);
+		         li.add(priorityText);
+		         li.add(Statustext);
+		        
+		        Thread.sleep(3000);
+		        
+				List<String> filter=new ArrayList<String>();	
+				//filter.add("Location");
+				filter.add("priority");
+				filter.add("Status");
+				 
+				js.executeScript("window.scrollBy(0,200)");	
+				Thread.sleep(3000);
+				CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+				String s = CFOcountPOM.readTotalItems1(driver).getText();
+				Thread.sleep(2000);
+
+				if(!s.equalsIgnoreCase("No items to display"))
+				{
+				Thread.sleep(5000);
+			
+				List<WebElement> Prioritycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
+				List<WebElement> Status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
+				
+				
+				Thread.sleep(2000);
+
+				for(int i=0; i<li.size(); i++){
+					
+					List<String> text= new ArrayList<String>();
+					HashSet<String> pass=new LinkedHashSet<>();
+					HashSet<String> fail=new LinkedHashSet<>();
+					List<WebElement> raw=new ArrayList<WebElement>();
+
+						if(i==0)
+						{
+							raw.addAll(Prioritycol);
+						}
+					
+					   else if(i==1)
+					   {
+						 raw.addAll(Status);
+					   }
+					 
+								
+					for(int k=0;k<raw.size();k++)
+						{
+							text.add(raw.get(k).getText());
+						}
+
+						for(int l=0;l<text.size();l++)
+						{
+							
+							if(i==1)
+							{
+								if(text.get(l).equalsIgnoreCase("Open")||text.get(l).equalsIgnoreCase("Pending"))
+								{
+								  pass.add(text.get(l));
+								}
+								else
+								{
+									 fail.add(text.get(l));
+								}
+							}
+							else
+							{
+								
+							
+						if(text.get(l).equals(li.get(i)))
+							{
+							
+							
+								pass.add(text.get(l));	
+								System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+							}
+						else
+						{
+							fail.add(text.get(l));		
+							System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+							System.out.println(i);
+
+						}
+						 }
+						}
+				 
+			for(String Fal : fail)
+				 {
+						test.log(LogStatus.FAIL, filter.get(i)+" column shows incorrect value : "+Fal);
+				 }	
+				 for(String Pas : pass)
+				 {
+					 test.log(LogStatus.PASS,  filter.get(i)+" dropdown working properly.");
+						test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+						System.out.println(filter.get(i)+" : "+Pas);
+			 }
+				text.clear();
+				pass.clear();
+				fail.clear();
+				raw.clear();
+				
+				
+				}
+				}else {
+					test.log(LogStatus.PASS,"No records found");	
+				}
+			
+	}
+	 
 	public static void AdvancedSearchWorkspace(WebDriver driver,ExtentTest test, String type) throws InterruptedException
 	{
 		WebDriverWait wait=new WebDriverWait(driver,60);
