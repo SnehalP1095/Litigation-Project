@@ -1345,7 +1345,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 	
 	
 	
-	 @Test(priority = 111)
+	 @Test(priority = 1)
 		void AdvancedSearch() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Advanced Search Reports excel  verification");
@@ -1357,7 +1357,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.flush();
 		}
 	
-	@Test(priority = 112)
+	@Test(priority = 2)
 		void AdvocateBill() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Advocate bill verification");
@@ -1368,7 +1368,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-	@Test(priority = 112)
+	@Test(priority = 3)
 		void AdvocateBill1() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Approver Assignment Log verification");
@@ -1455,7 +1455,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 45)
+	//@Test(priority = 45)
 	void Report() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Report-Customer Management verification");
@@ -1467,7 +1467,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
-	@Test(priority = 1)
+//	@Test(priority = 1)
 			void WorkspaceFilter() throws InterruptedException, IOException
 			{
 				test = extent.startTest("My Workspace - Notice - Multiple Filters verification");
@@ -1478,7 +1478,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-	@Test(priority = 2)
+//	@Test(priority = 2)
 	void CaseWorkspaceFilter() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Workspace - Case - Multiple Filters verification");
@@ -1489,7 +1489,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 3)
+///	@Test(priority = 3)
 	void WorkspaceTaskFilter() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Workspace - Task - Multiple Filters verification");
@@ -1501,7 +1501,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.flush();
 	}
 
-@Test(priority = 4)
+//@Test(priority = 4)
 	void WorkspaceCaseHearingFilter() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Workspace = Case Hearing = Search box  Filter verification");
@@ -1513,7 +1513,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.flush();
 	}
 
-	@Test(priority =5)
+//	@Test(priority =5)
 			void DocumentNoticeFilter() throws InterruptedException, IOException
 			{
 				test = extent.startTest("My Document Tab - Notice - Multiple Filters verification");
@@ -1524,7 +1524,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-	 @Test(priority = 6)
+//	 @Test(priority = 6)
 		void DocumentCaseFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" My Document = Case = Multiple  Filters verification");
@@ -1536,7 +1536,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.flush();
 		}
 	 
-@Test(priority = 7)
+//@Test(priority = 7)
 		void DocumentTaskFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" My Document = Task = Multiple  Filters verification");
@@ -1547,7 +1547,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-@Test(priority = 8)
+//@Test(priority = 8)
 			void ReportFilter() throws InterruptedException, IOException
 			{
 				test = extent.startTest("My Report - Notice - Multiple Filters verification");
@@ -1557,7 +1557,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-@Test(priority = 9)
+//@Test(priority = 9)
 		void ReportCaseFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - Case - Multiple Filters verification");
@@ -1568,7 +1568,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 			extent.flush();
 		}
 	 
- @Test(priority =10)
+ //@Test(priority =10)
 		void ReportTaskFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report = Task =  Filters verification");

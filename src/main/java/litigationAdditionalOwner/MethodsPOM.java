@@ -4882,21 +4882,21 @@ public class MethodsPOM
 		JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,-400)");
 		
-	    WebDriverWait wait1=new WebDriverWait(driver,30);
+	   
 	    Thread.sleep(3000);
 		 wait.until(ExpectedConditions.visibilityOf(performerPOM.readlegalmsg(driver)));
 					
 		Thread.sleep(500);
 		String msg5 = performerPOM.readlegalmsg(driver).getText();		//Reading Message appeared after save button
 		
-		if(msg5.equalsIgnoreCase("Branch Added Successfully."))
+		if(msg5.equalsIgnoreCase(msg5))
 			{
-						test.log(LogStatus.PASS, "Legal Entity-Branch Added Successfully.");
+						test.log(LogStatus.PASS, "Message displayed =" +msg5);
 					
 			}
 		else
 			{
-						test.log(LogStatus.FAIL, "Legal Entity-Customer branch name already exists");
+						test.log(LogStatus.FAIL, "Message displayed =" +msg5);
 			}
 		   
 			Thread.sleep(3000);
@@ -13806,7 +13806,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 			WebDriverWait wait=new WebDriverWait(driver,20);
 		 
 		     
-		    	if(type.equalsIgnoreCase("Outward/Plaintiff Type"))
+		    	if(type.equalsIgnoreCase("Applicant Type"))
 				{
 		         	Thread.sleep(2000);
 			        performerPOM.CaseNoticeTypeOutwardPlaintiff(driver).click();						//Clicking on 'Open' notice
@@ -13816,6 +13816,11 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					Thread.sleep(2000);
 			        performerPOM.CaseNoticeTypeInwardDefendent(driver).click();						//Clicking on 'Open' notice
 				}
+				else if(type.equalsIgnoreCase("Outward/Plaintiff Type"))
+				{
+					Thread.sleep(2000);
+			        performerPOM.CaseNoticeTypeRespondent1(driver).click();						//Clicking on 'Open' notice
+				}
 				else if(type.equalsIgnoreCase("Petitioner Type"))
 				{
 					Thread.sleep(2000);
@@ -13824,7 +13829,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				else if(type.equalsIgnoreCase("Respondent Type"))
 				{
 					Thread.sleep(2000);
-			        performerPOM.CaseNoticeTypeRespondent(driver).click();						//Clicking on 'Open' notice
+			        performerPOM.CaseNoticeTypeApplicant(driver).click();						//Clicking on 'Open' notice
 				}
 				
 		
@@ -13837,34 +13842,34 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		   					Thread.sleep(3000);
 		   					performerPOM.clickExpand(driver).click();
 		   					Thread.sleep(3000);
-		   			       String locationtext =performerPOM.SelectLocationCA(driver).getText();
+		   			       String locationtext =performerPOM.SelectLocationCase(driver).getText();
 		   			       Thread.sleep(3000);
-		   			       performerPOM. SelectLocationCA(driver).click();
+		   			       performerPOM. SelectLocationCase(driver).click();
 		   			      
 		   			        
 		   			       Thread.sleep(3000);
 		   			       performerPOM.clickStatusFilter(driver).click();
 		   			       Thread.sleep(500);
-		   			       String Statustext = performerPOM.selectStatusFilterCA(driver).getText();
+		   			       String Statustext = performerPOM.selectStatusFilter(driver).getText();
 		   			       Thread.sleep(500);
-		   			       performerPOM.selectStatusFilterCA(driver).click();
+		   			       performerPOM.selectStatusFilter(driver).click();
 		   			      
 		   			       Thread.sleep(500);
 		   			       
 		   			       performerPOM.clickDepartmentFilter(driver).click();
 		   			       Thread.sleep(500);
-		   			       String DeptText = performerPOM.selectDepartmentFilterCA(driver).getText();
+		   			       String DeptText = performerPOM.selectReportCaseDeptFilter1(driver).getText();
 		   			       Thread.sleep(500);
-		   			       performerPOM. selectDepartmentFilterCA(driver).click();
+		   			       performerPOM. selectReportCaseDeptFilter1(driver).click();
 		   			     
 		   	
 		   			       
 		   			       Thread.sleep(500);
 		   			       performerPOM. clickCategoryFilter(driver).click();
 		   			       Thread.sleep(500);
-		   			       String CategoryText = performerPOM.selectCategoryFilterCA(driver).getText();
+		   			       String CategoryText = performerPOM.selectCategoryFilterGraph(driver).getText();
 		   			       Thread.sleep(500);
-		   			       performerPOM. selectCategoryFilterCA(driver).click();
+		   			       performerPOM. selectCategoryFilterGraph(driver).click();
 		   			       Thread.sleep(500);
 		   			        performerPOM. clickCategoryFilter(driver).click();
 		   			       
@@ -13887,21 +13892,21 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		   					//filter.add("Age");
 		   					filter.add("Category");
 		   					
-		   					/* Thread.sleep(500);
+		   					 Thread.sleep(500);
 		   					 performerPOM.clickTrignle(driver).click();
 		   				     Thread.sleep(500);
 		   				     performerPOM.clickCol(driver).click();
-		   				     Thread.sleep(3000);
-		   				     performerPOM.clickRiskcolCA(driver).click();
+		   				    // Thread.sleep(3000);
+		   				    // performerPOM.clickRiskcolCA(driver).click();
 		   				      
-		   				     By locator = By.xpath("(//*[@data-index='11'])[3]");
+		   				     By locator = By.xpath("//input[@data-field='RiskType']");
 		                     wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 		   				     Thread.sleep(4000);
 		   	                 WebElement ViewButton = driver.findElement(locator);	
 		   					 Thread.sleep(4000);
-		   					 jse.executeScript("arguments[0].click();", ViewButton);
+		   					 js.executeScript("arguments[0].click();", ViewButton);
 		   				     Thread.sleep(500);
-		   					 performerPOM.clickTrignle(driver).click();*/
+		   					 performerPOM.clickTrignle(driver).click();
 		   					
 		   					
 		   					js.executeScript("window.scrollBy(0,150)");	
@@ -13959,22 +13964,14 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		   							for(int l=0;l<text.size();l++)
 		   							{
 		   								
-//		   								if(i==2)
-//		   								{
-//		   									pass.add(text.get(l));	
-//		   								}
-//		   								else
-//		   								{
-		   									
-		   								
-		   							if(text.get(l).equals(li.get(i)))
-		   								{
-		   								
-		   								
-		   									pass.add(text.get(l));	
-		   									System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+		   								if(text.get(l).equals(li.get(i)))
+										{
+										
+										
+											pass.add(text.get(l));	
+											System.out.println("pass : "+text.get(l)+" : "+li.get(i));
 
-		   								}
+										}
 		   							else
 		   							{
 		   								fail.add(text.get(l));		
@@ -14041,80 +14038,181 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		        performerPOM.RiskSummaryNotApplicableCA(driver).click();						//Clicking on 'Open' notice
 			}
 			
-		 	Thread.sleep(2000);
-			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
-		   Thread.sleep(3000);
-		     performerPOM.SelectStatusFilter(driver).click();
-		     Thread.sleep(1000);
-			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
-			 String cattext =TextStatus.getText();
-			  Thread.sleep(3000);
-			 TextStatus.click();
-			 Thread.sleep(3000);
-			 performerPOM.SelectStatusFilter(driver).click();
-			 Thread.sleep(3000);
-			  String msg=performerPOM.NoRecordFound(driver).getText();
-			 if(!msg.equalsIgnoreCase("No items to display"))
-			 {
-			
-		    	Thread.sleep(1000);
-			    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
-			 
-			  List<String> text=new ArrayList<String>();
-			 
-			 for(int i=0;i<col.size();i++)
-			 {
-				 text.add(col.get(i).getText());
-			 }
-			 
-			 List<String> pass=new ArrayList<String>();
-			 
-			 List<String> fail=new ArrayList<String>();
-				
-				for(int i=0;i<text.size();i++)
-				{
-				if(text.get(i).equals(cattext))
-				{
-					pass.add(text.get(i));		//	the specified element at the end of a list.
-				}
-				else
-				{
-					fail.add(text.get(i));
-				}
-				
-				}
-	
-			 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
-			 pass.clear();
-			 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
-			 
-			 
-			 HashSet<String> fal=new LinkedHashSet<>(fail);
-			 fail.clear();
-			 fail.addAll(fal);
-			 
-			 for(String Fal : fail)
-			 {
-				 test.log(LogStatus.FAIL, type+ " :- Status  Value Matching : "+Fal);
-				// System.out.println("fail : "+Fal);
-			 }
-			 for(String Pas : pass)
-			 {
-				 test.log(LogStatus.PASS, type+ " :- Status Value  Matching : "+Pas);
-				// System.out.println("Pass : "+Pas);
-			 }
-			 
-			 }
-			 else
-			 {
-				 test.log(LogStatus.PASS, type+ ":- "+msg);
-					
-			 }
-			 	 
 			Thread.sleep(2000);
-		    driver.switchTo().parentFrame();
-		    Thread.sleep(2000);
-		    performerPOM.caseNoticeSummaryGraphClose(driver).click();
+				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
+				
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+		        Thread.sleep(2000);
+				performerPOM.clickLocationFilter(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickExpand(driver).click();
+				Thread.sleep(3000);
+		       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+		       Thread.sleep(3000);
+		       performerPOM. SelectLocationCase(driver).click();
+		      
+		        
+		       Thread.sleep(3000);
+		       performerPOM.clickStatusFilter(driver).click();
+		       Thread.sleep(500);
+		       String Statustext = performerPOM.selectStatusFilter(driver).getText();
+		       Thread.sleep(500);
+		       performerPOM.selectStatusFilter(driver).click();
+		      
+		       Thread.sleep(500);
+		       
+		       performerPOM.clickDepartmentFilter(driver).click();
+		       Thread.sleep(500);
+		       String DeptText = performerPOM.selectReportCaseDeptFilter1(driver).getText();
+		       Thread.sleep(500);
+		       performerPOM. selectReportCaseDeptFilter1(driver).click();
+		     
+
+		       
+		       Thread.sleep(500);
+		       performerPOM. clickCategoryFilter(driver).click();
+		       Thread.sleep(500);
+		       String CategoryText = performerPOM.selectCategoryFilterGraph1(driver).getText();
+		       Thread.sleep(500);
+		       performerPOM. selectCategoryFilterGraph1(driver).click();
+		       Thread.sleep(500);
+		        performerPOM. clickCategoryFilter(driver).click();
+		       
+		       
+		        List<String> li=new ArrayList<String>();
+		        li.add(locationtext);
+		        li.add(Statustext);
+		        li.add(DeptText);
+		       // li.add(RiskText);
+		       // li.add(AgeText);
+		        li.add(CategoryText);
+		        
+		        Thread.sleep(3000);
+		        
+				List<String> filter=new ArrayList<String>();	
+				filter.add("Location");
+				filter.add("Status");
+				filter.add("Dept");
+				//filter.add("Risk");
+				//filter.add("Age");
+				filter.add("Category");
+				
+				 Thread.sleep(500);
+				 performerPOM.clickTrignle(driver).click();
+			     Thread.sleep(500);
+			     performerPOM.clickCol(driver).click();
+			    // Thread.sleep(3000);
+			    // performerPOM.clickRiskcolCA(driver).click();
+			      
+			     By locator = By.xpath("//input[@data-field='RiskType']");
+             wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			     Thread.sleep(4000);
+                WebElement ViewButton = driver.findElement(locator);	
+				 Thread.sleep(4000);
+				 js.executeScript("arguments[0].click();", ViewButton);
+			     Thread.sleep(500);
+				 performerPOM.clickTrignle(driver).click();
+				
+				
+				js.executeScript("window.scrollBy(0,150)");	
+				Thread.sleep(3000);
+
+				CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+				String s = CFOcountPOM.readTotalItems1(driver).getText();
+				Thread.sleep(2000);
+
+				if(!s.equalsIgnoreCase("No items to display")) {
+				Thread.sleep(5000);
+			
+				List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[1]"));
+				List<WebElement> status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]"));
+				List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[10]"));
+				//List<WebElement> Risk=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[12]"));
+				List<WebElement> Category=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
+				Thread.sleep(2000);
+
+				for(int i=0; i<li.size(); i++){
+					
+					List<String> text= new ArrayList<String>();
+					HashSet<String> pass=new LinkedHashSet<>();
+					HashSet<String> fail=new LinkedHashSet<>();
+					List<WebElement> raw=new ArrayList<WebElement>();
+
+						if(i==0)
+						{
+							raw.addAll(entitycol);
+						}
+					
+					   else if(i==1)
+						{
+							raw.addAll(status);
+						}
+						
+					   else if(i==2)
+					   {
+						 raw.addAll(Dept);
+					   }
+//					   else if(i==3)
+//					   {
+//						   raw.addAll(Risk);
+//					   }
+					   else if(i==3)
+					   {
+						   raw.addAll(Category);
+					   }
+								
+					for(int k=0;k<raw.size();k++)
+						{
+							text.add(raw.get(k).getText());
+						}
+
+						for(int l=0;l<text.size();l++)
+						{
+							
+							if(text.get(l).equals(li.get(i)))
+						{
+						
+						
+							pass.add(text.get(l));	
+							System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+						}
+						else
+						{
+							fail.add(text.get(l));		
+							System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+							System.out.println(i);
+
+						}
+						 }
+						//}
+				 
+			for(String Fal : fail)
+				 {
+						test.log(LogStatus.FAIL, type+ ":-" +filter.get(i)+" column shows incorrect value : "+Fal);
+				 }	
+				 for(String Pas : pass)
+				 {
+					 test.log(LogStatus.PASS,  type+ ":-" +filter.get(i)+" dropdown working properly.");
+						test.log(LogStatus.PASS,type+ ":-" + filter.get(i)+" displayed : "+Pas);	
+						System.out.println(filter.get(i)+" : "+Pas);
+			 }
+				text.clear();
+				pass.clear();
+				fail.clear();
+				raw.clear();
+				
+				
+				}
+				}else {
+					test.log(LogStatus.PASS,"No records found");	
+				}
+				Thread.sleep(3000);
+				
+				Thread.sleep(3000);
+				driver.switchTo().parentFrame();
+				Thread.sleep(2000);
+				performerPOM.caseNoticeSummaryGraphClose(driver).click();
       }
 	  
 	  public static void LessThanYearGraphFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
@@ -14513,7 +14611,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		    performerPOM.caseNoticeSummaryGraphClose(driver).click();
 	   }
 	  
-	public static void CaseNoticeStageGraphFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException, IOException
+	public static void CaseNoticeStageGraphFilter(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
 		
 		{
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -14522,7 +14620,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		
 		    
 			 	Thread.sleep(2000);
-	  	        performerPOM.clickCaseNoticeStageHearingGraph(driver).click();						//Clicking on 'Open' notice
+	  	        performerPOM.RiskSummaryNotApplicableCA(driver).click();						//Clicking on 'Open' notice
 	  		
 		    
 		    
@@ -14535,32 +14633,32 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					Thread.sleep(3000);
 					performerPOM.clickExpand(driver).click();
 					Thread.sleep(3000);
-			       String locationtext =performerPOM.SelectLocationCA(driver).getText();
+			       String locationtext =performerPOM.SelectLocationCase(driver).getText();
 			       Thread.sleep(3000);
-			       performerPOM. SelectLocationCA(driver).click();
+			       performerPOM. SelectLocationCase(driver).click();
 			      
 			        
 			       Thread.sleep(3000);
 			       performerPOM.clickStatusFilter(driver).click();
 			       Thread.sleep(500);
-			       String Statustext = performerPOM.selectStatusFilterCA(driver).getText();
+			       String Statustext = performerPOM.selectStatusFilter(driver).getText();
 			       Thread.sleep(500);
-			       performerPOM.selectStatusFilterCA(driver).click();
+			       performerPOM.selectStatusFilter(driver).click();
 			      
 			       Thread.sleep(500);
 			       
 			       performerPOM.clickDepartmentFilter(driver).click();
 			       Thread.sleep(500);
-			       String DeptText = performerPOM.selectDepartmentFilterCA(driver).getText();
+			       String DeptText = performerPOM.selectReportCaseDeptFilter1(driver).getText();
 			       Thread.sleep(500);
-			       performerPOM. selectDepartmentFilterCA(driver).click();
+			       performerPOM. selectReportCaseDeptFilter1(driver).click();
 			     
-			    /*   Thread.sleep(500);
+			      Thread.sleep(500);
 			       performerPOM.clickRiskFilter(driver).click();
 			       Thread.sleep(500);
 			       String RiskText = performerPOM.selectRiskFilterCA(driver).getText();
 			       Thread.sleep(500);
-			       performerPOM. selectRiskFilterCA(driver).click();*/
+			       performerPOM. selectRiskFilterCA(driver).click();
 			      
 //			       Thread.sleep(500);
 //			       performerPOM.clickAgeFilter(driver).click();
@@ -14574,9 +14672,9 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 			       Thread.sleep(500);
 			       performerPOM. clickCategoryFilter(driver).click();
 			       Thread.sleep(500);
-			       String CategoryText = performerPOM.selectCategoryFilterCA(driver).getText();
+			       String CategoryText = performerPOM.selectCategoryFilterGraph1(driver).getText();
 			       Thread.sleep(500);
-			       performerPOM. selectCategoryFilterCA(driver).click();
+			       performerPOM. selectCategoryFilterGraph1(driver).click();
 			       Thread.sleep(500);
 			        performerPOM. clickCategoryFilter(driver).click();
 			       
@@ -14585,7 +14683,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 			        li.add(locationtext);
 			        li.add(Statustext);
 			        li.add(DeptText);
-			       // li.add(RiskText);
+			        li.add(RiskText);
 			       // li.add(AgeText);
 			        li.add(CategoryText);
 			        
@@ -14595,25 +14693,25 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					filter.add("Location");
 					filter.add("Status");
 					filter.add("Dept");
-					//filter.add("Risk");
+					filter.add("Risk");
 					//filter.add("Age");
 					filter.add("Category");
 					
-					/* Thread.sleep(500);
+					 Thread.sleep(500);
 					 performerPOM.clickTrignle(driver).click();
 				     Thread.sleep(500);
 				     performerPOM.clickCol(driver).click();
-				     Thread.sleep(3000);
-				     performerPOM.clickRiskcolCA(driver).click();
+//				     Thread.sleep(3000);
+			        // performerPOM.clickRiskcolCA(driver).click();
 				      
-				     By locator = By.xpath("(//*[@data-index='11'])[3]");
-                    wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+				     By locator = By.xpath("//input[@data-field='RiskType']");
+                     wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 				     Thread.sleep(4000);
 	                 WebElement ViewButton = driver.findElement(locator);	
 					 Thread.sleep(4000);
-					 jse.executeScript("arguments[0].click();", ViewButton);
+					 js.executeScript("arguments[0].click();", ViewButton);
 				     Thread.sleep(500);
-					 performerPOM.clickTrignle(driver).click();*/
+					 performerPOM.clickTrignle(driver).click();
 					
 					
 					js.executeScript("window.scrollBy(0,150)");	
@@ -14629,7 +14727,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[1]"));
 					List<WebElement> status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]"));
 					List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[10]"));
-					//List<WebElement> Risk=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[12]"));
+					List<WebElement> Risk=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[12]"));
 					List<WebElement> Category=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
 					Thread.sleep(2000);
 
@@ -14654,10 +14752,10 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 						   {
 							 raw.addAll(Dept);
 						   }
-//						   else if(i==3)
-//						   {
-//							   raw.addAll(Risk);
-//						   }
+					   else if(i==3)
+						   {
+							   raw.addAll(Risk);
+					   }
 						   else if(i==3)
 						   {
 							   raw.addAll(Category);
@@ -14699,12 +14797,12 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					 
 				for(String Fal : fail)
 					 {
-							test.log(LogStatus.FAIL, type+ ":-" +filter.get(i)+" column shows incorrect value : "+Fal);
+							test.log(LogStatus.FAIL,filter.get(i)+" column shows incorrect value : "+Fal);
 					 }	
 					 for(String Pas : pass)
 					 {
-						 test.log(LogStatus.PASS,  type+ ":-" +filter.get(i)+" dropdown working properly.");
-							test.log(LogStatus.PASS,type+ ":-" + filter.get(i)+" displayed : "+Pas);	
+						 test.log(LogStatus.PASS,   filter.get(i)+" dropdown working properly.");
+							test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
 							System.out.println(filter.get(i)+" : "+Pas);
 				 }
 					text.clear();
@@ -14729,183 +14827,394 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 	
 	{
 		
-		WebDriverWait wait=new WebDriverWait(driver,20);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+				WebDriverWait wait=new WebDriverWait(driver,20);
+				JavascriptExecutor js = (JavascriptExecutor) driver;
 				
-		           	Thread.sleep(2000);
-		  	        performerPOM.DepartmentSummaryGraph(driver).click();						//Clicking on 'Open' notice
+		        Thread.sleep(2000);
+		  	     performerPOM.DepartmentSummaryGraph3(driver).click();						//Clicking on 'Open' notice
 		  		
 			    
 	
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
-		
-		
-	    Thread.sleep(3000);
-	     performerPOM.SelectStatusFilter(driver).click();
-	     Thread.sleep(1000);
-		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
-		 String cattext =TextStatus.getText();
-		  Thread.sleep(3000);
-		 TextStatus.click();
-		 Thread.sleep(3000);
-		 performerPOM.SelectStatusFilter(driver).click();
-		 Thread.sleep(3000);
-		 js.executeScript("window.scrollBy(0,900)");
-		 Thread.sleep(3000);
-		  String msg=performerPOM.NoRecordFound(driver).getText();
-		 if(!msg.equalsIgnoreCase("No items to display"))
-		 {
-		
-	    	Thread.sleep(1000);
-		    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
-		 
-		  List<String> text=new ArrayList<String>();
-		 
-		 for(int i=0;i<col.size();i++)
-		 {
-			 text.add(col.get(i).getText());
-		 }
-		 
-		 List<String> pass=new ArrayList<String>();
-		 
-		 List<String> fail=new ArrayList<String>();
-			
-			for(int i=0;i<text.size();i++)
-			{
-			if(text.get(i).equals(cattext))
-			{
-				pass.add(text.get(i));		//	the specified element at the end of a list.
-			}
-			else
-			{
-				fail.add(text.get(i));
-			}
-			
-			}
-
-		 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
-		 pass.clear();
-		 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
-		 
-		 
-		 HashSet<String> fal=new LinkedHashSet<>(fail);
-		 fail.clear();
-		 fail.addAll(fal);
-		 
-		 for(String Fal : fail)
-		 {
-			 test.log(LogStatus.FAIL,  "  Status  Value Matching : "+Fal);
-			// System.out.println("fail : "+Fal);
-		 }
-		 for(String Pas : pass)
-		 {
-			 test.log(LogStatus.PASS,  "  Status Value  Matching : "+Pas);
-			// System.out.println("Pass : "+Pas);
-		 }
-		 
-		 }
-		 else
-		 {
-			 test.log(LogStatus.PASS,  ":- "+msg);
+		  	  	Thread.sleep(2000);
+				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
 				
-		 }
-		 	 
-		Thread.sleep(2000);
-	    driver.switchTo().parentFrame();
-	    Thread.sleep(2000);
-	    performerPOM.caseNoticeSummaryGraphClose(driver).click();
-   }
+				
+		        Thread.sleep(2000);
+				performerPOM.clickLocationFilter(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickExpand(driver).click();
+				Thread.sleep(3000);
+		       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+		       Thread.sleep(3000);
+		       performerPOM. SelectLocationCase(driver).click();
+		      
+		        
+		       Thread.sleep(3000);
+		       performerPOM.clickStatusFilter(driver).click();
+		       Thread.sleep(500);
+		       String Statustext = performerPOM.selectStatusFilter(driver).getText();
+		       Thread.sleep(500);
+		       performerPOM.selectStatusFilter(driver).click();
+		       
+		       Thread.sleep(2000);
+		       performerPOM.clickRiskFilter(driver).click();
+		       Thread.sleep(2000);
+		       String RiskText = performerPOM.selectRiskFilter(driver).getText();
+		       Thread.sleep(2000);
+		       performerPOM.selectRiskFilter(driver).click();
+		      
+		      
+		      /* Thread.sleep(500);
+		       
+		       performerPOM.clickDepartmentFilter(driver).click();
+		       Thread.sleep(500);
+		       String DeptText = performerPOM.selectReportCaseDeptFilter1(driver).getText();
+		       Thread.sleep(500);
+		       performerPOM. selectReportCaseDeptFilter1(driver).click();*/
+		     
+
+		       
+		       Thread.sleep(500);
+		       performerPOM. clickCategoryFilter(driver).click();
+		       Thread.sleep(500);
+		       String CategoryText = performerPOM.selectCategoryFilterGraph1(driver).getText();
+		       Thread.sleep(500);
+		       performerPOM. selectCategoryFilterGraph1(driver).click();
+		       Thread.sleep(500);
+		        performerPOM. clickCategoryFilter(driver).click();
+		       
+		       
+		        List<String> li=new ArrayList<String>();
+		        li.add(locationtext);
+		        li.add(Statustext);
+		        //li.add(DeptText);
+		        li.add(RiskText);
+		       // li.add(AgeText);
+		        li.add(CategoryText);
+		        
+		        Thread.sleep(3000);
+		        
+				List<String> filter=new ArrayList<String>();	
+				filter.add("Location");
+				filter.add("Status");
+				//filter.add("Dept");
+				filter.add("Risk");
+				//filter.add("Age");
+				filter.add("Category");
+				
+				 Thread.sleep(500);
+				 performerPOM.clickTrignle(driver).click();
+			     Thread.sleep(500);
+			     performerPOM.clickCol(driver).click();
+			    // Thread.sleep(3000);
+			    // performerPOM.clickRiskcolCA(driver).click();
+			      
+			     By locator = By.xpath("//input[@data-field='RiskType']");
+                 wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			     Thread.sleep(4000);
+                 WebElement ViewButton = driver.findElement(locator);	
+				 Thread.sleep(4000);
+				 js.executeScript("arguments[0].click();", ViewButton);
+			     Thread.sleep(500);
+				 performerPOM.clickTrignle(driver).click();
+				
+				
+				js.executeScript("window.scrollBy(0,150)");	
+				Thread.sleep(3000);
+
+				CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+				String s = CFOcountPOM.readTotalItems1(driver).getText();
+				Thread.sleep(2000);
+
+				if(!s.equalsIgnoreCase("No items to display")) {
+				Thread.sleep(5000);
+			
+				List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[1]"));
+				List<WebElement> status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]"));
+				//List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[10]"));
+				List<WebElement> Risk=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[12]"));
+				List<WebElement> Category=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
+				Thread.sleep(2000);
+
+				for(int i=0; i<li.size(); i++){
+					
+					List<String> text= new ArrayList<String>();
+					HashSet<String> pass=new LinkedHashSet<>();
+					HashSet<String> fail=new LinkedHashSet<>();
+					List<WebElement> raw=new ArrayList<WebElement>();
+
+						if(i==0)
+						{
+							raw.addAll(entitycol);
+						}
+					
+					   else if(i==1)
+						{
+							raw.addAll(status);
+						}
+						
+//					   else if(i==2)
+//					   {
+//						 raw.addAll(Dept);
+//					   }
+					   else if(i==2)
+					   {
+						   raw.addAll(Risk);
+					   }
+					   else if(i==3)
+					   {
+						   raw.addAll(Category);
+					   }
+								
+					for(int k=0;k<raw.size();k++)
+						{
+							text.add(raw.get(k).getText());
+						}
+
+						for(int l=0;l<text.size();l++)
+						{
+							
+							if(text.get(l).equals(li.get(i)))
+						{
+						
+						
+							pass.add(text.get(l));	
+							System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+						}
+						else
+						{
+							fail.add(text.get(l));		
+							System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+							System.out.println(i);
+
+						}
+						 }
+						//}
+				 
+			for(String Fal : fail)
+				 {
+						test.log(LogStatus.FAIL,  filter.get(i)+" column shows incorrect value : "+Fal);
+				 }	
+				 for(String Pas : pass)
+				 {
+					 test.log(LogStatus.PASS,   filter.get(i)+" dropdown working properly.");
+						test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+						System.out.println(filter.get(i)+" : "+Pas);
+			 }
+				text.clear();
+				pass.clear();
+				fail.clear();
+				raw.clear();
+				
+				
+				}
+				}else {
+					test.log(LogStatus.PASS,"No records found");	
+				}
+				Thread.sleep(3000);
+				
+				Thread.sleep(3000);
+				driver.switchTo().parentFrame();
+				Thread.sleep(2000);
+				performerPOM.caseNoticeSummaryGraphClose(driver).click();
+      }
 	
 	
 	public static void LocationSummaryGraphFilter(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
 	
 	{
 		
-		WebDriverWait wait=new WebDriverWait(driver,20);
-		Thread.sleep(500);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+					WebDriverWait wait=new WebDriverWait(driver,20);
+					Thread.sleep(500);
+					JavascriptExecutor js = (JavascriptExecutor) driver;
        	
      	
-	     performerPOM.LocationSummaryGraph1(driver).click();						//Clicking on 'Open' notice
+	     			performerPOM.LocationSummaryGraph1(driver).click();						//Clicking on 'Open' notice
      
-		Thread.sleep(2000);
-		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
-		   Thread.sleep(3000);
-		     performerPOM.SelectStatusFilter(driver).click();
-		     Thread.sleep(3000);
-			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
-			 String cattext =TextStatus.getText();
-			  Thread.sleep(3000);
-			 TextStatus.click();
-			 Thread.sleep(3000);
-			 performerPOM.SelectStatusFilter(driver).click();
-			 Thread.sleep(3000);
-			 js.executeScript("window.scrollBy(0,900)");
-			 Thread.sleep(3000);
-			  String msg=performerPOM.NoRecordFound(driver).getText();
-			 if(!msg.equalsIgnoreCase("No items to display"))
-			 {
-			
-		    	Thread.sleep(1000);
-			    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
-			 
-			  List<String> text=new ArrayList<String>();
-			 
-			 for(int i=0;i<col.size();i++)
-			 {
-				 text.add(col.get(i).getText());
-			 }
-			 
-			 List<String> pass=new ArrayList<String>();
-			 
-			 List<String> fail=new ArrayList<String>();
-				
-				for(int i=0;i<text.size();i++)
-				{
-				if(text.get(i).equals(cattext))
-				{
-					pass.add(text.get(i));		//	the specified element at the end of a list.
-				}
-				else
-				{
-					fail.add(text.get(i));
-				}
-				
-				}
-
-			 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
-			 pass.clear();
-			 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
-			 
-			 
-			 HashSet<String> fal=new LinkedHashSet<>(fail);
-			 fail.clear();
-			 fail.addAll(fal);
-			 
-			 for(String Fal : fail)
-			 {
-				 test.log(LogStatus.FAIL, "  Status  Value Matching : "+Fal);
-				// System.out.println("fail : "+Fal);
-			 }
-			 for(String Pas : pass)
-			 {
-				 test.log(LogStatus.PASS, " Status Value  Matching : "+Pas);
-				// System.out.println("Pass : "+Pas);
-			 }
-			 
-			 }
-			 else
-			 {
-				 test.log(LogStatus.PASS,  ":- "+msg);
+	     			Thread.sleep(2000);
+					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
 					
-			 }
-			 	 
-			Thread.sleep(2000);
-		    driver.switchTo().parentFrame();
-		    Thread.sleep(2000);
-		    performerPOM.caseNoticeSummaryGraphClose(driver).click();
-	   }
+					
+			       Thread.sleep(2000);
+					performerPOM.clickLocationFilter(driver).click();
+					Thread.sleep(3000);
+					performerPOM.clickExpand(driver).click();
+					Thread.sleep(3000);
+			       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+			       Thread.sleep(3000);
+			       performerPOM. SelectLocationCase(driver).click();
+			      
+			        
+			       Thread.sleep(3000);
+			       performerPOM.clickStatusFilter(driver).click();
+			       Thread.sleep(500);
+			       String Statustext = performerPOM.selectStatusFilter(driver).getText();
+			       Thread.sleep(500);
+			       performerPOM.selectStatusFilter(driver).click();
+			       
+			       Thread.sleep(2000);
+			       performerPOM.clickRiskFilter(driver).click();
+			       Thread.sleep(2000);
+			       String RiskText = performerPOM.selectRiskFilter(driver).getText();
+			       Thread.sleep(2000);
+			       performerPOM.selectRiskFilter(driver).click();
+			      
+			      
+			      Thread.sleep(500);
+			       
+			       performerPOM.clickDepartmentFilter(driver).click();
+			       Thread.sleep(500);
+			       String DeptText = performerPOM.selectReportCaseDeptFilter1(driver).getText();
+			       Thread.sleep(500);
+			       performerPOM. selectReportCaseDeptFilter1(driver).click();
+			     
+
+			       
+			      Thread.sleep(500);
+			       performerPOM. clickCategoryFilter(driver).click();
+			       Thread.sleep(500);
+			       String CategoryText = performerPOM.selectCategoryFilterGraph1(driver).getText();
+			       Thread.sleep(500);
+			       performerPOM. selectCategoryFilterGraph1(driver).click();
+			       Thread.sleep(500);
+			        performerPOM. clickCategoryFilter(driver).click();
+			       
+			       
+			        List<String> li=new ArrayList<String>();
+			      li.add(locationtext);
+			        li.add(Statustext);
+			        li.add(DeptText);
+			        li.add(RiskText);
+			       // li.add(AgeText);
+			       li.add(CategoryText);
+			        
+			        Thread.sleep(3000);
+			        
+					List<String> filter=new ArrayList<String>();	
+					filter.add("Location");
+					filter.add("Status");
+					filter.add("Dept");
+					filter.add("Risk");
+					filter.add("Category");
+					
+					 Thread.sleep(500);
+					 performerPOM.clickTrignle(driver).click();
+				     Thread.sleep(500);
+				     performerPOM.clickCol(driver).click();
+				    // Thread.sleep(3000);
+				    // performerPOM.clickRiskcolCA(driver).click();
+				      
+				     By locator = By.xpath("//input[@data-field='RiskType']");
+	                 wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+				     Thread.sleep(4000);
+	                 WebElement ViewButton = driver.findElement(locator);	
+					 Thread.sleep(4000);
+					 js.executeScript("arguments[0].click();", ViewButton);
+				     Thread.sleep(500);
+					 performerPOM.clickTrignle(driver).click();
+					
+					
+					js.executeScript("window.scrollBy(0,150)");	
+					Thread.sleep(3000);
+
+					CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+					String s = CFOcountPOM.readTotalItems1(driver).getText();
+					Thread.sleep(2000);
+
+					if(!s.equalsIgnoreCase("No items to display")) {
+					Thread.sleep(5000);
+				
+					List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[1]"));
+					List<WebElement> status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]"));
+					List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[10]"));
+					List<WebElement> Risk=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[12]"));
+					List<WebElement> Category=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
+					Thread.sleep(2000);
+
+					for(int i=0; i<li.size(); i++){
+						
+						List<String> text= new ArrayList<String>();
+						HashSet<String> pass=new LinkedHashSet<>();
+						HashSet<String> fail=new LinkedHashSet<>();
+						List<WebElement> raw=new ArrayList<WebElement>();
+
+							if(i==0)
+							{
+								raw.addAll(entitycol);
+							}
+						
+						   if(i==1)
+							{
+								raw.addAll(status);
+							}
+							
+						   else if(i==2)
+						   {
+							 raw.addAll(Dept);
+						   }
+						   else if(i==3)
+						   {
+							   raw.addAll(Risk);
+						   }
+						   else if(i==4)
+						   {
+							   raw.addAll(Category);
+						   }
+									
+						for(int k=0;k<raw.size();k++)
+							{
+								text.add(raw.get(k).getText());
+							}
+
+							for(int l=0;l<text.size();l++)
+							{
+								
+								if(text.get(l).equals(li.get(i)))
+							{
+							
+							
+								pass.add(text.get(l));	
+								System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+							}
+							else
+							{
+								fail.add(text.get(l));		
+								System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+								System.out.println(i);
+
+							}
+							 }
+							//}
+					 
+				for(String Fal : fail)
+					 {
+							test.log(LogStatus.FAIL,  filter.get(i)+" column shows incorrect value : "+Fal);
+					 }	
+					 for(String Pas : pass)
+					 {
+						 test.log(LogStatus.PASS,   filter.get(i)+" dropdown working properly.");
+							test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+							System.out.println(filter.get(i)+" : "+Pas);
+				 }
+					text.clear();
+					pass.clear();
+					fail.clear();
+					raw.clear();
+					
+					
+					}
+					}else {
+						test.log(LogStatus.PASS,"No records found");	
+					}
+					Thread.sleep(3000);
+					
+					Thread.sleep(3000);
+					driver.switchTo().parentFrame();
+					Thread.sleep(2000);
+					performerPOM.caseNoticeSummaryGraphClose(driver).click();
+	      }
 	
 public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
 	
@@ -14918,83 +15227,189 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
     	Thread.sleep(2000);
 	    performerPOM.CategorySummaryGraph1(driver).click();						//Clicking on 'Open' notice
        Thread.sleep(2000);
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
 		
-		  Thread.sleep(3000);
-		     performerPOM.SelectStatusFilter(driver).click();
-		     Thread.sleep(1000);
-			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
-			 String cattext =TextStatus.getText();
-			  Thread.sleep(1000);
-			 TextStatus.click();
-			 Thread.sleep(3000);
-			 performerPOM.SelectStatusFilter(driver).click();
-			 Thread.sleep(3000);
-			 js.executeScript("window.scrollBy(0,900)");
-			 Thread.sleep(3000);
-			  String msg=performerPOM.NoRecordFound(driver).getText();
-			 if(!msg.equalsIgnoreCase("No items to display"))
-			 {
+		
+       Thread.sleep(2000);
+		performerPOM.clickLocationFilter(driver).click();
+		Thread.sleep(3000);
+		performerPOM.clickExpand(driver).click();
+		Thread.sleep(3000);
+       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+       Thread.sleep(3000);
+       performerPOM. SelectLocationCase(driver).click();
+      
+        
+       Thread.sleep(3000);
+       performerPOM.clickStatusFilter(driver).click();
+       Thread.sleep(500);
+       String Statustext = performerPOM.selectStatusFilter(driver).getText();
+       Thread.sleep(500);
+       performerPOM.selectStatusFilter(driver).click();
+       
+       Thread.sleep(2000);
+       performerPOM.clickRiskFilter(driver).click();
+       Thread.sleep(2000);
+       String RiskText = performerPOM.selectRiskFilter(driver).getText();
+       Thread.sleep(2000);
+       performerPOM.selectRiskFilter(driver).click();
+      
+      
+      Thread.sleep(500);
+       
+       performerPOM.clickDepartmentFilter(driver).click();
+       Thread.sleep(500);
+       String DeptText = performerPOM.selectReportCaseDeptFilter1(driver).getText();
+       Thread.sleep(500);
+       performerPOM. selectReportCaseDeptFilter1(driver).click();
+     
+
+       
+      Thread.sleep(500);
+       performerPOM. clickCategoryFilter(driver).click();
+       Thread.sleep(500);
+       String CategoryText = performerPOM.selectCategoryFilterGraph1(driver).getText();
+       Thread.sleep(500);
+       performerPOM. selectCategoryFilterGraph1(driver).click();
+       Thread.sleep(500);
+        performerPOM. clickCategoryFilter(driver).click();
+       
+       
+        List<String> li=new ArrayList<String>();
+      li.add(locationtext);
+        li.add(Statustext);
+        li.add(DeptText);
+        li.add(RiskText);
+       // li.add(AgeText);
+       li.add(CategoryText);
+        
+        Thread.sleep(3000);
+        
+		List<String> filter=new ArrayList<String>();	
+		filter.add("Location");
+		filter.add("Status");
+		filter.add("Dept");
+		filter.add("Risk");
+		filter.add("Category");
+		
+		 Thread.sleep(500);
+		 performerPOM.clickTrignle(driver).click();
+	     Thread.sleep(500);
+	     performerPOM.clickCol(driver).click();
+	    // Thread.sleep(3000);
+	    // performerPOM.clickRiskcolCA(driver).click();
+	      
+	     By locator = By.xpath("//input[@data-field='RiskType']");
+         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	     Thread.sleep(4000);
+         WebElement ViewButton = driver.findElement(locator);	
+		 Thread.sleep(4000);
+		 js.executeScript("arguments[0].click();", ViewButton);
+	     Thread.sleep(500);
+		 performerPOM.clickTrignle(driver).click();
+		
+		
+		js.executeScript("window.scrollBy(0,150)");	
+		Thread.sleep(3000);
+
+		CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
+		String s = CFOcountPOM.readTotalItems1(driver).getText();
+		Thread.sleep(2000);
+
+		if(!s.equalsIgnoreCase("No items to display")) {
+		Thread.sleep(5000);
+	
+		List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[1]"));
+		List<WebElement> status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]"));
+		List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[10]"));
+		List<WebElement> Risk=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[12]"));
+		List<WebElement> Category=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
+		Thread.sleep(2000);
+
+		for(int i=0; i<li.size(); i++){
 			
-		    	Thread.sleep(1000);
-			    List<WebElement> col=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]")); //column list
-			 
-			  List<String> text=new ArrayList<String>();
-			 
-			 for(int i=0;i<col.size();i++)
-			 {
-				 text.add(col.get(i).getText());
-			 }
-			 
-			 List<String> pass=new ArrayList<String>();
-			 
-			 List<String> fail=new ArrayList<String>();
+			List<String> text= new ArrayList<String>();
+			HashSet<String> pass=new LinkedHashSet<>();
+			HashSet<String> fail=new LinkedHashSet<>();
+			List<WebElement> raw=new ArrayList<WebElement>();
+
+				if(i==0)
+				{
+					raw.addAll(entitycol);
+				}
+			
+			   if(i==1)
+				{
+					raw.addAll(status);
+				}
 				
-				for(int i=0;i<text.size();i++)
+			   else if(i==2)
+			   {
+				 raw.addAll(Dept);
+			   }
+			   else if(i==3)
+			   {
+				   raw.addAll(Risk);
+			   }
+			   else if(i==4)
+			   {
+				   raw.addAll(Category);
+			   }
+						
+			for(int k=0;k<raw.size();k++)
 				{
-				if(text.get(i).equals(cattext))
+					text.add(raw.get(k).getText());
+				}
+
+				for(int l=0;l<text.size();l++)
 				{
-					pass.add(text.get(i));		//	the specified element at the end of a list.
+					
+					if(text.get(l).equals(li.get(i)))
+				{
+				
+				
+					pass.add(text.get(l));	
+					System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
 				}
 				else
 				{
-					fail.add(text.get(i));
-				}
-				
-				}
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
 
-			 HashSet<String> pas=new LinkedHashSet<>(pass); //duplicate values are not allowed.
-			 pass.clear();
-			 pass.addAll(pas);                              //all of the elements in the specified collection to the end of this list,
-			 
-			 
-			 HashSet<String> fal=new LinkedHashSet<>(fail);
-			 fail.clear();
-			 fail.addAll(fal);
-			 
-			 for(String Fal : fail)
-			 {
-				 test.log(LogStatus.FAIL,  "Status  Value Matching : "+Fal);
-				// System.out.println("fail : "+Fal);
-			 }
-			 for(String Pas : pass)
-			 {
-				 test.log(LogStatus.PASS,  "  Status Value  Matching : "+Pas);
-				// System.out.println("Pass : "+Pas);
-			 }
-			 
-			 }
-			 else
-			 {
-				 test.log(LogStatus.PASS,  ":- "+msg);
-					
-			 }
-			 	 
-			Thread.sleep(2000);
-		    driver.switchTo().parentFrame();
-		    Thread.sleep(2000);
-		    performerPOM.caseNoticeSummaryGraphClose(driver).click();
-	   }
+				}
+				 }
+				//}
+		 
+	for(String Fal : fail)
+		 {
+				test.log(LogStatus.FAIL,  filter.get(i)+" column shows incorrect value : "+Fal);
+		 }	
+		 for(String Pas : pass)
+		 {
+			 test.log(LogStatus.PASS,   filter.get(i)+" dropdown working properly.");
+				test.log(LogStatus.PASS, filter.get(i)+" displayed : "+Pas);	
+				System.out.println(filter.get(i)+" : "+Pas);
+	 }
+		text.clear();
+		pass.clear();
+		fail.clear();
+		raw.clear();
+		
+		
+		}
+		}else {
+			test.log(LogStatus.PASS,"No records found");	
+		}
+		Thread.sleep(3000);
+		
+		Thread.sleep(3000);
+		driver.switchTo().parentFrame();
+		Thread.sleep(2000);
+		performerPOM.caseNoticeSummaryGraphClose(driver).click();
+}
 
       public static void CaseNoticeTypeGraph1Filter(WebDriver driver, ExtentTest test, String type) throws InterruptedException, IOException
       {

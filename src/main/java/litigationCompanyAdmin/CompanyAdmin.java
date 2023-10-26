@@ -55,7 +55,7 @@ public class CompanyAdmin
 		String workingDir = System.getProperty("user.dir");
 		extent = new com.relevantcodes.extentreports.ExtentReports(workingDir+"//Reports//LitigationCompanyAdmin.html",true);
 		test = extent.startTest("Litigation Logging In - Company Admin");
-		test.log(LogStatus.PASS, "Test Passed.");
+		test.log(LogStatus.PASS, "Test Passed = Verify Edge browser.");
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -139,27 +139,20 @@ public class CompanyAdmin
 				extent.endTest(test);
 				extent.flush();
 			}
-@Test(priority =2)
+@Test(priority =1)
 			void CaseNoticeTypeGraphFilter() throws InterruptedException, IOException
 			{
 				test = extent.startTest(" Case Notice type Graph -Select Status Filter Verification");
 				
 			    JavascriptExecutor js = (JavascriptExecutor) driver;
 			    js.executeScript("window.scrollBy(0,900)");	 
-				Thread.sleep(5000);
-				performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-				
-				Thread.sleep(5000);
-				performerPOM.clickDashboardNoticeFilter(driver).click();
-	        
-	         	
-				 Thread.sleep(5000);
-				 performerPOM.clickDashboardApplyBtn(driver).click();
 			
+			    Thread.sleep(3000);
+		    	MethodsPOM.CaseNoticeTypeGraphFilter(driver, test,"Applicant Type");
 				Thread.sleep(3000);
-		    	MethodsPOM.CaseNoticeTypeGraphFilter(driver, test,"Outward/Plaintiff Type");
+		    	MethodsPOM.CaseNoticeTypeGraphFilter(driver, test,"Inward/Defendent Type");
 				Thread.sleep(3000);
-				MethodsPOM.CaseNoticeTypeGraphFilter(driver, test,"Inward/Defendent Type");
+				MethodsPOM.CaseNoticeTypeGraphFilter(driver, test,"Outward/Plaintiff Type");
 				Thread.sleep(3000);
 				MethodsPOM.CaseNoticeTypeGraphFilter(driver, test,"Petitioner Type");
 				Thread.sleep(3000);
@@ -194,36 +187,26 @@ public class CompanyAdmin
 		js.executeScript("window.scrollBy(0,850)");
 		
 		String StageName =performerPOM.StageName(driver).getText();
-		test = extent.startTest("Select Notice Filter = "+StageName+" Stage = Case Notice Stage Graph Count Verification");
+		test = extent.startTest("Select Multiple Filter = "+StageName+" Stage = Case Notice Stage Graph Count Verification");
 
 		MethodsPOM.CaseNoticeStageGraph(driver, test,"Notice");
 		
 		extent.endTest(test);
 		extent.flush();
 	}
-// @Test(priority = 	1)
+@Test(priority = 	2)
 	void CaseNoticeStageGraphFilter() throws InterruptedException, IOException
 	{
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,800)");
- 
-		Thread.sleep(5000);
-		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 	
-		Thread.sleep(5000);
-		performerPOM.clickDashboardNoticeFilter(driver).click();
-  
-		Thread.sleep(5000);
-		performerPOM.clickDashboardApplyBtn(driver).click();
-
-		js.executeScript("window.scrollBy(0,850)");
+		js.executeScript("window.scrollBy(0,1500)");
 		
 		String StageName =performerPOM.StageName(driver).getText();
 		test = extent.startTest("Select Notice Filter = "+StageName+" = Select status filter Verification");
 		
 		
-		MethodsPOM.CaseNoticeStageGraphFilter(driver, test,"type");
+		MethodsPOM.CaseNoticeStageGraphFilter(driver, test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -274,24 +257,14 @@ public class CompanyAdmin
 		         extent.endTest(test);
 		        extent.flush();
 	}
- //@Test(priority =6)
+@Test(priority =3)
      void RiskSummaryGraphFilter() throws InterruptedException, IOException
        {
-	       test = extent.startTest("Select Notice Filter =  Risk Summary  Graph -Select Status Filter Verification");
+	       test = extent.startTest(" Risk Summary  Graph -Multiple Filter Verification");
 	
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("window.scrollBy(0,800)");
-	      Thread.sleep(5000);
-	      performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-	
-	      Thread.sleep(5000);
-	      performerPOM.clickDashboardNoticeFilter(driver).click();
-
- 	
-	      Thread.sleep(5000);
-	      performerPOM.clickDashboardApplyBtn(driver).click();
-	      
-	      js.executeScript("window.scrollBy(0,1000)");
+            
+	        js.executeScript("window.scrollBy(0,2000)");
 
 	  	
 	    	Thread.sleep(3000);
@@ -337,28 +310,17 @@ public class CompanyAdmin
 		 extent.endTest(test);
 		 extent.flush();
 	}
-//@Test(priority =8)
+@Test(priority =4)
 	
 	void DepartmentSummaryGraphFilter() throws InterruptedException, IOException
 	{
 	
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,800)");
 
-		Thread.sleep(5000);
-		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-
-		Thread.sleep(5000);
-		performerPOM.clickDashboardNoticeFilter(driver).click();
-
-	
-		Thread.sleep(5000);
-		performerPOM.clickDashboardApplyBtn(driver).click();
-	
-		js.executeScript("window.scrollBy(0,900)");
+		js.executeScript("window.scrollBy(0,2000)");
 
 		String DeptName =performerPOM.DepartName(driver).getText();
-		test = extent.startTest("Select Notice Filter - "+DeptName+" Department - Select status filter Verification");
+		test = extent.startTest("Select Multiple Filter - "+DeptName+" Department summary graph");
 		
 		MethodsPOM.DepartmentSummaryGraphFilter(driver, test);
 		
@@ -393,28 +355,15 @@ public class CompanyAdmin
 		extent.endTest(test);
 		extent.flush();
 	}
-//@Test(priority = 10)
+@Test(priority = 5)
 	
 	void LocationSummaryGraphFilter() throws InterruptedException, IOException
 	{
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,800)");
-
-		Thread.sleep(5000);
-		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-
-		Thread.sleep(5000);
-		performerPOM.clickDashboardNoticeFilter(driver).click();
-
-	
-		Thread.sleep(5000);
-		performerPOM.clickDashboardApplyBtn(driver).click();
-
-		js.executeScript("window.scrollBy(0,1500)");
-
-		String LocationName =performerPOM.LocationName(driver).getText();
-		test = extent.startTest("Select Notice Filter - "+LocationName+" Location -Select status filter Verification");
+		js.executeScript("window.scrollBy(0,2500)");
+		
+		test = extent.startTest("Select Multiple Filter -  Location Summary Graph Verification");
 		
 		MethodsPOM.LocationSummaryGraphFilter(driver, test);
 		
@@ -440,7 +389,7 @@ public class CompanyAdmin
        	js.executeScript("window.scrollBy(0,2000)");
         Thread.sleep(2000);
 		String CategoryName =performerPOM.CategoryName(driver).getText();
-  		test = extent.startTest("Select Notice Filter ="+CategoryName+" Category - Category Summary Graph Count Verification");
+  		test = extent.startTest("Select Multiple Filter ="+CategoryName+" Category - Category Summary Graph count Verification");
   		
   		
   		MethodsPOM.CategorySummaryGraph(driver, test,"Notice");
@@ -448,26 +397,16 @@ public class CompanyAdmin
   		extent.endTest(test);
   		extent.flush();
   	}
-//@Test(priority =12)
+@Test(priority =6)
 	
   	void CategorySummaryGraphFilter() throws InterruptedException, IOException
   	{
 	
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,800)");
-     
-		Thread.sleep(5000);
-		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-	
-		Thread.sleep(5000);
-		performerPOM.clickDashboardNoticeFilter(driver).click();
-  
-		performerPOM.clickDashboardApplyBtn(driver).click();
-	
-		js.executeScript("window.scrollBy(0,2000)");
+		js.executeScript("window.scrollBy(0,2800)");
 		Thread.sleep(2000);
-		String CategoryName =performerPOM.CategoryName(driver).getText();
-  		test = extent.startTest("Select Notice Filter - "+CategoryName+" Category = Category Summary Graph -Select status filter Verification");
+		
+  		test = extent.startTest("Select Multiple Filter - Category Summary Graph Verification");
   		
   		
   		MethodsPOM.CategorySummaryGraphFilter(driver, test);
@@ -519,7 +458,7 @@ public class CompanyAdmin
           extent.flush();
     }
     
- //@Test(priority = 14)
+ @Test(priority = 1)
     void LessThanYearGraphFilter() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Notice Filter =Less than a year  = Select status filter Verification");
@@ -560,18 +499,10 @@ public class CompanyAdmin
 //@Test(priority = 15)
 void AgeingGraph1to2years() throws InterruptedException, IOException
 {
-     test = extent.startTest("Select Notice Filter =1 to 2 years = Ageing Graph Count Verification");
+     	test = extent.startTest("Select Notice Filter =1 to 2 years = Ageing Graph Count Verification");
      
-     JavascriptExecutor js = (JavascriptExecutor) driver;
-     	js.executeScript("window.scrollBy(0,800)");
-     	
-     	Thread.sleep(5000);
-		performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-		Thread.sleep(5000);
-		performerPOM.clickDashboardNoticeFilter(driver).click();
-        Thread.sleep(5000);
-		 performerPOM.clickDashboardApplyBtn(driver).click();
-		
+     	JavascriptExecutor js = (JavascriptExecutor) driver;
+     
 		js.executeScript("window.scrollBy(0,3700)");
 		Thread.sleep(5000);
 	    int	InwardDefendent = Integer.parseInt(performerPOM.clickInwardDefendentCA1to2(driver).getText());	//Reading Notice Open count.
@@ -3438,7 +3369,7 @@ void SearchFilterAnnualBudget() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-//@Test(priority = 1)
+@Test(priority = 7)
 		void WorkspaceFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Workspace - Notice - Multiple Filters verification");
@@ -3449,7 +3380,7 @@ void SearchFilterAnnualBudget() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-//@Test(priority = 2)
+@Test(priority = 8)
 void CaseWorkspaceFilter() throws InterruptedException, IOException
 {
 	test = extent.startTest("My Workspace - Case - Multiple Filters verification");
@@ -3460,7 +3391,7 @@ void CaseWorkspaceFilter() throws InterruptedException, IOException
 	extent.endTest(test);
 	extent.flush();
 }
-//@Test(priority = 3)
+@Test(priority = 9)
 void WorkspaceTaskFilter() throws InterruptedException, IOException
 {
 	test = extent.startTest("My Workspace - Task - Multiple Filters verification");
@@ -3472,7 +3403,7 @@ void WorkspaceTaskFilter() throws InterruptedException, IOException
 	extent.flush();
 }
 
-//@Test(priority = 4)
+@Test(priority = 10)
 void WorkspaceCaseHearingFilter() throws InterruptedException, IOException
 {
 	test = extent.startTest("My Workspace = Case Hearing = Search box  Filter verification");
@@ -3484,7 +3415,7 @@ void WorkspaceCaseHearingFilter() throws InterruptedException, IOException
 	extent.flush();
 }
 
-//@Test(priority = 5)
+@Test(priority = 11)
 		void DocumentNoticeFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Document Tab - Notice - Multiple Filters verification");
@@ -3495,7 +3426,7 @@ void WorkspaceCaseHearingFilter() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
- //@Test(priority = 6)
+ @Test(priority =12)
 	void DocumentCaseFilter() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" My Document = Case = Multiple  Filters verification");
@@ -3507,7 +3438,7 @@ void WorkspaceCaseHearingFilter() throws InterruptedException, IOException
 		extent.flush();
 	}
  
-// @Test(priority = 7)
+ @Test(priority = 13)
 	void DocumentTaskFilter() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" My Document = Task = Multiple  Filters verification");
@@ -3518,7 +3449,7 @@ void WorkspaceCaseHearingFilter() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-// @Test(priority = 1)
+ @Test(priority = 14)
 		void ReportFilter() throws InterruptedException, IOException
 		{
 			test = extent.startTest("My Report - Notice - Multiple Filters verification");
@@ -3528,7 +3459,7 @@ void WorkspaceCaseHearingFilter() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-// @Test(priority = 2)
+ @Test(priority = 15)
 	void ReportCaseFilter() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Report - Case - Multiple Filters verification");
@@ -3539,7 +3470,7 @@ void WorkspaceCaseHearingFilter() throws InterruptedException, IOException
 		extent.flush();
 	}
  
-// @Test(priority =3)
+ @Test(priority =16)
 	void ReportTaskFilter() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Report = Task =  Filters verification");

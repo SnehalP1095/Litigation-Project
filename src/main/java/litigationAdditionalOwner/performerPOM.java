@@ -2573,14 +2573,14 @@ public class performerPOM
 	  public static WebElement LocationSummaryGraph(WebDriver driver) throws InterruptedException
 	  {
 		 
-		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[5]"));
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[6]"));
 	
 		  return litigation;
 	  }
 	  public static WebElement LocationSummaryGraph1(WebDriver driver) throws InterruptedException
 	  {
 		 
-		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[5]"));
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[7]"));
 	
 		  return litigation;
 	  }
@@ -2601,7 +2601,7 @@ public class performerPOM
 	  public static WebElement CategorySummaryGraph1(WebDriver driver) throws InterruptedException
 	  {
 		  
-		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[5]"));
+		  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[10]"));
 		  return litigation;
 	  }
 	  public static WebElement CategorySummaryGraphCase1(WebDriver driver) throws InterruptedException
@@ -4013,6 +4013,16 @@ public class performerPOM
 				litigation=driver.findElement(By.xpath("//span[normalize-space()='Judicial notice']"));
 				return litigation;
 			}
+			public static WebElement selectCategoryFilterGraph(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("(//span[@class='k-in'][normalize-space()='Tax Laws'])[1]"));
+				return litigation;
+			}
+			public static WebElement selectCategoryFilterGraph1(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("(//span[@class='k-in'][normalize-space()='Tax Laws'])[2]"));
+				return litigation;
+			}
 			public static WebElement selectCategoryFilterCA(WebDriver driver)
 			{
 				litigation=driver.findElement(By.xpath("(//span[@class='k-in'])[19]"));
@@ -4073,7 +4083,7 @@ public class performerPOM
 			}
 			public static WebElement clickRiskcolCA(WebDriver driver)
 			{
-				litigation=driver.findElement(By.xpath("/html/body/div[21]/div/ul/li[4]/div/ul/li[12]/span/input"));
+				litigation=driver.findElement(By.xpath("//input[@data-field='RiskType']"));
 				return litigation;
 			}
 			
@@ -4603,6 +4613,11 @@ public class performerPOM
 				litigation=driver.findElement(By.xpath("(//span[@class='k-in'][normalize-space()='HR'])[1]"));
 				return litigation;
 			}
+			public static WebElement selectReportCaseDeptFilter1(WebDriver driver)
+			{
+				litigation=driver.findElement(By.xpath("(//span[normalize-space()='IT'])[1]"));
+				return litigation;
+			}
 			public static WebElement selectReportDeptFilterCA(WebDriver driver)
 			{
 				litigation=driver.findElement(By.xpath("(//span[@class='k-in'])[545]"));
@@ -4991,13 +5006,13 @@ public class performerPOM
 			 public static WebElement RiskSummaryHigh(WebDriver driver) throws InterruptedException
 			  {
 				  
-				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[3]"));
+				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-0 '])[4]"));
 				  return litigation;
 			  }
 			 public static WebElement RiskSummaryMedium(WebDriver driver) throws InterruptedException
 			  {
 				  
-				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 '])[3]"));
+				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-1 '])[4]"));
 				  return litigation;
 			  }
 			 public static WebElement RiskSummaryLow(WebDriver driver) throws InterruptedException
@@ -5009,7 +5024,7 @@ public class performerPOM
 			 public static WebElement RiskSummaryLowCA(WebDriver driver) throws InterruptedException
 			  {
 				  
-				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[2]"));
+				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-2 '])[4]"));
 				  return litigation;
 			  }
 			 public static WebElement RiskSummaryNotApplicable(WebDriver driver) throws InterruptedException
@@ -5021,7 +5036,7 @@ public class performerPOM
 			 public static WebElement RiskSummaryNotApplicableCA(WebDriver driver) throws InterruptedException
 			  {
 				  
-				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-3 '])[2]"));
+				  litigation=driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-3 '])[3]"));
 				  return litigation;
 			  }
 			 public static WebElement RiskSummaryGraph2(WebDriver driver) throws InterruptedException
@@ -6738,7 +6753,7 @@ public class performerPOM
 				}
 			 public static WebElement StageName(WebDriver driver)
 				{
-					litigation=driver.findElement(By.xpath("//*[@class='highcharts-axis-labels highcharts-xaxis-labels ']"));
+					litigation=driver.findElement(By.xpath("(//*[name()='tspan'][contains(text(),'Hearing')])[2]"));
 					return litigation;
 				}
 			 public static WebElement DepartName(WebDriver driver)
