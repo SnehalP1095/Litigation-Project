@@ -24,11 +24,11 @@ public class Login
 	{
       // System.setProperty("webdriver.chrome.driver", "E:\\eclips-projects\\Selenium\\chromedriver.exe");
 		
-		WebDriverManager.edgedriver().setup();
-		driver = new EdgeDriver();					//Created new Chrome driver instance. 
+//		WebDriverManager.edgedriver().setup();
+//		driver = new EdgeDriver();					//Created new Chrome driver instance. 
 		
-//	    WebDriverManager.chromedriver().setup();
-//		driver = new ChromeDriver();		
+	    WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();		
 		
 //		WebDriverManager.firefoxdriver().setup();
 //		driver = new FirefoxDriver();

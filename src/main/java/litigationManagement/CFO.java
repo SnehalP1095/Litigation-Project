@@ -1,5 +1,6 @@
 package litigationManagement;
 
+import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
@@ -104,8 +105,8 @@ public class CFO {
 			}
 			
 			
-//@Test(priority = 1)
-			void HearingCalender() throws InterruptedException, IOException
+@Test(priority = 1)
+			void HearingCalender() throws InterruptedException, IOException, AWTException
 			{
 				test = extent.startTest("Hearing Calender verification");
 			

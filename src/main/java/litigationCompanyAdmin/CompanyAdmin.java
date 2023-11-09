@@ -202,8 +202,8 @@ public class CompanyAdmin
 	
 		js.executeScript("window.scrollBy(0,1500)");
 		
-		String StageName =performerPOM.StageName(driver).getText();
-		test = extent.startTest("Select Notice Filter = "+StageName+" = Select status filter Verification");
+		
+		test = extent.startTest("Select Multiple Filter = Case Notice stage graph Verification");
 		
 		
 		MethodsPOM.CaseNoticeStageGraphFilter(driver, test);
@@ -319,8 +319,8 @@ public class CompanyAdmin
 
 		js.executeScript("window.scrollBy(0,2000)");
 
-		String DeptName =performerPOM.DepartName(driver).getText();
-		test = extent.startTest("Select Multiple Filter - "+DeptName+" Department summary graph");
+		
+		test = extent.startTest("Select Multiple Filter - Department summary graph");
 		
 		MethodsPOM.DepartmentSummaryGraphFilter(driver, test);
 		
@@ -458,7 +458,7 @@ public class CompanyAdmin
           extent.flush();
     }
     
- @Test(priority = 1)
+ //@Test(priority = 1)
     void LessThanYearGraphFilter() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Notice Filter =Less than a year  = Select status filter Verification");

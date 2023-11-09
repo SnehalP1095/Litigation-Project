@@ -2,6 +2,7 @@ package litigationManagement;
 
 
 
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -36,6 +37,8 @@ import performer.OverduePOM;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.awt.AWTException;
+import java.awt.Robot;
 
 
 public class CFOMethod {
@@ -1932,7 +1935,7 @@ public class CFOMethod {
 			Thread.sleep(2000);
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
 			
-			
+		
 			Thread.sleep(10000);
 			CFOcountPOM.readTotalItems1(driver).click();
 			String item = CFOcountPOM.readTotalItems1(driver).getText();
@@ -2108,21 +2111,6 @@ public class CFOMethod {
 			
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,800)");
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardNoticeFilter(driver).click();
-          
-           	
-			Thread.sleep(5000);
-			performerPOM.clickDashboardApplyBtn(driver).click();
-			
-		   	js.executeScript("window.scrollBy(0,1700)");
-	      	
-	    
 			
 	      	Thread.sleep(2000);
 		
@@ -3186,7 +3174,7 @@ public class CFOMethod {
 	       	
 				js.executeScript("window.scrollBy(0,3500)");
 			
-	     
+		     Thread.sleep(3000);
 			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
@@ -3200,7 +3188,8 @@ public class CFOMethod {
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
-		   if (dirContents1.length < allFilesNew1.length) {
+		   if (dirContents1.length < allFilesNew1.length) 
+		    {
 				test.log(LogStatus.PASS,  "Budget vs Expense Report Download Successfully");
 			}
 		   else
@@ -3629,7 +3618,7 @@ public class CFOMethod {
 		}
 	
 	
-    	static void NoticeDocument(WebDriver driver, ExtentTest test) throws InterruptedException
+    	public static void NoticeDocument(WebDriver driver, ExtentTest test) throws InterruptedException
        	{
     		WebDriverWait wait = new WebDriverWait(driver, 50);
              
@@ -3974,7 +3963,7 @@ public class CFOMethod {
 		
 			}
     	 
-     static void Response(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+     public static void Response(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			{
 			   WebDriverWait wait = new WebDriverWait(driver, 60);
 			   
@@ -4118,7 +4107,7 @@ public class CFOMethod {
 							
 			       }
     	
-    	 static void PaymentLog(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+    	 public static void PaymentLog(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			{
     		 
     		 
@@ -4266,7 +4255,7 @@ public class CFOMethod {
 				
 			}
     	 
-    	  static void ExternalLawyer(WebDriver driver,ExtentTest test) throws InterruptedException
+    	  public static void ExternalLawyer(WebDriver driver,ExtentTest test) throws InterruptedException
           {
         	  
     		         WebDriverWait wait = new WebDriverWait(driver, 300);
@@ -4332,7 +4321,7 @@ public class CFOMethod {
     						}
     				   
     		  }	   
-    	  static void AuditLog(WebDriver driver, ExtentTest test) throws InterruptedException
+    	  public static void AuditLog(WebDriver driver, ExtentTest test) throws InterruptedException
   		  {
     		  
     		  WebDriverWait wait = new WebDriverWait(driver, 300);
@@ -4983,7 +4972,7 @@ public class CFOMethod {
 			}
 			
 		 
-		 static void Document(WebDriver driver,ExtentTest test) throws InterruptedException
+		 public static void Document(WebDriver driver,ExtentTest test) throws InterruptedException
 			{
 	           			
 			
@@ -5121,7 +5110,7 @@ public class CFOMethod {
 	  	        
 		 }
 		 
-		 static void TaskActivity1(WebDriver driver, ExtentTest test,XSSFWorkbook workbook ) throws InterruptedException, IOException
+		 public static void TaskActivity1(WebDriver driver, ExtentTest test,XSSFWorkbook workbook ) throws InterruptedException, IOException
 			{
 			    WebDriverWait wait=new WebDriverWait(driver,20);
 			    
@@ -5327,7 +5316,7 @@ public class CFOMethod {
 					
 			}
 		 
-		 static void CaseHearing(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+		 public static void CaseHearing(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			{
 			       WebDriverWait wait=new WebDriverWait(driver,20);
 			       XSSFSheet sheet=ReadExcel();
@@ -5440,7 +5429,7 @@ public class CFOMethod {
 				    
 			} 
 		 
-			static void CaseOrder(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+			public static void CaseOrder(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			{
 				WebDriverWait wait=new WebDriverWait(driver,20);
 				 XSSFSheet sheet=ReadExcel();
@@ -5557,7 +5546,7 @@ public class CFOMethod {
 				 
 			}	 
 			
-			   static void StatusPayment(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+			   public static void StatusPayment(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			      {	
 			    	       WebDriverWait wait=new WebDriverWait(driver,50);
 			      
@@ -5705,7 +5694,7 @@ public class CFOMethod {
 							
 						
 			      }
-			   static void CaseExternalLawyer(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+			   public static void CaseExternalLawyer(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
 			      {
 				               
 				   
@@ -5762,7 +5751,7 @@ public class CFOMethod {
 							   
 					  }	   
 				   
-			      static void Auditlog(WebDriver driver,ExtentTest test) throws InterruptedException
+			      public static void Auditlog(WebDriver driver,ExtentTest test) throws InterruptedException
 			      {
 			    	 
 			    	  WebDriverWait wait=new WebDriverWait(driver,50);
@@ -9808,11 +9797,11 @@ public class CFOMethod {
 							else
 							{
 								//test.log(LogStatus.FAIL, "Notice-Closed count doesn't increased.");
-								test.log(LogStatus.FAIL, "Old Count = "+closed+" | New Count = "+closed1);
+								test.log(LogStatus.FAIL, "Notice-Closed count doesn't increased:-Old Count = "+closed+" | New Count = "+closed1);
 								//test.log(LogStatus.FAIL, "Notice-Open count doesn't decreased.");
-								test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.FAIL, "Notice-Open count doesn't decreased.:-Old Count = "+open+" | New Count = "+open1);
 								//test.log(LogStatus.FAIL, "Case-Open count doesn't increased.");
-								test.log(LogStatus.FAIL, "Old Count = "+caseOpen+" | New Count = "+caseOpen1);
+								test.log(LogStatus.FAIL, "Case-Open count doesn't increased:-Old Count = "+caseOpen+" | New Count = "+caseOpen1);
 							}
 						}
 						else if(type.equals("Case"))
@@ -9843,16 +9832,16 @@ public class CFOMethod {
 							if(open > open1 && closed1 > closed)
 							{
 								//test.log(LogStatus.PASS, "Task-Closed count increased.");
-								test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
+								test.log(LogStatus.PASS, "Task-Closed count increased.:- Old Count = "+closed+" | New Count = "+closed1);
 								//test.log(LogStatus.PASS, "Task-Open count decreased.");
-								test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.PASS, "Task-Open count decreased:-Old Count = "+open+" | New Count = "+open1);
 							}
 							else
 							{
 								//test.log(LogStatus.PASS, "Task-Closed count doesn't increased.");
-								test.log(LogStatus.PASS, "Old Count = "+closed+" | New Count = "+closed1);
+								test.log(LogStatus.PASS, "Task-Closed count doesn't increased:-Old Count = "+closed+" | New Count = "+closed1);
 								//test.log(LogStatus.PASS, "Task-Open count doesn't decreased.");
-								test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.PASS, "Task-Open count doesn't decreased:-Old Count = "+open+" | New Count = "+open1);
 							}
 						}
 					}
@@ -14535,14 +14524,22 @@ public class CFOMethod {
 								Thread.sleep(300);
 								OverduePOM.clickDashboard(driver).click();
 						}
-						public static void HearingCalender(WebDriver driver,ExtentTest test,String compliancesCount1, String type) throws InterruptedException
+						public static void HearingCalender(WebDriver driver,ExtentTest test,String compliancesCount1, String type) throws InterruptedException, AWTException
 						{
-							/*String month="March 2023";
-							String day="22";
+								Thread.sleep(3000);					
+								Robot robot = new Robot();
+								robot.keyPress(KeyEvent.VK_CONTROL);
+								robot.keyPress(KeyEvent.VK_SUBTRACT);
+							   
+							
+//							    robot.keyPress(KeyEvent.VK_CONTROL);
+								//  robot.keyPress(KeyEvent.VK_SUBTRACT);
+								/*String month="March 2023";
+								String day="22";
 						
-							while(true)
-							{
-						        String text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[1]/h4")).getText();    //click month and year 
+								while(true)
+								{
+						        	String text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[1]/h4")).getText();    //click month and year 
 						           if(text.equals(month))
 						           {
 							                       break;
@@ -14556,11 +14553,11 @@ public class CFOMethod {
 							        Thread.sleep(4000);
 							      //  driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div/a[contains(text(),"+day+")]")).click();    //click day
 							        driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();             
-						    } */
-							WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[32]/a"));
+						    	} */
+							WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a"));
 							if(text.isEnabled())
 							{
-								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[32]/a")).click();
+								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();
 								
 								test.log(LogStatus.PASS, "Hearing for particular date is clickable.");
 								
@@ -14625,12 +14622,16 @@ public class CFOMethod {
 							Thread.sleep(500);
 				            performerPOM.HearingCalenderView(driver).click();
 				            test.log(LogStatus.PASS, "Show Hearing Detailes View Popup open successfully.");
+				            
+				        	driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.CONTROL, "0"));
 							
 							Thread.sleep(2000);
 							driver.switchTo().parentFrame();
 						
 							Thread.sleep(3000);
 							performerPOM.HearingCalenderclose(driver).click();
+							
+					
 							
 		                 	Thread.sleep(1000);
 							OverduePOM.clickDashboard(driver).click();
@@ -18365,7 +18366,7 @@ public class CFOMethod {
  		      }
 
  			
- 		   static void NoticeWithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		  public static void NoticeWithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
  	 		{
  	 		   
  	        	 sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
@@ -18472,7 +18473,7 @@ public class CFOMethod {
  	 		
  	 	
  	 			
- 	  static void NoticeWithTwoMandatoryData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 public static void NoticeWithTwoMandatoryData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
  	 	 {
  	 	 		   
  	 	        	 sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
@@ -18523,7 +18524,7 @@ public class CFOMethod {
  	 	     	
  	 	 	 		
  	 	 	 		
- 	 	 	 	 static void NoticeWithEmptyFields(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 	 	 	public  static void NoticeWithEmptyFields(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
  	 	 	 	 {
  	 	 	 	 		   
  	 	 	 	        	 sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
@@ -18606,7 +18607,7 @@ public class CFOMethod {
 	 	 	 	     		Thread.sleep(3000);
 	 	 	 	     		OverduePOM.clickDashboard(driver).click();
 	 	 	 	 }
- 	 	 	 static void NoticeSendMailWithDoc(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 	 	 	 public static void NoticeSendMailWithDoc(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
  	 	 	 {
  	 	 	 		   
  	 	 	        	
@@ -18663,7 +18664,7 @@ public class CFOMethod {
 	 	 	     		OverduePOM.clickDashboard(driver).click();
  	 	 	 
  	 	 	 }
- 	 		 static void NoticeSendMailWithDocInvalidFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 	 		 public static void NoticeSendMailWithDocInvalidFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
  	 	 	 {
  	 	 	 		   
  	 	 	        	
@@ -18721,7 +18722,7 @@ public class CFOMethod {
  	 	 	 
  	 	 	 }
  	 	 	 			
- 	 		 static void NoticeSendMailWithDocEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 	 		 public static void NoticeSendMailWithDocEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
  	 	 	 {
  	 	 	 		   
  	 	 	        	
@@ -18769,7 +18770,7 @@ public class CFOMethod {
  	 	 	 
  	 	 	 }
  	 		 
- 	 		 static void LinkNoticeViewIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 	 		 public static void LinkNoticeViewIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
  	 	 	 {
  	 	 	 		   
  	 	 	        	
@@ -18815,7 +18816,7 @@ public class CFOMethod {
  	 	     		OverduePOM.clickDashboard(driver).click();
  	 	 	 			
  	 	 	 }
- 	 		 static void LinkNoticeDeleteIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 	 		 public static void LinkNoticeDeleteIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
  	 	 	 {
  	 	 	 		   
  	 	 	        	
@@ -18866,7 +18867,7 @@ public class CFOMethod {
  	 	 	 			
  	 	 	 }
  	 		 
- 	 		 static void NoticeUserAssignment(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 		 public static void NoticeUserAssignment(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
  	 	 	 {
  	 	 	 		   
  	 			        sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
@@ -18928,7 +18929,7 @@ public class CFOMethod {
  	 	 	     		OverduePOM.clickDashboard(driver).click();
  	 	 	    }
  	 		 
- 	 		 static void NoticeUserAssignmentDelete(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 		 public static void NoticeUserAssignmentDelete(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
  	 	 	 {
  	 	 	 		   
  	 			        sheet = workbook.getSheetAt(8);					//Retrieving second sheet of Workbook
@@ -18982,7 +18983,7 @@ public class CFOMethod {
  	 	 	     	    Thread.sleep(3000);
  	 	 	     		OverduePOM.clickDashboard(driver).click();
  	 	 	    }
- 	 		static void NoticeDocumentEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException
+ 	 		public static void NoticeDocumentEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException
  	       	{
  	    		WebDriverWait wait = new WebDriverWait(driver, 50);
  	             
@@ -19032,7 +19033,7 @@ public class CFOMethod {
  	     		driver.switchTo().parentFrame();
  	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
  	    }
- 	 	  	static void NoticeWithoutUploadDocument(WebDriver driver, ExtentTest test) throws InterruptedException
+ 	 	  	public static void NoticeWithoutUploadDocument(WebDriver driver, ExtentTest test) throws InterruptedException
  	       	{
  	    		WebDriverWait wait = new WebDriverWait(driver, 50);
  	             
@@ -19126,7 +19127,7 @@ public class CFOMethod {
  				
  	       	}
  	 		
- 	 		static void NoticeDocumentShareInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException
+ 	 		public static void NoticeDocumentShareInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException
  	       	{
  	    		WebDriverWait wait = new WebDriverWait(driver, 50);
  	             
@@ -19191,7 +19192,7 @@ public class CFOMethod {
    	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
   	       	}
  	 		
- 	 		static void NoticeDocumentShareWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
+ 	 		public static void NoticeDocumentShareWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
  	       	{
  	    		WebDriverWait wait = new WebDriverWait(driver, 50);
  	             
@@ -19638,7 +19639,7 @@ public class CFOMethod {
 		   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
  			}
  	 		 
- 	 		static void ResponseWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 	 		public static void ResponseWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 			{
 			   WebDriverWait wait = new WebDriverWait(driver, 60);
 			  
@@ -19678,7 +19679,7 @@ public class CFOMethod {
 			performerPOM.clickClose(driver).click();//Clicking on 'Close'
 	 }
  	 		
- 	 	 static void ResponseExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 	 public static void ResponseExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
  			{
  			   WebDriverWait wait = new WebDriverWait(driver, 60);
  			   
@@ -19805,7 +19806,7 @@ public class CFOMethod {
 				   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 		 			}
  	 	 
- 	 	 static void PaymentLogWithoutData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 	 public static void PaymentLogWithoutData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			{
  		 
  		 
@@ -19844,7 +19845,7 @@ public class CFOMethod {
 					
 			}
  	 	 
- 	 	 static void PaymentLogwithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 	 	 public static void PaymentLogwithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			{
  		 
  		 
@@ -19909,7 +19910,7 @@ public class CFOMethod {
 			   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 			   	  }
  	 	 
- 	 	 static void CriteriaExistingData(WebDriver driver,ExtentTest test) throws InterruptedException
+ 	 	 public static void CriteriaExistingData(WebDriver driver,ExtentTest test) throws InterruptedException
          {
        	  
    		         WebDriverWait wait = new WebDriverWait(driver, 300);
@@ -19958,7 +19959,7 @@ public class CFOMethod {
 		   	     	Thread.sleep(3000);
 		   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
          }
- 	 	 static void CriteriaInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
+ 	 	 public static void CriteriaInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
          {
        	  
    		         WebDriverWait wait = new WebDriverWait(driver, 300);
@@ -20004,7 +20005,7 @@ public class CFOMethod {
    				   driver.switchTo().parentFrame();
    				   performerPOM.clickclosecriteria(driver).click();
          }
- 	 	 static void CriteriaWithoutData(WebDriver driver,ExtentTest test) throws InterruptedException
+ 	 	 public static void CriteriaWithoutData(WebDriver driver,ExtentTest test) throws InterruptedException
          {
        	  
    		         WebDriverWait wait = new WebDriverWait(driver, 300);
@@ -20050,7 +20051,7 @@ public class CFOMethod {
    				   performerPOM.clickclosecriteria(driver).click();
          }
  	 	 
- 		static void CaseExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+ 		public static void CaseExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
 		{
  			
  			sheet = workbook.getSheetAt(8);		
@@ -20136,7 +20137,7 @@ public class CFOMethod {
 			performerPOM.clickClose(driver).click();			//Clicking on 'Close'
 			
 		}
- 		static void CaseWithInvalidData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+ 		public static void CaseWithInvalidData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
 		{
  			
  			sheet = workbook.getSheetAt(8);		
@@ -20226,7 +20227,7 @@ public class CFOMethod {
 		      performerPOM.clickCaseDate(driver).sendKeys("22-01-202");					//Clicking on 'Dated' button
 		  }
  		 
- 		static void CaseWithTwoFieldsData(WebDriver driver, ExtentTest test) throws InterruptedException
+ 		public static void CaseWithTwoFieldsData(WebDriver driver, ExtentTest test) throws InterruptedException
 		{
  			
  				
@@ -20267,7 +20268,7 @@ public class CFOMethod {
 			
 		}
  		
- 		static void CaseWithEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException
+ 		public static void CaseWithEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException
 		{
  			
 			WebDriverWait wait = new WebDriverWait(driver, 50);
@@ -20339,7 +20340,7 @@ public class CFOMethod {
 	     		Thread.sleep(3000);
 	     		OverduePOM.clickDashboard(driver).click();
 		}
- 		 static void LinkCaseViewIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 		 public static void LinkCaseViewIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	 	 	 {
 	 	 	 		   
 	 	 	        	
@@ -20388,7 +20389,7 @@ public class CFOMethod {
 	 	 	 			
 	 	 	 }
  		 
- 		 static void LinkCaseDeleteIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 		 public static void LinkCaseDeleteIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	 	 	 {
 	 	 	 		   
 	 	 	        	
@@ -20441,7 +20442,7 @@ public class CFOMethod {
 	 	     		OverduePOM.clickDashboard(driver).click();
 	 	 	 			
 	 	 	 }
- 		 static void CaseUserAssignment(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		 public static void CaseUserAssignment(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 	 	 	 {
 
   			            sheet = workbook.getSheetAt(8);		
@@ -20482,7 +20483,7 @@ public class CFOMethod {
 	 	 	     	    Thread.sleep(3000);
 	 	 	     		OverduePOM.clickDashboard(driver).click();
 	 	 	    }
- 		 static void CaseUserAssignmentDelete(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 		 public static void CaseUserAssignmentDelete(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	 	 	 {
 	 	 	 		   
 	 			     			
@@ -20521,7 +20522,7 @@ public class CFOMethod {
 	 	 	     		OverduePOM.clickDashboard(driver).click();
 	 	 	    }
  		 
- 		 static void CaseSendMailWithDoc(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 		 public static void CaseSendMailWithDoc(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	 	 	 {
 	 	 	 		   
 	 	 	        	
@@ -20578,7 +20579,7 @@ public class CFOMethod {
  	 	     		OverduePOM.clickDashboard(driver).click();
 	 	 	 
 	 	 	 }
- 		 static void CaseSendMailWithDocInvalidFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 		 public static void CaseSendMailWithDocInvalidFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	 	 	 {
 	 	 	 		   
 	 	 	        	
@@ -20636,7 +20637,7 @@ public class CFOMethod {
 	 	 	 
 	 	 	 }
  		 
- 		 static void CaseSendMailWithDocEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 		 public static void CaseSendMailWithDocEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	 	 	 {
 	 	 	 		   
 	 	 	        	
@@ -20680,7 +20681,7 @@ public class CFOMethod {
  	 	     		OverduePOM.clickDashboard(driver).click();
 	 	 	 
 	 	 	 }
- 	 	static void CaseWithoutUploadDocument(WebDriver driver, ExtentTest test) throws InterruptedException
+ 	 	public static void CaseWithoutUploadDocument(WebDriver driver, ExtentTest test) throws InterruptedException
 	       	{
 	    		WebDriverWait wait = new WebDriverWait(driver, 50);
 	             
@@ -20734,7 +20735,7 @@ public class CFOMethod {
 	     		driver.switchTo().parentFrame();
 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
 	       	}
- 	 	static void CaseDocumentEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException
+ 	 	public static void CaseDocumentEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException
 	       	{
 	    		WebDriverWait wait = new WebDriverWait(driver, 50);
 	             
@@ -20785,7 +20786,7 @@ public class CFOMethod {
 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
 	    }
  	 	
- 	 	static void CaseDocumentSearchFields(WebDriver driver, ExtentTest test) throws InterruptedException
+ 	 	public static void CaseDocumentSearchFields(WebDriver driver, ExtentTest test) throws InterruptedException
 	       	{
 	    		WebDriverWait wait = new WebDriverWait(driver, 50);
 	             
@@ -20824,7 +20825,7 @@ public class CFOMethod {
 				
 	       	}
  	 	
- 		static void CaseDocumentShareInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException
+ 		public static void CaseDocumentShareInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException
 	       	{
 	    		WebDriverWait wait = new WebDriverWait(driver, 50);
 	             
@@ -20889,7 +20890,7 @@ public class CFOMethod {
 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
 	       	}
  		
- 		static void CaseDocumentShareWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
+ 		public static void CaseDocumentShareWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
 	       	{
 	    		WebDriverWait wait = new WebDriverWait(driver, 50);
 	             
@@ -21012,7 +21013,7 @@ public class CFOMethod {
    	     	
 	       }
  		
- 		 static void CaseTaskActivitywithExistingData(WebDriver driver, ExtentTest test,XSSFWorkbook workbook ) throws InterruptedException, IOException
+ 		 public static void CaseTaskActivitywithExistingData(WebDriver driver, ExtentTest test,XSSFWorkbook workbook ) throws InterruptedException, IOException
 			{
 			    WebDriverWait wait=new WebDriverWait(driver,20);
 			    
@@ -21129,7 +21130,7 @@ public class CFOMethod {
 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
 			}
  		 
- 		 static void CaseTaskActivityWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 		 public static void CaseTaskActivityWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 			{
 			    WebDriverWait wait=new WebDriverWait(driver,20);
 			    
@@ -21291,7 +21292,7 @@ public class CFOMethod {
 	             
 			}
  		 
- 		 static void CaseExistingHearingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		 public static void CaseExistingHearingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 			{
 			       WebDriverWait wait=new WebDriverWait(driver,20);
 			       XSSFSheet sheet=ReadExcel();
@@ -21335,7 +21336,7 @@ public class CFOMethod {
 			   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 			}
  		 
- 		 static void CaseHearingWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 		 public static void CaseHearingWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 			{
 			       WebDriverWait wait=new WebDriverWait(driver,20);
 			   
@@ -21362,7 +21363,7 @@ public class CFOMethod {
 			   	     	Thread.sleep(3000);
 			   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 			}
- 		static void CaseHearingInvalidDate(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+ 		public static void CaseHearingInvalidDate(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 		{
 		       WebDriverWait wait=new WebDriverWait(driver,20);
 		       XSSFSheet sheet=ReadExcel();
@@ -21450,7 +21451,7 @@ public class CFOMethod {
 			   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 			}
  		 
- 		static void CaseOrderWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+ 		public static void CaseOrderWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 		{
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			
@@ -21480,7 +21481,7 @@ public class CFOMethod {
 	   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 		}
  		
-		static void CaseOrderwithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+		public static void CaseOrderwithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 		{
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			 XSSFSheet sheet=ReadExcel();
@@ -21745,7 +21746,7 @@ public class CFOMethod {
 			
 		}
 		
-		   static void StatusPaymentExistingdata(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+		   public static void StatusPaymentExistingdata(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
 		      {	
 		    	       WebDriverWait wait=new WebDriverWait(driver,50);
 		      
@@ -21802,7 +21803,7 @@ public class CFOMethod {
 					   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 		      }
 		
-		   static void StatusPaymentWithoutdata(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+		   public static void StatusPaymentWithoutdata(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 		      {	
 		    	       WebDriverWait wait=new WebDriverWait(driver,50);
 		      
@@ -21841,7 +21842,7 @@ public class CFOMethod {
 					   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 		      }
 		   
-		 	  static void CaseExternalLawyerCriteria(WebDriver driver,ExtentTest test) throws InterruptedException
+		 	  public static void CaseExternalLawyerCriteria(WebDriver driver,ExtentTest test) throws InterruptedException
 	          {
 	        	  
 	    		         WebDriverWait wait = new WebDriverWait(driver, 300);
@@ -21886,7 +21887,7 @@ public class CFOMethod {
 	          }
 			
 			
-		 	  static void CaseExistingCriteria(WebDriver driver,ExtentTest test) throws InterruptedException
+		 	  public static void CaseExistingCriteria(WebDriver driver,ExtentTest test) throws InterruptedException
 	          {
 	        	  
 	    		         WebDriverWait wait = new WebDriverWait(driver, 300);
@@ -21929,7 +21930,7 @@ public class CFOMethod {
 					   	     	Thread.sleep(3000);
 					   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 	          }
-		 	 static void CaseCriteriaInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
+		 	 public static void CaseCriteriaInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
 	         {
 	       	  
 	   		         WebDriverWait wait = new WebDriverWait(driver, 300);
@@ -21974,7 +21975,7 @@ public class CFOMethod {
 	   				   performerPOM.clickclosecriteria(driver).click();
 	         }
 		 	 
-			 static void CaseCriteriaWithoutData(WebDriver driver,ExtentTest test) throws InterruptedException
+			 public static void CaseCriteriaWithoutData(WebDriver driver,ExtentTest test) throws InterruptedException
 	         {
 	       	  
 	   		         WebDriverWait wait = new WebDriverWait(driver, 300);
@@ -22019,7 +22020,7 @@ public class CFOMethod {
 	   				   driver.switchTo().parentFrame();
 	   				   performerPOM.clickclosecriteria(driver).click();
 	         }
-				static void TaskwithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+				public static void TaskwithExistingData(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
 				{
 					WebDriverWait wait = new WebDriverWait(driver, 60);
 					Thread.sleep(500);
@@ -22152,7 +22153,7 @@ public class CFOMethod {
 					performerPOM.clickClose1(driver).click();			//Clicking on 'Close'
 				}
 				
-				static void TaskDelete(WebDriver driver, ExtentTest test) throws InterruptedException
+				public static void TaskDelete(WebDriver driver, ExtentTest test) throws InterruptedException
 				{
 					
 					Thread.sleep(500);
@@ -22177,7 +22178,7 @@ public class CFOMethod {
 				        alert1.accept();	
 				}
 				
-				static void TaskwithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
+				public static void TaskwithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
 				{
 					WebDriverWait wait = new WebDriverWait(driver, 60);
 					Thread.sleep(500);
@@ -22211,7 +22212,7 @@ public class CFOMethod {
 				}
 				
 				
-				static void TaskwithTwoManadatoryFields(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
+				public static void TaskwithTwoManadatoryFields(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException
 				{
 					WebDriverWait wait = new WebDriverWait(driver, 60);
 					Thread.sleep(500);

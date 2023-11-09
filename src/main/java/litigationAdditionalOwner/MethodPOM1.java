@@ -968,7 +968,7 @@ public class MethodPOM1 {
 		 jse1.executeScript("arguments[0].click();", ViewButton1);
 	    
 		
-		js.executeScript("window.scrollBy(0,150)");	
+		js.executeScript("window.scrollBy(0,300)");	
 		Thread.sleep(3000);
 
 		CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.

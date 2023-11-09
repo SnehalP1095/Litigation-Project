@@ -14620,11 +14620,11 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		
 		    
 			 	Thread.sleep(2000);
-	  	        performerPOM.RiskSummaryNotApplicableCA(driver).click();						//Clicking on 'Open' notice
+	  	        performerPOM.CaseNoticeStageSummaryGraph(driver).click();						//Clicking on 'Open' notice
 	  		
 		    
 		    
-	  	      Thread.sleep(2000);
+	  	        	Thread.sleep(2000);
 					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
 					
 					

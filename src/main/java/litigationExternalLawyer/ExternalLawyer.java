@@ -55,7 +55,7 @@ public class ExternalLawyer
 		extent = new com.relevantcodes.extentreports.ExtentReports(workingDir+"//Reports//LitigationExternalLawyer.html",true);
 		test = extent.startTest("Litigation Logging In - External Lawyer");
 		
-		test.log(LogStatus.PASS, "Test Passed.");
+		test.log(LogStatus.PASS, "Test Passed = Verify Edge browser.");
 		extent.endTest(test);
 		extent.flush();
 	}
@@ -1240,7 +1240,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 	 	extent.endTest(test);
 	 	extent.flush();
 	 }
-@Test(priority = 1)
+@Test(priority = 3)
 	 void WorkspaceTaskFilter() throws InterruptedException, IOException
 	 {
 	 	test = extent.startTest("My Workspace - Task - Multiple Filters verification");
@@ -1287,7 +1287,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 	 		extent.endTest(test);
 	 		extent.flush();
 	 	}
-	 @Test(priority =2)
+	 @Test(priority =7)
 	 		void ReportFilter() throws InterruptedException, IOException
 	 		{
 	 			test = extent.startTest("My Report - Notice - Multiple Filters verification");
@@ -1297,7 +1297,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 	 			extent.endTest(test);
 	 			extent.flush();
 	 		}
-	@Test(priority = 3)
+	@Test(priority = 8)
 	 	void ReportCaseFilter() throws InterruptedException, IOException
 	 	{
 	 		test = extent.startTest("My Report - Case - Multiple Filters verification");
