@@ -465,7 +465,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
-//@Test(priority = 15)
+@Test(priority = 0)
     void ApplicantAgeingGraph() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Notice Filter = Less than a year = Applicant Type = Ageing Graph Count Verification");

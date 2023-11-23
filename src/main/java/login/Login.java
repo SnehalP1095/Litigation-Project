@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,6 +33,10 @@ public class Login
 		
 //		WebDriverManager.firefoxdriver().setup();
 //		driver = new FirefoxDriver();
+		
+	//	WebDriverManager.operadriver().setup();
+	//	driver = new OperaDriver();
+		
 		driver.manage().window().maximize();			//Set window size to maximum.
 		driver.get(URL);								//Set the URL of WebApplication.
 	}
@@ -42,7 +47,7 @@ public class Login
 		if(browser.equalsIgnoreCase("firefox"))
 		{
 			 //create firefox instance
-				System.setProperty("webdriver.gecko.driver", "C:/March2022/PerformerPom/FireDriver/setup-stub.exe");
+				System.setProperty("webdriver.gecko.driver", "E:\\eclips-projects\\Selenium\\geckodriver-v0.33.0-win64\\geckodriver.exe");
 				driver = new FirefoxDriver();
 			}
 			//Check if parameter passed as 'chrome'
@@ -54,6 +59,14 @@ public class Login
 				driver = new ChromeDriver();
 			
 			}
+			else if(browser.equalsIgnoreCase("Opera"))
+			{
+				//set path to chromedriver.exe
+				System.setProperty("webdriver.opera.driver","E:\\eclips-projects\\Selenium\\operadriver_win32\\operadriver.exe");
+				//create chrome instance
+				driver = new OperaDriver();
+			
+			}
 			//Check if parameter passed as 'Edge'
 							 if(browser.equalsIgnoreCase("Edge")) 
 							{
@@ -63,10 +76,13 @@ public class Login
 								//create Edge instance
 								driver = new EdgeDriver();
 							}
-					else{
+					else
+					{
 						//If no browser passed throw exception
 						throw new Exception("Browser is not correct");
 					}
+							 
+							 
 		               driver.manage().window().maximize();			//Set window size to maximum.
 		                driver.get(URL);
 		

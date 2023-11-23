@@ -1,5 +1,6 @@
 package litigationCompanyAdmin;
 
+import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
@@ -87,7 +88,7 @@ public class CompanyAdmin
 
 	
 //@Test(priority = 0)
-	void HearingCalender() throws InterruptedException, IOException
+	void HearingCalender() throws InterruptedException, IOException, AWTException
 	{
 		test = extent.startTest("Case Hearing Calender Verification");
 		
@@ -895,7 +896,7 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-//@Test(priority =1)
+//@Test(priority =29)
     void ExpensesCaseGraph() throws InterruptedException, IOException
     {
        test = extent.startTest("Select Case Filter = Expenses Case-Wise Graph Count Verification");
@@ -907,10 +908,10 @@ void LocationSummaryGraph1() throws InterruptedException, IOException
        extent.flush();
     }
 
-//@Test(priority =2)
+//@Test(priority =30)
 void ExpensesCategoryWiseCaseGraph() throws InterruptedException, IOException
 {
-   test = extent.startTest("Select Case Filter = Cables Category -Expenses Category Wise Graph Count Verification");
+   test = extent.startTest("Select Case Filter - Expenses Category Wise Graph Count Verification");
   
    Thread.sleep(3000);
    MethodsPOM.ExpensesCategoryWiseCaseGraph(driver, test,"cfo -");
@@ -918,7 +919,7 @@ void ExpensesCategoryWiseCaseGraph() throws InterruptedException, IOException
    extent.endTest(test);
    extent.flush();
 }
-//@Test(priority =1)
+//@Test(priority =31)
 void ExpensesCounselWiseCaseGraph() throws InterruptedException, IOException
 {
   test = extent.startTest("Select Case Filter -Expenses Counsel Wise Graph Count Verification");
@@ -929,7 +930,7 @@ void ExpensesCounselWiseCaseGraph() throws InterruptedException, IOException
   extent.endTest(test);
   extent.flush();
 }
-//@Test(priority =2)
+@Test(priority =0)
 void UtilizedBudgetGraph() throws InterruptedException, IOException
 {
   test = extent.startTest("Select Case Filter -Utilized budget Graph Count Verification");
@@ -3251,7 +3252,7 @@ void SearchFilterAnnualBudget() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-	@Test(priority = 297)
+	@Test(priority =297)
 	void Masters13() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Masters - UserReassignment  verification");

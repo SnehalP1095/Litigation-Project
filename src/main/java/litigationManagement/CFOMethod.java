@@ -4716,7 +4716,7 @@ public class CFOMethod {
 	     else
 	     {
 	        //test.log(LogStatus.FAIL, "Total Case Count doesn't increased in grid after adding New Case.");
-	        test.log(LogStatus.PASS, "Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
+	        test.log(LogStatus.FAIL, "Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
 	     }
 
 	       Thread.sleep(500);

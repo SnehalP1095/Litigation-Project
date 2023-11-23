@@ -72,7 +72,7 @@ public class CFOlogin
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
 		
-		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
+		login.Login.BrowserSetup1(URL,"Opera");					//Method of Login class to set browser.
 		
 		
 		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
@@ -100,7 +100,7 @@ public class CFOlogin
 	
 
 
-//@Test(priority = 2)
+@Test(priority = 2)
 void CaseNoticeTypeGraph() throws InterruptedException, IOException
 {
 	test = extent.startTest("Select Notice Filter  = Case Notice Type Graph Count Verification");
@@ -150,7 +150,7 @@ void CaseNoticeTypeGraph() throws InterruptedException, IOException
 	extent.endTest(test);
 	extent.flush();
 }
-//@Test(priority = 4)
+@Test(priority = 3)
 void CaseNoticeStageGraph() throws InterruptedException, IOException
 {
 	
@@ -175,7 +175,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	extent.endTest(test);
 	extent.flush();
 }
-//@Test(priority =4)
+@Test(priority =4)
 		void RiskSummaryGraph() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Select Notice Filter = Risk Graph Count Verification");
@@ -220,7 +220,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-//@Test(priority = 6)
+@Test(priority = 5)
         void DepartmentSummaryGraph() throws InterruptedException, IOException
         {
         	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -248,7 +248,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	       extent.endTest(test);
 	       extent.flush();
         }
-  // @Test(priority = 8)
+ @Test(priority = 6)
         void LocationSummaryGraph() throws InterruptedException, IOException
         {
         	
@@ -279,7 +279,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	       extent.endTest(test);
 	       extent.flush();
         }
-   // @Test(priority = 10)
+    @Test(priority = 7)
         void CategorySummaryGraph() throws InterruptedException, IOException
         {
         	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -309,7 +309,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	       extent.endTest(test);
 	       extent.flush();
         }
-    // @Test(priority = 12)
+    @Test(priority = 8)
         void InwardDefendantAgeingGraph() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter =Less than a year = Inward/Defendant Type = Ageing Graph Count Verification");
@@ -321,7 +321,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
-  //  @Test(priority = 14)
+  @Test(priority = 9)
         void ComplainantAgeingGraph() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter = Less than a year = Complainant Type = Ageing Graph Count Verification");
@@ -332,7 +332,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
- // @Test(priority = 15)
+  @Test(priority = 10)
         void ApplicantAgeingGraph() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter = Less than a year = Applicant Type = Ageing Graph Count Verification");
@@ -343,7 +343,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
-  //@Test(priority = 16)
+@Test(priority = 11)
         void OutwardPlaintiffAgeingGraph() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter = Less than a year = Outward/Plaintiff Type= Ageing Graph Count Verification");
@@ -354,7 +354,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
-  // @Test(priority = 17)
+ @Test(priority = 12)
         void PetitionerAgeingGraph() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter = Less than a year  =Petitioner Type = Ageing Graph Count Verification");
@@ -365,7 +365,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
- //  @Test(priority = 18)
+ @Test(priority = 18)
         void RespondentAgeingGraph() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter = Less than a year  =Respondent Type = Ageing Graph Count Verification");
@@ -376,7 +376,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
-  // @Test(priority =19)
+ @Test(priority =13)
         void ComplainantAgeingGraph1to2years() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter = 1 to 2 Years = Complainant Type = Ageing Graph Count Verification");
@@ -388,7 +388,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.flush();
    
         }
-   //     @Test(priority = 20)
+       @Test(priority = 14)
         void InwardDefendentAgeingGraph1to2years() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter = 1 to 2 Years = Inward/Defendent Type = Ageing Graph Count Verification");
@@ -399,7 +399,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
- //   @Test(priority = 21)
+   @Test(priority = 15)
         void OutwardPlaintiffAgeingGraph1to2years() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter = 1 to 2 Years =Outward/Plaintiff Type = Ageing Graph Count Verification");
@@ -410,7 +410,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
- //   @Test(priority =22)
+  @Test(priority =16)
         void RespondentAgeingGraph1to2yearsAgeingGraph1to2years() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter = 1 to 2 Years =Respondent Type = Ageing Graph Count Verification");
@@ -421,7 +421,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
-  //  @Test(priority = 24)
+   @Test(priority = 17)
         void InwardDefendentAgeingGraph2to3years() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Notice Filter = 2 to 3 Years =Inward/Defendent Type = Ageing Graph Count Verification");
@@ -432,7 +432,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
-@Test(priority =27)
+@Test(priority =18)
     	void CaseNoticeTypeGraph1() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Select Case Filter  = Case Notice Type Graph Count Verification");
@@ -473,7 +473,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
     		extent.flush();
     	}
        
- @Test(priority = 28)
+ @Test(priority = 19)
        void CaseNoticeStageGraph1() throws InterruptedException, IOException
        { 
     	   JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -500,7 +500,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
     		extent.endTest(test);
     		extent.flush();
        }
-  @Test(priority = 29)
+  @Test(priority = 20)
     	void RiskSummaryGraph1() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Select Case Filter = Risk Graph Count Verification");
@@ -542,7 +542,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
     		extent.flush();
     	}
        
-@Test(priority = 30)
+@Test(priority = 21)
         void DepartmentSummaryGraph1() throws InterruptedException, IOException
         {
         	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -570,7 +570,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
            extent.flush();
         }
         
-   @Test(priority = 31)
+   @Test(priority = 22)
         void LocationSummaryGraph1() throws InterruptedException, IOException
         {
         	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -601,7 +601,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
         }
         
         
-  @Test(priority = 32)
+  @Test(priority = 23)
         void CategorySummaryGraph1() throws InterruptedException, IOException
         {
         	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -631,7 +631,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
            extent.endTest(test);
            extent.flush();
         }
- @Test(priority =33)
+ @Test(priority =24)
         void ExpensesCaseGraph() throws InterruptedException, IOException
         {
            test = extent.startTest("Select Case Filter = Expenses Case-Wise Graph Count Verification");
@@ -642,7 +642,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
            extent.endTest(test);
            extent.flush();
         }
- @Test(priority =34)
+ @Test(priority =25)
         void ExpensesCategoryWiseCaseGraph() throws InterruptedException, IOException
         {
            test = extent.startTest("Select Case Filter = Cables Category -Expenses Category Wise Graph Count Verification");
@@ -653,7 +653,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
            extent.endTest(test);
            extent.flush();
         }
-@Test(priority =35)
+@Test(priority =26)
      void ExpensesCounselWiseCaseGraph() throws InterruptedException, IOException
      {
         test = extent.startTest("Select Case Filter -Expenses Counsel Wise Graph Count Verification");
@@ -664,7 +664,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
         extent.endTest(test);
         extent.flush();
      }
-    @Test(priority =36)
+    @Test(priority =27)
      void UtilizedBudgetGraph() throws InterruptedException, IOException
      {
         test = extent.startTest("Select Case Filter -Utilized budget Graph Count Verification");
@@ -675,7 +675,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
         extent.endTest(test);
         extent.flush();
      }
-  @Test(priority = 37)
+  @Test(priority = 28)
         void InwardDefendantAgeingGraphCase() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Case Filter =Less than a year = Inward/Defendant = Ageing Graph Count Verification");
@@ -686,7 +686,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
-  //  @Test(priority =38)
+ @Test(priority =29)
         void OutwardPlaintiffAgeingGraphCase() throws InterruptedException, IOException
         {
              test = extent.startTest("Select Case Filter = Less than a year = Outward/Plaintiff = Ageing Graph Count Verification");
@@ -697,7 +697,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
               extent.endTest(test);
               extent.flush();
         }
-  //  @Test(priority =39)
+   @Test(priority =30)
        void PetitionerAgeingGraphCase() throws InterruptedException, IOException
         {
           test = extent.startTest("Select Case Filter = Less than a year = Petitioner = Ageing Graph Count Verification");
@@ -708,7 +708,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
            extent.endTest(test);
            extent.flush();
         }
-   @Test(priority =40)
+   @Test(priority =31)
    	void NoticeOpen() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Notice - Open Count verification");
@@ -720,7 +720,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
    		extent.flush();
 
    	}
- @Test(priority =41)
+ @Test(priority =32)
 	void NoticeWithExistingData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice With Existing Data verification");
@@ -732,7 +732,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
-@Test(priority =42)
+@Test(priority =33)
     void NoticeWithInvalidData() throws InterruptedException, IOException
    {
 	     test = extent.startTest("Notice With Invalid Data verification");
@@ -743,7 +743,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	     extent.endTest(test);
 	     extent.flush();
   }
-@Test(priority =43)
+@Test(priority =34)
   void NoticeWithTwoMandatoryData() throws InterruptedException, IOException
  {
 	     test = extent.startTest("Notice With Two Mandatory Fields verification");
@@ -754,7 +754,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	     extent.endTest(test);
 	     extent.flush();
 }
-@Test(priority =44) 
+@Test(priority =35) 
   void NoticeWithEmptyFields() throws InterruptedException, IOException
  {
 	     test = extent.startTest("Notice With Empty Fields verification");
@@ -765,7 +765,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	     extent.endTest(test);
 	     extent.flush();
 }
-@Test(priority =45)
+@Test(priority =36)
   void NoticeSendMailWithDoc() throws InterruptedException, IOException
  {
 	     test = extent.startTest("Notice Summary-Send Mail With Document verification");
@@ -776,7 +776,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	     extent.endTest(test);
 	     extent.flush();
 }
-@Test(priority =46)
+@Test(priority =37)
   void NoticeSendMailWithDocInvalidFields() throws InterruptedException, IOException
  {
 	     test = extent.startTest(" Notice Summary -Send Mail With Document Invalid Fields verification");
@@ -787,7 +787,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	     extent.endTest(test);
 	     extent.flush();
 }
-@Test(priority =47)
+@Test(priority =38)
   void NoticeSendMailWithDocEmptyFields() throws InterruptedException, IOException
  {
 	     test = extent.startTest("Notice Summary -Send Mail With Document Empty Fields verification");
@@ -798,7 +798,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	     extent.endTest(test);
 	     extent.flush();
 }
-@Test(priority =48)
+@Test(priority =39)
   void NoticeUserAssignment() throws InterruptedException, IOException
  {
 	     test = extent.startTest("Notice User Assignment  verification");
@@ -809,7 +809,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	     extent.endTest(test);
 	     extent.flush();
 }
-@Test(priority =49)
+@Test(priority =40)
   void NoticeUserAssignmentDelete() throws InterruptedException, IOException
  {
 	     test = extent.startTest("Notice User Assignment Delete Icon  verification");
@@ -821,7 +821,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	     extent.flush();
 }
   
-@Test(priority =50)
+@Test(priority =41)
 	void LinkNotice() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Link Notice Verification");
@@ -833,7 +833,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 		extent.flush();
 	}
   
- @Test(priority =51)
+ @Test(priority =42)
   void LinkNoticeViewIcon() throws InterruptedException, IOException
  {
 	     test = extent.startTest("Linked notice view icon  verification");
@@ -844,7 +844,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	     extent.endTest(test);
 	     extent.flush();
 }
-@Test(priority =52)
+@Test(priority =43)
   void LinkNoticeDeleteIcon() throws InterruptedException, IOException
  {
 	     test = extent.startTest("Linked notice Delete icon  verification");
@@ -856,7 +856,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 	     extent.flush();
 }
  
-@Test(priority =53)
+@Test(priority =44)
     	void CaseOpen() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Case - Open Count verification");
@@ -867,7 +867,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
     		extent.endTest(test);
     		extent.flush();
     	}
-@Test(priority =54)
+@Test(priority =45)
 	void CaseExistingData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case with Existing Data verification");
@@ -878,7 +878,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority =55)
+@Test(priority =46)
 	void CaseWithInvalidData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case with Invalid Data verification");
@@ -889,7 +889,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority =56)
+@Test(priority =47)
   	void CaseWithTwoFieldsData() throws InterruptedException, IOException
   	{
   		test = extent.startTest("Case with Two Manadatory fields verification");
@@ -900,7 +900,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
   		extent.endTest(test);
   		extent.flush();
   	}
-@Test(priority =57)
+@Test(priority =48)
   	void CaseWithEmptyFields() throws InterruptedException, IOException
   	{
   		test = extent.startTest("Case with Empty fields verification");
@@ -912,7 +912,7 @@ void CaseNoticeStageGraph() throws InterruptedException, IOException
   		extent.flush();
   	}
   	
-  @Test(priority =58)
+  @Test(priority =49)
    	void CaseUserAssignment() throws InterruptedException, IOException
    	{
    		test = extent.startTest("Case User Assignment verification");
