@@ -870,7 +870,7 @@ public class performerPOM
 	
 	public static WebElement selectStatusDropDown(WebDriver driver)
 	{
-		litigation = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[36]"));
+		litigation = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[16]"));
 		return litigation;
 	}
 	public static WebElement selectStatusDropDown1(WebDriver driver)
@@ -6845,6 +6845,11 @@ public class performerPOM
 			 public static WebElement clickLoader(WebDriver driver)
 				{
 					litigation=driver.findElement(By.xpath("//*[@id='updateProgressPanel']/img"));
+					return litigation;
+				}
+			 public static WebElement clickTaskShowDetailes(WebDriver driver)
+				{
+					litigation=driver.findElement(By.xpath("//a[@class='k-button k-button-icontext ob-edit k-grid-edit']"));
 					return litigation;
 				}
 }

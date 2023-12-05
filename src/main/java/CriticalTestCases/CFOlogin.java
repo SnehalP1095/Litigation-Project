@@ -1800,26 +1800,8 @@ void ImportUtilityTwoManadtoryFileds() throws InterruptedException, IOException
 	extent.endTest(test);
 	extent.flush();
 }
-@Test(priority = 146) 		//Sever is blocking and not allowing to upload the file.
-	void CriticalDocuments() throws InterruptedException, IOException
-	{
-		test = extent.startTest(" Critical Document Verification");
-		
-		CFOMethod.CriticalDocuments(driver, test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-@Test(priority = 147) 		//Sever is blocking and not allowing to upload the file.
-	void CriticalDocuments1() throws InterruptedException, IOException
-	{
-		test = extent.startTest(" Critical Document Verification");
-		
-		CFOMethod.CriticalDocuments1(driver, test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
+
+
 	
 	
 	@Test(priority = 149)

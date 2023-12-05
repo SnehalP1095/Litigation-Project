@@ -7829,9 +7829,9 @@ public class CFOMethod {
 							
 							///Share Document in Main Folder 
 							
-						/*	Thread.sleep(500);
+							Thread.sleep(500);
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@align='left'])[1]")));
-							/*if(OverduePOM.readFolderName(driver).isDisplayed())			//Checking if file got created or not.
+						if(OverduePOM.readFolderName(driver).isDisplayed())			//Checking if file got created or not.
 								test.log(LogStatus.PASS, "Uploaded file displayed.");
 							else
 								test.log(LogStatus.PASS, "Uploaded file does not displayed.");
@@ -7848,7 +7848,7 @@ public class CFOMethod {
 							OverduePOM.clickSearchPeople(driver).click();					//Clicking on Search People drop down.
 							
 							Thread.sleep(2000);
-							OverduePOM.clickSearchPeople(driver).sendKeys("Aarav Aharma");			//Writing user name to search for
+							OverduePOM.clickSearchPeople(driver).sendKeys("Aarav Sharma");			//Writing user name to search for
 							
 							Thread.sleep(2000);
 							OverduePOM.clickPeopleCheckBox(driver).click();				//Clicking on label to get out from people search box
@@ -7859,7 +7859,7 @@ public class CFOMethod {
 							String msg3 = driver.switchTo().alert().getText();
 						    test.log(LogStatus.PASS,"Message displayed=" +msg3);
 							
-							driver.switchTo().alert().accept(); */
+							driver.switchTo().alert().accept(); 
 							
 							//Delete Folder
 							

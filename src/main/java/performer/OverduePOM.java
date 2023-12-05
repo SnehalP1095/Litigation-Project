@@ -738,13 +738,13 @@ public class OverduePOM
 	
 	public static WebElement clickPeople(WebDriver driver)				//Searching People input box 
 	{
-		performer = driver.findElement(By.xpath("//*[@class='multiselect dropdown-toggle btn btn-default']"));
+		performer = driver.findElement(By.xpath("//div[@id='divOpenPermissionPopup']//button[@title='None selected']"));
 		return performer;
 	}
 	
 	public static WebElement clickSearchPeople(WebDriver driver)		//Searching 'Search People' input box
 	{
-		performer = driver.findElement(By.xpath("//*[@class='form-control multiselect-search']"));
+		performer = driver.findElement(By.xpath("//div[@class='btn-group open']//input[@placeholder='Type to Search for User..']"));
 		return performer;
 	}
 	

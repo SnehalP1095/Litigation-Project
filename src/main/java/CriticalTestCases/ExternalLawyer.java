@@ -375,8 +375,53 @@ public class ExternalLawyer
 					extent.endTest(test);
 					extent.flush();
 				}
-				
 			@Test(priority = 27)
+			void TaskwithExistingData() throws InterruptedException, IOException
+			{
+				test = extent.startTest("Task With existing data verification");
+				
+				
+				MethodsPOM.TaskWithExistingData(driver, test, workbook);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+		 @Test(priority =28)
+		     			void TaskwithTwoManadatoryFields() throws InterruptedException, IOException
+		     			{
+		     				test = extent.startTest("Task With Two manadatory fields verification");
+		     				
+		     				
+		     				MethodsPOM.TaskWithTwoMandatoryFields(driver, test, workbook);
+		     				
+		     				extent.endTest(test);
+		     				extent.flush();
+		     			}
+		    @Test(priority = 29)
+		 			void TaskwithoutData() throws InterruptedException, IOException
+		 			{
+		 				test = extent.startTest("Task Without  data verification");
+		 				
+		 				
+		 				MethodsPOM.TaskwithoutData(driver, test);
+		 				
+		 				extent.endTest(test);
+		 				extent.flush();
+		 			}
+		 			
+		 		 @Test(priority = 30)
+		 			void TaskDelete() throws InterruptedException, IOException
+		 			{
+		 				test = extent.startTest("Task Delete verification");
+		 				
+		 				
+		 				MethodsPOM.TaskDelete(driver, test);
+		 				
+		 				extent.endTest(test);
+		 				extent.flush();
+		 			}
+				
+			@Test(priority = 31)
 				void TaskClosed() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Task - Closed Count Verification");
@@ -387,7 +432,7 @@ public class ExternalLawyer
 					extent.endTest(test);
 					extent.flush();
 				}
-		  @Test(priority = 28)
+		  @Test(priority = 32)
 				void NoticeDocViewandDownload() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Notice Document verification");
@@ -901,27 +946,7 @@ public class ExternalLawyer
 		extent.flush();
 	}
 
-@Test(priority = 73) 		//Sever is blocking and not allowing to upload the file.
-	void CriticalDocuments() throws InterruptedException, IOException
-	{
-		test = extent.startTest(" Critical Document Verification");
-		
-		MethodsPOM.CriticalDocuments(driver, test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-@Test(priority = 74) 		//Sever is blocking and not allowing to upload the file.
-	void CriticalDocuments1() throws InterruptedException, IOException
-	{
-		test = extent.startTest(" Critical Document Verification");
-		
-		MethodsPOM.CriticalDocuments1(driver, test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
+
 
 
 @Test(priority = 75)

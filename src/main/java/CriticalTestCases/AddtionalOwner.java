@@ -1086,26 +1086,7 @@ public class AddtionalOwner
 	 	extent.endTest(test);
 	 	extent.flush();
 	 }
-	 @Test(priority = 6) 		//Sever is blocking and not allowing to upload the file.
-	 	void CriticalDocuments() throws InterruptedException, IOException
-	 	{
-	 		test = extent.startTest(" Critical Document Verification");
-	 		
-	 		MethodsPOM.CriticalDocuments(driver, test);
-	 		
-	 		extent.endTest(test);
-	 		extent.flush();
-	 	}
-	 @Test(priority = 7) 		//Sever is blocking and not allowing to upload the file.
-	 	void CriticalDocuments1() throws InterruptedException, IOException
-	 	{
-	 		test = extent.startTest(" Critical Document Verification");
-	 		
-	 		MethodsPOM.CriticalDocuments1(driver, test);
-	 		
-	 		extent.endTest(test);
-	 		extent.flush();
-	 	}
+	
  @AfterMethod
 	 
 	 void Close()

@@ -395,7 +395,7 @@ void LinkCase() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-//	@Test(priority = 28)
+	@Test(priority = 0)
 		void TaskOpen() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Task - Open Count Verification");
@@ -405,6 +405,76 @@ void LinkCase() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+		@Test(priority = 1)
+		void TaskwithExistingData() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Task With existing data verification");
+			
+			
+			MethodsPOM.TaskWithExistingData(driver, test, workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	 @Test(priority =2)
+	     			void TaskwithTwoManadatoryFields() throws InterruptedException, IOException
+	     			{
+	     				test = extent.startTest("Task With Two manadatory fields verification");
+	     				
+	     				
+	     				MethodsPOM.TaskWithTwoMandatoryFields(driver, test, workbook);
+	     				
+	     				extent.endTest(test);
+	     				extent.flush();
+	     			}
+	    @Test(priority = 3)
+	 			void TaskwithoutData() throws InterruptedException, IOException
+	 			{
+	 				test = extent.startTest("Task Without  data verification");
+	 				
+	 				
+	 				MethodsPOM.TaskwithoutData(driver, test);
+	 				
+	 				extent.endTest(test);
+	 				extent.flush();
+	 			}
+	 			
+	 		 @Test(priority = 4)
+	 			void TaskDelete() throws InterruptedException, IOException
+	 			{
+	 				test = extent.startTest("Task Delete verification");
+	 				
+	 				
+	 				MethodsPOM.TaskDelete(driver, test);
+	 				
+	 				extent.endTest(test);
+	 				extent.flush();
+	 			}
+	 		 @Test(priority =5 )
+	 			void TaskwithClearBtn() throws InterruptedException, IOException
+	 			{
+	 				test = extent.startTest("Task with clear button verification");
+	 				
+	 				
+	 				MethodsPOM.TaskwithClearBtn(driver, test);
+	 				
+	 				extent.endTest(test);
+	 				extent.flush();
+	 			}
+
+	 		 @Test(priority =6 )
+	 		 void TaskShowDetailesClearBtn() throws InterruptedException, IOException
+	 		 {
+	 			 test = extent.startTest("Individual Task-Show Detailes Icon - clear button verification");
+		
+		
+	 			 MethodsPOM.TaskShowDetailesClearBtn(driver, test);
+		
+	 			 extent.endTest(test);
+	 			 extent.flush();
+	 		 }
+	 		 
 		
 //	@Test(priority = 29)
 		void TaskClosed() throws InterruptedException, IOException
@@ -1151,7 +1221,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 94)
+@Test(priority = 0)
 			void ImportUtility() throws InterruptedException, IOException
 			{
 				test = extent.startTest("Import Utility verification");
@@ -1218,7 +1288,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-@Test(priority = 1)
+//@Test(priority = 1)
 	 		void WorkspaceFilter() throws InterruptedException, IOException
 	 		{
 	 			test = extent.startTest("My Workspace - Notice - Multiple Filters verification");
@@ -1229,7 +1299,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 	 			extent.endTest(test);
 	 			extent.flush();
 	 		}
-@Test(priority = 2)
+//@Test(priority = 2)
 	 void CaseWorkspaceFilter() throws InterruptedException, IOException
 	 {
 	 	test = extent.startTest("My Workspace - Case - Multiple Filters verification");
@@ -1240,7 +1310,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 	 	extent.endTest(test);
 	 	extent.flush();
 	 }
-@Test(priority = 3)
+//@Test(priority = 3)
 	 void WorkspaceTaskFilter() throws InterruptedException, IOException
 	 {
 	 	test = extent.startTest("My Workspace - Task - Multiple Filters verification");
@@ -1254,7 +1324,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 
 
 
-	@Test(priority = 4)
+//	@Test(priority = 4)
 	 		void DocumentNoticeFilter() throws InterruptedException, IOException
 	 		{
 	 			test = extent.startTest("My Document Tab - Notice - Multiple Filters verification");
@@ -1265,7 +1335,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 	 			extent.endTest(test);
 	 			extent.flush();
 	 		}
-@Test(priority = 5)
+//@Test(priority = 5)
 	 	void DocumentCaseFilter() throws InterruptedException, IOException
 	 	{
 	 		test = extent.startTest(" My Document = Case = Multiple  Filters verification");
@@ -1276,7 +1346,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 	 		extent.endTest(test);
 	 		extent.flush();
 	 	}
- @Test(priority = 6)
+// @Test(priority = 6)
  	void DocumentTaskFilter() throws InterruptedException, IOException
 	 	{
 	 		test = extent.startTest(" My Document = Task = Multiple  Filters verification");
@@ -1287,7 +1357,7 @@ void NoticePaymentWithoutData() throws InterruptedException, IOException
 	 		extent.endTest(test);
 	 		extent.flush();
 	 	}
-	 @Test(priority =7)
+	// @Test(priority =7)
 	 		void ReportFilter() throws InterruptedException, IOException
 	 		{
 	 			test = extent.startTest("My Report - Notice - Multiple Filters verification");

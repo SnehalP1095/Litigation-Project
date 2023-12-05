@@ -105,7 +105,7 @@ public class CFO {
 			}
 			
 			
-@Test(priority = 1)
+//@Test(priority = 1)
 			void HearingCalender() throws InterruptedException, IOException, AWTException
 			{
 				test = extent.startTest("Hearing Calender verification");
@@ -465,7 +465,7 @@ public class CFO {
           extent.endTest(test);
           extent.flush();
     }
-@Test(priority = 0)
+//@Test(priority = 0)
     void ApplicantAgeingGraph() throws InterruptedException, IOException
     {
          test = extent.startTest("Select Notice Filter = Less than a year = Applicant Type = Ageing Graph Count Verification");
@@ -2074,7 +2074,7 @@ public class CFO {
 		extent.flush();
 	}
 				
-//	 @Test(priority = 137)
+	// @Test(priority = 137)
 				void ImportUtility() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Import Utility verification");
@@ -2170,7 +2170,7 @@ public class CFO {
 					extent.flush();
 				}
 		 
-//		@Test(priority = 146) 		//Sever is blocking and not allowing to upload the file.
+		@Test(priority = 0) 		//Sever is blocking and not allowing to upload the file.
 			void CriticalDocuments() throws InterruptedException, IOException
 			{
 				test = extent.startTest(" Critical Document Verification");
@@ -2180,7 +2180,7 @@ public class CFO {
 				extent.endTest(test);
 				extent.flush();
 			}
-	//@Test(priority = 147) 		//Sever is blocking and not allowing to upload the file.
+	@Test(priority = 147) 		//Sever is blocking and not allowing to upload the file.
 			void CriticalDocuments1() throws InterruptedException, IOException
 			{
 				test = extent.startTest(" Critical Document Verification");

@@ -128,9 +128,9 @@ public class MethodsPOM
 		clickLawFirm(driver);
 		Thread.sleep(3000);
 		selectSapCode(driver);
-		 Thread.sleep(3000);
+		 Thread.sleep(5000);
 		selectNoticeRecipetDate(driver);
-		 Thread.sleep(3000);
+		 Thread.sleep(5000);
 		clickInternalUser(driver);
 		 Thread.sleep(5000);
 		clickLawyer(driver);
@@ -1347,7 +1347,7 @@ public class MethodsPOM
 		clickCaseCourt(driver);
 		Thread.sleep(3000);
 		clickCaseDescription(driver);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		selectCaseLocation(driver);
 		Thread.sleep(3000);
 		clickCaseDepartment(driver);
@@ -1848,7 +1848,7 @@ public class MethodsPOM
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("09-11-2023");
+		    performerPOM.clickHearingDate(driver).sendKeys("10-11-2023");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -1953,7 +1953,7 @@ public class MethodsPOM
 			performerPOM.clickTaskTitle(driver).clear();
 			
 			Thread.sleep(3000);
-			performerPOM.clickTaskTitle(driver).sendKeys("New Task 05 July");	//Writing 'Task Title'
+			performerPOM.clickTaskTitle(driver).sendKeys("New Task 10 July");	//Writing 'Task Title'
 			
 			performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
 			
@@ -2035,7 +2035,7 @@ public class MethodsPOM
 			performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 			
 			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test 02JUN2023");
+			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test 03JUN2023");
 			
 			Thread.sleep(3000);
 			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
@@ -2102,7 +2102,7 @@ public class MethodsPOM
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("24-12-2023");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("25-12-2023");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2137,7 +2137,7 @@ public class MethodsPOM
 			    Thread.sleep(3000);
 			    performerPOM.clickCaseHearingDecsri(driver).clear();
 			    Thread.sleep(3000);
-			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 20 JUN 2023");		//Writing 'HearingDescription'
+			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 21 JUN 2023");		//Writing 'HearingDescription'
 			    
 			    Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearing(driver).click();
@@ -2194,7 +2194,7 @@ public class MethodsPOM
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("26-05-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("27-08-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);
@@ -16027,7 +16027,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 
 			Thread.sleep(3000);
             selectNoticeRecipetDate(driver);
-            Thread.sleep(3000);
+            Thread.sleep(5000);
             clickInternalUser(driver);
             
             Thread.sleep(3000);
@@ -19562,7 +19562,45 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					driver.switchTo().parentFrame();
 					performerPOM.clickClose1(driver).click();			//Clicking on 'Close'
 				}
-				
+				public static void TaskShowDetailesClearBtn(WebDriver driver, ExtentTest test) throws InterruptedException
+				{
+					WebDriverWait wait = new WebDriverWait(driver, 60);
+					Thread.sleep(500);
+					performerPOM.clickTaskOpen(driver).click();
+					Thread.sleep(500);
+					JavascriptExecutor js = (JavascriptExecutor) driver;
+					CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.UP);
+					
+					js.executeScript("window.scrollBy(0,-700)");
+					performerPOM.clickTaskShowDetailes(driver).click();				
+					
+					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+					Thread.sleep(300);
+					performerPOM.clickNoticeTaskstatusResponsecfo(driver).click();
+					
+					Thread.sleep(300);
+					performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
+					
+					
+					Thread.sleep(300);
+					Actions action = new Actions(driver);
+					action.moveToElement(performerPOM.clickPriority(driver)).click().sendKeys(Keys.DOWN,Keys.ENTER).perform();
+					
+					Thread.sleep(300);
+					
+					if(performerPOM.clickClearResponse(driver).isEnabled())
+					{
+						performerPOM.clickClearResponse(driver).click();
+						test.log(LogStatus.PASS, "After clicking the clear button the data should be remove");
+					}
+					else
+					{
+						test.log(LogStatus.FAIL, "After clicking the clear button the data should not be remove");
+					}
+					
+					driver.switchTo().parentFrame();
+					performerPOM.CaseHearingPopupClose(driver).click();			//Clicking on 'Close'
+				}
 				public static void TaskDelete(WebDriver driver, ExtentTest test) throws InterruptedException
 				{
 					
@@ -19993,9 +20031,9 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						
 						///Share Document in Main Folder 
 						
-					/*	Thread.sleep(500);
+						Thread.sleep(500);
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@align='left'])[1]")));
-						/*if(OverduePOM.readFolderName(driver).isDisplayed())			//Checking if file got created or not.
+						if(OverduePOM.readFolderName(driver).isDisplayed())			//Checking if file got created or not.
 							test.log(LogStatus.PASS, "Uploaded file displayed.");
 						else
 							test.log(LogStatus.PASS, "Uploaded file does not displayed.");
@@ -20023,7 +20061,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						String msg3 = driver.switchTo().alert().getText();
 					    test.log(LogStatus.PASS,"Message displayed=" +msg3);
 						
-						driver.switchTo().alert().accept(); */
+						driver.switchTo().alert().accept(); 
 						
 						//Delete Folder
 						
