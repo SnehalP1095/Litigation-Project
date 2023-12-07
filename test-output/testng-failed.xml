@@ -9,6 +9,7 @@
           <include name="CaseNoticeTypeGraph1"/>
           <include name="Close"/>
           <include name="CloseNotice"/>
+          <include name="CaseNoticeTypeGraph"/>
           <include name="ShareTaskDocument"/>
           <include name="NoticeDocument"/>
           <include name="CaseStatusPayment"/>
@@ -38,6 +39,7 @@
           <include name="ExpensesCaseGraph"/>
           <include name="NoticeTaskActivity"/>
           <include name="Masters13"/>
+          <include name="CaseNoticeStageGraphNotice"/>
           <include name="ExpensesCounselWiseCaseGraph"/>
           <include name="RiskSummaryGraph1"/>
           <include name="CategorySummaryGraph1"/>
