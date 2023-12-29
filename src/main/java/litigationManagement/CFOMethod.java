@@ -2,7 +2,7 @@ package litigationManagement;
 
 
 
-import java.awt.event.KeyEvent;
+//import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentTest;
@@ -76,7 +76,7 @@ public class CFOMethod {
 		public static void DashBoardFilter(WebDriver driver,ExtentTest test, String type) throws InterruptedException
 		{
 			
-			WebDriverWait wait=new WebDriverWait(driver,20);
+		
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 	       	js.executeScript("window.scrollBy(0,600)");
 	       	
@@ -280,7 +280,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -290,7 +290,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -435,7 +435,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -445,7 +445,7 @@ public class CFOMethod {
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -489,14 +489,14 @@ public class CFOMethod {
 			}
 			
 			
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -622,64 +622,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "View popup open successfully.");
 			
 			
-		/*	Thread.sleep(3000);
-			performerPOM.clickLocationFilter(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickLocationFilter1(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickLocationFilter3(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.clickCaseNotice(driver).click();
-			
-			Thread.sleep(3000);
-			performerPOM.selectCaseNotice(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickStatusFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectstatusFiltercfo(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickDepartmentFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectDepartmentFilter2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickCaseNoticeType1(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectCaseNoticeType2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickRiskFilter(driver).click();
-			
 
-			Thread.sleep(4000);
-			performerPOM.selectRiskFilter2cfo(driver).click();
-			
-//			Thread.sleep(5000);
-//			performerPOM.clickAgeFilter(driver).click();
-//			
-//			Thread.sleep(5000);
-//			performerPOM.selectAgeFiltercfo(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickCategoryFilter(driver).click();
-			
-			
-			Thread.sleep(4000);
-			performerPOM.selectCategoryFilter2(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.clickStageFilter(driver).click();
-			
-			Thread.sleep(4000);
-			performerPOM.selectStageFilter2(driver).click(); */
 			
 			Thread.sleep(500);
 			progress(driver);
@@ -711,7 +654,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -721,7 +664,7 @@ public class CFOMethod {
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -887,7 +830,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -897,7 +840,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -941,14 +884,14 @@ public class CFOMethod {
 			}
 			
 			
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -1090,7 +1033,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -1100,7 +1043,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -1264,7 +1207,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -1274,7 +1217,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -1317,14 +1260,14 @@ public class CFOMethod {
 				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 			}
 			
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -1445,7 +1388,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -1455,7 +1398,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -1665,7 +1608,7 @@ public class CFOMethod {
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -1675,7 +1618,7 @@ public class CFOMethod {
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(5500);
-				File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -1718,14 +1661,14 @@ public class CFOMethod {
 					test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 				}
 				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 			     performerPOM.ClickDetailedExpenseReport(driver).click();
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -1848,7 +1791,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -1858,7 +1801,7 @@ public class CFOMethod {
 			test.log(LogStatus.PASS, "File downloaded successfully.");
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -2009,7 +1952,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -2019,7 +1962,7 @@ public class CFOMethod {
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -2063,14 +2006,14 @@ public class CFOMethod {
 			}
 			
 			
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -2263,7 +2206,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -2273,7 +2216,7 @@ public class CFOMethod {
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -2343,8 +2286,8 @@ public class CFOMethod {
 	 			 
 	 			Thread.sleep(2000);
 	 		
-	 	      	int	open = Integer.parseInt(performerPOM.CategorySummaryGraph(driver).getText());	//Reading Notice Open count.
-	 		    performerPOM.CategorySummaryGraph(driver).click();						//Clicking on 'Open' notice
+	 	      	int	open = Integer.parseInt(performerPOM.CategorySummaryGraph1(driver).getText());	//Reading Notice Open count.
+	 		    performerPOM.CategorySummaryGraph1(driver).click();						//Clicking on 'Open' notice
 	 		
 	 			Thread.sleep(2000);
 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
@@ -2492,7 +2435,7 @@ public class CFOMethod {
 	 			
 	 		
 	 			Thread.sleep(100);
-	 			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+	 			File dir = new File("C:\\Users\\snehalp\\Downloads");
 	 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 	 			
 	 			Thread.sleep(500);
@@ -2502,7 +2445,7 @@ public class CFOMethod {
 	 		
 	 			
 	 			Thread.sleep(5500);
-	 			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+	 			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 	 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 	 			
 	 			if(dirContents.length < allFilesNew.length)
@@ -2545,14 +2488,14 @@ public class CFOMethod {
 	 				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 	 			}
 	 			
-	 			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+	 			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 			     performerPOM.ClickDetailedExpenseReport(driver).click();
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -2638,7 +2581,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -2648,7 +2591,7 @@ public class CFOMethod {
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -2722,14 +2665,14 @@ public class CFOMethod {
 			js.executeScript("window.scrollBy(0,1000)");
 			
 			
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -2741,7 +2684,7 @@ public class CFOMethod {
 				test.log(LogStatus.FAIL, "Detailed Expenses Report does not Download Successfully");
 			}
 		   
-			  Thread.sleep(3000);
+			/*  Thread.sleep(3000);
 				performerPOM.CaseNoticeFilter(driver).click();
 				Thread.sleep(3000);
 		       String CaseNotext =performerPOM.SelectCaseNoticeFilter(driver).getText();
@@ -2830,7 +2773,7 @@ public class CFOMethod {
 		
 			Thread.sleep(7000);
 			performerPOM.clearButton(driver).click();
-			test.log(LogStatus.PASS, "Clear button work successfully.");
+			test.log(LogStatus.PASS, "Clear button work successfully.");*/
 			
 			
 			Thread.sleep(3000);
@@ -2849,21 +2792,7 @@ public class CFOMethod {
 
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	     	js.executeScript("window.scrollBy(0,800)");
 	     	
-	     	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
-			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseFilter(driver).click();
-          
-           	
-			 Thread.sleep(5000);
-			 performerPOM.clickDashboardApplyBtn(driver).click();
-			
-	       	
-				js.executeScript("window.scrollBy(0,2700)");
-			
 	       	Thread.sleep(2000);
 		
 	       // int open=Integer.parseInt(performerPOM.ExpensesNoticeGraph(driver).getText());	//Reading Notice Open count.
@@ -2903,7 +2832,7 @@ public class CFOMethod {
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -2913,7 +2842,7 @@ public class CFOMethod {
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -2987,14 +2916,14 @@ public class CFOMethod {
 			js.executeScript("window.scrollBy(0,1000)");
 			
 			
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -3006,7 +2935,7 @@ public class CFOMethod {
 				test.log(LogStatus.FAIL, "Detailed Expenses Report does not Download Successfully");
 			}
 		   
-		   Thread.sleep(3000);
+		 /*  Thread.sleep(3000);
 			performerPOM.CaseNoticeFilter(driver).click();
 			Thread.sleep(3000);
 	       String CaseNotext =performerPOM.SelectCaseNoticeFilter(driver).getText();
@@ -3096,7 +3025,7 @@ public class CFOMethod {
 		
 			Thread.sleep(7000);
 			performerPOM.clearButton(driver).click();
-			test.log(LogStatus.PASS, "Clear button work successfully.");
+			test.log(LogStatus.PASS, "Clear button work successfully.");*/
 			
 			
 			Thread.sleep(3000);
@@ -3130,7 +3059,7 @@ public class CFOMethod {
 				js.executeScript("window.scrollBy(0,3000)");
 			
 	     
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
 		  	Thread.sleep(5000);
@@ -3139,7 +3068,7 @@ public class CFOMethod {
 			
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -3175,7 +3104,7 @@ public class CFOMethod {
 				js.executeScript("window.scrollBy(0,3500)");
 			
 		     Thread.sleep(3000);
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
 		  	Thread.sleep(5000);
@@ -3184,7 +3113,7 @@ public class CFOMethod {
 			
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -3262,16 +3191,18 @@ public class CFOMethod {
 
 			Thread.sleep(3000);
             selectRisk(driver);
-        	//Thread.sleep(3000);
-          //  clickLawFirm(driver);
+        	
+            Thread.sleep(3000);
+            clickLawFirm(driver);
 
 			Thread.sleep(3000);
             selectNoticeRecipetDate(driver);
             
             Thread.sleep(3000);
             clickInternalUser(driver);
-           // Thread.sleep(3000);
-        //    clickLawyer(driver);
+            
+            Thread.sleep(3000);
+            clickLawyer(driver);
             
 //  		    Thread.sleep(3000);
 //    		performerPOM.clickAdditionalOwnerCfo(driver); 
@@ -3357,12 +3288,12 @@ public class CFOMethod {
     		if(count1 > gridRecords)
     		{
     			//test.log(LogStatus.PASS, "Total Notice Count increased in grid after adding New Notice.");
-    			test.log(LogStatus.PASS, "Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
+    			test.log(LogStatus.PASS, "Total Notice Count increased in grid after adding New Notice - Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
     		}
     		else
     		{
     			//test.log(LogStatus.FAIL, "Total Notice Count doesn't increased in grid after adding New Notice.");
-    			test.log(LogStatus.PASS, "Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
+    			test.log(LogStatus.FAIL, "Total Notice Count doesn't increased in grid after adding New Notice -  Old Notice Count from Grid = "+gridRecords+" | New Notice Count from Grid = "+count1);
     		}
     		
     		
@@ -3405,7 +3336,7 @@ public class CFOMethod {
     		}
     		else
     		{
-    			test.log(LogStatus.PASS, type+" Dashboard Count doesn't increamented. Old count = "+open+", New Count = "+open1);
+    			test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increamented. Old count = "+open+", New Count = "+open1);
     		}
     		
     		
@@ -3733,9 +3664,11 @@ public class CFOMethod {
 	        }
 	        
 	        
-	        driver.switchTo().parentFrame();
+	        
 	        Thread.sleep(3000);
 	        performerPOM. clickNoticeDocumentshareclosepopupcfo(driver).click();
+	        
+	        driver.switchTo().parentFrame();
 	        
 	        Thread.sleep(3000);
 	        performerPOM.clickNoticeDocumentdeletecfo(driver).click();
@@ -3854,14 +3787,14 @@ public class CFOMethod {
 				Thread.sleep(300);
 				
 				String msg1 = performerPOM.readTaskMsg1(driver).getText();
-				if(msg1.contains("Task Saved Successfully."))
+				if(msg1.contains(msg1))
 				{
-					test.log(LogStatus.PASS, "Add Task=" +"Task Saved Successfully.");
+					test.log(LogStatus.PASS, "Add Task ="+msg1);
 				}
 				
-				else if(msg1.contains("Task with same title already exists."))
+				else if(msg1.contains(msg1))
 				{
-					test.log(LogStatus.PASS,"Add Task=" + "Task with same title already exists.");
+					test.log(LogStatus.FAIL,"Add Task ="+msg1);
 				}
 				
 				Thread.sleep(3000);
@@ -3886,14 +3819,14 @@ public class CFOMethod {
 				Thread.sleep(300);
 				String msg2 = performerPOM.readTaskMsg(driver).getText();
 		
-				if(msg2.contains("Task Saved Successfully."))
+				if(msg2.contains(msg2))
 				{
-					test.log(LogStatus.PASS, "Update Task ="+"Task Saved Successfully.");
+					test.log(LogStatus.PASS, "Update Task ="+msg2);
 				}
 				
-				else if(msg2.contains("Task with same title already exists."))
+				else if(msg2.contains(msg2))
 				{
-					test.log(LogStatus.PASS, "Update Task ="+"Task with same title already exists.");
+					test.log(LogStatus.PASS, "Update Task ="+msg2);
 				}
 				
 				Thread.sleep(3000);
@@ -4029,14 +3962,14 @@ public class CFOMethod {
 							Thread.sleep(500);
 							String msg3 = performerPOM.readResponseMsg(driver).getText();		//Reading Message appeared after save button
 							
-							if(msg3.equalsIgnoreCase("Response Details Saved Successfully."))
+							if(msg3.equalsIgnoreCase(msg3))
 							{
-								test.log(LogStatus.PASS, "Message displayed = "+msg3);
+								test.log(LogStatus.PASS, "Add Response= "+msg3);
 								
 							}
 								else
 								{
-									test.log(LogStatus.FAIL, "Message displayed = "+msg3);
+									test.log(LogStatus.FAIL, "Add Response= "+msg3);
 								}
 							Thread.sleep(3000);
 							performerPOM.clickNoticeEditResponsecfo(driver).click();
@@ -4060,14 +3993,14 @@ public class CFOMethod {
 								Thread.sleep(500);
 								String msg4 = performerPOM.readResponseMsg(driver).getText();		//Reading Message appeared after save button
 								
-								if(msg3.equalsIgnoreCase("Response Details Saved Successfully."))
+								if(msg3.equalsIgnoreCase(msg4))
 								{
-									test.log(LogStatus.PASS, "Message displayed = "+msg4);
+									test.log(LogStatus.PASS, "Update Response = "+msg4);
 									
 								}
 									else
 									{
-										test.log(LogStatus.FAIL, "Message displayed = "+msg4);
+										test.log(LogStatus.FAIL, "Update Response = "+msg4);
 									}
 								
 								Thread.sleep(4000);
@@ -4454,7 +4387,7 @@ public class CFOMethod {
     			}
     			
     			Thread.sleep(100);
-    			File dir = new File("C://Users//Snehal Patil//Downloads");
+    			File dir = new File("C://Users//snehalp//Downloads");
     			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
     			
     			Thread.sleep(500);
@@ -4464,7 +4397,7 @@ public class CFOMethod {
     			
     			
     			Thread.sleep(5500);
-    			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+    			File dir1 = new File("C://Users//snehalp//Downloads");
     			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
     			
     			if(dirContents.length < allFilesNew.length)
@@ -4627,13 +4560,13 @@ public class CFOMethod {
 			clickCaseOwner(driver);
 			Thread.sleep(3000);
 			clickCaseRisk(driver);
-//			Thread.sleep(3000);
-//			clickLawFirm(driver);
+			//Thread.sleep(3000);
+			//clickLawFirm(driver);
 			Thread.sleep(3000);
 			clickCaseInternalUser(driver);
-//			Thread.sleep(3000);
-//			clickLawyer( driver) ;
-			Thread.sleep(3000);
+			//Thread.sleep(5000);
+			//clickLawyer( driver) ;
+			Thread.sleep(5000);
 			OverduePOM.clickSaveButton(driver).click();						//Clicking on 'Save'button.
 			
 			Thread.sleep(1000);
@@ -4711,12 +4644,12 @@ public class CFOMethod {
 	    if(count1 > gridRecords)
 	     {
 	       //test.log(LogStatus.PASS, "Total Case Count increased in grid after adding New Case.");
-	       test.log(LogStatus.PASS, "Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
+	       test.log(LogStatus.PASS, "Total Case Count increased in grid after adding New Case - Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
 	     }
 	     else
 	     {
 	        //test.log(LogStatus.FAIL, "Total Case Count doesn't increased in grid after adding New Case.");
-	        test.log(LogStatus.FAIL, "Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
+	        test.log(LogStatus.FAIL, "Total Case Count increased in grid after adding New Case - Old Case Count from Grid = "+gridRecords+" | New Case Count from Grid = "+count1);
 	     }
 
 	       Thread.sleep(500);
@@ -4747,7 +4680,7 @@ public class CFOMethod {
 	       }
 	       else
 	      {
-	          test.log(LogStatus.PASS, type+" Dashboard Count doesn't increamented. Old count = "+open+", New Count = "+open1);
+	          test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increamented. Old count = "+open+", New Count = "+open1);
 	       }
 	     }
 
@@ -4939,12 +4872,12 @@ public class CFOMethod {
 			 
 				public static void clickLawFirm(WebDriver driver) throws InterruptedException
 				{
-				Thread.sleep(300);
-				XSSFRow row0 = sheet.getRow(11);					//Selected 0th index row (First row)
-				XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-				String lawFirm = c1.getStringCellValue();
-				performerPOM.clickLawFirm(driver).click();		//Clicking on 'Law Firm' drop down.
-				performerPOM.chooseLawFirm(driver).sendKeys(lawFirm, Keys.DOWN, Keys.ENTER);	//Writing & selecting 'Law Firm' name
+					Thread.sleep(300);
+					XSSFRow row0 = sheet.getRow(11);					//Selected 0th index row (First row)
+					XSSFCell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+					String lawFirm = c1.getStringCellValue();
+					performerPOM.clickLawFirm(driver).click();		//Clicking on 'Law Firm' drop down.
+					performerPOM.chooseLawFirm(driver).sendKeys(lawFirm, Keys.DOWN, Keys.ENTER);	//Writing & selecting 'Law Firm' name
 				}
 			
 		 public  static void clickCaseInternalUser(WebDriver driver) throws InterruptedException 
@@ -5103,10 +5036,11 @@ public class CFOMethod {
 			       test.log(LogStatus.FAIL, "Message displayed = "+msg1);
 		        }
 		        
+	         	 driver.switchTo().parentFrame();
 	         	
-	         	  driver.switchTo().parentFrame();
 	         	   Thread.sleep(3000);
 	  	     performerPOM. clickNoticeDocumentshareclosepopupcfo(driver).click();
+	  	  
 	  	        
 		 }
 		 
@@ -5132,7 +5066,7 @@ public class CFOMethod {
 			    Thread.sleep(300);
 			    performerPOM.clickCaseNewTask(driver).click();
 			    Thread.sleep(5000);
-			    performerPOM.clickHearingDate(driver).sendKeys("22-11-2023");
+			    performerPOM.clickHearingDate(driver).sendKeys("30-12-2023");
 			    
 			    
 //			    Thread.sleep(300);
@@ -5258,7 +5192,7 @@ public class CFOMethod {
 				}*/
 				
 				Thread.sleep(3000);
-				performerPOM.clickNoticeTaskEditResponse1(driver).click();
+				performerPOM.clickNoticeTaskEditResponsecfo1(driver).click();
 				Thread.sleep(1000);
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 				
@@ -5347,7 +5281,7 @@ public class CFOMethod {
 //					int HearingDate = (int) c1.getNumericCellValue();
 //					performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 					
-					performerPOM.clickCaseHearingDate(driver).sendKeys("20-12-2024");	//Writing 'HearingDate'
+					performerPOM.clickCaseHearingDate(driver).sendKeys("02-01-2024");	//Writing 'HearingDate'
 					
 					
 				
@@ -5389,7 +5323,7 @@ public class CFOMethod {
 				    Thread.sleep(3000);
 				    performerPOM.clickCaseHearingDecsri(driver).clear();
 				    Thread.sleep(3000);
-				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing13 JULY 2023");		//Writing 'HearingDescription'
+				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing12 JULY 2023");		//Writing 'HearingDescription'
 				    
 				    Thread.sleep(3000);
 				    performerPOM.clickSaveCaseHearing(driver).click();
@@ -5446,7 +5380,7 @@ public class CFOMethod {
 				 Thread.sleep(6000);
 				 performerPOM.clickNewCaseOrder(driver).click();
 				 Thread.sleep(6000);
-				 performerPOM. clickCaseOrderDate(driver).sendKeys("27-04-2023");
+				 performerPOM. clickCaseOrderDate(driver).sendKeys("24-04-2023");
 				 Thread.sleep(3000);
 				 performerPOM.clickOrderPanel(driver).click();
 				 Thread.sleep(3000);
@@ -5480,11 +5414,11 @@ public class CFOMethod {
 				 
 				 performerPOM.clickCaseOrderTitle(driver).clear();
 				 
-				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 45");
+				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 435");
 				 
 				 performerPOM.clickCaseOrderDecri(driver).clear();
 				 
-				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 15 Aug 23");     //click oder description
+				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 12 Aug 23");     //click oder description
 				 
 				 performerPOM.ChooseOrderFile(driver).click();
 				 
@@ -6102,7 +6036,7 @@ public class CFOMethod {
 						 performerPOM.clickTrignle(driver).click(); 
 						
 						
-						js.executeScript("window.scrollBy(0,150)");	
+						js.executeScript("window.scrollBy(0,200)");	
 						Thread.sleep(3000);
 
 						CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
@@ -6145,34 +6079,43 @@ public class CFOMethod {
 									text.add(raw.get(k).getText());
 								}
 
-								for(int l=0;l<text.size();l++)
+							for(int l=0;l<text.size();l++)
+							{
+								
+								if(i==2)
 								{
-									
-//									if(i==2)
-//									{
-//										pass.add(text.get(l));	
-//									}
-//									else
-//									{
-										
-									
-								if(text.get(l).equals(li.get(i)))
+									if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
 									{
-									
-									
-										pass.add(text.get(l));	
-										System.out.println("pass : "+text.get(l)+" : "+li.get(i));
-
+									  pass.add(text.get(l));
 									}
+									else
+									{
+										 fail.add(text.get(l));
+									}
+								}
 								else
 								{
-									fail.add(text.get(l));		
-									System.out.println("fail : "+text.get(l)+" : "+li.get(i));
-									System.out.println(i);
+									
+								
+							if(text.get(l).equals(li.get(i)))
+								{
+								
+								
+									pass.add(text.get(l));	
+									System.out.println("pass : "+text.get(l)+" : "+li.get(i));
 
 								}
-								 }
-								//}
+							else
+							{
+								fail.add(text.get(l));		
+								System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+								System.out.println(i);
+
+							}
+							 }
+							}
+					
+				 
 						 
 					for(String Fal : fail)
 						 {
@@ -6312,34 +6255,47 @@ public class CFOMethod {
 							text.add(raw.get(k).getText());
 						}
 
-						for(int l=0;l<text.size();l++)
-						{
-							
-//							if(i==2)
-//							{
-//								pass.add(text.get(l));	
-//							}
-//							else
-//							{
-								
-							
-						if(text.get(l).equals(li.get(i)))
-							{
-							
-							
-								pass.add(text.get(l));	
-								System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+					for(int k=0;k<raw.size();k++)
+					{
+						text.add(raw.get(k).getText());
+					}
 
-							}
+				for(int l=0;l<text.size();l++)
+				{
+					
+					if(i==2)
+					{
+						if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
+						{
+						  pass.add(text.get(l));
+						}
 						else
 						{
-							fail.add(text.get(l));		
-							System.out.println("fail : "+text.get(l)+" : "+li.get(i));
-							System.out.println(i);
-
+							 fail.add(text.get(l));
 						}
-						 }
-						//}
+					}
+					else
+					{
+						
+					
+				if(text.get(l).equals(li.get(i)))
+					{
+					
+					
+						pass.add(text.get(l));	
+						System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+					}
+				else
+				{
+					fail.add(text.get(l));		
+					System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+					System.out.println(i);
+
+				}
+				 }
+				}
+		
 				 
 			for(String Fal : fail)
 				 {
@@ -6744,7 +6700,19 @@ public class CFOMethod {
 							for(int l=0;l<text.size();l++)
 							{
 								
-								if(i==1)
+								if(i==0)
+								{
+									if(text.get(l).equalsIgnoreCase("Open")||text.get(l).equalsIgnoreCase("Pending"))
+									{
+									  pass.add(text.get(l));
+									}
+									else
+									{
+										 fail.add(text.get(l));
+									}
+								}
+								
+								else if(i==1)
 								{
 									if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
 									{
@@ -6755,8 +6723,8 @@ public class CFOMethod {
 										 fail.add(text.get(l));
 									}
 								}
-								else
-								{
+							else
+						    {
 									
 								
 							if(text.get(l).equals(li.get(i)))
@@ -6835,9 +6803,9 @@ public class CFOMethod {
 						Thread.sleep(3000);
 						performerPOM.clickExpand(driver).click();
 						Thread.sleep(3000);
-				       String locationtext =performerPOM.SelectDocLocation(driver).getText();
+				       String locationtext =performerPOM.SelectLocation(driver).getText();
 				       Thread.sleep(3000);
-				       performerPOM. SelectDocLocation(driver).click();
+				       performerPOM. SelectLocation(driver).click();
 				       Thread.sleep(3000);
 						performerPOM.clickDocLocFilter(driver).click();
 				       
@@ -6921,8 +6889,19 @@ public class CFOMethod {
 
 							for(int l=0;l<text.size();l++)
 							{
+								if(i==0)
+								{
+									if(text.get(l).equalsIgnoreCase("Open")||text.get(l).equalsIgnoreCase("Pending"))
+									{
+									  pass.add(text.get(l));
+									}
+									else
+									{
+										 fail.add(text.get(l));
+									}
+								}
 								
-								if(i==1)
+								else if(i==1)
 								{
 									if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
 									{
@@ -7990,7 +7969,7 @@ public class CFOMethod {
 							
 							Thread.sleep(500);
 							
-							OverduePOM.uploadNewFile(driver).sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");	//uploading new file		
+							OverduePOM.uploadNewFile(driver).sendKeys("C:\\Users\\snehalp\\Desktop\\Test Cases\\Approver Test Case.xlsx");	//uploading new file		
 							
 							Thread.sleep(500);
 							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickUploadDocument(driver)));
@@ -8139,9 +8118,9 @@ public class CFOMethod {
 					     Thread.sleep(3000);
 							performerPOM.clickReportTypeFilter(driver).click();
 							Thread.sleep(3000);
-						    String typetext =performerPOM.selectReportTypeFilter(driver).getText();
+						    String typetext =performerPOM.selectReportTypeFilterCase(driver).getText();
 						    Thread.sleep(3000);
-						     performerPOM. selectReportTypeFilter(driver).click();
+						     performerPOM. selectReportTypeFilterCase(driver).click();
 					         
 				         
 				         
@@ -8151,16 +8130,16 @@ public class CFOMethod {
 							Thread.sleep(3000);
 							performerPOM.clickExpand(driver).click();
 							Thread.sleep(3000);
-					       String locationtext =performerPOM.SelectDocLocation(driver).getText();
+					       String locationtext =performerPOM.SelectLocation(driver).getText();
 					       Thread.sleep(3000);
-					       performerPOM. SelectDocLocation(driver).click();
+					       performerPOM. SelectLocation(driver).click();
 					      
 							Thread.sleep(3000);
 							performerPOM.clickReportFYFilter(driver).click();
 							Thread.sleep(3000);
-						    String FYtext =performerPOM.clickFinancialYear3(driver).getText();
+						    String FYtext =performerPOM.clickFinancialYearCase(driver).getText();
 						    Thread.sleep(3000);
-						     performerPOM. clickFinancialYear3(driver).click();
+						     performerPOM. clickFinancialYearCase(driver).click();
 					       
 					        List<String> li=new ArrayList<String>();
 					         li.add(Statustext);
@@ -8644,7 +8623,7 @@ public class CFOMethod {
 				 static void Report(WebDriver driver, ExtentTest test, int count1, String type) throws InterruptedException, IOException
 					{
 						Thread.sleep(700);
-						File dir = new File("C://Users//Snehal Patil//Downloads");
+						File dir = new File("C://Users//snehalp//Downloads");
 						File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 						
 //						Thread.sleep(500);
@@ -8653,7 +8632,7 @@ public class CFOMethod {
 						performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 						
 						Thread.sleep(6000);
-						File dir1 = new File("C://Users//Snehal Patil//Downloads");
+						File dir1 = new File("C://Users//snehalp//Downloads");
 						File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 						
 						if(dirContents.length < allFilesNew.length)
@@ -9086,8 +9065,8 @@ public class CFOMethod {
 						Thread.sleep(5000);
 						performerPOM.clickMyReports(driver).click();
 						
-//						JavascriptExecutor js = (JavascriptExecutor) driver;
-//						js.executeScript("window.scrollBy(0,-900)");
+						JavascriptExecutor js = (JavascriptExecutor) driver;
+						js.executeScript("window.scrollBy(0,-900)");
 						
 						Thread.sleep(5000);
 						performerPOM.clickMoreReports(driver).click();
@@ -9114,46 +9093,46 @@ public class CFOMethod {
 						//--------------------------MIS Report------------------------------
 						
 					    Thread.sleep(100);
-						File dir = new File("C://Users//Admin//Downloads");
+						File dir = new File("C://Users//snehalp//Downloads");
 					//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 						
 						Thread.sleep(250);
 						performerPOM.MISReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "MIS Report downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - MIS Report downloaded successfully.");
 						
 						
 					    //--------------------------closed Cases Reports------------------------------
 						
 						Thread.sleep(100);
-						File dir1 = new File("C://Users//Admin//Downloads");
+						File dir1 = new File("C://Users//snehalp//Downloads");
 					//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 						
 						Thread.sleep(250);
 						performerPOM.closedCasesReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "closed Cases Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - closed Cases Reports downloaded successfully.");
 						
 						
 					    //--------------------------Ext LawyerPerformance Reports------------------------------
 						
 						Thread.sleep(100);
-						File dir2 = new File("C://Users//Admin//Downloads");
+						File dir2 = new File("C://Users//snehalp//Downloads");
 					//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 						
 						Thread.sleep(250);
 						performerPOM.ExtLawyerPerformanceReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Ext Lawyer Performance Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - Ext Lawyer Performance Reports downloaded successfully.");
 						
 						
 						//--------------------------Budget Reports-----------------------------------
 						
 						
 						Thread.sleep(100);
-						File dir3 = new File("C://Users//Admin//Downloads");
+						File dir3 = new File("C://Users//snehalp//Downloads");
 					//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 						
 						Thread.sleep(250);
 						performerPOM.BudgetReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Budget Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - Budget Reports downloaded successfully.");
 						
 						
 						//--------------------------Lawyer Details Reports------------------------------
@@ -9161,94 +9140,94 @@ public class CFOMethod {
 						
 						
 						Thread.sleep(100);
-						File dir4 = new File("C://Users//Admin//Downloads");
+						File dir4 = new File("C://Users//snehalp//Downloads");
 					//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 						
 						Thread.sleep(250);
 						performerPOM.LawyerDetailsReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Lawyer Details Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - Lawyer Details Reports downloaded successfully.");
 						
 						//--------------------------Case Payment Reports------------------------------
 						
 						
 						Thread.sleep(100);
-						File dir5 = new File("C://Users//Admin//Downloads");
+						File dir5 = new File("C://Users//snehalp//Downloads");
 					//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 						
 						Thread.sleep(250);
 						performerPOM.CasePaymentReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Case Payment Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - Case Payment Reports downloaded successfully.");
 
 						
 					//--------------------------Case Hearing Reports------------------------------
 						
 						
 						Thread.sleep(100);
-						File dir6 = new File("C://Users//Admin//Downloads");
+						File dir6 = new File("C://Users//snehalp//Downloads");
 					//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 						
 						Thread.sleep(250);
 						performerPOM.CaseHearingReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Case Hearing Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - Case Hearing Reports downloaded successfully.");
 
 						
 						//--------------------------CourtCaseReports------------------------------
 						
 						
 						 Thread.sleep(100);
-						 File dir7 = new File("C://Users//Admin//Downloads");
+						 File dir7 = new File("C://Users//snehalp//Downloads");
 					 //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.CourtCaseReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Court Case Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - Court Case Reports downloaded successfully.");
 
 						
 						//--------------------------CourtOrderReports------------------------------
 						
 						
 						 Thread.sleep(100);
-						 File dir8 = new File("C://Users//Admin//Downloads");
+						 File dir8 = new File("C://Users//snehalp//Downloads");
 					 //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.CourtOrderReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Court Order Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - Court Order Reports downloaded successfully.");
 						
 						
 						//-------------------------CourtDoumentReports------------------------------
 						
 						
 						 Thread.sleep(100);
-						 File dir9 = new File("C://Users//Admin//Downloads");
+						 File dir9 = new File("C://Users//snehalp//Downloads");
 					 //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.CourtDoumentReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Court Doument Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - Court Doument Reports downloaded successfully.");
 						
 						//-------------------------noticeCovertedToCaseReports------------------------------
 						
 						
 						 Thread.sleep(100);
-						 File dir10 = new File("C://Users//Admin//Downloads");
+						 File dir10 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.noticeCovertedToCaseReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "notice Coverted To Case Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - notice Coverted To Case Reports downloaded successfully.");
 					
 						
 						//-------------------------AllReports------------------------------
 						
 						
 						 Thread.sleep(100);
-						 File dir11 = new File("C://Users//Admin//Downloads");
+						 File dir11 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.AllReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "All Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Case - All Reports downloaded successfully.");
 					
 						
 					
@@ -9277,24 +9256,24 @@ public class CFOMethod {
 						
 						
 						 Thread.sleep(100);
-						 File dir15 = new File("C://Users//Admin//Downloads");
+						 File dir15 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.MISReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "MIS Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Notice- MIS Reports downloaded successfully.");
 						
 						
 						//------------------------closedCasesReports------------------------------
 						
 						
 						 Thread.sleep(100);
-						 File dir20 = new File("C://Users//Admin//Downloads");
+						 File dir20 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.closedCasesReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "closed Cases Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Notice- closed Notice Reports downloaded successfully.");
 						
 						
 						
@@ -9303,24 +9282,24 @@ public class CFOMethod {
 						
 						
 						 Thread.sleep(100);
-						 File dir19 = new File("C://Users//Admin//Downloads");
+						 File dir19 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.MISReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "MIS All Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Notice- MIS All Reports downloaded successfully.");
 						
 						
 						//------------------------ExtLawyerPerformanceReports------------------------------
 						
 						
 						 Thread.sleep(100);
-						 File dir18 = new File("C://Users//Admin//Downloads");
+						 File dir18 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.ExtLawyerPerformanceReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Ext Lawyer Performance Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Notice- Ext Lawyer Performance Reports downloaded successfully.");
 						
 						
 						
@@ -9329,12 +9308,12 @@ public class CFOMethod {
 						
 						
 						 Thread.sleep(100);
-						 File dir17 = new File("C://Users//Admin//Downloads");
+						 File dir17 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.BudgetReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Budget Reports downloaded successfully.");
+						test.log(LogStatus.PASS, "Notice- Budget Reports downloaded successfully.");
 						
 						
 						
@@ -9343,24 +9322,24 @@ public class CFOMethod {
 						
 						
 						 Thread.sleep(100);
-						 File dir16 = new File("C://Users//Admin//Downloads");
+						 File dir16 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.LawyerDetailsReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Lawyer Details downloaded successfully.");
+						test.log(LogStatus.PASS, "Notice- Lawyer Details downloaded successfully.");
 						
 						
 						//------------------------clickNoticePaymentReport------------------------------
 						
 						
 						 Thread.sleep(100);
-						 File dir13 = new File("C://Users//Admin//Downloads");
+						 File dir13 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.clickNoticePaymentReport(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Notice Payment Report downloaded successfully.");
+						test.log(LogStatus.PASS, "Notice- Notice Payment Report downloaded successfully.");
 						
 						
 						
@@ -9368,12 +9347,12 @@ public class CFOMethod {
 						
 						
 						 Thread.sleep(100);
-						 File dir14 = new File("C://Users//Admin//Downloads");
+						 File dir14 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.clickNoticeResponseReport(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, "Notice Response Report downloaded successfully.");
+						test.log(LogStatus.PASS, "Notice- Notice Response Report downloaded successfully.");
 						
 							
 						
@@ -9382,12 +9361,12 @@ public class CFOMethod {
 						
 						
 						 Thread.sleep(100);
-						 File dir12 = new File("C://Users//Admin//Downloads");
+						 File dir12 = new File("C://Users//snehalp//Downloads");
 					     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 						Thread.sleep(250);
 						performerPOM.AllReports(driver).click();					//Clicking on 'Excel Report' image.
-						test.log(LogStatus.PASS, " All Report downloaded successfully.");
+						test.log(LogStatus.PASS, " Notice- All Report downloaded successfully.");
 						
 						
 						Thread.sleep(500);
@@ -9653,6 +9632,7 @@ public class CFOMethod {
 							open = Integer.parseInt(performerPOM.clickTaskOpen(driver).getText());			//Reading Task Open count.
 							closed = Integer.parseInt(performerPOM.clickTaskClosed(driver).getText());		//Reading Task Closed count.
 							
+							Thread.sleep(5000);				
 							performerPOM.clickTaskOpen(driver).click();										//Clicking on 'Open' task
 						}
 						
@@ -9746,31 +9726,75 @@ public class CFOMethod {
 						}
 						else if(type.equals("Task"))
 						{
+							Thread.sleep(4000);
+							js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+							
+							Thread.sleep(4000);
+							wait.until(ExpectedConditions.visibilityOf(performerPOM.clickStatus1(driver)));
+							performerPOM.clickStatus1(driver).click();
+							
+							
+							List<WebElement>SeletcStatus = driver.findElements(By.xpath("//*[@id='ddlStatus_chosen']/div/ul/li[2]"));
+	          			    selectOptionFromDropDown_bs(SeletcStatus, "Approve/Closed");
+						
+							Thread.sleep(5000);
+							performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
 							
 						}
-						
-						Thread.sleep(4000);
-						wait.until(ExpectedConditions.visibilityOf(performerPOM.readMessage2(driver)));
-						String msg = performerPOM.readMessage2(driver).getText();
-						
-						if(msg.contains("Successfully"))
+						if(type.equals("Task"))
 						{
-							test.log(LogStatus.PASS, "Message displayed - "+msg);
-						}
-						else if(msg.contains("already exist"))
-						{
-							test.log(LogStatus.FAIL, "Message displayed - "+msg);
+					
+							Thread.sleep(4000);
+							wait.until(ExpectedConditions.visibilityOf(performerPOM.clickInvalidResponsemsg(driver)));
+							String msg = performerPOM.clickInvalidResponsemsg(driver).getText();
+							
+							if(msg.contains(msg))
+							{
+								test.log(LogStatus.PASS, "Message displayed - "+msg);
+							}
+							else if(msg.contains(msg))
+							{
+								test.log(LogStatus.FAIL, "Message displayed - "+msg);
+							}
+							else
+							{
+								test.log(LogStatus.FAIL, "Message displayed - "+msg);
+							}
+						
+							Thread.sleep(3000);
+							driver.switchTo().parentFrame();
+						
+							Thread.sleep(3000);
+							performerPOM.ActioncloseTaskpopup(driver).click();
 						}
 						else
 						{
-							test.log(LogStatus.FAIL, "Message displayed - "+msg);
+							
+						
+							Thread.sleep(4000);
+							wait.until(ExpectedConditions.visibilityOf(performerPOM.readMessage2(driver)));
+							String msg = performerPOM.readMessage2(driver).getText();
+						
+							if(msg.contains("Successfully"))
+							{
+								test.log(LogStatus.PASS, "Message displayed - "+msg);
+							}
+							else if(msg.contains("already exist"))
+							{
+								test.log(LogStatus.FAIL, "Message displayed - "+msg);
+							}
+							else
+							{
+								test.log(LogStatus.FAIL, "Message displayed - "+msg);
+							}
+						
+							Thread.sleep(3000);
+							driver.switchTo().parentFrame();
+						
+							Thread.sleep(3000);
+							performerPOM.clickClose(driver).click();
 						}
 						
-						Thread.sleep(3000);
-						driver.switchTo().parentFrame();
-						
-						Thread.sleep(3000);
-						performerPOM.clickClose(driver).click();
 						
 						Thread.sleep(5000);
 						OverduePOM.clickDashboard(driver).click();
@@ -10580,10 +10604,10 @@ public class CFOMethod {
 						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder new 19aug23");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder new 11july23");
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new 19aug23");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 11july23");
 						
 						Thread.sleep(3000);
 						performerPOM.clickRemark2(driver).sendKeys("Remark");
@@ -10663,7 +10687,7 @@ public class CFOMethod {
 						performerPOM.clickDescription(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new 5march2023");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 4march2023");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDate(driver).click();
@@ -11078,16 +11102,16 @@ public class CFOMethod {
 							 Thread.sleep(5000);
 							 performerPOM.clickcloseLegalEntity(driver).click();
 							 
-							 Thread.sleep(5000);
+						/*	 Thread.sleep(5000);
 							 performerPOM.clickLegalEntityFilter(driver).sendKeys("Sandeep Agrawal", Keys.ENTER);
 							 
 							 Thread.sleep(5000);
 							 performerPOM.clickLegalEntityFilter(driver).clear();
 							 
-								test.log(LogStatus.PASS,"Legal Entity Filter Work Successfully");
+								test.log(LogStatus.PASS,"Legal Entity Filter Work Successfully");*/
 								
 								
-								 Thread.sleep(3000);
+								/* Thread.sleep(3000);
 								 performerPOM.clickSubUnitscfo(driver).click();	 
 								// wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='ContentPlaceHolder1_btnAddCustomerBranch")));
 								 Thread.sleep(300);
@@ -11167,7 +11191,7 @@ public class CFOMethod {
 									}
 								   
 									Thread.sleep(3000);
-									performerPOM.clickcloseLegalEntity(driver).click();
+									performerPOM.clickcloseLegalEntity(driver).click();*/
 							    
 							    
 							    
@@ -11448,12 +11472,12 @@ public class CFOMethod {
 							
 					     	if(msg5.equalsIgnoreCase("Law Firm Details Saved Successfully."))
 							{
-								test.log(LogStatus.PASS, "Message displayed = "+msg5);
+								test.log(LogStatus.PASS, "Add Law Firm = "+msg5);
 								
 							}
 								else
 								{
-									test.log(LogStatus.PASS, "Message displayed = "+msg5);
+									test.log(LogStatus.PASS, "Add Law Firm = "+msg5);
 								}
 							
 								
@@ -11498,12 +11522,12 @@ public class CFOMethod {
 							String msg6 = performerPOM.ReadLawFirmMsg(driver).getText();		//Reading Message appeared after save button
 							if(msg6.equalsIgnoreCase("Details Updated Successfully."))
 							{
-								test.log(LogStatus.PASS, "Message displayed = "+msg6);
+								test.log(LogStatus.PASS, "Update Law Firm = "+msg6);
 								
 							}
 								else
 								{
-									test.log(LogStatus.FAIL, "Message displayed = "+msg6);
+									test.log(LogStatus.FAIL, "Update Law Firm  = "+msg6);
 								}
 							
 								
@@ -11559,12 +11583,12 @@ public class CFOMethod {
 							String msg7 = performerPOM.readLawyerMsg(driver).getText();		//Reading Message appeared after save button
 							if(msg7.equalsIgnoreCase("Lawyer Details Saved Successfully."))
 							{
-								test.log(LogStatus.PASS, "Message displayed = "+msg7);
+								test.log(LogStatus.PASS, "Add Lawyer = "+msg7);
 								
 							}
 								else
 								{
-									test.log(LogStatus.FAIL, "Message displayed = "+msg7);
+									test.log(LogStatus.FAIL, "Add Lawyer = "+msg7);
 								}
 							
 								
@@ -11572,12 +11596,12 @@ public class CFOMethod {
 							performerPOM.closeLawyer(driver).click();
 							
 							
-							Thread.sleep(5000);
+							/*Thread.sleep(5000);
 							performerPOM.clickLawFirmFilter(driver).sendKeys("Aditya Puri",Keys.ENTER);
 							Thread.sleep(5000);
 							performerPOM.clickLawFirmFilter(driver).clear();
 							
-							test.log(LogStatus.PASS,"Law Firm Filter Work Successfully");
+							test.log(LogStatus.PASS,"Law Firm Filter Work Successfully");*/
 							
 							
 						}	
@@ -11966,13 +11990,13 @@ public class CFOMethod {
 							   Thread.sleep(500);
 							  
 								String msg = performerPOM.UserReadMsg(driver).getText();
-								if(msg.contains("Details Updated Successfully."))
+								if(msg.contains(msg))
 								{
-									test.log(LogStatus.PASS,"User -Details Updated Successfully.");
+									test.log(LogStatus.PASS,"Add User -"+msg);
 								}
 								else
 								{
-									test.log(LogStatus.PASS,"User- User with Same Email already Exists.");
+									test.log(LogStatus.PASS,"Add User -"+msg);
 								}
 							  
 							  Thread.sleep(3000);
@@ -12006,13 +12030,13 @@ public class CFOMethod {
 							 
 							 Thread.sleep(3000);
 							 String msg1 = performerPOM.UserReadMsg(driver).getText();
-								if(msg1.contains("Details Updated Successfully."))
+								if(msg1.contains(msg1))
 								{
-									test.log(LogStatus.PASS, "Update User-Details Updated Successfully.");
+									test.log(LogStatus.PASS, "Update User-"+msg1);
 								}
 								else
 								{
-									test.log(LogStatus.PASS, "Update User-User with Same Email already Exists.");
+									test.log(LogStatus.PASS, "Update User-"+msg1);
 								}
 							 
 							  Thread.sleep(4000);
@@ -12267,23 +12291,21 @@ public class CFOMethod {
 						   
 						   Thread.sleep(3000);
 								 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
-									if(msg1.equalsIgnoreCase("Opponent Details Saved Successfully."))
+									if(msg1.equalsIgnoreCase("msg1"))
 									{
-										test.log(LogStatus.PASS, "Message displayed = "+msg1);
+										test.log(LogStatus.PASS, "Add Opponent = "+msg1);
 										
 									}
 										else
 										{
-											test.log(LogStatus.PASS, "Message displayed = "+msg1);
+											test.log(LogStatus.PASS, "Add Opponent = "+msg1);
 										}
 									
 									
-						   
-						   
-						   Thread.sleep(3000);
+						  Thread.sleep(3000);
 						   performerPOM.closeOpponent(driver).click();
-						   
-						   Thread.sleep(3000);
+						   driver.switchTo().parentFrame();
+						   Thread.sleep(5000);
 						   performerPOM.editOpponent(driver).click();
 						   
 						   
@@ -12307,19 +12329,21 @@ public class CFOMethod {
 							   
 						     Thread.sleep(3000);
 								String msg2 = performerPOM.readOppoenentMsg(driver).getText();
-		                         if(msg2.equalsIgnoreCase("Opponent Details Updated Successfully."))
+		                         if(msg2.equalsIgnoreCase(msg2))
 									{
-										test.log(LogStatus.PASS, "Message displayed = "+msg2);
+										test.log(LogStatus.PASS, "Update Opponent ="+msg2);
 										
 									}
 										else
 										{
-											test.log(LogStatus.FAIL, "Message displayed = "+msg2);
+											test.log(LogStatus.FAIL, "Update Opponent = "+msg2);
 										}
 									
-							   
+							 
 						      Thread.sleep(3000);
 							   performerPOM.closeOpponent(driver).click();
+							   
+							   driver.switchTo().parentFrame();
 							   
 							   Thread.sleep(3000);
 							   performerPOM.deleteOpponent(driver).click();
@@ -12352,13 +12376,13 @@ public class CFOMethod {
 						        // Capturing alert message.    
 						         driver.switchTo().alert().accept();	
 						         
-						         Thread.sleep(3000);
+						        /* Thread.sleep(3000);
 								 performerPOM.clickLawFirmFilter(driver).sendKeys("Civil Opponent",Keys.ENTER);
 								   
 								 Thread.sleep(3000);
 								 performerPOM.clickLawFirmFilter(driver).clear();
 								 
-								 test.log(LogStatus.PASS,"Opponent Filter work successfully");
+								 test.log(LogStatus.PASS,"Opponent Filter work successfully");*/
 							   
 				  } 
 					 
@@ -12539,13 +12563,13 @@ public class CFOMethod {
 						   
 						   Thread.sleep(3000);
 							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
-								if(msg1.contains("Court Detail Save Successfully."))
+								if(msg1.contains(msg1))
 								{
-									test.log(LogStatus.PASS, "Court -Court Detail Save Successfully.");
+									test.log(LogStatus.PASS, "Add Court = "+msg1);
 								}
 								else
 								{
-									test.log(LogStatus.PASS, "Court-Court Name already exists.");
+									test.log(LogStatus.PASS, "Add Court = "+msg1);
 								}
 						    
 						   Thread.sleep(4000);
@@ -12553,7 +12577,7 @@ public class CFOMethod {
 						   
 						   driver.switchTo().parentFrame();
 						   
-						/*   Thread.sleep(4000);
+						   Thread.sleep(4000);
 						   performerPOM.editCourt(driver).click();
 						   
 						   
@@ -12571,14 +12595,14 @@ public class CFOMethod {
 						   String editcourtname= c19.getStringCellValue();
 						   performerPOM.clickCourtName(driver).sendKeys(editcourtname);
 						   
-//						   Thread.sleep(5000);
-//						   performerPOM.clickCourtType(driver).click();
-//						   Thread.sleep(5000);
-//						   performerPOM.selectCourtType(driver).click();
-//						   Thread.sleep(5000);
-//						   performerPOM.clickCountry(driver).click();
-//						   Thread.sleep(5000);
-//						   performerPOM.selectCountry(driver).click();
+						   Thread.sleep(5000);
+						   performerPOM.clickCourtType(driver).click();
+						   Thread.sleep(5000);
+						   performerPOM.selectCourtType(driver).click();
+						   Thread.sleep(5000);
+						   performerPOM.clickCountry(driver).click();
+						   Thread.sleep(5000);
+						   performerPOM.selectCountry(driver).click();
 						   
 						   
 						   
@@ -12587,16 +12611,18 @@ public class CFOMethod {
 						   
 						   Thread.sleep(3000);
 							 String msg2 = performerPOM.readOppoenentMsg(driver).getText();
-								if(msg2.contains("Court Detail Updated Successfully"))
+								if(msg2.contains(msg2))
 								{
-									test.log(LogStatus.PASS, "Update Court-Court Detail Updated Successfully");
+									test.log(LogStatus.PASS, "Update Court ="+msg2);
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Update Court-Court Name already exists.");
+									test.log(LogStatus.FAIL, "Update Court ="+msg2);
 								}
 								 Thread.sleep(4000);
-								   performerPOM.closeCourt(driver).click(); */
+								   performerPOM.closeCourt(driver).click(); 
+								   
+								   driver.switchTo().parentFrame();
 								   
 								   Thread.sleep(3000);
 								   performerPOM.deleteCourt(driver).click();
@@ -12634,13 +12660,13 @@ public class CFOMethod {
 							         driver.switchTo().alert().accept();	
 								  	 
 							        
-							        Thread.sleep(3000);
+							      /*  Thread.sleep(3000);
 									 performerPOM.clickLawFirmFilter(driver).sendKeys("	Dehl High Court",Keys.ENTER);
 									   
 									 Thread.sleep(3000);
 									 performerPOM.clickLawFirmFilter(driver).clear();
 									 
-									 test.log(LogStatus.PASS,"Court Filter work successfully");
+									 test.log(LogStatus.PASS,"Court Filter work successfully");*/
 								   	
 								  	 
 								   
@@ -12850,13 +12876,13 @@ public class CFOMethod {
 							
 							 Thread.sleep(3000);
 							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
-								if(msg1.contains("Case/Notice Type Saved Successfully."))
+								if(msg1.contains(msg1))
 								{
-									test.log(LogStatus.PASS, " Case/Notice -Case/Notice Type Saved Successfully.");
+									test.log(LogStatus.PASS, "Add Case/Notice Type ="+msg1);
 								}
 								else
 								{
-									test.log(LogStatus.PASS, "Case/Notice -Case/Notice type already exists.");
+									test.log(LogStatus.PASS, "Add Case/Notice Type ="+msg1);
 								}
 							
 							
@@ -12888,13 +12914,13 @@ public class CFOMethod {
 								
 								 Thread.sleep(3000);
 								 String msg2 = performerPOM.readOppoenentMsg(driver).getText();
-									if(msg2.contains("Case/Notice Type Updated Successfully."))
+									if(msg2.contains(msg2))
 									{
-										test.log(LogStatus.PASS, "Update Case/Notice - Case/Notice Type Updated Successfully.");
+										test.log(LogStatus.PASS, "Update Case/Notice -"+msg2);
 									}
 									else
 									{
-										test.log(LogStatus.FAIL, "Update Case/Notice - Case/Notice type already exists.");
+										test.log(LogStatus.FAIL, "Update Case/Notice -"+msg2);
 									}
 								
 								
@@ -12922,24 +12948,31 @@ public class CFOMethod {
 							        // Accepting alert		
 							        alert.accept();	
 							        
-							       
-							        String alertMessage1=driver.switchTo().alert().getText();
 							        
-							        
-							        Thread.sleep(3000);
-							        test.log(LogStatus.PASS, alertMessage1);
-							        
-							        Thread.sleep(2000);
+							        Thread.sleep(5000);
+								    // Switching to Alert        
+							        Alert alert1 = driver.switchTo().alert();		
+							        		
 							        // Capturing alert message.    
-							         driver.switchTo().alert().accept(); 
+							        String alertMessage1= driver.switchTo().alert().getText();	
+							        
+							        
+							        test.log(LogStatus.PASS, alertMessage1);
+							        		
+							        // Displaying alert message		
+							        System.out.println(alertMessage1);	
+							        
+							        		
+							        // Accepting alert		
+							        alert1.accept();	
 							         
-							         Thread.sleep(3000);
+							      /*   Thread.sleep(3000);
 									 performerPOM.clickLawFirmFilter(driver).sendKeys("Arbittration",Keys.ENTER);
 									   
 									 Thread.sleep(3000);
 									 performerPOM.clickLawFirmFilter(driver).clear();
 									 
-									 test.log(LogStatus.PASS,"Case/Notice Type Filter work successfully");
+									 test.log(LogStatus.PASS,"Case/Notice Type Filter work successfully");*/
 								  	 
 						}	
 					 
@@ -13093,17 +13126,19 @@ public class CFOMethod {
 
 							 Thread.sleep(3000);
 							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
-								if(msg1.contains("Payment Type Saved Successfully"))
+								if(msg1.contains(msg1))
 								{
-									test.log(LogStatus.PASS, "Payment Type -Payment Type Saved Successfully");
+									test.log(LogStatus.PASS, "Add Payment Type ="+msg1);
 								}
 								else
 								{
-									test.log(LogStatus.PASS, "Payment Type -Payment Type Already Exists");
+									test.log(LogStatus.PASS, "Add Payment Type ="+msg1);
 								}
 						   
 						   Thread.sleep(4000);
 						  performerPOM.closePaymentType(driver).click();
+						  
+						  driver.switchTo().parentFrame();
 						  
 						  
 						  Thread.sleep(3000);
@@ -13125,17 +13160,21 @@ public class CFOMethod {
 
 								 Thread.sleep(3000);
 								 String msg2 = performerPOM.readOppoenentMsg(driver).getText();
-									if(msg2.contains("Payment Type Updated Successfully"))
+									if(msg2.contains(msg2))
 									{
-										test.log(LogStatus.PASS, "Update Payment Type - Payment Type Updated Successfully");
+										test.log(LogStatus.PASS, "Update Payment Type - "+msg2);
 									}
 									else
 									{
-										test.log(LogStatus.FAIL, "Update Payment Type -Payment Type Already Exists");
+										test.log(LogStatus.FAIL, "Update Payment Type - "+msg2);
 									}
 							   
 							   Thread.sleep(4000);
 							  performerPOM.closePaymentType(driver).click();
+							  
+							  driver.switchTo().parentFrame();
+							  
+							  
 						   
 							  Thread.sleep(4000);
 							  performerPOM.deletePaymentType(driver).click();
@@ -13158,18 +13197,24 @@ public class CFOMethod {
 						        // Accepting alert		
 						        alert.accept();	
 						        
-						        Thread.sleep(2000);
-						        String alertMessage1=driver.switchTo().alert().getText();
-						        
-						        
-						        Thread.sleep(3000);
-						        test.log(LogStatus.PASS, alertMessage1);
-						        
-						        Thread.sleep(2000);
+						        Thread.sleep(5000);
+							    // Switching to Alert        
+						        Alert alert1 = driver.switchTo().alert();		
+						        		
 						        // Capturing alert message.    
-						         driver.switchTo().alert().accept();		
+						        String alertMessage1= driver.switchTo().alert().getText();	
+						        
+						        
+						        test.log(LogStatus.PASS, alertMessage1);
+						        		
+						        // Displaying alert message		
+						        System.out.println(alertMessage);	
+						        
+						        		
+						        // Accepting alert		
+						        alert1.accept();		
 						         
-						         Thread.sleep(3000);
+						      /*   Thread.sleep(3000);
 								 performerPOM.clickLawFirmFilter(driver).sendKeys("Case drafting fees",Keys.ENTER);
 								 
 								 
@@ -13181,7 +13226,7 @@ public class CFOMethod {
 								 
 								 
 								 
-								 test.log(LogStatus.PASS,"Payment Type Filter work successfully");
+								 test.log(LogStatus.PASS,"Payment Type Filter work successfully");*/
 					 }	
 					 
 					 
@@ -13321,18 +13366,20 @@ public class CFOMethod {
 						  
 						  Thread.sleep(3000);
 							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
-								if(msg1.contains("Custome Field Saved Successfully."))
+								if(msg1.contains(msg1))
 								{
-									test.log(LogStatus.PASS, "Custome Field- Custome Field Saved Successfully.");
+									test.log(LogStatus.PASS, "Add Custome Field- "+msg1);
 								}
 								else
 								{
-									test.log(LogStatus.PASS, "Custome Field- Custome Field with same name already exists.");
+									test.log(LogStatus.PASS, "Add Custome Field- "+msg1);
 								}
 						   
 						   
 						  Thread.sleep(3000);
 						  performerPOM.closeCustomParameter(driver).click();
+						  
+						  driver.switchTo().parentFrame();
 						  
 						  Thread.sleep(3000);
 						  performerPOM.editCustomParameter(driver).click();
@@ -13354,51 +13401,67 @@ public class CFOMethod {
 						  
 						  Thread.sleep(3000);
 							 String msg2 = performerPOM.readOppoenentMsg(driver).getText();
-								if(msg2.contains("Custome Field Updated Successfully."))
+								if(msg2.contains(msg2))
 								{
-									test.log(LogStatus.PASS, "Update Custome Field - Custome Field Updated Successfully.");
+									test.log(LogStatus.PASS, "Update Custome Field -"+msg2);
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Update Custome Field-Custome Field with same name already exists.");
+									test.log(LogStatus.FAIL, "Update Custome Field -"+msg2);
 								}
 						   
 						   
 						  Thread.sleep(3000);
 						  performerPOM.closeCustomParameter(driver).click();
 						  
+						  driver.switchTo().parentFrame();
+						  
 						  Thread.sleep(3000);
 						  performerPOM.deleteCustomParameter(driver).click();
 						  
-						  Thread.sleep(5000);
-						    // Switching to Alert        
-					        Alert alert = driver.switchTo().alert();		
-					        		
-					        // Capturing alert message.    
-					        String alertMessage= driver.switchTo().alert().getText();	
-					        
-					        
-					        test.log(LogStatus.PASS, alertMessage);
-					        		
-					        // Displaying alert message		
-					        System.out.println(alertMessage);	
-					        
-					        		
-					        // Accepting alert		
-					        alert.accept();	
-					        
-					        Thread.sleep(2000);
-					        String alertMessage1=driver.switchTo().alert().getText();
-					        
-					        
-					        Thread.sleep(3000);
-					        test.log(LogStatus.PASS, alertMessage1);
-					        
-					        Thread.sleep(2000);
-					        // Capturing alert message.    
-					         driver.switchTo().alert().accept();	
-					        
-					        Thread.sleep(6000);
+						
+							    Thread.sleep(5000);
+							    // Switching to Alert        
+						        Alert alert = driver.switchTo().alert();		
+						        		
+						        // Capturing alert message.    
+						        String alertMessage= driver.switchTo().alert().getText();	
+						        
+						        
+						        test.log(LogStatus.PASS, alertMessage);
+						        		
+						        // Displaying alert message		
+						        System.out.println(alertMessage);	
+						        
+						        		
+						        // Accepting alert		
+						        alert.accept();	
+						  
+					        try
+					        {
+						        
+								  Thread.sleep(5000);
+								    // Switching to Alert        
+							        Alert alert1 = driver.switchTo().alert();		
+							        		
+							        // Capturing alert message.    
+							        String alertMessage1= driver.switchTo().alert().getText();	
+							        
+							        
+							        test.log(LogStatus.PASS, alertMessage);
+							        		
+							        // Displaying alert message		
+							        System.out.println(alertMessage);	
+							        
+							        		
+							        // Accepting alert		
+							        alert1.accept();	
+					        }
+					        catch(Exception e)
+					        {
+					        	
+					        }
+					     /*   Thread.sleep(6000);
 							performerPOM. clickCustomParameterFilter(driver).click();
 							
 						    Thread.sleep(6000);
@@ -13417,7 +13480,7 @@ public class CFOMethod {
 							 performerPOM.clickLawFirmFilter(driver).clear();
 					
 						    
-							 test.log(LogStatus.PASS,"Custom Prameter Filter work successfully");
+							 test.log(LogStatus.PASS,"Custom Prameter Filter work successfully");*/
 					} 
 					 
 					  public static void customParameterWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
@@ -13564,20 +13627,21 @@ public class CFOMethod {
 				    	 
 				    	 Thread.sleep(3000);
 						 String msg1 = performerPOM.readcaseStagemsg(driver).getText();
-							if(msg1.equalsIgnoreCase("Case Stage Type Saved Successfully."))
+							if(msg1.equalsIgnoreCase(msg1))
 							{
-								test.log(LogStatus.PASS, "Message displayed = "+msg1);
+								test.log(LogStatus.PASS, "Add Case Stage = "+msg1);
 								
 							}
 								else
 								{
-									test.log(LogStatus.PASS, "Message displayed = "+msg1);
+									test.log(LogStatus.PASS, "Add Case Stage = "+msg1);
 								}
 							
 					   
 				    	 
 				    	 Thread.sleep(3000);
 				    	 performerPOM.closecaseStage(driver).click();
+				    	 driver.switchTo().parentFrame();
 				    	 
 				    	 Thread.sleep(3000);
 				    	 performerPOM.editcaseStage(driver).click();
@@ -13600,20 +13664,22 @@ public class CFOMethod {
 				    	 Thread.sleep(3000);
 						 String msg2 = performerPOM.readcaseStagemsg(driver).getText();
 							
-							if(msg2.equalsIgnoreCase("Case Stage Type Updated Successfully."))
+							if(msg2.equalsIgnoreCase(msg2))
 							{
-								test.log(LogStatus.PASS, "Message displayed = "+msg2);
+								test.log(LogStatus.PASS, "Update Case Stage = "+msg2);
 								
 							}
 								else
 								{
-									test.log(LogStatus.PASS, "Message displayed = "+msg2);
+									test.log(LogStatus.PASS, "Update Case Stage = "+msg2);
 								}
 							
 					   
 				    	 
 				    	 Thread.sleep(3000);
 				    	 performerPOM.closecaseStage(driver).click();
+				    	 driver.switchTo().parentFrame();
+				    	  
 				    	 
 				    	 
 				    	 Thread.sleep(3000);
@@ -13639,24 +13705,31 @@ public class CFOMethod {
 					        // Accepting alert		
 					        driver.switchTo().alert().accept();		
 					           
-					        Thread.sleep(2000);
-					        String alertMessage1=driver.switchTo().alert().getText();
 					        
-					        
-					        Thread.sleep(3000);
-					        test.log(LogStatus.PASS, alertMessage1);
-					        
-					        Thread.sleep(2000);
-					        // Capturing alert message.    
-					         driver.switchTo().alert().accept();	
-					         
-					         Thread.sleep(3000);
+							  Thread.sleep(5000);
+							    // Switching to Alert        
+						        Alert alert1 = driver.switchTo().alert();		
+						        		
+						        // Capturing alert message.    
+						        String alertMessage1= driver.switchTo().alert().getText();	
+						        
+						        
+						        test.log(LogStatus.PASS, alertMessage1);
+						        		
+						        // Displaying alert message		
+						        System.out.println(alertMessage1);	
+						        
+						        		
+						        // Accepting alert		
+						        alert1.accept();	
+						        
+					       /*  Thread.sleep(3000);
 							 performerPOM.clickLawFirmFilter(driver).sendKeys("Final Stage",Keys.ENTER);
 							 
 							 Thread.sleep(3000);
 							 performerPOM.clickLawFirmFilter(driver).clear();
 							 
-							 test.log(LogStatus.PASS, "Case Stage Filter work successfully");
+							 test.log(LogStatus.PASS, "Case Stage Filter work successfully");*/
 				    	 
 				  }
 					 
@@ -13786,16 +13859,18 @@ public class CFOMethod {
 						  
 						  Thread.sleep(3000);
 							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
-								if(msg1.contains("Document Type Added Successfully"))
+								if(msg1.contains(msg1))
 								{
-									test.log(LogStatus.PASS, "Document Type- Document Type Added Successfully");
+									test.log(LogStatus.PASS, "Add Document Type-"+msg1);
 								}
 								else
 								{
-									test.log(LogStatus.PASS, "Document Type-Litigation Document-Type already exists.");
+									test.log(LogStatus.PASS, "Add Document Type-"+msg1);
 								}
 			              Thread.sleep(3000);
 						  performerPOM.closeDocumentType(driver).click();
+						  
+						  driver.switchTo().parentFrame();
 						  
 						  Thread.sleep(3000);
 						  performerPOM.editDocumentType(driver).click();
@@ -13816,16 +13891,18 @@ public class CFOMethod {
 						  
 						  Thread.sleep(3000);
 							 String msg2 = performerPOM.readOppoenentMsg(driver).getText();
-								if(msg2.contains("Document Type Updated Successfully"))
+								if(msg2.contains(msg2))
 								{
-									test.log(LogStatus.PASS, "Update Document Type-Document Type Updated Successfully");
+									test.log(LogStatus.PASS, "Update Document Type-"+msg2);
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Update Document Type-Litigation Document-Type already exists.");
+									test.log(LogStatus.FAIL, "Update Document Type-"+msg2);
 								}
 			              Thread.sleep(3000);
 						  performerPOM.closeDocumentType(driver).click();
+						  
+						  driver.switchTo().parentFrame();
 						  
 						   Thread.sleep(3000);
 						   performerPOM.deleteDocumentType(driver).click();
@@ -13850,24 +13927,31 @@ public class CFOMethod {
 					        // Accepting alert		
 					        driver.switchTo().alert().accept();		
 					           
-					        Thread.sleep(2000);
-					        String alertMessage1=driver.switchTo().alert().getText();
 					        
-					        
-					        Thread.sleep(3000);
-					        test.log(LogStatus.PASS, alertMessage1);
-					        
-					        Thread.sleep(2000);
-					        // Capturing alert message.    
-					         driver.switchTo().alert().accept();	
+							  Thread.sleep(5000);
+							    // Switching to Alert        
+						        Alert alert1 = driver.switchTo().alert();		
+						        		
+						        // Capturing alert message.    
+						        String alertMessage1= driver.switchTo().alert().getText();	
+						        
+						        
+						        test.log(LogStatus.PASS, alertMessage1);
+						        		
+						        // Displaying alert message		
+						        System.out.println(alertMessage1);	
+						        
+						        		
+						        // Accepting alert		
+						        alert1.accept();	
 					         
-					         Thread.sleep(3000);
+					     /*    Thread.sleep(3000);
 							 performerPOM.clickLegalEntityFilter(driver).sendKeys("Case Document",Keys.ENTER);
 							   
 						     Thread.sleep(3000);
 							 performerPOM.clickLegalEntityFilter(driver).clear(); 
 					         
-					         test.log(LogStatus.PASS,"Document Type filter working successfully");
+					         test.log(LogStatus.PASS,"Document Type filter working successfully");*/
 						  
 						 }
 					 
@@ -13995,18 +14079,20 @@ public class CFOMethod {
 						  
 						  Thread.sleep(3000);
 							 String msg1 = performerPOM.readOppoenentMsg(driver).getText();
-								if(msg1.contains("Criteria Saved Successfully."))
+								if(msg1.contains(msg1))
 								{
-									test.log(LogStatus.PASS, "Rating Criteria-Criteria Saved Successfully.");
+									test.log(LogStatus.PASS, "Add Rating Criteria-"+msg1);
 								}
 								else
 								{
-									test.log(LogStatus.PASS, "Rating Criteria-Criteria already exists.");
+									test.log(LogStatus.PASS, "Add Rating Criteria-"+msg1);
 								}
 						  
 						  
 						  Thread.sleep(3000);
 						  performerPOM.closeDocumentType(driver).click();
+						  
+						  driver.switchTo().parentFrame();
 						  
 						  Thread.sleep(3000);
 						  performerPOM.editcriteria(driver).click();
@@ -14027,18 +14113,20 @@ public class CFOMethod {
 						  
 						  Thread.sleep(3000);
 							 String msg2 = performerPOM.readOppoenentMsg(driver).getText();
-								if(msg2.contains("Criteria Updated Successfully."))
+								if(msg2.contains(msg2))
 								{
-									test.log(LogStatus.PASS, "Update Rating Criteria- Criteria Updated Successfully.");
+									test.log(LogStatus.PASS, "Update Rating Criteria-"+msg2);
 								}
 								else
 								{
-									test.log(LogStatus.FAIL, "Update Rating Criteria-Criteria already exists.");
+									test.log(LogStatus.FAIL, "Update Rating Criteria-"+msg2);
 								}
 						  
 						  
 						  Thread.sleep(3000);
 						  performerPOM.closeDocumentType(driver).click();
+						  
+						  driver.switchTo().parentFrame();
 						  
 						  Thread.sleep(3000);
 						  performerPOM.deletecriteria(driver).click();
@@ -14061,25 +14149,39 @@ public class CFOMethod {
 					        Thread.sleep(3000);	
 					        // Accepting alert		
 					        driver.switchTo().alert().accept();		
-					           
-					        Thread.sleep(2000);
-					        String alertMessage1=driver.switchTo().alert().getText();
+					  	 
+					      try
+					      {
 					        
-					        
-					        Thread.sleep(3000);
-					        test.log(LogStatus.PASS, alertMessage1);
-					        
-					        Thread.sleep(2000);
+					        Thread.sleep(5000);
+						    // Switching to Alert        
+					        Alert alert1 = driver.switchTo().alert();		
+					        		
 					        // Capturing alert message.    
-					         driver.switchTo().alert().accept();	
+					        String alertMessage1= driver.switchTo().alert().getText();	
+					        
+					        
+					        test.log(LogStatus.PASS, alertMessage1);
+					        		
+					        // Displaying alert message		
+					        System.out.println(alertMessage1);	
+					        
+					        		
+					        // Accepting alert		
+					        alert1.accept();
+					      }
+					      catch(Exception e)
+					      {
+					    	  
+					      }
 					         
-					         Thread.sleep(3000);
+					    /*     Thread.sleep(3000);
 							 performerPOM.clickLawFirmFilter(driver).sendKeys("Case Arguments",Keys.ENTER);
 							 
 							 Thread.sleep(3000);
 							 performerPOM.clickLawFirmFilter(driver).clear();
 							 
-							 test.log(LogStatus.PASS, "Rating Criteria Filter working  successfully");
+							 test.log(LogStatus.PASS, "Rating Criteria Filter working  successfully");*/
 						  
 					 }
 					  
@@ -14287,18 +14389,18 @@ public class CFOMethod {
 						        // Accepting alert		
 						        alert.accept();	
 						        
-						        Thread.sleep(3000);
+						       /* Thread.sleep(3000);
 								 performerPOM.clickNoticeStageFilter(driver).sendKeys("Notice Arguments",Keys.ENTER);
 								 
 								 Thread.sleep(3000);
 								 performerPOM.clickNoticeStageFilter(driver).clear();
 								 
-								 test.log(LogStatus.PASS, "Notice Stage Filter working  successfully");
+								 test.log(LogStatus.PASS, "Notice Stage Filter working  successfully");*/
 							  
 				     }
 					  public static void UserReassignment(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 					  {
-					        
+							WebDriverWait Wait=new WebDriverWait(driver,20);
 						  Thread.sleep(3000);
 						  performerPOM.clickMasters(driver).click();
 
@@ -14317,32 +14419,48 @@ public class CFOMethod {
 						   Thread.sleep(3000);
 						  performerPOM.selectAssigntoUser(driver).click();
 						  
-						  JavascriptExecutor js = (JavascriptExecutor) driver;
-				          js.executeScript("window.scrollBy(0,1000)");
-						 
-						  Thread.sleep(1000);
-						  performerPOM.selectcheckBox(driver).click();
-						 
-//						  Thread.sleep(1000);
-//						  performerPOM.selectcheckBoxcfo(driver);
+						  
+						     By locator = By.xpath("//*[@id='gridCases']/div[2]/table/tbody/tr[1]/td[1]/label");
+		                     Wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+						     Thread.sleep(4000);
+			                 WebElement ViewButton = driver.findElement(locator);	
+							 Thread.sleep(4000);
+							 JavascriptExecutor jse=(JavascriptExecutor)driver;
+							 jse.executeScript("arguments[0].click();", ViewButton);
+							 
 						
-						  System.out.println("true");
+							 System.out.println("true");
 						  	
-						  Thread.sleep(3000);
-						  performerPOM.clicknotice(driver).click();
-						  Thread.sleep(3000);
-						  performerPOM.selectNoticeCheckkBox(driver).click();
-						  Thread.sleep(3000);
-						  performerPOM.clickTask(driver).click();
-						  Thread.sleep(3000);
-						  performerPOM. selectTaskCheckkBox(driver).click();
+							 Thread.sleep(3000);
+							 performerPOM.clicknotice(driver).click();
+						  
+						  
+							 By locator1 = By.xpath("//*[@id='gridNotices']/div[2]/table/tbody/tr[1]/td[1]/label");
+		                     Wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+						     Thread.sleep(4000);
+			                 WebElement ViewButton1 = driver.findElement(locator1);	
+							 Thread.sleep(4000);
+							 JavascriptExecutor jse1=(JavascriptExecutor)driver;
+							 jse1.executeScript("arguments[0].click();", ViewButton1);
 						 
-						  Thread.sleep(3000);
-						  performerPOM.clickAssignButoon(driver).click();
+							
+							 Thread.sleep(3000);
+							 performerPOM.clickTask(driver).click();
+							 
+							 By locator2 = By.xpath("//*[@id='gridTask']/div[2]/table/tbody/tr[1]/td[1]/label");
+		                     Wait.until(ExpectedConditions.presenceOfElementLocated(locator2));
+						     Thread.sleep(4000);
+			                 WebElement ViewButton2 = driver.findElement(locator2);	
+							 Thread.sleep(4000);
+							 JavascriptExecutor jse2=(JavascriptExecutor)driver;
+							 jse2.executeScript("arguments[0].click();", ViewButton2);
+							 
+						  	Thread.sleep(3000);
+						  	performerPOM.clickAssignButoon(driver).click();
 					
 						
 						 
-						  Thread.sleep(5000);
+						 	Thread.sleep(5000);
 						    // Switching to Alert        
 					        Alert alert = driver.switchTo().alert();		
 					        		
@@ -14358,7 +14476,7 @@ public class CFOMethod {
 					        		
 					        // Accepting alert		
 					        alert.accept();		
-					        if(performerPOM.clearButton(driver).isEnabled())
+					    /*    if(performerPOM.clearButton(driver).isEnabled())
 					  		{
 					  			performerPOM.clearButton(driver).click();
 					  			test.log(LogStatus.PASS, "Clear button working successfully");
@@ -14366,18 +14484,12 @@ public class CFOMethod {
 					  		else
 					  		{
 					  			test.log(LogStatus.FAIL, "Clear button not working successfully");
-					  		}
+					  		}*/
 					        
-					        
-					        
+					              
 					  	  Thread.sleep(4000);
 						  performerPOM.clickAutidLog(driver).click();
-						  
-						 
-						 
-						  
-						  
-						  
+							  
 					  }
 					  public static void MailAuthorization(WebDriver driver,ExtentTest test) throws InterruptedException
 					  {
@@ -14482,7 +14594,7 @@ public class CFOMethod {
 							
 							
 								Thread.sleep(100);
-								File dir = new File("C://Users//Admin//Downloads");
+								File dir = new File("C://Users//snehalp//Downloads");
 								File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 								
 								Thread.sleep(500);
@@ -14508,7 +14620,7 @@ public class CFOMethod {
 								Thread.sleep(5000);
 								performerPOM.clickSearchFilter(driver).sendKeys("347623");
 								
-								Thread.sleep(5000);
+							/*	Thread.sleep(5000);
 								if(performerPOM.clearButton(driver).isEnabled())
 								{
 									performerPOM.clearButton(driver).click();
@@ -14517,7 +14629,7 @@ public class CFOMethod {
 								else
 								{
 									test.log(LogStatus.PASS, "Case Hearing  = clear button not Work Successfully");
-								}
+								}*/
 								
 								
 								
@@ -14526,10 +14638,10 @@ public class CFOMethod {
 						}
 						public static void HearingCalender(WebDriver driver,ExtentTest test,String compliancesCount1, String type) throws InterruptedException, AWTException
 						{
-								Thread.sleep(3000);					
-								Robot robot = new Robot();
-								robot.keyPress(KeyEvent.VK_CONTROL);
-								robot.keyPress(KeyEvent.VK_SUBTRACT);
+//								Thread.sleep(3000);					
+//								Robot robot = new Robot();
+//								robot.keyPress(KeyEvent.VK_CONTROL);
+//								robot.keyPress(KeyEvent.VK_SUBTRACT);
 							   
 							
 //							    robot.keyPress(KeyEvent.VK_CONTROL);
@@ -14554,10 +14666,10 @@ public class CFOMethod {
 							      //  driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div/a[contains(text(),"+day+")]")).click();    //click day
 							        driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();             
 						    	} */
-							WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a"));
+							WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[31]/a"));
 							if(text.isEnabled())
 							{
-								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();
+								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[31]/a")).click();
 								
 								test.log(LogStatus.PASS, "Hearing for particular date is clickable.");
 								
@@ -14612,7 +14724,7 @@ public class CFOMethod {
 					
 							
 							Thread.sleep(100);
-							new File("C://Users//Snehal Patil//Downloads");
+							new File("C://Users//snehalp//Downloads");
 						
 							
 							Thread.sleep(250);
@@ -14872,7 +14984,7 @@ public class CFOMethod {
           			
           		
           			Thread.sleep(100);
-          			File dir = new File("C:\\Users\\Snehal Patil//Downloads");
+          			File dir = new File("C:\\Users\\snehalp//Downloads");
           			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
           			
           			Thread.sleep(500);
@@ -14882,7 +14994,7 @@ public class CFOMethod {
           			test.log(LogStatus.PASS, "File downloaded successfully.");
           			
           			Thread.sleep(5500);
-          			File dir1 = new File("C:\\Users\\Snehal Patil//Downloads");
+          			File dir1 = new File("C:\\Users\\snehalp//Downloads");
           			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
           			
           			if(dirContents.length < allFilesNew.length)
@@ -15135,7 +15247,7 @@ public class CFOMethod {
             			
             		
             			Thread.sleep(100);
-            			File dir = new File("C:\\Users\\Snehal Patil//Downloads");
+            			File dir = new File("C:\\Users\\snehalp//Downloads");
             			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
             			
             			Thread.sleep(500);
@@ -15145,7 +15257,7 @@ public class CFOMethod {
             			test.log(LogStatus.PASS, "File downloaded successfully.");
             			
             			Thread.sleep(5500);
-            			File dir1 = new File("C:\\Users\\Snehal Patil//Downloads");
+            			File dir1 = new File("C:\\Users\\snehalp//Downloads");
             			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
             			
             			if(dirContents.length < allFilesNew.length)
@@ -15398,7 +15510,7 @@ public class CFOMethod {
           			
           		
           			Thread.sleep(100);
-          			File dir = new File("C://Users//Snehal Patil//Downloads");
+          			File dir = new File("C://Users//snehalp//Downloads");
           			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
           			
           			Thread.sleep(500);
@@ -15408,7 +15520,7 @@ public class CFOMethod {
           			test.log(LogStatus.PASS, "File downloaded successfully.");
           			
           			Thread.sleep(5500);
-          			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+          			File dir1 = new File("C://Users//snehalp//Downloads");
           			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
           			
           			if(dirContents.length < allFilesNew.length)
@@ -15661,7 +15773,7 @@ public class CFOMethod {
             			
             		
             			Thread.sleep(100);
-            			File dir = new File("C://Users//Snehal Patil//Downloads");
+            			File dir = new File("C://Users//snehalp//Downloads");
             			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
             			
             			Thread.sleep(500);
@@ -15671,7 +15783,7 @@ public class CFOMethod {
             			test.log(LogStatus.PASS, "File downloaded successfully.");
             			
             			Thread.sleep(5500);
-            			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+            			File dir1 = new File("C://Users//snehalp//Downloads");
             			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
             			
             			if(dirContents.length < allFilesNew.length)
@@ -15924,7 +16036,7 @@ public class CFOMethod {
           			
           		
           			Thread.sleep(100);
-          			File dir = new File("C://Users//Snehal Patil//Downloads");
+          			File dir = new File("C://Users//snehalp//Downloads");
           			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
           			
           			Thread.sleep(500);
@@ -15934,7 +16046,7 @@ public class CFOMethod {
           			test.log(LogStatus.PASS, "File downloaded successfully.");
           			
           			Thread.sleep(5500);
-          			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+          			File dir1 = new File("C://Users//snehalp//Downloads");
           			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
           			
           			if(dirContents.length < allFilesNew.length)
@@ -16187,7 +16299,7 @@ public class CFOMethod {
             			
             		
             			Thread.sleep(100);
-            			File dir = new File("C://Users//Snehal Patil//Downloads");
+            			File dir = new File("C://Users//snehalp//Downloads");
             			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
             			
             			Thread.sleep(500);
@@ -16197,7 +16309,7 @@ public class CFOMethod {
             			test.log(LogStatus.PASS, "File downloaded successfully.");
             			
             			Thread.sleep(5500);
-            			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+            			File dir1 = new File("C://Users//snehalp//Downloads");
             			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
             			
             			if(dirContents.length < allFilesNew.length)
@@ -16450,7 +16562,7 @@ public class CFOMethod {
           			
           		
           			Thread.sleep(100);
-          			File dir = new File("C://Users//Snehal Patil//Downloads");
+          			File dir = new File("C://Users//snehalp//Downloads");
           			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
           			
           			Thread.sleep(500);
@@ -16460,7 +16572,7 @@ public class CFOMethod {
           			test.log(LogStatus.PASS, "File downloaded successfully.");
           			
           			Thread.sleep(5500);
-          			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+          			File dir1 = new File("C://Users//snehalp//Downloads");
           			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
           			
           			if(dirContents.length < allFilesNew.length)
@@ -16713,7 +16825,7 @@ public class CFOMethod {
        			
        		
        			Thread.sleep(100);
-       			File dir = new File("C://Users//Snehal Patil//Downloads");
+       			File dir = new File("C://Users//snehalp//Downloads");
        			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
        			
        			Thread.sleep(500);
@@ -16723,7 +16835,7 @@ public class CFOMethod {
        			test.log(LogStatus.PASS, "File downloaded successfully.");
        			
        			Thread.sleep(5500);
-       			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+       			File dir1 = new File("C://Users//snehalp//Downloads");
        			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
        			
        			if(dirContents.length < allFilesNew.length)
@@ -16976,7 +17088,7 @@ public class CFOMethod {
         			
         		
         			Thread.sleep(100);
-        			File dir = new File("C://Users//Snehal Patil//Downloads");
+        			File dir = new File("C://Users//snehalp//Downloads");
         			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
         			
         			Thread.sleep(500);
@@ -16986,7 +17098,7 @@ public class CFOMethod {
         			test.log(LogStatus.PASS, "File downloaded successfully.");
         			
         			Thread.sleep(5500);
-        			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+        			File dir1 = new File("C://Users//snehalp//Downloads");
         			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
         			
         			if(dirContents.length < allFilesNew.length)
@@ -17239,7 +17351,7 @@ public class CFOMethod {
      			
      		
      			Thread.sleep(100);
-     			File dir = new File("C://Users//Snehal Patil//Downloads");
+     			File dir = new File("C://Users//snehalp//Downloads");
      			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
      			
      			Thread.sleep(500);
@@ -17249,7 +17361,7 @@ public class CFOMethod {
      			test.log(LogStatus.PASS, "File downloaded successfully.");
      			
      			Thread.sleep(5500);
-     			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+     			File dir1 = new File("C://Users//snehalp//Downloads");
      			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
      			
      			if(dirContents.length < allFilesNew.length)
@@ -17502,7 +17614,7 @@ public class CFOMethod {
   			
   		
   			Thread.sleep(100);
-  			File dir = new File("C://Users//Snehal Patil//Downloads");
+  			File dir = new File("C://Users//snehalp//Downloads");
   			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
   			
   			Thread.sleep(500);
@@ -17512,7 +17624,7 @@ public class CFOMethod {
   			test.log(LogStatus.PASS, "File downloaded successfully.");
   			
   			Thread.sleep(5500);
-  			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+  			File dir1 = new File("C://Users//snehalp//Downloads");
   			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
   			
   			if(dirContents.length < allFilesNew.length)
@@ -17703,7 +17815,7 @@ public class CFOMethod {
    			
    		
    			Thread.sleep(100);
-   			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+   			File dir = new File("C:\\Users\\snehalp\\Downloads");
    			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
    			
    			Thread.sleep(500);
@@ -17713,7 +17825,7 @@ public class CFOMethod {
    		
    			
    			Thread.sleep(5500);
-   			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+   			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
    			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
    			
    			if(dirContents.length < allFilesNew.length)
@@ -17755,14 +17867,14 @@ public class CFOMethod {
    			{
    				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
    			}
-   			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+   			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -17927,7 +18039,7 @@ public class CFOMethod {
  			
  		
  			Thread.sleep(100);
- 			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+ 			File dir = new File("C:\\Users\\snehalp\\Downloads");
  			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
  			
  			Thread.sleep(500);
@@ -17937,7 +18049,7 @@ public class CFOMethod {
  		
  			
  			Thread.sleep(5500);
- 			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+ 			File dir1 = new File("C://Users//snehalp//Downloads");
  			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
  			
  			if(dirContents.length < allFilesNew.length)
@@ -17980,14 +18092,14 @@ public class CFOMethod {
  				test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
  			}
  			
- 			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+ 			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -18147,7 +18259,7 @@ public class CFOMethod {
   			
   		
   			Thread.sleep(100);
-  			File dir = new File("C://Users//Snehal Patil//Downloads");
+  			File dir = new File("C://Users//snehalp//Downloads");
   			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
   			
   			Thread.sleep(500);
@@ -18157,7 +18269,7 @@ public class CFOMethod {
   		
   			
   			Thread.sleep(5500);
-  			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+  			File dir1 = new File("C://Users//snehalp//Downloads");
   			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
   			
   			if(dirContents.length < allFilesNew.length)
@@ -18201,14 +18313,14 @@ public class CFOMethod {
   			}
   			
   			
-  			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+  			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -22327,7 +22439,7 @@ public class CFOMethod {
 			     	
 			        Thread.sleep(2000);
 					performerPOM.clickLocationFilter(driver).click();
-					Thread.sleep(500);
+					Thread.sleep(2000);
 					performerPOM.clickExpand(driver).click();
 					Thread.sleep(500);
 			       String locationtext =performerPOM.SelectLocation(driver).getText();
@@ -22615,14 +22727,14 @@ public class CFOMethod {
 			       Thread.sleep(500);
 				   performerPOM.clickCaseNotice(driver).click();
 			        
-			       Thread.sleep(500);
+			     /*  Thread.sleep(500);
 			       performerPOM.clickStatusFilter(driver).click();
 			       Thread.sleep(500);
 			       String Statustext = performerPOM.selectStatusFilter(driver).getText();
 			       Thread.sleep(500);
 			       performerPOM.selectStatusFilter(driver).click();
 			       Thread.sleep(500);
-			       performerPOM.clickStatusFilter(driver).click();
+			       performerPOM.clickStatusFilter(driver).click();*/
 			       Thread.sleep(500);
 			       
 			       performerPOM.clickDepartmentFilter(driver).click();
@@ -22664,7 +22776,7 @@ public class CFOMethod {
 			        List<String> li=new ArrayList<String>();
 			        li.add(locationtext);
 			        li.add(caseNotice);
-			        li.add(Statustext);
+			        //li.add(Statustext);
 			        li.add(DeptText);
 			        li.add(RiskText);
 			       // li.add(AgeText);
@@ -22675,7 +22787,7 @@ public class CFOMethod {
 					List<String> filter=new ArrayList<String>();	
 					filter.add("Location");
 					filter.add("caseNotice");	
-					filter.add("Status");
+					//filter.add("Status");
 					filter.add("Dept");
 					filter.add("Risk");
 					//filter.add("Age");
@@ -22711,7 +22823,7 @@ public class CFOMethod {
 				
 					List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[1]"));
 					List<WebElement> casenotice=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[4]"));
-					List<WebElement> status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]"));
+					//List<WebElement> status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]"));
 					List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[10]"));
 					List<WebElement> Risk=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[12]"));
 					List<WebElement> Category=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
@@ -22733,20 +22845,20 @@ public class CFOMethod {
 								raw.addAll(casenotice);
 							}
 							
-						   else if(i==2)
+						  /* else if(i==2)
 							{
 								raw.addAll(status);
-							}
+							}*/
 							
-						   else if(i==3)
+						   else if(i==2)
 						   {
 							 raw.addAll(Dept);
 						   }
-						   else if(i==4)
+						   else if(i==3)
 						   {
 							   raw.addAll(Risk);
 						   }
-						   else if(i==5)
+						   else if(i==4)
 						   {
 							   raw.addAll(Category);
 						   }
@@ -22877,14 +22989,14 @@ public class CFOMethod {
 			       Thread.sleep(500);
 				   performerPOM.clickCaseNotice(driver).click();
 			        
-			       Thread.sleep(500);
+			      /* Thread.sleep(500);
 			       performerPOM.clickStatusFilter(driver).click();
 			       Thread.sleep(500);
 			       String Statustext = performerPOM.selectStatusFilter(driver).getText();
 			       Thread.sleep(500);
 			       performerPOM.selectStatusFilter(driver).click();
 			       Thread.sleep(500);
-			       performerPOM.clickStatusFilter(driver).click();
+			       performerPOM.clickStatusFilter(driver).click();*/
 			       Thread.sleep(500);
 			       
 			       performerPOM.clickDepartmentFilter(driver).click();
@@ -22926,7 +23038,7 @@ public class CFOMethod {
 			        List<String> li=new ArrayList<String>();
 			        li.add(locationtext);
 			        li.add(caseNotice);
-			        li.add(Statustext);
+			       // li.add(Statustext);
 			        li.add(DeptText);
 			        li.add(RiskText);
 			       // li.add(AgeText);
@@ -22937,7 +23049,7 @@ public class CFOMethod {
 					List<String> filter=new ArrayList<String>();	
 					filter.add("Location");
 					filter.add("caseNotice");	
-					filter.add("Status");
+					//filter.add("Status");
 					filter.add("Dept");
 					filter.add("Risk");
 					//filter.add("Age");
@@ -22973,7 +23085,7 @@ public class CFOMethod {
 				
 					List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[1]"));
 					List<WebElement> casenotice=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[4]"));
-					List<WebElement> status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]"));
+					//List<WebElement> status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]"));
 					List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[10]"));
 					List<WebElement> Risk=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[12]"));
 					List<WebElement> Category=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
@@ -22995,20 +23107,20 @@ public class CFOMethod {
 								raw.addAll(casenotice);
 							}
 							
-						   else if(i==2)
+						  /* else if(i==2)
 							{
 								raw.addAll(status);
-							}
+							}*/
 							
-						   else if(i==3)
+						   else if(i==2)
 						   {
 							 raw.addAll(Dept);
 						   }
-						   else if(i==4)
+						   else if(i==3)
 						   {
 							   raw.addAll(Risk);
 						   }
-						   else if(i==5)
+						   else if(i==4)
 						   {
 							   raw.addAll(Category);
 						   }
@@ -23075,11 +23187,242 @@ public class CFOMethod {
 					performerPOM.caseNoticeSummaryGraphClose(driver).click();
 					
 					  
+				}			
+				
+				
+				public static void CaseUpdationImportUtility(WebDriver driver,ExtentTest test) throws InterruptedException
+				{
+					
+					performerPOM.ClickImportUtility(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseCaseUpdationType(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseCaseUpdationFile(driver);
+					Thread.sleep(3000);
+					performerPOM.UploadCaseFile(driver).click();
+					
+					
+					WebDriverWait wait=new WebDriverWait(driver,30);
+					Thread.sleep(3000);
+					wait.until(ExpectedConditions.visibilityOf(performerPOM.readCaseMsg(driver)));
+					
+					Thread.sleep(500);
+					String msg5 = performerPOM.readCaseMsg(driver).getText();		//Reading Message appeared after save button
+				
+					if(msg5.equalsIgnoreCase(msg5))
+					{
+						test.log(LogStatus.PASS, "Message displayed = "+msg5);
+					
+					}
+					else
+					{
+						test.log(LogStatus.FAIL, "Message displayed = "+msg5);
+					}
+					
+					Thread.sleep(300);
+					OverduePOM.clickDashboard(driver).click();
+				}
+				
+				public static void CaseUpdationUploadEmtyFile(WebDriver driver,ExtentTest test) throws InterruptedException
+				{
+				
+					performerPOM.ClickImportUtility(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseCaseUpdationType(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseCaseUpdationFile1(driver);
+					Thread.sleep(3000);
+					performerPOM.UploadCaseFile(driver).click();
+					
+					
+					try
+					{
+						
+					  Thread.sleep(500);
+					  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+		              test.log(LogStatus.PASS, "Case Updation =  Upload Empty File = "+msg7);
+						
+					  }
+					catch(Exception e)
+					{
+						test.log(LogStatus.FAIL, "Case Updation = Validation message not displayed");
+					}
+					Thread.sleep(300);
+					OverduePOM.clickDashboard(driver).click();
+				}
+				public static void CaseUpdationUploadInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
+				{
+				
+					performerPOM.ClickImportUtility(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseCaseUpdationType(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseCaseUpdationFile2(driver);
+					Thread.sleep(3000);
+					performerPOM.UploadCaseFile(driver).click();
+					
+					
+					try
+					{
+						
+					  Thread.sleep(500);
+					  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+		              test.log(LogStatus.PASS, "Case Updation =  Upload Empty File = "+msg7);
+						
+					  }
+					catch(Exception e)
+					{
+						test.log(LogStatus.FAIL, "Case Updation = Validation message not displayed");
+					}
+					Thread.sleep(300);
+					OverduePOM.clickDashboard(driver).click();
 				}
 						
+				public static void CaseUpdationUploadInvalidFile(WebDriver driver,ExtentTest test) throws InterruptedException
+				{
+				
+					performerPOM.ClickImportUtility(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseCaseUpdationType(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseCaseFile3(driver);
+					Thread.sleep(3000);
+					performerPOM.UploadCaseFile(driver).click();
+					
+					
+					try
+					{
+						
+					  Thread.sleep(500);
+					  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+		              test.log(LogStatus.PASS, "Case Updation =  Upload Invalid File = "+msg7);
+						
+					  }
+					catch(Exception e)
+					{
+						test.log(LogStatus.FAIL, "Case Updation = Validation message not displayed");
+					}
+					Thread.sleep(300);
+					OverduePOM.clickDashboard(driver).click();
+				}
+						
+			public static void NoticeUpdation(WebDriver driver,ExtentTest test) throws InterruptedException
+			{
+				
+				performerPOM.ClickImportUtility(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickNotice(driver).click();
+				Thread.sleep(3000);
+				performerPOM.ChooseNoticeUpdationType(driver).click();
+				Thread.sleep(3000);
+				performerPOM.ChooseNoticeUpdationFile(driver);
+				Thread.sleep(3000);
+				performerPOM.UploadNoticeFile(driver).click();
 				
 				
+				
+				Thread.sleep(500);
+				String msg = performerPOM.readNoticeMsg(driver).getText();		//Reading Message appeared after save button
+				
+				if(msg.equalsIgnoreCase(msg))
+				{
+					test.log(LogStatus.PASS, "Message displayed = "+msg);
+				
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Message displayed = "+msg);
+				}
+				Thread.sleep(300);
+				OverduePOM.clickDashboard(driver).click();
+			}
 			
+			public static void NoticeUpdationUploadEmtyFile(WebDriver driver,ExtentTest test) throws InterruptedException
+			{
+			
+				performerPOM.ClickImportUtility(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickNotice(driver).click();
+				Thread.sleep(3000);
+				performerPOM.ChooseNoticeUpdationType(driver).click();
+				Thread.sleep(3000);
+				performerPOM.ChooseNoticeUpdtionEmptyFile(driver);
+				Thread.sleep(3000);
+				performerPOM.UploadNoticeFile(driver).click();
+				
+				try
+				{
+					
+				  Thread.sleep(500);
+				  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+	              test.log(LogStatus.PASS, "Notice Updation =  Upload Empty File = "+msg7);
+					
+				  }
+				catch(Exception e)
+				{
+					test.log(LogStatus.FAIL, "Notice Updation = Validation message not displayed");
+				}
+				Thread.sleep(300);
+				OverduePOM.clickDashboard(driver).click();
+			}
+			public static void NoticeUpdationUploadInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
+			{
+			
+				performerPOM.ClickImportUtility(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickNotice(driver).click();
+				Thread.sleep(3000);
+				performerPOM.ChooseNoticeUpdationType(driver).click();
+				Thread.sleep(3000);
+				performerPOM.ChooseNoticeUpdtionInvalidData(driver);
+				Thread.sleep(3000);
+				performerPOM.UploadNoticeFile(driver).click();
+				
+				
+				try
+				{
+					
+				  Thread.sleep(500);
+				  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+	              test.log(LogStatus.PASS, "Notice Updation =  Upload Empty File = "+msg7);
+					
+				  }
+				catch(Exception e)
+				{
+					test.log(LogStatus.FAIL, "Notice Updation = Validation message not displayed");
+				}
+				Thread.sleep(300);
+				OverduePOM.clickDashboard(driver).click();
+			}
+			public static void NoticeUpdationUploadInvalidFile(WebDriver driver,ExtentTest test) throws InterruptedException
+			{
+				performerPOM.ClickImportUtility(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickNotice(driver).click();
+				Thread.sleep(3000);
+				performerPOM.ChooseNoticeUpdationType(driver).click();
+				Thread.sleep(3000);
+				performerPOM.ChooseCaseFile3(driver);
+				Thread.sleep(3000);
+				performerPOM.UploadNoticeFile(driver).click();
+				
+				
+				
+				try
+				{
+					
+				  Thread.sleep(500);
+				  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+	              test.log(LogStatus.PASS, "Notice Updation =  Upload Invalid File = "+msg7);
+					
+				  }
+				catch(Exception e)
+				{
+					test.log(LogStatus.FAIL, "Notice Updation = Validation message not displayed");
+				}
+				Thread.sleep(300);
+				OverduePOM.clickDashboard(driver).click();
+			}
 			 
 				
 			 

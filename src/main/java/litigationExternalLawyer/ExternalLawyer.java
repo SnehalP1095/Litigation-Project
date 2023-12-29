@@ -105,7 +105,7 @@ public class ExternalLawyer
 	void NoticeWithExistingData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice With Existing Data verification");
-		MethodsPOM.NoticeWithExistingData(driver, test);
+		MethodsPOM.NoticeWithExistingData(driver, test,workbook);
 		extent.endTest(test);
 		extent.flush();
 	}

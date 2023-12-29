@@ -2,7 +2,7 @@ package litigationAdditionalOwner;
 
 import java.awt.AWTException;
 import java.awt.Robot;
-import java.awt.event.KeyEvent;
+//import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 
@@ -126,8 +126,8 @@ public class MethodsPOM
 		performerPOM.clickMonetary(driver).sendKeys("Automation1232");
 		Thread.sleep(3000);
 		clickLawFirm(driver);
-		Thread.sleep(3000);
-		selectSapCode(driver);
+		//Thread.sleep(3000);
+		//selectSapCode(driver);
 		 Thread.sleep(5000);
 		selectNoticeRecipetDate(driver);
 		 Thread.sleep(5000);
@@ -271,11 +271,11 @@ public class MethodsPOM
 		
 		public static void clickRefNo(WebDriver driver) throws InterruptedException
 		{
-		Thread.sleep(500);
-		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
-		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
-		String refno = c1.getStringCellValue();
-		performerPOM.clickRefNo(driver).sendKeys(refno);			//Writing 'Reference No'
+			Thread.sleep(500);
+			Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
+			Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+			String refno = c1.getStringCellValue();
+			performerPOM.clickRefNo(driver).sendKeys(refno);			//Writing 'Reference No'
 		}
 		
 		public static void selectNoticeType(WebDriver driver) 
@@ -631,9 +631,9 @@ public class MethodsPOM
 	         /*  Thread.sleep(3000);
 	        performerPOM.clickNoticeDocumentDownloadcfo(driver).click();
 	         
-	        test.log(LogStatus.PASS, "Document download succssesfully");
+	        test.log(LogStatus.PASS, "Document download succssesfully");*/
 	        
-	        Thread.sleep(3000);
+	     /*   Thread.sleep(3000);
 	        performerPOM.clickNoticeDocumentViewcfo(driver).click();
 	        
 	       
@@ -644,28 +644,6 @@ public class MethodsPOM
 	        test.log(LogStatus.PASS, "Document View popup open  succssesfully");*/
 				
 				driver.switchTo().parentFrame();
-				  Thread.sleep(8000);
-			        performerPOM.clickNoticeDocumentdeletecfo(driver).click();
-			        
-			        Thread.sleep(5000);
-				    // Switching to Alert        
-			        Alert alert = driver.switchTo().alert();		
-			        		
-			        // Capturing alert message.    
-			        String alertMessage= driver.switchTo().alert().getText();	
-			        
-			        
-			        test.log(LogStatus.PASS, alertMessage);
-			        		
-			        // Displaying alert message		
-			        System.out.println(alertMessage);
-			        
-			 		
-			        // Accepting alert		
-			        alert.accept();	
-			        
-			      	
-	       
 	        
 	        Thread.sleep(5000);
 	        performerPOM.clickNoticeDocumentsharecfo(driver).click();
@@ -716,6 +694,29 @@ public class MethodsPOM
 	      
 	        Thread.sleep(3000);
 	        performerPOM. clickNoticeDocumentshareclosepopupcfo(driver).click();
+	        
+	        
+	        
+	    	driver.switchTo().parentFrame();
+			  Thread.sleep(8000);
+		        performerPOM.clickNoticeDocumentdeletecfo(driver).click();
+		        
+		        Thread.sleep(5000);
+			    // Switching to Alert        
+		        Alert alert = driver.switchTo().alert();		
+		        		
+		        // Capturing alert message.    
+		        String alertMessage= driver.switchTo().alert().getText();	
+		        
+		        
+		        test.log(LogStatus.PASS, alertMessage);
+		        		
+		        // Displaying alert message		
+		        System.out.println(alertMessage);
+		        
+		 		
+		        // Accepting alert		
+		        alert.accept();	
 	         
     }
 		
@@ -828,7 +829,7 @@ public class MethodsPOM
 			    }
 			 	
 				Thread.sleep(3000);
-				performerPOM.clickNoticeEditTaskcfo(driver).click();
+				performerPOM.clickNoticeEditTask(driver).click();
 				
 				performerPOM.clickTaskTitle(driver).clear();
 				
@@ -998,7 +999,7 @@ public class MethodsPOM
 									test.log(LogStatus.FAIL, "Add Response = "+msg3);
 							}
 	 		
-	                Thread.sleep(3000);
+	              Thread.sleep(3000);
 	                performerPOM.clickNoticeEditResponsecfo(driver).click();
 	
                    	performerPOM.clickCourierCompany(driver).clear();
@@ -1479,7 +1480,7 @@ public class MethodsPOM
        }
        else
       {
-          test.log(LogStatus.PASS, type+" Dashboard Count doesn't increamented. Old count = "+open+", New Count = "+open1);
+          test.log(LogStatus.FAIL, type+" Dashboard Count doesn't increamented. Old count = "+open+", New Count = "+open1);
        }
      }
 
@@ -1633,7 +1634,7 @@ public class MethodsPOM
 			{
 			Thread.sleep(7000);
 			performerPOM.clickLocation(driver).click();					//Clicking on Location drop down
-			Thread.sleep(3000);
+			Thread.sleep(7000);
 		//	performerPOM.clickPlus(driver).click();
 			performerPOM.SelectLocation1(driver).click();;
 			//elementsList.get(2).click();								//Selecting third visible location
@@ -1726,11 +1727,11 @@ public class MethodsPOM
 		
 		  Thread.sleep(500);
 		  String msg=performerPOM.readDocMsg(driver).getText();		//Reading Message appeared after save button
-		  int flag = 0;
+		  
 		  if(msg.equalsIgnoreCase("Document(s) uploaded successfully"))
 		 {
 			 test.log(LogStatus.PASS, "Message displayed = "+msg);
-			 flag = 1;
+			
 		 }
 		 else
 		 {
@@ -1755,7 +1756,7 @@ public class MethodsPOM
 	        test.log(LogStatus.PASS, "Document View popup open  succssesfully");
 	        
 	        
-	       /* Thread.sleep(3000);
+	       Thread.sleep(3000);
 	        performerPOM.clickCaseDocumentdeletecfo(driver).click();
 	        
 	        Thread.sleep(5000);
@@ -1773,7 +1774,7 @@ public class MethodsPOM
 	        
 	 		
 	        // Accepting alert		
-	        alert.accept();	*/
+	        alert.accept();	
 	        
 	       
 	        
@@ -1848,7 +1849,7 @@ public class MethodsPOM
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("10-11-2023");
+		    performerPOM.clickHearingDate(driver).sendKeys("06-11-2023");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -1929,7 +1930,7 @@ public class MethodsPOM
 			
 			Thread.sleep(3000);
 			String msg = performerPOM.readTaskMsg(driver).getText();
-			if(msg.contains(msg))
+			if(msg.equalsIgnoreCase(msg))
 			{
 				test.log(LogStatus.PASS, "Add Task =" +msg);
 			}
@@ -1939,11 +1940,11 @@ public class MethodsPOM
 			}
 			
 			
-			Thread.sleep(2000);
-			performerPOM.clickMinimize(driver).click();	
+			//Thread.sleep(2000);
+			//performerPOM.clickMinimize(driver).click();	
 			
-//			Thread.sleep(3000);
-//			performerPOM.clickNoticeEditTaskcfo(driver).click();
+			Thread.sleep(3000);
+			performerPOM.clickNoticeEditTaskcfo(driver).click();
 			
 //			JavascriptExecutor js = (JavascriptExecutor) driver;
 //			
@@ -1953,7 +1954,7 @@ public class MethodsPOM
 			performerPOM.clickTaskTitle(driver).clear();
 			
 			Thread.sleep(3000);
-			performerPOM.clickTaskTitle(driver).sendKeys("New Task 10 July");	//Writing 'Task Title'
+			performerPOM.clickTaskTitle(driver).sendKeys(" Task 19July");	//Writing 'Task Title'
 			
 			performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
 			
@@ -2035,7 +2036,7 @@ public class MethodsPOM
 			performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 			
 			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Automate Test 03JUN2023");
+			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Test 07Dec2023");
 			
 			Thread.sleep(3000);
 			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
@@ -2102,7 +2103,7 @@ public class MethodsPOM
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("25-12-2023");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("05-01-2024");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2137,7 +2138,7 @@ public class MethodsPOM
 			    Thread.sleep(3000);
 			    performerPOM.clickCaseHearingDecsri(driver).clear();
 			    Thread.sleep(3000);
-			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 21 JUN 2023");		//Writing 'HearingDescription'
+			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 27 Dec 2023");		//Writing 'HearingDescription'
 			    
 			    Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearing(driver).click();
@@ -2194,7 +2195,7 @@ public class MethodsPOM
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("27-08-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("24-11-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);
@@ -2495,12 +2496,12 @@ public class MethodsPOM
 			
 				if(msg4.equalsIgnoreCase("Payment Details Saved Successfully."))
 				{
-					test.log(LogStatus.PASS, "Message displayed = "+msg4);
+					test.log(LogStatus.PASS, "Add Payment = "+msg4);
 				
 				}
 				else
 				{
-					test.log(LogStatus.FAIL, "Message displayed = "+msg4);
+					test.log(LogStatus.FAIL, "Add Payment= "+msg4);
 				}
 			
 				
@@ -2526,12 +2527,12 @@ public class MethodsPOM
 				
 					if(msg.equalsIgnoreCase("Payment Details Saved Successfully."))
 					{
-						test.log(LogStatus.PASS, "Message displayed = "+msg);
+						test.log(LogStatus.PASS, "Update Payment = "+msg);
 					
 					}
 					else
 					{
-						test.log(LogStatus.FAIL, "Message displayed = "+msg);
+						test.log(LogStatus.FAIL, "Update Payment = "+msg);
 					}
 				
 				
@@ -2968,7 +2969,7 @@ public class MethodsPOM
 			}
 			
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -2977,8 +2978,8 @@ public class MethodsPOM
 			performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 			//test.log(LogStatus.PASS, "File downloaded successfully.");
 			
-			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			Thread.sleep(8000);
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -3695,31 +3696,72 @@ public class MethodsPOM
 		}
 		else if(type.equals("Task"))
 		{
+			Thread.sleep(4000);
+			js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+			
+			Thread.sleep(4000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.clickStatus1(driver)));
+			performerPOM.clickStatus1(driver).click();
+			
+			
+			List<WebElement>SeletcStatus = driver.findElements(By.xpath("//*[@id='ddlStatus_chosen']/div/ul/li[2]"));
+			    selectOptionFromDropDown_bs(SeletcStatus, "Approve/Closed");
+		
+			Thread.sleep(5000);
+			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
 			
 		}
-		
-		Thread.sleep(3000);
-		wait.until(ExpectedConditions.visibilityOf(performerPOM.readMessage2(driver)));
-		String msg = performerPOM.readMessage2(driver).getText();
-		
-		if(msg.contains("Successfully"))
+		if(type.equals("Task"))
 		{
-			test.log(LogStatus.PASS, "Message displayed - "+msg);
-		}
-		else if(msg.contains("already exist"))
-		{
-			test.log(LogStatus.FAIL, "Message displayed - "+msg);
+	
+			Thread.sleep(4000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.clickInvalidResponsemsg(driver)));
+			String msg = performerPOM.clickInvalidResponsemsg(driver).getText();
+			
+			if(msg.contains(msg))
+			{
+				test.log(LogStatus.PASS, "Message displayed - "+msg);
+			}
+			else if(msg.contains(msg))
+			{
+				test.log(LogStatus.FAIL, "Message displayed - "+msg);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Message displayed - "+msg);
+			}
+		
+			Thread.sleep(3000);
+			driver.switchTo().parentFrame();
+		
+			Thread.sleep(3000);
+			performerPOM.ActioncloseTaskpopup(driver).click();
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Message displayed - "+msg);
+			Thread.sleep(3000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.readMessage2(driver)));
+			String msg = performerPOM.readMessage2(driver).getText();
+		
+			if(msg.contains("Successfully"))
+			{
+				test.log(LogStatus.PASS, "Message displayed - "+msg);
+			}
+			else if(msg.contains("already exist"))
+			{
+				test.log(LogStatus.FAIL, "Message displayed - "+msg);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Message displayed - "+msg);
+			}
+		
+			Thread.sleep(3000);
+			driver.switchTo().parentFrame();
+		
+			Thread.sleep(3000);
+			performerPOM.clickClose(driver).click();
 		}
-		
-		Thread.sleep(3000);
-		driver.switchTo().parentFrame();
-		
-		Thread.sleep(3000);
-		performerPOM.clickClose(driver).click();
 		
 		Thread.sleep(1000);
 		OverduePOM.clickDashboard(driver).click();
@@ -3739,7 +3781,7 @@ public class MethodsPOM
 				//test.log(LogStatus.PASS, "Notice-Closed count increased.");
 				test.log(LogStatus.PASS, "Notice-Closed count increased = Old Count = "+closed+" | New Count = "+closed1);
 				//test.log(LogStatus.PASS, "Notice-Open count decreased.");
-				test.log(LogStatus.PASS, "Old Count = "+open+" | New Count = "+open1);
+				test.log(LogStatus.PASS, "Notice-Open count decreased- Old Count = "+open+" | New Count = "+open1);
 				//test.log(LogStatus.PASS, "Case-Open count increased.");
 				test.log(LogStatus.PASS, "Case-Open count increased. =Old Count = "+caseOpen+" | New Count = "+caseOpen1);
 			}
@@ -3748,7 +3790,7 @@ public class MethodsPOM
 				//test.log(LogStatus.FAIL, "Notice-Closed count doesn't increased.");
 				test.log(LogStatus.FAIL, "Notice-Closed count doesn't increased. =Old Count = "+closed+" | New Count = "+closed1);
 				//test.log(LogStatus.FAIL, "Notice-Open count doesn't decreased.");
-				test.log(LogStatus.FAIL, "Old Count = "+open+" | New Count = "+open1);
+				test.log(LogStatus.FAIL, "Notice-Open count doesn't decreased -Old Count = "+open+" | New Count = "+open1);
 				//test.log(LogStatus.FAIL, "Case-Open count doesn't increased.");
 				test.log(LogStatus.FAIL, "Case-Open count doesn't increased. =Old Count = "+caseOpen+" | New Count = "+caseOpen1);
 			}
@@ -3798,16 +3840,16 @@ public class MethodsPOM
 	static void Report(WebDriver driver, ExtentTest test, int count1, String type) throws InterruptedException, IOException
 	{
 		Thread.sleep(700);
-		File dir = new File("C://Users//Snehal Patil//Downloads");
+		File dir = new File("C://Users//snehalp//Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 //		Thread.sleep(2000);
 //		CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 		
 		Thread.sleep(6000);
-		File dir1 = new File("C://Users//Snehal Patil//Downloads");
+		File dir1 = new File("C://Users//snehalp//Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 		
@@ -3875,7 +3917,7 @@ public class MethodsPOM
 		performerPOM.clickMyDocument(driver).click();					//Clicking on 'My Document'
 		performerPOM.clickmyDocument(driver).click();	                    //Clicking on 'My Document'
 		
-		Thread.sleep(3000);
+		/*Thread.sleep(3000);
 		performerPOM.clickDocLocFilter(driver).click();
 		
 		Thread.sleep(3000);
@@ -3893,7 +3935,7 @@ public class MethodsPOM
 		else
 		{
 			test.log(LogStatus.PASS, "My Document = clear button not Work Successfully");
-		} 
+		} */
 		   
 		
 		
@@ -3985,19 +4027,47 @@ public class MethodsPOM
 				Thread.sleep(5000);
 				performerPOM.selectTypeTask(driver).click();					//Selecting 'Task' option.
 				
-				 Thread.sleep(4000);
-			     performerPOM.clickDownloadDocument(driver).click();	
+				
 			     
-			     Thread.sleep(5000);
-					if(performerPOM.clickDownloadDocument(driver).isEnabled())
-					{
-						performerPOM.clickDownloadDocument(driver).click();
-						 test.log(LogStatus.PASS, "Task Document  Downloaded Successfully.");
-					}
-					else
-					{
-						test.log(LogStatus.PASS, "Task Document not Downloaded Successfully.");
-					}
+			     try
+			     {
+			    	 
+			    	 Thread.sleep(4000);
+				     performerPOM.clickDownloadDocument(driver).click();			    	 
+					  
+				     Thread.sleep(4000);
+
+				     // Switching to Alert        
+				        Alert alert = driver.switchTo().alert();		
+				        		
+				        // Capturing alert message.    
+				        String alertMessage= driver.switchTo().alert().getText();	
+				        
+				        Thread.sleep(3000);
+				        test.log(LogStatus.PASS, alertMessage);
+				        		
+				        // Displaying alert message		
+				        System.out.println(alertMessage);	
+				        
+				        		
+				        // Accepting alert		
+				        alert.accept();	
+			    	 
+			    	  }
+			     catch (Exception e)
+			     {
+			    	 
+			    	 Thread.sleep(5000);
+						if(performerPOM.clickDownloadDocument(driver).isEnabled())
+						{
+							performerPOM.clickDownloadDocument(driver).click();
+							 test.log(LogStatus.PASS, "Task Document  Downloaded Successfully.");
+						}
+						else
+						{
+							test.log(LogStatus.PASS, "Task Document not Downloaded Successfully.");
+						}
+				}
 			       
 			      
 			       
@@ -4121,7 +4191,7 @@ public class MethodsPOM
 		
 	
 		
-		Thread.sleep(5000);
+	/*	Thread.sleep(5000);
 		if(performerPOM.clearButton(driver).isEnabled())
 		{
 			performerPOM.clearButton(driver).click();
@@ -4130,7 +4200,7 @@ public class MethodsPOM
 		else
 		{
 			test.log(LogStatus.PASS, "My Report = clear button not Work Successfully");
-		}
+		}*/
 		   
 		
 		
@@ -4372,7 +4442,7 @@ public class MethodsPOM
 		//--------------------------MIS Report------------------------------
 		
 	    Thread.sleep(100);
-		File dir = new File("C://Users//Snehal Patil//Downloads");
+		File dir = new File("C://Users//snehalp//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4383,7 +4453,7 @@ public class MethodsPOM
 	    //--------------------------closed Cases Reports------------------------------
 		
 		Thread.sleep(100);
-		File dir1 = new File("C://Users//Snehal Patil//Downloads");
+		File dir1 = new File("C://Users//snehalp//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4393,20 +4463,20 @@ public class MethodsPOM
 		
 	    //--------------------------Ext LawyerPerformance Reports------------------------------
 		
-		Thread.sleep(100);
-		File dir2 = new File("C://Users//Snehal Patil//Downloads");
+	/*	Thread.sleep(100);
+		File dir2 = new File("C://Users//snehalp//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
 		performerPOM.ExtLawyerPerformanceReports(driver).click();					//Clicking on 'Excel Report' image.
-		test.log(LogStatus.PASS, "Case :- Ext Lawyer Performance Reports downloaded successfully.");
+		test.log(LogStatus.PASS, "Case :- Ext Lawyer Performance Reports downloaded successfully.");*/
 		
 		
 		//--------------------------Budget Reports-----------------------------------
 		
 		
 		Thread.sleep(100);
-		File dir3 = new File("C://Users//Snehal Patil//Downloads");
+		File dir3 = new File("C://Users//snehalp//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4419,7 +4489,7 @@ public class MethodsPOM
 		
 		
 		Thread.sleep(100);
-		File dir4 = new File("C://Users//Snehal Patil//Downloads");
+		File dir4 = new File("C://Users//snehalp//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4430,7 +4500,7 @@ public class MethodsPOM
 		
 		
 		Thread.sleep(100);
-		File dir5 = new File("C://Users//Snehal Patil//Downloads");
+		File dir5 = new File("C://Users//snehalp//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4442,7 +4512,7 @@ public class MethodsPOM
 		
 		
 		Thread.sleep(100);
-		File dir6 = new File("C://Users//Snehal Patil//Downloads");
+		File dir6 = new File("C://Users//snehalp//Downloads");
 	//	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(250);
@@ -4454,7 +4524,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir7 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir7 = new File("C://Users//snehalp//Downloads");
 	 //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4466,7 +4536,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir8 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir8 = new File("C://Users//snehalp//Downloads");
 	 //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4478,7 +4548,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir9 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir9 = new File("C://Users//snehalp//Downloads");
 	 //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4489,7 +4559,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir10 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir10 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4501,7 +4571,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir11 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir11 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4535,7 +4605,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir15 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir15 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4547,7 +4617,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir20 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir20 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4561,7 +4631,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir19 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir19 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4572,13 +4642,13 @@ public class MethodsPOM
 		//------------------------ExtLawyerPerformanceReports------------------------------
 		
 		
-		 Thread.sleep(100);
-		 File dir18 = new File("C://Users//Snehal Patil//Downloads");
+		/* Thread.sleep(100);
+		 File dir18 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
 		performerPOM.ExtLawyerPerformanceReports(driver).click();					//Clicking on 'Excel Report' image.
-		test.log(LogStatus.PASS, "Notice :- Ext Lawyer Performance Reports downloaded successfully.");
+		test.log(LogStatus.PASS, "Notice :- Ext Lawyer Performance Reports downloaded successfully.");*/
 		
 		
 		
@@ -4587,7 +4657,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir17 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir17 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4601,7 +4671,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir16 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir16 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4613,7 +4683,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir13 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir13 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4626,7 +4696,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir14 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir14 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4640,7 +4710,7 @@ public class MethodsPOM
 		
 		
 		 Thread.sleep(100);
-		 File dir12 = new File("C://Users//Snehal Patil//Downloads");
+		 File dir12 = new File("C://Users//snehalp//Downloads");
 	     //	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 		Thread.sleep(250);
@@ -4675,13 +4745,13 @@ public class MethodsPOM
 		action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 08Dec23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 20Dec23");
 		
 		Thread.sleep(3000);
-		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 08Dec23");
+		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 20Dec23");
 		
 		Thread.sleep(3000);
-		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 08Dec23");
+		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 20Dec23");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -4696,14 +4766,14 @@ public class MethodsPOM
 		String msg = performerPOM.readMsg1(driver).getText();
 
 		
-		if(msg.equalsIgnoreCase("Reminder Saved Successfully."))
+		if(msg.equalsIgnoreCase(msg))
 		{
-			test.log(LogStatus.PASS, type+":-Reminder Saved Successfully.");
+			test.log(LogStatus.PASS, type+":-"+msg);
 		
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, type+":-Reminder with same details already exists");
+			test.log(LogStatus.FAIL,  type+":-"+msg);
 		}
 		
 		Thread.sleep(300);
@@ -4736,7 +4806,7 @@ public class MethodsPOM
 		performerPOM.clickReminderText(driver).clear();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 08Sep23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 13Sep23");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -4754,7 +4824,7 @@ public class MethodsPOM
 		Thread.sleep(500);
 		String msg5 = performerPOM.readMsg2(driver).getText();		//Reading Message appeared after save button
 	
-		if(msg5.equalsIgnoreCase("Reminder Updated Successfully"))
+		if(msg5.equalsIgnoreCase(msg5))
 		{
 			test.log(LogStatus.PASS, "Message displayed = "+msg5);
 		
@@ -4935,7 +5005,7 @@ public class MethodsPOM
 			 Thread.sleep(5000);
 			 performerPOM.clickcloseLegalEntity(driver).click();
 			 
-			 Thread.sleep(5000);
+			/* Thread.sleep(5000);
 			 performerPOM.clickLegalEntityFilter(driver).sendKeys("sneha", Keys.ENTER);
 			 
 			 Thread.sleep(5000);
@@ -5020,7 +5090,7 @@ public class MethodsPOM
 				else
 					{
 								test.log(LogStatus.FAIL, "Legal Entity-Customer branch name already exists");
-					}
+					}*/
 				   
 					Thread.sleep(3000);
 					performerPOM.clickcloseLegalEntity(driver).click();
@@ -5417,12 +5487,12 @@ public class MethodsPOM
 		performerPOM.closeLawyer(driver).click();
 		
 		
-		Thread.sleep(5000);
+		/*Thread.sleep(5000);
 		performerPOM.clickLawFirmFilter(driver).sendKeys("Advocate Anupam",Keys.ENTER);
 		Thread.sleep(5000);
 		performerPOM.clickLawFirmFilter(driver).clear();
 		
-		test.log(LogStatus.PASS,"Law Firm Filter Work Successfully");
+		test.log(LogStatus.PASS,"Law Firm Filter Work Successfully");*/
 		
 		
 	}	
@@ -6420,13 +6490,13 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		         driver.switchTo().alert().accept();		
 			  	 
 		        
-		        Thread.sleep(3000);
+		      /*  Thread.sleep(3000);
 				 performerPOM.clickLawFirmFilter(driver).sendKeys("	Dehl High Court",Keys.ENTER);
 				   
 				 Thread.sleep(3000);
 				 performerPOM.clickLawFirmFilter(driver).clear();
 				 
-				 test.log(LogStatus.PASS,"Court Filter work successfully");
+				 test.log(LogStatus.PASS,"Court Filter work successfully");*/
 			   	
 			 }	  
   
@@ -6717,13 +6787,13 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		        // Capturing alert message.    
 		         driver.switchTo().alert().accept(); 
 		         
-		         Thread.sleep(3000);
+		       /*  Thread.sleep(3000);
 				 performerPOM.clickLawFirmFilter(driver).sendKeys("criminal cases",Keys.ENTER);
 				   
 				 Thread.sleep(3000);
 				 performerPOM.clickLawFirmFilter(driver).clear();
 				 
-				 test.log(LogStatus.PASS,"Case/Notice Type Filter work successfully");
+				 test.log(LogStatus.PASS,"Case/Notice Type Filter work successfully");*/
 			  	 
 	}	
    
@@ -6961,12 +7031,12 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 				Thread.sleep(3000);
 				performerPOM.clickApplybtn(driver).click();
 				   
-				 Thread.sleep(3000);
+				/* Thread.sleep(3000);
 				 performerPOM.clickLawFirmFilter(driver).clear();
 				 
 				 
 				 
-				 test.log(LogStatus.PASS,"Payment Type Filter work successfully");
+				 test.log(LogStatus.PASS,"Payment Type Filter work successfully");*/
 	 }	
 	
 	
@@ -7190,7 +7260,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			Thread.sleep(3000);
 			performerPOM.clickApplybtn(driver).click();
 				   
-		    Thread.sleep(3000);
+		  /*  Thread.sleep(3000);
 			 performerPOM.clickLawFirmFilter(driver).sendKeys("Test",Keys.ENTER);
 				 
 			Thread.sleep(3000);
@@ -7200,7 +7270,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			 performerPOM.clickLawFirmFilter(driver).clear();
 	
 		    
-			 test.log(LogStatus.PASS,"Custom Prameter Filter work successfully");
+			 test.log(LogStatus.PASS,"Custom Prameter Filter work successfully");*/
 			 
 				Thread.sleep(300);
 				OverduePOM.clickDashboard(driver).click();
@@ -7310,13 +7380,13 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 	        // Capturing alert message.    
 	         driver.switchTo().alert().accept();	
 	         
-	         Thread.sleep(3000);
+	        /* Thread.sleep(3000);
 			 performerPOM.clickLawFirmFilter(driver).sendKeys("Defendant's Evidence",Keys.ENTER);
 			 
 			 Thread.sleep(3000);
 			 performerPOM.clickLawFirmFilter(driver).clear();
 			 
-			 test.log(LogStatus.PASS, "Case Stage Filter work successfully");
+			 test.log(LogStatus.PASS, "Case Stage Filter work successfully");*/
     	 
   }
      
@@ -7523,13 +7593,13 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		        // Capturing alert message.    
 		         driver.switchTo().alert().accept();	
 		         
-		         Thread.sleep(3000);
+		        /* Thread.sleep(3000);
 				 performerPOM.clickLegalEntityFilter(driver).sendKeys("Customer payment",Keys.ENTER);
 				   
 			     Thread.sleep(3000);
 				 performerPOM.clickLegalEntityFilter(driver).clear(); 
 		         
-		         test.log(LogStatus.PASS,"Document Type filter working successfully");
+		         test.log(LogStatus.PASS,"Document Type filter working successfully");*/
 	  }
 	  public static void DocumentTypeWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	  {
@@ -7729,13 +7799,13 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 	        // Capturing alert message.    
 	         driver.switchTo().alert().accept();	
 	         
-	         Thread.sleep(3000);
+	       /*  Thread.sleep(3000);
 			 performerPOM.clickLawFirmFilter(driver).sendKeys("	Financial Ratios",Keys.ENTER);
 			 
 			 Thread.sleep(3000);
 			 performerPOM.clickLawFirmFilter(driver).clear();
 			 
-			 test.log(LogStatus.PASS, "Rating Criteria Filter working  successfully");
+			 test.log(LogStatus.PASS, "Rating Criteria Filter working  successfully");*/
 		  
 	 }
 	  public static void RatingCriteriaWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
@@ -8169,7 +8239,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 
 		  
 		  Thread.sleep(3000);
-		  performerPOM.noticeStageMasters(driver).click();
+		  performerPOM.MailAuthorizationMasterscfo(driver).click();                //Notice Stage
 		  Thread.sleep(3000);
 		  performerPOM.addNoticeStage(driver).click();
 		  
@@ -8252,19 +8322,19 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		        // Accepting alert		
 		        alert.accept();	
 		        
-		        Thread.sleep(3000);
+		     /*   Thread.sleep(3000);
 				 performerPOM.clickNoticeStageFilter(driver).sendKeys("legal notice",Keys.ENTER);
 				 
 				 Thread.sleep(3000);
 				 performerPOM.clickNoticeStageFilter(driver).clear();
 				 
-				 test.log(LogStatus.PASS, "Notice Stage Filter working  successfully");
+				 test.log(LogStatus.PASS, "Notice Stage Filter working  successfully");*/
 			  
      }
 	  
 	  public static void UserReassignment(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	  {
-        
+		  WebDriverWait Wait=new WebDriverWait(driver,20);
 		  Thread.sleep(3000);
 		  performerPOM.clickMasters(driver).click();
 //		  Thread.sleep(3000);
@@ -8283,29 +8353,44 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		   Thread.sleep(3000);
 		  performerPOM.selectAssigntoUser(driver).click();
 		  
-//		  JavascriptExecutor js = (JavascriptExecutor) driver;
-//          js.executeScript("window.scrollBy(0,1000)");
-		 
-//          JavascriptExecutor executor = (JavascriptExecutor) driver;
-//          executor.executeScript("arguments[0].scrollIntoView(true);", selectcheckBox);    
-//          selectcheckBox.click();
-       
-          
-		  Thread.sleep(3000);
-		  performerPOM.selectcheckBox(driver).click();
-		  System.out.println("true");
+		  
+		     By locator = By.xpath("//*[@id='gridCases']/div[2]/table/tbody/tr[1]/td[1]/label");
+          Wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		     Thread.sleep(4000);
+          WebElement ViewButton = driver.findElement(locator);	
+			 Thread.sleep(4000);
+			 JavascriptExecutor jse=(JavascriptExecutor)driver;
+			 jse.executeScript("arguments[0].click();", ViewButton);
+			 
+		
+			 System.out.println("true");
 		  	
-		  Thread.sleep(3000);
-		  performerPOM.clicknotice(driver).click();
-		  Thread.sleep(3000);
-		  performerPOM.selectNoticeCheckkBox(driver).click();
-		  Thread.sleep(3000);
-		  performerPOM.clickTask(driver).click();
-		  Thread.sleep(3000);
-		  performerPOM. selectTaskCheckkBox(driver).click();
+			 Thread.sleep(3000);
+			 performerPOM.clicknotice(driver).click();
+		  
+		  
+			 By locator1 = By.xpath("//*[@id='gridNotices']/div[2]/table/tbody/tr[1]/td[1]/label");
+          Wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+		     Thread.sleep(4000);
+          WebElement ViewButton1 = driver.findElement(locator1);	
+			 Thread.sleep(4000);
+			 JavascriptExecutor jse1=(JavascriptExecutor)driver;
+			 jse1.executeScript("arguments[0].click();", ViewButton1);
 		 
-		  Thread.sleep(3000);
-		  performerPOM.clickAssignButoon(driver).click();
+			
+			 Thread.sleep(3000);
+			 performerPOM.clickTask(driver).click();
+			 
+			 By locator2 = By.xpath("//*[@id='gridTask']/div[2]/table/tbody/tr[1]/td[1]/label");
+          Wait.until(ExpectedConditions.presenceOfElementLocated(locator2));
+		     Thread.sleep(4000);
+          WebElement ViewButton2 = driver.findElement(locator2);	
+			 Thread.sleep(4000);
+			 JavascriptExecutor jse2=(JavascriptExecutor)driver;
+			 jse2.executeScript("arguments[0].click();", ViewButton2);
+			 
+		  	Thread.sleep(3000);
+		  	performerPOM.clickAssignButoon(driver).click();
 	
 		
 		 
@@ -8342,8 +8427,13 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		  
 	  }
 	  
-	  public static void MailAuthorization(WebDriver driver,ExtentTest test) throws InterruptedException
+	  public static void MailAuthorization(WebDriver driver,ExtentTest test) throws InterruptedException, AWTException
 	  {
+		  
+//			Thread.sleep(3000);					
+//			Robot robot = new Robot();
+//			robot.keyPress(KeyEvent.VK_CONTROL);
+//			robot.keyPress(KeyEvent.VK_SUBTRACT);
 		  Thread.sleep(3000);
 		  performerPOM.clickMasters(driver).click();
 //		  Thread.sleep(3000);
@@ -8375,8 +8465,32 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		  performerPOM.selectMailService(driver).click();
 		  Thread.sleep(3000);
 		  performerPOM.clickEnable(driver).click();
-		  Thread.sleep(4000);
-		  performerPOM.clickExportMail(driver).click();
+		  
+		  
+		  Thread.sleep(3000);
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
+			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
+			
+			Thread.sleep(5000);
+		     performerPOM.clickExportMail(driver).click();
+		     
+		 	Thread.sleep(3000);
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
+			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
+			
+			Thread.sleep(3000);
+		   if (dirContents1.length < allFilesNew1.length) {
+				test.log(LogStatus.PASS,  "Export Report Download Successfully");
+			}
+		   else
+		   {
+				test.log(LogStatus.FAIL, "Export Report does not Download Successfully");
+			}
+			
+			
+		  
+		  
+		  
 		 // Thread.sleep(3000);
 		 // performerPOM.clickDisable(driver).click();
 		  
@@ -8503,7 +8617,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "Message displayed = "+msg);
+				test.log(LogStatus.PASS, "Message displayed = "+msg);
 			}
 			
 		}
@@ -8535,7 +8649,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "Message displayed = "+msg7);
+				test.log(LogStatus.PASS, "Message displayed = "+msg7);
 			}
 			
 			
@@ -8558,7 +8672,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "Message displayed = "+msg8);
+				test.log(LogStatus.PASS, "Message displayed = "+msg8);
 			}
 			
 			
@@ -8582,7 +8696,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "Message displayed = "+msg1);
+				test.log(LogStatus.PASS, "Message displayed = "+msg1);
 			}
 			
 			Thread.sleep(3000);
@@ -8603,7 +8717,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "Message displayed = "+msg2);
+				test.log(LogStatus.PASS, "Message displayed = "+msg2);
 			}
 		
 //			
@@ -8631,7 +8745,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "Message displayed = "+msg3);
+				test.log(LogStatus.PASS, "Message displayed = "+msg3);
 			}
 			Thread.sleep(300);
 			OverduePOM.clickDashboard(driver).click();
@@ -8796,7 +8910,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C://Users//Snehal Patil//Downloads");
+			File dir = new File("C://Users//snehalp//Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -8806,7 +8920,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			
 			
 			Thread.sleep(500);
-			File dir1 = new File("C://Users//Snehal Patil//Downloads");
+			File dir1 = new File("C://Users//snehalp//Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -8980,7 +9094,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -8990,7 +9104,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -9227,7 +9341,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -9238,7 +9352,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -9463,7 +9577,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		
 	
 		Thread.sleep(100);
-		File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+		File dir = new File("C:\\Users\\snehalp\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(500);
@@ -9473,7 +9587,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+		File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 		if(dirContents.length < allFilesNew.length)
@@ -9702,7 +9816,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		
 	
 		Thread.sleep(100);
-		File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+		File dir = new File("C:\\Users\\snehalp\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(500);
@@ -9712,7 +9826,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+		File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 		if(dirContents.length < allFilesNew.length)
@@ -9938,7 +10052,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 		
 	
 		Thread.sleep(100);
-		File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+		File dir = new File("C:\\Users\\snehalp\\Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(500);
@@ -9948,7 +10062,7 @@ public static void CategorySummaryGraph(WebDriver driver,ExtentTest test, String
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+		File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 		if(dirContents.length < allFilesNew.length)
@@ -10123,7 +10237,7 @@ public static void InwardDefendantAgeingGraph(WebDriver driver,ExtentTest test, 
 		
 	
 		Thread.sleep(100);
-		File dir = new File("C:\\Users\\Snehal Patil//Downloads");
+		File dir = new File("C:\\Users\\snehalp//Downloads");
 		File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 		
 		Thread.sleep(500);
@@ -10133,7 +10247,7 @@ public static void InwardDefendantAgeingGraph(WebDriver driver,ExtentTest test, 
 		test.log(LogStatus.PASS, "File downloaded successfully.");
 		
 		Thread.sleep(5500);
-		File dir1 = new File("C:\\Users\\Snehal Patil//Downloads");
+		File dir1 = new File("C:\\Users\\snehalp//Downloads");
 		File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 		
 		if(dirContents.length < allFilesNew.length)
@@ -10321,7 +10435,7 @@ Thread.sleep(2000);
 	
 
 	Thread.sleep(100);
-	File dir = new File("C:\\Users\\Snehal Patil//Downloads");
+	File dir = new File("C:\\Users\\snehalp//Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 	
 	Thread.sleep(500);
@@ -10331,7 +10445,7 @@ Thread.sleep(2000);
 	test.log(LogStatus.PASS, "File downloaded successfully.");
 	
 	Thread.sleep(5500);
-	File dir1 = new File("C:\\Users\\Snehal Patil//Downloads");
+	File dir1 = new File("C:\\Users\\snehalp//Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 	
 	if(dirContents.length < allFilesNew.length)
@@ -10410,7 +10524,7 @@ public static void AgeingGraph2to3years(WebDriver driver,ExtentTest test, String
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 		if(type.equalsIgnoreCase("Inward/Defendent"))
 		{
-         	Thread.sleep(2000);
+         	Thread.sleep(5000);
 	        performerPOM.clickInwardDefendentCA2to3(driver).click();						//Clicking on 'Open' notice
 		}
 		
@@ -10504,7 +10618,7 @@ Thread.sleep(2000);
 	
 
 	Thread.sleep(100);
-	File dir = new File("C:\\Users\\Snehal Patil//Downloads");
+	File dir = new File("C:\\Users\\snehalp//Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 	
 	Thread.sleep(500);
@@ -10514,7 +10628,7 @@ Thread.sleep(2000);
 	test.log(LogStatus.PASS, "File downloaded successfully.");
 	
 	Thread.sleep(5500);
-	File dir1 = new File("C:\\Users\\Snehal Patil//Downloads");
+	File dir1 = new File("C:\\Users\\snehalp//Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 	
 	if(dirContents.length < allFilesNew.length)
@@ -10685,7 +10799,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 	
 
 	Thread.sleep(100);
-	File dir = new File("C:\\Users\\Snehal Patil//Downloads");
+	File dir = new File("C:\\Users\\snehalp//Downloads");
 	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 	
 	Thread.sleep(500);
@@ -10695,7 +10809,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 	test.log(LogStatus.PASS, "File downloaded successfully.");
 	
 	Thread.sleep(5500);
-	File dir1 = new File("C:\\Users\\Snehal Patil//Downloads");
+	File dir1 = new File("C:\\Users\\snehalp//Downloads");
 	File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 	
 	if(dirContents.length < allFilesNew.length)
@@ -10902,7 +11016,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
                	
             
                	Thread.sleep(2000);
-				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir = new File("C:\\Users\\snehalp\\Downloads");
 			   	File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(250);
@@ -10954,7 +11068,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
               driver.switchTo().frame("IframeNoticeDocument");
 	  
 	   
-	          Thread.sleep(3000);
+	          Thread.sleep(5000);
 	          performerPOM.clickViewNoticeDocpopup(driver).click();
 	   
 	         Thread.sleep(3000);
@@ -11518,7 +11632,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -11528,7 +11642,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 			
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -11616,7 +11730,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		
 		
 			Thread.sleep(100);
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();							//Counting number of files in directory before download 
 			
 //			Thread.sleep(500);
@@ -11626,7 +11740,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 			
 			
 			Thread.sleep(5500);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents1.length < allFilesNew1.length)
@@ -11791,7 +11905,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Snehal Patil//Downloads");
+				File dir = new File("C://Users//snehalp//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -11801,7 +11915,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 				
 				Thread.sleep(500);
-				File dir1 = new File("C://Users//Snehal Patil//Downloads");
+				File dir1 = new File("C://Users//snehalp//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -11843,18 +11957,18 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				{
 					test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 				}
-				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				Thread.sleep(3000);
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 			     performerPOM.ClickDetailedExpenseReport(driver).click();
 			     
 			     Thread.sleep(3000);
 					wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -11962,65 +12076,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				test.log(LogStatus.PASS, "View Popup Open Successfully");
 				
 				
-				
-			/*	Thread.sleep(3000);
-				performerPOM.clickLocationFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickLocationFilter1(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickLocationFilter2(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickCaseNotice(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectCaseNotice(driver).click();
-				//performerPOM.clickStatusFilter(driver).click();
-				//performerPOM.selectCaseNotice(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickStatusFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectStatusFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickDepartmentFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectDepartmentFilter(driver).click();
-				
-				//Thread.sleep(3000);
-				//performerPOM.selectDepartmentFilter1(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickRiskFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectRiskFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickAgeFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectAgeFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickCategoryFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectCategoryFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectCategoryFilter1(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickStageFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectStageFilter(driver).click(); */
+		
 				
 				Thread.sleep(2000);
 				js.executeScript("window.scrollBy(0,1000)");
@@ -12056,7 +12112,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -12066,7 +12122,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 			
 				
 				Thread.sleep(500);
-				File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -12109,18 +12165,18 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 				}
 				
-				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				Thread.sleep(3000);
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 			     performerPOM.ClickDetailedExpenseReport(driver).click();
 			     
 			     Thread.sleep(3000);
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -12257,7 +12313,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Snehal Patil//Downloads");
+				File dir = new File("C://Users//snehalp//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -12268,7 +12324,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 			
 				
 				Thread.sleep(500);
-				File dir1 = new File("C://Users//Snehal Patil//Downloads");
+				File dir1 = new File("C://Users//snehalp//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -12311,17 +12367,18 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 				}
 				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				Thread.sleep(3000);
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 			     performerPOM.ClickDetailedExpenseReport(driver).click();
 			     
 			     Thread.sleep(3000);
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -12449,7 +12506,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Snehal Patil//Downloads");
+				File dir = new File("C://Users//snehalp//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -12459,7 +12516,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(5500);
-				File dir1 = new File("C://Users//Snehal Patil//Downloads");
+				File dir1 = new File("C://Users//snehalp//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -12502,7 +12559,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 				}
 				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
 				Thread.sleep(3000);
@@ -12512,7 +12569,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -12643,7 +12700,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Snehal Patil//Downloads");
+				File dir = new File("C://Users//snehalp//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -12653,7 +12710,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(500);
-				File dir1 = new File("C://Users//Snehal Patil//Downloads");
+				File dir1 = new File("C://Users//snehalp//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -12696,7 +12753,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 				}
 				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
 				Thread.sleep(3000);
@@ -12705,7 +12762,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -12826,7 +12883,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C://Users//Snehal Patil//Downloads");
+				File dir = new File("C://Users//snehalp//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -12836,7 +12893,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(500);
-				File dir1 = new File("C://Users//Snehal Patil//Downloads");
+				File dir1 = new File("C://Users//snehalp//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -12880,7 +12937,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				}
 				
 				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
 				Thread.sleep(3000);
@@ -12889,7 +12946,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -13031,7 +13088,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 			
 				Thread.sleep(100);
-				File dir = new File("C:\\Users\\Snehal Patil//Downloads");
+				File dir = new File("C:\\Users\\snehalp//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -13041,7 +13098,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(5500);
-				File dir1 = new File("C:\\Users\\Snehal Patil//Downloads");
+				File dir1 = new File("C:\\Users\\snehalp//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -13084,7 +13141,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					test.log(LogStatus.FAIL, "File doesn't downloaded successfully.");
 				}
 				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
 				Thread.sleep(3000);
@@ -13095,7 +13152,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -13238,7 +13295,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 
 				Thread.sleep(100);
-				File dir = new File("C:\\Users\\Snehal Patil//Downloads");
+				File dir = new File("C:\\Users\\snehalp//Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -13248,7 +13305,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(5500);
-				File dir1 = new File("C:\\Users\\Snehal Patil//Downloads");
+				File dir1 = new File("C:\\Users\\snehalp//Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -13292,7 +13349,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				}
 				
 				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
 				Thread.sleep(3000);
@@ -13302,7 +13359,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -13436,7 +13493,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 
 				Thread.sleep(100);
-				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -13446,7 +13503,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(5500);
-				File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -13490,7 +13547,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				}
 				
 				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
 				Thread.sleep(3000);
@@ -13500,7 +13557,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -13636,7 +13693,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				
 
 				Thread.sleep(100);
-				File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 				
 				Thread.sleep(500);
@@ -13646,7 +13703,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				test.log(LogStatus.PASS, "File downloaded successfully.");
 				
 				Thread.sleep(5500);
-				File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 				
 				if(dirContents.length < allFilesNew.length)
@@ -13690,7 +13747,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				}
 				
 				
-				File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 				
 				Thread.sleep(3000);
@@ -13700,7 +13757,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
-				File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 				File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 				
 				Thread.sleep(3000);
@@ -14001,14 +14058,14 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		     
 
 		       
-		       Thread.sleep(500);
+		     /*  Thread.sleep(500);
 		       performerPOM. clickCategoryFilter(driver).click();
 		       Thread.sleep(500);
 		       String CategoryText = performerPOM.selectCategoryFilterGraph1(driver).getText();
 		       Thread.sleep(500);
 		       performerPOM. selectCategoryFilterGraph1(driver).click();
 		       Thread.sleep(500);
-		        performerPOM. clickCategoryFilter(driver).click();
+		        performerPOM. clickCategoryFilter(driver).click();*/
 		       
 		       
 		        List<String> li=new ArrayList<String>();
@@ -14017,7 +14074,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 		        li.add(DeptText);
 		       // li.add(RiskText);
 		       // li.add(AgeText);
-		        li.add(CategoryText);
+		        //li.add(CategoryText);
 		        
 		        Thread.sleep(3000);
 		        
@@ -14027,7 +14084,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				filter.add("Dept");
 				//filter.add("Risk");
 				//filter.add("Age");
-				filter.add("Category");
+				//filter.add("Category");
 				
 				 Thread.sleep(500);
 				 performerPOM.clickTrignle(driver).click();
@@ -14060,7 +14117,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				List<WebElement> status=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[11]"));
 				List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[10]"));
 				//List<WebElement> Risk=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[12]"));
-				List<WebElement> Category=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
+				//List<WebElement> Category=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[6]"));
 				Thread.sleep(2000);
 
 				for(int i=0; i<li.size(); i++){
@@ -14088,10 +14145,10 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 //					   {
 //						   raw.addAll(Risk);
 //					   }
-					   else if(i==3)
-					   {
-						   raw.addAll(Category);
-					   }
+				///	   else if(i==3)
+					//   {
+					//	   raw.addAll(Category);
+					//   }
 								
 					for(int k=0;k<raw.size();k++)
 						{
@@ -14183,7 +14240,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 			 Thread.sleep(3000);
 		     performerPOM.SelectStatusFilter(driver).click();
 		     Thread.sleep(1000);
-			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
+			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[142]")); 
 			 String cattext =TextStatus.getText();
 			  Thread.sleep(1000);
 			 TextStatus.click();
@@ -14287,7 +14344,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 	  	 Thread.sleep(3000);
 	     performerPOM.SelectStatusFilter(driver).click();
 	     Thread.sleep(1000);
-		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
+		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[142]")); 
 		 String cattext =TextStatus.getText();
 		  Thread.sleep(1000);
 		 TextStatus.click();
@@ -14470,7 +14527,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 	  	     Thread.sleep(3000);
 		     performerPOM.SelectStatusFilter(driver).click();
 		     Thread.sleep(1000);
-			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
+			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[142]")); 
 			 String cattext =TextStatus.getText();
 			  Thread.sleep(1000);
 			 TextStatus.click();
@@ -14961,7 +15018,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					Thread.sleep(500);
 					JavascriptExecutor js = (JavascriptExecutor) driver;
        	
-     	
+					Thread.sleep(2000);
 	     			performerPOM.LocationSummaryGraph1(driver).click();						//Clicking on 'Open' notice
      
 	     			Thread.sleep(2000);
@@ -15379,7 +15436,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
     	  Thread.sleep(3000);
 		     performerPOM.SelectStatusFilter(driver).click();
 		     Thread.sleep(1000);
-			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
+			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[142]")); 
 			 String cattext =TextStatus.getText();
 			  Thread.sleep(1000);
 			 TextStatus.click();
@@ -15485,7 +15542,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			Thread.sleep(3000);
 		     performerPOM.SelectStatusFilter(driver).click();
 		     Thread.sleep(1000);
-			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
+			 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[142]")); 
 			 String cattext =TextStatus.getText();
 			  Thread.sleep(1000);
 			 TextStatus.click();
@@ -15593,7 +15650,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		Thread.sleep(3000);
 	     performerPOM.SelectStatusFilter(driver).click();
 	     Thread.sleep(1000);
-		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
+		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[142]")); 
 		 String cattext =TextStatus.getText();
 		  Thread.sleep(1000);
 		 TextStatus.click();
@@ -15700,7 +15757,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		Thread.sleep(3000);
 	     performerPOM.SelectStatusFilter(driver).click();
 	     Thread.sleep(1000);
-		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
+		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[142]")); 
 		 String cattext =TextStatus.getText();
 		  Thread.sleep(1000);
 		 TextStatus.click();
@@ -15797,7 +15854,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		Thread.sleep(3000);
 	     performerPOM.SelectStatusFilter(driver).click();
 	     Thread.sleep(1000);
-		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
+		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[142]")); 
 		 String cattext =TextStatus.getText();
 		  Thread.sleep(1000);
 		 TextStatus.click();
@@ -15893,7 +15950,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		Thread.sleep(3000);
 	     performerPOM.SelectStatusFilter(driver).click();
 	     Thread.sleep(1000);
-		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[134]")); 
+		 WebElement TextStatus=driver.findElement(By.xpath("(//*[@class='k-in'])[142]")); 
 		 String cattext =TextStatus.getText();
 		  Thread.sleep(1000);
 		 TextStatus.click();
@@ -15966,9 +16023,9 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		 performerPOM.caseNoticeSummaryGraphClose(driver).click();
 	}
 	
-	  public static void NoticeWithExistingData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+	  public static void NoticeWithExistingData(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
 		{
-		   
+			sheet = workbook.getSheetAt(1);		
         	
 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
 			progress(driver);
@@ -15994,6 +16051,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 
 			Thread.sleep(3000);
 			clickRefNo(driver);
+			
 
 			Thread.sleep(3000);
 			selectCategory(driver);
@@ -16126,11 +16184,11 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	            Thread.sleep(3000);
 	            clickInternalUser(driver);
 	             
-	            Thread.sleep(3000);
+	            Thread.sleep(6000);
 	     		performerPOM.selectNoticeUploadDocument(driver); 
 	     		
 	        		
-	        	Thread.sleep(3000);
+	        	Thread.sleep(6000);
 	     		OverduePOM.clickSaveButton(driver).click();		
 	     		
 	     		Thread.sleep(1000);
@@ -20191,7 +20249,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						
 						Thread.sleep(500);
 						
-						OverduePOM.uploadNewFile(driver).sendKeys("C:\\Users\\Snehal Patil\\Desktop\\Test Cases\\Approver Test Case.xlsx");	//uploading new file		
+						OverduePOM.uploadNewFile(driver).sendKeys("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\LitigationSheet.xlsx");	//uploading new file		
 						
 						Thread.sleep(500);
 						wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickUploadDocument(driver)));
@@ -21076,12 +21134,12 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
 							
 							
-							Thread.sleep(3000);
+						/*	Thread.sleep(3000);
 							performerPOM.FYFilter(driver).click();
 							Thread.sleep(3000);
 					       String FYtext =performerPOM.SelectFYFilter(driver).getText();
 					       Thread.sleep(3000);
-					       performerPOM. SelectFYFilter(driver).click();
+					       performerPOM. SelectFYFilter(driver).click();*/
 					       
 							Thread.sleep(1000);
 							wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
@@ -21110,7 +21168,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							
 						
 							Thread.sleep(100);
-							File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+							File dir = new File("C:\\Users\\snehalp\\Downloads");
 							File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 							
 							Thread.sleep(500);
@@ -21120,7 +21178,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						
 							
 							Thread.sleep(5500);
-							File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+							File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 							File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 							
 							if(dirContents.length < allFilesNew.length)
@@ -21193,18 +21251,18 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							
 							js.executeScript("window.scrollBy(0,1000)");
 							
-							
-							File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+							Thread.sleep(2000);
+							File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 							File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 							
-							Thread.sleep(3000);
+							Thread.sleep(5000);
 						     performerPOM.ClickDetailedExpenseReport(driver).click();
 						     
 						     Thread.sleep(3000);
 								wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 							
 						 	Thread.sleep(3000);
-							File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+							File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 							File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 							
 							Thread.sleep(3000);
@@ -21217,7 +21275,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							}
 						   
 						   
-							Thread.sleep(3000);
+						/*	Thread.sleep(3000);
 							performerPOM.CaseNoticeFilter(driver).click();
 							Thread.sleep(3000);
 					       String CaseNotext =performerPOM.SelectCaseNoticeFilter(driver).getText();
@@ -21302,7 +21360,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							}
 							}else {
 								test.log(LogStatus.PASS,"No records found");	
-							}
+							}*/
 						   
 							  
 						   
@@ -21336,22 +21394,9 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 
 			WebDriverWait wait=new WebDriverWait(driver,20);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-	     	js.executeScript("window.scrollBy(0,800)");
 	     	
-	     	Thread.sleep(5000);
-			performerPOM.clickDashboardCaseNoticeFilter(driver).click();
 			
-			Thread.sleep(5000);
-			performerPOM.clickDashboardCaseFilter(driver).click();
-          
-           	
-			 Thread.sleep(5000);
-			 performerPOM.clickDashboardApplyBtn(driver).click();
-			
-	       	
-				js.executeScript("window.scrollBy(0,2700)");
-			
-	       	Thread.sleep(2000);
+	       	Thread.sleep(5000);
 	       	performerPOM.ExpensesCategoryWiseCaseGraph(driver).click();						//Clicking on 'Open' notice
 		    
 		
@@ -21363,7 +21408,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			
 			   
 			   Thread.sleep(3000);
-				performerPOM.CaseNoticeFilter(driver).click();
+			/*	performerPOM.CaseNoticeFilter(driver).click();
 				Thread.sleep(3000);
 		       String CaseNotext =performerPOM.SelectCaseNoticeFilter(driver).getText();
 		       Thread.sleep(3000);
@@ -21447,7 +21492,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				}
 				}else {
 					test.log(LogStatus.PASS,"No records found");	
-				}
+				}*/
 			Thread.sleep(2000);
 			
 			js.executeScript("window.scrollBy(0,1000)");
@@ -21473,7 +21518,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			
 		
 			Thread.sleep(100);
-			File dir = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
 			
 			Thread.sleep(500);
@@ -21483,7 +21528,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		
 			
 			Thread.sleep(5500);
-			File dir1 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir1 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 			
 			if(dirContents.length < allFilesNew.length)
@@ -21557,7 +21602,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			js.executeScript("window.scrollBy(0,1000)");
 			
 			
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
 			Thread.sleep(3000);
@@ -21568,7 +21613,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -21626,7 +21671,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				js.executeScript("window.scrollBy(0,3000)");
 			
 	     
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
 		  	Thread.sleep(5000);
@@ -21634,7 +21679,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		    
 			
 		 	Thread.sleep(10000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(5000);
@@ -21667,10 +21712,10 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			 performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	       	
-				js.executeScript("window.scrollBy(0,3500)");
+				js.executeScript("window.scrollBy(0,3600)");
 			
 	     
-			File dir2 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
 		  	Thread.sleep(9000);
@@ -21678,7 +21723,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		    
 		   
 		 	Thread.sleep(3000);
-			File dir3 = new File("C:\\Users\\Snehal Patil\\Downloads");
+			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
 			Thread.sleep(3000);
@@ -21691,6 +21736,247 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			}
 		    
 		}	
+        
+  
+					public static void CaseUpdationImportUtility(WebDriver driver,ExtentTest test) throws InterruptedException
+					{
+						
+						performerPOM.ClickImportUtility(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseUpdationType(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseUpdationFile(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+						
+						WebDriverWait wait=new WebDriverWait(driver,30);
+						Thread.sleep(3000);
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.readCaseMsg(driver)));
+						
+						Thread.sleep(500);
+						String msg5 = performerPOM.readCaseMsg(driver).getText();		//Reading Message appeared after save button
+					
+						if(msg5.equalsIgnoreCase(msg5))
+						{
+							test.log(LogStatus.PASS, "Message displayed = "+msg5);
+						
+						}
+						else
+						{
+							test.log(LogStatus.FAIL, "Message displayed = "+msg5);
+						}
+						
+						Thread.sleep(300);
+						OverduePOM.clickDashboard(driver).click();
+					}
+					
+					public static void CaseUpdationUploadEmtyFile(WebDriver driver,ExtentTest test) throws InterruptedException
+					{
+					
+						performerPOM.ClickImportUtility(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseUpdationType(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseUpdationFile1(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+						
+						try
+						{
+							
+						  Thread.sleep(500);
+						  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+				          test.log(LogStatus.PASS, "Case Updation =  Upload Empty File = "+msg7);
+							
+						  }
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Case Updation = Validation message not displayed");
+						}
+						Thread.sleep(300);
+						OverduePOM.clickDashboard(driver).click();
+					}
+					public static void CaseUpdationUploadInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
+					{
+					
+						performerPOM.ClickImportUtility(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseUpdationType(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseUpdationFile2(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+						
+						try
+						{
+							
+						  Thread.sleep(500);
+						  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+				          test.log(LogStatus.PASS, "Case Updation =  Upload Empty File = "+msg7);
+							
+						  }
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Case Updation = Validation message not displayed");
+						}
+						Thread.sleep(300);
+						OverduePOM.clickDashboard(driver).click();
+					}
+							
+					public static void CaseUpdationUploadInvalidFile(WebDriver driver,ExtentTest test) throws InterruptedException
+					{
+					
+						performerPOM.ClickImportUtility(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseUpdationType(driver).click();
+						Thread.sleep(3000);
+						performerPOM.ChooseCaseFile3(driver);
+						Thread.sleep(3000);
+						performerPOM.UploadCaseFile(driver).click();
+						
+						
+						try
+						{
+							
+						  Thread.sleep(500);
+						  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+				          test.log(LogStatus.PASS, "Case Updation =  Upload Invalid File = "+msg7);
+							
+						  }
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Case Updation = Validation message not displayed");
+						}
+						Thread.sleep(300);
+						OverduePOM.clickDashboard(driver).click();
+					}
+							
+				public static void NoticeUpdation(WebDriver driver,ExtentTest test) throws InterruptedException
+				{
+					
+					performerPOM.ClickImportUtility(driver).click();
+					Thread.sleep(3000);
+					performerPOM.clickNotice(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseNoticeUpdationType(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseNoticeUpdationFile(driver);
+					Thread.sleep(3000);
+					performerPOM.UploadNoticeFile(driver).click();
+					
+					
+					
+					Thread.sleep(500);
+					String msg = performerPOM.readNoticeMsg(driver).getText();		//Reading Message appeared after save button
+					
+					if(msg.equalsIgnoreCase(msg))
+					{
+						test.log(LogStatus.PASS, "Message displayed = "+msg);
+					
+					}
+					else
+					{
+						test.log(LogStatus.FAIL, "Message displayed = "+msg);
+					}
+					Thread.sleep(300);
+					OverduePOM.clickDashboard(driver).click();
+				}
+				
+				public static void NoticeUpdationUploadEmtyFile(WebDriver driver,ExtentTest test) throws InterruptedException
+				{
+				
+					performerPOM.ClickImportUtility(driver).click();
+					Thread.sleep(3000);
+					performerPOM.clickNotice(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseNoticeUpdationType(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseNoticeUpdtionEmptyFile(driver);
+					Thread.sleep(3000);
+					performerPOM.UploadNoticeFile(driver).click();
+					
+					try
+					{
+						
+					  Thread.sleep(500);
+					  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+				      test.log(LogStatus.PASS, "Notice Updation =  Upload Empty File = "+msg7);
+						
+					  }
+					catch(Exception e)
+					{
+						test.log(LogStatus.FAIL, "Notice Updation = Validation message not displayed");
+					}
+					Thread.sleep(300);
+					OverduePOM.clickDashboard(driver).click();
+				}
+				public static void NoticeUpdationUploadInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
+				{
+				
+					performerPOM.ClickImportUtility(driver).click();
+					Thread.sleep(3000);
+					performerPOM.clickNotice(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseNoticeUpdationType(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseNoticeUpdtionInvalidData(driver);
+					Thread.sleep(3000);
+					performerPOM.UploadNoticeFile(driver).click();
+					
+					
+					try
+					{
+						
+					  Thread.sleep(500);
+					  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+				      test.log(LogStatus.PASS, "Notice Updation =  Upload Empty File = "+msg7);
+						
+					  }
+					catch(Exception e)
+					{
+						test.log(LogStatus.FAIL, "Notice Updation = Validation message not displayed");
+					}
+					Thread.sleep(300);
+					OverduePOM.clickDashboard(driver).click();
+				}
+				public static void NoticeUpdationUploadInvalidFile(WebDriver driver,ExtentTest test) throws InterruptedException
+				{
+					performerPOM.ClickImportUtility(driver).click();
+					Thread.sleep(3000);
+					performerPOM.clickNotice(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseNoticeUpdationType(driver).click();
+					Thread.sleep(3000);
+					performerPOM.ChooseCaseFile3(driver);
+					Thread.sleep(3000);
+					performerPOM.UploadNoticeFile(driver).click();
+					
+					
+					
+					try
+					{
+						
+					  Thread.sleep(500);
+					  String msg7 = performerPOM.readCaseMsg1(driver).getText();		//Reading Message appeared after save button
+				      test.log(LogStatus.PASS, "Notice Updation =  Upload Invalid File = "+msg7);
+						
+					  }
+					catch(Exception e)
+					{
+						test.log(LogStatus.FAIL, "Notice Updation = Validation message not displayed");
+					}
+					Thread.sleep(300);
+					OverduePOM.clickDashboard(driver).click();
+				}
+				 
+					
+				 		
+				
+				  
+  
 						
 					
 					

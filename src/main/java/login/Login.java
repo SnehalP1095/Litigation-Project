@@ -25,14 +25,20 @@ public class Login
 	{
       // System.setProperty("webdriver.chrome.driver", "E:\\eclips-projects\\Selenium\\chromedriver.exe");
 		
-//		WebDriverManager.edgedriver().setup();
-//		driver = new EdgeDriver();					//Created new Chrome driver instance. 
 		
-	    WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();		
+			//WebDriverManager.edgedriver().setup();
+			//driver = new EdgeDriver();					//Created new Chrome driver instance. 
 		
-//		WebDriverManager.firefoxdriver().setup();
-//		driver = new FirefoxDriver();
+		
+		
+			 WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();		
+				
+		
+			//WebDriverManager.firefoxdriver().setup();
+			//driver = new FirefoxDriver();
+		
+		
 		
 	//	WebDriverManager.operadriver().setup();
 	//	driver = new OperaDriver();
@@ -44,6 +50,8 @@ public class Login
 	
 	public static void BrowserSetup1(String URL,String browser) throws Exception
 	{
+		
+		
 		if(browser.equalsIgnoreCase("firefox"))
 		{
 			 //create firefox instance
@@ -68,19 +76,19 @@ public class Login
 			
 			}
 			//Check if parameter passed as 'Edge'
-							 if(browser.equalsIgnoreCase("Edge")) 
-							{
-								//set path to Edge.exeMicrosoftWebDriver
-								 WebDriverManager.edgedriver().setup();
-								//System.setProperty("webdriver.edge.driver","C:\\Users\\Admin\\Desktop\\eclips-projects\\Selenium\\EdgeDriver\\msedgedriver.exe");
-								//create Edge instance
-								driver = new EdgeDriver();
-							}
-					else
-					{
+			else if(browser.equalsIgnoreCase("Edge")) 
+			{
+			     //set path to Edge.exeMicrosoftWebDriver
+			     WebDriverManager.edgedriver().setup();
+			     //System.setProperty("webdriver.edge.driver","C:\\Users\\Admin\\Desktop\\eclips-projects\\Selenium\\EdgeDriver\\msedgedriver.exe");
+			     //create Edge instance
+				 driver = new EdgeDriver();
+			}
+			else
+			{
 						//If no browser passed throw exception
 						throw new Exception("Browser is not correct");
-					}
+			}
 							 
 							 
 		               driver.manage().window().maximize();			//Set window size to maximum.

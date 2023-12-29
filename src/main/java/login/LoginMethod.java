@@ -11,10 +11,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.ExtentReports;
@@ -46,26 +49,33 @@ public class LoginMethod {
 		return sheet;
 	}
 	
-	
-	
-	public static void BrowserSetup(String URL)
+	@Parameters("browser")
+	@BeforeTest
+
+	public static void BrowserSetup(String URL,String browser)
 	{
 
-		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Desktop\\eclips-projects\\Selenium\\chromedriver_win32 (4)\\chromedriver.exe");
-		
-//		WebDriverManager.edgedriver().setup();
-//		driver = new EdgeDriver();					//Created new Chrome driver instance. 
-		
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();		
-		
-//		WebDriverManager.firefoxdriver().setup();
-//		driver = new FirefoxDriver();
+		if(browser.equalsIgnoreCase("chrome"))
+		  {
+			  WebDriverManager.chromedriver().setup();
+				driver = new ChromeDriver();		
+		  }
+		  else if(browser.equalsIgnoreCase("edges"))
+		  {
+			  WebDriverManager.edgedriver().setup();
+			  driver = new EdgeDriver();				
+				
+		  }
+		  else if(browser.equalsIgnoreCase("FireFox"))
+		  {
+			  WebDriverManager.firefoxdriver().setup();
+			   driver = new FirefoxDriver();
+		  }
 		driver.manage().window().maximize();			//Set window size to maximum.
 		driver.get(URL);								//Set the URL of WebApplication.
 	}
 	
-	@BeforeTest
+	@Test
 	
 	void setBrowser() throws Exception
 	{
@@ -79,7 +89,9 @@ public class LoginMethod {
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
 		
-		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
+		//login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
+		
+		BrowserSetup(URL,"browser");
 		
 		test.log(LogStatus.PASS, "Test Passed.");
 		extent.endTest(test);
@@ -111,6 +123,8 @@ public class LoginMethod {
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+	
 	
 	
  @Test(priority = 2)

@@ -1336,29 +1336,47 @@ public class MethodPOM1 {
 				   }
 				 
 							
+					
 					for(int k=0;k<raw.size();k++)
-					{
-						text.add(raw.get(k).getText());
-					}
-					for(int l=0;l<text.size();l++)
-					{	
-						
-					if(text.get(l).equals(li.get(i)))
 						{
-						
-						
-							pass.add(text.get(l));	
-							System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+							text.add(raw.get(k).getText());
+						}
+
+						for(int l=0;l<text.size();l++)
+						{
+							
+							if(i==1)
+							{
+								if(text.get(l).equalsIgnoreCase("Open")||text.get(l).equalsIgnoreCase("Pending"))
+								{
+								  pass.add(text.get(l));
+								}
+								else
+								{
+									 fail.add(text.get(l));
+								}
+							}
+							else
+							{
+								
+							
+						if(text.get(l).equals(li.get(i)))
+							{
+							
+							
+								pass.add(text.get(l));	
+								System.out.println("pass : "+text.get(l)+" : "+li.get(i));
+
+							}
+						else
+						{
+							fail.add(text.get(l));		
+							System.out.println("fail : "+text.get(l)+" : "+li.get(i));
+							System.out.println(i);
 
 						}
-					else
-					{
-						fail.add(text.get(l));		
-						System.out.println("fail : "+text.get(l)+" : "+li.get(i));
-						System.out.println(i);
-
-					}
-					 }
+						 }
+						}
 				
 			 
 		for(String Fal : fail)
