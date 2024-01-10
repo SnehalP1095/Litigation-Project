@@ -1298,7 +1298,7 @@ void UtilizedBudgetGraph() throws InterruptedException, IOException
  		extent.endTest(test);
  		extent.flush();
  	}
-//@Test(priority =41)
+@Test(priority =41)
 		void NoticeWithExistingData() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Notice With Existing Data verification");
@@ -1353,7 +1353,7 @@ void UtilizedBudgetGraph() throws InterruptedException, IOException
 	     extent.endTest(test);
 	     extent.flush();
  	}
-@Test(priority =45)
+@Test(priority =46)
  void NoticeSendMailWithDoc() throws InterruptedException, IOException
 {
 	     test = extent.startTest("Notice Summary-Send Mail With Document verification");
@@ -1657,7 +1657,7 @@ void LinkNotice() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
-//@Test(priority = 72)
+@Test(priority = 46)
 	 	void NoticeDocumentTab() throws InterruptedException, IOException
 	 	{
 	 		test = extent.startTest("Notice Document verification");
@@ -2595,7 +2595,7 @@ void ImportUtilityTwoManadtoryFileds() throws InterruptedException, IOException
 }
 
 
-@Test(priority = 0)
+@Test(priority = 153)
 	void CaseUpdationImportUtility() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Updation Import Utility verification");
@@ -2605,7 +2605,7 @@ void ImportUtilityTwoManadtoryFileds() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 0)
+@Test(priority = 154)
 	void CaseUpdationUploadEmtyFile() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Updation -Empty File Import Utility verification");
@@ -2615,7 +2615,7 @@ void ImportUtilityTwoManadtoryFileds() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 0)
+@Test(priority = 155)
 	void CaseUpdationUploadInvalidData() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Updation -Invalid Data Import Utility verification");
@@ -2624,7 +2624,7 @@ void ImportUtilityTwoManadtoryFileds() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 0)
+@Test(priority = 156)
 	void CaseUpdationUploadInvalidFile() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Updation -Invalid File Import Utility verification");
@@ -2635,7 +2635,7 @@ void ImportUtilityTwoManadtoryFileds() throws InterruptedException, IOException
 		extent.flush();
 	}
 
-@Test(priority = 0)
+@Test(priority = 157)
 	void NoticeUpdation() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Notice Updation Import Utility verification");
@@ -2645,7 +2645,7 @@ void ImportUtilityTwoManadtoryFileds() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 0)
+@Test(priority = 158)
 void NoticeUpdationUploadEmtyFile() throws InterruptedException, IOException
 {
 	test = extent.startTest("Notice Updation-Empty File Import Utility verification");
@@ -2655,7 +2655,7 @@ void NoticeUpdationUploadEmtyFile() throws InterruptedException, IOException
 	extent.endTest(test);
 	extent.flush();
 }
-@Test(priority = 0)
+@Test(priority =159)
 void NoticeUpdationUploadInvalidData() throws InterruptedException, IOException
 {
 	test = extent.startTest("Notice Updation -Invalid Data Import Utility verification");
@@ -2666,7 +2666,7 @@ void NoticeUpdationUploadInvalidData() throws InterruptedException, IOException
 	extent.flush();
 }
 
-@Test(priority = 0)
+@Test(priority = 160)
 void NoticeUpdationUploadInvalidFile() throws InterruptedException, IOException
 {
 	test = extent.startTest("Notice Updation -Invalid File Import Utility verification");

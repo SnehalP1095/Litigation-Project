@@ -20,6 +20,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import litigationAdditionalOwner.MethodsPOM;
+import litigationManagement.CFOMethod;
 
 public class ExternalLawyer
 {
@@ -179,7 +180,7 @@ public class ExternalLawyer
 		 				extent.flush();
 		 			}
 				
-			//@Test(priority = 8)
+			@Test(priority = 8)
 				void TaskClosed() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Task - Closed Count Verification");
@@ -190,7 +191,9 @@ public class ExternalLawyer
 					extent.endTest(test);
 					extent.flush();
 				}
-			@Test(priority = 0)
+			
+			
+			@Test(priority = 10)
  			void ClosedTask() throws InterruptedException, IOException
  			{
  				test = extent.startTest(" Closed Task Count verification");
@@ -352,7 +355,17 @@ public class ExternalLawyer
 				extent.flush();
 			}
 	
-
+	 @Test(priority = 20)
+	 	void MyDocument() throws InterruptedException, IOException
+	 	{
+	 		test = extent.startTest("My Document-Download and View Document");
+	 	
+	 		
+	 		MethodsPOM.MyDocument(driver, test, workbook, "Performer");
+	 		
+	 		extent.endTest(test);
+	 		extent.flush();
+	 	}
 
 
 
@@ -400,6 +413,27 @@ void ImportUtility() throws InterruptedException, IOException
 	MethodsPOM.ImportUtility(driver,test);
 	extent.endTest(test);
 	extent.flush();
+}
+@Test(priority = 138)
+void CaseUpdationImportUtility() throws InterruptedException, IOException
+{
+	test = extent.startTest("Case Updation Import Utility verification");
+	
+	
+	CFOMethod.CaseUpdationImportUtility(driver,test);
+	extent.endTest(test);
+	extent.flush();
+}
+
+@Test(priority = 139)
+void NoticeUpdation() throws InterruptedException, IOException
+{
+test = extent.startTest("Notice Updation Import Utility verification");
+
+
+CFOMethod.NoticeUpdation(driver,test);
+extent.endTest(test);
+extent.flush();
 }
 
 

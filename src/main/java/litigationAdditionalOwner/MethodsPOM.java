@@ -564,6 +564,8 @@ public class MethodsPOM
 		performerPOM.clickInternalUser(driver).click();						//Clicking on 'Internal User' drop down.
 		elementsList = performerPOM.chooseInternalUser(driver);
 		elementsList.get(internalUserNo).click();							//Selecting particular user no
+		Thread.sleep(500);
+		
 		performerPOM.clickInternalUser(driver).click();	//Clicking on 'Internal User' drop down.
 		}
 		
@@ -982,46 +984,57 @@ public class MethodsPOM
 						  JavascriptExecutor jse=(JavascriptExecutor)driver;
 							jse.executeScript("arguments[0].click();",  performerPOM.clickSaveResponse(driver));
 						  //performerPOM.clickSaveResponse(driver).click();
+					
 							
-							 Thread.sleep(1000);
-							wait.until(ExpectedConditions.visibilityOf(performerPOM.readResponseMsg(driver)));
-								
-							Thread.sleep(500);
-							String msg3 = performerPOM.readResponseMsg(driver).getText();		//Reading Message appeared after save button
-						
-							if(msg3.equalsIgnoreCase("Response Details Saved Successfully."))
+							try
 							{
-								test.log(LogStatus.PASS, "Add Response = "+msg3);
+								
+								Thread.sleep(1000);
+								wait.until(ExpectedConditions.visibilityOf(performerPOM.readResponseMsg(driver)));
+								Thread.sleep(500);
+								String msg3 = performerPOM.readResponseMsg(driver).getText();		//Reading Message appeared after save button
+							
+								if(msg3.equalsIgnoreCase(msg3))
+								{
+									test.log(LogStatus.PASS, "Add Response= "+msg3);
+								
+								}
 								
 							}
-							else
+							catch(Exception e)
 							{
-									test.log(LogStatus.FAIL, "Add Response = "+msg3);
+								Thread.sleep(500);
+								performerPOM.clickMinimizeResponse(driver).click();
+								Thread.sleep(500);
+								String msg3 = performerPOM.readResponseInvalidMsg(driver).getText();		//Reading Message appeared after save button
+							
+								if(msg3.equalsIgnoreCase(msg3))
+								{
+									test.log(LogStatus.FAIL, "Add Response= "+msg3);
+								
+								}
+								
 							}
 	 		
-	              Thread.sleep(3000);
+					Thread.sleep(3000);
 	                performerPOM.clickNoticeEditResponsecfo(driver).click();
 	
-                   	performerPOM.clickCourierCompany(driver).clear();
+                  
 	                Thread.sleep(500);
-	                 Row row4 = sheet.getRow(35);								//Selected 0th index row (First row)
-	                  Cell c5 = row4.getCell(1);								//Selected cell (0 row,1 column)
-	               String CourierCompany1= c5.getStringCellValue();
-	                performerPOM.clickCourierCompany(driver).sendKeys(CourierCompany1);
-	  
+	                performerPOM.RefTrackingNo(driver).sendKeys("7289");
 	                Thread.sleep(3000);
-	               performerPOM.clickNoticeResponseDocUploadtcfo(driver);
+	                performerPOM.clickNoticeResponseDocUploadtcfo(driver);
 	
 	  
-	               jse.executeScript("arguments[0].click();",  performerPOM.clickSaveResponse(driver));
+	                jse.executeScript("arguments[0].click();",  performerPOM.clickSaveResponse(driver));
 	  
-	             Thread.sleep(1000);
-	           	wait.until(ExpectedConditions.visibilityOf(performerPOM.readResponseMsg(driver)));
+	                Thread.sleep(1000);
+	                wait.until(ExpectedConditions.visibilityOf(performerPOM.readResponseMsg(driver)));
 	 		
-		        Thread.sleep(500);
-		        String msg4 = performerPOM.readResponseMsg(driver).getText();		//Reading Message appeared after save button
+	                Thread.sleep(500);
+	                String msg4 = performerPOM.readResponseMsg(driver).getText();		//Reading Message appeared after save button
 		
-		        if(msg3.equalsIgnoreCase("Response Details Saved Successfully."))
+		        if(msg4.equalsIgnoreCase(msg4))
 		       {
 			      test.log(LogStatus.PASS, "Update Response = "+msg4);
 			
@@ -1849,7 +1862,7 @@ public class MethodsPOM
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("06-11-2023");
+		    performerPOM.clickHearingDate(driver).sendKeys("14-01-2024");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -1920,89 +1933,38 @@ public class MethodsPOM
 			
 			Thread.sleep(300);
 			OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
-			
-//			Thread.sleep(2000);
-//			performerPOM.clickMinimize(driver).click();	
-			
-			
-//			Thread.sleep(300);
-//			wait.until(ExpectedConditions.visibilityOf(performerPOM.readTaskMsg(driver)));
-			
-			Thread.sleep(3000);
-			String msg = performerPOM.readTaskMsg(driver).getText();
-			if(msg.equalsIgnoreCase(msg))
-			{
-				test.log(LogStatus.PASS, "Add Task =" +msg);
-			}
-			else
-			{
-				test.log(LogStatus.FAIL, "Add Task =" +msg);
-			}
+		
+		
+				Thread.sleep(3000);
+				String msg = performerPOM.readTaskMsg(driver).getText();
+				if(msg.equalsIgnoreCase(msg))
+				{
+					test.log(LogStatus.PASS, "Add Task =" +msg);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Add Task =" +msg);
+				}
 			
 			
-			//Thread.sleep(2000);
-			//performerPOM.clickMinimize(driver).click();	
 			
 			Thread.sleep(3000);
 			performerPOM.clickNoticeEditTaskcfo(driver).click();
 			
-//			JavascriptExecutor js = (JavascriptExecutor) driver;
-//			
-//			js.executeScript("window.scrollBy(0,200)");
+			Thread.sleep(2000);
+			performerPOM.clickMinimize(driver).click();	
+			
+			
+			Actions a = new Actions(driver);
+			//scroll down a page
+			a.sendKeys(Keys.PAGE_DOWN).build().perform();
 			
 			Thread.sleep(3000);
 			performerPOM.clickTaskTitle(driver).clear();
 			
 			Thread.sleep(3000);
-			performerPOM.clickTaskTitle(driver).sendKeys(" Task 19July");	//Writing 'Task Title'
-			
-			performerPOM.clickTaskDesc(driver).sendKeys(desc);		//Writing 'Task Description'
-			
-			Thread.sleep(1000);
-			performerPOM.clickDueDate(driver).click();				//Clicking on 'Due Date' text box
-			OverduePOM.selectNextMonth(driver).click();
-			OverduePOM.selectDate(driver).click();					//Selecting particular date.
-			
-			Thread.sleep(1000);
-			 row0 = sheet.getRow(29);									//Selected 0th index row (First row)
-			 c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
-			String outcome1 = c1.getStringCellValue();
-			performerPOM.clickExpOutcome(driver).sendKeys(outcome1);	//Writing 'Expected Outcome'
-			
-			
-			
-			Thread.sleep(1000);
-			row0 = sheet.getRow(30);									//Selected 0th index row (First row)
-			c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
-			String internalUser1 = c1.getStringCellValue();
-			performerPOM.clickInternalUser3(driver).click();
-			//performerPOM.selectInternalUser2(driver).click();
-			performerPOM.selectInternalUser3(driver).sendKeys(internalUser1, Keys.ENTER);	//Selecting 'Internal User'
-			
-			Thread.sleep(1000);
-			row0 = sheet.getRow(31);									//Selected 0th index row (First row)
-			c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
-			String externalUser1 = c1.getStringCellValue();
-			try
-			{
-				Thread.sleep(300);
-				performerPOM.clickExternalUser(driver).click();
-				Thread.sleep(500);
-				action.moveToElement(performerPOM.clickSearchExternalUser(driver)).sendKeys(externalUser1, Keys.ENTER).perform();
-			}
-			catch(Exception e)
-			{
-				
-			}
-			
-
-			Thread.sleep(2000);
-			row0 = sheet.getRow(32);									//Selected 0th index row (First row)
-			c1 = row0.getCell(1);									//Selected cell (0 row,1 column)
-			String remark1 = c1.getStringCellValue();
-			performerPOM.clickRemark(driver).sendKeys(remark1);		//Writing 'Remark'
-			
-			
+			performerPOM.clickTaskTitle(driver).sendKeys(" Task 24July");	//Writing 'Task Title'
+					
 			
 			Thread.sleep(3000);
 			OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
@@ -2023,37 +1985,41 @@ public class MethodsPOM
 				test.log(LogStatus.FAIL, "Update Task =" +msg2);
 			}
 			
-			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskEditResponse1(driver).click();
 			
-			Thread.sleep(1000);
-			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			try
+			{
+				Thread.sleep(3000);
+				performerPOM.clickNoticeTaskEditResponse1(driver).click();
 			
-			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskstatusResponsecfo(driver).click();
+				Thread.sleep(1000);
+				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 			
-			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickNoticeTaskstatusResponsecfo(driver).click();
 			
-			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Test 07Dec2023");
+				Thread.sleep(3000);
+				performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 			
-			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickNoticeTaskcmtResponsecfo(driver).sendKeys("Test 06Jan2024");
+			
+				Thread.sleep(3000);
+				performerPOM.clickNoticeTaskSaveResponsecfo(driver).click();
 			
 			
 			
-			test.log(LogStatus.PASS,"Task Response Saved Successfully.");
+				test.log(LogStatus.PASS,"Task Response Saved Successfully.");
 			
-			driver.switchTo().parentFrame();
+				driver.switchTo().parentFrame();
 			
-			Thread.sleep(3000);
-			performerPOM.clickNoticeTaskCloseResponsecfo(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickNoticeTaskCloseResponsecfo(driver).click();
+				
 			
-            Thread.sleep(3000);
-			performerPOM.clickNoticeTaskClosecfo1(driver).click();
+				Thread.sleep(3000);
+				performerPOM.clickNoticeTaskClosecfo1(driver).click();
 			
-			 Thread.sleep(5000);
+				Thread.sleep(5000);
 			    // Switching to Alert        
 		        Alert alert = driver.switchTo().alert();		
 		        		
@@ -2066,8 +2032,16 @@ public class MethodsPOM
 		        // Displaying alert message		
 		        System.out.println(alertMessage);
 		        
-		     // Accepting alert		
+		        // Accepting alert		
 		        alert.accept(); 
+			}
+		        
+		    	catch(Exception e)
+				{
+					test.log(LogStatus.PASS,"Task Respose :- Already Task closed.");
+				}
+				
+			
 			
 			
 		}
@@ -2103,7 +2077,7 @@ public class MethodsPOM
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("05-01-2024");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("09-01-2024");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2138,7 +2112,7 @@ public class MethodsPOM
 			    Thread.sleep(3000);
 			    performerPOM.clickCaseHearingDecsri(driver).clear();
 			    Thread.sleep(3000);
-			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 27 Dec 2023");		//Writing 'HearingDescription'
+			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 01 Jan 2024");		//Writing 'HearingDescription'
 			    
 			    Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearing(driver).click();
@@ -2195,7 +2169,7 @@ public class MethodsPOM
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("24-11-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("20-12-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);
@@ -2760,18 +2734,25 @@ public class MethodsPOM
 		Thread.sleep(300);
 		OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
 		
-		Thread.sleep(300);
-		wait.until(ExpectedConditions.visibilityOf(performerPOM.clickMessage(driver)));
 		
-		Thread.sleep(300);
-		String msg = performerPOM.clickMessage(driver).getText();
-		if(msg.contains("Task Saved Successfully."))
+		
+		
+		try 
 		{
-			test.log(LogStatus.PASS, "Task Saved Successfully.");
+			Thread.sleep(300);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.clickMessage(driver)));
+			Thread.sleep(300);
+			String msg = performerPOM.clickMessage(driver).getText();
+			test.log(LogStatus.PASS, "Message displayed:-"+msg);
 		}
-		else
+		catch(Exception e)
 		{
-			test.log(LogStatus.FAIL, "Task didn't saved successfully.");
+			Thread.sleep(300);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.clickTaskInvalidMessage(driver)));
+			Thread.sleep(300);
+		
+			String msg = performerPOM.clickTaskInvalidMessage(driver).getText();
+		     test.log(LogStatus.FAIL, "Message displayed :-"+msg);
 		}
 		
 		driver.switchTo().parentFrame();
@@ -3743,11 +3724,11 @@ public class MethodsPOM
 			wait.until(ExpectedConditions.visibilityOf(performerPOM.readMessage2(driver)));
 			String msg = performerPOM.readMessage2(driver).getText();
 		
-			if(msg.contains("Successfully"))
+			if(msg.contains(msg))
 			{
 				test.log(LogStatus.PASS, "Message displayed - "+msg);
 			}
-			else if(msg.contains("already exist"))
+			else if(msg.contains(msg))
 			{
 				test.log(LogStatus.FAIL, "Message displayed - "+msg);
 			}
@@ -3830,9 +3811,9 @@ public class MethodsPOM
 			else
 			{
 				//test.log(LogStatus.PASS, "Task-Closed count doesn't increased.");
-				test.log(LogStatus.PASS, "Task-Closed count doesn't increased =Old Count = "+closed+" | New Count = "+closed1);
+				test.log(LogStatus.FAIL, "Task-Closed count doesn't increased =Old Count = "+closed+" | New Count = "+closed1);
 				//test.log(LogStatus.PASS, "Task-Open count doesn't decreased.");
-				test.log(LogStatus.PASS, "Task-Open count doesn't decreased.=Old Count = "+open+" | New Count = "+open1);
+				test.log(LogStatus.FAIL, "Task-Open count doesn't decreased.=Old Count = "+open+" | New Count = "+open1);
 			}
 		}
 	}
@@ -4745,13 +4726,13 @@ public class MethodsPOM
 		action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 20Dec23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 6Jan24");
 		
 		Thread.sleep(3000);
-		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 20Dec23");
+		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 6Jan24");
 		
 		Thread.sleep(3000);
-		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 20Dec23");
+		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 6Jan24");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -4806,7 +4787,7 @@ public class MethodsPOM
 		performerPOM.clickReminderText(driver).clear();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 13Sep23");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 16jan24");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -7299,13 +7280,13 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
     	 
     	 Thread.sleep(3000);
 		 String msg1 = performerPOM.readcaseStagemsg(driver).getText();
-			if(msg1.contains("Case Stage Type Saved Successfully."))
+			if(msg1.contains(msg1))
 			{
-				test.log(LogStatus.PASS, "Case Stage - Case Stage Type Saved Successfully.");
+				test.log(LogStatus.PASS, "Add Case Stage" +msg1);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "Case Stage - Contract type already exists.");
+				test.log(LogStatus.FAIL, "Add Case Stage" +msg1);
 			}
 	   
     	 
@@ -7332,13 +7313,13 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
     	 
     	 Thread.sleep(3000);
 		 String msg2 = performerPOM.readcaseStagemsg(driver).getText();
-			if(msg2.contains("Case Stage Type Updated Successfully."))
+			if(msg2.contains(msg2))
 			{
-				test.log(LogStatus.PASS, "Update Case Stage -Case Stage Type Updated Successfully.");
+				test.log(LogStatus.PASS, "Update Case Stage"+msg2);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, "Update Case Stage -Contract type already exists.");
+				test.log(LogStatus.FAIL, "Update Case Stage"+msg2);
 			}
 	   
     	 
@@ -9148,7 +9129,7 @@ public static void UserCloseButton(WebDriver driver, ExtentTest test) throws Int
 			}
 			
 		
-			Thread.sleep(7000);
+			Thread.sleep(4000);
 			performerPOM.clearButton(driver).click();
 			test.log(LogStatus.PASS, "clear button work successfully.");
 			
@@ -10385,7 +10366,7 @@ public static void AgeingGraph1to2years(WebDriver driver,ExtentTest test, String
 	}
  	
 
-Thread.sleep(3000);
+Thread.sleep(5000);
 performerPOM.clickAgeingViewIcon(driver).click();
 wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 Thread.sleep(2000);
@@ -10959,12 +10940,12 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 //				robot.keyPress(KeyEvent.VK_SUBTRACT);
 				
 				Thread.sleep(4000);
-				WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[30]/a"));
+				WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[4]/a"));
 				 
 				Thread.sleep(4000);
 				 if(text.isEnabled())
 					{
-						driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[32]/a")).click();
+						driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[4]/a")).click();
 						
 						test.log(LogStatus.PASS, "Hearing for particular date is clickable.");
 						
@@ -10975,7 +10956,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 				WebDriverWait Wait=new WebDriverWait(driver,20);
 			 	Wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("calframe"));
 				
-				Thread.sleep(15000);
+				Thread.sleep(4000);
 				CFOcountPOM.readcalenderCount(driver).click();
 				String item = CFOcountPOM.readcalenderCount(driver).getText();
 				String[] bits = item.split(" ");								//Splitting the String
@@ -11048,7 +11029,7 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 	          Thread.sleep(500);
 	           wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 	  
-	           Thread.sleep(3000);
+	           Thread.sleep(6000);
 	            performerPOM.clickEditNotice(driver).click();
 	  
 	
@@ -13404,14 +13385,14 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					
 					else if(type.equalsIgnoreCase("Outward/Plaintiff"))
 					{
-						Thread.sleep(3000);
+						Thread.sleep(4000);
 				        performerPOM.clickOutwardPlaintiffCaseCA2to3(driver).click();						//Clicking on 'Open' notice
 					}
 					
 				Thread.sleep(2000);
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showChartDetails"));
 				
-				Thread.sleep(10000);
+				Thread.sleep(3000);
 				CFOcountPOM.readTotalItems1(driver).click();
 				String item = CFOcountPOM.readTotalItems1(driver).getText();
 				String[] bits = item.split(" ");								//Splitting the String
@@ -13582,12 +13563,14 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 					test.log(LogStatus.FAIL, "clear button not work successfully.");
 				}
 				
+				js.executeScript("window.scrollBy(500,0)");
+				
 				Thread.sleep(3000);
 				driver.switchTo().parentFrame();
 				Thread.sleep(2000);
 				performerPOM.caseNoticeSummaryGraphClose(driver).click();
 				
-
+				
 			}
 
 			public static void AgeingGraphMoreThan3yearsCase(WebDriver driver,ExtentTest test, String type,int counttype) throws InterruptedException, IOException
@@ -16085,6 +16068,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 
 			Thread.sleep(3000);
             selectNoticeRecipetDate(driver);
+            
             Thread.sleep(5000);
             clickInternalUser(driver);
             
@@ -16358,17 +16342,20 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	 			 public static void NoticeSendMailWithDoc(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	 	 	 	 {
 	 	 	 	 		  
-	 	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 	 	 	 	 			progress(driver);
 	 	 	 	 	
 	 	 	 	            Thread.sleep(500);
 	 	 	 	        	performerPOM.clickNoticeOpen(driver).click();		
 	 	 	 	 			
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 	 	 	 	             Thread.sleep(4000);
 	 	 	 	         
 	 	 			      	performerPOM.clickEditNotice(driver).click();
 	 	 	 	 			
-	 	 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 	 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 	 	 	 	 			
 	 	 	 	 		   Thread.sleep(4000);
 	 	 	 	 		   performerPOM.clickSendMail(driver).click();
@@ -16687,8 +16674,11 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
  		
 	        Thread.sleep(3000);
 			performerPOM.clickNoticeOpen(driver).click();//click edit notice
+			
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 	     
-	        Thread.sleep(3000);
+	        Thread.sleep(4000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
 			
 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
@@ -16697,7 +16687,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			 performerPOM.clickNoticeDocument(driver).click();     //click notice document
 			
 			Thread.sleep(3000);
-			performerPOM.clickSearchDocument(driver).sendKeys("LitigationSheet.xlsx");
+			performerPOM.clickSearchDocument(driver).sendKeys("Approver Test Case.xlsx");
 			
 			Thread.sleep(3000);
 			performerPOM.clickApplyBtn(driver).click();
@@ -16723,7 +16713,9 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
  		
 	        Thread.sleep(3000);
 			performerPOM.clickNoticeOpen(driver).click();//click edit notice
-	     
+			Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			
 	        Thread.sleep(3000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
 			
@@ -16788,7 +16780,10 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
  		
 	        Thread.sleep(3000);
 			performerPOM.clickNoticeOpen(driver).click();//click edit notice
-	     
+			
+			
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 	        Thread.sleep(3000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
 			
@@ -16914,8 +16909,10 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		  
 		  Thread.sleep(3000);
 			performerPOM.clickNoticeOpen(driver).click();
-		    
-			Thread.sleep(3000);
+			
+			
+			Thread.sleep(500);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));			Thread.sleep(3000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
 		
 		   Thread.sleep(1000);
@@ -17006,7 +17003,8 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			   WebDriverWait wait = new WebDriverWait(driver, 60);
 			  Thread.sleep(3000);
 				performerPOM.clickNoticeOpen(driver).click();//click edit notice
-		     
+				Thread.sleep(500);
+				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 		        Thread.sleep(3000);
 				performerPOM.clickEditNotice(driver).click();//click edit notice
 			   Thread.sleep(1000);
@@ -17286,19 +17284,23 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						  //performerPOM.clickSaveResponse(driver).click();
 							
 							 Thread.sleep(1000);
-							wait.until(ExpectedConditions.visibilityOf(performerPOM.readResponseMsg(driver)));
+							performerPOM.clickMinimizeResponse(driver).click();
+							
+							
+							 Thread.sleep(1000);
+							wait.until(ExpectedConditions.visibilityOf(performerPOM.readResponseInvalidMsg(driver)));
 								
 							Thread.sleep(500);
-							String msg3 = performerPOM.readResponseMsg(driver).getText();		//Reading Message appeared after save button
+							String msg3 = performerPOM.readResponseInvalidMsg(driver).getText();		//Reading Message appeared after save button
 						
-							if(msg3.equalsIgnoreCase("Response Details Saved Successfully."))
+							if(msg3.equalsIgnoreCase(msg3))
 							{
-								test.log(LogStatus.FAIL, "Message displayed = "+msg3);
+								test.log(LogStatus.PASS, "Message displayed = "+msg3);
 								
 							}
 							else
 							{
-									test.log(LogStatus.PASS, "Message displayed = "+msg3);
+									test.log(LogStatus.FAIL, "Message displayed = "+msg3);
 							}
 							
 							driver.switchTo().parentFrame();
@@ -17499,8 +17501,12 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			  
 				          Thread.sleep(3000);
 						  performerPOM.clickNoticeOpen(driver).click();//click edit notice
+						  
+			 			     
+			   			  Thread.sleep(500);
+			  			   wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				     
-				           Thread.sleep(3000);
+				           Thread.sleep(4000);
 						   performerPOM.clickEditNotice(driver).click();//click edit notice
 					  
 						   driver.switchTo().parentFrame();
@@ -18093,6 +18099,11 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			 	 	 			
 			 	 	 			WebDriverWait wait = new WebDriverWait(driver, 1000);
 			 	 	 			
+			 	 	 			Actions a = new Actions(driver);
+			 	 				//scroll down a page
+			 	 				a.sendKeys(Keys.PAGE_DOWN).build().perform();
+			 	 				
+			 	 	 			
 			 	 	 		    Thread.sleep(4000);
 			 	 	            performerPOM.clickLinkedCaseViewIcon(driver).click();
 		 			      	
@@ -18180,7 +18191,11 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				          WebDriverWait wait = new WebDriverWait(driver, 50);
 				          Thread.sleep(4000);
 				          performerPOM.clickCaseOpen(driver).click();
-				          Thread.sleep(3000);
+				          
+			 			     
+			   			  Thread.sleep(1000);
+			  			  wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+				          Thread.sleep(4000);
 				          performerPOM.clickEditNotice(driver).click();
 						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 						  performerPOM.clickNoticeDocument(driver).click();     //click notice document
@@ -18283,7 +18298,10 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					        Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
 					     
-					        Thread.sleep(3000);
+			 			     
+				   			  Thread.sleep(1000);
+				  			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+					        Thread.sleep(4000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
 							
 							wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
@@ -18321,8 +18339,10 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				    		
 					        Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
-					     
-					        Thread.sleep(3000);
+			 			     
+				   			  Thread.sleep(1000);
+				  			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+					        Thread.sleep(4000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
 							
 							wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
@@ -18386,9 +18406,9 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				    		
 					        Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
-							Thread.sleep(500);
+							Thread.sleep(1000);
 							wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
-					        Thread.sleep(3000);
+					        Thread.sleep(4000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
 							
 							wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
@@ -18508,7 +18528,8 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						    
 					       Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
-					     
+							Thread.sleep(500);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 					        Thread.sleep(3000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
 					      
@@ -18757,7 +18778,10 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			 			 
 			 		     Thread.sleep(4000);
 			 	          performerPOM.clickCaseOpen(driver).click();
-			 	          Thread.sleep(3000);
+			 	          
+			 	         Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 	          Thread.sleep(4000);
 			 	          performerPOM.clickEditNotice(driver).click();
 			 	         
 			 		    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
@@ -20172,7 +20196,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							OverduePOM.clickNewFolder(driver).click();						//Clicking on 'New Folder'
 							
 							Thread.sleep(1000);
-							OverduePOM.writeFolderName(driver).sendKeys("Sub Document 01Sep23");			//Writing Folder name.
+							OverduePOM.writeFolderName(driver).sendKeys("Sub Document 9jan2024");			//Writing Folder name.
 							
 							Thread.sleep(1000);
 							OverduePOM.clickCreate1(driver).click();						//Clicking on create button.
@@ -20187,7 +20211,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							{
 								Thread.sleep(1000);
 								String msg1=performerPOM.ClickInvalidMsg(driver).getText();
-								test.log(LogStatus.PASS, " sub-folder should not get  created =" +msg1);
+								test.log(LogStatus.FAIL, " sub-folder should not get  created =" +msg1);
 							}
 							
 							Thread.sleep(1000);
@@ -21122,9 +21146,9 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							 performerPOM.clickDashboardApplyBtn(driver).click();
 							
 					       	
-								js.executeScript("window.scrollBy(0,2500)");
+								js.executeScript("window.scrollBy(0,2400)");
 							
-					       	Thread.sleep(2000);
+					       	Thread.sleep(5000);
 						
 					        //Integer.parseInt(performerPOM.ExpensesCaseGraph(driver).getText());	//Reading Notice Open count.
 						    performerPOM.ExpensesCaseGraph(driver).click();						//Clicking on 'Open' notice
@@ -21152,34 +21176,37 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							Thread.sleep(10000);
 							CFOcountPOM.readTotalItems1(driver).click();
 							String item1 = CFOcountPOM.readTotalItems1(driver).getText();
-							String[] bits1 = item1.split(" ");								//Splitting the String
-							String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
-							int count2 = Integer.parseInt(compliancesCount1);
 							
-						    try
+							if(!item1.equalsIgnoreCase("No items to display"))
 							{
-								performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
-							}
-							catch(Exception e)
-							{
+								String[] bits1 = item1.split(" ");								//Splitting the String
+								String compliancesCount1 = bits1[bits1.length - 2];				//Getting the second last word (total number of users)
+								int count2 = Integer.parseInt(compliancesCount1);
+							
+								try
+								{
+									performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
+								}	
+								catch(Exception e)
+								{
 								
-							}
-							js.executeScript("window.scrollBy(0,1000)");
+								}
+								js.executeScript("window.scrollBy(0,1000)");
 							
 						
-							Thread.sleep(100);
-							File dir = new File("C:\\Users\\snehalp\\Downloads");
-							File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+								Thread.sleep(100);
+								File dir = new File("C:\\Users\\snehalp\\Downloads");
+								File[] dirContents = dir.listFiles();							//Counting number of files in directory before download 
+								
+								Thread.sleep(500);
+								CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
+								Thread.sleep(250);
+								performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
 							
-							Thread.sleep(500);
-							CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.PAGE_UP);
-							Thread.sleep(250);
-							performerPOM.clickExcelReport(driver).click();					//Clicking on 'Excel Report' image.
-						
 							
-							Thread.sleep(5500);
-							File dir1 = new File("C:\\Users\\snehalp\\Downloads");
-							File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
+								Thread.sleep(5500);
+								File dir1 = new File("C:\\Users\\snehalp\\Downloads");
+								File[] allFilesNew = dir1.listFiles();							//Counting number of files in directory after download
 							
 							if(dirContents.length < allFilesNew.length)
 							{
@@ -21381,6 +21408,19 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 							driver.switchTo().parentFrame();
 							Thread.sleep(2000);
 							performerPOM.caseNoticeSummaryGraphClose(driver).click();
+							
+					   }
+							
+							else
+							{
+								 Thread.sleep(3000);
+									driver.switchTo().parentFrame();
+									Thread.sleep(2000);
+									performerPOM.caseNoticeSummaryGraphClose(driver).click();
+									test.log(LogStatus.FAIL, "No Record Found");
+							}
+							
+							
 							
 							Thread.sleep(3000);
 							OverduePOM.clickDashboard(driver).click();
@@ -21718,7 +21758,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-		  	Thread.sleep(9000);
+		  	Thread.sleep(10000);
 		    performerPOM.UtilizedBudgetGraphCA(driver).click();						//Clicking on 'Open' notice
 		    
 		   

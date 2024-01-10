@@ -1514,6 +1514,17 @@ public class CFO {
 		extent.endTest(test);
 		extent.flush();
 	}
+	@Test(priority = 87)
+	void PaymentLogwithInvalidData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Notice Payment with Invalid data verification");
+		
+		
+		CFOMethod.PaymentLogwithInvalidData(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 @Test(priority = 87)
 	void NoticePaymentWithoutData() throws InterruptedException, IOException
 	{
@@ -1531,6 +1542,16 @@ public class CFO {
     		test = extent.startTest("Notice Lawyer verification");
     		
     		CFOMethod.ExternalLawyer(driver, test);
+    		
+    		extent.endTest(test);
+    		extent.flush();
+    	}
+    	@Test(priority = 0)
+    	void ExternalLawyerWithoutRating() throws InterruptedException, IOException
+    	{
+    		test = extent.startTest("Notice External Lawyer without rating verification");
+    		
+    		CFOMethod.ExternalLawyerWithoutRating(driver, test);
     		
     		extent.endTest(test);
     		extent.flush();
@@ -1874,6 +1895,17 @@ public class CFO {
     		extent.flush();
     	}
 @Test(priority =119)
+void StatusPaymentwithInvaliddata() throws InterruptedException, IOException
+{
+	test = extent.startTest("Case Status/Payment with Invalid data ");
+	
+	
+	CFOMethod.StatusPaymentwithInvaliddata(driver, test,workbook);
+	
+	extent.endTest(test);
+	extent.flush();
+}
+@Test(priority =119)
     	void StatusPaymentWithoutdata() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Case Status/Payment without data ");
@@ -1897,7 +1929,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
-    	@Ignore
+    	
 	@Test(priority =121)
     	void CaseStatusAppealtoNextCourt() throws InterruptedException, IOException
     	{
@@ -1927,6 +1959,17 @@ public class CFO {
     		
     		
     		CFOMethod.CaseExternalLawyer(driver, test);
+    		
+    		extent.endTest(test);
+    		extent.flush();
+    	}
+    	@Test(priority =124)
+    	void CaseExternalLawyerWitoutRating() throws InterruptedException, IOException
+    	{
+    		test = extent.startTest("Case - External Lawyer Without Rating");
+    		
+    		
+    		CFOMethod.CaseExternalLawyerWitoutRating(driver, test);
     		
     		extent.endTest(test);
     		extent.flush();
@@ -2187,7 +2230,7 @@ void NoticeUpdationUploadInvalidData() throws InterruptedException, IOException
 	extent.flush();
 }
 
-@Test(priority = 0)
+//@Test(priority = 0)
 void NoticeUpdationUploadInvalidFile() throws InterruptedException, IOException
 {
 	test = extent.startTest("Notice Updation -Invalid File Import Utility verification");

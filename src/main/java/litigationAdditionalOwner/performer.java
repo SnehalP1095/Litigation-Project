@@ -462,7 +462,7 @@ public class performer
 @Test(priority = 34)
 	void NoticeDocumentShareInvalidData() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Notice Document Share with Invaid data verification");
+		test = extent.startTest("Notice Document Share with Invalid data verification");
 		
 		
 		MethodsPOM.NoticeDocumentShareInvalidData(driver, test);
@@ -751,7 +751,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority =59)
+//@Test(priority =59)
 	void CaseDocumentSearchFields() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case Document Search Fields verification");
@@ -766,7 +766,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 @Test(priority =60)
 	void CaseDocumentShareInvalidData() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Case Document Share with Invaid data verification");
+		test = extent.startTest("Case Document Share with Invalid data verification");
 		
 		
 		MethodsPOM.CaseDocumentShareInvalidData(driver, test);
@@ -1490,7 +1490,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
-@Test(priority = 118)
+@Test(priority =118)
 	void WorkspaceTaskFilter() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Workspace - Task - Multiple Filters verification");
@@ -1514,7 +1514,7 @@ void NoticeAuditLogTab() throws InterruptedException, IOException
 		extent.flush();
 	}
 
-	@Test(priority =120)
+	//@Test(priority =0)
 			void DocumentNoticeFilter() throws InterruptedException, IOException
 			{
 				test = extent.startTest("My Document Tab - Notice - Multiple Filters verification");

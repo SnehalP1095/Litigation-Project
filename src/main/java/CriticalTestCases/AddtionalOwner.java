@@ -22,6 +22,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import litigationAdditionalOwner.MethodsPOM;
 import litigationAdditionalOwner.performer;
+import litigationManagement.CFOMethod;
 
 public class AddtionalOwner
 {
@@ -51,7 +52,7 @@ public class AddtionalOwner
 		String workingDir = System.getProperty("user.dir");
 		System.out.println(workingDir);
 		extent = new com.relevantcodes.extentreports.ExtentReports(workingDir+"//Reports//LitigationPerformer.html",true);
-		test = extent.startTest("Verify EdgeBrowser ");
+		test = extent.startTest("Verify ChomeBrowser ");
 		
 		
 		test.log(LogStatus.PASS, "Test Passed");
@@ -185,7 +186,7 @@ public class AddtionalOwner
 	 				extent.flush();
 	 			}
 	 
-	 @Test(priority = 0)
+	 @Test(priority = 9)
 		void ClosedTask() throws InterruptedException, IOException
 		{
 			test = extent.startTest(" Closed Task Count verification");
@@ -196,7 +197,7 @@ public class AddtionalOwner
 			extent.endTest(test);
 			extent.flush();
 		}
-	 	@Test(priority = 9)
+	 	@Test(priority = 10)
 	     	void NoticeDocument() throws InterruptedException, IOException
 	     	{
 	     		test = extent.startTest("Notice Document verification");
@@ -411,6 +412,28 @@ public class AddtionalOwner
 	 		extent.endTest(test);
 	 		extent.flush();
 	 	}
+	 
+	 @Test(priority = 27)
+		void CaseUpdationImportUtility() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Case Updation Import Utility verification");
+			
+			
+			CFOMethod.CaseUpdationImportUtility(driver,test);
+			extent.endTest(test);
+			extent.flush();
+		}
+
+	@Test(priority = 28)
+	void NoticeUpdation() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Notice Updation Import Utility verification");
+		
+		
+		CFOMethod.NoticeUpdation(driver,test);
+		extent.endTest(test);
+		extent.flush();
+	}
 
  @AfterMethod
 	 

@@ -356,8 +356,8 @@ public class MethodPOM1 {
 			 performerPOM.clickTrignle(driver).click(); 
 			
 			
-			js.executeScript("window.scrollBy(0,150)");	
-			Thread.sleep(3000);
+			js.executeScript("window.scrollBy(0,250)");	
+			Thread.sleep(4000);
 
 			CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
 			String s = CFOcountPOM.readTotalItems1(driver).getText();
@@ -469,6 +469,8 @@ public class MethodPOM1 {
 		Thread.sleep(3000);
 		performerPOM.clickCaseNotice1(driver).click();
 		
+		 Thread.sleep(1000);
+		 wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 		Thread.sleep(3000);
 		performerPOM.clickTypeDropdown(driver).click();
 		
@@ -488,9 +490,9 @@ public class MethodPOM1 {
           Thread.sleep(500);
 	       performerPOM.clickDepartmentFilterWorkspace(driver).click();
 	       Thread.sleep(500);
-	       String DeptText = performerPOM.selectReportCaseDeptFilter(driver).getText();
+	       String DeptText = performerPOM.selectDepartmentFilterDocNonAdmin(driver).getText();
 	       Thread.sleep(500);
-	       performerPOM. selectReportCaseDeptFilter(driver).click();
+	       performerPOM. selectDepartmentFilterDocNonAdmin(driver).click();
 	       				        
 	       Thread.sleep(500);
 	       performerPOM.clickTypeFilter(driver).click();
@@ -691,7 +693,7 @@ public class MethodPOM1 {
 			
 
 		     
-			js.executeScript("window.scrollBy(0,150)");	
+			js.executeScript("window.scrollBy(0,200)");	
 			Thread.sleep(3000);
 
 			CFOcountPOM.readTotalItems1(driver).click();					//Clicking on Text of total items just to scroll down.
@@ -1015,7 +1017,17 @@ public class MethodPOM1 {
 				{
 					
 				
-					
+					if(i==0)
+					{
+						if(text.get(l).equalsIgnoreCase("Open")||text.get(l).equalsIgnoreCase("Pending"))
+						{
+						   pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					}
 				  if(i==1)
 					 {
 						if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
@@ -1027,6 +1039,8 @@ public class MethodPOM1 {
 							 fail.add(text.get(l));
 						}
 					 }
+				  
+				  
 					else
 					{
 						
@@ -1199,6 +1213,18 @@ public class MethodPOM1 {
 
 				for(int l=0;l<text.size();l++)
 				{
+					
+					if(i==0)
+					{
+						if(text.get(l).equalsIgnoreCase("Open")||text.get(l).equalsIgnoreCase("Pending"))
+						{
+						  pass.add(text.get(l));
+						}
+						else
+						{
+							 fail.add(text.get(l));
+						}
+					}
 
 				 if(i==1)
 					{
@@ -1592,6 +1618,9 @@ public class MethodPOM1 {
 				performerPOM.clickTypeDropdown(driver).click();
 				Thread.sleep(3000);
 				performerPOM.selectTypeNotice(driver).click();
+				
+				Thread.sleep(500);
+				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));	//Wait until records table gets visible.
 			
 			Thread.sleep(3000);
 			performerPOM.clickReportStatusFilter(driver).click();
@@ -1604,9 +1633,9 @@ public class MethodPOM1 {
 	         Thread.sleep(3000);
 			performerPOM.clickReportDeptFilter(driver).click();
 			Thread.sleep(3000);
-		    String depttext =performerPOM.selectReportCaseDeptFilter(driver).getText();
+		    String depttext =performerPOM.selectReportCaseDeptFilter1(driver).getText();
 		    Thread.sleep(5000);
-		     performerPOM.selectReportCaseDeptFilter(driver).click();
+		     performerPOM.selectReportCaseDeptFilter1(driver).click();
 	         
 		     Thread.sleep(3000);
 				performerPOM.clickReportTypeFilter(driver).click();
