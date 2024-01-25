@@ -1253,11 +1253,11 @@ public class MethodsPOM
 				
 				Thread.sleep(500);
 				String msg5 = performerPOM.readRatingmsg(driver).getText();		//Reading Message appeared after save button
-				int flag5= 0;
+				
 				if(msg5.equalsIgnoreCase("Rating Saved Successfully."))
 				{
 					test.log(LogStatus.PASS, "Message displayed = "+msg5);
-					flag5 = 1;
+				
 				}
 				else
 				{
@@ -1271,6 +1271,77 @@ public class MethodsPOM
 				Thread.sleep(1000);
 			       OverduePOM.clickDashboard(driver).click();	
 		}
+	
+	  public static void ExternalLawyerWithoutRating(WebDriver driver,ExtentTest test) throws InterruptedException
+      {
+    	  
+		  			WebDriverWait wait = new WebDriverWait(driver, 300);
+	   
+		         	Thread.sleep(3000);
+		         	performerPOM.clickNoticeOpen(driver).click();//click edit notice
+				  
+	 			     
+			      	Thread.sleep(1000);
+ 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	        	Thread.sleep(3000);
+ 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 			
+ 	 	        	
+ 	 	        	Thread.sleep(3000);
+ 	 	        	performerPOM.clickFilter(driver).click();		
+	 	        	
+ 	 	        	Thread.sleep(2000);
+ 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 			
+				
+ 	 	        	Thread.sleep(5000);
+ 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	        	
+ 	 	        	Thread.sleep(5000);
+ 	 	        	performerPOM.clickCheckbox(driver).click();	
+ 	        	
+	 	        	
+ 	 	        	Thread.sleep(5000);
+ 	 	        	performerPOM.clickFilter1(driver).click();	
+		     
+ 	 	        	Thread.sleep(3000);
+ 	 				performerPOM.clickEditNotice(driver).click();//click edit notice
+		  
+			      wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+		          
+			       Thread.sleep(1000);
+				   performerPOM. clickExternalLawyerRating(driver).click();
+				   
+				  Thread.sleep(3000);
+				  performerPOM.selectExternalLawyerRating(driver);
+				  
+				  Thread.sleep(3000);
+				   performerPOM. clickSaveRating(driver).click();
+				   
+				   try
+				   {
+					   test.log(LogStatus.FAIL, "Validation message not displayed");
+					
+				   }
+				   catch(Exception e)
+				    {
+					   
+					   
+					   //wait.until(ExpectedConditions.visibilityOf(performerPOM.readRatingmsg(driver)));
+					   Thread.sleep(500);
+						String msg5 = performerPOM.readRatingmsg(driver).getText();		//Reading Message appeared after save button
+						
+						test.log(LogStatus.PASS, "Message displayed = "+msg5);
+				    }
+					   
+						
+				   
+				   Thread.sleep(2000);
+				  driver.switchTo().parentFrame();
+                  performerPOM.clickclosebutton(driver).click();
+                  Thread.sleep(2000);
+	              OverduePOM.clickDashboard(driver).click();
+		  }	 
 		   
 		   
 	public static void AuditLog(WebDriver driver,ExtentTest test) throws InterruptedException
@@ -1862,7 +1933,7 @@ public class MethodsPOM
 		    Thread.sleep(300);
 		    performerPOM.clickCaseNewTask(driver).click(); 
 		    Thread.sleep(5000);
-		    performerPOM.clickHearingDate(driver).sendKeys("14-01-2024");
+		    performerPOM.clickHearingDate(driver).sendKeys("18-01-2024");
 		    Thread.sleep(300);
 		    performerPOM.clickSaveHearingDate(driver).click();
 		  
@@ -1963,7 +2034,7 @@ public class MethodsPOM
 			performerPOM.clickTaskTitle(driver).clear();
 			
 			Thread.sleep(3000);
-			performerPOM.clickTaskTitle(driver).sendKeys(" Task 24July");	//Writing 'Task Title'
+			performerPOM.clickTaskTitle(driver).sendKeys(" Task 31july");	//Writing 'Task Title'
 					
 			
 			Thread.sleep(3000);
@@ -2077,7 +2148,7 @@ public class MethodsPOM
 //				int HearingDate = (int) c1.getNumericCellValue();
 //				performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 //				
-				performerPOM.clickCaseHearingDate(driver).sendKeys("09-01-2024");	//Writing 'HearingDate'
+				performerPOM.clickCaseHearingDate(driver).sendKeys("13-01-2024");	//Writing 'HearingDate'
 				
 			
 			    Thread.sleep(3000);
@@ -2112,7 +2183,7 @@ public class MethodsPOM
 			    Thread.sleep(3000);
 			    performerPOM.clickCaseHearingDecsri(driver).clear();
 			    Thread.sleep(3000);
-			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 01 Jan 2024");		//Writing 'HearingDescription'
+			    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing 3 Jan 2024");		//Writing 'HearingDescription'
 			    
 			    Thread.sleep(3000);
 			    performerPOM.clickSaveCaseHearing(driver).click();
@@ -2169,7 +2240,7 @@ public class MethodsPOM
 			 Thread.sleep(6000);
 			 performerPOM.clickNewCaseOrder(driver).click();
 			 Thread.sleep(3000);
-			 performerPOM. clickCaseOrderDate(driver).sendKeys("20-12-2023");
+			 performerPOM. clickCaseOrderDate(driver).sendKeys("24-12-2023");
 			 Thread.sleep(3000);
 			 performerPOM.clickOrderPanel(driver).click();
 			 Thread.sleep(3000);
@@ -2620,6 +2691,55 @@ public class MethodsPOM
 						Thread.sleep(1000);
 					       OverduePOM.clickDashboard(driver).click();
 				      
+		  }	
+      
+      public static void CaseExternalLawyerWitoutRating(WebDriver driver,ExtentTest test) throws InterruptedException, IOException
+      {
+	               
+	   
+    	           WebDriverWait wait=new WebDriverWait(driver,50);
+    	           
+    	    	   Thread.sleep(3000);
+   					performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+   		     
+   					Thread.sleep(3000);
+   					performerPOM.clickEditNotice(driver).click();//click edit notice
+   			  
+   					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+    	      
+				  Thread.sleep(3000);
+				   performerPOM.clickExternalLawyerRating1(driver).click();
+				   
+				  Thread.sleep(3000);
+				  performerPOM.selectExternalLawyerRating(driver);
+				  
+		
+			
+				   Thread.sleep(3000);
+				   performerPOM. clickSaveRating(driver).click();
+				 
+					try
+					{
+						   
+						wait.until(ExpectedConditions.visibilityOf(performerPOM.readRatingmsg(driver)));
+						 	  
+						 Thread.sleep(500);
+					    String msg5 = performerPOM.readRatingmsg(driver).getText();		//Reading Message appeared after save button
+					    test.log(LogStatus.PASS, "Message displayed = "+msg5);
+								
+					}
+					catch(Exception e)
+					{
+						test.log(LogStatus.FAIL, "Validation message not displayed");
+					}
+					 Thread.sleep(3000);
+					   driver.switchTo().parentFrame();
+					   performerPOM.clickclosebutton(driver).click();
+					   Thread.sleep(1000);
+						
+						OverduePOM.clickDashboard(driver).click();
+					
+				   
 		  }	 
       
 	   
@@ -2795,15 +2915,15 @@ public class MethodsPOM
 			test.log(LogStatus.FAIL, "Assigned task can not be submitted");
 		} */
 		
-		Thread.sleep(500);
+		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOf(performerPOM.clickExcelReport(driver)));
 		
-		Thread.sleep(300);
+		Thread.sleep(3000);
 		performerPOM.clickStatusDropDown(driver).click();		//Clicking on 'Status drop down.
-		Thread.sleep(500);
+		Thread.sleep(3000);
 		performerPOM.selectStatusDropDown(driver).click();		//Selecting 'Pending/Open' status
 		
-		Thread.sleep(500);
+		Thread.sleep(3000);
 		performerPOM.clickExcelReport(driver).sendKeys(Keys.PAGE_DOWN);
 		js.executeScript("window.scrollBy(0,700)");
 		
@@ -3447,18 +3567,41 @@ public class MethodsPOM
 	 	 {
 	 	 		   
 	 	        	
-	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 	 	 			progress(driver);
 	 	 			
 	 	 		
 	 	 			
 	 	            Thread.sleep(500);
-	 	        	performerPOM.clickNoticeOpen(driver).click();		
+	 	        	performerPOM.clickNoticeOpen(driver).click();	
+	 	        	
+	 	         	Thread.sleep(1000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 			
+	 	 	        	
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	        	
+	 	 	        	Thread.sleep(2000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 			
+ 				
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickCheckbox(driver).click();	
+	 	        	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickFilter1(driver).click();	
 	 	 			
 	 	            Thread.sleep(4000);
 	 	            performerPOM.clickEditNotice(driver).click();
 	 	 			
-	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 	 	 			
 	 	 		    Thread.sleep(4000);
 	 	            performerPOM.clickLinkedNoticeViewIcon(driver).click();
@@ -3493,18 +3636,44 @@ public class MethodsPOM
 	 	 {
 	 	 		   
 	 	        	
-	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 	 	 			progress(driver);
 	 	 			
 	 	 		
 	 	 			
 	 	            Thread.sleep(500);
-	 	        	performerPOM.clickNoticeOpen(driver).click();		
+	 	        	performerPOM.clickNoticeOpen(driver).click();
+	 	        	
+	 	        	
+	 	        	
+	 	         	Thread.sleep(1000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 			
+	 	 	        	
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	        	
+	 	 	        	Thread.sleep(2000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 			
+ 				
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickCheckbox(driver).click();	
+	 	        	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickFilter1(driver).click();	
+	 	        	
 	 	 			
 	 	            Thread.sleep(4000);
 	 	            performerPOM.clickEditNotice(driver).click();
 	 	 			
-	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 	 	 			
 	 	 		    Thread.sleep(4000);
 	 	            performerPOM.clickLinkedNoticeDeleteIcon(driver).click();
@@ -3579,7 +3748,7 @@ public class MethodsPOM
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,500)");
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		performerPOM.GridLoad(driver).click();
 		elementsList = performerPOM.clickAction(driver);			//Getting all action buttons.
 		js.executeScript("arguments[0].scrollIntoView();", elementsList.get(0));
@@ -4229,7 +4398,7 @@ public class MethodsPOM
 		Report(driver, test, count1, "Notice");
 		
 		
-		
+		Thread.sleep(500);
 		js.executeScript("window.scrollBy(0,500)");
 		js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=5000");
 	  
@@ -4726,13 +4895,13 @@ public class MethodsPOM
 		action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 6Jan24");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on date test 25Jan24");
 		
 		Thread.sleep(3000);
-		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 6Jan24");
+		performerPOM.clickDescription(driver).sendKeys("Reminder as on date test 25Jan24");
 		
 		Thread.sleep(3000);
-		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 6Jan24");
+		performerPOM.clickRemark2(driver).sendKeys("Reminder as on date test 25Jan24");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -4787,7 +4956,7 @@ public class MethodsPOM
 		performerPOM.clickReminderText(driver).clear();
 		
 		Thread.sleep(3000);
-		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 16jan24");
+		performerPOM.clickReminderText(driver).sendKeys("Reminder as on dated 26jan24");
 		
 		Thread.sleep(3000);
 		performerPOM.clickDate(driver).click();
@@ -11026,8 +11195,28 @@ public static void AgeingGraphMorethan3years(WebDriver driver,ExtentTest test, S
 	          Thread.sleep(4000);
 	          performerPOM.clickNoticeOpen(driver).click();
 	   
-	          Thread.sleep(500);
-	           wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	        	Thread.sleep(1000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickTrignle1(driver).click();		
+	 			
+	 	        	
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickFilter(driver).click();		
+	        	
+	 	        	Thread.sleep(2000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 			
+				
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickCheckbox(driver).click();	
+	        	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickFilter1(driver).click();	
 	  
 	           Thread.sleep(6000);
 	            performerPOM.clickEditNotice(driver).click();
@@ -16351,6 +16540,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	 	 	 	        	
 	 	 	 	        	Thread.sleep(1000);
 			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
+	 	 	 	        	
+	 	 	 	        	
+	 	 	 	 			
 	 	 	 	             Thread.sleep(4000);
 	 	 	 	         
 	 	 			      	performerPOM.clickEditNotice(driver).click();
@@ -16400,19 +16612,44 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	 	 	 	 {
 	 	 	 	 		   
 	 	 	 	        	
-	 	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 	 	 	 	 			progress(driver);
 	 	 	 	 			
 	 	 	 	 		
 	 	 	 	 			
 	 	 	 	            Thread.sleep(500);
-	 	 	 	        	performerPOM.clickNoticeOpen(driver).click();		
-	 	 	 	 			
+	 	 	 	        	performerPOM.clickNoticeOpen(driver).click();	
+	 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(1000);
+	 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+ 	 	 	 			
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+ 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	 			
+		 				
+	 	 	 	        	Thread.sleep(6000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+ 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickCheckbox(driver).click();	
+	 	 	        	
+ 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
+	 	 	 	        	
+	 	 	 	       
 	 	 	 	             Thread.sleep(4000);
 	 	 	 	         
 	 	 			      	performerPOM.clickEditNotice(driver).click();
 	 	 	 	 			
-	 	 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 	 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 	 	 	 	 			
 	 	 	 	 		   Thread.sleep(4000);
 	 	 	 	 		   performerPOM.clickSendMail(driver).click();
@@ -16457,15 +16694,41 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	 	 	 	 {
 	 	 	 	 		   
 	 	 	 	        	
-	 	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 	 	 	 	 			progress(driver);	
 	 	 	 	            Thread.sleep(500);
-	 	 	 	        	performerPOM.clickNoticeOpen(driver).click();		
+	 	 	 	        	performerPOM.clickNoticeOpen(driver).click();	
+	 	 	 	        	
+	 	 	 	        	
+	 	 	 	       	Thread.sleep(1000);
+ 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 			
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	        	
+ 	 	 	        	Thread.sleep(2000);
+ 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 			
+	 				
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickCheckbox(driver).click();	
+ 	 	        	
+	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickFilter1(driver).click();	
+	 	 	 	        	
+	 	 	 	        	
 	 	 	 	        	Thread.sleep(4000);
 	 	 	 	         
 	 	 			      	performerPOM.clickEditNotice(driver).click();
 	 	 	 	 			
-	 	 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 	 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 	 	 	 	 			
 	 	 	 	 		   Thread.sleep(4000);
 	 	 	 	 		   performerPOM.clickSendMail(driver).click();
@@ -16500,9 +16763,35 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	 			 public static void NoticeUserAssignment(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	 	 	 	 {
 	 	 	 	 		     
-	 	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 	 	 	 	            Thread.sleep(500);
-	 	 	 	        	performerPOM.clickNoticeOpen(driver).click();		
+	 	 	 	        	performerPOM.clickNoticeOpen(driver).click();	
+	 	 	 	        	
+	 	 	 	        	
+	 	 	 	       	Thread.sleep(1000);
+ 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 			
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	        	
+ 	 	 	        	Thread.sleep(2000);
+ 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 			
+	 				
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickCheckbox(driver).click();	
+ 	 	        	
+	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickFilter1(driver).click();	
+	 	 	 	        	
+	 	 	 	        	
 	 	 	 	 			
 	 	 	 	            Thread.sleep(4000);
 	 	 	 	            performerPOM.clickEditNotice(driver).click();
@@ -16513,7 +16802,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	 	 	 	            try
 	 	 	 	            {
 	 	 	 	            	Thread.sleep(4000);
-	 	 	 	              	wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 	 	              	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 	 	 	 	 			
 	 	 	 	 	            Thread.sleep(4000);
 		 	 	                 performerPOM.clickEditUserAssign(driver).click();
@@ -16559,9 +16848,36 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	 	 public static void NoticeDeleteUserAssignment(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	 	 	 {
 	 	 	 	 		     
-	 	 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+	 	 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 	 	 	 	            Thread.sleep(500);
-	 	 	 	        	performerPOM.clickNoticeOpen(driver).click();		
+	 	 	 	        	performerPOM.clickNoticeOpen(driver).click();	
+	 	 	 	        	
+	 	 	 	        	
+	 	 	 	       	Thread.sleep(1000);
+ 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 			
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	        	
+ 	 	 	        	Thread.sleep(2000);
+ 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 			
+	 				
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickCheckbox(driver).click();	
+ 	 	        	
+	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickFilter1(driver).click();	
+	 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	
 	 	 	 	 			
 	 	 	 	            Thread.sleep(4000);
 	 	 	 	            performerPOM.clickEditNotice(driver).click();
@@ -16620,6 +16936,30 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			
 			Thread.sleep(3000);
 			performerPOM.clickNoticeOpen(driver).click();//click edit notice
+			
+			
+	      	Thread.sleep(1000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	        	Thread.sleep(3000);
+	        	performerPOM.clickTrignle1(driver).click();		
+			
+	        	
+	        	Thread.sleep(3000);
+	        	performerPOM.clickFilter(driver).click();		
+       	
+	        	Thread.sleep(2000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			
+			
+	        	Thread.sleep(5000);
+	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickCheckbox(driver).click();	
+      	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickFilter1(driver).click();	
   
 			Thread.sleep(3000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -16674,9 +17014,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
  		
 	        Thread.sleep(3000);
 			performerPOM.clickNoticeOpen(driver).click();//click edit notice
+			Thread.sleep(1000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	        	Thread.sleep(3000);
+	        	performerPOM.clickTrignle1(driver).click();		
 			
-			Thread.sleep(500);
-			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	        	
+	        	Thread.sleep(3000);
+	        	performerPOM.clickFilter(driver).click();		
+       	
+	        	Thread.sleep(2000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			
+			
+	        	Thread.sleep(5000);
+	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickCheckbox(driver).click();	
+      	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickFilter1(driver).click();	
 	     
 	        Thread.sleep(4000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -16713,8 +17072,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
  		
 	        Thread.sleep(3000);
 			performerPOM.clickNoticeOpen(driver).click();//click edit notice
-			Thread.sleep(1000);
-			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	      	Thread.sleep(1000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	        	Thread.sleep(3000);
+	        	performerPOM.clickTrignle1(driver).click();		
+			
+	        	
+	        	Thread.sleep(3000);
+	        	performerPOM.clickFilter(driver).click();		
+       	
+	        	Thread.sleep(2000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			
+			
+	        	Thread.sleep(5000);
+	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickCheckbox(driver).click();	
+      	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickFilter1(driver).click();	
 			
 	        Thread.sleep(3000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -16782,8 +17161,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			performerPOM.clickNoticeOpen(driver).click();//click edit notice
 			
 			
-			Thread.sleep(500);
-			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	      	Thread.sleep(1000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	        	Thread.sleep(3000);
+	        	performerPOM.clickTrignle1(driver).click();		
+			
+	        	
+	        	Thread.sleep(3000);
+	        	performerPOM.clickFilter(driver).click();		
+       	
+	        	Thread.sleep(2000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			
+			
+	        	Thread.sleep(5000);
+	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickCheckbox(driver).click();	
+      	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickFilter1(driver).click();	
 	        Thread.sleep(3000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
 			
@@ -16849,6 +17248,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
  		
 	        Thread.sleep(3000);
 			performerPOM.clickNoticeOpen(driver).click();//click edit notice
+			
+	      	Thread.sleep(1000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	        	Thread.sleep(3000);
+	        	performerPOM.clickTrignle1(driver).click();		
+			
+	        	
+	        	Thread.sleep(3000);
+	        	performerPOM.clickFilter(driver).click();		
+       	
+	        	Thread.sleep(2000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			
+			
+	        	Thread.sleep(5000);
+	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickCheckbox(driver).click();	
+      	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickFilter1(driver).click();	
 	     
 	        Thread.sleep(3000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -16911,8 +17333,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			performerPOM.clickNoticeOpen(driver).click();
 			
 			
-			Thread.sleep(500);
-			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));			Thread.sleep(3000);
+	      	Thread.sleep(1000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	        	Thread.sleep(3000);
+	        	performerPOM.clickTrignle1(driver).click();		
+			
+	        	
+	        	Thread.sleep(3000);
+	        	performerPOM.clickFilter(driver).click();		
+       	
+	        	Thread.sleep(2000);
+	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			
+			
+	        	Thread.sleep(5000);
+	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickCheckbox(driver).click();	
+      	
+       	
+	        	Thread.sleep(5000);
+	        	performerPOM.clickFilter1(driver).click();			
+	        	Thread.sleep(3000);
 			performerPOM.clickEditNotice(driver).click();//click edit notice
 		
 		   Thread.sleep(1000);
@@ -17003,8 +17446,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			   WebDriverWait wait = new WebDriverWait(driver, 60);
 			  Thread.sleep(3000);
 				performerPOM.clickNoticeOpen(driver).click();//click edit notice
-				Thread.sleep(500);
-				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		      	Thread.sleep(1000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickTrignle1(driver).click();		
+	 			
+	 	        	
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickFilter(driver).click();		
+	        	
+	 	        	Thread.sleep(2000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 			
+				
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickCheckbox(driver).click();	
+	        	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickFilter1(driver).click();	
 		        Thread.sleep(3000);
 				performerPOM.clickEditNotice(driver).click();//click edit notice
 			   Thread.sleep(1000);
@@ -17040,6 +17503,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		      WebDriverWait wait = new WebDriverWait(driver, 60);
 			    Thread.sleep(3000);
 				performerPOM.clickNoticeOpen(driver).click();//click edit notice
+				
+		      	Thread.sleep(1000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickTrignle1(driver).click();		
+	 			
+	 	        	
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickFilter(driver).click();		
+	        	
+	 	        	Thread.sleep(2000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 			
+				
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickCheckbox(driver).click();	
+	        	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickFilter1(driver).click();	
 		     
 				
 		        Thread.sleep(3000);
@@ -17088,6 +17574,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		        WebDriverWait wait = new WebDriverWait(driver, 60);
 			    Thread.sleep(3000);
 				 performerPOM.clickNoticeOpen(driver).click();//click edit notice
+				 
+			      	Thread.sleep(1000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 			
+	 	 	        	
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	        	
+	 	 	        	Thread.sleep(2000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 			
+ 				
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickCheckbox(driver).click();	
+	 	        	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickFilter1(driver).click();	
 		     
 		         Thread.sleep(3000);
 				 performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -17186,6 +17695,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	 		   WebDriverWait wait = new WebDriverWait(driver, 60);
 	 			  Thread.sleep(3000);
 	 				performerPOM.clickNoticeOpen(driver).click();//click edit notice
+	 				
+	 		      	Thread.sleep(1000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 			
+	 	 	        	
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	        	
+	 	 	        	Thread.sleep(2000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 			
+ 				
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickCheckbox(driver).click();	
+	 	        	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickFilter1(driver).click();	
 	 		     
 	 		        Thread.sleep(3000);
 	 				performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -17231,8 +17763,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			   Thread.sleep(3000);
 				performerPOM.clickNoticeOpen(driver).click();
 				
-				Thread.sleep(500);
-				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		      	Thread.sleep(1000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickTrignle1(driver).click();		
+	 			
+	 	        	
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickFilter(driver).click();		
+	        	
+	 	        	Thread.sleep(2000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 			
+				
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickCheckbox(driver).click();	
+	        	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickFilter1(driver).click();	
 				
 			    
 				Thread.sleep(3000);
@@ -17315,6 +17867,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			  
 			    Thread.sleep(3000);
 				performerPOM.clickNoticeOpen(driver).click();//click edit notice
+				
+		      	Thread.sleep(1000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickTrignle1(driver).click();		
+	 			
+	 	        	
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickFilter(driver).click();		
+	        	
+	 	        	Thread.sleep(2000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 			
+				
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickCheckbox(driver).click();	
+	        	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickFilter1(driver).click();	
 		     
 		        Thread.sleep(3000);
 				performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -17358,8 +17933,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				   Thread.sleep(3000);
 					performerPOM.clickNoticeOpen(driver).click();//click edit notice
 			     
-					Thread.sleep(500);
-					wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			      	Thread.sleep(1000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 			
+	 	 	        	
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	        	
+	 	 	        	Thread.sleep(2000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 			
+ 				
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickCheckbox(driver).click();	
+	 	        	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickFilter1(driver).click();	
 					
 					
 			        Thread.sleep(3000);
@@ -17405,9 +18000,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			   Thread.sleep(3000);
 				performerPOM.clickNoticeOpen(driver).click();
 			    
-				Thread.sleep(500);
-				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		      	Thread.sleep(1000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickTrignle1(driver).click();		
+	 			
+	 	        	
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickFilter(driver).click();		
+	        	
+	 	        	Thread.sleep(2000);
+	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 			
 				
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickCheckbox(driver).click();	
+	        	
+	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickFilter1(driver).click();	
 				
 				Thread.sleep(3000);
 				performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -17464,6 +18078,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				   
 	 		         Thread.sleep(3000);
 				     performerPOM.clickNoticeOpen(driver).click();//click edit notice
+				     
+				      	Thread.sleep(1000);
+ 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 			
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	        	
+ 	 	 	        	Thread.sleep(2000);
+ 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 			
+	 				
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickCheckbox(driver).click();	
+ 	 	        	
+	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickFilter1(driver).click();	
 		     
 		             Thread.sleep(3000);
 				     performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -17493,6 +18130,68 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 				}
 		 	 
+		 	 public static void PaymentLogwithInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+				{
+			 
+			 
+	 			 	WebDriverWait wait = new WebDriverWait(driver, 60);
+				   
+	 			 	
+				   
+	 			 	Thread.sleep(3000);
+				     performerPOM.clickNoticeOpen(driver).click();//click edit notice
+				     
+				 	Thread.sleep(1000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		     
+		             Thread.sleep(3000);
+				     performerPOM.clickEditNotice(driver).click();//click edit notice
+			  
+				     driver.switchTo().parentFrame();
+				     wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+				     
+				     Thread.sleep(3000);
+				    performerPOM.clickStatusPayments(driver).click();			//Clicking on 'Status/Payments'
+				
+				    Thread.sleep(1000);
+					performerPOM.clickInvoiceNo(driver).sendKeys("abc");
+					
+					
+					Thread.sleep(3000);
+					performerPOM.clickPaymentType(driver).click();
+
+					List<WebElement> PaymentType1= driver.findElements(By.xpath("//*[@id='grdNoticePayment_ddlPaymentType_chosen']/div/ul/li"));
+					PaymentType1.get(4).click();
+						
+					Thread.sleep(3000);
+					performerPOM.clickAmount(driver).sendKeys("abc");
+					
+					Thread.sleep(6000);
+					performerPOM.clickNoticeStatusPaymentUploadtcfo(driver);
+				
+					Thread.sleep(300);
+					performerPOM.clickSavePaymentLog(driver).click();
+					
+					try
+					{
+							
+					 
+					   wait.until(ExpectedConditions.visibilityOf(performerPOM.readPymentmsg(driver)));
+					   Thread.sleep(500);
+					   String msg4 = performerPOM.readPymentmsg(driver).getText();		//Reading Message appeared after save button
+					   test.log(LogStatus.PASS, "Message displayed = "+msg4);
+								
+					}
+					catch(Exception e)
+					{
+						test.log(LogStatus.FAIL, "Invalid Payment = Validation message not displayed");
+					}
+							
+					driver.switchTo().parentFrame();
+				   	Thread.sleep(3000);
+				   	 performerPOM.clickClose(driver).click();//Clicking on 'Close'
+				}
+		 	 
 		 	 
 		 	 public static void CriteriaInvalidData(WebDriver driver,ExtentTest test) throws InterruptedException
 	         {
@@ -17503,8 +18202,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						  performerPOM.clickNoticeOpen(driver).click();//click edit notice
 						  
 			 			     
-			   			  Thread.sleep(500);
-			  			   wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+					      	Thread.sleep(1000);
+	 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+ 	 	 	 			
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+ 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	 			
+		 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+ 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickCheckbox(driver).click();	
+	 	 	        	
+ 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 				     
 				           Thread.sleep(4000);
 						   performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -17550,8 +18269,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	   		         Thread.sleep(3000);
 	   			     performerPOM.clickNoticeOpen(driver).click();//click edit notice
 	   			     
-	   			  Thread.sleep(500);
-	  			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	   		      	Thread.sleep(1000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 			
+	 	 	        	
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	        	
+	 	 	        	Thread.sleep(2000);
+	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 			
+ 				
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickCheckbox(driver).click();	
+	 	        	
+	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickFilter1(driver).click();	
 	  			
 	   	     
 	   	             Thread.sleep(3000);
@@ -17603,6 +18342,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			  
 				          Thread.sleep(3000);
 						     performerPOM.clickNoticeOpen(driver).click();//click edit notice
+						     
+						      	Thread.sleep(1000);
+		 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 	 	 	        	Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+		 	 	 	        	Thread.sleep(2000);
+		 	 	 	        	wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("12344");	
+	 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickCheckbox(driver).click();	
+		 	 	        	
+	 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickFilter1(driver).click();	
 				     
 				             Thread.sleep(3000);
 						     performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -17930,18 +18692,39 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			 	 	 {
 			 	 	 		   
 			 	 	        	
-			 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+			 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 			 	 	 			progress(driver);
 			 	 	 			
 			 	 	 		
 			 	 	 			
 			 	 	 		  Thread.sleep(4000);
 			 	 	          performerPOM.clickCaseOpen(driver).click();
-			 	 	             Thread.sleep(4000);
+			 	 	     	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 			 	 	         
 			 			      	performerPOM.clickEditNotice(driver).click();
 			 	 	 			
-			 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			 	 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 			 	 	 			
 			 	 	 		   Thread.sleep(4000);
 			 	 	 		   performerPOM.clickSendMailCase(driver).click();
@@ -17987,17 +18770,40 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					 public static void CaseSendMailWithDocInvalidFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 			 	 	 {
 			 	 	
-			 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+			 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 			 	 	 			progress(driver);
 			 	 	 			
 			 	 	            Thread.sleep(500);
 			 	 	        	performerPOM.clickCaseOpencfo(driver).click();		
+			 	 	        	
+			 	 	       	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 			 	 	 			
 			 	 	             Thread.sleep(4000);
 			 	 	         
 			 			      	performerPOM.clickEditNotice(driver).click();
 			 	 	 			
-			 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			 	 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 			 	 	 			
 			 	 	 		   Thread.sleep(4000);
 			 	 	 		   performerPOM.clickSendMailCase(driver).click();
@@ -18041,17 +18847,40 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					 public static void CaseSendMailWithEmptyFields(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 			 	 	 {
 			 	 	
-			 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+			 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 			 	 	 			progress(driver);
 			 	 	 			
 			 	 	            Thread.sleep(500);
 			 	 	        	performerPOM.clickCaseOpencfo(driver).click();		
+			 	 	        	
+			 	 	       	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 			 	 	 			
 			 	 	             Thread.sleep(4000);
 			 	 	         
 			 			      	performerPOM.clickEditNotice(driver).click();
 			 	 	 			
-			 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			 	 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 			 	 	 			
 			 	 	 		   Thread.sleep(4000);
 			 	 	 		   performerPOM.clickSendMailCase(driver).click();
@@ -18084,21 +18913,45 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			 	 	 {
 			 	 	 		   
 			 	 	        	
-			 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+			 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 			 	 	 			progress(driver);
 			 	 	 			
 			 	 	 		
 			 	 	 			
 			 	 	            Thread.sleep(500);
-			 	 	        	performerPOM.clickCaseOpencfo(driver).click();		
+			 	 	        	performerPOM.clickCaseOpencfo(driver).click();	
+			 	 	        	
+			 	 	        	
+			 	 	      	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
+	 	 	 	        	
 			 	 	 			
 			 	 	            Thread.sleep(4000);
 			 	 	            performerPOM.clickEditNotice(driver).click();
 			 	 	 			
-			 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			 	 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 			 	 	 			
-			 	 	 			WebDriverWait wait = new WebDriverWait(driver, 1000);
-			 	 	 			
+			 	 	 		
 			 	 	 			Actions a = new Actions(driver);
 			 	 				//scroll down a page
 			 	 				a.sendKeys(Keys.PAGE_DOWN).build().perform();
@@ -18136,20 +18989,44 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					 public static void LinkCaseDeleteIcon(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 			 	 	 {
 			 	 
-			 	 	 			WebDriverWait wait1 = new WebDriverWait(driver, 300);
+			 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
 			 	 	 			progress(driver);
 			 	 	 			
 			 	 	            Thread.sleep(500);
-			 	 	        	performerPOM.clickCaseOpencfo(driver).click();		
+			 	 	        	performerPOM.clickCaseOpencfo(driver).click();	
+			 	 	        	
+			 	 	        	
+			 	 	       	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
+			 	 	        	
 			 	 	 			
 			 	 	            Thread.sleep(4000);
 			 	 	            performerPOM.clickEditNotice(driver).click();
 			 	 	 			
-			 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+			 	 	 			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
 			 	 	 			
 			 	 	 		   	
-			 	 	 			WebDriverWait wait = new WebDriverWait(driver, 1000);
-			 	 	 			
+			 	 	 						 	 	 			
 			 	 	 		    Thread.sleep(4000);
 			 	 	            performerPOM.clickLinkedCaseDeleteIcon(driver).click();
 		 			      	
@@ -18193,8 +19070,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				          performerPOM.clickCaseOpen(driver).click();
 				          
 			 			     
-			   			  Thread.sleep(1000);
-			  			  wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+				       	Thread.sleep(1000);
+		 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 				Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickFilter(driver).click();		
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(2000);
+ 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	        	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickFilter1(driver).click();	
+ 	 	 	        	
 				          Thread.sleep(4000);
 				          performerPOM.clickEditNotice(driver).click();
 						  wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
@@ -18247,6 +19145,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				    		
 					        Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+							
+						 	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 					     
 					        Thread.sleep(3000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -18340,8 +19261,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					        Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
 			 			     
-				   			  Thread.sleep(1000);
-				  			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+						 	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
+	 	 	 	        	
 					        Thread.sleep(4000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
 							
@@ -18406,8 +19348,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				    		
 					        Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
-							Thread.sleep(1000);
-							wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+						 	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(6000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
+	 	 	 	        	
 					        Thread.sleep(4000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
 							
@@ -18472,6 +19435,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				    		
 					        Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+							
+						 	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 					     
 					        Thread.sleep(3000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -18528,8 +19514,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						    
 					       Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
-							Thread.sleep(500);
+						 	Thread.sleep(1000);
 			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 					        Thread.sleep(3000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
 					      
@@ -18568,6 +19574,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					    WebDriverWait wait=new WebDriverWait(driver,20);
 					    Thread.sleep(2000);
 					    performerPOM.clickCaseOpen(driver).click();
+					 	Thread.sleep(1000);
+		 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 				Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickFilter(driver).click();		
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(2000);
+ 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	        	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickFilter1(driver).click();	
+					    
 				        Thread.sleep(3000);
 				        performerPOM.clickEditNotice(driver).click();
 				      	sheet = workbook.getSheetAt(2);	
@@ -18672,8 +19701,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				 		   WebDriverWait wait = new WebDriverWait(driver, 60);
 				 			  Thread.sleep(3000);
 				 				performerPOM.clickCaseOpencfo(driver).click();//click edit notice
-				 				Thread.sleep(500);
+				 			 	Thread.sleep(1000);
 				 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+				 				Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickFilter(driver).click();		
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(2000);
+		 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	 	        	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickFilter1(driver).click();	
 				 		        Thread.sleep(3000);
 				 				performerPOM.clickEditNotice(driver).click();//click edit notice
 				 			   
@@ -18726,6 +19775,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				 		   WebDriverWait wait = new WebDriverWait(driver, 60);
 				 			  Thread.sleep(3000);
 				 				performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+				 				
+				 			 	Thread.sleep(1000);
+				 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+				 				Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickFilter(driver).click();		
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(2000);
+		 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	 	        	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickFilter1(driver).click();	
 				 		     
 				 		        Thread.sleep(3000);
 				 				performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -18779,8 +19851,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			 		     Thread.sleep(4000);
 			 	          performerPOM.clickCaseOpen(driver).click();
 			 	          
-			 	         Thread.sleep(1000);
-			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 	      	Thread.sleep(1000);
+		 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 				Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickFilter(driver).click();		
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(2000);
+ 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	        	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickFilter1(driver).click();	
 			 	          Thread.sleep(4000);
 			 	          performerPOM.clickEditNotice(driver).click();
 			 	         
@@ -18791,7 +19883,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			 				Thread.sleep(3000);
 			 				performerPOM.clickNewCaseHearing(driver).click();
 			 				
-	     	 				performerPOM.clickCaseHearingDate(driver).sendKeys("15-07-2023");	//Writing 'HearingDate'
+	     	 				performerPOM.clickCaseHearingDate(driver).sendKeys("22-01-2024");	//Writing 'HearingDate'
 			 				
 			 			
 			 			    Thread.sleep(3000);
@@ -18820,8 +19912,28 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						       
 						       Thread.sleep(3000);
 				 				performerPOM.clickCaseOpencfo(driver).click();//click edit notice
-				 				Thread.sleep(500);
+				 			 	Thread.sleep(1000);
 				 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+				 				Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickFilter(driver).click();		
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(2000);
+		 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	 	        	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickFilter1(driver).click();	 
 				 		        Thread.sleep(3000);
 				 				performerPOM.clickEditNotice(driver).click();//click edit notice
 				 			  
@@ -18849,6 +19961,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					       
 					       Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+							
+						 	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 					     
 					        Thread.sleep(3000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -18889,6 +20024,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						       
 						       Thread.sleep(3000);
 								performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+								
+							 	Thread.sleep(1000);
+				 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+				 				Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickFilter(driver).click();		
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(2000);
+		 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	 	        	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickFilter1(driver).click();	
 						     
 						        Thread.sleep(3000);
 								performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -18927,6 +20085,30 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						 
 					     Thread.sleep(4000);
 				          performerPOM.clickCaseOpen(driver).click();
+				          
+				       	Thread.sleep(1000);
+		 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 				Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickFilter(driver).click();		
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(2000);
+ 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	        	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickFilter1(driver).click();	
+ 	 	 	        	
 				          Thread.sleep(3000);
 				          performerPOM.clickEditNotice(driver).click();
 				          
@@ -18989,6 +20171,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						
 						    Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+							
+						 	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 					     
 					        Thread.sleep(3000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -19019,6 +20224,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				
 				 Thread.sleep(3000);
 					performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+					
+				 	Thread.sleep(1000);
+	 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 				Thread.sleep(3000);
+	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 			
+	 				
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	        	
+	 	 	        	Thread.sleep(2000);
+	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 			
+	 				
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	        	
+	 	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickFilter1(driver).click();	
 			     
 			        Thread.sleep(3000);
 					performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -19171,6 +20399,32 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 		    	         WebDriverWait wait=new WebDriverWait(driver,50);
 		    	         Thread.sleep(4000);
 		    	          performerPOM.clickCaseOpen(driver).click();
+		    	          
+		    	          
+		    	       	Thread.sleep(1000);
+		 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 				Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickFilter(driver).click();		
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(2000);
+ 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	        	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickFilter1(driver).click();	
+		    	          
+		    	          
 		    	          Thread.sleep(3000);
 		    	          performerPOM.clickEditNotice(driver).click();
 		    	          sheet = workbook.getSheetAt(2);	
@@ -19231,6 +20485,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			       
 			    	       Thread.sleep(3000);
 							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+							
+						 	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 					     
 					        Thread.sleep(3000);
 							performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -19261,6 +20538,61 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						   	     	Thread.sleep(3000);
 						   	     	performerPOM.clickClose(driver).click();//Clicking on 'Close'
 			      }
+			   
+			   public static void StatusPaymentwithInvaliddata(WebDriver driver, ExtentTest test, XSSFWorkbook workbook) throws InterruptedException, IOException
+			      {	
+			    	       WebDriverWait wait=new WebDriverWait(driver,50);
+			      
+			    	       XSSFSheet sheet=ReadExcel();
+			    	       
+			    	       Thread.sleep(3000);
+							performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+					     
+					        Thread.sleep(3000);
+							performerPOM.clickEditNotice(driver).click();//click edit notice
+						  
+						   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+						  
+			    	       Thread.sleep(3000);
+			               performerPOM.clickCaseStatusPayments(driver).click();		//Clicking on 'Status/Payments'
+							
+							wait.until(ExpectedConditions.visibilityOf(performerPOM.clickCaseStatus(driver)));
+							
+							Thread.sleep(3000);
+							Row row0 = sheet.getRow(52);					//Selected 0th index row (First row)
+							Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+							int InvoiceNo = (int) c1.getNumericCellValue();
+							performerPOM.clickCaseInvoiceNo1(driver).sendKeys(InvoiceNo+"");	//Writing 'Invoice No'
+							
+						    Thread.sleep(4000);
+							performerPOM.clickPaymentTyp1(driver).click();
+							Thread.sleep(2000);
+							List<WebElement> PaymentType1= driver.findElements(By.xpath("//*[@id='grdCasePayment_ddlPaymentType_chosen']/div/ul/li"));
+							selectOptionFromDropDown_bs(PaymentType1, "Checks");
+							Thread.sleep(10000);
+							performerPOM.clickAmount1(driver).sendKeys("abc");	//Writing 'Amount'
+						
+							Thread.sleep(10000);
+							performerPOM. clickAmountPaid(driver).sendKeys("asf");
+							Thread.sleep(3000);
+							performerPOM.clickSavePaymentLog1(driver).click();
+							
+							try
+							{
+							   Thread.sleep(500);
+								String msg5 = performerPOM.readPymentmsg1(driver).getText();		//Reading Message appeared after save button
+							    test.log(LogStatus.PASS, "Message displayed = "+msg5);
+							}
+								
+							catch(Exception e)
+							{
+								test.log(LogStatus.FAIL, "Validation message not displayed");
+							}
+								
+							driver.switchTo().parentFrame();
+						    Thread.sleep(3000);
+						   	performerPOM.clickClose(driver).click();//Clicking on 'Close'
+			      }
 			 	  public static void CaseExternalLawyerCriteria(WebDriver driver,ExtentTest test) throws InterruptedException
 		          {
 		        	  
@@ -19268,6 +20600,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				   
 		    		         Thread.sleep(3000);
 								performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+								
+							 	Thread.sleep(1000);
+				 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+				 				Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickFilter(driver).click();		
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(2000);
+		 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	 	        	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickFilter1(driver).click();	
 						     
 						        Thread.sleep(3000);
 								performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -19312,6 +20667,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				  
 		   		            Thread.sleep(3000);
 						   performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+						   
+						 	Thread.sleep(1000);
+			 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+			 				Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(3000);
+	 	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(2000);
+	 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 	 			
+			 				
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+ 	 	 	        	
+	 	 	 	        	
+	 	 	 	        	Thread.sleep(5000);
+	 	 	 	        	performerPOM.clickFilter1(driver).click();	
 					             Thread.sleep(3000);
 							     performerPOM.clickEditNotice(driver).click();//click edit notice
 						  
@@ -19356,6 +20734,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				   
 		    		         Thread.sleep(3000);
 								performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+								
+							 	Thread.sleep(1000);
+				 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+				 				Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(3000);
+		 	 	 	        	performerPOM.clickFilter(driver).click();		
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(2000);
+		 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 	 	 	 			
+				 				
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	 	        	
+		 	 	 	        	
+		 	 	 	        	Thread.sleep(5000);
+		 	 	 	        	performerPOM.clickFilter1(driver).click();	
 						     
 						        Thread.sleep(3000);
 								performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -19399,6 +20800,29 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 				  
 		   		      Thread.sleep(3000);
 						performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+						
+					 	Thread.sleep(1000);
+		 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 				Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickTrignle1(driver).click();		
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(3000);
+ 	 	 	        	performerPOM.clickFilter(driver).click();		
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(2000);
+ 	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 	 	 	 			
+		 				
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	 	        	
+ 	 	 	        	
+ 	 	 	        	Thread.sleep(5000);
+ 	 	 	        	performerPOM.clickFilter1(driver).click();	
 					     
 					             Thread.sleep(3000);
 							     performerPOM.clickEditNotice(driver).click();//click edit notice
@@ -19513,17 +20937,17 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					OverduePOM.clickSaveButton(driver).click();				//Clicking on 'Save' button.
 					
 					Thread.sleep(300);
-					wait.until(ExpectedConditions.visibilityOf(performerPOM.clickMessage(driver)));
+					wait.until(ExpectedConditions.visibilityOf(performerPOM.clickTaskInvalidMessage(driver)));
 					
 					Thread.sleep(300);
-					String msg = performerPOM.clickMessage(driver).getText();
+					String msg = performerPOM.clickTaskInvalidMessage(driver).getText();
 					if(msg.contains(msg))
 					{
-						test.log(LogStatus.FAIL, "Task with Existing Data ="+msg);
+						test.log(LogStatus.PASS, "Task with Existing Data ="+msg);
 					}
 					else
 					{
-						test.log(LogStatus.PASS, "Task with Existing Data ="+msg);
+						test.log(LogStatus.FAIL, "Task with Existing Data ="+msg);
 					}
 					
 					driver.switchTo().parentFrame();
@@ -19654,21 +21078,25 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					CFOcountPOM.clickNextPage1(driver).sendKeys(Keys.UP);
 					
 					js.executeScript("window.scrollBy(0,-700)");
+					Thread.sleep(2000);
 					performerPOM.clickTaskShowDetailes(driver).click();				
 					
 					wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
-					Thread.sleep(300);
-					performerPOM.clickNoticeTaskstatusResponsecfo(driver).click();
-					
-					Thread.sleep(300);
-					performerPOM.clickNoticeTaskstatusResponsecfo1(driver).click();
 					
 					
-					Thread.sleep(300);
+					Thread.sleep(4000);
+					wait.until(ExpectedConditions.visibilityOf(performerPOM.clickStatus1(driver)));
+					performerPOM.clickStatus1(driver).click();
+					
+					
+					List<WebElement>SeletcStatus = driver.findElements(By.xpath("//*[@id='ddlStatus_chosen']/div/ul/li[2]"));
+					 selectOptionFromDropDown_bs(SeletcStatus, "Approve/Closed");
+					
+					/*Thread.sleep(3000);
 					Actions action = new Actions(driver);
-					action.moveToElement(performerPOM.clickPriority(driver)).click().sendKeys(Keys.DOWN,Keys.ENTER).perform();
+					action.moveToElement(performerPOM.clickPriority(driver)).click().sendKeys(Keys.DOWN,Keys.ENTER).perform();*/
 					
-					Thread.sleep(300);
+					Thread.sleep(3000);
 					
 					if(performerPOM.clickClearResponse(driver).isEnabled())
 					{
@@ -19680,6 +21108,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 						test.log(LogStatus.FAIL, "After clicking the clear button the data should not be remove");
 					}
 					
+					Thread.sleep((2000));
 					driver.switchTo().parentFrame();
 					performerPOM.CaseHearingPopupClose(driver).click();			//Clicking on 'Close'
 				}
@@ -21675,7 +23104,7 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 			}
 			else
 			{
-				test.log(LogStatus.PASS, "Clear button not working successfully.");
+				test.log(LogStatus.FAIL, "Clear button not working successfully.");
 			}
 			
 			
@@ -21757,6 +23186,10 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 	     
 			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
+			
+			
+			Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		  	Thread.sleep(10000);
 		    performerPOM.UtilizedBudgetGraphCA(driver).click();						//Clicking on 'Open' notice
@@ -22011,7 +23444,165 @@ public static void CategorySummaryGraphFilter(WebDriver driver,ExtentTest test) 
 					Thread.sleep(300);
 					OverduePOM.clickDashboard(driver).click();
 				}
-				 
+				 public static void CaseUserAssignment(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException, IOException
+		 	 	 {
+
+	  			            sheet = workbook.getSheetAt(6);		
+
+		 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
+		 	 	 			progress(driver);
+		 	 	 			
+		 	 	 		  Thread.sleep(500);
+		 	 	        	performerPOM.clickCaseOpencfo(driver).click();		
+		 	 	        	
+		 	 	       	Thread.sleep(1000);
+		 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 				Thread.sleep(3000);
+	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 			
+		 				
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	        	
+	 	 	        	Thread.sleep(2000);
+	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 			
+		 				
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	        	
+	 	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickFilter1(driver).click();	
+	 	 	        	
+		 	 	            Thread.sleep(4000);
+		 	 	            performerPOM.clickEditNotice(driver).click();
+		 	 	            
+		 	 	          try
+		 	 	            {
+		 	 	            
+		 	 	              	wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+		 	 	              	Actions a = new Actions(driver);
+		 	 	              	//scroll down a page
+		 	 	              	a.sendKeys(Keys.PAGE_DOWN).build().perform();
+		 	 	              	
+		 	 	 	            Thread.sleep(4000);
+		 	 	                 performerPOM.clickEditUserAssign(driver).click();
+		 	 	 			 
+		 	 	                
+		 	 	                 Thread.sleep(3000);
+		 	 	                 performerPOM.clickInternalUser(driver).click();
+		 	 	        
+		 	 	                
+		 	 	                 
+		 	 	                 elementsList = performerPOM.chooseInternalUser1(driver);
+		 	 	                 elementsList.get(5).click();							//Selecting particular user no
+		 	 	                 
+
+		 	 	                 Thread.sleep(3000);
+		 	 	                 performerPOM.clickInternalUser(driver).click();
+		 	 	                 
+		 	 	                 Thread.sleep(3000);
+		 	 	                  OverduePOM.clickUpdateButton(driver).click();
+		 	 	        
+		 	 	                 Thread.sleep(2000);
+		 	 	                 String msg = performerPOM.CaseInvalidreadMessage(driver).getText();		//Reading Message appeared after update button
+		 	 	    		
+		 	 	                 if(msg.equalsIgnoreCase("Case Details Updated Successfully."))
+		 	 	                 {
+		 	 	                	 test.log(LogStatus.PASS, "Message displayed = "+msg);
+		 	 	    			
+		 	 	                 }
+		 	 	                 else
+		 	 	                 {
+		 	 	                	 test.log(LogStatus.FAIL, "Message displayed = "+msg);
+		 	 	                 }
+		 	 	    	
+		 	 	            } 
+		 	 	            
+		 	 	            catch(Exception e)
+		 	 	            {
+		 	 	            	test.log(LogStatus.PASS, "Record not displayed in Case-User assignment");
+		 	 	            }
+		 	 	          
+		 	 	        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		 	 			js.executeScript("window.scrollBy(0,-700)");	
+		 	 	            
+		 	 	          Thread.sleep(3000);
+		 	 	     		driver.switchTo().parentFrame();
+		 	 	     		/*performerPOM.clickClose3(driver).click();//Clicking on 'Close'
+		 	 	     		
+		 	 	     	
+		 	 	     	    Thread.sleep(3000);
+		 	 	     		OverduePOM.clickDashboard(driver).click();*/
+		 	 	    }
+		 	 	            
+	 		 public static void CaseUserAssignmentDelete(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+		 	 	 {
+		 	 	 		   
+		 			     			
+		 	 	 			WebDriverWait wait = new WebDriverWait(driver, 300);
+		 	 	 			progress(driver);
+		 	 	 			
+		 	 	 		  Thread.sleep(500);
+		 	 	        	performerPOM.clickCaseOpencfo(driver).click();		
+		 	 	        	
+		 	 	       	Thread.sleep(1000);
+		 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+		 				Thread.sleep(3000);
+	 	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 	 			
+		 				
+	 	 	        	Thread.sleep(3000);
+	 	 	        	performerPOM.clickFilter(driver).click();		
+	 	 	        	
+	 	 	        	Thread.sleep(2000);
+	 	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 	 			
+		 				
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	     		performerPOM.clickCheckbox1(driver).click();	
+	 	        	
+	 	 	        	
+	 	 	        	Thread.sleep(5000);
+	 	 	        	performerPOM.clickFilter1(driver).click();	
+		 	 	        	
+		 	 	            Thread.sleep(4000);
+	 	 	                performerPOM.clickEditNotice(driver).click();
+	 	 	            
+	 	 	         	    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+		 	 	 			
+		 	 	            Thread.sleep(4000);
+		 	 	            performerPOM.clickDeleteUserAssign(driver).click();
+		 	 	            
+		 	 	         Thread.sleep(2000);
+	 	 	    		String msg = performerPOM.clickDeleteUserAssignValidMsg1(driver).getText();		//Reading Message appeared after save button
+	 	 	    		
+	 	 	    		if(msg.equalsIgnoreCase("User Assignment Detail Deleted"))
+	 	 	    		{
+	 	 	    			test.log(LogStatus.PASS, "Message displayed = "+msg);
+	 	 	    			
+	 	 	    		}
+	 	 	    		else
+	 	 	    		{
+	 	 	    			test.log(LogStatus.FAIL, "Message displayed = "+msg);
+	 	 	    		}
+		 	 	            
+		 	 	        	Thread.sleep(3000);
+		 	 	     		driver.switchTo().parentFrame();
+		 	 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+		 	 	     	
+		 	 	     	    Thread.sleep(3000);
+		 	 	     		OverduePOM.clickDashboard(driver).click();
+		 	 	    }
+	 		 
 					
 				 		
 				

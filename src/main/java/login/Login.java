@@ -32,6 +32,7 @@ public class Login
 		
 		
 			 WebDriverManager.chromedriver().setup();
+			// System.setProperty("webdriver.chrome.driver","E:\\eclips-projects\\Selenium\\chromedriver-win32\\chromedriver.exe");
 			driver = new ChromeDriver();		
 				
 		
@@ -62,7 +63,7 @@ public class Login
 			else if(browser.equalsIgnoreCase("chrome"))
 			{
 				//set path to chromedriver.exe
-				System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Desktop\\eclips-projects\\Selenium\\chromedriver_win32 (4)\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver","E:\\eclips-projects\\Selenium\\chromedriver-win32\\chromedriver.exe");
 				//create chrome instance
 				driver = new ChromeDriver();
 			
@@ -143,6 +144,10 @@ public class Login
 			{
 				ans1 = "123";						//Storing the answer in ans variable.
 			}
+			else if(method.equalsIgnoreCase("Implementation"))
+			{
+				ans1 = "123";						//Storing the answer in ans variable.
+			}
 			
 			else
 			{
@@ -173,6 +178,10 @@ public class Login
 			}
 			
 			else if(method.equalsIgnoreCase("company"))
+			{
+				ans2 = "123";						//Storing the answer in ans variable.
+			}
+			else if(method.equalsIgnoreCase("Implementation"))
 			{
 				ans2 = "123";						//Storing the answer in ans variable.
 			}
@@ -219,7 +228,7 @@ public class Login
 			else
 			{
 				LoginPOM.ClickLitigation(driver).click();	
-			//	LoginPOM.clickComplicane(driver).click();			//Clicking on Compliance Image.
+				//LoginPOM.clickComplicane(driver).click();			//Clicking on Compliance Image.
 			}
 			
 			try

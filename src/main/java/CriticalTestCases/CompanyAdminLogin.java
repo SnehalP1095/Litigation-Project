@@ -86,7 +86,7 @@ public class CompanyAdminLogin
 		}
 
 		
-	/*@Test(priority = 0)
+	@Test(priority = 0)
 		void HearingCalender() throws InterruptedException, IOException, AWTException
 		{
 			test = extent.startTest("Case Hearing Calender Verification");
@@ -240,7 +240,7 @@ public class CompanyAdminLogin
 					 extent.flush();
 				}
 				
-			@Test(priority = 5)
+		@Test(priority = 5)
 				
 				void LocationSummaryGraph() throws InterruptedException, IOException
 				{
@@ -268,7 +268,7 @@ public class CompanyAdminLogin
 					extent.endTest(test);
 					extent.flush();
 				}
-			@Test(priority =6)
+		@Test(priority =6)
 				
 			  	void CategorySummaryGraph() throws InterruptedException, IOException
 			  	{
@@ -336,7 +336,7 @@ public class CompanyAdminLogin
 			          extent.endTest(test);
 			          extent.flush();
 			    }
-			 @Test(priority = 8)
+		@Test(priority = 8)
 			    void AgeingGraph1to2years() throws InterruptedException, IOException
 			    {
 			         	test = extent.startTest("Select Notice Filter =1 to 2 years = Ageing Graph Count Verification");
@@ -929,7 +929,7 @@ public class CompanyAdminLogin
 					     		
 					     		extent.endTest(test);
 					     		extent.flush();
-					     	}*/
+					     	}
 				 @Test(priority = 53)
 					 			void CloseCase() throws InterruptedException, IOException
 					 			{

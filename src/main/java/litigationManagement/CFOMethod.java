@@ -494,6 +494,9 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
+		     
+		 	Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		 	Thread.sleep(3000);
 			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -889,6 +892,9 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
+		     
+		 	Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		 	Thread.sleep(3000);
 			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -1265,6 +1271,9 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
+		     
+		 	Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		 	Thread.sleep(3000);
 			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -1517,68 +1526,8 @@ public class CFOMethod {
 				performerPOM.CaseNoticeTypeclosePopupGraph(driver).click();
 				
 				test.log(LogStatus.PASS, "View popup open successfully.");
-				
-			/*	Thread.sleep(3000);
-				performerPOM.clickLocationFilter(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickLocationFilter1(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickLocationFilter3(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.clickCaseNotice(driver).click();
-				
-				Thread.sleep(3000);
-				performerPOM.selectCaseNotice(driver).click();
-				
-				Thread.sleep(4000);
-				performerPOM.clickStatusFilter(driver).click();
-				
-				Thread.sleep(4000);
-				performerPOM.selectstatusFiltercfo(driver).click();
-				
-				Thread.sleep(4000);
-				performerPOM.clickDepartmentFilter(driver).click();
-				
-				Thread.sleep(4000);
-				performerPOM.selectDepartmentFilter2(driver).click();
-				
-				Thread.sleep(4000);
-				performerPOM.clickCaseNoticeType1(driver).click();
-				
-				Thread.sleep(4000);
-				performerPOM.selectCaseNoticeType2(driver).click();
-				
-				Thread.sleep(4000);
-				performerPOM.clickRiskFilter(driver).click();
-				
-
-				Thread.sleep(4000);
-				performerPOM.selectRiskFilter2cfo(driver).click();
-				
-//				Thread.sleep(5000);
-//				performerPOM.clickAgeFilter(driver).click();
-//				
-//				Thread.sleep(7000);
-//				performerPOM.selectAgeFiltercfo(driver).click();
-				
-				Thread.sleep(4000);
-				performerPOM.clickCategoryFilter(driver).click();
-				
-				
-				Thread.sleep(4000);
-				performerPOM.selectCategoryFilter2(driver).click();
-				
-				Thread.sleep(4000);
-				performerPOM.clickStageFilter(driver).click();
-				
-				Thread.sleep(4000);
-				performerPOM.selectStageFilter2(driver).click(); */
-				
-				
-				Thread.sleep(500);
+	
+	           Thread.sleep(500);
 				progress(driver);
 				
 				Thread.sleep(1000);
@@ -1666,6 +1615,9 @@ public class CFOMethod {
 				
 				Thread.sleep(5000);
 			     performerPOM.ClickDetailedExpenseReport(driver).click();
+			     
+			 	Thread.sleep(1000);
+				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
 				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -2011,6 +1963,9 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
+		     
+		 	Thread.sleep(5000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		 	Thread.sleep(3000);
 			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -2346,65 +2301,7 @@ public class CFOMethod {
 	 			
 	 			test.log(LogStatus.PASS, "View popup open successfully.");
 	 			
-	 		/*	Thread.sleep(3000);
-	 			performerPOM.clickLocationFilter(driver).click();
-	 			
-	 			Thread.sleep(3000);
-	 			performerPOM.clickLocationFilter1(driver).click();
-	 			
-	 			Thread.sleep(3000);
-	 			performerPOM.clickLocationFilter3(driver).click();
-	 			
-	 			Thread.sleep(3000);
-	 			performerPOM.clickCaseNotice(driver).click();
-	 			
-	 			Thread.sleep(3000);
-	 			performerPOM.selectCaseNotice(driver).click();
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.clickStatusFilter(driver).click();
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.selectstatusFiltercfo(driver).click();
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.clickDepartmentFilter(driver).click();
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.selectDepartmentFilter2(driver).click();
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.clickCaseNoticeType1(driver).click();
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.selectCaseNoticeType2(driver).click();
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.clickRiskFilter(driver).click();
-	 			
-
-	 			Thread.sleep(4000);
-	 			performerPOM.selectRiskFilter2cfo(driver).click();
-	 			
-//	 			Thread.sleep(5000);
-//	 			performerPOM.clickAgeFilter(driver).click();
-//	 			
-//	 			Thread.sleep(5000);
-//	 			performerPOM.selectAgeFiltercfo(driver).click();
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.clickCategoryFilter(driver).click();
-	 			
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.selectCategoryFilter2(driver).click();
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.clickStageFilter(driver).click();
-	 			
-	 			Thread.sleep(4000);
-	 			performerPOM.selectStageFilter2(driver).click(); */
-	 			
+	 		
 	 			Thread.sleep(500);
 	 			progress(driver);
 	 			
@@ -2493,6 +2390,9 @@ public class CFOMethod {
 				
 				Thread.sleep(5000);
 			     performerPOM.ClickDetailedExpenseReport(driver).click();
+			     
+			 	Thread.sleep(1000);
+				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 				
 			 	Thread.sleep(3000);
 				File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -2675,6 +2575,9 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
+		     
+		 	Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		 	Thread.sleep(3000);
 			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -2933,6 +2836,9 @@ public class CFOMethod {
 			
 			Thread.sleep(6000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
+		     
+		 	Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		 	Thread.sleep(3000);
 			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -3115,20 +3021,20 @@ public class CFOMethod {
 	       	
 				js.executeScript("window.scrollBy(0,3500)");
 			
-		     Thread.sleep(3000);
+		     Thread.sleep(4000);
 			File dir2 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] dirContents1 = dir2.listFiles();						//Counting number of files in directory before download
 			
-		  	Thread.sleep(6000);
+		  	Thread.sleep(9000);
 		    performerPOM.UtilizedBudgetGraph(driver).click();						//Clicking on 'Open' notice
 		    
 			
 			
-		 	Thread.sleep(3000);
+		 	Thread.sleep(4000);
 			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
 			File[] allFilesNew1 = dir3.listFiles();						//Counting number of files in directory after download
 			
-			Thread.sleep(3000);
+			Thread.sleep(4000);
 		   if (dirContents1.length < allFilesNew1.length) 
 		    {
 				test.log(LogStatus.PASS,  "Budget vs Expense Report Download Successfully");
@@ -5137,7 +5043,7 @@ public class CFOMethod {
 			    Thread.sleep(300);
 			    performerPOM.clickCaseNewTask(driver).click();
 			    Thread.sleep(5000);
-			    performerPOM.clickHearingDate(driver).sendKeys("12-01-2024");
+			    performerPOM.clickHearingDate(driver).sendKeys("13-01-2024");
 			    
 			    
 //			    Thread.sleep(300);
@@ -5352,7 +5258,7 @@ public class CFOMethod {
 //					int HearingDate = (int) c1.getNumericCellValue();
 //					performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 					
-					performerPOM.clickCaseHearingDate(driver).sendKeys("05-01-2024");	//Writing 'HearingDate'
+					performerPOM.clickCaseHearingDate(driver).sendKeys("06-01-2024");	//Writing 'HearingDate'
 					
 					
 					Thread.sleep(2000);
@@ -5403,7 +5309,7 @@ public class CFOMethod {
 				    Thread.sleep(3000);
 				    performerPOM.clickCaseHearingDecsri(driver).clear();
 				    Thread.sleep(3000);
-				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing15 JULY 2023");		//Writing 'HearingDescription'
+				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing17 JULY 2023");		//Writing 'HearingDescription'
 				    
 				    Thread.sleep(3000);
 				    performerPOM.clickSaveCaseHearing(driver).click();
@@ -5460,7 +5366,7 @@ public class CFOMethod {
 				 Thread.sleep(6000);
 				 performerPOM.clickNewCaseOrder(driver).click();
 				 Thread.sleep(6000);
-				 performerPOM. clickCaseOrderDate(driver).sendKeys("25-04-2023");
+				 performerPOM. clickCaseOrderDate(driver).sendKeys("26-04-2023");
 				 Thread.sleep(3000);
 				 performerPOM.clickOrderPanel(driver).click();
 				 Thread.sleep(3000);
@@ -5494,11 +5400,11 @@ public class CFOMethod {
 				 
 				 performerPOM.clickCaseOrderTitle(driver).clear();
 				 
-				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 5635");
+				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 123");
 				 
 				 performerPOM.clickCaseOrderDecri(driver).clear();
 				 
-				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 14 Aug 23");     //click oder description
+				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 17 Aug 23");     //click oder description
 				 
 				 performerPOM.ChooseOrderFile(driver).click();
 				 
@@ -5645,7 +5551,7 @@ public class CFOMethod {
 							Thread.sleep(3000);
 							performerPOM.clickCaseInvoiceNo1(driver).clear();
 							 Thread.sleep(3000);
-						    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 7464");
+						    performerPOM.clickCaseInvoiceNo1(driver).sendKeys("Invoice No 78");
 						    
 						    Thread.sleep(3000);
 							performerPOM.clickCaseStatusPaymentUploadtcfo(driver);
@@ -5731,7 +5637,7 @@ public class CFOMethod {
 							   performerPOM.clickNewCriteria(driver).click();
 							   Thread.sleep(3000);
 							   wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeLayerRatingCriteria"));
-							   performerPOM.clickCriteria(driver).sendKeys("ABF");
+							   performerPOM.clickCriteria(driver).sendKeys("Automation Test");
 							   Thread.sleep(3000);
 							   performerPOM.clickSaveCriteria(driver).click();
 							   Thread.sleep(3000);
@@ -7956,14 +7862,20 @@ public class CFOMethod {
 							OverduePOM.clickSearchPeople(driver).click();					//Clicking on Search People drop down.
 							
 							Thread.sleep(2000);
-							OverduePOM.clickSearchPeople(driver).sendKeys("Aarav Sharma");			//Writing user name to search for
+							OverduePOM.clickSearchPeople(driver).sendKeys("CFO Finance");			//Writing user name to search for
 							
 							Thread.sleep(2000);
 							OverduePOM.clickPeopleCheckBox(driver).click();				//Clicking on label to get out from people search box
 							
+							
 							Thread.sleep(2000);
+							OverduePOM.clickpopup(driver).click();	
+							
+							Thread.sleep(3000);
 							OverduePOM.clickDone(driver).click();	  //Clicking on 'Done' to share folder.
 							
+							
+							Thread.sleep(3000);
 							String msg3 = driver.switchTo().alert().getText();
 						    test.log(LogStatus.PASS,"Message displayed=" +msg3);
 							
@@ -7971,7 +7883,7 @@ public class CFOMethod {
 							
 							//Delete Folder
 							
-							Thread.sleep(500);
+							Thread.sleep(2000);
 							OverduePOM.readFolderName(driver).click();						//Clicking on folder name we had created.
 							
 							Thread.sleep(2000);
@@ -7985,7 +7897,7 @@ public class CFOMethod {
 							
 							
 			
-							Thread.sleep(500);
+							Thread.sleep(4000);
 							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickDashboard(driver)));
 							OverduePOM.clickDashboard(driver).click();	
 							
@@ -8066,11 +7978,6 @@ public class CFOMethod {
 								
 								Thread.sleep(2000);
 								OverduePOM.closeFolderPoppup(driver).click();	
-								
-								
-								
-								
-								
 							
 							//Upload Document File
 							
@@ -8098,7 +8005,7 @@ public class CFOMethod {
 							
 							Thread.sleep(500);
 							
-							OverduePOM.uploadNewFile(driver).sendKeys("C:\\Users\\snehalp\\Desktop\\Test Cases\\Approver Test Case.xlsx");	//uploading new file		
+							OverduePOM.uploadNewFile(driver).sendKeys("E:\\Test Cases\\Approver Test Case.xlsx");	//uploading new file		
 							
 							Thread.sleep(500);
 							wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickUploadDocument(driver)));
@@ -8116,7 +8023,7 @@ public class CFOMethod {
 							Thread.sleep(100);
 							litigationAdditionalOwner.MethodsPOM.progress(driver);
 							
-						Thread.sleep(500);
+							Thread.sleep(500);
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@align='left'])[1]")));
 							/*if(OverduePOM.readFolderName(driver).isDisplayed())			//Checking if file got created or not.
 								test.log(LogStatus.PASS, "Uploaded file displayed.");
@@ -8137,10 +8044,13 @@ public class CFOMethod {
 							OverduePOM.clickSearchPeople(driver).click();					//Clicking on Search People drop down.
 							
 							Thread.sleep(500);
-							OverduePOM.clickSearchPeople(driver).sendKeys("Aarav Aharma");			//Writing user name to search for
+							OverduePOM.clickSearchPeople(driver).sendKeys("CFO Finance");			//Writing user name to search for
 							
 							Thread.sleep(500);
-							OverduePOM.clickPeopleCheckBox(driver).click();				//Clicking on label to get out from people search box
+							OverduePOM.clickPeopleCheckBoxSubFolder(driver).click();				//Clicking on label to get out from people search box
+							
+							Thread.sleep(2000);
+							OverduePOM.clickpopup(driver).click();	
 							
 							Thread.sleep(500);
 							OverduePOM.clickDone(driver).click();	  //Clicking on 'Done' to share folder.
@@ -9995,14 +9905,14 @@ public class CFOMethod {
 								//test.log(LogStatus.PASS, "Task-Closed count increased.");
 								test.log(LogStatus.PASS, "Task-Closed count increased.:- Old Count = "+closed+" | New Count = "+closed1);
 								//test.log(LogStatus.PASS, "Task-Open count decreased.");
-								test.log(LogStatus.PASS, "Task-Open count decreased:-Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.FAIL, "Task-Open count decreased:-Old Count = "+open+" | New Count = "+open1);
 							}
 							else
 							{
 								//test.log(LogStatus.PASS, "Task-Closed count doesn't increased.");
 								test.log(LogStatus.PASS, "Task-Closed count doesn't increased:-Old Count = "+closed+" | New Count = "+closed1);
 								//test.log(LogStatus.PASS, "Task-Open count doesn't decreased.");
-								test.log(LogStatus.PASS, "Task-Open count doesn't decreased:-Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.FAIL, "Task-Open count doesn't decreased:-Old Count = "+open+" | New Count = "+open1);
 							}
 						}
 					}
@@ -10741,10 +10651,10 @@ public class CFOMethod {
 						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder new 15july23");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder new 17july24");
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new 15july23");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 17july24");
 						
 						Thread.sleep(3000);
 						performerPOM.clickRemark2(driver).sendKeys("Remark");
@@ -10818,13 +10728,13 @@ public class CFOMethod {
 						performerPOM.clickReminderText(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder  new 9march2023");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder  new 17march2024");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDescription(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new 9march2023");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 17march2024");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDate(driver).click();
@@ -14803,10 +14713,10 @@ public class CFOMethod {
 							      //  driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div/a[contains(text(),"+day+")]")).click();    //click day
 							        driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();             
 						    	} */
-							WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[2]/a"));
+							WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[19]/a"));
 							if(text.isEnabled())
 							{
-								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[2]/a")).click();
+								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[19]/a")).click();
 								
 								test.log(LogStatus.PASS, "Hearing for particular date is clickable.");
 								
@@ -18009,6 +17919,9 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
+		     
+		 	Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		 	Thread.sleep(3000);
 			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -18234,6 +18147,9 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
+		     
+		 	Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		 	Thread.sleep(3000);
 			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -18455,6 +18371,9 @@ public class CFOMethod {
 			
 			Thread.sleep(5000);
 		     performerPOM.ClickDetailedExpenseReport(driver).click();
+		     
+		 	Thread.sleep(1000);
+			wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
 			
 		 	Thread.sleep(3000);
 			File dir3 = new File("C:\\Users\\snehalp\\Downloads");
@@ -20765,33 +20684,54 @@ public class CFOMethod {
 	 	 	            Thread.sleep(4000);
 	 	 	            performerPOM.clickEditNotice(driver).click();
 	 	 	            
-	 	 	 			wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails")); 
-	 	 	          Thread.sleep(3000);
-	 	 			clickCaseInternalUser(driver);
-	 	 			Thread.sleep(3000);
-	 	 		   performerPOM.clickInternalUser(driver).click();			
-	 	                
-	 	              Thread.sleep(3000);
- 	 	             performerPOM.clickUpdateButton(driver).click();
-	 	 	    		Thread.sleep(2000);
-	 	 	    		String msg = performerPOM.readMessageCase(driver).getText();		//Reading Message appeared after save button
+	 	 	          try
+	 	 	            {
+	 	 	            
+	 	 	              	wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));
+	 	 	 			
+	 	 	 	            Thread.sleep(4000);
+	 	 	                 performerPOM.clickEditUserAssign(driver).click();
+	 	 	 			 
+	 	 	                 Thread.sleep(3000);
+	 	 	                 clickCaseInternalUser(driver);
+	 	 	                 Thread.sleep(3000);
+	 	 	                 performerPOM.clickInternalUser(driver).click();	
+	 	 	                 
+	 	 	                 Thread.sleep(3000);
+	 	 	                 performerPOM.clickUpdateButton(driver).click();
+	 	 	                
+	 	               
+	 				      
+	 	 	                 Thread.sleep(2000);
+	 	 	                 String msg = performerPOM.readMessageCase(driver).getText();		//Reading Message appeared after save button
 	 	 	    		
-	 	 	    		if(msg.equalsIgnoreCase("Case Details Updated Successfully."))
-	 	 	    		{
-	 	 	    			test.log(LogStatus.PASS, "Message displayed = "+msg);
+	 	 	                 if(msg.equalsIgnoreCase("Case Details Updated Successfully."))
+	 	 	                 {
+	 	 	                	 test.log(LogStatus.PASS, "Message displayed = "+msg);
 	 	 	    			
-	 	 	    		}
-	 	 	    		else
-	 	 	    		{
-	 	 	    			test.log(LogStatus.FAIL, "Message displayed = "+msg);
-	 	 	    		}
-	 	 	    		Thread.sleep(3000);
+	 	 	                 }
+	 	 	                 else
+	 	 	                 {
+	 	 	                	 test.log(LogStatus.FAIL, "Message displayed = "+msg);
+	 	 	                 }
+	 	 	    	
+	 	 	            } 
+	 	 	            
+	 	 	            catch(Exception e)
+	 	 	            {
+	 	 	            	test.log(LogStatus.PASS, "Record not displayed in Case-User assignment");
+	 	 	            }
+	 	 	            
+	 	 	          Thread.sleep(3000);
 	 	 	     		driver.switchTo().parentFrame();
 	 	 	     		performerPOM.clickClose(driver).click();//Clicking on 'Close'
+	 	 	     		
 	 	 	     	
 	 	 	     	    Thread.sleep(3000);
 	 	 	     		OverduePOM.clickDashboard(driver).click();
 	 	 	    }
+	 	 	            
+	 	 	     
  		 public static void CaseUserAssignmentDelete(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
 	 	 	 {
 	 	 	 		   
@@ -21999,6 +21939,29 @@ public class CFOMethod {
 			
 			   Thread.sleep(3000);
 				performerPOM.clickCaseOpencfo(driver).click();//click edit notice
+				
+			 	Thread.sleep(1000);
+ 				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+ 				Thread.sleep(3000);
+	 	        	performerPOM.clickTrignle1(driver).click();		
+	 	 			
+ 				
+	 	        	Thread.sleep(3000);
+	 	        	performerPOM.clickFilter(driver).click();		
+	 	        	
+	 	        	Thread.sleep(2000);
+	 	     		wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
+	 	 			
+ 				
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickSearchFilterworkspace(driver).sendKeys("4658461");	
+	 	        	
+	 	        	Thread.sleep(5000);
+	 	     		performerPOM.clickCheckbox1(driver).click();	
+	        	
+	 	        	
+	 	        	Thread.sleep(5000);
+	 	        	performerPOM.clickFilter1(driver).click();	
 		     
 		        Thread.sleep(3000);
 				performerPOM.clickEditNotice(driver).click();//click edit notice

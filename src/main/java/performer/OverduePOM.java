@@ -750,7 +750,17 @@ public class OverduePOM
 	
 	public static WebElement clickPeopleCheckBox(WebDriver driver)		//Clicking on Checkbox in front of name
 	{
-		performer = driver.findElement(By.xpath("//*[@value='8072']"));
+		performer = driver.findElement(By.xpath("(//label[@class='checkbox'][normalize-space()='CFO Finance'])[2]"));
+		return performer;
+	}
+	public static WebElement clickPeopleCheckBoxSubFolder(WebDriver driver)		//Clicking on Checkbox in front of name
+	{
+		performer = driver.findElement(By.xpath("(//label[@class='checkbox'][normalize-space()='CFO Finance'])"));
+		return performer;
+	}
+	public static WebElement clickpopup(WebDriver driver)		//Clicking on Checkbox in front of name
+	{
+		performer = driver.findElement(By.xpath("//*[@id='divOpenPermissionPopup']/div/div/div[2]/div[1]/div"));
 		return performer;
 	}
 	public static WebElement clickPeopleCheckBox1(WebDriver driver)		//Clicking on Checkbox in front of name

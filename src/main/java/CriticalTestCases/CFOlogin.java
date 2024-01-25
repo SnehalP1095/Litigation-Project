@@ -86,7 +86,7 @@ public class CFOlogin
 		driver = login.Login.UserLogin(uname,password,"cfo");		//Method of Login class to login user.
 	}
 	
-//@Test(priority = 0)
+@Test(priority = 0)
 	void HearingCalender() throws InterruptedException, IOException, AWTException
 	{
 		test = extent.startTest("Hearing Calender verification");

@@ -2308,7 +2308,7 @@ void NoticeUpdationUploadInvalidFile() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-	@Test(priority = 147) 		//Sever is blocking and not allowing to upload the file.
+	@Test(priority = 0) 		//Sever is blocking and not allowing to upload the file.
 			void CriticalDocuments1() throws InterruptedException, IOException
 			{
 				test = extent.startTest(" Critical Document Verification");

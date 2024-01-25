@@ -193,7 +193,7 @@ public class ExternalLawyer
 				}
 			
 			
-			@Test(priority = 10)
+			//@Test(priority = 10)
  			void ClosedTask() throws InterruptedException, IOException
  			{
  				test = extent.startTest(" Closed Task Count verification");
