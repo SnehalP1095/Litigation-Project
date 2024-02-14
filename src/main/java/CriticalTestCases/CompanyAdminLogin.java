@@ -907,7 +907,7 @@ public class CompanyAdminLogin
 					     		extent.endTest(test);
 					     		extent.flush();
 					     	}
-					@Test(priority =48)
+					@Test(priority =49)
 						void CaseClose() throws InterruptedException, IOException
 						{
 							test = extent.startTest("Case - Closed Count Verification");
@@ -920,12 +920,12 @@ public class CompanyAdminLogin
 					 	
 				
 					 	   
-					 @Test(priority = 52)
+					 @Test(priority = 50)
 					     	void CloseNotice() throws InterruptedException, IOException
 					     	{
 					     		test = extent.startTest("Close Notice Count verification");
 					     		
-					     		MethodsPOM.CloseNoticeCase(driver, test, workbook,"Notice");
+					     		MethodsPOM.CloseNoticeCase(driver, test, workbook,"Notice","company admin");
 					     		
 					     		extent.endTest(test);
 					     		extent.flush();
@@ -936,7 +936,7 @@ public class CompanyAdminLogin
 					 			test = extent.startTest("Close Case Count Verification");
 					 				
 					 				
-					 				MethodsPOM.CloseNoticeCase(driver, test, workbook,"Case");
+					 				MethodsPOM.CloseNoticeCase(driver, test, workbook,"Case","company admin");
 					 				
 					 			extent.endTest(test);
 					 				extent.flush();
@@ -959,7 +959,7 @@ public class CompanyAdminLogin
 					 				test = extent.startTest(" Closed Task Count verification");
 					 				
 					 				
-					 				MethodsPOM.CloseNoticeCase(driver, test, workbook, "Task");
+					 				MethodsPOM.CloseNoticeCase(driver, test, workbook, "Task","company admin");
 					 				
 					 				extent.endTest(test);
 					 				extent.flush();
@@ -977,7 +977,7 @@ public class CompanyAdminLogin
 
 					     	}
 					
-					 	@Test(priority = 59)
+					 	@Test(priority = 56)
 					 	void NoticeTaskActivity() throws InterruptedException, IOException
 					 	{
 					 		test = extent.startTest("Notice TaskActivtiy verification");
@@ -1000,7 +1000,7 @@ public class CompanyAdminLogin
 					 	extent.flush();
 					 }
 				
-					 @Test(priority =64)
+					 @Test(priority =61)
 					 void NoticeResponse() throws InterruptedException, IOException
 					 {
 					 	test = extent.startTest("Notice Response verification");
@@ -1024,7 +1024,7 @@ public class CompanyAdminLogin
 					 	extent.flush();
 					 }
 					
-					 @Test(priority = 70)
+					 @Test(priority = 68)
 					 void NoticeExternalLawyer() throws InterruptedException, IOException
 					 {
 					 	test = extent.startTest("Notice Lawyer verification");

@@ -23,29 +23,33 @@ public class Login
 	
 	public static void BrowserSetup(String URL)
 	{
-      // System.setProperty("webdriver.chrome.driver", "E:\\eclips-projects\\Selenium\\chromedriver.exe");
+//       System.setProperty("webdriver.chrome.driver", "E:\\eclips-projects\\Selenium\\chromedriver.exe");
+		
+	
+		
+		//System.setProperty("webdriver.opera.driver", "E:\\eclips-projects\\Selenium\\operadriver_win64\\operadriver.exe");
+		//System.setProperty("Opera.binary", "C:\\Users\\snehalp\\AppData\\Local\\Programs\\Opera\\opera.exe");
+		
+		// WebDriverManager.edgedriver().setup();
+		//driver = new EdgeDriver();					//Created new Chrome driver instance. 
 		
 		
-			//WebDriverManager.edgedriver().setup();
-			//driver = new EdgeDriver();					//Created new Chrome driver instance. 
 		
-		
-		
-			 WebDriverManager.chromedriver().setup();
+			//WebDriverManager.chromedriver().setup();
 			// System.setProperty("webdriver.chrome.driver","E:\\eclips-projects\\Selenium\\chromedriver-win32\\chromedriver.exe");
-			driver = new ChromeDriver();		
+		    // driver = new ChromeDriver();		
 				
+			
+		//	WebDriverManager.firefoxdriver().setup();
+		//	driver = new FirefoxDriver();
 		
-			//WebDriverManager.firefoxdriver().setup();
-			//driver = new FirefoxDriver();
 		
 		
+	    	WebDriverManager.operadriver().setup();
+			driver = new OperaDriver();
 		
-	//	WebDriverManager.operadriver().setup();
-	//	driver = new OperaDriver();
-		
-		driver.manage().window().maximize();			//Set window size to maximum.
-		driver.get(URL);								//Set the URL of WebApplication.
+			driver.manage().window().maximize();			//Set window size to maximum.
+			driver.get(URL);								//Set the URL of WebApplication.
 	}
 	
 	
@@ -219,6 +223,7 @@ public class Login
 			}
 			else if(method.equalsIgnoreCase("Litigation"))
 			{
+				Thread.sleep(8000);
 				LoginPOM.ClickLitigation(driver).click();			//Clicking on Litigation Image.
 			}
 			else if(method.equalsIgnoreCase("Contract"))

@@ -88,7 +88,7 @@ public class ExternalLawyer
 	}
 	
 
-//@Test(priority = 1)
+@Test(priority = 0)
 		void NoticeOpen() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Notice - Open Count Verification");
@@ -312,7 +312,7 @@ void NoticeSendMailWithDocInvalidFields() throws InterruptedException, IOExcepti
 			test = extent.startTest("Close Notice Count Verification");
 		
 		
-			MethodsPOM.CloseNoticeCase(driver, test, workbook,"Notice");
+			MethodsPOM.CloseNoticeCase(driver, test, workbook,"Notice","Lawyer ABCD");
 				extent.endTest(test);
 			extent.flush();
 		}
@@ -322,7 +322,7 @@ void NoticeSendMailWithDocInvalidFields() throws InterruptedException, IOExcepti
 		test = extent.startTest("Close Case Count Verification");
 			
 			
-		MethodsPOM.CloseNoticeCase(driver, test, workbook,"Case");
+		MethodsPOM.CloseNoticeCase(driver, test, workbook,"Case","Lawyer ABCD");
 			
 		extent.endTest(test);
 			extent.flush();

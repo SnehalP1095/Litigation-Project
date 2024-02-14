@@ -157,7 +157,7 @@ public class AddtionalOwner
 	     	{
 	     		test = extent.startTest("Close Notice Count verification");
 	     		
-	     		MethodsPOM.CloseNoticeCase(driver, test, workbook,"Notice");
+	     		MethodsPOM.CloseNoticeCase(driver, test, workbook,"Notice","performer a");
 	     		
 	     		extent.endTest(test);
 	     		extent.flush();
@@ -168,7 +168,7 @@ public class AddtionalOwner
 	 			test = extent.startTest("Close Case Count Verification");
 	 				
 	 				
-	 				MethodsPOM.CloseNoticeCase(driver, test, workbook,"Case");
+	 				MethodsPOM.CloseNoticeCase(driver, test, workbook,"Case","performer a");
 	 				
 	 			extent.endTest(test);
 	 				extent.flush();
@@ -192,7 +192,7 @@ public class AddtionalOwner
 			test = extent.startTest(" Closed Task Count verification");
 			
 			
-			MethodsPOM.CloseNoticeCase(driver, test, workbook, "Task");
+			MethodsPOM.CloseNoticeCase(driver, test, workbook, "Task","performer a");
 			
 			extent.endTest(test);
 			extent.flush();

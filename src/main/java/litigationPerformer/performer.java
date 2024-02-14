@@ -163,11 +163,11 @@ public class performer
 		extent.flush();
 	}
 	
-	@Test(priority = 9)
+	@Test(priority = 0)
 	void CloseNotice() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Close Notice Count Verification");
-		test.log(LogStatus.INFO, "Test Initiated");
+		//test.log(LogStatus.INFO, "Test Initiated");
 		
 		MethodsPOM.CloseNoticeCase(driver, test, workbook,"Notice");
 		

@@ -1383,6 +1383,8 @@ public class MethodsPOM
 	
 	public static void CloseNoticeCase(WebDriver driver, ExtentTest test, XSSFWorkbook workbook, String type) throws InterruptedException, IOException
 	{
+		
+		Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, 180);
 		progress(driver);
 		
@@ -1425,7 +1427,7 @@ public class MethodsPOM
 		elementsList = performerPOM.clickAction(driver);			//Getting all action buttons.
 		js.executeScript("arguments[0].scrollIntoView();", elementsList.get(0));
 		
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		elementsList = performerPOM.clickAction(driver);			//Getting all action buttons.
 		elementsList.get(0).click();								//Clicking on first action button.
 		
@@ -1515,7 +1517,7 @@ public class MethodsPOM
 		}
 		else if(msg.contains("already exist"))
 		{
-			test.log(LogStatus.SKIP, "Message displayed - "+msg);
+			test.log(LogStatus.FAIL, "Message displayed - "+msg);
 		}
 		else
 		{

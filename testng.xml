@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Litigation">
- 
-  <test thread-count="2" name="ChromeTest">
-   <parameter name="browser"  value="chrome"></parameter>
+<suite thread-count="2" parallel="methods" name="Suite">
+  <test thread-count="2" parallel="methods" name="Test">
     <classes>
+      
+      <class name="CriticalTestCases.AddtionalOwner"/>
+      <class name="litigationManagement.CFO"/>
+      <class name="CriticalTestCases.CompanyAdminLogin"/>
       <class name="CriticalTestCases.CFOlogin"/>
+      <class name="litigationAdditionalOwner.performer"/>
+      <class name="CriticalTestCases.ExternalLawyer"/>
+      <class name="login.LoginMethod"/>
+      <class name="litigationExternalLawyer.ExternalLawyer"/>
+      <class name="litigationPerformer.performer"/>
+      <class name="litigationCompanyAdmin.CompanyAdmin"/>
+      <class name="litigationFE.FE"/>
+      <class name="litigationMgmt.Mgmt"/>
+      <class name="compliancemanagement.MgmtCount"/>
     </classes>
-  </test> 
-  
-   <test thread-count="2" name="EdgeTest">
-   <parameter name="browser"  value="edges"></parameter>
-    <classes>
-      <class name="CriticalTestCases.CFOlogin"/>
-    </classes>
-  </test> 
-  
-  <test thread-count="2" name="FirefoxTest">
-   <parameter name="browser"  value="FireFox"></parameter>
-    <classes>
-      <class name="CriticalTestCases.CFOlogin"/>
-    </classes>
-  </test> 
-  
-</suite> <!-- Litigation -->
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -2443,7 +2443,7 @@ public class CFOMethod {
 			 performerPOM.clickDashboardApplyBtn(driver).click();
 			
 	       	
-				js.executeScript("window.scrollBy(0,2500)");
+				js.executeScript("window.scrollBy(0,2400)");
 			
 	       	Thread.sleep(2000);
 		
@@ -5043,7 +5043,7 @@ public class CFOMethod {
 			    Thread.sleep(300);
 			    performerPOM.clickCaseNewTask(driver).click();
 			    Thread.sleep(5000);
-			    performerPOM.clickHearingDate(driver).sendKeys("13-01-2024");
+			    performerPOM.clickHearingDate(driver).sendKeys("14-01-2024");
 			    
 			    
 //			    Thread.sleep(300);
@@ -5258,7 +5258,7 @@ public class CFOMethod {
 //					int HearingDate = (int) c1.getNumericCellValue();
 //					performerPOM.clickCaseHearingDate(driver).sendKeys(HearingDate+"");	//Writing 'HearingDate'
 					
-					performerPOM.clickCaseHearingDate(driver).sendKeys("06-01-2024");	//Writing 'HearingDate'
+					performerPOM.clickCaseHearingDate(driver).sendKeys("09-02-2024");	//Writing 'HearingDate'
 					
 					
 					Thread.sleep(2000);
@@ -5309,7 +5309,7 @@ public class CFOMethod {
 				    Thread.sleep(3000);
 				    performerPOM.clickCaseHearingDecsri(driver).clear();
 				    Thread.sleep(3000);
-				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing17 JULY 2023");		//Writing 'HearingDescription'
+				    performerPOM.clickCaseHearingDecsri(driver).sendKeys("Case Hearing18 JULY 2023");		//Writing 'HearingDescription'
 				    
 				    Thread.sleep(3000);
 				    performerPOM.clickSaveCaseHearing(driver).click();
@@ -5366,7 +5366,7 @@ public class CFOMethod {
 				 Thread.sleep(6000);
 				 performerPOM.clickNewCaseOrder(driver).click();
 				 Thread.sleep(6000);
-				 performerPOM. clickCaseOrderDate(driver).sendKeys("26-04-2023");
+				 performerPOM. clickCaseOrderDate(driver).sendKeys("27-04-2023");
 				 Thread.sleep(3000);
 				 performerPOM.clickOrderPanel(driver).click();
 				 Thread.sleep(3000);
@@ -5400,11 +5400,11 @@ public class CFOMethod {
 				 
 				 performerPOM.clickCaseOrderTitle(driver).clear();
 				 
-				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 123");
+				 performerPOM.clickCaseOrderTitle(driver).sendKeys("Order no 98");
 				 
 				 performerPOM.clickCaseOrderDecri(driver).clear();
 				 
-				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 17 Aug 23");     //click oder description
+				 performerPOM.clickCaseOrderDecri(driver).sendKeys("order as on 18 Aug 23");     //click oder description
 				 
 				 performerPOM.ChooseOrderFile(driver).click();
 				 
@@ -9905,12 +9905,12 @@ public class CFOMethod {
 								//test.log(LogStatus.PASS, "Task-Closed count increased.");
 								test.log(LogStatus.PASS, "Task-Closed count increased.:- Old Count = "+closed+" | New Count = "+closed1);
 								//test.log(LogStatus.PASS, "Task-Open count decreased.");
-								test.log(LogStatus.FAIL, "Task-Open count decreased:-Old Count = "+open+" | New Count = "+open1);
+								test.log(LogStatus.PASS, "Task-Open count decreased:-Old Count = "+open+" | New Count = "+open1);
 							}
 							else
 							{
 								//test.log(LogStatus.PASS, "Task-Closed count doesn't increased.");
-								test.log(LogStatus.PASS, "Task-Closed count doesn't increased:-Old Count = "+closed+" | New Count = "+closed1);
+								test.log(LogStatus.FAIL, "Task-Closed count doesn't increased:-Old Count = "+closed+" | New Count = "+closed1);
 								//test.log(LogStatus.PASS, "Task-Open count doesn't decreased.");
 								test.log(LogStatus.FAIL, "Task-Open count doesn't decreased:-Old Count = "+open+" | New Count = "+open1);
 							}
@@ -10651,10 +10651,10 @@ public class CFOMethod {
 						action.moveToElement(performerPOM.clickTitle(driver)).click().sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ENTER).perform();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder new 17july24");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder new 18july24");
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new 17july24");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 18july24");
 						
 						Thread.sleep(3000);
 						performerPOM.clickRemark2(driver).sendKeys("Remark");
@@ -10728,13 +10728,13 @@ public class CFOMethod {
 						performerPOM.clickReminderText(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickReminderText(driver).sendKeys("Reminder  new 17march2024");
+						performerPOM.clickReminderText(driver).sendKeys("Reminder  new 18march2024");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDescription(driver).clear();
 						
 						Thread.sleep(3000);
-						performerPOM.clickDescription(driver).sendKeys("Reminder new 17march2024");
+						performerPOM.clickDescription(driver).sendKeys("Reminder new 18march2024");
 						
 						Thread.sleep(3000);
 						performerPOM.clickDate(driver).click();
@@ -14713,10 +14713,10 @@ public class CFOMethod {
 							      //  driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div/a[contains(text(),"+day+")]")).click();    //click day
 							        driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[24]/a")).click();             
 						    	} */
-							WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[19]/a"));
+							WebElement text=driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[30]/a"));
 							if(text.isEnabled())
 							{
-								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[19]/a")).click();
+								driver.findElement(By.xpath("//*[@id='collapseUpcomingHearing']/div/div[2]/div[1]/div/div[3]/div[30]/a")).click();
 								
 								test.log(LogStatus.PASS, "Hearing for particular date is clickable.");
 								
@@ -14780,7 +14780,7 @@ public class CFOMethod {
 							
 							Thread.sleep(500);
 				            performerPOM.HearingCalenderView(driver).click();
-				            test.log(LogStatus.PASS, "Show Hearing Detailes View Popup open successfully.");
+				            test.log(LogStatus.PASS, "Show Hearing details View Popup open successfully.");
 				            
 				        	driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.CONTROL, "0"));
 							
@@ -15441,7 +15441,7 @@ public class CFOMethod {
           			}
           	       	
           	    
-          			Thread.sleep(3000);
+          			Thread.sleep(4000);
           			performerPOM.clickAgeingViewIcon(driver).click();
           			
 
@@ -21942,7 +21942,7 @@ public class CFOMethod {
 				
 			 	Thread.sleep(1000);
  				wait.until(ExpectedConditions.visibilityOf(performerPOM.GridLoad(driver)));
- 				Thread.sleep(3000);
+ 				/*Thread.sleep(3000);
 	 	        	performerPOM.clickTrignle1(driver).click();		
 	 	 			
  				
@@ -21961,7 +21961,7 @@ public class CFOMethod {
 	        	
 	 	        	
 	 	        	Thread.sleep(5000);
-	 	        	performerPOM.clickFilter1(driver).click();	
+	 	        	performerPOM.clickFilter1(driver).click();	*/
 		     
 		        Thread.sleep(3000);
 				performerPOM.clickEditNotice(driver).click();//click edit notice

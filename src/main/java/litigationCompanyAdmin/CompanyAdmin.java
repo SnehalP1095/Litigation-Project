@@ -1286,7 +1286,7 @@ void UtilizedBudgetGraph() throws InterruptedException, IOException
 
 	 
  
-/*@Test(priority =40)
+@Test(priority =40)
  	void NoticeOpen() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Notice - Open Count Verification");
@@ -1413,7 +1413,7 @@ void NoticeUserAssignmentDelete() throws InterruptedException, IOException
 
 
  
-//@Test(priority =49)
+@Test(priority =49)
 void NoticeClosed() throws InterruptedException, IOException
 {
 	test = extent.startTest("Notice - Closed Count Verification");
@@ -1425,7 +1425,7 @@ void NoticeClosed() throws InterruptedException, IOException
 	extent.flush();
 }
 
-//@Test(priority = 50)
+@Test(priority = 50)
 	void CaseOpen() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case - Open Count Verification");
@@ -1495,7 +1495,7 @@ void NoticeClosed() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
-//@Test(priority =56)
+@Test(priority =56)
 	void CaseClose() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Case - Closed Count Verification");
@@ -1506,7 +1506,7 @@ void NoticeClosed() throws InterruptedException, IOException
 		extent.flush();
 	}
 	
-//@Test(priority = 57)
+@Test(priority = 57)
 	void TaskOpen() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Task - Open Count Verification");
@@ -1573,7 +1573,7 @@ void NoticeClosed() throws InterruptedException, IOException
 		extent.endTest(test);
 		extent.flush();
 	}
- //  @Test(priority = 62)
+  @Test(priority = 62)
 		void TaskDelete() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Task Delete verification");
@@ -1584,7 +1584,7 @@ void NoticeClosed() throws InterruptedException, IOException
 			extent.endTest(test);
 			extent.flush();
 		}
-//@Test(priority = 63)
+@Test(priority = 63)
 	void TaskClosed() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Task - Closed Count Verification");
@@ -1661,20 +1661,20 @@ void LinkNotice() throws InterruptedException, IOException
 		     extent.flush();
 	 }
 	
-//@Test(priority =70)
+@Test(priority =70)
 	void CloseNotice() throws InterruptedException, IOException
 	{
 	test = extent.startTest("Close Notice Count Verification");
-	MethodsPOM.CloseNoticeCase(driver, test, workbook,"Notice");
+	MethodsPOM.CloseNoticeCase(driver, test, workbook,"company admin","Notice");
 	extent.endTest(test);
 	extent.flush();
 	}
-//@Test(priority = 71)
+@Test(priority = 71)
 	void CloseCase() throws InterruptedException, IOException
 	{
 	test = extent.startTest("Close Case Count Verification");
 		
-		MethodsPOM.CloseNoticeCase(driver, test, workbook,"Case");
+		MethodsPOM.CloseNoticeCase(driver, test, workbook,"company admin","Case");
 		
 	extent.endTest(test);
 		extent.flush();
@@ -2319,7 +2319,7 @@ void CaseUserAssignment() throws InterruptedException, IOException
  		
  		extent.endTest(test);
  		extent.flush();
- 	}*/
+ 	}
 @Test(priority =124)
 	void StatusPaymentWithoutdata() throws InterruptedException, IOException
 	{
@@ -2360,7 +2360,7 @@ void StatusPaymentwithInvaliddata() throws InterruptedException, IOException
 		test = extent.startTest("Case Status With Empty Fields");
 		
 		
-		CFOMethod.CaseStatuswithEmptyFields(driver, test);
+		MethodsPOM.CaseStatuswithEmptyFields(driver, test);
 		
 		extent.endTest(test);
 		extent.flush();

@@ -892,7 +892,7 @@ public class CFO {
         
   
 
- //  @Test(priority =32)
+   @Test(priority =0)
     	void NoticeOpen() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice - Open Count verification");
@@ -1267,7 +1267,7 @@ public class CFO {
 	 }
 	 	
 	   
-//@Test(priority = 65)
+@Test(priority = 0)
     	void CloseNotice() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Close Notice Count verification");
@@ -1546,7 +1546,7 @@ public class CFO {
     		extent.endTest(test);
     		extent.flush();
     	}
-    	@Test(priority = 0)
+    	@Test(priority = 89)
     	void ExternalLawyerWithoutRating() throws InterruptedException, IOException
     	{
     		test = extent.startTest("Notice External Lawyer without rating verification");
@@ -2308,7 +2308,7 @@ void NoticeUpdationUploadInvalidFile() throws InterruptedException, IOException
 				extent.endTest(test);
 				extent.flush();
 			}
-	@Test(priority = 0) 		//Sever is blocking and not allowing to upload the file.
+	@Test(priority = 147) 		//Sever is blocking and not allowing to upload the file.
 			void CriticalDocuments1() throws InterruptedException, IOException
 			{
 				test = extent.startTest(" Critical Document Verification");

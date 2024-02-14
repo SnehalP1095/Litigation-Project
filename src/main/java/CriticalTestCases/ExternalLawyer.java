@@ -118,7 +118,7 @@ public class ExternalLawyer
 					test = extent.startTest("Close Notice Count Verification");
 				
 				
-					MethodsPOM.CloseNoticeCase(driver, test, workbook,"Notice");
+					MethodsPOM.CloseNoticeCase(driver, test, workbook,"Notice","External Lawyer");
 						extent.endTest(test);
 					extent.flush();
 				}
@@ -128,7 +128,7 @@ public class ExternalLawyer
 				test = extent.startTest("Close Case Count Verification");
 					
 					
-				MethodsPOM.CloseNoticeCase(driver, test, workbook,"Case");
+				MethodsPOM.CloseNoticeCase(driver, test, workbook,"Case","External Lawyer");
 					
 				extent.endTest(test);
 					extent.flush();
@@ -199,7 +199,7 @@ public class ExternalLawyer
  				test = extent.startTest(" Closed Task Count verification");
  				
  				
- 				MethodsPOM.CloseNoticeCase(driver, test, workbook, "Task");
+ 				MethodsPOM.CloseNoticeCase(driver, test, workbook, "Task","External Lawyer");
  				
  				extent.endTest(test);
  				extent.flush();
@@ -218,7 +218,7 @@ public class ExternalLawyer
 			}
 	
 
-	@Test(priority = 10)
+	@Test(priority =8)
 		void NoticeTaskActivityTab() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Notice Task/Activity verification");
@@ -257,7 +257,7 @@ public class ExternalLawyer
 
 	
 
-		@Test(priority = 13)
+		@Test(priority =13)
 				void NoticeAuditLogTab() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Notice AuditLog tab verification");
@@ -369,7 +369,7 @@ public class ExternalLawyer
 
 
 
-@Test(priority = 20)
+@Test(priority = 21)
 void MyReports() throws InterruptedException, IOException
 {
 	test = extent.startTest("Reports excel count verification");

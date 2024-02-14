@@ -3,34 +3,46 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="CriticalTestCases.CompanyAdminLogin">
+      <class name="litigationAdditionalOwner.performer">
         <methods>
-          <include name="NoticeResponse"/>
-          <include name="Masters15"/>
-          <include name="NoticeAuditLog"/>
-          <include name="UtilizedBudgetGraph"/>
-          <include name="Masters11"/>
-          <include name="CaseNoticeTypeGraph1"/>
-          <include name="Masters10"/>
+          <include name="ImportUtilityTwoManadtoryFileds"/>
+          <include name="ReminderWithoutData"/>
+          <include name="AdvancedSearchShareNoticeDocument"/>
+          <include name="DocumentNoticeFilter"/>
+          <include name="ShareTaskDocument"/>
+          <include name="ImportUtilityWithoutData"/>
+          <include name="MyReminder"/>
           <include name="Close"/>
-          <include name="setBrowser"/>
-          <include name="CaseHearingcfo"/>
-          <include name="Masters9"/>
-          <include name="CaseDocument"/>
-          <include name="NoticeExternalLawyer"/>
-          <include name="Login"/>
-          <include name="Masters4"/>
-          <include name="Masters3"/>
-          <include name="Masters8"/>
-          <include name="TaskActivtityDeleteResponse"/>
-          <include name="Masters7"/>
-          <include name="Masters6"/>
-          <include name="Masters5"/>
+          <include name="CaseUpdationImportUtility"/>
+          <include name="DocumentTaskFilter"/>
+          <include name="AdvancedSearch"/>
+          <include name="ReportTaskFilter"/>
+          <include name="NoticeUpdationUploadInvalidData"/>
+          <include name="ReportFilter"/>
           <include name="MoreReports"/>
-          <include name="Masters"/>
-          <include name="NoticeClosed"/>
+          <include name="ImportUtility"/>
+          <include name="MyDocument"/>
+          <include name="AdvancedSearchDoc"/>
+          <include name="MyReports"/>
+          <include name="AdvancedSearchShareCaseDocument"/>
+          <include name="Login"/>
+          <include name="CriticalDocuments"/>
+          <include name="DocumentCaseFilter"/>
+          <include name="CaseUpdationUploadInvalidData"/>
+          <include name="CriticalDocuments1"/>
+          <include name="setBrowser"/>
+          <include name="NoticeUpdationUploadEmtyFile"/>
+          <include name="ShareCaseDocument"/>
+          <include name="AdvancedSearchShareTaskDocument"/>
+          <include name="ShareNoticeDocument"/>
+          <include name="CaseUpdationUploadInvalidFile"/>
+          <include name="ReportCaseFilter"/>
+          <include name="ImportUtilityInvalidData"/>
+          <include name="NoticeUpdation"/>
+          <include name="NoticeUpdationUploadInvalidFile"/>
+          <include name="CaseUpdationUploadEmtyFile"/>
         </methods>
-      </class> <!-- CriticalTestCases.CompanyAdminLogin -->
+      </class> <!-- litigationAdditionalOwner.performer -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
