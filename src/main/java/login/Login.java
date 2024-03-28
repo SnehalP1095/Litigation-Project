@@ -8,12 +8,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.managers.OperaDriverManager;
 import performer.OverduePOM;
 
 public class Login 
@@ -23,30 +25,28 @@ public class Login
 	
 	public static void BrowserSetup(String URL)
 	{
-//       System.setProperty("webdriver.chrome.driver", "E:\\eclips-projects\\Selenium\\chromedriver.exe");
+
 		
-	
-		
-		//System.setProperty("webdriver.opera.driver", "E:\\eclips-projects\\Selenium\\operadriver_win64\\operadriver.exe");
-		//System.setProperty("Opera.binary", "C:\\Users\\snehalp\\AppData\\Local\\Programs\\Opera\\opera.exe");
-		
-		// WebDriverManager.edgedriver().setup();
-		//driver = new EdgeDriver();					//Created new Chrome driver instance. 
-		
-		
+			//WebDriverManager.edgedriver().setup();
+			//driver = new EdgeDriver();					//Created new Chrome driver instance. 
 		
 			//WebDriverManager.chromedriver().setup();
 			// System.setProperty("webdriver.chrome.driver","E:\\eclips-projects\\Selenium\\chromedriver-win32\\chromedriver.exe");
-		    // driver = new ChromeDriver();		
+		  	 
+			WebDriverManager.chromedriver().setup();		
+		   driver = new ChromeDriver();		
 				
 			
-		//	WebDriverManager.firefoxdriver().setup();
-		//	driver = new FirefoxDriver();
+			//WebDriverManager.firefoxdriver().setup();
+			//driver = new FirefoxDriver();
 		
+			//	WebDriverManager.operadriver().setup();
+			//	driver = new OperaDriver();
 		
-		
-	    	WebDriverManager.operadriver().setup();
-			driver = new OperaDriver();
+		  /*  System.setProperty("webdriver.opera.driver", "E:\\eclips-projects\\Selenium\\operadriver_win64 -121 version\\operadriver.exe");
+		    OperaOptions operaOptions =new OperaOptions();
+		    operaOptions.setBinary("C:\\Program Files\\OperaBroswer\\opera.exe");
+			driver = new OperaDriver(operaOptions);*/
 		
 			driver.manage().window().maximize();			//Set window size to maximum.
 			driver.get(URL);								//Set the URL of WebApplication.
@@ -223,7 +223,7 @@ public class Login
 			}
 			else if(method.equalsIgnoreCase("Litigation"))
 			{
-				Thread.sleep(8000);
+				//Thread.sleep(8000);
 				LoginPOM.ClickLitigation(driver).click();			//Clicking on Litigation Image.
 			}
 			else if(method.equalsIgnoreCase("Contract"))

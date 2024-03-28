@@ -193,7 +193,7 @@ public class ExternalLawyer
 				}
 			
 			
-			//@Test(priority = 10)
+			@Test(priority = 9)
  			void ClosedTask() throws InterruptedException, IOException
  			{
  				test = extent.startTest(" Closed Task Count verification");
@@ -229,6 +229,17 @@ public class ExternalLawyer
 			extent.endTest(test);
 			extent.flush();
 		}
+	@Test(priority =9)
+	void TaskActivtityDeleteResponse() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Notice Task/Activtiy Delete Response verification");
+		
+		
+		MethodsPOM.TaskActivtityDeleteResponse(driver, test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 
 		@Test(priority = 11)
 			void NoticeResponseTab() throws InterruptedException, IOException

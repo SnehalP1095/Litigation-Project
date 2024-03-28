@@ -765,7 +765,7 @@ public class OverduePOM
 	}
 	public static WebElement clickPeopleCheckBox1(WebDriver driver)		//Clicking on Checkbox in front of name
 	{
-		performer = driver.findElement(By.xpath("//*[@value='40573']"));
+		performer = driver.findElement(By.xpath("(//label[@class='checkbox'][normalize-space()='Akshay jadhav'])[2]"));
 		return performer;
 	}
 	

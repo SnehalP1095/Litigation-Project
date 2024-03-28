@@ -89,7 +89,7 @@ public class AddtionalOwner
 
 	
 
- @Test(priority =1)
+ /*@Test(priority =1)
  	void NoticeOpen() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Notice - Open Count Verification");
@@ -211,10 +211,10 @@ public class AddtionalOwner
 	     	}
 	  
 	
-	 	@Test(priority = 10)
+	 	@Test(priority = 11)
 	 	void NoticeTaskActivity() throws InterruptedException, IOException
 	 	{
-	 		test = extent.startTest("Notice- TaskActivtiy verification");
+	 		test = extent.startTest("Notice- TaskActivity verification");
 	 		
 	 		
 	 		MethodsPOM.TaskActivtity(driver, test,workbook);
@@ -222,8 +222,19 @@ public class AddtionalOwner
 	 		extent.endTest(test);
 	 		extent.flush();
 	 	}
+	 	@Test(priority =11)
+	    void TaskActivtityDeleteResponse() throws InterruptedException, IOException
+	    {
+		 test = extent.startTest("Notice Task/Activity Delete Response verification");
+		
+		
+		 MethodsPOM.TaskActivtityDeleteResponse(driver, test);
+		
+		 extent.endTest(test);
+		 extent.flush();
+	  } 
 	
-	 @Test(priority =11)
+	 @Test(priority =12)
 	 void NoticeResponse() throws InterruptedException, IOException
 	 {
 	 	test = extent.startTest("Notice- Response verification");
@@ -235,7 +246,7 @@ public class AddtionalOwner
 	 	extent.flush();
 	 }
 	
-	 @Test(priority = 12)
+	 @Test(priority =12)
 	 void NoticePayment() throws InterruptedException, IOException
 	 {
 	 	test = extent.startTest("Notice- Payment verification");
@@ -330,7 +341,7 @@ public class AddtionalOwner
 	 	
 	 	extent.endTest(test);
 	 	extent.flush();
-	 }
+	 }*/
 
 		@Test(priority =20)
 	 	void ExternalLawyer() throws InterruptedException, IOException
