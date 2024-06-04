@@ -3,43 +3,29 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="litigationManagement.CFO">
+      <class name="CriticalTestCases.CompanyAdminLogin">
         <methods>
-          <include name="CriteriaWithoutData"/>
-          <include name="CaseExistingHearingDate"/>
-          <include name="CaseDocument"/>
-          <include name="ReportCaseFilter"/>
-          <include name="CaseTaskActivitywithExistingData"/>
-          <include name="LinkCaseDeleteIcon"/>
-          <include name="CriticalDocuments"/>
-          <include name="CaseOrderExistingData"/>
-          <include name="NoticeResponseWithoutData"/>
-          <include name="NoticeDocumentShareWithoutData"/>
-          <include name="setBrowser"/>
-          <include name="CriticalDocuments1"/>
-          <include name="AdvancedSearchShareTaskDocument"/>
-          <include name="TaskActivtityDeleteResponse"/>
-          <include name="TaskActivtityWithoutData"/>
-          <include name="CriteriaInvalidData"/>
-          <include name="TaskwithExistingData"/>
-          <include name="CaseHearingcfo"/>
-          <include name="CaseExistingCriteria"/>
-          <include name="ReportNoticeFilter"/>
-          <include name="CaseStatusPayment"/>
-          <include name="NoticeResponse"/>
-          <include name="CaseTaskActivtityResponseClearBtn"/>
+          <include name="CaseOrderTab"/>
+          <include name="Masters10"/>
           <include name="Close"/>
-          <include name="CaseDocumentShareWithoutData"/>
-          <include name="CriteriaExistingData"/>
-          <include name="CaseTaskActivityWithoutData"/>
-          <include name="Login"/>
-          <include name="LinkNoticeDeleteIcon"/>
-          <include name="ExternalLawyerWithoutRating"/>
-          <include name="AdvancedSearchDoc"/>
+          <include name="setBrowser"/>
+          <include name="NoticeDocument"/>
+          <include name="ExternalLawyer"/>
+          <include name="CaseHearingcfo"/>
+          <include name="Masters9"/>
+          <include name="CaseDocument"/>
           <include name="NoticeExternalLawyer"/>
-          <include name="CaseHearing"/>
+          <include name="Login"/>
+          <include name="Masters4"/>
+          <include name="Masters3"/>
+          <include name="Masters8"/>
+          <include name="MyReports"/>
+          <include name="TaskActivtityDeleteResponse"/>
+          <include name="Masters7"/>
+          <include name="Masters6"/>
+          <include name="Masters"/>
         </methods>
-      </class> <!-- litigationManagement.CFO -->
+      </class> <!-- CriticalTestCases.CompanyAdminLogin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

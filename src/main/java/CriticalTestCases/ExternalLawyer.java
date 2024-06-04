@@ -37,7 +37,7 @@ public class ExternalLawyer
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 	
-		fis = new FileInputStream("E:\\Snehal\\ComplianceLatest\\Litigation-Project-main (1)\\Litigation-Project-main\\TestData\\LitigationSheet.xlsx");
+		fis = new FileInputStream("E:\\Litigation-Project 10 April2024\\TestData\\LitigationSheet.xlsx");
 	
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(9);					//Retrieving second sheet of Workbook
@@ -380,7 +380,7 @@ public class ExternalLawyer
 
 
 
-@Test(priority = 21)
+@Test(priority = 20)
 void MyReports() throws InterruptedException, IOException
 {
 	test = extent.startTest("Reports excel count verification");

@@ -144,7 +144,7 @@ public class MethodPOM1 {
 		
 		Thread.sleep(8000);
 		performerPOM.clickExportAdavanced(driver).click();
-		test.log(LogStatus.PASS, "File downloaded successfully.");
+		test.log(LogStatus.PASS, " File downloaded successfully.");
 		
 	//-------------------------------------------Case--------------------------------------------------
 //		Thread.sleep(3000);
@@ -301,40 +301,40 @@ public class MethodPOM1 {
 		Thread.sleep(3000);
 		performerPOM.clickCaseNotice1(driver).click();
 		
-		  Thread.sleep(3000);
-			performerPOM.clicklocationFilter(driver).click();
-			Thread.sleep(3000);
-			performerPOM.clickExpand(driver).click();
-			Thread.sleep(3000);
-	       String locationtext =performerPOM.SelectLocationDoceNonAdmin(driver).getText();
-	       Thread.sleep(3000);
-	       performerPOM. SelectLocationDoceNonAdmin(driver).click();
+//		  Thread.sleep(3000);
+//			performerPOM.clicklocationFilter(driver).click();
+//			Thread.sleep(3000);
+//			performerPOM.clickExpand(driver).click();
+//			Thread.sleep(3000);
+//	       String locationtext =performerPOM.SelectLocationDoceNonAdmin(driver).getText();
+//	       Thread.sleep(3000);
+//	       performerPOM. SelectLocationDoceNonAdmin(driver).click();
 	       
 	       
-          Thread.sleep(500);
+          Thread.sleep(3000);
 	       performerPOM.clickDepartmentFilterWorkspace(driver).click();
-	       Thread.sleep(500);
+	       Thread.sleep(3000);
 	       String DeptText = performerPOM.selectDepartmentFilterDocNonAdmin(driver).getText();
-	       Thread.sleep(500);
+	       Thread.sleep(3000);
 	       performerPOM. selectDepartmentFilterDocNonAdmin(driver).click();
 	       				        
-	       Thread.sleep(500);
+	       Thread.sleep(3000);
 	       performerPOM.clickTypeFilter(driver).click();
-	       Thread.sleep(500);
+	       Thread.sleep(3000);
 	       String Typetext = performerPOM.SelectTypeFilterCA(driver).getText();
-	       Thread.sleep(500);
+	       Thread.sleep(3000);
 	       performerPOM.SelectTypeFilterCA(driver).click();
 	           
 	       
 	        List<String> li=new ArrayList<String>();
-	        li.add(locationtext);
+	       // li.add(locationtext);
 	         li.add(DeptText);
 	         li.add(Typetext);
 	        
 	        Thread.sleep(3000);
 	        
 			List<String> filter=new ArrayList<String>();	
-			filter.add("Location");
+			//filter.add("Location");
 			filter.add("Dept");
 			filter.add("Type");
 			
@@ -366,7 +366,7 @@ public class MethodPOM1 {
 			if(!s.equalsIgnoreCase("No items to display")) {
 			Thread.sleep(5000);
 		
-			List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
+			//List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
 			List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[14]"));
 			List<WebElement> Type=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
 			
@@ -379,16 +379,16 @@ public class MethodPOM1 {
 				HashSet<String> fail=new LinkedHashSet<>();
 				List<WebElement> raw=new ArrayList<WebElement>();
 
-					if(i==0)
-					{
-						raw.addAll(entitycol);
-					}
+//					if(i==0)
+//					{
+//						raw.addAll(entitycol);
+//					}
 				
-				   else if(i==1)
+				  if(i==0)
 				   {
 					 raw.addAll(Dept);
 				   }
-				   else if(i==2)
+				   else if(i==1)
 				   {
 					   raw.addAll(Type);
 				   }
@@ -402,7 +402,7 @@ public class MethodPOM1 {
 					for(int l=0;l<text.size();l++)
 					{
 						
-						if(i==2)
+						if(i==1)
 						{
 							if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
 							{
@@ -477,14 +477,14 @@ public class MethodPOM1 {
 		Thread.sleep(3000);
 		performerPOM.selectTypeNotice(driver).click();
 		
-		  Thread.sleep(3000);
-			performerPOM.clicklocationFilter(driver).click();
-			Thread.sleep(3000);
-			performerPOM.clickExpand(driver).click();
-			Thread.sleep(3000);
-	       String locationtext =performerPOM.SelectLocationCase(driver).getText();
-	       Thread.sleep(3000);
-	       performerPOM. SelectLocationCase(driver).click();
+//		  Thread.sleep(3000);
+//			performerPOM.clicklocationFilter(driver).click();
+//			Thread.sleep(3000);
+//			performerPOM.clickExpand(driver).click();
+//			Thread.sleep(3000);
+//	       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+//	       Thread.sleep(3000);
+//	       performerPOM. SelectLocationCase(driver).click();
 	       
 	       
           Thread.sleep(500);
@@ -503,14 +503,14 @@ public class MethodPOM1 {
 	           
 	       
 	        List<String> li=new ArrayList<String>();
-	        li.add(locationtext);
+	       // li.add(locationtext);
 	         li.add(DeptText);
 	         li.add(Typetext);
 	        
 	        Thread.sleep(3000);
 	        
 			List<String> filter=new ArrayList<String>();	
-			filter.add("Location");
+			//filter.add("Location");
 			filter.add("Dept");
 			filter.add("Type");
 			
@@ -542,7 +542,7 @@ public class MethodPOM1 {
 			if(!s.equalsIgnoreCase("No items to display")) {
 			Thread.sleep(5000);
 		
-			List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
+			//List<WebElement> entitycol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
 			List<WebElement> Dept=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[14]"));
 			List<WebElement> Type=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
 			
@@ -555,16 +555,16 @@ public class MethodPOM1 {
 				HashSet<String> fail=new LinkedHashSet<>();
 				List<WebElement> raw=new ArrayList<WebElement>();
 
-					if(i==0)
-					{
-						raw.addAll(entitycol);
-					}
-				
-				   else if(i==1)
+//					if(i==0)
+//					{
+//						raw.addAll(entitycol);
+//					}
+//				
+				   if(i==0)
 				   {
 					 raw.addAll(Dept);
 				   }
-				   else if(i==2)
+				   else if(i==1)
 				   {
 					   raw.addAll(Type);
 				   }
@@ -578,7 +578,7 @@ public class MethodPOM1 {
 					for(int l=0;l<text.size();l++)
 					{
 						
-						if(i==2)
+						if(i==1)
 						{
 							if(text.get(l).equalsIgnoreCase("Inward")||text.get(l).equalsIgnoreCase("Defendant"))
 							{
@@ -652,14 +652,14 @@ public class MethodPOM1 {
 		performerPOM.selectTypeTask(driver).click();
 		
 
-		  Thread.sleep(3000);
-			performerPOM.clickTaskLocFilter(driver).click();
-			Thread.sleep(3000);
-			performerPOM.clickExpand(driver).click();
-			Thread.sleep(3000);
-	       String locationtext =performerPOM.SelectLocationDoceNonAdmin(driver).getText();
-	       Thread.sleep(3000);
-	       performerPOM. SelectLocationDoceNonAdmin(driver).click();
+//		  Thread.sleep(3000);
+//			performerPOM.clickTaskLocFilter(driver).click();
+//			Thread.sleep(3000);
+//			performerPOM.clickExpand(driver).click();
+//			Thread.sleep(3000);
+//	       String locationtext =performerPOM.SelectLocationDoceNonAdmin(driver).getText();
+//	       Thread.sleep(3000);
+//	       performerPOM. SelectLocationDoceNonAdmin(driver).click();
 	       
 	       
            Thread.sleep(500);
@@ -923,21 +923,21 @@ public class MethodPOM1 {
      
      
   
-		Thread.sleep(3000);
-		performerPOM.clickDocLocFilter(driver).click();
-		Thread.sleep(3000);
-		performerPOM.clickExpand(driver).click();
-		Thread.sleep(3000);
-		String locationtext =performerPOM.SelectLocationCase(driver).getText();
-		Thread.sleep(3000);
-		performerPOM. SelectLocationCase(driver).click();
-		Thread.sleep(3000);
-		performerPOM.clickDocLocFilter(driver).click();
+//		Thread.sleep(3000);
+//		performerPOM.clickDocLocFilter(driver).click();
+//		Thread.sleep(3000);
+//		performerPOM.clickExpand(driver).click();
+//		Thread.sleep(3000);
+//		String locationtext =performerPOM.SelectLocationCase(driver).getText();
+//		Thread.sleep(3000);
+//		performerPOM. SelectLocationCase(driver).click();
+//		Thread.sleep(3000);
+//		performerPOM.clickDocLocFilter(driver).click();
        
 	    List<String> li=new ArrayList<String>();
          li.add(Statustext);
          li.add(typetext);
-         li.add(locationtext);
+        // li.add(locationtext);
         
 		List<String> filter=new ArrayList<String>();	
 		filter.add("Status");
@@ -978,7 +978,7 @@ public class MethodPOM1 {
 	
 		List<WebElement> statuscol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr[1]/td[13]"));
 		List<WebElement> Type=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[4]"));
-		List<WebElement> Location=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
+		//List<WebElement> Location=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
 		
 		Thread.sleep(2000);
 
@@ -1000,10 +1000,10 @@ public class MethodPOM1 {
 			   {
 				 raw.addAll(Type);
 			   }
-			   else if(i==2)
-			   {
-				   raw.addAll(Location);
-			   }
+//			   else if(i==2)
+//			   {
+//				   raw.addAll(Location);
+//			   }
 			  		
 				for(int k=0;k<raw.size();k++)
 				{
@@ -1118,26 +1118,26 @@ public class MethodPOM1 {
          
          
       
-		  Thread.sleep(3000);
-			performerPOM.clickDocLocFilter(driver).click();
-			Thread.sleep(3000);
-			performerPOM.clickExpand(driver).click();
-			Thread.sleep(3000);
-	       String locationtext =performerPOM.SelectLocationCase(driver).getText();
-	       Thread.sleep(3000);
-	       performerPOM. SelectLocationCase(driver).click();
-	       Thread.sleep(3000);
-			performerPOM.clickDocLocFilter(driver).click();
+//		  Thread.sleep(3000);
+//			performerPOM.clickDocLocFilter(driver).click();
+//			Thread.sleep(3000);
+//			performerPOM.clickExpand(driver).click();
+//			Thread.sleep(3000);
+//	       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+//	       Thread.sleep(3000);
+//	       performerPOM. SelectLocationCase(driver).click();
+//	       Thread.sleep(3000);
+//			performerPOM.clickDocLocFilter(driver).click();
 	       
 	        List<String> li=new ArrayList<String>();
 	         li.add(Statustext);
 	         li.add(typetext);
-	         li.add(locationtext);
+	         //li.add(locationtext);
 	        
 			List<String> filter=new ArrayList<String>();	
 			filter.add("Status");
 			filter.add("Type");
-			filter.add("Loaction");
+			//filter.add("Loaction");
 			
 			
 			// Thread.sleep(3000);
@@ -1176,7 +1176,7 @@ public class MethodPOM1 {
 		
 			List<WebElement> statuscol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[13]"));
 			List<WebElement> Type=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[4]"));
-			List<WebElement> Location=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
+			//List<WebElement> Location=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
 			
 			Thread.sleep(2000);
 
@@ -1196,10 +1196,10 @@ public class MethodPOM1 {
 			   {
 				 raw.addAll(Type);
 			   }
-			   else if(i==2)
-			   {
-				   raw.addAll(Location);
-			   }
+//			   else if(i==2)
+//			   {
+//				   raw.addAll(Location);
+//			   }
 			 
 						
 			for(int k=0;k<raw.size();k++)
@@ -1454,15 +1454,15 @@ public class MethodPOM1 {
          
          
       
-		    Thread.sleep(8000);
-			performerPOM.clickReportLocFilter(driver).click();
-			Thread.sleep(8000);
-			performerPOM.clickExpand(driver).click();
-			Thread.sleep(8000);
-	       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+//		    Thread.sleep(8000);
+//			performerPOM.clickReportLocFilter(driver).click();
+//			Thread.sleep(8000);
+//			performerPOM.clickExpand(driver).click();
+//			Thread.sleep(8000);
+//	       String locationtext =performerPOM.SelectLocationCase(driver).getText();
 	       
-	       Thread.sleep(8000);
-	       performerPOM. SelectLocationCase(driver).click();
+//	       Thread.sleep(8000);
+//	       performerPOM. SelectLocationCase(driver).click();
 	      
 			Thread.sleep(8000);
 			performerPOM.clickReportFYFilter(driver).click();
@@ -1475,14 +1475,14 @@ public class MethodPOM1 {
 	     
 	         li.add(depttext);
 	         li.add(typetext);
-	         li.add(locationtext);
+	        // li.add(locationtext);
 	         li.add(FYtext);
 	        
 			List<String> filter=new ArrayList<String>();	
 			
 			filter.add("Dept");
 			filter.add("Type");
-			filter.add("Loaction");
+			//filter.add("Loaction");
 			filter.add("FY");
 		
 			js.executeScript("window.scrollBy(0,200)");	
@@ -1497,7 +1497,7 @@ public class MethodPOM1 {
 			
 			List<WebElement> deptcol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]"));
 			List<WebElement> typecol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
-			List<WebElement> Locationcol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
+			//List<WebElement> Locationcol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
 			List<WebElement> FYcol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[14]"));
 			
 			js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=400");
@@ -1520,10 +1520,10 @@ public class MethodPOM1 {
 				   {
 					 raw.addAll(typecol);
 				   }
-				   else if(i==2)
-				   {
-					   raw.addAll(Locationcol);
-				   }
+//				   else if(i==2)
+//				   {
+//					   raw.addAll(Locationcol);
+//				   }
 				   else if(i==3)
 				   {
 					   Thread.sleep(8000);
@@ -1644,15 +1644,15 @@ public class MethodPOM1 {
 		         
 	         
 	         
-	      
-			    Thread.sleep(8000);
-				performerPOM.clickReportLocFilter(driver).click();
-				Thread.sleep(8000);
-				performerPOM.clickExpand(driver).click();
-				Thread.sleep(8000);
-		       String locationtext =performerPOM.SelectLocationCase(driver).getText();
-		       Thread.sleep(8000);
-		       performerPOM. SelectLocationCase(driver).click();
+//	      
+//			    Thread.sleep(8000);
+//				performerPOM.clickReportLocFilter(driver).click();
+//				Thread.sleep(8000);
+//				performerPOM.clickExpand(driver).click();
+//				Thread.sleep(8000);
+//		       String locationtext =performerPOM.SelectLocationCase(driver).getText();
+//		       Thread.sleep(8000);
+//		       performerPOM. SelectLocationCase(driver).click();
 		      
 				Thread.sleep(8000);
 				performerPOM.clickReportFYFilter(driver).click();
@@ -1665,14 +1665,14 @@ public class MethodPOM1 {
 		         li.add(Statustext);
 		         li.add(depttext);
 		         li.add(typetext);
-		         li.add(locationtext);
+		        // li.add(locationtext);
 		         li.add(FYtext);
 		        
 				List<String> filter=new ArrayList<String>();	
 				filter.add("Status");
 				filter.add("Dept");
 				filter.add("Type");
-				filter.add("Loaction");
+			//	filter.add("Loaction");
 				filter.add("FY");
 			
 				js.executeScript("window.scrollBy(0,300)");
@@ -1687,7 +1687,7 @@ public class MethodPOM1 {
 				List<WebElement> statuscol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[4]"));
 				List<WebElement> deptcol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[7]"));
 				List<WebElement> typecol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[3]"));
-				List<WebElement> Locationcol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
+			//	List<WebElement> Locationcol=driver.findElements(By.xpath("//*[@id='grid']/div[2]/table/tbody/tr/td[2]"));
 				List<WebElement> FYcol=driver.findElements(By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[14]"));
 				Thread.sleep(8000);
 				js.executeScript("document.querySelector(\"div[id='grid'] div[class='k-grid-content k-auto-scrollable']\").scrollLeft=500");
@@ -1710,10 +1710,10 @@ public class MethodPOM1 {
 					   {
 						 raw.addAll(typecol);
 					   }
-					   else if(i==3)
-					   {
-						   raw.addAll(Locationcol);
-					   }
+//					   else if(i==3)
+//					   {
+//						   raw.addAll(Locationcol);
+//					   }
 					   else if(i==4)
 					   {
 						   Thread.sleep(5000);

@@ -89,7 +89,7 @@ public class AddtionalOwner
 
 	
 
- /*@Test(priority =1)
+ @Test(priority =1)
  	void NoticeOpen() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Notice - Open Count Verification");
@@ -341,7 +341,7 @@ public class AddtionalOwner
 	 	
 	 	extent.endTest(test);
 	 	extent.flush();
-	 }*/
+	 }
 
 		@Test(priority =20)
 	 	void ExternalLawyer() throws InterruptedException, IOException

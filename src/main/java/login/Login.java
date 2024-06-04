@@ -1,6 +1,7 @@
 package login;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,9 +24,8 @@ public class Login
 	public static WebDriver driver = null;				//WebDriver instance created
 	public static WebElement upload = null;				//WebElement to get upload button
 	
-	public static void BrowserSetup(String URL)
+	public static void BrowserSetup(String URL) throws InterruptedException
 	{
-
 		
 			//WebDriverManager.edgedriver().setup();
 			//driver = new EdgeDriver();					//Created new Chrome driver instance. 
@@ -48,7 +48,11 @@ public class Login
 		    operaOptions.setBinary("C:\\Program Files\\OperaBroswer\\opera.exe");
 			driver = new OperaDriver(operaOptions);*/
 		
+		
+		   
 			driver.manage().window().maximize();			//Set window size to maximum.
+			Thread.sleep(500);
+			
 			driver.get(URL);								//Set the URL of WebApplication.
 	}
 	
